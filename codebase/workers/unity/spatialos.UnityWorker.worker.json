@@ -98,7 +98,7 @@
         "+assemblyName",
         "${IMPROBABLE_ASSEMBLY_NAME}",
         "+linkProtocol",
-        "RakNet",
+        "Tcp",
         "-logfile",
         "${IMPROBABLE_LOG_FILE}",
         "-batchmode",
