@@ -7,7 +7,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[12pt]{article}
+\documentclass[12pt,titlepage]{article}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
@@ -71,14 +71,12 @@ To.~Be \textsc{Decided}
 
 \end{titlepage}
 
-\renewcommand{\abstractname}{Abstract}
+\renewcommand{\abstractname}{\large Abstract}
 \begin{abstract}
 test post pls ignore
 \end{abstract}
 
-\newpage
-
-\renewcommand{\abstractname}{Acknowledgements}
+\renewcommand{\abstractname}{\large Acknowledgements}
 \begin{abstract}
 ack
 \end{abstract}
@@ -87,63 +85,42 @@ ack
 \tableofcontents
 \newpage
 
-\section{Company Overview}
+\section{Introduction}
 blabla
 
 %**********************************************%
 \newpage
-\section{Projects Descriptions}
+\section{Background}
 blabla
 
 %**********************************************%
 \newpage
-\section{Reflection}
-blabla
+\section{Body of Report}
+blabla \cite{Dorling2017}
 
-\subsection{Challenges}
-blabla
-
-\subsection{Skills and Teachings}
-blabla
-
-\subsection{Future Work}
-blabla
-
-\subsection{Relevance to Electrical and Electronic Engineering}
+%**********************************************%
+\newpage
+\section{Evaluation}
 blabla
 
 %**********************************************%
 \newpage
-\section{Conclusion}
+\section{Conclusion \& Future Work}
 blabla
 
 %**********************************************%
 \newpage
 \addcontentsline{toc}{section}{References}
-\begin{thebibliography}{9}
-\bibitem{latexcompanion}
-Michel Goossens, Frank Mittelbach, and Alexander Samarin.
-\textit{The \LaTeX\ Companion}.
-Addison-Wesley, Reading, Massachusetts, 1993.
 
-\bibitem{einstein}
-Albert Einstein.
-\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German)
-[\textit{On the electrodynamics of moving bodies}].
-Annalen der Physik, 322(10):891–921, 1905.
+\bibliography{refs}
+\bibliographystyle{abbrv}
 
-\bibitem{knuthwebsite}
-Knuth: Computers and Typesetting,
-\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
-\end{thebibliography}
 \newpage
 
 \begin{appendices}
-\section{Something}
+\section{write something}
 The contents...
-
-\newpage
-\section{Something Else}
+\section{write something else}
 The contents...
 \end{appendices}
 
