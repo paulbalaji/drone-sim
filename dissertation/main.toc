@@ -1,0 +1,13 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Company Overview}{4}
+\contentsline {section}{\numberline {2}Projects Descriptions}{5}
+\contentsline {section}{\numberline {3}Reflection}{6}
+\contentsline {subsection}{\numberline {3.1}Challenges}{6}
+\contentsline {subsection}{\numberline {3.2}Skills and Teachings}{6}
+\contentsline {subsection}{\numberline {3.3}Future Work}{6}
+\contentsline {subsection}{\numberline {3.4}Relevance to Electrical and Electronic Engineering}{6}
+\contentsline {section}{\numberline {4}Conclusion}{7}
+\contentsline {section}{References}{8}
+\contentsline {section}{Appendices}{9}
+\contentsline {section}{\numberline {A}Something}{9}
+\contentsline {section}{\numberline {B}Something Else}{10}
