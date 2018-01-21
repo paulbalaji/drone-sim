@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Imperial Placement Report Template
+% LaTeX Template
+% Version 1.0 (28/06/16)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt,titlepage]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[toc,page]{appendix}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textit{\nouppercase{\rightmark}}}
+\fancyhead[R]{\thepage}
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+\setlength{\topmargin}{0in}
+\center % Center everything on the page
+
+
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Imperial College London}\\[1.5cm] % Name of your university/college
+\textsc{\Large Department of Computing}\\[0.5cm] % Major heading such as course name
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Large Scale Drone Simulation on SpatialOS - Interim Report}\\[0.4cm] % Title of your document
+\HRule \\[1cm]
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Paul \textsc{Balaji} \\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+Prof.~William \textsc{Knottenbelt}
+\end{flushright}
+\begin{flushright} \large
+\emph{Second Marker:} \\
+To.~Be \textsc{Decided}
+\end{flushright}
+\end{minipage}\\[1cm]
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+% {\large \today}\\[0.5cm] % Date, change the \today to a set date if you want to be precise
+
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+% \renewcommand{\abstractname}{\large Abstract}
+% \begin{abstract}
+% test post pls ignore
+% \end{abstract}
+%
+% \renewcommand{\abstractname}{\large Acknowledgements}
+% \begin{abstract}
+% ack
+% \end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+blabla
+
+%**********************************************%
+\newpage
+\section{Background}
+blabla
+
+%**********************************************%
+\newpage
+\section{Project Plan}
+blabla \cite{Dorling2017}
+
+%**********************************************%
+\newpage
+\section{Evaluation Plan}
+blabla
+
+%**********************************************%
+%\newpage
+%\section{Conclusion \& Future Work}
+%blabla
+
+%**********************************************%
+\newpage
+\addcontentsline{toc}{section}{References}
+
+\bibliography{refs}
+\bibliographystyle{abbrv}
+
+\newpage
+
+\begin{appendices}
+\section{write something}
+The contents...
+\section{write something else}
+The contents...
+\end{appendices}
+
+\end{document}
