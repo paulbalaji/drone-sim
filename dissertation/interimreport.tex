@@ -17,6 +17,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage{fancyhdr}
 
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\textit{\nouppercase{\rightmark}}}
@@ -97,7 +98,14 @@ To.~Be \textsc{Decided}
 \newpage
 
 \section{Introduction}
-\subsection{Drones}
+Drone technology is becoming increasingly popular. Their agility and ability to be used remotely makes them ideal for a number of use cases in  numerous industries such as film, law enforcement, emergency services, agriculture and commercial delivery. \\
+
+Due to numerous advances in technology, drones are quickly advancing to the point where human input is no longer a necessity. This has led to many companies showing interest in integrating drones with their work in the coming years. \\
+
+Although it may be an engineer's dream for a fully automated world, drones in particular are a harrowing reminder that there are real risks associated with them. There are already several incidents of drones crashing into planes and flying into areas they shouldn't, most notably near Heathrow airport\cite{BBCNews2017}. All of this provides motivation to introduce some form of autonomous air traffic control system to navigate these drones to their respective destinations in a safe manner.\\
+
+However, prior work has been done on the routing and navigation aspect of such a system. In order for drones to truly take over more aspects of our lives, we must look at how they can provide a tangible cost-benefit to specific use-cases. There is no doubt that simply removing the human element can save costs drastically, and there is none more exciting a scenario than with deliveries. For example, Amazon stands to increase their margins considerably if they can successfully pull off their Prime Air initiative\cite{Welch2015}.
+
 \subsection{Autonomous Systems}
 \subsection{Making Money}
 
@@ -105,18 +113,18 @@ To.~Be \textsc{Decided}
 %**********************************************%
 \newpage
 \section{Background}
-We first provide an insight into drones, and the considerations to take into account when applying them in day to day life. Additionally we summarise previous work done by Imperial students on autonomous air traffic control. \\
+We first provide an insight into drones, and the considerations to account for when applying them in day to day life. Additionally we summarise previous work done by Imperial students on autonomous air traffic control. \\
 
 We then continue to discuss modern delivery networks and introduce a mechanism by which economic value is prioritised. Finally, we give details about Improbable's SpatialOS and the reasoning for using this platform for the drone simulation.
 
 \subsection{Drones}
-Drone technology is becoming increasingly popular. Their agility and ability to be used remotely makes them ideal for a number of use cases in  numerous industries such as film, law enforcement, emergency services, agriculture and commercial delivery. \\
-
-Due to numerous advances in technology, drones are quickly advancing to the point where human input is no longer a necessity. This has led to many companies showing interest in integrating drones with their work in the coming years. \\
-
-Although it may be an engineer's dream for a fully automated world, drones in particular could end up as a harrowing reminder that 
+As we have introduced, drones stand to be a revolutionary part of our lives as we welcome the new, incoming era of automation. However, to be practical there are a few key concepts one must understand to ensure that they remain a help and not a harm or hinderence to mankind.
 
 \subsubsection{No Fly Zones}
+No Fly Zones (which we will abbreviate as NFZs) are geographical areas where a drone is not allowed to enter or fly at any altitude. Examples of these may include Hyde Park, Buckingham Palace, airports and military locations.
+
+Typically these are static obstacles that will always remain a NFZ, however we could also consider cases when they could be created dynamically. Imagine a situation where 
+
 \subsubsection{Toll Zones}
 \subsubsection{Manned Aviation}
 \subsubsection{Other Drones}
@@ -158,7 +166,6 @@ Example text 3
 %**********************************************%
 \newpage
 \section{Evaluation Plan}
-\cite{Balaji2017}
 
 %**********************************************%
 %\newpage
