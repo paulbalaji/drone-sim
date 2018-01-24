@@ -166,12 +166,17 @@ Because it would have been too expensive to trial the system on actual drones, a
   \caption{Technical Overview of AATC\cite{Balaji2017}.}
 \end{figure}
 
-The system was designed with two challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.1. \\
+The system was designed with three challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.1. The last challenge is to design the system in such a way that it would be able to scale to hundreds and thousands of drones.\\
 
 To this end, a \textit{Global Layer} was built to deal with static obstacles (such as NFZs) by calculating a path for the drone around NFZs before it begins its journey. The second problem was tackled with a \textit{Reactive Layer} that handles non-static obstacles (such as manned aviation and other drones). This is the layer that would be providing the real-time updates to drones as they poll the server every second.
 
 \subsubsection{Global Layer}
+This layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow.
+
 \subsubsection{Reactive Layer}
+This layer considers any dynamic obstacles that the drone may face, such as manned aviation, other drones and potentially dynamic NFZs.
+
+
 \subsubsection{Where to take it next?}
 
 \subsection{Delivery Networks}
