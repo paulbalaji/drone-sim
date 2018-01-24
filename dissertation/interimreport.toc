@@ -13,23 +13,23 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Technical Overview}{6}
 \contentsline {subsection}{\numberline {2.3}The Global Layer}{7}
 \contentsline {subsection}{\numberline {2.4}The Reactive Layer}{7}
-\contentsline {subsubsection}{\numberline {2.4.1}Where to take it next?}{8}
-\contentsline {subsection}{\numberline {2.5}Delivery Networks}{8}
-\contentsline {subsubsection}{\numberline {2.5.1}Planes}{8}
-\contentsline {subsubsection}{\numberline {2.5.2}Trucks}{8}
-\contentsline {subsubsection}{\numberline {2.5.3}Drones}{8}
-\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{8}
-\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{8}
-\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{8}
-\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{8}
-\contentsline {subsection}{\numberline {2.7}SpatialOS}{8}
-\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{8}
-\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{8}
-\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{8}
-\contentsline {section}{\numberline {3}Project Plan}{9}
-\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{9}
-\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{9}
-\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{9}
-\contentsline {subsection}{\numberline {3.4}Stretch Goals}{9}
-\contentsline {section}{\numberline {4}Evaluation Plan}{10}
-\contentsline {section}{References}{11}
+\contentsline {subsubsection}{\numberline {2.4.1}Where to take it next?}{9}
+\contentsline {subsection}{\numberline {2.5}Delivery Networks}{9}
+\contentsline {subsubsection}{\numberline {2.5.1}Planes}{9}
+\contentsline {subsubsection}{\numberline {2.5.2}Trucks}{9}
+\contentsline {subsubsection}{\numberline {2.5.3}Drones}{9}
+\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{9}
+\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{9}
+\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{9}
+\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{9}
+\contentsline {subsection}{\numberline {2.7}SpatialOS}{9}
+\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{9}
+\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{9}
+\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{9}
+\contentsline {section}{\numberline {3}Project Plan}{10}
+\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{10}
+\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{10}
+\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{10}
+\contentsline {subsection}{\numberline {3.4}Stretch Goals}{10}
+\contentsline {section}{\numberline {4}Evaluation Plan}{11}
+\contentsline {section}{References}{12}

@@ -234,6 +234,12 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT img/aatc_tech_overview.jpg
 INPUT ./img/aatc_tech_overview.jpg
 INPUT ./img/aatc_tech_overview.jpg
+INPUT img/search_comparison.png
+INPUT ./img/search_comparison.png
+INPUT ./img/search_comparison.png
+INPUT img/a_star_vs_optimal.png
+INPUT ./img/a_star_vs_optimal.png
+INPUT ./img/a_star_vs_optimal.png
 INPUT interimreport.bbl
 INPUT interimreport.bbl
 INPUT interimreport.aux

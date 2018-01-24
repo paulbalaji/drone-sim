@@ -172,7 +172,20 @@ The system was designed with three challenges in mind. The first challenge was t
 To this end, a \textit{Global Layer} was built to deal with static obstacles (such as NFZs) by calculating a path for the drone around NFZs before it begins its journey. The second problem was tackled with a \textit{Reactive Layer} that handles non-static obstacles (such as manned aviation and other drones). This is the layer that would be providing the real-time updates to drones as they poll the server every second.
 
 \subsection{The Global Layer}
-The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow.
+The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow - thereby dealing with AATC's path-finding problem.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/search_comparison.png}
+  \caption{Comparing popular search algorithms. \cite{Balaji2017}}
+\end{figure}
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/a_star_vs_optimal.png}
+  \caption{A* VS Optimal Path. \cite{Balaji2017}}
+\end{figure}
+
 
 \subsection{The Reactive Layer}
 The Reactive layer considers any dynamic obstacles that the drone may face, such as manned aviation, other drones and potentially dynamic NFZs.\\

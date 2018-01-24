@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  24 JAN 2018 22:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  24 JAN 2018 23:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -594,24 +594,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6 <./img/aatc_tech_overview.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+[6 <./img/aatc_tech_overview.jpg>] <img/search_comparison.png, id=34, 1611.01875pt x 579.16376pt>
+File: img/search_comparison.png Graphic file (type png)
+ <use img/search_comparison.png>
+Package pdftex.def Info: img/search_comparison.png used on input line 179.
+(pdftex.def)             Requested size: 426.79135pt x 153.43347pt.
+ <img/a_star_vs_optimal.png, id=36, 1626.075pt x 631.35875pt>
+File: img/a_star_vs_optimal.png Graphic file (type png)
+ <use img/a_star_vs_optimal.png>
+Package pdftex.def Info: img/a_star_vs_optimal.png used on input line 185.
+(pdftex.def)             Requested size: 426.79135pt x 165.71007pt.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
  []
 
@@ -621,7 +615,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8]
+[7 <./img/search_comparison.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8 <./img/a_star_vs_optimal.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 214--215
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -635,27 +644,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10] (./interimreport.bbl)
+[10]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11] (./interimreport.aux) ) 
+[11] (./interimreport.bbl)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12] (./interimreport.aux) ) 
 Here is how much of TeX's memory you used:
- 14016 strings out of 492995
- 272700 string characters out of 6132703
+ 14027 strings out of 492995
+ 272984 string characters out of 6132703
  335836 words of memory out of 5000000
- 17255 multiletter control sequences out of 15000+600000
+ 17263 multiletter control sequences out of 15000+600000
  12666 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,56p,601b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on interimreport.pdf (12 pages, 209090 bytes).
+Output written on interimreport.pdf (13 pages, 1064518 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 76 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
