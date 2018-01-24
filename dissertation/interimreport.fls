@@ -225,6 +225,9 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 OUTPUT interimreport.toc
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT img/aatc_tech_overview.png
+INPUT ./img/aatc_tech_overview.png
+INPUT ./img/aatc_tech_overview.png
 INPUT interimreport.bbl
 INPUT interimreport.bbl
 INPUT interimreport.aux

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  23 JAN 2018 23:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  24 JAN 2018 18:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -514,7 +514,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
 
@@ -524,8 +524,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+[5] <img/aatc_tech_overview.png, id=29, 2152.04pt x 1294.8375pt>
+File: img/aatc_tech_overview.png Graphic file (type png)
+ <use img/aatc_tech_overview.png>
+Package pdftex.def Info: img/aatc_tech_overview.png used on input line 165.
+(pdftex.def)             Requested size: 390.0pt x 234.6413pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
@@ -535,7 +540,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6]
+[6 <./img/aatc_tech_overview.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -549,27 +563,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8] (./interimreport.bbl)
+[8]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9] (./interimreport.aux) ) 
+[9] (./interimreport.bbl)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10] (./interimreport.aux) ) 
 Here is how much of TeX's memory you used:
- 13526 strings out of 492995
- 265435 string characters out of 6132703
- 322891 words of memory out of 5000000
- 16780 multiletter control sequences out of 15000+600000
+ 13536 strings out of 492995
+ 265621 string characters out of 6132703
+ 322903 words of memory out of 5000000
+ 16787 multiletter control sequences out of 15000+600000
  12666 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,56p,564b,262s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,56p,564b,274s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on interimreport.pdf (10 pages, 85120 bytes).
+Output written on interimreport.pdf (11 pages, 879931 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
