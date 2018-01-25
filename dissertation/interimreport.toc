@@ -74,18 +74,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Project Plan}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{26}
+\contentsline {subsection}{\numberline {4.1}Overview}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Phase 2: Implementing a Scheduling Layer}{26}
+\contentsline {subsection}{\numberline {4.2}Stretch Goals}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Phase 3: Visualising the Economic Value}{26}
+\contentsline {subsection}{\numberline {4.3}Timeline}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Stretch Goals}{26}
+\contentsline {section}{\numberline {5}Evaluation Plan}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Evaluation Plan}{27}
+\contentsline {section}{References}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{28}
+\contentsline {section}{Appendices}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Appendices}{33}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{33}
+\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{34}

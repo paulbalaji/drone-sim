@@ -552,28 +552,88 @@ By virtue of games having several dynamic systems all interlinking with each oth
 
 
 %**********************************************%
-% \newpage
-% \section{Prioritising Economic Value}
-% Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, the existing implementation of AATC only touches upon the routing aspect - how to get from point A to point B. Even in all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios. \\
-%
-% To gain greater understanding of how drones can positively impact industries, simulations need to be performed which take into account the financial aspect of their use case. For example when it comes to drone delivery networks, we want to ensure that the drones not only reach their destination quickly, but that they also get scheduled and utilised in the appropriate manner to maximise the profitability of the network.
-%
-% \subsection{Quality of Service Value Curve}
-% In order to consider how to maximise profitability, we introduce the concept of a Value Curve related to the Quality of Service (QoS) provided. Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is modelled on a curve closely related to the QoS. \\
-%
+\newpage
+\section{Prioritising Economic Value}
+Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, the existing implementation of AATC only touches upon the routing aspect - how to get from point A to point B. Even in all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios. \\
+
+To gain greater understanding of how drones can positively impact industries, simulations need to be performed which take into account the financial aspect of their use case. For example when it comes to drone delivery networks, we want to ensure that the drones not only reach their destination quickly, but that they also get scheduled and utilised in the appropriate manner to maximise the profitability of the network.
+
+\subsection{Quality of Service Value Curve}
+In order to consider how to maximise profitability, we introduce the concept of a Value Curve related to the Quality of Service (QoS) provided. Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is modelled on a curve closely related to the QoS. \\
+
 
 
 %**********************************************%
 \newpage
 \section{Project Plan}
-\subsection{Phase 1: Porting Global and Reactive Layers to SpatialOS}
-\subsection{Phase 2: Implementing a Scheduling Layer}
-\subsection{Phase 3: Visualising the Economic Value}
+\subsection{Overview}
+We envision the project to have three major development phases:
+\begin{enumerate}
+  \item Porting the Global and Reactive Layers to SpatialOS.
+  \item Implementing the delivery Scheduling Layer.
+  \item Implementing tools to visualise the financial value in the simulation.
+\end{enumerate}
+
+Once this has been complete we wish to conduct simulations with different scheduling models, such as First Come First Serve (FCFS) and the QoS-driven scheduler, to compare their total profits or loss. After this analysis is complete, we will compile the relevant data and work on the final project report.
+
+% \subsection{Phase 1: Global and Reactive Layers in SpatialOS}
+% \subsection{Phase 2: Scheduling Layer}
+% \subsection{Phase 3: Visualise Economic Value}
 \subsection{Stretch Goals}
+If the project is ahead of schedule, we plan to:
+\begin{itemize}
+  \item Introduce static toll zones.
+  \item Introduce dynamic no fly zones.
+  \item Introduce dynamic toll zones.
+  \item Investigate the drone delivery network use-case of blockchain.
+  \item Implement the Scheduling Layer as a custom worker.
+  \item Implement the Reactive Layer as a custom worker.
+  \item Implement the Global Layer as a custom worker.
+\end{itemize}
+
+\newpage
+\subsection{Timeline}
+\begin{table}[!hbpt]
+\centering
+\begin{tabular}{c|c|c}
+Week Beginning & Project Phase & Task \\\hline\hline
+29th January & 1 & Global Layer \\\hline
+5th February & 1 & Global Layer \\\hline
+12th February & 1 & Global Layer \\\hline
+19th February & 1 & Global Layer \\\hline
+26th February & 1 & Global + Reactive Layer \\\hline
+5th March & 1 & Reactive Layer \\\hline
+12th March & 1 & Reactive Layer \\\hline
+19th March & 1 & Break for Exams \\\hline
+26th March & 1 & Reactive Layer \\\hline
+2nd April & 2 & Scheduling Layer Tooling \\\hline
+9th April & 2 & Scheduling Layer Tooling \\\hline
+16th April & 2 & Scheduling Layer \\\hline
+23rd April & 2 & Scheduling Layer \\\hline
+30th April & 2 & Scheduling Layer \\\hline
+7th May & 3 & Visualiser Tooling \\\hline
+14th May & 3 & Visualiser Tooling \\\hline
+21th May & 3 & Visualiser Tooling \\\hline
+28th May & 3 & Visualiser Tooling \\\hline
+4th June & Analysis & Run Simulations and Collect Data \\\hline
+11th June & Report & Draft a Final Report \\\hline
+18th June & Report & Finalise Report
+\end{tabular}
+\caption{Project Timeline}
+\label{tab:proj_timeline}
+\end{table}
+
 
 %**********************************************%
 \newpage
 \section{Evaluation Plan}
+The minimum critera for the project is for a SpatialOS simulation to demonstrate drones being scheduled, by any possible mechanimm, and subsequently routed in a similar manner to the AATC project. \\
+
+It would be beneficial to be able to show that simulations have been run using different drone scheduling algorithms, especially the one based on the QoS value curve. The project can be considered a success if this particular scheduling algorithm yielded greater profits than previously defined scheduling algorithms did.
+
+
+
+% what functionality do you need to demonstrate?  What experiments to you need to undertake and what outcome(s) would constitute success?  What benchmarks should you use? How has your project extended the state of the art?  How do you measure qualitative aspects, such as ease of use?
 
 %**********************************************%
 %\newpage
