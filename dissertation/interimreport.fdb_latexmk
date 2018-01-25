@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber interimreport"] 1516877540 "interimreport.bcf" "interimreport.bbl" "interimreport" 1516877547
-  "interimreport.bcf" 1516877547 97211 4b50cf3394460b64666b4fc066976cac ""
-  "library.bib" 1516877526 32210 d597eddf6fced25b9414c6de659f8e75 ""
+["biber interimreport"] 1516890048 "interimreport.bcf" "interimreport.bbl" "interimreport" 1516890056
+  "interimreport.bcf" 1516890056 97328 33e8fbbb232e5eb858be01d793d7685c ""
+  "library.bib" 1516889986 32995 9f0e8f4f4854ea9797a9e609a0b118e3 ""
   (generated)
   "interimreport.blg"
   "interimreport.bbl"
-["pdflatex"] 1516877544 "interimreport.tex" "interimreport.pdf" "interimreport" 1516877547
+["pdflatex"] 1516890052 "interimreport.tex" "interimreport.pdf" "interimreport" 1516890056
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -187,18 +187,19 @@
   "img/aatc_tech_overview.jpg" 1516831165 119592 1a0b8681dbe0f09e4a75d8edf066806b ""
   "img/apf_comp.png" 1516831165 20423 7742e0fe702f234cc8f61b9bd3492d54 ""
   "img/edrone.jpg" 1516831165 451107 84d5297b0cf18c5938ed1d0838f6ab47 ""
+  "img/google_truck_patent.jpeg" 1516889691 50147 46bcda0af2bb9ee7524297614c0a40d6 ""
   "img/obst.png" 1516850145 257023 fa93d91109a53d63615ecbfb4bd9408c ""
   "img/search_comparison.png" 1516838008 769826 9994a1fe559f3b4638373f1ff68cb885 ""
   "img/starship.jpg" 1516872402 668422 f86232351c5cc3fbb4ff913c42d68bb0 ""
-  "interimreport.aux" 1516877547 11985 707d3dbab4f992ea6e6bb9547e2fb5c9 ""
-  "interimreport.bbl" 1516877541 30390 32007be62e12845fcf80a8ed84d37c47 "biber interimreport"
-  "interimreport.run.xml" 1516877547 2365 461bc8b67b70b5c1bd011d5c1fa2f736 ""
-  "interimreport.tex" 1516877534 30541 3ef5409f289e081dc1274d4e4ec6c652 ""
-  "interimreport.toc" 1516877547 4735 2ec0b13ef7486d80e8bd84c0f4a9f665 ""
+  "interimreport.aux" 1516890056 12492 d62990d8cb405325989a03e0f6a19e0d ""
+  "interimreport.bbl" 1516890049 33224 1a0071aa9862a99083ba5f64d084e8ee "biber interimreport"
+  "interimreport.run.xml" 1516890056 2365 461bc8b67b70b5c1bd011d5c1fa2f736 ""
+  "interimreport.tex" 1516890038 31064 a9e985aea643cd26f242c4c886ce8f83 ""
+  "interimreport.toc" 1516890056 4739 8e486e083efc0216641600404b0f483c ""
   (generated)
-  "interimreport.pdf"
-  "interimreport.log"
-  "interimreport.run.xml"
+  "interimreport.bcf"
   "interimreport.aux"
   "interimreport.toc"
-  "interimreport.bcf"
+  "interimreport.run.xml"
+  "interimreport.log"
+  "interimreport.pdf"

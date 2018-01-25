@@ -10,51 +10,51 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}Background}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Drones}{4}
+\contentsline {subsection}{\numberline {2.1}Future of Delivery Networks}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.1}No Fly Zones}{4}
+\contentsline {subsubsection}{\numberline {2.1.1}Delivery Robots}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2}Manned Aviation}{5}
+\contentsline {subsubsection}{\numberline {2.1.2}Autonomous Vehicles}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.3}Other Drones}{5}
+\contentsline {subsubsection}{\numberline {2.1.3}Drones}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.4}Toll Zones}{5}
+\contentsline {subsection}{\numberline {2.2}Drones}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Autonomous Air Traffic Control (AATC)}{6}
+\contentsline {subsubsection}{\numberline {2.2.1}No Fly Zones}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}What is AATC?}{6}
+\contentsline {subsubsection}{\numberline {2.2.2}Manned Aviation}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2}Technical Overview}{6}
+\contentsline {subsubsection}{\numberline {2.2.3}Other Drones}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}The Global Layer}{7}
+\contentsline {subsubsection}{\numberline {2.2.4}Toll Zones}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}Dijkstra's Algorithm}{8}
+\contentsline {subsection}{\numberline {2.3}Autonomous Air Traffic Control (AATC)}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.2}A* Algorithm}{8}
+\contentsline {subsubsection}{\numberline {2.3.1}What is AATC?}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.3}Theta* Algorithm}{8}
+\contentsline {subsubsection}{\numberline {2.3.2}Technical Overview}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.4}Lazy Theta* Algorithm}{10}
+\contentsline {subsection}{\numberline {2.4}The Global Layer}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.5}Conclusions}{10}
+\contentsline {subsubsection}{\numberline {2.4.1}Dijkstra's Algorithm}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}The Reactive Layer}{12}
+\contentsline {subsubsection}{\numberline {2.4.2}A* Algorithm}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.1}Artificial Potential Fields (APF)}{12}
+\contentsline {subsubsection}{\numberline {2.4.3}Theta* Algorithm}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.2}Equations for APF}{13}
+\contentsline {subsubsection}{\numberline {2.4.4}Lazy Theta* Algorithm}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.3}Genetic Algorithm}{14}
+\contentsline {subsubsection}{\numberline {2.4.5}Conclusions}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.4}Conclusions}{16}
+\contentsline {subsection}{\numberline {2.5}The Reactive Layer}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5}Future of Delivery Networks}{16}
+\contentsline {subsubsection}{\numberline {2.5.1}Artificial Potential Fields (APF)}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.1}Delivery Robots}{17}
+\contentsline {subsubsection}{\numberline {2.5.2}Equations for APF}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.2}Autonomous Cars}{18}
+\contentsline {subsubsection}{\numberline {2.5.3}Genetic Algorithm}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Drones}{18}
+\contentsline {subsubsection}{\numberline {2.5.4}Conclusions}{18}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{18}
 \defcounter {refsection}{0}\relax 
@@ -72,20 +72,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Project Plan}{19}
+\contentsline {section}{\numberline {3}Project Plan}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{19}
+\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{19}
+\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{19}
+\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4}Stretch Goals}{19}
+\contentsline {subsection}{\numberline {3.4}Stretch Goals}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Evaluation Plan}{20}
+\contentsline {section}{\numberline {4}Evaluation Plan}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{21}
+\contentsline {section}{References}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Appendices}{24}
+\contentsline {section}{Appendices}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{24}
+\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{25}

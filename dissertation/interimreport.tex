@@ -176,9 +176,42 @@ However, prior work has been done on the routing and navigation aspect of such a
 %**********************************************%
 \newpage
 \section{Background}
-We first provide an insight into drones, and the considerations to account for when applying them in day to day life. Additionally we summarise prior work completed by Imperial students on an autonomous air traffic control system. \\
+We first provide an insight into new developments in the physical delivery network sector, and then specifically considerations to account for when integrating drone technology in our day to day lives. Additionally we summarise prior work completed by Imperial students on an autonomous air traffic control system for drones. \\
 
-We then continue to discuss modern delivery networks and introduce a mechanism by which economic value is prioritised. Finally, we give details about Improbable's SpatialOS and the reasoning for using this platform for the drone simulation.
+We then continue to discuss methods of prioritising a delivery network for financial gain. Finally, we give details about Improbable's SpatialOS and the reasoning for using this platform for the drone simulation.
+
+\subsection{Future of Delivery Networks}
+From the ancient days of Assyrian trade in 19 BCE \cite{stearns2001the}, to the modern day online market - the ability to trade goods and services has had a profound impact on the way we live our lives. Thanks to globalisation and the explosion of the internet, we are now able to use a service such as Amazon Prime and get goods delivered within days, if not hours, of purchasing through a simple click. Through it all, physical delivery networks enable this online retail behemoth. \\
+
+As technology evolves, so too will these delivery networks - and many companies are currently looking into how to leverage upcoming tech\cite{Lee2016} in order to generate hype for their business and, more importantly, increase their profit margins. Some promising developments are delivery robots, autonomous cars and, of course, drones.
+
+\subsubsection{Delivery Robots}
+Delivery robots are unmanned devices that are designed to be operated on pavements and cycle lanes at low speeds of about 4 miles per hour\cite{Lee2016}. Although the unmanned device market is in its infancy, there are already prototypes hitting the market such as Starship's robot\cite{Laris2016}, which can hold upto 20-25 pounds, and Dispatch's ``Carry''\cite{Kokalitcheva2016}, that holds up to 100 pounds.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/starship.jpg}
+  \caption{Starship's robot confronting a senior citizen. Image from Engadget\cite{Souppouris2015}.}
+  \label{fig:starship_citizen}
+\end{figure}
+
+Due to their on-the-ground nature, delivery robots are primarily designed for low-footfall suburban neighbourhoods, closed residential areas or campuses. They would be scheduled through an Uber-like application that may allow users to track the location of the robot, for the customer's knowledge, and to also unlock the robot once it reaches its destination\cite{Hohenadel2015}. \\
+
+Thanks to their similarities to autonomous cars, they may have regulatory advantages compared to drones because much of the legislation coming through for autonomous vehicles can apply to delivery robots as well.
+
+\subsubsection{Autonomous Vehicles}
+Once the de-facto icon of science fictional futurism, autonomous cars are now a close reality. Companies such as Tesla are doing pioneering work in bringing self-driving cars\cite{Tesla2018} to the general consumer. Meanwhile, other businesses like Uber are experimenting with autonmous taxi services\cite{Gibbs2017}. \\
+
+In fact, Google has obtained a patent for an autonomous delivery truck \cite{Hall-Geisler} with different compartments that could be unlocked by validated package recipients - much akin to an Amazon Locker-on-wheels.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.8\linewidth]{img/google_truck_patent.jpeg}
+  \caption{Illustration of Google's Delivery Truck. \cite{google_truck_patent}}
+  \label{fig:google_truck_patent}
+\end{figure}
+
+\subsubsection{Drones}
 
 \subsection{Drones}
 As we have introduced, drones stand to be a revolutionary part of our lives as we welcome the new, incoming era of automation. However, to be practical there are a few key concepts one must understand to ensure that they remain a help and not a harm or hinderence to mankind.
@@ -369,7 +402,7 @@ $$ speed = min(max\_speed, d_{goal}) $$
 The gradient $\nabla U$ is then normalised to be a unit vector before being multiplied by the speed to compute the final velocity.
 
 \subsubsection{Genetic Algorithm}
-By paying close attention to Section 2.4.2, we can identify several undefined constants: $\rho_r$, $\rho_a$, $\rho_{ret}$ and $d_{influence}$. The balance between them is key, because if $\rho_a$ is too high relative to $\rho_r$ then the drones ignore obstacles and die on impact, but if $\rho_r$ is too high then they will oscillate between objects and never reach their goal. After much fiddling about with "magic numbers", a genetic algorithm was employed to provide the optimal values for the specific drone model. \\
+By paying close attention to Section 2.5.2, we can identify several undefined constants: $\rho_r$, $\rho_a$, $\rho_{ret}$ and $d_{influence}$. The balance between them is key, because if $\rho_a$ is too high relative to $\rho_r$ then the drones ignore obstacles and die on impact, but if $\rho_r$ is too high then they will oscillate between objects and never reach their goal. After much fiddling about with "magic numbers", a genetic algorithm was employed to provide the optimal values for the specific drone model. \\
 
 Genetic algorithms are a metaheuristic inspired by the process of natural selection, and they are a way by which high-quality solutions can be generated for optimisation problems\cite{Mitchell1996}. In the case of AATC, the aforementioned constants need to be fine-tuned in order to produce an APF model that, to its best ability, does not return absurd, erroneous velocities. See Figure \ref{fig:aatc_spaghett} as an example. \\
 
@@ -406,29 +439,7 @@ Influence distance & 300 & 600 & 100  & 4     \\ \hline
 \subsubsection{Conclusions}
 In the end, the genetic algorithms only improved the simulations by about 2\%\cite{Balaji2017} which could mean that the original range of constants was already a good set to work with. However, there is still scope for even greater improvements if the genetic algorithm was to be run with a greater number of test scenarios, bigger range of values to cycle through, and generally larger simulations.
 
-\subsection{Future of Delivery Networks}
-From the ancient days of Assyrian trade in 19 BCE \cite{stearns2001the}, to the modern day online market - the ability to trade goods and services has had a profound impact on the way we live our lives. Thanks to globalisation and the explosion of the internet, we are now able to use a service such as Amazon Prime and get goods delivered within days, if not hours, of purchasing through a simple click. Through it all, physical delivery networks enable this online retail behemoth. \\
 
-As technology evolves, so too will these delivery networks - and many companies are currently looking into how to leverage upcoming tech\cite{Lee2016} in order to generate hype for their business and, more importantly, increase their profit margins. Some promising developments are delivery robots, autonomous cars and, of course, drones.
-
-\subsubsection{Delivery Robots}
-Delivery robots are unmanned devices that are designed to be operated on pavements and cycle lanes at low speeds of about 4 miles per hour\cite{Lee2016}. Although the unmanned device market is in its infancy, there are already prototypes hitting the market such as Starship's robot\cite{Laris2016}, which can hold upto 20-25 pounds, and Dispatch's ``Carry''\cite{Kokalitcheva2016}, that holds up to 100 pounds.
-
-\begin{figure}[!hbpt]
-  \center
-  \includegraphics[width=\linewidth]{img/starship.jpg}
-  \caption{Starship's robot confronting a senior citizen. Image from Engadget\cite{Souppouris2015}.}
-  \label{fig:starship_citizen}
-\end{figure}
-
-Due to their on-the-ground nature, delivery robots are primarily designed for low-footfall suburban neighbourhoods, closed residential areas or campuses. They would be scheduled through an Uber-like application that may allow users to track the location of the robot, for the customer's knowledge, and to also unlock the robot once it reaches its destination\cite{Hohenadel2015}. \\
-
-Thanks to their similarities to autonomous cars, they may have regulatory advantages compared to drones because much of the legislation coming through for autonomous vehicles can apply to delivery robots as well.
-
-\subsubsection{Autonomous Cars}
-Once the de-facto icon of science fictional futurism, autonomous cars are now a close reality. Companies such as Tesla are doing pioneering work in bringing self-driving cars\cite{Tesla2018} to the general consumer. Meanwhile, other businesses like Uber are experimenting with autonmous taxi services\cite{Gibbs2017}. 
-
-\subsubsection{Drones}
 
 \subsection{Prioritising Economic Value}
 % Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, AATC technology only touches upon the routing aspect - how to get from point A to point B. In all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios.

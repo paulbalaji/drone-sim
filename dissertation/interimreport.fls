@@ -270,6 +270,12 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 OUTPUT interimreport.toc
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT img/starship.jpg
+INPUT ./img/starship.jpg
+INPUT ./img/starship.jpg
+INPUT img/google_truck_patent.jpeg
+INPUT ./img/google_truck_patent.jpeg
+INPUT ./img/google_truck_patent.jpeg
 INPUT img/aatc_tech_overview.jpg
 INPUT ./img/aatc_tech_overview.jpg
 INPUT ./img/aatc_tech_overview.jpg
@@ -293,9 +299,6 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 INPUT img/aatc_spaghett.jpg
 INPUT ./img/aatc_spaghett.jpg
 INPUT ./img/aatc_spaghett.jpg
-INPUT img/starship.jpg
-INPUT ./img/starship.jpg
-INPUT ./img/starship.jpg
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty

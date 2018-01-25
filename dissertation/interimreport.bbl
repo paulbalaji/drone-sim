@@ -169,6 +169,33 @@
       \endverb
       \warn{\item Entry 'Gibbs2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
+    \entry{Hall-Geisler}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f002605969bba396d840ca9848ab5ef6}{%
+           family={Hall-Geisler},
+           familyi={H\bibinithyphendelim G\bibinitperiod},
+           given={Kristen},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{f002605969bba396d840ca9848ab5ef6}
+      \strng{fullhash}{f002605969bba396d840ca9848ab5ef6}
+      \strng{authornamehash}{f002605969bba396d840ca9848ab5ef6}
+      \strng{authorfullhash}{f002605969bba396d840ca9848ab5ef6}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Popular Science}
+      \field{title}{{Google Gets a Patent for an Autonomous Delivery Truck}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.popsci.com/google-gets-patent-for-an-autonomous-delivery-truck
+      \endverb
+    \endentry
     \entry{Hohenadel2015}{misc}{}
       \name{author}{1}{}{%
         {{hash=6955f8555c0b1c94474f1f7e92d94fb0}{%
@@ -352,6 +379,35 @@
       \endverb
       \verb{url}
       \verb https://books.google.ca/books/about/An%7B%5C_%7DIntroduction%7B%5C_%7Dto%7B%5C_%7DGenetic%7B%5C_%7DAlgorithms.html?id=0eznlz0TF-IC%7B%5C&%7Dpgis=1%7B%5C%%7D5Cnhttp://www.amazon.ca/exec/obidos/redirect?tag=citeulike09-20%7B%5C&%7Dpath=ASIN/0262631857%7B%5C%%7D5Cnhttp://linkinghub.elsevier.com/retrieve/pii/S0898122196902278
+      \endverb
+    \endentry
+    \entry{google_truck_patent}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fa1871cf638b3a34043a75d29601e4cf}{%
+           family={Myllymaki},
+           familyi={M\bibinitperiod},
+           given={Jussi},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {United States Patent}%
+        {Trademark Office}%
+      }
+      \strng{namehash}{fa1871cf638b3a34043a75d29601e4cf}
+      \strng{fullhash}{fa1871cf638b3a34043a75d29601e4cf}
+      \strng{authornamehash}{fa1871cf638b3a34043a75d29601e4cf}
+      \strng{authorfullhash}{fa1871cf638b3a34043a75d29601e4cf}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Autonomous Delivery Platform}}
+      \field{year}{2013}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/google{\_}truck{\_}patent{\_}pdf.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://pdfpiw.uspto.gov/.piw?PageNum=0%7B%5C&%7Ddocid=09256852%7B%5C&%7DIDKey=EA66D62BF248%7B%5C%%7D0D%7B%5C%%7D0A%7B%5C&%7DHomeUrl=http%7B%5C%%7D3A%7B%5C%%7D2F%7B%5C%%7D2Fpatft.uspto.gov%7B%5C%%7D2Fnetacgi%7B%5C%%7D2Fnph-Parser%7B%5C%%7D3FSect1%7B%5C%%7D3DPTO2%7B%5C%%7D2526Sect2%7B%5C%%7D3DHITOFF%7B%5C%%7D2526p%7B%5C%%7D3D1%7B%5C%%7D2526u%7B%5C%%7D3D%7B%5C%%7D25252Fnetahtml%7B%5C%%7D25252FPTO%7B%5C%%7D25252Fsearch-bool.html%7B%5C%%7D2526r%7B%5C%%7D3D25%7B%5C%%7D2526f%7B%5C%%7D3DG%7B%5C%%7D2526l%7B%5C%%7D3D50%7B%5C%%7D2526co1%7B%5C%%7D3DAND%7B%5C%%7D2526d%7B%5C%%7D3DPTXT%7B%5C%%7D2526s1%7B%5C%%7D3DGoogle.ASNM.%7B%5C%%7D2526OS%7B%5C%%7D3DAN%7B%5C%%7D2FGoogle%7B%5C%%7D2526RS%7B%5C%%7D3DAN%7B%5C%%7D2FGoogle
       \endverb
     \endentry
     \entry{Nash2010}{article}{}
