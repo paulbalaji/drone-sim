@@ -408,6 +408,66 @@
       \endverb
       \warn{\item Entry 'Hohenadel2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
+    \entry{ImprobableWorldsLtd.2018a}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Improbable Home Page}}
+      \field{year}{2018}
+      \verb{url}
+      \verb https://improbable.io/
+      \endverb
+      \warn{\item Entry 'ImprobableWorldsLtd.2018a' (library.bib): Invalid format '23rd October 2017' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{ImprobableWorldsLtd.2018b}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{SpatialOS Technical Breakdown}}
+      \field{year}{2018}
+      \warn{\item Entry 'ImprobableWorldsLtd.2018b' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{ImprobableWorldsLtd.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{What is SpatialOS?}}
+      \field{year}{2018}
+      \verb{url}
+      \verb https://docs.improbable.io/reference/12.0/shared/concepts/spatialos%7B%5C#%7Ddeveloping-with-spatialos
+      \endverb
+      \warn{\item Entry 'ImprobableWorldsLtd.2018' (library.bib): Invalid format '23rd Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{Jarman2016}{unpublished}{}
       \name{author}{3}{}{%
         {{hash=51bdbfbf628cb733ac748a1a0b72a0eb}{%

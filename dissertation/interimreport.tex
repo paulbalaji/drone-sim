@@ -20,6 +20,7 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage[maxbibnames=99]{biblatex}
+\usepackage{csquotes}
 \bibliography{library}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -487,26 +488,35 @@ The author considers splitting the problem into several layers:
   \end{figure}
 \end{enumerate}
 
-\subsection{Optimising Drone Delivery}
-
-
-\subsection{Prioritising Economic Value}
-% Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, AATC technology only touches upon the routing aspect - how to get from point A to point B. In all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios.
-
-
-\subsubsection{Quality of Service}
-\subsubsection{Value Curve}
-\subsubsection{skdbsa}
+% \subsection{Optimising Drone Delivery}
 
 \subsection{SpatialOS}
+SpatialOS is a platform, created by \textit{Improbable}\cite{ImprobableWorldsLtd.2018a}, for running massive-scale simulated worlds. In their own words\cite{ImprobableWorldsLtd.2018b}:
+\begin{displayquote}
+SpatialOS is a cloud-based computational platform that lets you use many servers and engines to power a single world. The platform coordinates a swarm of micro-services called workers, which overlap and dynamically reorganize to power a huge, seamless world. The platform also lets you handle a huge number of concurrent players across different devices in one world.
+\end{displayquote}
+
+Although most commonly used for large distributed game worlds, SpatialOS has been used for simulating cities, the backbone of the Internet and a model of the brain. It is an ideal platform for simulating ``independent entities that have a location in space''\cite{ImprobableWorldsLtd.2018}. \\
+
+Anybody is able to sign up and use SpatialOS to build games using either the Unity3D or Unreal game engines. Alternatively, one can use the C#, C++ and Java SDKs to create custom workers to be ran on SpatialOS deployments.
+
 \subsubsection{Unity SDK}
+The Unity SDK is arguably the most stable, mature SDK because it is not in beta unlike the Unreal SDK. From prior industrial experience, the Unity integration is also easier to implement quick prototypes with and iterate on. \\
+
+A benefit of SpatialOS's Unity SDK is that creating a sole game client, without manually writing network code, is almost enough to get multiplayer built-in to the game for ``free''.
+
 \subsubsection{Layered Simulation}
 \subsubsection{Distributed Simulation}
-Example text 1\\
 
-Example text 2\\
+%**********************************************%
+\newpage
+\section{Prioritising Economic Value}
+Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, the existing implementation of AATC only touches upon the routing aspect - how to get from point A to point B. Even in all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios. \\
 
-Example text 3
+To gain greater understanding of how drones can positively impact industries, simulations need to be performed which take into account the financial aspect of their use case. For example when it comes to drone delivery networks, we want to ensure that the drones not only reach their destination quickly, but that they also get scheduled and utilised in the appropriate manner to maximise the profitability of the network.
+
+\subsection{Quality of Service}
+\subsection{Value Curve}
 
 %**********************************************%
 \newpage
