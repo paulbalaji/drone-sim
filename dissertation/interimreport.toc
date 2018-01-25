@@ -40,7 +40,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.4.2}A* Algorithm}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.3}Theta* Algorithm}{12}
+\contentsline {subsubsection}{\numberline {2.4.3}Theta* Algorithm}{13}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.4.4}Lazy Theta* Algorithm}{13}
 \defcounter {refsection}{0}\relax 

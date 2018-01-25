@@ -226,8 +226,10 @@ Nevertheless, engineering teams across the world are working on ways to improve 
 
 ADS-B is already widely used in aircraft, enabling flight-tracking services such as flightradar24 to exist\cite{Flightradar242018}, but recent developments have allowed the ADS-B units to be compact and cost-effective enough to be suitable for drones. As more drones adopt this technology, instead of having to get instant updates from a drone directly, autonomous drone traffic control systems could make use of the shared global network for their scheduling and routing calculations.
 
+Over time, an increasing percentage of the world's drones will likely join these shared autonomous systems. This could enable different delivery networks to manage their own fleets as their own air traffic controllers, all the while making use of the shared pool of readable data to identify, intercept and avoid drone collisions at the earliest stage in their pathfinding as possible.
+
 \subsection{Drone Considerations}
-As we have introduced, drones stand to be a revolutionary part of our lives as we welcome the new, incoming era of automation. However, to be practical there are a few key concepts one must understand to ensure that they remain a help and not a harm or hinderence to mankind.
+Drones stand to be a revolutionary part of our lives as we welcome the new, incoming era of automation. However, to be practical there are a few key concepts one must understand to ensure that they remain a help and not a hinderence to mankind.
 
 \subsubsection{No Fly Zones}
 No Fly Zones (which we will abbreviate as NFZs) are geographical areas where a drone is not allowed to enter or fly at any altitude. Examples of these may include Hyde Park, Buckingham Palace, airports and military locations. Typically these are static obstacles that will always remain a NFZ, however we could also consider cases when they could be created dynamically.\\
@@ -280,7 +282,7 @@ Only one drone type was used in AATC, with its specification outlined in Figure 
 The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow - thereby dealing with AATC's path-finding problem.
 
 \subsubsection{Dijkstra's Algorithm}
-Dijkstra's algorithm is a popular algorithm to find the shortest paths between nodes in a graph. When using a co-ordinate grid system, each coordinate could represent a node in a graph and thus the algorithm can also be used to find the shortest path between a source and destination. Appendix A is an example implementation of Dijkstra in Python. \\
+Dijkstra's algorithm is a popular algorithm to find the shortest paths between nodes in a graph. When using a co-ordinate grid system, each coordinate could represent a node in a graph and thus the algorithm can also be used to find the shortest path between a source and destination. See Appendix A for a python implementation. \\
 
 However, in the real world, we also have to consider the cost of computation and potentially make use of heuristics in order to return the shortest path given a limited amount of time. Especially in the drone case, we want to compute a good path as quick as possible in order to let the drone proceed along its way.
 
@@ -304,7 +306,7 @@ The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algor
 \begin{figure}[!hbpt]
   \center
   \includegraphics[width=\linewidth]{img/a_star_vs_optimal.png}
-  \caption{A* VS Optimal Path. \cite{Balaji2017}}
+  \caption{A* vs Optimal Path. \cite{Balaji2017}}
   \label{fig:a_star_vs_optimal}
 \end{figure}
 
