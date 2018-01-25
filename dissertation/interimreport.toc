@@ -15,26 +15,30 @@
 \contentsline {subsubsection}{\numberline {2.3.1}Dijkstra's Algorithm}{7}
 \contentsline {subsubsection}{\numberline {2.3.2}A* Algorithm}{8}
 \contentsline {subsubsection}{\numberline {2.3.3}Theta* Algorithm}{8}
-\contentsline {subsection}{\numberline {2.4}The Reactive Layer}{9}
-\contentsline {subsubsection}{\numberline {2.4.1}Where to take it next?}{10}
-\contentsline {subsection}{\numberline {2.5}Delivery Networks}{10}
-\contentsline {subsubsection}{\numberline {2.5.1}Planes}{10}
-\contentsline {subsubsection}{\numberline {2.5.2}Trucks}{10}
-\contentsline {subsubsection}{\numberline {2.5.3}Drones}{10}
-\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{10}
-\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{10}
-\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{10}
-\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{10}
-\contentsline {subsection}{\numberline {2.7}SpatialOS}{10}
-\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{10}
-\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{10}
-\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{10}
-\contentsline {section}{\numberline {3}Project Plan}{11}
-\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{11}
-\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{11}
-\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{11}
-\contentsline {subsection}{\numberline {3.4}Stretch Goals}{11}
-\contentsline {section}{\numberline {4}Evaluation Plan}{12}
-\contentsline {section}{References}{13}
-\contentsline {section}{Appendices}{14}
-\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{14}
+\contentsline {subsubsection}{\numberline {2.3.4}Lazy Theta* Algorithm}{9}
+\contentsline {subsubsection}{\numberline {2.3.5}Conclusions}{9}
+\contentsline {subsection}{\numberline {2.4}The Reactive Layer}{11}
+\contentsline {subsubsection}{\numberline {2.4.1}Artificial Potential Fields (APF)}{11}
+\contentsline {subsubsection}{\numberline {2.4.2}Equations for APF}{12}
+\contentsline {subsubsection}{\numberline {2.4.3}Genetic Algorithm}{13}
+\contentsline {subsection}{\numberline {2.5}Delivery Networks}{14}
+\contentsline {subsubsection}{\numberline {2.5.1}Planes}{14}
+\contentsline {subsubsection}{\numberline {2.5.2}Trucks}{14}
+\contentsline {subsubsection}{\numberline {2.5.3}Drones}{14}
+\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{14}
+\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{14}
+\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{14}
+\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{14}
+\contentsline {subsection}{\numberline {2.7}SpatialOS}{14}
+\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{14}
+\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{14}
+\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{14}
+\contentsline {section}{\numberline {3}Project Plan}{16}
+\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{16}
+\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{16}
+\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{16}
+\contentsline {subsection}{\numberline {3.4}Stretch Goals}{16}
+\contentsline {section}{\numberline {4}Evaluation Plan}{17}
+\contentsline {section}{References}{18}
+\contentsline {section}{Appendices}{19}
+\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{19}

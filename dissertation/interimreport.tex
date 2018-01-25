@@ -59,6 +59,22 @@
 \lstset{style=mystyle}
 
 \begin{document}
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
 
 \begin{titlepage}
 
@@ -224,7 +240,7 @@ Naturally, by searching less nodes on a graph, less computation is performed and
 But for all these positive aspects, one must remember that our use for this algorithm is to compute paths in a real world, which is not necessarily split up into a nice, clean grid. So we turn our attention to a modification of the A* algorithm: Theta*.
 
 \subsubsection{Theta* Algorithm}
-The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algorithm, which means that each jump from node to node in the returned path can be at any angle and not just up, down, left or right. This neat addition allows Theta* to be capable of finding near-optimal paths with a runtime comparable to A* \cite{Uras2015}. \\
+The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algorithm that introduces Line of Sight (LOS) checks, which means that each jump from node to node in the returned path can be at any angle and not just up, down, left or right. This neat addition allows Theta* to be capable of finding near-optimal paths with a runtime comparable to A* \cite{Uras2015}. \\
 
 \begin{figure}[!hbpt]
   \center
@@ -234,11 +250,117 @@ The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algor
 
 Being able to get as short a path as possible is absolutely vital in the drone use-case because they have limited flying time. After all, their batteries can only last so long before they need to be recharged. Therefore, it is important to ensure drones travel as little distance as possible in order to maximise the number of times they can be used between charges.
 
+\subsubsection{Lazy Theta* Algorithm}
+A further optimisation is to reduce the number of LOS checks performed, as found in another paper by the original authors of the Theta* algorithm\cite{Nash2010}. This algorithm assumes every node is in line of sight of its parent, and the LOS check is only performed once the child node is expanded on. If this turns out to be false, then the algorithm defaults to a typical A* approach. Reducing the number of LOS checks therefore improves the algorithm's overall performance.
+
+\subsubsection{Conclusions}
+As seen on Table 1, A* has far better execution times than both Theta* variants but when we get to Table 2 it is evident that Lazy/Theta* produces better paths because the total distance travelled by drones is fewer. Therefore, Lazy Theta* was chosen as the core algorithm for the Global Layer.
+
+\begin{table}[!hbpt]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Test Case                          & A*                                                          & \multicolumn{1}{l|}{Theta*}                                   & \multicolumn{1}{l|}{Lazy Theta*}                              \\ \hline
+Imperial Tunnel                    & \begin{tabular}[c]{@{}c@{}}118\\ 120\\ 121\end{tabular}     & \begin{tabular}[c]{@{}c@{}}141\\ 138\\ 137\end{tabular}       & \begin{tabular}[c]{@{}c@{}}124\\ 132\\ 129\end{tabular}       \\ \hline
+Imperial Tunnel Mean               & 119.7                                                       & 138.7                                                         & 128.3                                                         \\ \hline
+The Great London Beehive (GLB)           & \begin{tabular}[c]{@{}c@{}}859\\ 916\\ 894\end{tabular}     & \begin{tabular}[c]{@{}c@{}}1318\\ 1486\\ 1555\end{tabular}    & \begin{tabular}[c]{@{}c@{}}1166\\ 1075\\ 1201\end{tabular}    \\ \hline
+The GLB Mean                       & 889.7                                                       & 1453                                                          & 1147.4                                                        \\ \hline
+The Nightmare of Hyde Park (NHP)        & \begin{tabular}[c]{@{}c@{}}9771\\ 9687\\ 10118\end{tabular} & \begin{tabular}[c]{@{}c@{}}28436\\ 27970\\ 28273\end{tabular} & \begin{tabular}[c]{@{}c@{}}21330\\ 24786\\ 21609\end{tabular} \\ \hline
+The NHP Mean                       & \multicolumn{1}{l|}{9858.7}                                 & \multicolumn{1}{l|}{28226.4}                                  & 22575                                                         \\ \hline
+The Great Wall Of Imperial College (GWIC) & \begin{tabular}[c]{@{}c@{}}394\\ 447\\ 416\end{tabular}     & \begin{tabular}[c]{@{}c@{}}913\\ 910\\ 912\end{tabular}       & \begin{tabular}[c]{@{}c@{}}838\\ 840\\ 841\end{tabular}       \\ \hline
+The GWIC Mean                      & 419                                                         & 911.7                                                         & 839.7                                                         \\ \hline
+\end{tabular}
+\caption{Execution times for pathfinding algorithms on AATC test cases. \cite{Balaji2017}}
+\end{table}
+
+\begin{table}[!hbpt]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{1}{|c|}{Test Case} & A* & \multicolumn{1}{l|}{Theta* and Lazy Theta Star} \\ \hline
+Queen Threat & 6.11 & 5.98 \\ \hline
+The Imperial Tunnel & 10.83 & 10.22 \\ \hline
+The Great London Beehive & 52.63 & 49.77 \\ \hline
+The Nightmare of Hyde Park & 118.4 & 115.32 \\ \hline
+The Great Wall of Imperial College & 16.37 & 15.46 \\ \hline
+Multi Drone collision & 15.27 & 14.82 \\ \hline
+\end{tabular}
+\caption{Total path distances for all drones (in km). \cite{Balaji2017}}
+\end{table}
+
 \subsection{The Reactive Layer}
-The Reactive layer considers any dynamic obstacles that the drone may face, such as manned aviation, other drones and potentially dynamic NFZs.\\
+Given the list of waypoints that the Global Layer generates, the Reactive Layer's task is to provide the right speed and direction to drones whilst taking into consideration any dynamic obstacles that the drone may face, such as manned aviation, other drones and potentially dynamic NFZs.
+
+\subsubsection{Artificial Potential Fields (APF)}
+A novel way to approach this layer is to create an Artificial Potential Field (APF) in the area the drone operates in, and give each point in this field a potential\cite{Zhu2016}. By having a low potential for the destination and large potentials at obstacles, the drone simply has to move in a way to get to point of lowest potential. It is analogous to a magnet in a magnetic field, repelled by obstacles and attracted to its destination.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/obst.png}
+  \caption{APF with obstacles (green peaks) and a destination (blue trough). \cite{Balaji2017}}
+\end{figure}
+
+Although one might argue that the Global Layer is not needed anymore because the Reactive Layer solves the pathfinding problem, there are a few issues that arise with this idea. As Figure 5 shows, a U-shaped object poses a problem because the drone may be attracted to the destination and then quickly repelled by the obstacle, and then back to being attracted - and this cycle is seemingly endless.
+
+By introducing a random element, as in Rotating APF, the object is repelled in a slightly different direction each time to make it out of the trap and eventually reach its destination. Even this method, however, does not actually guarantee that the drone makes it past the U-shaped obstacle because it depends on how the random element behaves and also whether the drone has enough battery to be loitering for long.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/apf_comp.png}
+  \caption{Pure APF vs Rotating APF vs AATC Implementation. \cite{Balaji2017}}
+\end{figure}
+
+Clearly, integrating both layers proves most fruitful - as the waypoints generated by the Global Layer are used to quite literally navigate around the problematic aspects of the Reactive Layer. This integration that was implemented in the AATC project.
+
+\subsubsection{Equations for APF}
+The full set of equations used to obtain the recommended unnormalized velocity $v_{raw}$ of the drone is:
+$$U_a = \rho_ad_{goal}$$
+$$U_r =  \begin{cases}
+      \rho_r\frac{1}{d_{obst} - d_{safe}} & d_{obst} \leq d_{influence}   \\
+      0 & otherwise \\
+
+   \end{cases}
+$$
+$$U_{ret} = \rho_{ret}d_{last}$$
+$$U = U_a + U_r + U_{ret}$$
+$$\bm{v_{raw}} = \nabla U$$
+
+where $\nabla U$ is the gradient of U, and U is the magnitude of potential at a point\cite{Balaji2017}.
+
+Since $\nabla U$ is the recommended velocity, it can be computed from first principles:
+$$\nabla U(x,y,z) = \colvec{3}
+                {\frac{\delta U(x,y,z)}{\delta x}}
+                {\frac{\delta U(x,y,z)}{\delta y}}
+                {\frac{\delta U(x,y,z)}{\delta z}}
+                  \approx \colvec{3}
+                {U(x + 1,y,z) -  U(x,y,z)}
+                {U(x,y + 1,z) -  U(x,y,z)}
+                {U(x,y,z + 1) -  U(x,y,z)}$$
+
+The recommended velocity can now be computed by first calculating the potential at 4 points. To calculate the potential at a given point, one must find the sum of:
+\begin{itemize}
+  \item $U_a$ - attraction potential using euclidean distance to next waypoint.
+  \item $U_r$ - repulsion potential using euclidean distance to nearest obstacle.
+  \item $U_{ret}$ - return potential using euclidean distance to point from last time step.
+\end{itemize}
+
+To allow drones to gently come to their goals instead of shooting past and potentially missing, the recommended speed is calculated by taking the minimum of the drone's max speed and the distance to the goal:
+$$ speed = min(max\_speed, d_{goal}) $$
+
+The gradient $\nabla U$ is then normalised to be a unit vector before being multiplied by the speed to compute the final velocity.
+
+\subsubsection{Genetic Algorithm}
+By paying close attention to Section 2.4.2, we can identify several undefined constants: $\rho_r$, $\rho_a$, $\rho_{ret}$ and $d_{influence}$. The balance between them is key, because if $\rho_a$ is too high relative to $\rho_r$ then the drones ignore obstacles and die on impact, but if $\rho_r$ is too high then they will oscillate between objects and never reach their goal. After much fiddling about with "magic numbers", a genetic algorithm was employed to provide the optimal values for the specific drone model. \\
+
+Genetic algorithms are a metaheuristic inspired by the process of natural selection, and they are a way by which high-quality solutions can be generated for optimisation problems\cite{Mitchell1996}. In the case of AATC, the aforementioned constants need to be fine-tuned in order to produce an APF model that, to its best ability, does not return absurd, erroneous velocities.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.5\linewidth]{img/edrone.jpg}
+  \caption{The default AATC drone model. \cite{Balaji2017}}
+\end{figure}
 
 
-\subsubsection{Where to take it next?}
 
 \subsection{Delivery Networks}
 \subsubsection{Planes}

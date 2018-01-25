@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Balaji2017a}
 P.~Balaji, D.~Cattle, A.~Janoscikova, G.~Peycheva, J.~Matas, and S.~Wood.
@@ -17,6 +17,18 @@ P.~Balaji, D.~Cattle, A.~Janoscikova, G.~Peycheva, J.~Matas, and S.~Wood.
 R.~Koontz.
 \newblock {Drones to the Rescue}, 2014.
 
+\bibitem{Mitchell1996}
+M.~Mitchell.
+\newblock {An introduction to genetic algorithms}.
+\newblock {\em Computers {\&} Mathematics with Applications}, 32(6):133, 1996.
+
+\bibitem{Nash2010}
+A.~Nash, S.~Koenig, and C.~Tovey.
+\newblock {Lazy Theta *: Any-Angle Path Planning and Path Length Analysis in
+  3D}.
+\newblock {\em Third Annual Symposium on Combinatorial Search (SOCS-10) Lazy},
+  pages 153--154, 2010.
+
 \bibitem{Root}
 L.~Root.
 \newblock {Python implementation of Dijkstra's Algorithm}.
@@ -31,5 +43,11 @@ A.~Welch.
 \newblock {A cost-benefit analysis of Amazon Prime Air A Cost-Benefit Analysis
   of Amazon Prime Air}.
 \newblock page~57, 2015.
+
+\bibitem{Zhu2016}
+L.~Zhu, X.~Cheng, and F.-G. Yuan.
+\newblock {A 3D collision avoidance strategy for UAV with physical
+  constraints}.
+\newblock {\em Measurement}, 77(Complete):40--49, 2016.
 
 \end{thebibliography}
