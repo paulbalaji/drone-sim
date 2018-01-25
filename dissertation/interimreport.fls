@@ -293,6 +293,9 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 INPUT img/aatc_spaghett.jpg
 INPUT ./img/aatc_spaghett.jpg
 INPUT ./img/aatc_spaghett.jpg
+INPUT img/starship.jpg
+INPUT ./img/starship.jpg
+INPUT ./img/starship.jpg
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty

@@ -145,6 +145,54 @@
       \verb http://www.bbc.co.uk/news/uk-england-london-39457371
       \endverb
     \endentry
+    \entry{Hohenadel2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=6955f8555c0b1c94474f1f7e92d94fb0}{%
+           family={Hohenadel},
+           familyi={H\bibinitperiod},
+           given={Kristin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{6955f8555c0b1c94474f1f7e92d94fb0}
+      \strng{fullhash}{6955f8555c0b1c94474f1f7e92d94fb0}
+      \strng{authornamehash}{6955f8555c0b1c94474f1f7e92d94fb0}
+      \strng{authorfullhash}{6955f8555c0b1c94474f1f7e92d94fb0}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Slate}
+      \field{title}{{Skype Co-Founders Want to Overhaul Local Delivery With Sidewalk Robots}}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://www.slate.com/blogs/the%7B%5C_%7Deye/2015/11/02/starship%7B%5C_%7Dtechnologies%7B%5C_%7Dis%7B%5C_%7Dbuilding%7B%5C_%7Dself%7B%5C_%7Ddriving%7B%5C_%7Dsidewalk%7B%5C_%7Drobots%7B%5C_%7Dthat%7B%5C_%7Dwill.html
+      \endverb
+      \warn{\item Entry 'Hohenadel2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Kokalitcheva2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bcb392bd657f708273d75aabfb06f052}{%
+           family={Kokalitcheva},
+           familyi={K\bibinitperiod},
+           given={Kia},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{bcb392bd657f708273d75aabfb06f052}
+      \strng{fullhash}{bcb392bd657f708273d75aabfb06f052}
+      \strng{authornamehash}{bcb392bd657f708273d75aabfb06f052}
+      \strng{authorfullhash}{bcb392bd657f708273d75aabfb06f052}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Fortune}
+      \field{title}{{This Cute Self-Driving Robot Wants to Deliver Your Food or Laundry}}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://fortune.com/2016/04/06/dispatch-carry-delivery-robot/
+      \endverb
+      \warn{\item Entry 'Kokalitcheva2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{Koontz}{misc}{}
       \name{author}{1}{}{%
         {{hash=05d9e17c08986b980c213e4f65cbc11a}{%
@@ -169,6 +217,75 @@
       \field{urldateera}{ce}
       \verb{url}
       \verb http://www.kidsdiscover.com/teacherresources/drones-uavs-rescue/
+      \endverb
+    \endentry
+    \entry{Laris2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7727c54a6e40269b69af47e611a2cc4f}{%
+           family={Laris},
+           familyi={L\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{7727c54a6e40269b69af47e611a2cc4f}
+      \strng{fullhash}{7727c54a6e40269b69af47e611a2cc4f}
+      \strng{authornamehash}{7727c54a6e40269b69af47e611a2cc4f}
+      \strng{authorfullhash}{7727c54a6e40269b69af47e611a2cc4f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Chicago Tribune}
+      \field{title}{{Driverless delivery robots could be hitting D.C. sidewalks soon}}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://www.chicagotribune.com/bluesky/technology/ct-driverless-delivery-robots-20160328-story.html
+      \endverb
+      \warn{\item Entry 'Laris2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Lee2016}{article}{}
+      \name{author}{4}{}{%
+        {{hash=50863301d6c7bf1230f4680287469686}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Hau\bibnamedelima L.},
+           giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=ff9ae362164f9d8cc47db3757491e121}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yiwen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ba28015f35b6bde9cb87265b737b0182}{%
+           family={Gillai},
+           familyi={G\bibinitperiod},
+           given={Barchi},
+           giveni={B\bibinitperiod}}}%
+        {{hash=f572eb8db238b9d59f9e6cd3dbf1b5b0}{%
+           family={Rammohan},
+           familyi={R\bibinitperiod},
+           given={Sonali},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff0e902025cdbb7d7dfa1b97d7d67093}
+      \strng{fullhash}{d9009796a2166a0290a0f4233e6722f9}
+      \strng{authornamehash}{ff0e902025cdbb7d7dfa1b97d7d67093}
+      \strng{authorfullhash}{d9009796a2166a0290a0f4233e6722f9}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With this growth comes great opportunity for expansion in the market for product delivery. Recent technological innovations, new delivery firms, and new business models have unleashed major disruptions in how products are delivered to customers at the last mile. Whereas in the past customers ordering a product online could expect delivery by traditional players such as UPS, FedEx, or the U.S. Postal Service, today there are myriad options for who arranges for a product delivery and how it arrives in a customer's hands. Both traditional players and new entrants have opportunities to compete in this growing market. Given customers' complex expectations for flexible, fast, and cheap or free delivery, intense market competition, and the variable profitability of last-mile delivery, it is unclear which technologies, firms, and business models will ultimately gain a successful foothold. This paper examines four innovations expected to influence last-mile delivery in the next five to seven years: advanced algorithms and analytics, drones, robots, and driverless vehicles. We also examine key market entrants leveraging these technologies and their emerging business models. Last-mile delivery is generally arranged by one of three parties: a seller, an intermediary, or a buyer. Today, these parties can use traditional means of delivery or new algorithm-and analytics-driven applications (i.e., apps). Tomorrow, drones, robots, and driverless cars may become formidable new choices in various geographic settings and markets. New advanced algorithm-and analytics-based services catering to various customer needs will likely continue to emerge given low barriers to entry. Since the profitability of some of these models may be questionable, innovative firms that can reduce the cost structure through novel models may gain the ultimate advantage. Given that delivery services based on drones or driverless vehicles require heavy up-front investment, it is likely that large sellers or delivery providers will emerge as first movers in this space. In the near term, the U.S. Postal Service (USPS) has an opportunity to leverage advanced algorithms such as dynamic routing to improve the efficiency of existing business models and develop new models. USPS may also consider drones for select purposes in the future, such as delivery to traditionally high-cost remote locations. Given that robots are likely to have niche applications in smaller communities in the early stages of deployment, they may not present a large opportunity for the U.S. Postal Service in the near term. As the cost of driverless vehicles becomes more competitive with traditional vehicles over time, the USPS may have an opportunity to consider incorporating driverless vehicles within its fleet, with the potential of saving labor and other costs. In the longer term, there is potential for new technologies to improve the vast underutilization of private transport, which may lead to an entirely new transportation infrastructure and new commercial delivery models. For example, as driverless vehicles gain scale, one could envision more shared and/or public transportation. Crowdsourcing delivery companies could leverage private driverless vehicles or companies could deploy their own optimized driverless fleets for delivery. There may eventually come a time when drones, robots, driverless vehicles, and other technologies make it such that humans no longer conduct product delivery. In this scenario, delivery providers would need to rethink their business models and shift to offering services such as delivery orchestration and more. In the distant future, automated systems such as the Physical Internet, envisioned by a coalition of researchers, may develop that would deploy an open global logistics system and would continuously route and monitor products, leveraging the Internet of Things. While it is unclear who the winners and losers will be in future last-mile delivery, it is evident that many opportunities exist for firms to leverage new technologies in order to meet customers' fast-evolving needs.}
+      \field{journaltitle}{Stanford Business}
+      \field{number}{June}
+      \field{title}{{Technological Disruption and Innovation in Last-Mile Delivery}}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 26}
+      \range{pages}{26}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/TECHNOLOGICAL DISRUPTION AND INNOVATION IN LAST-MILE DELIVERY.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://www.gsb.stanford.edu/sites/gsb/files/publication-pdf/vcii-publication-technological-disruption-innovation-last-mile-delivery.pdf
       \endverb
     \endentry
     \entry{Mitchell1996}{article}{}
@@ -269,6 +386,30 @@
       \verb{url}
       \verb https://gist.github.com/econchick/4666413
       \endverb
+    \endentry
+    \entry{Souppouris2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=893c795d8f3f284f0b187466e7809897}{%
+           family={Souppouris},
+           familyi={S\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{893c795d8f3f284f0b187466e7809897}
+      \strng{fullhash}{893c795d8f3f284f0b187466e7809897}
+      \strng{authornamehash}{893c795d8f3f284f0b187466e7809897}
+      \strng{authorfullhash}{893c795d8f3f284f0b187466e7809897}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Engadget}
+      \field{title}{{Skype co-founders build delivery bot that rides on sidewalks}}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://www.engadget.com/2015/11/02/starship-technologies-local-delivery-robot/
+      \endverb
+      \warn{\item Entry 'Souppouris2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{stearns2001the}{book}{}
       \name{author}{1}{}{%

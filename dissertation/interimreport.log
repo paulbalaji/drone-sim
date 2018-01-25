@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  25 JAN 2018 09:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  25 JAN 2018 09:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -743,7 +743,28 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'interimreport.bbl' found.
- (./interimreport.bbl)
+ (./interimreport.bbl
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Hohenadel2015':
+(biblatex)                - Entry 'Hohenadel2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Kokalitcheva2016':
+(biblatex)                - Entry 'Kokalitcheva2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Laris2016':
+(biblatex)                - Entry 'Laris2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Souppouris2015':
+(biblatex)                - Entry 'Souppouris2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
+
+)
 Package biblatex Info: Reference section=0 on input line 63.
 Package biblatex Info: Reference segment=0 on input line 63.
 \colveccount=\count335
@@ -992,7 +1013,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [15 <./img/aatc_spaghett.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 428--429
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
@@ -1002,8 +1023,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+[16] <img/starship.jpg, id=83, 1204.5pt x 721.69624pt>
+File: img/starship.jpg Graphic file (type jpg)
+ <use img/starship.jpg>
+Package pdftex.def Info: img/starship.jpg used on input line 419.
+(pdftex.def)             Requested size: 426.79135pt x 255.72493pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
@@ -1013,7 +1039,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17]
+[17 <./img/starship.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1028,7 +1058,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19]
-Overfull \hbox (9.38739pt too wide) in paragraph at lines 456--456
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[20]
+Overfull \hbox (32.31133pt too wide) in paragraph at lines 469--469
+\OT1/cmtt/m/n/12 publication -[] pdf / vcii -[] publication -[] technological -[] disruption -[] innovation -[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21]
+Overfull \hbox (9.38739pt too wide) in paragraph at lines 469--469
 \OT1/cmr/m/it/12 ern, chrono-log-i-cally ar-ranged\OT1/cmr/m/n/12 . Boston: Houghton Mif-flin, 2001. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 0395652375. 
  []
 
@@ -1038,15 +1086,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[21]
-Overfull \hbox (6.62448pt too wide) in paragraph at lines 460--460
+[22]
+Overfull \hbox (6.62448pt too wide) in paragraph at lines 473--473
 []\OT1/cmr/bx/n/17.28 Python Im-ple-men-ta-tion of Di-jk-stra's Al-go-rithm 
  []
 
@@ -1054,13 +1095,13 @@ Overfull \hbox (6.62448pt too wide) in paragraph at lines 460--460
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 463.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 474.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 476.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 487.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 474.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 487.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1068,25 +1109,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22] (./interimreport.aux)
+[23] (./interimreport.aux)
 Package logreq Info: Writing requests to 'interimreport.run.xml'.
 \openout1 = `interimreport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22259 strings out of 492995
- 414455 string characters out of 6132703
- 909169 words of memory out of 5000000
- 25415 multiletter control sequences out of 15000+600000
+ 22275 strings out of 492995
+ 414945 string characters out of 6132703
+ 909379 words of memory out of 5000000
+ 25430 multiletter control sequences out of 15000+600000
  12835 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,14n,74p,1495b,3121s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,74p,4198b,3121s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on interimreport.pdf (23 pages, 2067621 bytes).
+Output written on interimreport.pdf (24 pages, 2740076 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
+ 162 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

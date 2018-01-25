@@ -52,40 +52,40 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.5.1}Delivery Robots}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.2}Autonomous Cars}{17}
+\contentsline {subsubsection}{\numberline {2.5.2}Autonomous Cars}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Drones}{17}
+\contentsline {subsubsection}{\numberline {2.5.3}Drones}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{17}
+\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{17}
+\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{17}
+\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{17}
+\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}SpatialOS}{17}
+\contentsline {subsection}{\numberline {2.7}SpatialOS}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{17}
+\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{17}
+\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{17}
+\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Project Plan}{18}
+\contentsline {section}{\numberline {3}Project Plan}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{18}
+\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{18}
+\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{18}
+\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4}Stretch Goals}{18}
+\contentsline {subsection}{\numberline {3.4}Stretch Goals}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Evaluation Plan}{19}
+\contentsline {section}{\numberline {4}Evaluation Plan}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{20}
+\contentsline {section}{References}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Appendices}{22}
+\contentsline {section}{Appendices}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{22}
+\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{23}
