@@ -17,6 +17,15 @@ P.~Balaji, D.~Cattle, A.~Janoscikova, G.~Peycheva, J.~Matas, and S.~Wood.
 R.~Koontz.
 \newblock {Drones to the Rescue}, 2014.
 
+\bibitem{Root}
+L.~Root.
+\newblock {Python implementation of Dijkstra's Algorithm}.
+
+\bibitem{Uras2015}
+T.~Uras and S.~Koenig.
+\newblock {An Empirical Comparison of Any-Angle Path-Planning Algorithms}.
+\newblock {\em Aaai}, 2015.
+
 \bibitem{Welch2015}
 A.~Welch.
 \newblock {A cost-benefit analysis of Amazon Prime Air A Cost-Benefit Analysis

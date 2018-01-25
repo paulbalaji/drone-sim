@@ -17,7 +17,17 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[toc,page]{appendix}
 \usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{color}
 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -26,6 +36,27 @@
 
 \setlength{\parindent}{0em}
 \renewcommand{\baselinestretch}{1.5}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \begin{document}
 
@@ -174,11 +205,26 @@ To this end, a \textit{Global Layer} was built to deal with static obstacles (su
 \subsection{The Global Layer}
 The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow - thereby dealing with AATC's path-finding problem.
 
+\subsubsection{Dijkstra's Algorithm}
+Dijkstra's algorithm is a popular algorithm to find the shortest paths between nodes in a graph. When using a co-ordinate grid system, each coordinate could represent a node in a graph and thus the algorithm can also be used to find the shortest path between a source and destination. Appendix A is an example implementation of Dijkstra in Python. \\
+
+However, in the real world, we also have to consider the cost of computation and potentially make use of heuristics in order to return the shortest path given a limited amount of time. Especially in the drone case, we want to compute a good path as quick as possible in order to let the drone proceed along its way.
+
+\subsubsection{A* Algorithm}
+Enter, the A* algorithm. This algorithm is a generalisation of Dijkstra's algorithm that reduces the number of nodes explored during the search process by use of a heuristic - typically a minimum distance to the destination. A benefit over Dijkstra in particular is that it considers the distance already traveled into account, which aids the heuristic mechanism. \\
+
+Naturally, by searching less nodes on a graph, less computation is performed and therefore A* has better performance than just using a pure form of Dijkstra's algorithm.
+
 \begin{figure}[!hbpt]
   \center
   \includegraphics[width=\linewidth]{img/search_comparison.png}
   \caption{Comparing popular search algorithms. \cite{Balaji2017}}
 \end{figure}
+
+But for all these positive aspects, one must remember that our use for this algorithm is to compute paths in a real world, which is not necessarily split up into a nice, clean grid. So we turn our attention to a modification of the A* algorithm: Theta*.
+
+\subsubsection{Theta* Algorithm}
+The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algorithm, which means that each jump from node to node in the returned path can be at any angle and not just up, down, left or right. This neat addition allows Theta* to be capable of finding near-optimal paths with a runtime comparable to A* \cite{Uras2015}. \\
 
 \begin{figure}[!hbpt]
   \center
@@ -186,11 +232,10 @@ The Global Layer holds the static representation of the world so that given a st
   \caption{A* VS Optimal Path. \cite{Balaji2017}}
 \end{figure}
 
+Being able to get as short a path as possible is absolutely vital in the drone use-case because they have limited flying time. After all, their batteries can only last so long before they need to be recharged. Therefore, it is important to ensure drones travel as little distance as possible in order to maximise the number of times they can be used between charges.
 
 \subsection{The Reactive Layer}
 The Reactive layer considers any dynamic obstacles that the drone may face, such as manned aviation, other drones and potentially dynamic NFZs.\\
-
-Gobbledygoop
 
 
 \subsubsection{Where to take it next?}
@@ -241,11 +286,39 @@ Example text 3
 
 \newpage
 
-%\begin{appendices}
-%\section{write something}
-%The contents...
-%\section{write something else}
-%The contents...
-%\end{appendices}
+\begin{appendices}
+\section{Python Implementation of Dijkstra's Algorithm}
+\begin{lstlisting}[language=Python, caption=Example Implementation from GitHub. \cite{Root}]
+def dijsktra(graph, initial):
+  visited = {initial: 0}
+  path = {}
+
+  nodes = set(graph.nodes)
+
+  while nodes:
+    min_node = None
+    for node in nodes:
+      if node in visited:
+        if min_node is None:
+          min_node = node
+        elif visited[node] < visited[min_node]:
+          min_node = node
+
+    if min_node is None:
+      break
+
+    nodes.remove(min_node)
+    current_weight = visited[min_node]
+
+    for edge in graph.edges[min_node]:
+      weight = current_weight + graph.distance[(min_node, edge)]
+      if edge not in visited or weight < visited[edge]:
+        visited[edge] = weight
+        path[edge] = min_node
+
+  return visited, path
+\end{lstlisting}
+
+\end{appendices}
 
 \end{document}
