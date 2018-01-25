@@ -12,27 +12,27 @@
 \contentsline {subsubsection}{\numberline {2.2.1}What is AATC?}{6}
 \contentsline {subsubsection}{\numberline {2.2.2}Technical Overview}{6}
 \contentsline {subsection}{\numberline {2.3}The Global Layer}{7}
-\contentsline {subsubsection}{\numberline {2.3.1}Dijkstra's Algorithm}{7}
+\contentsline {subsubsection}{\numberline {2.3.1}Dijkstra's Algorithm}{8}
 \contentsline {subsubsection}{\numberline {2.3.2}A* Algorithm}{8}
 \contentsline {subsubsection}{\numberline {2.3.3}Theta* Algorithm}{8}
-\contentsline {subsubsection}{\numberline {2.3.4}Lazy Theta* Algorithm}{9}
-\contentsline {subsubsection}{\numberline {2.3.5}Conclusions}{9}
-\contentsline {subsection}{\numberline {2.4}The Reactive Layer}{11}
-\contentsline {subsubsection}{\numberline {2.4.1}Artificial Potential Fields (APF)}{11}
-\contentsline {subsubsection}{\numberline {2.4.2}Equations for APF}{12}
-\contentsline {subsubsection}{\numberline {2.4.3}Genetic Algorithm}{13}
-\contentsline {subsection}{\numberline {2.5}Delivery Networks}{14}
-\contentsline {subsubsection}{\numberline {2.5.1}Planes}{14}
-\contentsline {subsubsection}{\numberline {2.5.2}Trucks}{14}
-\contentsline {subsubsection}{\numberline {2.5.3}Drones}{14}
-\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{14}
-\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{14}
-\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{14}
-\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{14}
-\contentsline {subsection}{\numberline {2.7}SpatialOS}{14}
-\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{14}
-\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{14}
-\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{14}
+\contentsline {subsubsection}{\numberline {2.3.4}Lazy Theta* Algorithm}{10}
+\contentsline {subsubsection}{\numberline {2.3.5}Conclusions}{10}
+\contentsline {subsection}{\numberline {2.4}The Reactive Layer}{12}
+\contentsline {subsubsection}{\numberline {2.4.1}Artificial Potential Fields (APF)}{12}
+\contentsline {subsubsection}{\numberline {2.4.2}Equations for APF}{13}
+\contentsline {subsubsection}{\numberline {2.4.3}Genetic Algorithm}{14}
+\contentsline {subsection}{\numberline {2.5}Delivery Networks}{15}
+\contentsline {subsubsection}{\numberline {2.5.1}Planes}{15}
+\contentsline {subsubsection}{\numberline {2.5.2}Trucks}{15}
+\contentsline {subsubsection}{\numberline {2.5.3}Drones}{15}
+\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{15}
+\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{15}
+\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{15}
+\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{15}
+\contentsline {subsection}{\numberline {2.7}SpatialOS}{15}
+\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{15}
+\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{15}
+\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{15}
 \contentsline {section}{\numberline {3}Project Plan}{16}
 \contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{16}
 \contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{16}

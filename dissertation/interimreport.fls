@@ -240,6 +240,9 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT img/aatc_tech_overview.jpg
 INPUT ./img/aatc_tech_overview.jpg
 INPUT ./img/aatc_tech_overview.jpg
+INPUT img/edrone.jpg
+INPUT ./img/edrone.jpg
+INPUT ./img/edrone.jpg
 INPUT img/search_comparison.png
 INPUT ./img/search_comparison.png
 INPUT ./img/search_comparison.png
@@ -254,9 +257,6 @@ INPUT ./img/apf_comp.png
 INPUT ./img/apf_comp.png
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
-INPUT img/edrone.jpg
-INPUT ./img/edrone.jpg
-INPUT ./img/edrone.jpg
 INPUT interimreport.bbl
 INPUT interimreport.bbl
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty

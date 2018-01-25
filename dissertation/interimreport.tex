@@ -212,11 +212,21 @@ Because it would have been too expensive to trial the system on actual drones, a
   \center
   \includegraphics[width=0.8\linewidth]{img/aatc_tech_overview.jpg}
   \caption{Technical Overview of AATC. \cite{Balaji2017}}
+  \label{fig:aatc_tech_overview}
 \end{figure}
 
 The system was designed with three challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.1. The last challenge is to design the system in such a way that it would be able to scale to hundreds and thousands of drones. \\
 
-To this end, a \textit{Global Layer} was built to deal with static obstacles (such as NFZs) by calculating a path for the drone around NFZs before it begins its journey. The second problem was tackled with a \textit{Reactive Layer} that handles non-static obstacles (such as manned aviation and other drones). This is the layer that would be providing the real-time updates to drones as they poll the server every second.
+To this end, a \textit{Global Layer} was built to deal with static obstacles (such as NFZs) by calculating a path for the drone around NFZs before it begins its journey. The second problem was tackled with a \textit{Reactive Layer} that handles non-static obstacles (such as manned aviation and other drones). This is the layer that would be providing the real-time updates to drones as they poll the server every second. \\
+
+Only one drone type was used in AATC, with its specification outlined in Figure \ref{fig:edrone}. It has a radius of 1m and a maximum velocity in any direction of 5 metres per second.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.4\linewidth]{img/edrone.jpg}
+  \caption{The default AATC drone model. \cite{Balaji2017}}
+  \label{fig:edrone}
+\end{figure}
 
 \subsection{The Global Layer}
 The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow - thereby dealing with AATC's path-finding problem.
@@ -235,6 +245,7 @@ Naturally, by searching less nodes on a graph, less computation is performed and
   \center
   \includegraphics[width=\linewidth]{img/search_comparison.png}
   \caption{Comparing popular search algorithms. \cite{Balaji2017}}
+  \label{fig:search_comparison}
 \end{figure}
 
 But for all these positive aspects, one must remember that our use for this algorithm is to compute paths in a real world, which is not necessarily split up into a nice, clean grid. So we turn our attention to a modification of the A* algorithm: Theta*.
@@ -246,6 +257,7 @@ The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algor
   \center
   \includegraphics[width=\linewidth]{img/a_star_vs_optimal.png}
   \caption{A* VS Optimal Path. \cite{Balaji2017}}
+  \label{fig:a_star_vs_optimal}
 \end{figure}
 
 Being able to get as short a path as possible is absolutely vital in the drone use-case because they have limited flying time. After all, their batteries can only last so long before they need to be recharged. Therefore, it is important to ensure drones travel as little distance as possible in order to maximise the number of times they can be used between charges.
@@ -254,7 +266,23 @@ Being able to get as short a path as possible is absolutely vital in the drone u
 A further optimisation is to reduce the number of LOS checks performed, as found in another paper by the original authors of the Theta* algorithm\cite{Nash2010}. This algorithm assumes every node is in line of sight of its parent, and the LOS check is only performed once the child node is expanded on. If this turns out to be false, then the algorithm defaults to a typical A* approach. Reducing the number of LOS checks therefore improves the algorithm's overall performance.
 
 \subsubsection{Conclusions}
-As seen on Table 1, A* has far better execution times than both Theta* variants but when we get to Table 2 it is evident that Lazy/Theta* produces better paths because the total distance travelled by drones is fewer. Therefore, Lazy Theta* was chosen as the core algorithm for the Global Layer.
+As seen on Table \ref{tab:aatc_exec_time}, A* has far better execution times than both Theta* variants but when we get to Table \ref{tab:aatc_total_drone_distance} it is evident that Lazy/Theta* produces better paths because the total distance travelled by drones is fewer. Therefore, Lazy Theta* was chosen as the core algorithm for the Global Layer.
+
+\begin{table}[!hbpt]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{1}{|c|}{Test Case} & A* & \multicolumn{1}{l|}{Theta* and Lazy Theta Star} \\ \hline
+Queen Threat & 6.11 & 5.98 \\ \hline
+The Imperial Tunnel & 10.83 & 10.22 \\ \hline
+The Great London Beehive & 52.63 & 49.77 \\ \hline
+The Nightmare of Hyde Park & 118.4 & 115.32 \\ \hline
+The Great Wall of Imperial College & 16.37 & 15.46 \\ \hline
+Multi Drone collision & 15.27 & 14.82 \\ \hline
+\end{tabular}
+\caption{Total path distances for all drones (in km). \cite{Balaji2017}}
+\label{tab:aatc_total_drone_distance}
+\end{table}
 
 \begin{table}[!hbpt]
 \centering
@@ -271,36 +299,24 @@ The Great Wall Of Imperial College (GWIC) & \begin{tabular}[c]{@{}c@{}}394\\ 447
 The GWIC Mean                      & 419                                                         & 911.7                                                         & 839.7                                                         \\ \hline
 \end{tabular}
 \caption{Execution times for pathfinding algorithms on AATC test cases. \cite{Balaji2017}}
+\label{tab:aatc_exec_time}
 \end{table}
 
-\begin{table}[!hbpt]
-\centering
-\begin{tabular}{|l|c|c|}
-\hline
-\multicolumn{1}{|c|}{Test Case} & A* & \multicolumn{1}{l|}{Theta* and Lazy Theta Star} \\ \hline
-Queen Threat & 6.11 & 5.98 \\ \hline
-The Imperial Tunnel & 10.83 & 10.22 \\ \hline
-The Great London Beehive & 52.63 & 49.77 \\ \hline
-The Nightmare of Hyde Park & 118.4 & 115.32 \\ \hline
-The Great Wall of Imperial College & 16.37 & 15.46 \\ \hline
-Multi Drone collision & 15.27 & 14.82 \\ \hline
-\end{tabular}
-\caption{Total path distances for all drones (in km). \cite{Balaji2017}}
-\end{table}
-
+\newpage
 \subsection{The Reactive Layer}
 Given the list of waypoints that the Global Layer generates, the Reactive Layer's task is to provide the right speed and direction to drones whilst taking into consideration any dynamic obstacles that the drone may face, such as manned aviation, other drones and potentially dynamic NFZs.
 
 \subsubsection{Artificial Potential Fields (APF)}
-A novel way to approach this layer is to create an Artificial Potential Field (APF) in the area the drone operates in, and give each point in this field a potential\cite{Zhu2016}. By having a low potential for the destination and large potentials at obstacles, the drone simply has to move in a way to get to point of lowest potential. It is analogous to a magnet in a magnetic field, repelled by obstacles and attracted to its destination.
+A novel way to approach this layer is to create an Artificial Potential Field (APF) in the area the drone operates in, and give each point in this field a potential\cite{Zhu2016}. By having a low potential for the destination and large potentials at obstacles, the drone simply has to move in a way to get to point of lowest potential. It is analogous to a magnet in a magnetic field, repelled by obstacles and attracted to its destination. \\
+
+Although one might argue that the Global Layer is not needed anymore because the Reactive Layer solves the pathfinding problem, there are a few issues that arise with this idea. As Figure \ref{fig:apf_comp} shows, a U-shaped object poses a problem because the drone may be attracted to the destination and then quickly repelled by the obstacle, and then back to being attracted - and this cycle is seemingly endless.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=\linewidth]{img/obst.png}
+  \includegraphics[width=0.9\linewidth]{img/obst.png}
   \caption{APF with obstacles (green peaks) and a destination (blue trough). \cite{Balaji2017}}
+  \label{fig:obst}
 \end{figure}
-
-Although one might argue that the Global Layer is not needed anymore because the Reactive Layer solves the pathfinding problem, there are a few issues that arise with this idea. As Figure 5 shows, a U-shaped object poses a problem because the drone may be attracted to the destination and then quickly repelled by the obstacle, and then back to being attracted - and this cycle is seemingly endless.
 
 By introducing a random element, as in Rotating APF, the object is repelled in a slightly different direction each time to make it out of the trap and eventually reach its destination. Even this method, however, does not actually guarantee that the drone makes it past the U-shaped obstacle because it depends on how the random element behaves and also whether the drone has enough battery to be loitering for long.
 
@@ -308,6 +324,7 @@ By introducing a random element, as in Rotating APF, the object is repelled in a
   \center
   \includegraphics[width=\linewidth]{img/apf_comp.png}
   \caption{Pure APF vs Rotating APF vs AATC Implementation. \cite{Balaji2017}}
+  \label{fig:apf_comp}
 \end{figure}
 
 Clearly, integrating both layers proves most fruitful - as the waypoints generated by the Global Layer are used to quite literally navigate around the problematic aspects of the Reactive Layer. This integration that was implemented in the AATC project.
@@ -353,12 +370,6 @@ The gradient $\nabla U$ is then normalised to be a unit vector before being mult
 By paying close attention to Section 2.4.2, we can identify several undefined constants: $\rho_r$, $\rho_a$, $\rho_{ret}$ and $d_{influence}$. The balance between them is key, because if $\rho_a$ is too high relative to $\rho_r$ then the drones ignore obstacles and die on impact, but if $\rho_r$ is too high then they will oscillate between objects and never reach their goal. After much fiddling about with "magic numbers", a genetic algorithm was employed to provide the optimal values for the specific drone model. \\
 
 Genetic algorithms are a metaheuristic inspired by the process of natural selection, and they are a way by which high-quality solutions can be generated for optimisation problems\cite{Mitchell1996}. In the case of AATC, the aforementioned constants need to be fine-tuned in order to produce an APF model that, to its best ability, does not return absurd, erroneous velocities.
-
-\begin{figure}[!hbpt]
-  \center
-  \includegraphics[width=0.5\linewidth]{img/edrone.jpg}
-  \caption{The default AATC drone model. \cite{Balaji2017}}
-\end{figure}
 
 
 
