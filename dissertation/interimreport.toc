@@ -56,17 +56,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.5.4}Conclusions}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}Optimising Drone Delivery}{20}
+\contentsline {subsection}{\numberline {2.6}Scalable Drone Network Architecture}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}Prioritising Economic Value}{20}
+\contentsline {subsection}{\numberline {2.7}Optimising Drone Delivery}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}Quality of Service}{20}
+\contentsline {subsection}{\numberline {2.8}Prioritising Economic Value}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Value Curve}{20}
+\contentsline {subsubsection}{\numberline {2.8.1}Quality of Service}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}skdbsa}{20}
+\contentsline {subsubsection}{\numberline {2.8.2}Value Curve}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.8}Scalable Drone Network Architecture}{20}
+\contentsline {subsubsection}{\numberline {2.8.3}skdbsa}{22}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.9}SpatialOS}{22}
 \defcounter {refsection}{0}\relax 

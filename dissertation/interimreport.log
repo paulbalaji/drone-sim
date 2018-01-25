@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  25 JAN 2018 18:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  25 JAN 2018 19:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1112,7 +1112,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19 <./img/aatc_spaghett.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
 
  []
 
@@ -1125,18 +1130,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [20] <img/bg_scalable_nodes.png, id=98, 1941.2525pt x 1419.3025pt>
 File: img/bg_scalable_nodes.png Graphic file (type png)
  <use img/bg_scalable_nodes.png>
-Package pdftex.def Info: img/bg_scalable_nodes.png used on input line 476.
+Package pdftex.def Info: img/bg_scalable_nodes.png used on input line 468.
 (pdftex.def)             Requested size: 192.0548pt x 140.40092pt.
  <img/bg_scalable_zones.png, id=99, 1929.2075pt x 1160.335pt>
 File: img/bg_scalable_zones.png Graphic file (type png)
  <use img/bg_scalable_zones.png>
-Package pdftex.def Info: img/bg_scalable_zones.png used on input line 484.
+Package pdftex.def Info: img/bg_scalable_zones.png used on input line 476.
 (pdftex.def)             Requested size: 192.0548pt x 115.50914pt.
  <img/bg_scalable_interzone.png, id=100, 1937.2375pt x 1204.5pt>
 File: img/bg_scalable_interzone.png Graphic file (type png)
  <use img/bg_scalable_interzone.png>
-Package pdftex.def Info: img/bg_scalable_interzone.png used on input line 492.
+Package pdftex.def Info: img/bg_scalable_interzone.png used on input line 484.
 (pdftex.def)             Requested size: 192.0548pt x 119.40944pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
+
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1145,12 +1154,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [21 <./img/bg_scalable_nodes.png> <./img/bg_scalable_zones.png> <./img/bg_scalable_interzone.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
@@ -1175,7 +1179,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [24]
-Overfull \hbox (2.85403pt too wide) in paragraph at lines 536--536
+Overfull \hbox (2.85403pt too wide) in paragraph at lines 533--533
 []\OT1/cmr/m/n/12 Flightradar24. \OT1/cmr/m/it/12 About Fligh-tradar24\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . flightradar24 .
  []
 
@@ -1186,7 +1190,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [25]
-Overfull \hbox (32.31133pt too wide) in paragraph at lines 536--536
+Overfull \hbox (32.31133pt too wide) in paragraph at lines 533--533
 \OT1/cmtt/m/n/12 publication -[] pdf / vcii -[] publication -[] technological -[] disruption -[] innovation -[]
  []
 
@@ -1204,7 +1208,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [27]
-Overfull \hbox (9.38739pt too wide) in paragraph at lines 536--536
+Overfull \hbox (9.38739pt too wide) in paragraph at lines 533--533
 \OT1/cmr/m/it/12 ern, chrono-log-i-cally ar-ranged\OT1/cmr/m/n/12 . Boston: Houghton Mif-flin, 2001. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 0395652375. 
  []
 
@@ -1215,7 +1219,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [28]
-Overfull \hbox (6.62448pt too wide) in paragraph at lines 540--540
+Overfull \hbox (6.62448pt too wide) in paragraph at lines 537--537
 []\OT1/cmr/bx/n/17.28 Python Im-ple-men-ta-tion of Di-jk-stra's Al-go-rithm 
  []
 
@@ -1223,13 +1227,13 @@ Overfull \hbox (6.62448pt too wide) in paragraph at lines 540--540
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 543.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 554.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 540.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 551.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 554.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 551.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1252,7 +1256,7 @@ Here is how much of TeX's memory you used:
  62i,14n,74p,4198b,3121s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on interimreport.pdf (30 pages, 3210366 bytes).
+Output written on interimreport.pdf (30 pages, 3210546 bytes).
 PDF statistics:
  188 PDF objects out of 1000 (max. 8388607)
  119 compressed objects within 2 object streams
