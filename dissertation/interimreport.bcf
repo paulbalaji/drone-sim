@@ -2157,23 +2157,32 @@
     <bcf:citekey order="12">Gibbs2017</bcf:citekey>
     <bcf:citekey order="13">Hall-Geisler</bcf:citekey>
     <bcf:citekey order="14">google_truck_patent</bcf:citekey>
-    <bcf:citekey order="15">Balaji2017a</bcf:citekey>
-    <bcf:citekey order="16">Balaji2017</bcf:citekey>
-    <bcf:citekey order="17">Balaji2017</bcf:citekey>
-    <bcf:citekey order="18">Balaji2017</bcf:citekey>
-    <bcf:citekey order="19">Uras2015</bcf:citekey>
-    <bcf:citekey order="20">Balaji2017</bcf:citekey>
-    <bcf:citekey order="21">Nash2010</bcf:citekey>
-    <bcf:citekey order="22">Balaji2017</bcf:citekey>
-    <bcf:citekey order="23">Balaji2017</bcf:citekey>
-    <bcf:citekey order="24">Zhu2016</bcf:citekey>
+    <bcf:citekey order="15">Bowcott2017</bcf:citekey>
+    <bcf:citekey order="16">Verrier2015</bcf:citekey>
+    <bcf:citekey order="17">Jarman2016</bcf:citekey>
+    <bcf:citekey order="18">BBCNews2017a</bcf:citekey>
+    <bcf:citekey order="19">Roberts2016</bcf:citekey>
+    <bcf:citekey order="20">Davies2017</bcf:citekey>
+    <bcf:citekey order="21">BBCNews2016</bcf:citekey>
+    <bcf:citekey order="22">Dillow2015</bcf:citekey>
+    <bcf:citekey order="23">Flightradar242018</bcf:citekey>
+    <bcf:citekey order="24">Balaji2017a</bcf:citekey>
     <bcf:citekey order="25">Balaji2017</bcf:citekey>
     <bcf:citekey order="26">Balaji2017</bcf:citekey>
     <bcf:citekey order="27">Balaji2017</bcf:citekey>
-    <bcf:citekey order="28">Mitchell1996</bcf:citekey>
+    <bcf:citekey order="28">Uras2015</bcf:citekey>
     <bcf:citekey order="29">Balaji2017</bcf:citekey>
-    <bcf:citekey order="30">Balaji2017</bcf:citekey>
-    <bcf:citekey order="31">Root</bcf:citekey>
+    <bcf:citekey order="30">Nash2010</bcf:citekey>
+    <bcf:citekey order="31">Balaji2017</bcf:citekey>
+    <bcf:citekey order="32">Balaji2017</bcf:citekey>
+    <bcf:citekey order="33">Zhu2016</bcf:citekey>
+    <bcf:citekey order="34">Balaji2017</bcf:citekey>
+    <bcf:citekey order="35">Balaji2017</bcf:citekey>
+    <bcf:citekey order="36">Balaji2017</bcf:citekey>
+    <bcf:citekey order="37">Mitchell1996</bcf:citekey>
+    <bcf:citekey order="38">Balaji2017</bcf:citekey>
+    <bcf:citekey order="39">Balaji2017</bcf:citekey>
+    <bcf:citekey order="40">Root</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

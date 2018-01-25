@@ -120,6 +120,53 @@
       \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/AATC{\_}report.pdf:pdf
       \endverb
     \endentry
+    \entry{BBCNews2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=be85bfd923685847d97e9908d0995c1b}{%
+           family={{BBC News}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{fullhash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authornamehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authorfullhash}{be85bfd923685847d97e9908d0995c1b}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{BBC News}
+      \field{title}{{'Drone' hits BA plane: Police investigate Heathrow incident}}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://www.bbc.co.uk/news/uk-36069002
+      \endverb
+      \warn{\item Entry 'BBCNews2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{BBCNews2017a}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=be85bfd923685847d97e9908d0995c1b}{%
+           family={{BBC News}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{fullhash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authornamehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authorfullhash}{be85bfd923685847d97e9908d0995c1b}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{BBC News}
+      \field{title}{{First UK police drone unit launched in Devon, Cornwall and Dorset}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.bbc.co.uk/news/uk-england-devon-40595540
+      \endverb
+    \endentry
     \entry{BBCNews2017}{misc}{}
       \name{author}{1}{}{%
         {{hash=be85bfd923685847d97e9908d0995c1b}{%
@@ -144,6 +191,100 @@
       \verb{url}
       \verb http://www.bbc.co.uk/news/uk-england-london-39457371
       \endverb
+    \endentry
+    \entry{Bowcott2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=508d3dc0127d0b41c9fdc023060e6ac6}{%
+           family={Bowcott},
+           familyi={B\bibinitperiod},
+           given={Owen},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{508d3dc0127d0b41c9fdc023060e6ac6}
+      \strng{fullhash}{508d3dc0127d0b41c9fdc023060e6ac6}
+      \strng{authornamehash}{508d3dc0127d0b41c9fdc023060e6ac6}
+      \strng{authorfullhash}{508d3dc0127d0b41c9fdc023060e6ac6}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Law Commission to draw up legislation for England and Wales and also update rules on surrogacy and disposal of dead bodies}
+      \field{booktitle}{The Guardian}
+      \field{title}{{Laws for safe use of driverless cars to be ready by 2021}}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.theguardian.com/law/2017/dec/14/laws-safe-use-driverless-cars-ready-2021-law-commission
+      \endverb
+      \warn{\item Entry 'Bowcott2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Davies2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fc94a151f33661c6bd88d07b4ef023f7}{%
+           family={Davies},
+           familyi={D\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{fc94a151f33661c6bd88d07b4ef023f7}
+      \strng{fullhash}{fc94a151f33661c6bd88d07b4ef023f7}
+      \strng{authornamehash}{fc94a151f33661c6bd88d07b4ef023f7}
+      \strng{authorfullhash}{fc94a151f33661c6bd88d07b4ef023f7}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Guardian}
+      \field{title}{{Drone flew 'within wingspan' of plane approaching Heathrow}}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.theguardian.com/technology/2017/mar/31/drone-wingspan-plane-approaching-heathrow-near-misses
+      \endverb
+      \warn{\item Entry 'Davies2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Dillow2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=74a56d6c0cb2db0c970fefeb48915aad}{%
+           family={Dillow},
+           familyi={D\bibinitperiod},
+           given={Clay},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{74a56d6c0cb2db0c970fefeb48915aad}
+      \strng{fullhash}{74a56d6c0cb2db0c970fefeb48915aad}
+      \strng{authornamehash}{74a56d6c0cb2db0c970fefeb48915aad}
+      \strng{authorfullhash}{74a56d6c0cb2db0c970fefeb48915aad}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Fortune}
+      \field{title}{{This unsexy technology is set to revolutionize the drone industry}}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://fortune.com/2015/05/05/drone-technology/
+      \endverb
+      \warn{\item Entry 'Dillow2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Flightradar242018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b695132c93d27aeed6669366487ec0ae}{%
+           family={Flightradar24},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{b695132c93d27aeed6669366487ec0ae}
+      \strng{fullhash}{b695132c93d27aeed6669366487ec0ae}
+      \strng{authornamehash}{b695132c93d27aeed6669366487ec0ae}
+      \strng{authorfullhash}{b695132c93d27aeed6669366487ec0ae}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{About Flightradar24}}
+      \field{year}{2018}
+      \verb{url}
+      \verb https://www.flightradar24.com
+      \endverb
+      \warn{\item Entry 'Flightradar242018' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Gibbs2017}{misc}{}
       \name{author}{1}{}{%
@@ -219,6 +360,41 @@
       \verb http://www.slate.com/blogs/the%7B%5C_%7Deye/2015/11/02/starship%7B%5C_%7Dtechnologies%7B%5C_%7Dis%7B%5C_%7Dbuilding%7B%5C_%7Dself%7B%5C_%7Ddriving%7B%5C_%7Dsidewalk%7B%5C_%7Drobots%7B%5C_%7Dthat%7B%5C_%7Dwill.html
       \endverb
       \warn{\item Entry 'Hohenadel2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Jarman2016}{unpublished}{}
+      \name{author}{3}{}{%
+        {{hash=51bdbfbf628cb733ac748a1a0b72a0eb}{%
+           family={Jarman},
+           familyi={J\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ac2a4c618788fb59284f33ce6eb3249b}{%
+           family={Vesey},
+           familyi={V\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9029a8f8133fda90423e7e4160d8af9c}{%
+           family={Febvre},
+           familyi={F\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{51a18051885b70d63de11d3c463e52f9}
+      \strng{fullhash}{51a18051885b70d63de11d3c463e52f9}
+      \strng{authornamehash}{51a18051885b70d63de11d3c463e52f9}
+      \strng{authorfullhash}{51a18051885b70d63de11d3c463e52f9}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{UAVs for UK Agriculture : Creating an Invisible Precision Farming Technology - White Paper}}
+      \field{year}{2016}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/White-paper-UAVs-and-agriculture{\_}Final2.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://sa.catapult.org.uk/wp-content/uploads/2016/07/White-paper-UAVs-and-agriculture%7B%5C_%7DFinal2.pdf
+      \endverb
     \endentry
     \entry{Kokalitcheva2016}{misc}{}
       \name{author}{1}{}{%
@@ -448,6 +624,38 @@
       \endverb
       \keyw{"AAAI,artificial intelligence"}
     \endentry
+    \entry{Roberts2016}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=65b931b85958ad179656a050cf28cf72}{%
+           family={Roberts},
+           familyi={R\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=92dbe6e28eb5ab3fdfd9b671aa393772}{%
+           family={Formula},
+           familyi={F\bibinitperiod},
+           given={Unlike},
+           giveni={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{06636b0e22ceda6df4f51fecbf0d655a}
+      \strng{fullhash}{06636b0e22ceda6df4f51fecbf0d655a}
+      \strng{authornamehash}{06636b0e22ceda6df4f51fecbf0d655a}
+      \strng{authorfullhash}{06636b0e22ceda6df4f51fecbf0d655a}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{phys.org}
+      \field{number}{February}
+      \field{title}{{What is FPV drone racing ?}}
+      \field{year}{2016}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/2016-02-fpv-drone.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://phys.org/news/2016-02-fpv-drone.html
+      \endverb
+    \endentry
     \entry{Root}{misc}{}
       \name{author}{1}{}{%
         {{hash=bfc0b8a4af8324daecdb753c8c90ee7b}{%
@@ -581,6 +789,30 @@
       \verb{file}
       \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/An Empirical Comparison of Any-Angle Path-Planning Algorithms.pdf:pdf
       \endverb
+    \endentry
+    \entry{Verrier2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5d7afa3347c974cb51a13e01c10d85a9}{%
+           family={Verrier},
+           familyi={V\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5d7afa3347c974cb51a13e01c10d85a9}
+      \strng{fullhash}{5d7afa3347c974cb51a13e01c10d85a9}
+      \strng{authornamehash}{5d7afa3347c974cb51a13e01c10d85a9}
+      \strng{authorfullhash}{5d7afa3347c974cb51a13e01c10d85a9}
+      \field{sortinit}{V}
+      \field{sortinithash}{555737dafdcf1396ebfeae5822e5bde2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Los Angeles Times}
+      \field{title}{{Drones are providing film and TV viewers a new perspective on the action}}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://www.latimes.com/entertainment/envelope/cotown/la-et-ct-drones-hollywood-20151008-story.html
+      \endverb
+      \warn{\item Entry 'Verrier2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Welch2015}{article}{}
       \name{author}{1}{}{%
