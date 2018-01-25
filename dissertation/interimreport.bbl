@@ -286,6 +286,53 @@
       \endverb
       \warn{\item Entry 'Flightradar242018' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
+    \entry{Gharibi2016}{article}{}
+      \name{author}{3}{}{%
+        {{hash=65d1aceea34f313b05354da2ed516090}{%
+           family={Gharibi},
+           familyi={G\bibinitperiod},
+           given={Mirmojtaba},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d3d1b736ac1075a3461208441558f16d}{%
+           family={Boutaba},
+           familyi={B\bibinitperiod},
+           given={Raouf},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ae9f2ab934885b3f9db88f6abd841c37}{%
+           family={Waslander},
+           familyi={W\bibinitperiod},
+           given={Steven\bibnamedelima L.},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{eaa45650f376519308757a137c392803}
+      \strng{fullhash}{eaa45650f376519308757a137c392803}
+      \strng{authornamehash}{eaa45650f376519308757a137c392803}
+      \strng{authorfullhash}{eaa45650f376519308757a137c392803}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Internet of Drones (IoD) is a layered network control architecture designed mainly for coordinating the access of unmanned aerial vehicles to controlled airspace, and providing navigation services between locations referred to as nodes. The IoD provides generic services for various drone applications such as package delivery, traffic surveillance, search and rescue and more. In this paper, we present a conceptual model of how such an architecture can be organized and we specify the features that an IoD system based on our architecture should implement. For doing so, we extract key concepts from three existing large scale networks, namely the air traffic control network, the cellular network, and the Internet and explore their connections to our novel architecture for drone traffic management.}
+      \field{eprinttype}{arXiv}
+      \field{isbn}{978-1-4673-1731-3}
+      \field{issn}{21693536}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{{Internet of Drones}}
+      \field{volume}{4}
+      \field{year}{2016}
+      \field{pages}{1148\bibrangedash 1162}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2016.2537208
+      \endverb
+      \verb{eprint}
+      \verb 1601.01289
+      \endverb
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/1601.01289.pdf:pdf
+      \endverb
+      \keyw{Internet,Internet of Drones (IoD),Layered architecture,air traffic control (ATC),cellular network,low altitude air traffic management,unmanned aerial vehicle (UAV)}
+    \endentry
     \entry{Gibbs2017}{misc}{}
       \name{author}{1}{}{%
         {{hash=1c66aa777a8186f49f6b6b70e1a51cd3}{%

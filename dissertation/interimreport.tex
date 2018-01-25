@@ -216,15 +216,13 @@ In fact, Google has obtained a patent for an autonomous delivery truck \cite{Hal
 Although current regulations dictate that a driver must remain present in the vehicle in the event of software performing differently to expections, this is a necessary precaution whilst driverless systems are still being tested - with further amendments to these laws in sight once these systems can be deemed safe for public use\cite{Bowcott2017}.
 
 \subsubsection{Drones}
-The concept of drones has been around for decades, particularly in the military, but only in recent times has the technology evolved to a point where anyone can walk into a consumer electronics store and purchase a drone for their own private use. Although these are manned, it is admirable that many are seeing the benefits of drones in film/television\cite{Verrier2015}, agriculture\cite{Jarman2016}, policing\cite{BBCNews2017a} and other exotic activities\cite{Roberts2016}. \\
+The concept of drones has been around for decades, particularly in the military, but only in recent times has the technology evolved to a point where anyone can walk into a consumer electronics store and purchase a drone for their own private use. Though these are manned, it is admirable that many witness the benefits of drones in film/television\cite{Verrier2015}, agriculture\cite{Jarman2016}, policing\cite{BBCNews2017a} and other exotic activities\cite{Roberts2016}. \\
 
-Being able to fly is itself a differentiating factor from delivery robots or other autonomous vehicles, because drones are not held hostage to traffic jams or congestion - after all, the sky is a far greater expanse than even the most intricate of road networks. Not only that, they can literally travel ``as the crow flies''. \\
+Being able to fly allows drones to not be held hostage to traffic jams or congestion - after all, the sky is a far greater expanse than even the most intricate of road networks. Not only that, they can literally travel ``as the crow flies'' - allowing them to access remote and previously hard-to-reach areas.\\
 
-As with most groundbreaking tech in its infancy, drones usually achieves front page headlines when things go wrong. There have been several near-misses \cite{Davies2017} and accidents\cite{BBCNews2016} at just Heathrow airpot alone, which indicates that better regulation is needed to improve the safety of drones as well as manned aviation that share the same airspace. \\
+Despite several near-misses \cite{Davies2017} and accidents\cite{BBCNews2016} at just Heathrow airpot alone, engineering teams across the world are working on ways to improve drone visibility to its surroundings - one such technology being automatic dependent surveillance-broadcast (ADS-B) \cite{Dillow2015}. Drones with ADS-B work by determining their own geolocation and velocity in order to broadcast this back to the global network.\\
 
-Nevertheless, engineering teams across the world are working on ways to improve drone visibility to its surroundings - one such technology being automatic dependent surveillance-broadcast (ADS-B) \cite{Dillow2015}. Drones with ADS-B work by determining their own geolocation and velocity in order to broadcast this back to the global network.\\
-
-ADS-B is already widely used in aircraft, enabling flight-tracking services such as flightradar24 to exist\cite{Flightradar242018}, but recent developments have allowed the ADS-B units to be compact and cost-effective enough to be suitable for drones. As more drones adopt this technology, instead of having to get instant updates from a drone directly, autonomous drone traffic control systems could make use of the shared global network for their scheduling and routing calculations.
+ADS-B is already widely used in aircraft, enabling flight-tracking services such as flightradar24 to exist\cite{Flightradar242018}, but recent developments have allowed the ADS-B units to be compact and cost-effective enough to be suitable for drones. As more drones adopt this technology, instead of having to get instant updates from a drone directly, autonomous drone traffic control systems could make use of the shared global network for their scheduling and routing calculations. \\
 
 Over time, an increasing percentage of the world's drones will likely join these shared autonomous systems. This could enable different delivery networks to manage their own fleets as their own air traffic controllers, all the while making use of the shared pool of readable data to identify, intercept and avoid drone collisions at the earliest stage in their pathfinding as possible.
 
@@ -282,7 +280,9 @@ Only one drone type was used in AATC, with its specification outlined in Figure 
 The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow - thereby dealing with AATC's path-finding problem.
 
 \subsubsection{Dijkstra's Algorithm}
-Dijkstra's algorithm is a popular algorithm to find the shortest paths between nodes in a graph. When using a co-ordinate grid system, each coordinate could represent a node in a graph and thus the algorithm can also be used to find the shortest path between a source and destination. See Appendix A for a python implementation. \\
+Dijkstra's algorithm is a popular algorithm to find the shortest paths between nodes in a graph. When using a co-ordinate grid system, each coordinate could represent a node in a graph and thus the algorithm can also be used to find the shortest path between a source and destination. \\
+
+See Appendix A for an example python implementation of this algorithm. \\
 
 However, in the real world, we also have to consider the cost of computation and potentially make use of heuristics in order to return the shortest path given a limited amount of time. Especially in the drone case, we want to compute a good path as quick as possible in order to let the drone proceed along its way.
 
@@ -454,6 +454,7 @@ Influence distance & 300 & 600 & 100  & 4     \\ \hline
 \subsubsection{Conclusions}
 In the end, the genetic algorithms only improved the simulations by about 2\%\cite{Balaji2017} which could mean that the original range of constants was already a good set to work with. However, there is still scope for even greater improvements if the genetic algorithm was to be run with a greater number of test scenarios, bigger range of values to cycle through, and generally larger simulations.
 
+\subsection{Optimising Drone Delivery}
 
 
 \subsection{Prioritising Economic Value}
@@ -463,6 +464,42 @@ In the end, the genetic algorithms only improved the simulations by about 2\%\ci
 \subsubsection{Quality of Service}
 \subsubsection{Value Curve}
 \subsubsection{skdbsa}
+
+\subsection{Scalable Drone Network Architecture}
+The \textit{Internet of Drones} is a ``layered network control architecture'' to deal with the growing presence of drones in a secure, scalable manner\cite{Gharibi2016}. The author notes that as the volume of drones hits several thousands for a limited region, any centralised air traffic control system would not be able to handle the load, thus leading to the contribution of a decentralised solution. \\
+
+The author considers splitting the problem into several layers:
+\begin{enumerate}
+  \item \textbf{Nodes} - points of interest connected together by \textit{airways} and \textit{intersections}.
+  \begin{figure}[!hbpt]
+    \center
+    \includegraphics[width=0.45\linewidth]{img/bg_scalable_nodes.png}
+    \caption{Nodes, airways and intersections.}
+    \label{fig:bg_scalable_nodes}
+  \end{figure}
+
+  \item \textbf{Zones} - collections of nodes, airways and intersections within a given area.
+  \begin{figure}[!hbpt]
+    \center
+    \includegraphics[width=0.45\linewidth]{img/bg_scalable_zones.png}
+    \caption{A zone graph, with arrows indicating airways.}
+    \label{fig:bg_scalable_zones}
+  \end{figure}
+
+  \item \textbf{Zone Collections} - how zones interconnect through \textit{gates}.
+  \begin{figure}[!hbpt]
+    \center
+    \includegraphics[width=0.45\linewidth]{img/bg_scalable_interzone.png}
+    \caption{Inter-zone graph, note there can be more than 2 gates at zone boundaries.}
+    \label{fig:bg_scalable_interzone}
+  \end{figure}
+\end{enumerate}
+
+Much like AATC, separating the problem into different layers helps to abstract scalability issues, improve maintainability of the codebase and allow greater flexiblity to improve specific layers as time goes on. \cite{Gharibi2016}
+
+
+
+
 
 \subsection{SpatialOS}
 \subsubsection{Unity SDK}

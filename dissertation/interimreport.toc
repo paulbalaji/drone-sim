@@ -56,36 +56,40 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.5.4}Conclusions}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}Prioritising Economic Value}{20}
+\contentsline {subsection}{\numberline {2.6}Optimising Drone Delivery}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.1}Quality of Service}{20}
+\contentsline {subsection}{\numberline {2.7}Prioritising Economic Value}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.2}Value Curve}{20}
+\contentsline {subsubsection}{\numberline {2.7.1}Quality of Service}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.3}skdbsa}{20}
+\contentsline {subsubsection}{\numberline {2.7.2}Value Curve}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}SpatialOS}{20}
+\contentsline {subsubsection}{\numberline {2.7.3}skdbsa}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{20}
+\contentsline {subsection}{\numberline {2.8}Scalable Drone Network Architecture}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{20}
+\contentsline {subsection}{\numberline {2.9}SpatialOS}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{20}
+\contentsline {subsubsection}{\numberline {2.9.1}Unity SDK}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Project Plan}{22}
+\contentsline {subsubsection}{\numberline {2.9.2}Layered Simulation}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{22}
+\contentsline {subsubsection}{\numberline {2.9.3}Distributed Simulation}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{22}
+\contentsline {section}{\numberline {3}Project Plan}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{22}
+\contentsline {subsection}{\numberline {3.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4}Stretch Goals}{22}
+\contentsline {subsection}{\numberline {3.2}Phase 2: Implementing a Scheduling Layer}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Evaluation Plan}{23}
+\contentsline {subsection}{\numberline {3.3}Phase 3: Visualising the Economic Value}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{24}
+\contentsline {subsection}{\numberline {3.4}Stretch Goals}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Appendices}{28}
+\contentsline {section}{\numberline {4}Evaluation Plan}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{28}
+\contentsline {section}{References}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Appendices}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{29}
