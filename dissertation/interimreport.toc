@@ -60,32 +60,32 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.7}SpatialOS}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{22}
+\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Layered Simulation}{22}
+\contentsline {subsubsection}{\numberline {2.7.2}Abstraction}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}Distributed Simulation}{22}
+\contentsline {subsubsection}{\numberline {2.7.3}Developer Tools}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Prioritising Economic Value}{23}
+\contentsline {subsubsection}{\numberline {2.7.4}Layered Simulation}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Quality of Service}{23}
+\contentsline {section}{\numberline {3}Prioritising Economic Value}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Value Curve}{23}
+\contentsline {subsection}{\numberline {3.1}Quality of Service Value Curve}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Project Plan}{24}
+\contentsline {section}{\numberline {4}Project Plan}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{24}
+\contentsline {subsection}{\numberline {4.1}Phase 1: Porting Global and Reactive Layers to SpatialOS}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Phase 2: Implementing a Scheduling Layer}{24}
+\contentsline {subsection}{\numberline {4.2}Phase 2: Implementing a Scheduling Layer}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Phase 3: Visualising the Economic Value}{24}
+\contentsline {subsection}{\numberline {4.3}Phase 3: Visualising the Economic Value}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Stretch Goals}{24}
+\contentsline {subsection}{\numberline {4.4}Stretch Goals}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Evaluation Plan}{25}
+\contentsline {section}{\numberline {5}Evaluation Plan}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{26}
+\contentsline {section}{References}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Appendices}{30}
+\contentsline {section}{Appendices}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{30}
+\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{33}

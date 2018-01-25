@@ -217,6 +217,33 @@
       \endverb
       \warn{\item Entry 'Bowcott2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
+    \entry{Brighting}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a1f4f3be963d2d9e7db12b5f357c7cfa}{%
+           family={Brighting},
+           familyi={B\bibinitperiod},
+           given={Callum},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{a1f4f3be963d2d9e7db12b5f357c7cfa}
+      \strng{fullhash}{a1f4f3be963d2d9e7db12b5f357c7cfa}
+      \strng{authornamehash}{a1f4f3be963d2d9e7db12b5f357c7cfa}
+      \strng{authorfullhash}{a1f4f3be963d2d9e7db12b5f357c7cfa}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{forums.improbable.io}
+      \field{title}{{Crowd Sim In SpatialOS: How to scale a deployment?}}
+      \field{urlday}{17}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://forums.improbable.io/t/crowd-sim-in-spatialos-how-to-scale-a-deployment/2547
+      \endverb
+    \endentry
     \entry{Davies2017}{misc}{}
       \name{author}{1}{}{%
         {{hash=fc94a151f33661c6bd88d07b4ef023f7}{%
@@ -408,6 +435,27 @@
       \endverb
       \warn{\item Entry 'Hohenadel2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
+    \entry{ImprobableWorldsLtd.2018c}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Improbable Forums}}
+      \field{year}{2018}
+      \verb{url}
+      \verb https://forums.improbable.io/
+      \endverb
+      \warn{\item Entry 'ImprobableWorldsLtd.2018c' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{ImprobableWorldsLtd.2018a}{misc}{}
       \name{author}{1}{}{%
         {{hash=10e3b8220f2911974963b0a4389f6222}{%
@@ -428,6 +476,30 @@
       \verb https://improbable.io/
       \endverb
       \warn{\item Entry 'ImprobableWorldsLtd.2018a' (library.bib): Invalid format '23rd October 2017' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{ImprobableWorldsLtd.2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Quest- an iOS io game from Improbable}}
+      \field{urlday}{12}
+      \field{urlmonth}{11}
+      \field{urlyear}{2017}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://improbable.io/games/blog/quest-an-ios-io-game-from-improbable-io
+      \endverb
     \endentry
     \entry{ImprobableWorldsLtd.2018b}{misc}{}
       \name{author}{1}{}{%
@@ -467,6 +539,27 @@
       \verb https://docs.improbable.io/reference/12.0/shared/concepts/spatialos%7B%5C#%7Ddeveloping-with-spatialos
       \endverb
       \warn{\item Entry 'ImprobableWorldsLtd.2018' (library.bib): Invalid format '23rd Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{ImprobableWorldsLtd.2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{What we found when we simulated the backbone of the entire Internet on SpatialOS}}
+      \field{year}{2016}
+      \verb{url}
+      \verb https://improbable.io/company/news/2016/03/24/what-we-found-when-we-simulated-the-backbone-of-the-entire-internet-on-spatialos
+      \endverb
+      \warn{\item Entry 'ImprobableWorldsLtd.2016' (library.bib): Invalid format '18th November 2017' of date field 'urldate' - ignoring}
     \endentry
     \entry{Jarman2016}{unpublished}{}
       \name{author}{3}{}{%
@@ -692,6 +785,30 @@
       \verb{url}
       \verb http://pdfpiw.uspto.gov/.piw?PageNum=0%7B%5C&%7Ddocid=09256852%7B%5C&%7DIDKey=EA66D62BF248%7B%5C%%7D0D%7B%5C%%7D0A%7B%5C&%7DHomeUrl=http%7B%5C%%7D3A%7B%5C%%7D2F%7B%5C%%7D2Fpatft.uspto.gov%7B%5C%%7D2Fnetacgi%7B%5C%%7D2Fnph-Parser%7B%5C%%7D3FSect1%7B%5C%%7D3DPTO2%7B%5C%%7D2526Sect2%7B%5C%%7D3DHITOFF%7B%5C%%7D2526p%7B%5C%%7D3D1%7B%5C%%7D2526u%7B%5C%%7D3D%7B%5C%%7D25252Fnetahtml%7B%5C%%7D25252FPTO%7B%5C%%7D25252Fsearch-bool.html%7B%5C%%7D2526r%7B%5C%%7D3D25%7B%5C%%7D2526f%7B%5C%%7D3DG%7B%5C%%7D2526l%7B%5C%%7D3D50%7B%5C%%7D2526co1%7B%5C%%7D3DAND%7B%5C%%7D2526d%7B%5C%%7D3DPTXT%7B%5C%%7D2526s1%7B%5C%%7D3DGoogle.ASNM.%7B%5C%%7D2526OS%7B%5C%%7D3DAN%7B%5C%%7D2FGoogle%7B%5C%%7D2526RS%7B%5C%%7D3DAN%7B%5C%%7D2FGoogle
       \endverb
+    \endentry
+    \entry{Narula2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ebccecff88d6c8dabaea62ef59affc0a}{%
+           family={Narula},
+           familyi={N\bibinitperiod},
+           given={Herman},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebccecff88d6c8dabaea62ef59affc0a}
+      \strng{fullhash}{ebccecff88d6c8dabaea62ef59affc0a}
+      \strng{authornamehash}{ebccecff88d6c8dabaea62ef59affc0a}
+      \strng{authorfullhash}{ebccecff88d6c8dabaea62ef59affc0a}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Improbable YouTube Channel}
+      \field{title}{{Google Cloud Next '17 | Herman Narula Day 3 Keynote}}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://youtu.be/fTuijWHwAsk?t=4m46s
+      \endverb
+      \warn{\item Entry 'Narula2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Nash2010}{article}{}
       \name{author}{3}{}{%
