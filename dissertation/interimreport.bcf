@@ -2169,7 +2169,9 @@
     <bcf:citekey order="24">Kokalitcheva2016</bcf:citekey>
     <bcf:citekey order="25">Souppouris2015</bcf:citekey>
     <bcf:citekey order="26">Hohenadel2015</bcf:citekey>
-    <bcf:citekey order="27">Root</bcf:citekey>
+    <bcf:citekey order="27">Tesla2018</bcf:citekey>
+    <bcf:citekey order="28">Gibbs2017</bcf:citekey>
+    <bcf:citekey order="29">Root</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

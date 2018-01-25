@@ -145,6 +145,30 @@
       \verb http://www.bbc.co.uk/news/uk-england-london-39457371
       \endverb
     \endentry
+    \entry{Gibbs2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1c66aa777a8186f49f6b6b70e1a51cd3}{%
+           family={Gibbs},
+           familyi={G\bibinitperiod},
+           given={Samuel},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1c66aa777a8186f49f6b6b70e1a51cd3}
+      \strng{fullhash}{1c66aa777a8186f49f6b6b70e1a51cd3}
+      \strng{authornamehash}{1c66aa777a8186f49f6b6b70e1a51cd3}
+      \strng{authorfullhash}{1c66aa777a8186f49f6b6b70e1a51cd3}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Guardian}
+      \field{title}{{Uber plans to buy 24,000 autonomous Volvo SUVs in race for driverless future}}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.theguardian.com/technology/2017/nov/20/uber-volvo-suv-self-driving-future-business-ride-hailing-lyft-waymo
+      \endverb
+      \warn{\item Entry 'Gibbs2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{Hohenadel2015}{misc}{}
       \name{author}{1}{}{%
         {{hash=6955f8555c0b1c94474f1f7e92d94fb0}{%
@@ -187,11 +211,14 @@
       \field{labeltitlesource}{title}
       \field{booktitle}{Fortune}
       \field{title}{{This Cute Self-Driving Robot Wants to Deliver Your Food or Laundry}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
       \field{year}{2016}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://fortune.com/2016/04/06/dispatch-carry-delivery-robot/
       \endverb
-      \warn{\item Entry 'Kokalitcheva2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Koontz}{misc}{}
       \name{author}{1}{}{%
@@ -237,11 +264,14 @@
       \field{labeltitlesource}{title}
       \field{booktitle}{Chicago Tribune}
       \field{title}{{Driverless delivery robots could be hitting D.C. sidewalks soon}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
       \field{year}{2016}
+      \field{urldateera}{ce}
       \verb{url}
       \verb http://www.chicagotribune.com/bluesky/technology/ct-driverless-delivery-robots-20160328-story.html
       \endverb
-      \warn{\item Entry 'Laris2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Lee2016}{article}{}
       \name{author}{4}{}{%
@@ -405,11 +435,14 @@
       \field{labeltitlesource}{title}
       \field{booktitle}{Engadget}
       \field{title}{{Skype co-founders build delivery bot that rides on sidewalks}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
       \field{year}{2015}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.engadget.com/2015/11/02/starship-technologies-local-delivery-robot/
       \endverb
-      \warn{\item Entry 'Souppouris2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{stearns2001the}{book}{}
       \name{author}{1}{}{%
@@ -436,6 +469,31 @@
       \field{isbn}{0395652375}
       \field{title}{{The Encyclopedia of world history : ancient, medieval, and modern, chronologically arranged}}
       \field{year}{2001}
+    \endentry
+    \entry{Tesla2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a7fd165cee2a20e863cf973ab9a9a83a}{%
+           family={{Tesla Inc.}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7fd165cee2a20e863cf973ab9a9a83a}
+      \strng{fullhash}{a7fd165cee2a20e863cf973ab9a9a83a}
+      \strng{authornamehash}{a7fd165cee2a20e863cf973ab9a9a83a}
+      \strng{authorfullhash}{a7fd165cee2a20e863cf973ab9a9a83a}
+      \field{sortinit}{T}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Tesla Website}
+      \field{title}{{Tesla Autopilot}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.tesla.com/en%7B%5C_%7DGB/autopilot
+      \endverb
     \endentry
     \entry{Uras2015}{article}{}
       \name{author}{2}{}{%
