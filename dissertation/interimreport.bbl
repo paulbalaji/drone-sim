@@ -33,6 +33,12 @@ A.~Nash, S.~Koenig, and C.~Tovey.
 L.~Root.
 \newblock {Python implementation of Dijkstra's Algorithm}.
 
+\bibitem{stearns2001the}
+P.~Stearns.
+\newblock {\em {The Encyclopedia of world history : ancient, medieval, and
+  modern, chronologically arranged}}.
+\newblock Houghton Mifflin, Boston, 2001.
+
 \bibitem{Uras2015}
 T.~Uras and S.~Koenig.
 \newblock {An Empirical Comparison of Any-Angle Path-Planning Algorithms}.
