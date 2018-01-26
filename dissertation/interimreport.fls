@@ -320,6 +320,12 @@ INPUT ./img/bg_scalable_zones.png
 INPUT img/bg_scalable_interzone.png
 INPUT ./img/bg_scalable_interzone.png
 INPUT ./img/bg_scalable_interzone.png
+INPUT img/mlqs.jpg
+INPUT ./img/mlqs.jpg
+INPUT ./img/mlqs.jpg
+INPUT img/mlfqs.jpg
+INPUT ./img/mlfqs.jpg
+INPUT ./img/mlfqs.jpg
 INPUT img/spatialos-diagram_current2.png
 INPUT ./img/spatialos-diagram_current2.png
 INPUT ./img/spatialos-diagram_current2.png

@@ -58,32 +58,42 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6}Scalable Drone Network Architecture}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}SpatialOS}{22}
+\contentsline {subsection}{\numberline {2.7}Scheduling Algorithms}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{23}
+\contentsline {subsubsection}{\numberline {2.7.1}First Come First Serve (FCFS)}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Abstraction}{23}
+\contentsline {subsubsection}{\numberline {2.7.2}Shortest Job First (SJF)}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}Developer Tools}{23}
+\contentsline {subsubsection}{\numberline {2.7.3}Priority Scheduling}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.4}Layered Simulation}{24}
+\contentsline {subsubsection}{\numberline {2.7.4}Multi-Level Feedback Queue (MLFQ)}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Prioritising Economic Value}{25}
+\contentsline {subsection}{\numberline {2.8}SpatialOS}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Quality of Service Value Curve}{25}
+\contentsline {subsubsection}{\numberline {2.8.1}Unity SDK}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Project Plan}{26}
+\contentsline {subsubsection}{\numberline {2.8.2}Abstraction}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Overview}{26}
+\contentsline {subsubsection}{\numberline {2.8.3}Developer Tools}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Stretch Goals}{26}
+\contentsline {subsubsection}{\numberline {2.8.4}Layered Simulation}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Timeline}{27}
+\contentsline {section}{\numberline {3}Prioritising Economic Value}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Evaluation Plan}{28}
+\contentsline {subsection}{\numberline {3.1}Quality of Service Value Curve}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{29}
+\contentsline {section}{\numberline {4}Project Plan}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Appendices}{34}
+\contentsline {subsection}{\numberline {4.1}Overview}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{34}
+\contentsline {subsection}{\numberline {4.2}Stretch Goals}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Timeline}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Evaluation Plan}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{References}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Appendices}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{37}

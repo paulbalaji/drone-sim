@@ -192,6 +192,29 @@
       \verb http://www.bbc.co.uk/news/uk-england-london-39457371
       \endverb
     \endentry
+    \entry{Bell2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5301389a61dcb0afa9bddf182c3bc69d}{%
+           family={Bell},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{5301389a61dcb0afa9bddf182c3bc69d}
+      \strng{fullhash}{5301389a61dcb0afa9bddf182c3bc69d}
+      \strng{authornamehash}{5301389a61dcb0afa9bddf182c3bc69d}
+      \strng{authorfullhash}{5301389a61dcb0afa9bddf182c3bc69d}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{CPU Scheduling}}
+      \field{year}{2018}
+      \verb{url}
+      \verb https://www.cs.uic.edu/%7B~%7Djbell/CourseNotes/OperatingSystems/5%7B%5C_%7DCPU%7B%5C_%7DScheduling.html
+      \endverb
+      \warn{\item Entry 'Bell2018' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{Bowcott2017}{misc}{}
       \name{author}{1}{}{%
         {{hash=508d3dc0127d0b41c9fdc023060e6ac6}{%

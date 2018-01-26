@@ -154,13 +154,13 @@ To.~Be \textsc{Decided}
 \newpage
 
 \section{Introduction}
-Drone technology is becoming increasingly popular. Their agility and ability to be used remotely makes them ideal for a number of use cases in  numerous industries such as film, law enforcement, emergency services, agriculture and commercial delivery\cite{Koontz}. \\
+Drone technology is becoming increasingly popular. Their agility and ability to be used remotely makes them ideal for a number of use cases in several industries such as film, law enforcement, emergency services, agriculture and commercial delivery\cite{Koontz}. \\
 
 Due to numerous advances in technology, drones are quickly advancing to the point where human input is no longer a necessity. This has led to many companies showing interest in integrating drones with their work in the coming years. \\
 
 Although it may be an engineer's dream for a fully automated world, drones in particular are a harrowing reminder that there are real risks associated with them. There are already several incidents of drones crashing into planes and flying into areas they shouldn't, most notably near Heathrow airport\cite{BBCNews2017}. All of this provides motivation to introduce some form of autonomous air traffic control system to navigate these drones to their respective destinations in a safe manner.\\
 
-However, prior work has been done on the routing and navigation aspect of such a system. In order for drones to truly take over more aspects of our lives, we must look at how they can provide a tangible cost-benefit to specific use-cases. There is no doubt that simply removing the human element can save costs drastically, and there is none more exciting a scenario than with deliveries. For example, Amazon stands to increase their margins considerably if they can successfully pull off their Prime Air initiative\cite{Welch2015}.
+However, prior work has been done on the routing and navigation aspect of such a system. In order for drones to truly take over more aspects of our lives, we must look at how they can provide a tangible benefit to specific use-cases. There is no doubt that simply removing the human element can save costs drastically, and there is none more exciting an application than with physical delivery networks. For example, Amazon stands to increase their margins considerably if they can successfully pull off their Prime Air initiative\cite{Welch2015}.
 
 % delivery market stands to gain even more by optimising deliveries for profit / consider QoS
 
@@ -492,8 +492,40 @@ The author considers splitting the problem into several layers:
   \end{figure}
 \end{enumerate}
 
-% \subsection{Optimising Drone Delivery}
+\subsection{Scheduling Algorithms}
+In this section we look at a few well known CPU scheduling algorithms\cite{Bell2018}. Although CPU scheduling is not part of this project, being able to understand a few different approaches to the problem will give insight into how to schedule drones later on. However, there are two key difference between drone and CPU scheduling.\\
 
+The first is that CPUs can time slice different tasks whereas once a drone is scheduled onto a task, it has to complete the whole task before being able to pick up a new one. Secondly, there are vastly more drones that could be running at a point in time compared to the number of cores in multi-core CPU, thus there is massive parallelism.
+
+\subsubsection{First Come First Serve (FCFS)}
+As the title says, this algorithm operates as a FIFO queue where tasks are scheduled in the same order that they arrive. Some might consider this the fairest form of scheduling, since it does not discriminate against any task, but simply prioritises the one that arrived soonest.
+
+\subsubsection{Shortest Job First (SJF)}
+This approach looks at the time each incoming task would take to complete, and puts the shortest task at the front of the schedule. While this means that small tasks get completed quickly, a constant stream of small tasks could mean that any heavier tasks never get scheduled or completed.
+
+\subsubsection{Priority Scheduling}
+Priority scheduling is a more general case of SJF, since each task is now given a priority - defined either internally or externally - and tasks with the highest priority are scheduled first. In SJF, the inverse of the estimated job time is used as the priority.
+
+\subsubsection{Multi-Level Feedback Queue (MLFQ)}
+MLFQ is an extension of an ordinary multi-level queue, where there are several queues of tasks to be completed and tasks are scheduled from non-empty queues in a round-robin fashion. A benefit of this approach is that each queue could be running different scheduling algorithms that better fits the priority of that queue.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.6\linewidth]{img/mlqs.jpg}
+  \caption{Multiple levels of queues, scheduled in a round-robin fashion. \cite{Bell2018}}
+  \label{fig:mlqs}
+\end{figure}
+
+The ``feedback'' element of MLFQ allows tasks to be moved from one queue to another, depending on changes of circumstances. For example, if a queue has been left in a low priority queue for long enough, it may be moved to a higher priority queue - thus improving the chance that all incoming tasks get scheduled at some point in time.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.6\linewidth]{img/mlfqs.jpg}
+  \caption{Arrows indicate tasks can be moved up one queue to another. \cite{Bell2018}}
+  \label{fig:mlfqs}
+\end{figure}
+
+\newpage
 \subsection{SpatialOS}
 SpatialOS is a platform, created by \textit{Improbable}\cite{ImprobableWorldsLtd.2018a}, for running massive-scale simulated worlds. In their own words\cite{ImprobableWorldsLtd.2018b}:
 \begin{displayquote}
@@ -629,9 +661,22 @@ Week Beginning & Project Phase & Task \\\hline\hline
 \section{Evaluation Plan}
 The minimum critera for the project is for a SpatialOS simulation to demonstrate drones being scheduled, by any possible mechanimm, and subsequently routed in a similar manner to the AATC project. \\
 
-It would be beneficial to be able to show that simulations have been run using different drone scheduling algorithms, especially the one based on the QoS value curve. The project can be considered a success if this particular scheduling algorithm yielded greater profits than previously defined scheduling algorithms did.
+It would be beneficial to be able to show that simulations have been run using different drone scheduling algorithms, especially the approach we have introduced that is based on the QoS value curve. Here they are, listed:
+\begin{itemize}
+  \item First Come First Serve
+  \item Shortest Job First
+  \item Priority
+  \item Multi-Level Feedback Queue
+  \item Quality of Service Value Curve
+\end{itemize}\\
 
+When running the above simulations, key financial figures such as revenue, loss and profit should be logged and recorded to be analysed. The project can be considered a success if there is clear breakdown and analysis of these key variables, and how they compare across different scheduling mechanisms. \\
 
+After letting a few test users play around on a few simulations, we will ask a few short questions on how they found the experience. By allowing users to control locations of No Fly Zones, the number of drones in the sky, and easily switch between scheduling algorithms on-the-fly, we would hope for users to find the entire simulation more visceral and engaging. \\
+
+Instead of trusting that we are being honest about our findings, showing and letting users discover it for themselves should prompt them to understand the entirety of this project better. This can be validated by looking at the survey results.\\
+
+We also plan on using the survey as a mechanism to get feedback on user-focused aspects the project, such as ease of use. This would help to conduct a better evalutiation by having actual data that can be used to determine what was received well and what was received poorly. In turn, we could then identify what future work needs to be done to take the project further in the future.
 
 % what functionality do you need to demonstrate?  What experiments to you need to undertake and what outcome(s) would constitute success?  What benchmarks should you use? How has your project extended the state of the art?  How do you measure qualitative aspects, such as ease of use?
 
