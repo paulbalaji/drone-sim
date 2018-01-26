@@ -407,6 +407,27 @@
       \endverb
       \warn{\item Entry 'Gibbs2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
+    \entry{Google2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={Google},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{"Drone Technology" Google Trends}}
+      \field{year}{2018}
+      \verb{url}
+      \verb https://trends.google.co.uk/trends/explore?date=all%7B%5C&%7Dq=drone%20technology
+      \endverb
+      \warn{\item Entry 'Google2018' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{Hall-Geisler}{misc}{}
       \name{author}{1}{}{%
         {{hash=f002605969bba396d840ca9848ab5ef6}{%
@@ -619,6 +640,47 @@
       \verb https://sa.catapult.org.uk/wp-content/uploads/2016/07/White-paper-UAVs-and-agriculture%7B%5C_%7DFinal2.pdf
       \endverb
     \endentry
+    \entry{Joerss2016}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3e473b1fcd1ce7c6100a2049fe08b6ed}{%
+           family={Joerss},
+           familyi={J\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8622f3a66ec58c0a8cd10adb1fe83be1}{%
+           family={Neuhaus},
+           familyi={N\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=a70aaca93698417fb77b77ba1ccf9a5b}{%
+           family={Klink},
+           familyi={K\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=020b6de7685c2010340eb292551fd6cd}{%
+           family={Mann},
+           familyi={M\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{fa608b00bfa9742eb3fb9da63b4c7b68}
+      \strng{fullhash}{a2308442922ef33420ce84e5ed5f6bf2}
+      \strng{authornamehash}{fa608b00bfa9742eb3fb9da63b4c7b68}
+      \strng{authorfullhash}{a2308442922ef33420ce84e5ed5f6bf2}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{September}
+      \field{title}{{Parcel delivery The future of last mile}}
+      \field{year}{2016}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/Parcel{\_}delivery{\_}The{\_}future{\_}of{\_}last{\_}mile.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://www.mckinsey.com/%7B~%7D/media/mckinsey/industries/travel%20transport%20and%20logistics/our%20insights/how%20customer%20demands%20are%20reshaping%20last%20mile%20delivery/parcel%7B%5C_%7Ddelivery%7B%5C_%7Dthe%7B%5C_%7Dfuture%7B%5C_%7Dof%7B%5C_%7Dlast%7B%5C_%7Dmile.ashx
+      \endverb
+    \endentry
     \entry{Kokalitcheva2016}{misc}{}
       \name{author}{1}{}{%
         {{hash=bcb392bd657f708273d75aabfb06f052}{%
@@ -743,6 +805,31 @@
       \verb{url}
       \verb https://www.gsb.stanford.edu/sites/gsb/files/publication-pdf/vcii-publication-technological-disruption-innovation-last-mile-delivery.pdf
       \endverb
+    \endentry
+    \entry{Menon2013}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=36e723607fc3f23381f6ad4b4e9f0482}{%
+           family={Menon},
+           familyi={M\bibinitperiod},
+           given={Prashob},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{36e723607fc3f23381f6ad4b4e9f0482}
+      \strng{fullhash}{36e723607fc3f23381f6ad4b4e9f0482}
+      \strng{authornamehash}{36e723607fc3f23381f6ad4b4e9f0482}
+      \strng{authorfullhash}{36e723607fc3f23381f6ad4b4e9f0482}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Amazon's potential drone delivery service is generating a lot of buzz, but how many drones will be enough?}
+      \field{booktitle}{Ivey Business Review}
+      \field{title}{{HOW MANY DRONES DOES AMAZON NEED?}}
+      \field{year}{2013}
+      \verb{url}
+      \verb http://iveybusinessreview.ca/blogs/pmenonhba2010/2013/12/11/how-many-drones-does-amazon-need/
+      \endverb
+      \warn{\item Entry 'Menon2013' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Mitchell1996}{article}{}
       \name{author}{1}{}{%
@@ -1060,6 +1147,29 @@
       \verb http://www.latimes.com/entertainment/envelope/cotown/la-et-ct-drones-hollywood-20151008-story.html
       \endverb
       \warn{\item Entry 'Verrier2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Wang}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=50e578209e59a4d498fdb91091525255}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{50e578209e59a4d498fdb91091525255}
+      \strng{fullhash}{50e578209e59a4d498fdb91091525255}
+      \strng{authornamehash}{50e578209e59a4d498fdb91091525255}
+      \strng{authorfullhash}{50e578209e59a4d498fdb91091525255}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Flexport Blog}
+      \field{title}{{Drone Delivery Economics}}
+      \verb{url}
+      \verb https://www.flexport.com/blog/drone-delivery-economics
+      \endverb
+      \warn{\item Entry 'Wang' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring}
     \endentry
     \entry{Welch2015}{article}{}
       \name{author}{1}{}{%

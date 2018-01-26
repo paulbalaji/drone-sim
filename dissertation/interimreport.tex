@@ -154,29 +154,38 @@ To.~Be \textsc{Decided}
 \newpage
 
 \section{Introduction}
-Drone technology is becoming increasingly popular. Their agility and ability to be used remotely makes them ideal for a number of use cases in several industries such as film, law enforcement, emergency services, agriculture and commercial delivery\cite{Koontz}. \\
+Drone technology is becoming increasingly popular. Their agility and ability to be used remotely makes them ideal for a number of use cases in several industries such as film, law enforcement, emergency services, agriculture and commercial delivery\cite{Koontz}.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/drone_interest_over_time_google.png}
+  \caption{Google Trends for ``Drone Technology''. \cite{Google2018}}
+  \label{fig:starship_citizen}
+\end{figure}
 
 Due to numerous advances in technology, drones are quickly advancing to the point where human input is no longer a necessity. This has led to many companies showing interest in integrating drones with their work in the coming years. \\
 
 Although it may be an engineer's dream for a fully automated world, drones in particular are a harrowing reminder that there are real risks associated with them. There are already several incidents of drones crashing into planes and flying into areas they shouldn't, most notably near Heathrow airport\cite{BBCNews2017}. All of this provides motivation to introduce some form of autonomous air traffic control system to navigate these drones to their respective destinations in a safe manner.\\
 
-However, prior work has been done on the routing and navigation aspect of such a system. In order for drones to truly take over more aspects of our lives, we must look at how they can provide a tangible benefit to specific use-cases. There is no doubt that simply removing the human element can save costs drastically, and there is none more exciting an application than with physical delivery networks. For example, Amazon stands to increase their margins considerably if they can successfully pull off their Prime Air initiative\cite{Welch2015}.
+However, prior work has been done on the routing and navigation aspect of such a system\cite{Balaji2017}. In order for drones to truly take over more aspects of our lives, we must look at how they can provide a tangible benefit to specific use-cases. There is no doubt that simply removing the human element can save costs drastically, and there is none more exciting an application than with physical delivery networks.
 
-% delivery market stands to gain even more by optimising deliveries for profit / consider QoS
+The main factors that could prompt higher adoption of drones for delivery networks are cost, delivery speeds, and convenience. As figure \ref{fig:drone_del_cost} shows, drones can be both faster and cheaper than existing deliver options that consumers have access to.
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/ark-invest-drones-analysis-768x460.png}
+  \caption{How Amazon Air fits into the wider delivery market. \cite{Wang}}
+  \label{fig:drone_del_cost}
+\end{figure}
 
-% the natural next step is to schedule / distribute the deliveries across network in addition to routing
+It appears then that Amazon stands to increase their margins considerably if they can successfully pull off their Prime Air initiative\cite{Welch2015}, but to do this they need to be able to handle the additional problems of scheduling and load balancing massive quantities of drones, on top of the existing routing problems. \\
 
-% not advisable to test in production, so best port of call is to simulate
+In a more general sense, goods delivery networks have a lot to gain by optimising for profit, and to do this better we consider a variable delivery pricing mechanism that factors in the quality of service provided to the user. A high-priority product may warrant a higher delivery fee for quicker delivery but an similarly high penalty for being late. At the same time, a low-priority product may not have any such penalty, instead opting for a low delivery fee. Being able to factor this new fee model when scheduling tasks and allocating drones may be the next step in the ongoing automation of last-mile delivery\cite{Joerss2016}.
 
-% many companies are investigating how to produce richer, meaningful simulations [cite improbable / SpatialOS]
+Regardless of how such a model is implemented, it needs to be tested thoroughly before being deployed into production with actual drones. Failure to do so could result in humongous financial losses. Considering a typical delivery drone could cost around \$100 to \$500\cite{Menon2013}, and that there is likely be a lot of failure before a working implementation, there could be several hundreds of thousand dollars worth of losses. \\
 
-% we have shown a new model of deliveries based on a QoS value curve
+Therefore, our best port of call is to simulate scenarios that are as close to the real world as possible. One tech firm investigating how to produce richer, meaningful and more realistic simulations is \textit{Improbable}\cite{ImprobableWorldsLtd.2018a} - a London-based tech startup actively developing a distributed simulation platform called \textit{SpatialOS}\cite{ImprobableWorldsLtd.2018b}. \\
 
-% show how net profit in a system changes depending on the type of scheduling mechanism used
-
-\subsection{Autonomous Systems}
-\subsection{Making Money}
-
+We aim to leverage the power of SpatialOS to produce novel simulations of a drone delivery network. The simulation will build upon existing routing solutions\cite{Balaji2017} and would aim to schedule deliveries based on a Quality of Service value curve. Furthermore, we wish to show how the net profit of a drone delivery network with this form of scheduling might compare to delivery networks that utilise a different scheduling mechanism.
 
 %**********************************************%
 \newpage
