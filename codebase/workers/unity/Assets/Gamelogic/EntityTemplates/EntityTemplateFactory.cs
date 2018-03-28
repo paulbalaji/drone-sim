@@ -55,5 +55,31 @@ namespace Assets.Gamelogic.EntityTemplates
 
             return cubeTemplate;
         }
+
+        public static Entity CreateServerNodeTemplate(Improbable.Coordinates spawnPoint)
+        {
+            var serverNodeTemplate = EntityBuilder.Begin()
+                .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
+                .AddMetadataComponent(entityType: SimulationSettings.ServerNodePrefabName)
+                .SetPersistence(true)
+                .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
+                .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
+                .Build();
+
+            return serverNodeTemplate;
+        }
+
+        public static Entity CreateDroneTemplate(Improbable.Coordinates spawnPoint)
+        {
+            var droneTemplate = EntityBuilder.Begin()
+                .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
+                .AddMetadataComponent(entityType: SimulationSettings.DronePrefabName)
+                .SetPersistence(true)
+                .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
+                .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
+                .Build();
+
+            return droneTemplate;
+        }
     }
 }
