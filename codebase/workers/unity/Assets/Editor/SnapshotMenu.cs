@@ -33,6 +33,9 @@ namespace Assets.Editor
             snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateServerNodeTemplate(new Coordinates(5, 0, 5)));
 
             snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(new Coordinates(10, 0, 10)));
+            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(new Coordinates(-10, 0, -10)));
+            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(new Coordinates(10, 0, -10)));
+            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(new Coordinates(-10, 0, 10)));
 
             SaveSnapshot(snapshotEntities, "phase0");
         }

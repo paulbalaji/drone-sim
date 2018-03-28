@@ -1,0 +1,8 @@
+*** CORE ***
+1000 - Rotation
+1001 - PlayerCreation
+1002 - ClientAuthorityCheck
+1006 - ClientEntityStore
+
+*** PLAYER ***
+1003 - ClientConnection

@@ -2,6 +2,7 @@
 using Improbable;
 using Improbable.Core;
 using Improbable.Player;
+using Improbable.Drone;
 using Improbable.Unity.Core.Acls;
 using Improbable.Worker;
 using Quaternion = UnityEngine.Quaternion;
@@ -77,6 +78,7 @@ namespace Assets.Gamelogic.EntityTemplates
                 .SetPersistence(true)
                 .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
                 .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new DroneData.Data(new Vector3f(0,0,0), 5f), CommonRequirementSets.PhysicsOnly)
                 .Build();
 
             return droneTemplate;
