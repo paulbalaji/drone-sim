@@ -13,6 +13,7 @@ component DroneData {
 
   improbable.Vector3f target = 1; // next target
   float speed = 2; // speed of the drone
+  float radius = 3; // radius to count as "hit" 
 
   command TargetResponse set_new_target(TargetRequest);
 }

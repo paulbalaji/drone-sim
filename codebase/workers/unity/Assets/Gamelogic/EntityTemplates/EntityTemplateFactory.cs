@@ -70,7 +70,7 @@ namespace Assets.Gamelogic.EntityTemplates
             return serverNodeTemplate;
         }
 
-        public static Entity CreateDroneTemplate(Improbable.Coordinates spawnPoint)
+        public static Entity CreateDroneTemplate(Improbable.Coordinates spawnPoint, Vector3f initialTarget, float droneSpeed, float hitRadius)
         {
             var droneTemplate = EntityBuilder.Begin()
                 .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
@@ -78,7 +78,7 @@ namespace Assets.Gamelogic.EntityTemplates
                 .SetPersistence(true)
                 .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
                 .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-                .AddComponent(new DroneData.Data(new Vector3f(0,0,0), 5f), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new DroneData.Data(initialTarget, droneSpeed, hitRadius), CommonRequirementSets.PhysicsOnly)
                 .Build();
 
             return droneTemplate;

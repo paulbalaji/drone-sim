@@ -11,32 +11,38 @@ namespace Assets.Editor
 {
 	public class SnapshotMenu : MonoBehaviour
 	{
-		[MenuItem("Improbable/Snapshots/Generate Default Snapshot")]
-		private static void GenerateDefaultSnapshot()
-		{
-			var snapshotEntities = new Dictionary<EntityId, Entity>();
-			var currentEntityId = 1;
 
-			snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
-			snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateCubeTemplate());
 
-			SaveSnapshot(snapshotEntities, "default");
-		}
+        [MenuItem("Improbable/Snapshots/Generate Phase 0 Snapshots")]
+        private static void GeneratePhase0Snapshots()
+        {
+            //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
+            //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateServerNodeTemplate(new Coordinates(5, 0, 5)));
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 0 Snapshot")]
-        private static void GeneratePhase0Snapshot()
+            //GenerateSinglePhase0Snapshot(10, 10);
+            //GenerateSinglePhase0Snapshot(20, 20);
+            //GenerateSinglePhase0Snapshot(50, 50);
+            //GenerateSinglePhase0Snapshot(100, 50);
+            //GenerateSinglePhase0Snapshot(100, 100);
+            //GenerateSinglePhase0Snapshot(500, 100);
+            GenerateSinglePhase0Snapshot(1000, 800);
+        }
+
+        private static void GenerateSinglePhase0Snapshot(int numDrones, int squareSize)
         {
             var snapshotEntities = new Dictionary<EntityId, Entity>();
             var currentEntityId = 1;
 
-            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
-            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateServerNodeTemplate(new Coordinates(5, 0, 5)));
+            for (int i = 0; i < numDrones; i++)
+            {
+                Coordinates spawn = new Coordinates(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+                Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+                float speed = Random.Range(2, 10);
+                float radius = Random.Range(0.5f, 2);
+                snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, speed, radius));
+            }
 
-            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(new Coordinates(10, 0, 10)));
-            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(new Coordinates(-10, 0, -10)));
-            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(new Coordinates(10, 0, -10)));
-            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(new Coordinates(-10, 0, 10)));
-
+            //SaveSnapshot(snapshotEntities, "phase0_d" + numDrones + "s" + squareSize);
             SaveSnapshot(snapshotEntities, "phase0");
         }
 

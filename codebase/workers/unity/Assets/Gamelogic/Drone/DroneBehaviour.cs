@@ -52,7 +52,7 @@ namespace Assets.Gamelogic.Drone
                 Vector3 target = DroneDataWriter.Data.target.ToVector3();
                 Vector3 current = transform.position;
 
-                if (Mathf.Pow(current.x - target.x, 2) + Mathf.Pow(current.z - target.z, 2) < Mathf.Pow(0.5f, 2)) {
+                if (Mathf.Pow(current.x - target.x, 2) + Mathf.Pow(current.z - target.z, 2) < Mathf.Pow(DroneDataWriter.Data.radius, 2)) {
                     updateTarget();
                 } else {
                     Vector3 direction = target - current;
@@ -65,7 +65,7 @@ namespace Assets.Gamelogic.Drone
 
         private void updateTarget()
         {
-            DroneDataWriter.Send(new DroneData.Update().SetTarget(new Vector3f(Random.Range(-10, 10), 0, Random.Range(-10, 10))));
+            DroneDataWriter.Send(new DroneData.Update().SetTarget(new Vector3f(Random.Range(-800, 800), 0, Random.Range(-800, 800))));
         }
 
         private void updatePosition()
