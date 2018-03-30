@@ -28,6 +28,11 @@ public class DroneBehaviour : MonoBehaviour
         DroneDataWriter.SpeedUpdated.Add(OnSpeedUpdated);
         DroneDataWriter.RadiusUpdated.Add(OnRadiusUpdated);
 
+        //get latest component values
+        target = DroneDataWriter.Data.target.ToVector3();
+        speed = DroneDataWriter.Data.speed;
+        radius = DroneDataWriter.Data.radius;
+
         simulate = true;
     }
 
@@ -60,7 +65,7 @@ public class DroneBehaviour : MonoBehaviour
 	{
         if (simulate)
         {
-            if (withinTargetRange(DroneDataWriter.Data.target.ToVector3())) {
+            if (withinTargetRange(target)) {
                 requestNewTarget();
             } else {
                 Vector3 direction = target - transform.position;
@@ -73,23 +78,26 @@ public class DroneBehaviour : MonoBehaviour
 
     private bool withinTargetRange(Vector3 target)
     {
+        //Debug.LogError("target range function");
         return Mathf.Pow(transform.position.x - target.x, 2) + Mathf.Pow(transform.position.z - target.z, 2) < Mathf.Pow(radius, 2);
     }
 
     private void requestNewTarget()
     {
-        SpatialOS.Commands.SendCommand(PositionWriter, Controller.Commands.SetNewTarget.Descriptor, new TargetRequest(), new EntityId(1))
+        SpatialOS.Commands.SendCommand(PositionWriter, Controller.Commands.RequestNewTarget.Descriptor, new TargetRequest(), new EntityId(1))
                  .OnSuccess((TargetResponse response) => updateTarget(response.target))
                  .OnFailure((response) => Debug.LogError("Failed to request new target, with error: " + response.ErrorMessage));
     }
 
     private void updateTarget(Vector3f newTarget)
     {
+        //Debug.LogError("update target function");
         DroneDataWriter.Send(new DroneData.Update().SetTarget(newTarget));
     }
 
     private void updatePosition()
     {
+        //Debug.LogError("update position function");
         PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
     }
 }

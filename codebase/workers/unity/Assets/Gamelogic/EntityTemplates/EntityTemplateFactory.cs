@@ -3,6 +3,7 @@ using Improbable;
 using Improbable.Core;
 using Improbable.Player;
 using Improbable.Drone;
+using Improbable.Controller;
 using Improbable.Unity.Core.Acls;
 using Improbable.Worker;
 using Quaternion = UnityEngine.Quaternion;
@@ -65,6 +66,7 @@ namespace Assets.Gamelogic.EntityTemplates
                 .SetPersistence(true)
                 .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
                 .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new Controller.Data(), CommonRequirementSets.PhysicsOnly)
                 .Build();
 
             return controllerTemplate;

@@ -20,8 +20,8 @@ namespace Assets.Editor
             //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
             snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateControllerTemplate(new Coordinates(0, 0, 0)));
 
-            var numDrones = 20;
-            var squareSize = 20;
+            var numDrones = SimulationSettings.numDrones;
+            var squareSize = SimulationSettings.squareSize;
 
             for (int i = 0; i < numDrones; i++)
             {

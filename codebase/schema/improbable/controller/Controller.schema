@@ -11,5 +11,5 @@ type TargetResponse {
 component Controller {
   id = 1200;
 
-  command TargetResponse set_new_target(TargetRequest);
+  command TargetResponse request_new_target(TargetRequest);
 }
