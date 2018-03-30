@@ -1,0 +1,15 @@
+package improbable.controller;
+
+import "improbable/vector3.schema";
+
+type TargetRequest {}
+
+type TargetResponse {
+	improbable.Vector3f target = 1; // next target
+}
+ 
+component Controller {
+  id = 1200;
+
+  command TargetResponse set_new_target(TargetRequest);
+}
