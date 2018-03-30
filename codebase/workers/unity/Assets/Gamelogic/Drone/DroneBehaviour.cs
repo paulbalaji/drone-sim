@@ -1,89 +1,95 @@
 ﻿using Improbable;
 using Improbable.Drone;
+using Improbable.Controller;
 using Improbable.Unity;
+using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
 using UnityEngine;
 
-namespace Assets.Gamelogic.Drone
+[WorkerType(WorkerPlatform.UnityWorker)]
+public class DroneBehaviour : MonoBehaviour
 {
-    [WorkerType(WorkerPlatform.UnityWorker)]
-    public class DroneBehaviour : MonoBehaviour
+    [Require]
+    private Position.Writer PositionWriter;
+
+    [Require]
+    private DroneData.Writer DroneDataWriter;
+
+    private bool simulate = false;
+
+    Vector3 target;
+    float speed;
+    float radius;
+
+    private void OnEnable()
     {
-        [Require]
-        private Position.Writer PositionWriter;
+        //register for direction/speed updates
+        DroneDataWriter.TargetUpdated.Add(OnTargetUpdate);
+        DroneDataWriter.SpeedUpdated.Add(OnSpeedUpdated);
+        DroneDataWriter.RadiusUpdated.Add(OnRadiusUpdated);
 
-        [Require]
-        private DroneData.Writer DroneDataWriter;
+        simulate = true;
+    }
 
-        private bool simulate = false;
+    private void OnDisable()
+    {
+        simulate = false;
 
-        private void OnEnable()
+        //deregister for direction/speed updates
+        DroneDataWriter.TargetUpdated.Remove(OnTargetUpdate);
+        DroneDataWriter.SpeedUpdated.Remove(OnSpeedUpdated);
+        DroneDataWriter.RadiusUpdated.Remove(OnRadiusUpdated);
+    }
+
+    private void OnTargetUpdate(Vector3f newTarget)
+    {
+        target = newTarget.ToVector3();
+    }
+
+    private void OnSpeedUpdated(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
+    private void OnRadiusUpdated(float newRadius)
+    {
+        radius = newRadius;
+    }
+
+	void FixedUpdate()
+	{
+        if (simulate)
         {
-            //register for direction/speed updates
-            DroneDataWriter.TargetUpdated.Add(OnTargetUpdate);
-            DroneDataWriter.SpeedUpdated.Add(OnSpeedUpdated);
-
-            simulate = true;
-        }
-
-        private void OnDisable()
-        {
-            simulate = false;
-
-            //deregister for direction/speed updates
-            DroneDataWriter.TargetUpdated.Remove(OnTargetUpdate);
-            DroneDataWriter.SpeedUpdated.Remove(OnSpeedUpdated);
-        }
-
-        private void OnTargetUpdate(Vector3f newTarget)
-        {
-            
-        }
-
-        private void OnSpeedUpdated(float speed)
-        {
-            
-        }
-
-		void FixedUpdate()
-		{
-            if (simulate)
-            {
-                Vector3 target = DroneDataWriter.Data.target.ToVector3();
-                Vector3 current = transform.position;
-
-                if (Mathf.Pow(current.x - target.x, 2) + Mathf.Pow(current.z - target.z, 2) < Mathf.Pow(DroneDataWriter.Data.radius, 2)) {
-                    updateTarget();
-                } else {
-                    Vector3 direction = target - current;
-                    direction.Normalize();
-                    transform.position += direction * DroneDataWriter.Data.speed * Time.deltaTime;
-                    updatePosition();
-                }
+            if (withinTargetRange(DroneDataWriter.Data.target.ToVector3())) {
+                requestNewTarget();
+            } else {
+                Vector3 direction = target - transform.position;
+                direction.Normalize();
+                transform.position += direction * speed * Time.deltaTime;
+                updatePosition();
             }
-		}
-
-        private void updateTarget()
-        {
-            DroneDataWriter.Send(new DroneData.Update().SetTarget(new Vector3f(Random.Range(-800, 800), 0, Random.Range(-800, 800))));
-        }
-
-        private void updatePosition()
-        {
-            PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
         }
 	}
 
-    public static class Vector3Extensions
+    private bool withinTargetRange(Vector3 target)
     {
-        public static Coordinates ToCoordinates(this Vector3 vector3)
-        {
-            return new Coordinates(vector3.x, vector3.y, vector3.z);
-        }
+        return Mathf.Pow(transform.position.x - target.x, 2) + Mathf.Pow(transform.position.z - target.z, 2) < Mathf.Pow(radius, 2);
+    }
 
-        public static Vector3 ToVector3(this Vector3f vector3f)
-        {
-            return new Vector3(vector3f.x, vector3f.y, vector3f.z);
-        }
+    private void requestNewTarget()
+    {
+        SpatialOS.Commands.SendCommand(PositionWriter, Controller.Commands.SetNewTarget.Descriptor, new TargetRequest(), new EntityId(1))
+                 .OnSuccess((TargetResponse response) => updateTarget(response.target))
+                 .OnFailure((response) => Debug.LogError("Failed to request new target, with error: " + response.ErrorMessage));
+    }
+
+    private void updateTarget(Vector3f newTarget)
+    {
+        DroneDataWriter.Send(new DroneData.Update().SetTarget(newTarget));
+    }
+
+    private void updatePosition()
+    {
+        PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
     }
 }

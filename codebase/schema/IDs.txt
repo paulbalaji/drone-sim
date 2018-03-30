@@ -6,3 +6,9 @@
 
 *** PLAYER ***
 1003 - ClientConnection
+
+*** DRONE ***
+1100 - DroneData
+
+*** CONTROLLER ***
+1200 - Controller

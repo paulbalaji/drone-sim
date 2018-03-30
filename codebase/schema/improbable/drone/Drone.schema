@@ -2,18 +2,10 @@ package improbable.drone;
 
 import "improbable/vector3.schema";
 
-type TargetRequest {
-	improbable.Vector3f target = 1; // next target
-}
-
-type TargetResponse {}
- 
 component DroneData {
   id = 1100;
 
   improbable.Vector3f target = 1; // next target
   float speed = 2; // speed of the drone
   float radius = 3; // radius to count as "hit" 
-
-  command TargetResponse set_new_target(TargetRequest);
 }

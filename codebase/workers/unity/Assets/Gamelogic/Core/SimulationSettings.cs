@@ -8,7 +8,7 @@ namespace Assets.Gamelogic.Core
         public static readonly string PlayerCreatorPrefabName = "PlayerCreator";
         public static readonly string CubePrefabName = "Cube";
 
-        public static readonly string ServerNodePrefabName = "ServerNode";
+        public static readonly string ControllerPrefabName = "Controller";
         public static readonly string DronePrefabName = "Drone";
 
         public static readonly float HeartbeatCheckIntervalSecs = 3;

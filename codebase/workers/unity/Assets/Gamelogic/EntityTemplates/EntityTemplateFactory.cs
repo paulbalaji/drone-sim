@@ -57,17 +57,17 @@ namespace Assets.Gamelogic.EntityTemplates
             return cubeTemplate;
         }
 
-        public static Entity CreateServerNodeTemplate(Improbable.Coordinates spawnPoint)
+        public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint)
         {
-            var serverNodeTemplate = EntityBuilder.Begin()
+            var controllerTemplate = EntityBuilder.Begin()
                 .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
-                .AddMetadataComponent(entityType: SimulationSettings.ServerNodePrefabName)
+                .AddMetadataComponent(entityType: SimulationSettings.ControllerPrefabName)
                 .SetPersistence(true)
                 .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
                 .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
                 .Build();
 
-            return serverNodeTemplate;
+            return controllerTemplate;
         }
 
         public static Entity CreateDroneTemplate(Improbable.Coordinates spawnPoint, Vector3f initialTarget, float droneSpeed, float hitRadius)
