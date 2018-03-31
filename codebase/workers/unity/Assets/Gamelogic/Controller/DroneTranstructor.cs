@@ -9,6 +9,9 @@ using UnityEngine;
 public class DroneTranstructor : MonoBehaviour
 {
     [Require]
+    private Controller.Writer ControllerWriter;
+
+    [Require]
     private Position.Writer PositionWriter;
 
     [Require]
@@ -37,12 +40,24 @@ public class DroneTranstructor : MonoBehaviour
             spawnData.speed,
             spawnData.radius);
 
-        SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate);
+        SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
+                 .OnSuccess(CreateDroneSuccess);
+    }
+
+    void CreateDroneSuccess(Improbable.Unity.Core.EntityQueries.CreateEntityResult response)
+    {
+        EntityId entityId = response.CreatedEntityId;
+        ControllerWriter.Send(new Controller.Update().SetDroneCount(ControllerWriter.Data.droneCount + 1));
     }
 
     private void DestroyDrone(DestroyData destroyData)
     {
-        SpatialOS.Commands.DeleteEntity(PositionWriter, destroyData.entityId);
+        SpatialOS.Commands.DeleteEntity(PositionWriter, destroyData.entityId)
+                 .OnSuccess(DestroyDroneSuccess);
     }
 
+    void DestroyDroneSuccess(Improbable.Unity.Core.EntityQueries.DeleteEntityResult response)
+    {
+        ControllerWriter.Send(new Controller.Update().SetDroneCount(ControllerWriter.Data.droneCount - 1));
+    }
 }

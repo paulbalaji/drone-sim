@@ -56,6 +56,8 @@ public class ControllerBehaviour : MonoBehaviour
 
     void SpawnDrone()
     {
+        // TODO: check count < maxCount at the .OnSuccess stage as well
+        // should be fine for now, but if you want to be more strict about limits
         uint currentCount = ControllerWriter.Data.droneCount;
         if (currentCount < ControllerWriter.Data.maxDroneCount)
         {
@@ -66,7 +68,6 @@ public class ControllerBehaviour : MonoBehaviour
             float speed = Random.Range(2, 10);
             float radius = Random.Range(0.5f, 2);
 
-            ControllerWriter.Send(new Controller.Update().SetDroneCount(currentCount + 1));
             DroneSpawnerWriter.Send(new DroneSpawner.Update().AddSpawn(new SpawnData(spawn, target, speed, radius)));
         }
     }
@@ -75,7 +76,6 @@ public class ControllerBehaviour : MonoBehaviour
     {
         uint currentCount = ControllerWriter.Data.droneCount;
         if (currentCount > 0) {
-            ControllerWriter.Send(new Controller.Update().SetDroneCount(currentCount - 1));
             DroneDestroyerWriter.Send(new DroneDestroyer.Update().AddDestroy(new DestroyData(entityId)));
         }
     }
