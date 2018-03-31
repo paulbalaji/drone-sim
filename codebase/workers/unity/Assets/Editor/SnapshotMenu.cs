@@ -20,17 +20,17 @@ namespace Assets.Editor
             //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
             snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateControllerTemplate(new Coordinates(0, 0, 0)));
 
-            var numDrones = SimulationSettings.numDrones;
-            var squareSize = SimulationSettings.squareSize;
+            //var numDrones = SimulationSettings.numDrones;
+            //var squareSize = SimulationSettings.squareSize;
 
-            for (int i = 0; i < numDrones; i++)
-            {
-                Coordinates spawn = new Coordinates(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
-                Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
-                float speed = Random.Range(2, 10);
-                float radius = Random.Range(0.5f, 2);
-                snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, speed, radius));
-            }
+            //for (int i = 0; i < numDrones; i++)
+            //{
+            //    Coordinates spawn = new Coordinates(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+            //    Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+            //    float speed = Random.Range(2, 10);
+            //    float radius = Random.Range(0.5f, 2);
+            //    snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, speed, radius));
+            //}
 
             SaveSnapshot(snapshotEntities, "phase0dev");
         }

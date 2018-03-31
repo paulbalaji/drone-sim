@@ -4,8 +4,10 @@ namespace Assets.Gamelogic.Core
 {
     public static class SimulationSettings
     {
-        public static readonly float numDrones = 20;
-        public static readonly float squareSize = 20;
+        public static readonly float numDrones = 60;
+        public static readonly float squareSize = 200;
+
+        public static readonly uint MaxDroneCount = (uint) numDrones;
 
         public static readonly string PlayerPrefabName = "Player";
         public static readonly string PlayerCreatorPrefabName = "PlayerCreator";

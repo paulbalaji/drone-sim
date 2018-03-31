@@ -11,6 +11,15 @@ public class ControllerBehaviour : MonoBehaviour
     [Require]
     private Controller.Writer ControllerWriter;
 
+    [Require]
+    private DroneSpawner.Writer DroneSpawnerWriter;
+
+    [Require]
+    private DroneDestroyer.Writer DroneDestroyerWriter;
+
+    private float nextActionTime = 0.0f;
+    private float period = 1f;
+
     private void OnEnable()
     {
         //register stuff
@@ -35,8 +44,39 @@ public class ControllerBehaviour : MonoBehaviour
         handle.Respond(new TargetResponse(newTarget));
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        //do stuff
+        if (Time.time > nextActionTime)
+        {
+            nextActionTime += period;
+
+            SpawnDrone();
+        }
+    }
+
+    void SpawnDrone()
+    {
+        uint currentCount = ControllerWriter.Data.droneCount;
+        if (currentCount < ControllerWriter.Data.maxDroneCount)
+        {
+            var squareSize = SimulationSettings.squareSize;
+
+            Coordinates spawn = new Coordinates(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+            Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+            float speed = Random.Range(2, 10);
+            float radius = Random.Range(0.5f, 2);
+
+            ControllerWriter.Send(new Controller.Update().SetDroneCount(currentCount + 1));
+            DroneSpawnerWriter.Send(new DroneSpawner.Update().AddSpawn(new SpawnData(spawn, target, speed, radius)));
+        }
+    }
+
+    void DestroyDrone(EntityId entityId)
+    {
+        uint currentCount = ControllerWriter.Data.droneCount;
+        if (currentCount > 0) {
+            ControllerWriter.Send(new Controller.Update().SetDroneCount(currentCount - 1));
+            DroneDestroyerWriter.Send(new DroneDestroyer.Update().AddDestroy(new DestroyData(entityId)));
+        }
     }
 }

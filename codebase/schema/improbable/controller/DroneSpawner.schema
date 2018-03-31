@@ -1,0 +1,17 @@
+package improbable.controller;
+
+import "improbable/standard_library.schema";
+import "improbable/vector3.schema";
+ 
+type SpawnData {
+  Coordinates position = 1;
+  Vector3f target = 2;
+  float speed = 3;
+  float radius = 4;
+}
+ 
+component DroneSpawner {
+  id = 1201;
+
+  event SpawnData spawn;
+}

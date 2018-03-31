@@ -66,7 +66,9 @@ namespace Assets.Gamelogic.EntityTemplates
                 .SetPersistence(true)
                 .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
                 .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-                .AddComponent(new Controller.Data(), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new Controller.Data(0, SimulationSettings.MaxDroneCount), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new DroneSpawner.Data(), CommonRequirementSets.PhysicsOnly)
+                .AddComponent(new DroneDestroyer.Data(), CommonRequirementSets.PhysicsOnly)
                 .Build();
 
             return controllerTemplate;

@@ -11,5 +11,8 @@ type TargetResponse {
 component Controller {
   id = 1200;
 
+  uint32 drone_count = 1;
+  uint32 max_drone_count = 2;
+
   command TargetResponse request_new_target(TargetRequest);
 }

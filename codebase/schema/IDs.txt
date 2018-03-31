@@ -12,3 +12,5 @@
 
 *** CONTROLLER ***
 1200 - Controller
+1201 - DroneSpawner
+1202 - DroneDestroyer
