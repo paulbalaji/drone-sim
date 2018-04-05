@@ -7,14 +7,25 @@ namespace AssemblyCSharp.Gamelogic.GlobalLayer
     {
         public Bitmap BitMap;
         IGridSearch ASearch;
+        public List<NoFlyZone> zones;
 
         public GridGlobalLayer(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
         {
             BitMap = new Bitmap(topLeft, bottomRight);
+            zones = new List<NoFlyZone>();
+        }
+
+        public void AddNoFlyZones(NoFlyZone[] noFlyZones)
+        {
+            foreach (NoFlyZone zone in noFlyZones)
+            {
+                AddNoFlyZone(zone);
+            }
         }
 
         public void AddNoFlyZone(NoFlyZone zone)
         {
+            zones.Add(zone);
             BitMap.addNoFlyZone(zone);
         }
 
@@ -42,10 +53,21 @@ namespace AssemblyCSharp.Gamelogic.GlobalLayer
             return result;
         }
 
+        private bool isPointInNoFlyZone(Improbable.Vector3d point)
+        {
+            foreach (NoFlyZone zone in zones)
+            {
+                if (zone.hasCollidedWith(point))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public List<Improbable.Vector3d> generatePointToPointPlan(Improbable.Vector3d p1, Improbable.Vector3d p2)
         {
-            //FIND SOME OTHER WAY OF CHECKING IF IN NO FLY ZONE
-            if (Environment.GetInstance().isPointInNoFlyZone(p2))
+            if (isPointInNoFlyZone(p2))
             {
                 return null; // A plan can not be found
             }

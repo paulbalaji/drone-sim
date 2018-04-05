@@ -31,6 +31,11 @@ namespace AssemblyCSharp.Gamelogic.GlobalLayer
             return isInside;
         }
 
+        public bool hasCollidedWith(Improbable.Vector3d point)
+        {
+            return isInPolygon(point);
+        }
+
         public Improbable.Vector3d[] getVertices()
         {
             return Vertices;
