@@ -119,7 +119,7 @@ namespace AssemblyCSharp.Gamelogic.GlobalLayer
                 usingLOS = true;
                 return costSoFar[parent] + parent.distanceTo(end);
             }
-            double c = (Math.Abs(start.x - end.x) == 1 && Math.Abs(start.y - end.y) == 1) ? Math.Sqrt(2) : 1;
+            double c = (Math.Abs(start.x - end.x) == 1 && Math.Abs(start.z - end.z) == 1) ? Math.Sqrt(2) : 1;
             return costSoFar[start] + c;
         }
     }

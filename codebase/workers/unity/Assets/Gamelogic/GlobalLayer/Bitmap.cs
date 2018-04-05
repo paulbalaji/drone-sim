@@ -35,24 +35,24 @@ namespace AssemblyCSharp.Gamelogic.GlobalLayer
             return new sbyte[rows, columns];
         }
 
-        //public void updateWithNoFlyZones(List<NoFlyZone> zones)
-        //{
-        //    zones.ForEach(addNoFlyZone);
-        //}
+        public void updateWithNoFlyZones(List<NoFlyZone> zones)
+        {
+            zones.ForEach(addNoFlyZone);
+        }
 
-        //public void addNoFlyZone(NoFlyZone noFlyZone)
-        //{
-        //    Improbable.Vector3d[] vertices = noFlyZone.getVertices();
-        //    Improbable.Vector3d previousWaypoint = vertices[0];
-        //    for (int i = 1; i < vertices.Length; i++)
-        //    {
-        //        Improbable.Vector3d currentWaypoint = vertices[i];
-        //        setLine(previousWaypoint, currentWaypoint);
-        //        previousWaypoint = currentWaypoint;
-        //    }
+        public void addNoFlyZone(NoFlyZone noFlyZone)
+        {
+            Improbable.Vector3d[] vertices = noFlyZone.getVertices();
+            Improbable.Vector3d previousWaypoint = vertices[0];
+            for (int i = 1; i < vertices.Length; i++)
+            {
+                Improbable.Vector3d currentWaypoint = vertices[i];
+                setLine(previousWaypoint, currentWaypoint);
+                previousWaypoint = currentWaypoint;
+            }
 
-        //    setLine(previousWaypoint, vertices[0]); // setting the final line
-        //}
+            setLine(previousWaypoint, vertices[0]); // setting the final line
+        }
 
         public bool isNearNoFlyZone(int x, int z)
         {
