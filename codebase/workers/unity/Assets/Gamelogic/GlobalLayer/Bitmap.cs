@@ -276,13 +276,13 @@ namespace AssemblyCSharp.Gamelogic.GlobalLayer
         public int[] findGridCoordinatesOfPoint(Improbable.Vector3d point)
         {
             int x = (int)Math.Floor((point.x - TopLeft.x) / BIT_SIZE);
-            int y = (int)Math.Floor((point.z - TopLeft.z) / BIT_SIZE);
-            if (x < 0 || x >= Grid.GetLength(1) || y < 0 || y >= Grid.GetLength(0))
+            int z = (int)Math.Floor((point.z - TopLeft.z) / BIT_SIZE);
+            if (x < 0 || x >= Grid.GetLength(1) || z < 0 || z >= Grid.GetLength(0))
             {
-                throw new Exception("Invalid bitmap index: x - " + x + ", y - " + y);
+                throw new Exception("Invalid bitmap index: x - " + x + ", z - " + z);
             }
 
-            int[] result = { y, x };
+            int[] result = { z, x };
             return result;
         }
 
