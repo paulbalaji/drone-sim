@@ -1,5 +1,4 @@
 ﻿using Assets.Gamelogic.Core;
-using Assets.Gamelogic.EntityTemplates;
 using Improbable;
 using Improbable.Worker;
 using System.Collections.Generic;

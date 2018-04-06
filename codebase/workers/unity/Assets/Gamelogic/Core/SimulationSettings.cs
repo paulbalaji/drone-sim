@@ -7,7 +7,10 @@ namespace Assets.Gamelogic.Core
         public static readonly float numDrones = 60;
         public static readonly float squareSize = 200;
 
+        public static readonly uint ControllerCount = 1;
+
         public static readonly uint MaxDroneCount = (uint) numDrones;
+        public static readonly uint MaxDroneCountPerController = (uint) (MaxDroneCount / ControllerCount);
 
         public static readonly string PlayerPrefabName = "Player";
         public static readonly string PlayerCreatorPrefabName = "PlayerCreator";

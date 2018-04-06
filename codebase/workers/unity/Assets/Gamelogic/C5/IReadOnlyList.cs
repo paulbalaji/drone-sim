@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-#if NET35 || NET40 || PROFILE328
+//#if NET35 || NET40 || PROFILE328
 
 namespace System.Collections.Generic
 {
@@ -11,11 +11,11 @@ namespace System.Collections.Generic
     /// Enables System.Collections.Generic.IReadOnlyList to be used in .NET 4.5 projects
     /// </summary>
     /// <typeparam name="T"></typeparam>
-#if NET35
+//#if NET35
     public interface IReadOnlyList<T> : IReadOnlyCollection<T>, IEnumerable<T>, IEnumerable
-#else
-    public interface IReadOnlyList<out T> : IReadOnlyCollection<T>, IEnumerable<T>, IEnumerable
-#endif
+//#else
+    //public interface IReadOnlyList<out T> : IReadOnlyCollection<T>, IEnumerable<T>, IEnumerable
+//#endif
     {
         /// <summary>
         /// Gets the element at the specified index in the read-only list.
@@ -26,8 +26,8 @@ namespace System.Collections.Generic
     }
 }
 
-#else
+//#else
 
-[assembly: TypeForwardedTo(typeof(IReadOnlyList<>))]
+//[assembly: TypeForwardedTo(typeof(IReadOnlyList<>))]
 
-#endif
+//#endif

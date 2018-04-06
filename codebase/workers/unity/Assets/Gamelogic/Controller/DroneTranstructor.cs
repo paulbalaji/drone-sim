@@ -1,5 +1,4 @@
-﻿using Assets.Gamelogic.EntityTemplates;
-using Improbable;
+﻿using Improbable;
 using Improbable.Controller;
 using Improbable.Unity;
 using Improbable.Unity.Core;

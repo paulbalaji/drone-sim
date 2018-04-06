@@ -1,116 +1,113 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AssemblyCSharp.Gamelogic.GlobalLayer
+public class GridGlobalLayer
 {
-    public class GridGlobalLayer
+    public Bitmap BitMap;
+    IGridSearch ASearch;
+    public List<NoFlyZone> zones;
+
+    public GridGlobalLayer(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
     {
-        public Bitmap BitMap;
-        IGridSearch ASearch;
-        public List<NoFlyZone> zones;
+        BitMap = new Bitmap(topLeft, bottomRight);
+        zones = new List<NoFlyZone>();
+    }
 
-        public GridGlobalLayer(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
+    public void AddNoFlyZones(NoFlyZone[] noFlyZones)
+    {
+        foreach (NoFlyZone zone in noFlyZones)
         {
-            BitMap = new Bitmap(topLeft, bottomRight);
-            zones = new List<NoFlyZone>();
+            AddNoFlyZone(zone);
         }
+    }
 
-        public void AddNoFlyZones(NoFlyZone[] noFlyZones)
+    public void AddNoFlyZone(NoFlyZone zone)
+    {
+        zones.Add(zone);
+        BitMap.addNoFlyZone(zone);
+    }
+
+    // Converts a grid location back into cartesian coordinate.
+    private Improbable.Vector3d convertLocation(GridLocation l)
+    {
+        return BitMap.getPointFromCoordinates(new int[] { l.x, l.z });
+    }
+
+    public List<Improbable.Vector3d> generatePlan(List<Improbable.Vector3d> waypoints)
+    {
+        // If can not plan for all the waypoints,
+        // this will return null to indicate that the route is unachievable.
+
+        List<Improbable.Vector3d> result = new List<Improbable.Vector3d>();
+        for (int i = 1; i < waypoints.Count; i++)
         {
-            foreach (NoFlyZone zone in noFlyZones)
+            List<Improbable.Vector3d> planSection = generatePointToPointPlan(waypoints[i - 1], waypoints[i]);
+            if (planSection == null)
             {
-                AddNoFlyZone(zone);
+                return null; // Return null to indicate a plan is unachievable.
             }
+            result.AddRange(planSection);
         }
+        return result;
+    }
 
-        public void AddNoFlyZone(NoFlyZone zone)
+    private bool isPointInNoFlyZone(Improbable.Vector3d point)
+    {
+        foreach (NoFlyZone zone in zones)
         {
-            zones.Add(zone);
-            BitMap.addNoFlyZone(zone);
-        }
-
-        // Converts a grid location back into cartesian coordinate.
-        private Improbable.Vector3d convertLocation(GridLocation l)
-        {
-            return BitMap.getPointFromCoordinates(new int[] { l.x, l.z });
-        }
-
-        public List<Improbable.Vector3d> generatePlan(List<Improbable.Vector3d> waypoints)
-        {
-            // If can not plan for all the waypoints,
-            // this will return null to indicate that the route is unachievable.
-
-            List<Improbable.Vector3d> result = new List<Improbable.Vector3d>();
-            for (int i = 1; i < waypoints.Count; i++)
+            if (zone.hasCollidedWith(point))
             {
-                List<Improbable.Vector3d> planSection = generatePointToPointPlan(waypoints[i - 1], waypoints[i]);
-                if (planSection == null)
-                {
-                    return null; // Return null to indicate a plan is unachievable.
-                }
-                result.AddRange(planSection);
+                return true;
             }
-            return result;
         }
+        return false;
+    }
 
-        private bool isPointInNoFlyZone(Improbable.Vector3d point)
+    public List<Improbable.Vector3d> generatePointToPointPlan(Improbable.Vector3d p1, Improbable.Vector3d p2)
+    {
+        if (isPointInNoFlyZone(p2))
         {
-            foreach (NoFlyZone zone in zones)
-            {
-                if (zone.hasCollidedWith(point))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return null; // A plan can not be found
         }
 
-        public List<Improbable.Vector3d> generatePointToPointPlan(Improbable.Vector3d p1, Improbable.Vector3d p2)
+        int[] coord1 = BitMap.findGridCoordinatesOfPoint(p1);
+        int[] coord2 = BitMap.findGridCoordinatesOfPoint(p2);
+
+        GridLocation l1 = new GridLocation(coord1[0], coord1[1]);
+        GridLocation l2 = new GridLocation(coord2[0], coord2[1]);
+
+        ASearch = new ThetaStarSearch(true); // Use AStarSearch or ThetaStarSearch here.
+        //ASearch = new AStarSearch();
+
+        List<GridLocation> locs = ASearch.run(BitMap, l1, l2);
+        if (locs == null)
+        { // The case that a path could not be found.
+            return null; // Just return empty list.
+        }
+
+        // Below lines can be used debug the BitMap and search strategy.
+        //Util.DebugUtil.writeStringToFile (BitMap.toString (), "/users/Sam/Desktop/bitmap.txt");
+        //Util.DebugUtil.writeStringToFile (ASearch.stringifyPath (locs), "/users/Sam/Desktop/AStar.txt");
+
+        List<Improbable.Vector3d> result = new List<Improbable.Vector3d>();
+
+        // N.B.  As BitMap and A* do not give us Z (altitude) values,
+        // we gradually step z from p1 to p2 throughout the plan.
+        double yStep = (p2.y - p1.y) / locs.Count;
+        double yCurr = p1.y; // starting Z;
+        foreach (GridLocation l in locs)
         {
-            if (isPointInNoFlyZone(p2))
-            {
-                return null; // A plan can not be found
-            }
-
-            int[] coord1 = BitMap.findGridCoordinatesOfPoint(p1);
-            int[] coord2 = BitMap.findGridCoordinatesOfPoint(p2);
-
-            GridLocation l1 = new GridLocation(coord1[0], coord1[1]);
-            GridLocation l2 = new GridLocation(coord2[0], coord2[1]);
-
-            ASearch = new ThetaStarSearch(true); // Use AStarSearch or ThetaStarSearch here.
-            //ASearch = new AStarSearch();
-
-            List<GridLocation> locs = ASearch.run(BitMap, l1, l2);
-            if (locs == null)
-            { // The case that a path could not be found.
-                return null; // Just return empty list.
-            }
-
-            // Below lines can be used debug the BitMap and search strategy.
-            //Util.DebugUtil.writeStringToFile (BitMap.toString (), "/users/Sam/Desktop/bitmap.txt");
-            //Util.DebugUtil.writeStringToFile (ASearch.stringifyPath (locs), "/users/Sam/Desktop/AStar.txt");
-
-            List<Improbable.Vector3d> result = new List<Improbable.Vector3d>();
-
-            // N.B.  As BitMap and A* do not give us Z (altitude) values,
-            // we gradually step z from p1 to p2 throughout the plan.
-            double yStep = (p2.y - p1.y) / locs.Count;
-            double yCurr = p1.y; // starting Z;
-            foreach (GridLocation l in locs)
-            {
-                Improbable.Vector3d convertedLocation = convertLocation(l);
-                Improbable.Vector3d location = new Improbable.Vector3d(convertedLocation.x, yCurr,  convertedLocation.z);
-                result.Add(location);
-                yCurr += yStep;
-            }
-            return result;
+            Improbable.Vector3d convertedLocation = convertLocation(l);
+            Improbable.Vector3d location = new Improbable.Vector3d(convertedLocation.x, yCurr,  convertedLocation.z);
+            result.Add(location);
+            yCurr += yStep;
         }
+        return result;
+    }
 
-        public double distanceToNoFlyZone(Improbable.Vector3d point)
-        {
-            // TODO: Implement this
-            return 0;
-        }
+    public double distanceToNoFlyZone(Improbable.Vector3d point)
+    {
+        // TODO: Implement this
+        return 0;
     }
 }

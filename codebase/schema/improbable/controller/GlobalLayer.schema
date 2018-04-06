@@ -1,0 +1,16 @@
+package improbable.controller;
+
+import "improbable/vector3.schema";
+
+type NoFlyZone {
+  improbable.Vector3d bounding_box_bottom_left = 1;
+  improbable.Vector3d bounding_box_top_right = 2;
+
+  list<improbable.Vector3d> vertices = 3;
+}
+ 
+component GlobalLayer {
+  id = 1203;
+
+  list<NoFlyZone> zones = 2;
+}
