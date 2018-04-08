@@ -13,31 +13,9 @@ public class DroneTranstructor : MonoBehaviour
     [Require]
     private Position.Writer PositionWriter;
 
-    [Require]
-    private DroneSpawner.Reader DroneSpawnerReader;
-
-    [Require]
-    private DroneDestroyer.Reader DroneDestroyerReader;
-
-	private void OnEnable()
-	{
-        DroneSpawnerReader.SpawnTriggered.Add(CreateDrone);
-        DroneDestroyerReader.DestroyTriggered.Add(DestroyDrone);
-	}
-
-    private void OnDisable()
+    public void CreateDrone(Coordinates position, Vector3f target, float speed, float radius)
     {
-        DroneSpawnerReader.SpawnTriggered.Remove(CreateDrone);
-        DroneDestroyerReader.DestroyTriggered.Remove(DestroyDrone);
-    }
-
-    private void CreateDrone(SpawnData spawnData)
-    {
-        var droneTemplate = EntityTemplateFactory.CreateDroneTemplate(
-            spawnData.position,
-            spawnData.target,
-            spawnData.speed,
-            spawnData.radius);
+        var droneTemplate = EntityTemplateFactory.CreateDroneTemplate(position, target, speed, radius);
 
         SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
                  .OnSuccess(CreateDroneSuccess);
@@ -49,9 +27,9 @@ public class DroneTranstructor : MonoBehaviour
         ControllerWriter.Send(new Controller.Update().SetDroneCount(ControllerWriter.Data.droneCount + 1));
     }
 
-    private void DestroyDrone(DestroyData destroyData)
+    public void DestroyDrone(EntityId entityId)
     {
-        SpatialOS.Commands.DeleteEntity(PositionWriter, destroyData.entityId)
+        SpatialOS.Commands.DeleteEntity(PositionWriter, entityId)
                  .OnSuccess(DestroyDroneSuccess);
     }
 

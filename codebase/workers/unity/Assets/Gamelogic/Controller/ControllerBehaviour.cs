@@ -11,19 +11,17 @@ public class ControllerBehaviour : MonoBehaviour
     [Require]
     private Controller.Writer ControllerWriter;
 
-    [Require]
-    private DroneSpawner.Writer DroneSpawnerWriter;
-
-    [Require]
-    private DroneDestroyer.Writer DroneDestroyerWriter;
-
     private float nextActionTime = 0.0f;
     private float period = 1f;
+
+    DroneTranstructor droneTranstructor;
 
     private void OnEnable()
     {
         //register stuff
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(CalculateNewTarget);
+
+        droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
     }
 
     private void OnDisable()
@@ -68,7 +66,7 @@ public class ControllerBehaviour : MonoBehaviour
             float speed = Random.Range(2, 10);
             float radius = Random.Range(0.5f, 2);
 
-            DroneSpawnerWriter.Send(new DroneSpawner.Update().AddSpawn(new SpawnData(spawn, target, speed, radius)));
+            droneTranstructor.CreateDrone(spawn, target, speed, radius);
         }
     }
 
@@ -76,7 +74,7 @@ public class ControllerBehaviour : MonoBehaviour
     {
         uint currentCount = ControllerWriter.Data.droneCount;
         if (currentCount > 0) {
-            DroneDestroyerWriter.Send(new DroneDestroyer.Update().AddDestroy(new DestroyData(entityId)));
+            droneTranstructor.DestroyDrone(entityId);
         }
     }
 }
