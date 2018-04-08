@@ -20,16 +20,18 @@ public class Bitmap : MonoBehaviour
     private int Height; // Meters
     public Improbable.Collections.List<GridType> Grid;
 
-    private void InitialiseBitmap(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
+    public void InitialiseBitmap(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
     {
         if (!BitmapWriter.Data.initialised)
         {
             Debug.LogError("Bitmap already initialised");
+            return;
         }
 
         if (topLeft.x > bottomRight.x || bottomRight.z < topLeft.z)
         {
             Debug.LogError("Unsupported grid coordinates");
+            return;
         }
 
         TopLeft = topLeft;
@@ -56,7 +58,6 @@ public class Bitmap : MonoBehaviour
 
     private void OnEnable()
     {
-        BitmapWriter.InitialiseTriggered.Add((InitBitmap obj) => InitialiseBitmap(obj.topLeft, obj.bottomRight));
         BitmapWriter.ComponentUpdated.Add(HandleAction);
 
         if (BitmapWriter.Data.initialised)
@@ -69,7 +70,7 @@ public class Bitmap : MonoBehaviour
         }
     }
 
-    void HandleAction(BitmapComponent.Update obj)
+    private void HandleAction(BitmapComponent.Update obj)
     {
         if (obj.topLeft.HasValue)
         {
@@ -102,14 +103,14 @@ public class Bitmap : MonoBehaviour
         BitmapWriter.ComponentUpdated.Remove(HandleAction);
     }
 
-    public void updateWithNoFlyZones(List<NoFlyZone> zones)
+    public void updateWithNoFlyZones(List<Improbable.Controller.NoFlyZone> zones)
     {
         zones.ForEach(addNoFlyZone);
     }
 
-    public void addNoFlyZone(NoFlyZone noFlyZone)
+    public void addNoFlyZone(Improbable.Controller.NoFlyZone noFlyZone)
     {
-        Improbable.Vector3d[] vertices = noFlyZone.getVertices();
+        Improbable.Vector3d[] vertices = noFlyZone.vertices.ToArray();
         Improbable.Vector3d previousWaypoint = vertices[0];
         for (int i = 1; i < vertices.Length; i++)
         {
@@ -124,6 +125,10 @@ public class Bitmap : MonoBehaviour
     private void setGridCell(int x, int z, GridType value)
     {
         Grid[z * Width + x] = value;
+    }
+
+    private void sendGridUpdate()
+    {
         BitmapWriter.Send(new BitmapComponent.Update().SetGrid(Grid));
     }
 
@@ -290,6 +295,8 @@ public class Bitmap : MonoBehaviour
             prevCoord = currCoord;
         }
 
+        sendGridUpdate();
+
         findAndSetPointInGrid(endPoint);
     }
 
@@ -329,6 +336,7 @@ public class Bitmap : MonoBehaviour
             }
         }
         setGridCell(coord[0], coord[1], GridType.IN);
+        sendGridUpdate();
 
         return coord;
     }
@@ -357,7 +365,8 @@ public class Bitmap : MonoBehaviour
         int z = (int)Math.Floor((point.z - TopLeft.z) / BIT_SIZE);
         if (x < 0 || x >= Width || z < 0 || z >= Height)
         {
-            throw new Exception("Invalid bitmap index: x - " + x + ", z - " + z);
+            Debug.LogError("Invalid bitmap index: x - " + x + ", z - " + z);
+            return null;
         }
 
         int[] result = { x, z };

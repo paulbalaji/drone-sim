@@ -12,5 +12,5 @@ type NoFlyZone {
 component GlobalLayer {
   id = 1203;
 
-  list<NoFlyZone> zones = 2;
+  list<NoFlyZone> zones = 1;
 }

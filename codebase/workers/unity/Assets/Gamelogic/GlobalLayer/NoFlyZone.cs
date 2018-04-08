@@ -1,34 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using Improbable;
+using Improbable.Controller;
+using Improbable.Unity;
+using Improbable.Unity.Core;
+using Improbable.Unity.Visualizer;
 
-public class NoFlyZone
+public static class NoFlyZone
 {
-    private Improbable.Vector3d[] Vertices;
-    private Improbable.Vector3d BoundingBoxBottomLeft;
-    private Improbable.Vector3d BoundingBoxTopRight;
-
-    public NoFlyZone(Improbable.Vector3d[] vertices)
-    {
-        setVertices(vertices);
-    }
-
-    public NoFlyZone(Improbable.Vector3d[] vertices, Improbable.Vector3d bottomLeft, Improbable.Vector3d topRight)
-    {
-        setVertices(vertices);
-        BoundingBoxBottomLeft = bottomLeft;
-        BoundingBoxTopRight = topRight;
-    }
-
-    private bool isInPolygon(Improbable.Vector3d point)
+    private static bool isInPolygon(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3d point)
     {
         bool isInside = false;
 
-        for (int i = 0, j = Vertices.Length - 1; i < Vertices.Length; j = i++)
+        for (int i = 0, j = nfz.vertices.Count - 1; i < nfz.vertices.Count; j = i++)
         {
-            bool isInZRange = ((Vertices[i].z > point.z) != (Vertices[j].z > point.z));
+            bool isInZRange = ((nfz.vertices[i].z > point.z) != (nfz.vertices[j].z > point.z));
 
             if (isInZRange &&
-            (point.x < (Vertices[j].x - Vertices[i].x) * (point.z - Vertices[i].z)
-             / (Vertices[j].z - Vertices[i].z) + Vertices[i].x))
+                (point.x < (nfz.vertices[j].x - nfz.vertices[i].x) * (point.z - nfz.vertices[i].z)
+                 / (nfz.vertices[j].z - nfz.vertices[i].z) + nfz.vertices[i].x))
             {
                 isInside = !isInside;
             }
@@ -36,27 +27,17 @@ public class NoFlyZone
         return isInside;
     }
 
-    public bool hasCollidedWith(Improbable.Vector3d point)
+    public static bool hasCollidedWith(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3d point)
     {
-        return isInPolygon(point);
+        return isInPolygon(nfz, point);
     }
 
-    public Improbable.Vector3d[] getVertices()
+    public static void setBoundingBoxCoordinates(ref Improbable.Controller.NoFlyZone nfz)
     {
-        return Vertices;
-    }
+        Vector3d BoundingBoxBottomLeft = nfz.vertices[0];
+        Vector3d BoundingBoxTopRight = nfz.vertices[0];
 
-    public void setVertices(Improbable.Vector3d[] vertices)
-    {
-        Vertices = vertices;
-    }
-
-    public void setBoundingBoxCoordinates()
-    {
-        BoundingBoxBottomLeft = Vertices[0];
-        BoundingBoxTopRight = Vertices[0];
-
-        foreach (Improbable.Vector3d vertex in Vertices)
+        foreach (Improbable.Vector3d vertex in nfz.vertices)
         {
             if (vertex.x > BoundingBoxTopRight.x)
             {
@@ -75,28 +56,21 @@ public class NoFlyZone
                 BoundingBoxBottomLeft.z = vertex.z;
             }
         }
+
+        nfz.boundingBoxBottomLeft = BoundingBoxBottomLeft;
+        nfz.boundingBoxTopRight = BoundingBoxTopRight;
     }
 
-    public bool isPointInTheBoundingBox(Improbable.Vector3d point)
+    public static bool isPointInTheBoundingBox(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3d point)
     {
         bool res = false;
-        if (point.x >= BoundingBoxBottomLeft.x & point.x <= BoundingBoxTopRight.x)
+        if (point.x >= nfz.boundingBoxBottomLeft.x & point.x <= nfz.boundingBoxTopRight.x)
         {
-            if (point.z >= BoundingBoxBottomLeft.z & point.z <= BoundingBoxTopRight.z)
+            if (point.z >= nfz.boundingBoxBottomLeft.z & point.z <= nfz.boundingBoxTopRight.z)
             {
                 res = true;
             }
         }
         return res;
-    }
-
-    public Improbable.Vector3d getBoundingBoxBottomLeft()
-    {
-        return BoundingBoxBottomLeft;
-    }
-
-    public Improbable.Vector3d getBoundingBoxTopRight()
-    {
-        return BoundingBoxTopRight;
     }
 }

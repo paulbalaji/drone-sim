@@ -1,36 +1,73 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
+using Improbable;
+using Improbable.Controller;
+using Improbable.Unity;
+using Improbable.Unity.Core;
+using Improbable.Unity.Visualizer;
 
-public class GridGlobalLayer
+public class GridGlobalLayer : MonoBehaviour
 {
-    public Bitmap BitMap;
+    [Require]
+    private BitmapComponent.Writer BitmapWriter;
+
+    [Require]
+    private GlobalLayer.Writer GlobalLayerWriter;
+
+    Bitmap bitmap;
+
     IGridSearch ASearch;
-    public List<NoFlyZone> zones;
+    public Improbable.Collections.List<Improbable.Controller.NoFlyZone> zones;
 
-    public GridGlobalLayer(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
+    public void InitGlobalLayer(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
     {
-        BitMap = new Bitmap(topLeft, bottomRight);
-        zones = new List<NoFlyZone>();
+        bitmap = gameObject.GetComponent<Bitmap>();
+        bitmap.InitialiseBitmap(topLeft, bottomRight);
     }
 
-    public void AddNoFlyZones(NoFlyZone[] noFlyZones)
+    private void OnEnable()
     {
-        foreach (NoFlyZone zone in noFlyZones)
+        bitmap = gameObject.GetComponent<Bitmap>();
+        zones = GlobalLayerWriter.Data.zones;
+
+        GlobalLayerWriter.ZonesUpdated.Add(HandleZonesUpdate);
+    }
+
+    void HandleZonesUpdate(Improbable.Collections.List<Improbable.Controller.NoFlyZone> updatedZones)
+    {
+        zones = updatedZones;
+    }
+
+    public void AddNoFlyZones(Improbable.Controller.NoFlyZone[] noFlyZones)
+    {
+        foreach (Improbable.Controller.NoFlyZone zone in noFlyZones)
         {
-            AddNoFlyZone(zone);
+            AddNoFlyZone(zone, false);
         }
+        SendZonesUpdate();
     }
 
-    public void AddNoFlyZone(NoFlyZone zone)
+    public void AddNoFlyZone(Improbable.Controller.NoFlyZone zone, bool sendUpdate = true)
     {
         zones.Add(zone);
-        BitMap.addNoFlyZone(zone);
+        if (sendUpdate)
+        {
+            SendZonesUpdate();
+        }
+
+        bitmap.addNoFlyZone(zone);
+    }
+
+    private void SendZonesUpdate()
+    {
+        GlobalLayerWriter.Send(new GlobalLayer.Update().SetZones(zones));
     }
 
     // Converts a grid location back into cartesian coordinate.
     private Improbable.Vector3d convertLocation(GridLocation l)
     {
-        return BitMap.getPointFromCoordinates(new int[] { l.x, l.z });
+        return bitmap.getPointFromCoordinates(new int[] { l.x, l.z });
     }
 
     public List<Improbable.Vector3d> generatePlan(List<Improbable.Vector3d> waypoints)
@@ -53,9 +90,9 @@ public class GridGlobalLayer
 
     private bool isPointInNoFlyZone(Improbable.Vector3d point)
     {
-        foreach (NoFlyZone zone in zones)
+        foreach (Improbable.Controller.NoFlyZone zone in zones)
         {
-            if (zone.hasCollidedWith(point))
+            if (NoFlyZone.hasCollidedWith(zone, point))
             {
                 return true;
             }
@@ -70,8 +107,8 @@ public class GridGlobalLayer
             return null; // A plan can not be found
         }
 
-        int[] coord1 = BitMap.findGridCoordinatesOfPoint(p1);
-        int[] coord2 = BitMap.findGridCoordinatesOfPoint(p2);
+        int[] coord1 = bitmap.findGridCoordinatesOfPoint(p1);
+        int[] coord2 = bitmap.findGridCoordinatesOfPoint(p2);
 
         GridLocation l1 = new GridLocation(coord1[0], coord1[1]);
         GridLocation l2 = new GridLocation(coord2[0], coord2[1]);
@@ -79,7 +116,7 @@ public class GridGlobalLayer
         ASearch = new ThetaStarSearch(true); // Use AStarSearch or ThetaStarSearch here.
         //ASearch = new AStarSearch();
 
-        List<GridLocation> locs = ASearch.run(BitMap, l1, l2);
+        List<GridLocation> locs = ASearch.run(bitmap, l1, l2);
         if (locs == null)
         { // The case that a path could not be found.
             return null; // Just return empty list.

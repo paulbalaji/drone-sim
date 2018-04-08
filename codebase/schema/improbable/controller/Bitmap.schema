@@ -1,16 +1,12 @@
 package improbable.controller;
 
 import "improbable/vector3.schema";
+import "improbable/controller/GlobalLayer.schema";
 
 enum GridType {
   OUT = 1;
   IN = 2;
   NEAR = 3;
-}
-
-type InitBitmap {
-  improbable.Vector3d top_left = 1;
-  improbable.Vector3d bottom_right = 2;
 }
 
 component BitmapComponent {
@@ -25,6 +21,4 @@ component BitmapComponent {
   list<GridType> grid = 5;
 
   bool initialised = 6;
-
-  event InitBitmap initialise;
 }
