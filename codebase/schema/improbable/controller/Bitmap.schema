@@ -8,6 +8,11 @@ enum GridType {
   NEAR = 3;
 }
 
+type InitBitmap {
+  improbable.Vector3d top_left = 1;
+  improbable.Vector3d bottom_right = 2;
+}
+
 component BitmapComponent {
 	id = 1204;
 
@@ -20,4 +25,6 @@ component BitmapComponent {
   list<GridType> grid = 5;
 
   bool initialised = 6;
+
+  event InitBitmap initialise;
 }

@@ -20,12 +20,18 @@ public class Bitmap : MonoBehaviour
     private int Height; // Meters
     public Improbable.Collections.List<GridType> Grid;
 
-    public Bitmap(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
+    private void InitialiseBitmap(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
     {
+        if (!BitmapWriter.Data.initialised)
+        {
+            Debug.LogError("Bitmap already initialised");
+        }
+
         if (topLeft.x > bottomRight.x || bottomRight.z < topLeft.z)
         {
-            throw new Exception("Unsupported grid coordinates");
+            Debug.LogError("Unsupported grid coordinates");
         }
+
         TopLeft = topLeft;
         BottomRight = bottomRight;
         Width = (int)Math.Ceiling(Math.Abs(bottomRight.x - topLeft.x));
@@ -50,6 +56,7 @@ public class Bitmap : MonoBehaviour
 
     private void OnEnable()
     {
+        BitmapWriter.InitialiseTriggered.Add((InitBitmap obj) => InitialiseBitmap(obj.topLeft, obj.bottomRight));
         BitmapWriter.ComponentUpdated.Add(HandleAction);
 
         if (BitmapWriter.Data.initialised)
