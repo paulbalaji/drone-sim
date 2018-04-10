@@ -24,6 +24,7 @@ public class GridGlobalLayer : MonoBehaviour
     {
         bitmap = gameObject.GetComponent<Bitmap>();
         bitmap.InitialiseBitmap(topLeft, bottomRight);
+        bitmap.updateWithNoFlyZones(GlobalLayerWriter.Data.zones);
     }
 
     private void OnEnable()

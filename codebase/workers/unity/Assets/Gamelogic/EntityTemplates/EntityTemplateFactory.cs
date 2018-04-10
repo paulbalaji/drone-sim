@@ -56,8 +56,14 @@ public class EntityTemplateFactory : MonoBehaviour
         return cubeTemplate;
     }
 
-    public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint)
+    public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint, NFZTemplate[] templates)
     {
+        List<Improbable.Controller.NoFlyZone> nfzs = new List<Improbable.Controller.NoFlyZone>();
+        foreach(NFZTemplate template in templates)
+        {
+            nfzs.Add(NFZ_Templates.GetNoFlyZone(template));
+        }
+
         var controllerTemplate = EntityBuilder.Begin()
             .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
             .AddMetadataComponent(entityType: SimulationSettings.ControllerPrefabName)
@@ -65,7 +71,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new Controller.Data(0, SimulationSettings.MaxDroneCountPerController), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new GlobalLayer.Data(new List<Improbable.Controller.NoFlyZone>()), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(new Vector3d(), new Vector3d(), 0, 0, new List<GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .Build();
 

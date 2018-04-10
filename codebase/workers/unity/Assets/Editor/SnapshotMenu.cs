@@ -1,6 +1,7 @@
 ﻿using Assets.Gamelogic.Core;
 using Improbable;
 using Improbable.Worker;
+using Improbable.Controller;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -10,6 +11,36 @@ namespace Assets.Editor
 {
 	public class SnapshotMenu : MonoBehaviour
 	{
+        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 1 BASIC")]
+        private static void GeneratePhase1SnapshotDev()
+        {
+            var snapshotEntities = new Dictionary<EntityId, Entity>();
+            var currentEntityId = 1;
+
+            snapshotEntities.Add(
+                new EntityId(currentEntityId++),
+                EntityTemplateFactory.CreateControllerTemplate(
+                    new Coordinates(0, 0, 0),
+                    new NFZTemplate[] {
+                        NFZTemplate.BASIC
+                    }
+            ));
+
+            Coordinates spawn = new Coordinates(30, 0, 30);
+            snapshotEntities.Add(
+                new EntityId(currentEntityId++),
+                EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
+            );
+
+            spawn = new Coordinates(-30, 0, -30);
+            snapshotEntities.Add(
+                new EntityId(currentEntityId++),
+                EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
+            );
+
+            SaveSnapshot(snapshotEntities, "phase1_basic");
+        }
+
         [MenuItem("Improbable/Snapshots/Generate Phase 0 DEV Snapshot")]
         private static void GeneratePhase0SnapshotsDev()
         {
@@ -17,7 +48,10 @@ namespace Assets.Editor
             var currentEntityId = 1;
 
             //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
-            snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateControllerTemplate(new Coordinates(0, 0, 0)));
+            snapshotEntities.Add(
+                new EntityId(currentEntityId++), 
+                EntityTemplateFactory.CreateControllerTemplate(new Coordinates(0, 0, 0), new NFZTemplate[]{})
+            );
 
             //var numDrones = SimulationSettings.numDrones;
             //var squareSize = SimulationSettings.squareSize;

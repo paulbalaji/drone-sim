@@ -26,4 +26,9 @@ public static class Vector3Extensions
     {
         return new Vector3(vector3f.x, vector3f.y, vector3f.z);
     }
+
+    public static Vector3f ToSpatialVector3f(this Coordinates coordinates)
+    {
+        return new Vector3f((float)coordinates.x, (float)coordinates.y, (float)coordinates.z);
+    }
 }
