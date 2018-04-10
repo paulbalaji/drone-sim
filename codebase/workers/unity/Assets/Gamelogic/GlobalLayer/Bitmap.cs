@@ -120,6 +120,8 @@ public class Bitmap : MonoBehaviour
         }
 
         setLine(previousWaypoint, vertices[0]); // setting the final line
+
+        sendGridUpdate();
     }
 
     private void setGridCell(int x, int z, GridType value)
@@ -295,8 +297,6 @@ public class Bitmap : MonoBehaviour
             prevCoord = currCoord;
         }
 
-        sendGridUpdate();
-
         findAndSetPointInGrid(endPoint);
     }
 
@@ -336,7 +336,6 @@ public class Bitmap : MonoBehaviour
             }
         }
         setGridCell(coord[0], coord[1], GridType.IN);
-        sendGridUpdate();
 
         return coord;
     }
