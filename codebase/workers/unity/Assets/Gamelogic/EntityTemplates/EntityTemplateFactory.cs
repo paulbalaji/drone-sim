@@ -70,7 +70,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new Controller.Data(0, SimulationSettings.MaxDroneCountPerController), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new Controller.Data(0, SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DroneInfo>()), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(new Vector3d(), new Vector3d(), 0, 0, new List<GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .Build();
@@ -86,7 +86,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new DroneData.Data(initialTarget, droneSpeed, hitRadius), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DroneData.Data(initialTarget, droneSpeed, hitRadius, TargetPending.REQUEST), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return droneTemplate;

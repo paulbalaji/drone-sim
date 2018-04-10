@@ -2,10 +2,17 @@ package improbable.drone;
 
 import "improbable/vector3.schema";
 
+enum TargetPending {
+	REQUEST = 1;
+	WAITING = 2;
+	RECEIVED = 3;
+}
+
 component DroneData {
   id = 1100;
 
   improbable.Vector3f target = 1; // next target
   float speed = 2; // speed of the drone
   float radius = 3; // radius to count as "hit" 
+  TargetPending target_pending = 4; //to indicate what stage of target fetching we are in
 }

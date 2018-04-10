@@ -63,9 +63,9 @@ public class DroneBehaviour : MonoBehaviour
 
 	void FixedUpdate()
 	{
-        if (simulate)
+        if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
         {
-            if (withinTargetRange(target)) {
+            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || withinTargetRange(target)) {
                 requestNewTarget();
             } else {
                 Vector3 direction = target - transform.position;
@@ -84,15 +84,22 @@ public class DroneBehaviour : MonoBehaviour
 
     private void requestNewTarget()
     {
+        DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
         SpatialOS.Commands.SendCommand(PositionWriter, Controller.Commands.RequestNewTarget.Descriptor, new TargetRequest(), new EntityId(1))
-                 .OnSuccess((TargetResponse response) => updateTarget(response.target))
-                 .OnFailure((response) => Debug.LogError("Failed to request new target, with error: " + response.ErrorMessage));
+                 .OnSuccess((TargetResponse response) => requestTargetSuccess(response.target))
+                 .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
     }
 
-    private void updateTarget(Vector3f newTarget)
+    private void requestTargetSuccess(Vector3f newTarget)
     {
         //Debug.LogError("update target function");
-        DroneDataWriter.Send(new DroneData.Update().SetTarget(newTarget));
+        DroneDataWriter.Send(new DroneData.Update().SetTarget(newTarget).SetTargetPending(TargetPending.RECEIVED));
+    }
+
+    private void requestTargetFailure(string errorMessage)
+    {
+        Debug.LogError("Failed to request new target, with error: " + errorMessage);
+        DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.REQUEST));
     }
 
     private void updatePosition()

@@ -7,12 +7,19 @@ type TargetRequest {}
 type TargetResponse {
 	improbable.Vector3f target = 1; // next target
 }
+
+type DroneInfo {
+	int32 next_waypoint = 1;
+	list<improbable.Vector3f> waypoints = 2;
+}
  
 component Controller {
   id = 1200;
 
   uint32 drone_count = 1;
   uint32 max_drone_count = 2;
+
+  map<EntityId, DroneInfo> drone_map = 3;
 
   command TargetResponse request_new_target(TargetRequest);
 }
