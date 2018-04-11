@@ -4,8 +4,10 @@ using Improbable.Controller;
 public static class NFZ_Templates
 {
     private static double[] basic = { 
-        0, 1, 
-        2, 2
+        25, 25, 
+        25, -25,
+        -25, -25,
+        -25, 25
     };
 
     public static Improbable.Controller.NoFlyZone GetNoFlyZone(NFZTemplate template)

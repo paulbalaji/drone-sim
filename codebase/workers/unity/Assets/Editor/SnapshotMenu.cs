@@ -28,13 +28,13 @@ namespace Assets.Editor
                     }
             ));
 
-            Coordinates spawn = new Coordinates(30, 0, 30);
+            Coordinates spawn = new Coordinates(50, 0, 50);
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
             );
 
-            spawn = new Coordinates(-30, 0, -30);
+            spawn = new Coordinates(-50, 0, -50);
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)

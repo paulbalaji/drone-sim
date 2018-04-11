@@ -85,7 +85,10 @@ public class DroneBehaviour : MonoBehaviour
     private void requestNewTarget()
     {
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
-        SpatialOS.Commands.SendCommand(PositionWriter, Controller.Commands.RequestNewTarget.Descriptor, new TargetRequest(), new EntityId(1))
+        SpatialOS.Commands.SendCommand(
+            PositionWriter,
+            Controller.Commands.RequestNewTarget.Descriptor,
+            new TargetRequest(gameObject.EntityId(), transform.position.ToSpatialVector3f()), new EntityId(1))
                  .OnSuccess((TargetResponse response) => requestTargetSuccess(response.target))
                  .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
     }
