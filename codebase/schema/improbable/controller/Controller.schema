@@ -4,6 +4,7 @@ import "improbable/vector3.schema";
 
 type TargetRequest {
 	EntityId drone_id = 1;
+	improbable.Vector3f location = 2;
 }
 
 type TargetResponse {

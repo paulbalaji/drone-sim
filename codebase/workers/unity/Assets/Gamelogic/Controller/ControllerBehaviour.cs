@@ -34,6 +34,7 @@ public class ControllerBehaviour : MonoBehaviour
         if (!ControllerWriter.Data.initialised)
         {
             globalLayer.InitGlobalLayer(ControllerWriter.Data.topLeft, ControllerWriter.Data.bottomRight);
+            ControllerWriter.Send(new Controller.Update().SetInitialised(true));
         }
     }
 
@@ -49,10 +50,14 @@ public class ControllerBehaviour : MonoBehaviour
         droneMap = spatialDroneMap;
     }
 
+    void UpdateDroneMap()
+    {
+        ControllerWriter.Send(new Controller.Update().SetDroneMap(droneMap));
+    }
+
 
     void CalculateNewTarget(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
-        Vector3f nextTarget;
         DroneInfo droneInfo;
 
         if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
@@ -63,20 +68,33 @@ public class ControllerBehaviour : MonoBehaviour
             if (droneInfo.waypoints.Count > droneInfo.nextWaypoint) 
             {
                 handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint]));
+
                 droneInfo.nextWaypoint++;
+
+                //stupidly you have to remove/add to update
                 droneMap.Remove(handle.Request.droneId);
                 droneMap.Add(handle.Request.droneId, droneInfo);
+                UpdateDroneMap();
+
                 return;
             }
 
-            //if final waypoint
+            //if final waypoint, remove current flight plan
             droneMap.Remove(handle.Request.droneId);
 
             //for now just give it a new target and generate a random plan for that?
         }
 
-        //get a list of waypoints
-        //return first waypoint
+        //for new flight plan
+        droneInfo.nextWaypoint = 1;
+        droneInfo.waypoints = globalLayer.generatePointToPointPlan(
+            handle.Request.location,
+            new Vector3f(-handle.Request.location.x, 0, -handle.Request.location.z));
+        
+        droneMap.Add(handle.Request.droneId, droneInfo);
+        UpdateDroneMap();
+
+        handle.Respond(new TargetResponse(droneInfo.waypoints[0]));
     }
 
     void Update()
@@ -85,7 +103,7 @@ public class ControllerBehaviour : MonoBehaviour
         {
             nextActionTime += period;
 
-            SpawnDrone();
+            //SpawnDrone();
         }
     }
 

@@ -31,4 +31,9 @@ public static class Vector3Extensions
     {
         return new Vector3f((float)coordinates.x, (float)coordinates.y, (float)coordinates.z);
     }
+
+    public static Vector3d ToSpatialVector3d(this Vector3f vector)
+    {
+        return new Vector3d(vector.x, vector.y, vector.z);
+    }
 }
