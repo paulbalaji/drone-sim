@@ -21,6 +21,8 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateControllerTemplate(
                     new Coordinates(0, 0, 0),
+                    new Vector3d(-1000, 0, 1000),
+                    new Vector3d(1000, 0, -1000),
                     new NFZTemplate[] {
                         NFZTemplate.BASIC
                     }
@@ -41,17 +43,23 @@ namespace Assets.Editor
             SaveSnapshot(snapshotEntities, "phase1_basic");
         }
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 0 DEV Snapshot")]
-        private static void GeneratePhase0SnapshotsDev()
-        {
-            var snapshotEntities = new Dictionary<EntityId, Entity>();
-            var currentEntityId = 1;
+        //[MenuItem("Improbable/Snapshots/Generate Phase 0 DEV Snapshot")]
+        //private static void GeneratePhase0SnapshotsDev()
+        //{
+            //var snapshotEntities = new Dictionary<EntityId, Entity>();
+            //var currentEntityId = 1;
+            //var numDrones = SimulationSettings.numDrones;
+            //var squareSize = SimulationSettings.squareSize;
 
-            //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++), 
-                EntityTemplateFactory.CreateControllerTemplate(new Coordinates(0, 0, 0), new NFZTemplate[]{})
-            );
+            ////snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
+            //snapshotEntities.Add(
+            //    new EntityId(currentEntityId++), 
+            //    EntityTemplateFactory.CreateControllerTemplate(
+            //        new Coordinates(0, 0, 0), 
+            //        new Vector3d(-1000, 0, 1000),
+            //        new Vector3d(1000, 0, -1000),
+            //        new NFZTemplate[]{})
+            //);
 
             //var numDrones = SimulationSettings.numDrones;
             //var squareSize = SimulationSettings.squareSize;
@@ -65,23 +73,23 @@ namespace Assets.Editor
             //    snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, speed, radius));
             //}
 
-            SaveSnapshot(snapshotEntities, "phase0dev");
-        }
+            //SaveSnapshot(snapshotEntities, "phase0dev");
+        //}
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 0 DEPLOY Snapshot")]
-        private static void GeneratePhase0Snapshots()
-        {
-            //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
-            //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateServerNodeTemplate(new Coordinates(5, 0, 5)));
+        //[MenuItem("Improbable/Snapshots/Generate Phase 0 DEPLOY Snapshot")]
+        //private static void GeneratePhase0Snapshots()
+        //{
+        //    //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreatePlayerCreatorTemplate());
+        //    //snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateServerNodeTemplate(new Coordinates(5, 0, 5)));
 
-            //GenerateSinglePhase0Snapshot(10, 10);
-            //GenerateSinglePhase0Snapshot(20, 20);
-            //GenerateSinglePhase0Snapshot(50, 50);
-            //GenerateSinglePhase0Snapshot(100, 50);
-            //GenerateSinglePhase0Snapshot(100, 100);
-            //GenerateSinglePhase0Snapshot(500, 100);
-            GenerateSinglePhase0Snapshot(1000, 800);
-        }
+        //    //GenerateSinglePhase0Snapshot(10, 10);
+        //    //GenerateSinglePhase0Snapshot(20, 20);
+        //    //GenerateSinglePhase0Snapshot(50, 50);
+        //    //GenerateSinglePhase0Snapshot(100, 50);
+        //    //GenerateSinglePhase0Snapshot(100, 100);
+        //    //GenerateSinglePhase0Snapshot(500, 100);
+        //    GenerateSinglePhase0Snapshot(1000, 800);
+        //}
 
         private static void GenerateSinglePhase0Snapshot(int numDrones, int squareSize)
         {

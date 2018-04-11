@@ -16,30 +16,67 @@ public class ControllerBehaviour : MonoBehaviour
 
     DroneTranstructor droneTranstructor;
 
+    GridGlobalLayer globalLayer;
+
+    Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
+
     private void OnEnable()
     {
-        //register stuff
+        
+
+        ControllerWriter.DroneMapUpdated.AddAndInvoke(HandleAction);
+
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(CalculateNewTarget);
 
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
+        globalLayer = gameObject.GetComponent<GridGlobalLayer>();
+
+        if (!ControllerWriter.Data.initialised)
+        {
+            globalLayer.InitGlobalLayer(ControllerWriter.Data.topLeft, ControllerWriter.Data.bottomRight);
+        }
     }
 
     private void OnDisable()
     {
-        //deregister stuff
-        ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(CalculateNewTarget);
+        ControllerWriter.DroneMapUpdated.Remove(HandleAction);
+
+        ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
     }
+
+    void HandleAction(Improbable.Collections.Map<EntityId, DroneInfo> spatialDroneMap)
+    {
+        droneMap = spatialDroneMap;
+    }
+
 
     void CalculateNewTarget(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
-        //calculate new target here
-        float size = SimulationSettings.squareSize;
-        Vector3f newTarget = new Vector3f(Random.Range(-size, size), 0, Random.Range(-size, size));
+        Vector3f nextTarget;
+        DroneInfo droneInfo;
 
-        //Debug.LogError("returning new target");
+        if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+        {
+            //TODO: need to verify if the drone is actually at its target
 
-        //respond to drone with new target
-        handle.Respond(new TargetResponse(newTarget));
+            //not final waypoint, get next waypoint
+            if (droneInfo.waypoints.Count > droneInfo.nextWaypoint) 
+            {
+                handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint]));
+                droneInfo.nextWaypoint++;
+                droneMap.Remove(handle.Request.droneId);
+                droneMap.Add(handle.Request.droneId, droneInfo);
+                return;
+            }
+
+            //if final waypoint
+            droneMap.Remove(handle.Request.droneId);
+
+            //for now just give it a new target and generate a random plan for that?
+        }
+
+        //get a list of waypoints
+        //return first waypoint
     }
 
     void Update()
