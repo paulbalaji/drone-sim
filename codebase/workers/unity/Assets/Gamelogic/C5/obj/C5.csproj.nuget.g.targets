@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)sourcelink.create.github/2.1.2/build/SourceLink.Create.GitHub.targets" Condition="Exists('$(NuGetPackageRoot)sourcelink.create.github/2.1.2/build/SourceLink.Create.GitHub.targets')" />
+    <Import Project="$(NuGetPackageRoot)nerdbank.gitversioning/1.6.35/build/Nerdbank.GitVersioning.targets" Condition="Exists('$(NuGetPackageRoot)nerdbank.gitversioning/1.6.35/build/Nerdbank.GitVersioning.targets')" />
+    <Import Project="$(NuGetPackageRoot)msbuild.sdk.extras/1.0.5/build/portable-net4+wp7+sl4+win8+wpa81/MSBuild.Sdk.Extras.targets" Condition="Exists('$(NuGetPackageRoot)msbuild.sdk.extras/1.0.5/build/portable-net4+wp7+sl4+win8+wpa81/MSBuild.Sdk.Extras.targets')" />
+  </ImportGroup>
+</Project>

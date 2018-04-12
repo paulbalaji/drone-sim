@@ -1,0 +1,222 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETPortable,Version=v0.0,Profile=Profile328": {
+      "MSBuild.Sdk.Extras/1.0.5": {
+        "type": "package",
+        "build": {
+          "build/portable-net4+wp7+sl4+win8+wpa81/MSBuild.Sdk.Extras.props": {},
+          "build/portable-net4+wp7+sl4+win8+wpa81/MSBuild.Sdk.Extras.targets": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MSBuild.Sdk.Extras.props": {},
+          "buildMultiTargeting/MSBuild.Sdk.Extras.targets": {}
+        }
+      },
+      "Nerdbank.GitVersioning/1.6.35": {
+        "type": "package",
+        "build": {
+          "build/Nerdbank.GitVersioning.targets": {}
+        },
+        "buildMultiTargeting": {
+          "buildCrossTargeting/Nerdbank.GitVersioning.targets": {}
+        }
+      },
+      "SourceLink.Create.GitHub/2.1.2": {
+        "type": "package",
+        "build": {
+          "build/SourceLink.Create.GitHub.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MSBuild.Sdk.Extras/1.0.5": {
+      "sha512": "cljwldumYRKjESoahV/r0HtuBMz0674RBZfsekJsaf7HpjEiUQCbPx27blfgwKayQ7AWRTQOdAlK3YHdn50vYA==",
+      "type": "package",
+      "path": "msbuild.sdk.extras/1.0.5",
+      "files": [
+        "build/MSBuild.Sdk.Extras.props",
+        "build/MSBuild.Sdk.Extras.targets",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Build.Tasks.Pack.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Client.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Commands.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Common.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Configuration.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.ContentModel.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.DependencyResolver.Core.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Frameworks.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.LibraryModel.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Packaging.Core.Types.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Packaging.Core.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Packaging.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.ProjectModel.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Protocol.Core.Types.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Protocol.Core.v3.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Repositories.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.RuntimeModel.dll",
+        "build/NuGet.Build.Tasks.Pack/CoreCLR/NuGet.Versioning.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/Newtonsoft.Json.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Build.Tasks.Pack.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Client.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Commands.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Common.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Configuration.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.ContentModel.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.DependencyResolver.Core.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Frameworks.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.LibraryModel.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Packaging.Core.Types.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Packaging.Core.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Packaging.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.ProjectModel.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Protocol.Core.Types.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Protocol.Core.v3.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Repositories.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.RuntimeModel.dll",
+        "build/NuGet.Build.Tasks.Pack/Desktop/NuGet.Versioning.dll",
+        "build/NuGet.Build.Tasks.Pack/build/NuGet.Build.Tasks.Pack.targets",
+        "build/NuGet.Build.Tasks.Pack/buildCrossTargeting/NuGet.Build.Tasks.Pack.targets",
+        "build/local/WP.targets",
+        "build/netstandard1.0/MSBuild.Sdk.Extras.props",
+        "build/netstandard1.0/MSBuild.Sdk.Extras.targets",
+        "build/netstandard1.0/MSBuildSdkExtras.Common.targets",
+        "build/netstandard1.0/NetCoreSdk1Workarounds.targets",
+        "build/platforms/Portable.v4.0.targets",
+        "build/platforms/Portable.v4.5.targets",
+        "build/platforms/Portable.v4.6.targets",
+        "build/platforms/Silverlight.targets",
+        "build/platforms/Tizen.targets",
+        "build/platforms/Windows.targets",
+        "build/platforms/Xamarin.Android.targets",
+        "build/platforms/Xamarin.Mac.targets",
+        "build/platforms/Xamarin.TVOS.targets",
+        "build/platforms/Xamarin.WatchOS.targets",
+        "build/platforms/Xamarin.iOS.targets",
+        "build/portable-net4+wp7+sl4+win8+wpa81/MSBuild.Sdk.Extras.props",
+        "build/portable-net4+wp7+sl4+win8+wpa81/MSBuild.Sdk.Extras.targets",
+        "buildMultiTargeting/MSBuild.Sdk.Extras.props",
+        "buildMultiTargeting/MSBuild.Sdk.Extras.targets",
+        "buildMultiTargeting/NetCoreSdk1MultiTargetingWorkarounds.targets",
+        "msbuild.sdk.extras.1.0.5.nupkg.sha512",
+        "msbuild.sdk.extras.nuspec"
+      ]
+    },
+    "Nerdbank.GitVersioning/1.6.35": {
+      "sha512": "L6UUnGVRCvusOjfK4b6n9Jt0PiHYvcRJ6RTShfB6SRpTUDjtEX3iwerFMd1UrM3UuJEilR8J/hdDBsKuZkACpA==",
+      "type": "package",
+      "path": "nerdbank.gitversioning/1.6.35",
+      "files": [
+        "build/MSBuildCore/LibGit2Sharp.dll",
+        "build/MSBuildCore/LibGit2Sharp.dll.config",
+        "build/MSBuildCore/MSBuildExtensionTask.dll",
+        "build/MSBuildCore/NerdBank.GitVersioning.dll",
+        "build/MSBuildCore/Nerdbank.GitVersioning.Tasks.dll",
+        "build/MSBuildCore/Newtonsoft.Json.dll",
+        "build/MSBuildCore/Validation.dll",
+        "build/MSBuildCore/lib/linux/x86_64/libgit2-1196807.so",
+        "build/MSBuildCore/lib/osx/libgit2-1196807.dylib",
+        "build/MSBuildCore/lib/win32/x64/git2-1196807.dll",
+        "build/MSBuildCore/lib/win32/x86/git2-1196807.dll",
+        "build/MSBuildFull/LibGit2Sharp.dll",
+        "build/MSBuildFull/LibGit2Sharp.dll.config",
+        "build/MSBuildFull/MSBuildExtensionTask.dll",
+        "build/MSBuildFull/NerdBank.GitVersioning.dll",
+        "build/MSBuildFull/Nerdbank.GitVersioning.Tasks.dll",
+        "build/MSBuildFull/Newtonsoft.Json.dll",
+        "build/MSBuildFull/Validation.dll",
+        "build/MSBuildFull/lib/linux/x86_64/libgit2-1196807.so",
+        "build/MSBuildFull/lib/osx/libgit2-1196807.dylib",
+        "build/MSBuildFull/lib/win32/x64/git2-1196807.dll",
+        "build/MSBuildFull/lib/win32/x86/git2-1196807.dll",
+        "build/Nerdbank.GitVersioning.targets",
+        "buildCrossTargeting/Nerdbank.GitVersioning.targets",
+        "nerdbank.gitversioning.1.6.35.nupkg.sha512",
+        "nerdbank.gitversioning.nuspec",
+        "readme.txt",
+        "tools/Create-VersionFile.ps1",
+        "tools/Get-CommitId.ps1",
+        "tools/Get-Version.ps1",
+        "tools/Install.ps1"
+      ]
+    },
+    "SourceLink.Create.GitHub/2.1.2": {
+      "sha512": "/SFJ0pRBVmarUHxI3Et3g9qpOol0gJM0PAY1I9JapxzhomvN1oVgi0qGAai5kIxMlR5Hi4jfS9Q1qKom+7PMtQ==",
+      "type": "package",
+      "path": "sourcelink.create.github/2.1.2",
+      "files": [
+        "build/SourceLink.Create.GitHub.targets",
+        "build/net461/SourceLink.Create.GitHub.dll",
+        "build/netstandard1.4/SourceLink.Create.GitHub.deps.json",
+        "build/netstandard1.4/SourceLink.Create.GitHub.dll",
+        "sourcelink.create.github.2.1.2.nupkg.sha512",
+        "sourcelink.create.github.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETPortable,Version=v0.0,Profile=Profile328": [
+      "Nerdbank.GitVersioning >= 1.6.35",
+      "SourceLink.Create.GitHub >= 2.1.2",
+      "msbuild.sdk.extras >= 1.0.5"
+    ]
+  },
+  "packageFolders": {
+    "/Users/paul/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "2.5.0",
+    "restore": {
+      "projectUniqueName": "/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/C5.csproj",
+      "projectName": "C5",
+      "projectPath": "/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/C5.csproj",
+      "packagesPath": "/Users/paul/.nuget/packages/",
+      "outputPath": "/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/obj",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "/Users/paul/.config/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "portable-net40+sl50+win8+wpa81+wp8"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "portable-net40+sl5+win8+wp8+wpa81": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "portable-net40+sl5+win8+wp8+wpa81": {
+        "dependencies": {
+          "Nerdbank.GitVersioning": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "1.6.35"
+          },
+          "SourceLink.Create.GitHub": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "2.1.2"
+          },
+          "msbuild.sdk.extras": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "1.0.5"
+          }
+        }
+      }
+    }
+  }
+}

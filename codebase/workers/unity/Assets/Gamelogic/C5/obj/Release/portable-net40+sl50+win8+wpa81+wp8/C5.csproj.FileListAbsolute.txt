@@ -1,0 +1,9 @@
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/bin/Release/portable-net40+sl50+win8+wpa81+wp8/C5.dll
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/bin/Release/portable-net40+sl50+win8+wpa81+wp8/C5.pdb
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/bin/Release/portable-net40+sl50+win8+wpa81+wp8/C5.xml
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/obj/Release/portable-net40+sl50+win8+wpa81+wp8/C5.csproj.CoreCompileInputs.cache
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/obj/Release/portable-net40+sl50+win8+wpa81+wp8/C5.AssemblyInfoInputs.cache
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/obj/Release/portable-net40+sl50+win8+wpa81+wp8/C5.AssemblyInfo.cs
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/obj/Release/portable-net40+sl50+win8+wpa81+wp8/C5.dll
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/obj/Release/portable-net40+sl50+win8+wpa81+wp8/C5.xml
+/Users/paul/Documents/FinalYear/IndividualProject/C5/C5/obj/Release/portable-net40+sl50+win8+wpa81+wp8/C5.pdb
