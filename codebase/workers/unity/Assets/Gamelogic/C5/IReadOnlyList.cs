@@ -28,6 +28,6 @@ namespace System.Collections.Generic
 
 #else
 
-//[assembly: TypeForwardedTo(typeof(IReadOnlyList<>))]
+[assembly: TypeForwardedTo(typeof(IReadOnlyList<>))]
 
 #endif
