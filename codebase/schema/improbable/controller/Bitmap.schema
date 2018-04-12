@@ -1,7 +1,6 @@
 package improbable.controller;
 
 import "improbable/vector3.schema";
-import "improbable/controller/GlobalLayer.schema";
 
 enum GridType {
   OUT = 1;

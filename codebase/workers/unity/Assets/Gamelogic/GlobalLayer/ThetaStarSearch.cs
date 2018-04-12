@@ -58,51 +58,51 @@ public class ThetaStarSearch : IGridSearch
     {
         if (lazy)
         {
-            return LazyRun(bitmap, start, end);
+            //return LazyRun(bitmap, start, end);
         }
         return GridSearch.run(bitmap, start, end, ComputeCost);
     }
 
 
-    private List<GridLocation> LazyRun(Bitmap bitmap, GridLocation start, GridLocation goal)
-    {
-        if (start.Equals(goal))
-        {
-            // Return start and goal here so that we interpolate z values
-            return new List<GridLocation> { start, goal };
-        }
-        Dictionary<GridLocation, GridLocation> cameFrom = new Dictionary<GridLocation, GridLocation>();
-        Dictionary<GridLocation, double> costSoFar = new Dictionary<GridLocation, double>();
+    //private List<GridLocation> LazyRun(Bitmap bitmap, GridLocation start, GridLocation goal)
+    //{
+    //    if (start.Equals(goal))
+    //    {
+    //        // Return start and goal here so that we interpolate z values
+    //        return new List<GridLocation> { start, goal };
+    //    }
+    //    Dictionary<GridLocation, GridLocation> cameFrom = new Dictionary<GridLocation, GridLocation>();
+    //    Dictionary<GridLocation, double> costSoFar = new Dictionary<GridLocation, double>();
 
-        var frontier = new C5.IntervalHeap<GridLocation>();
-        start.priority = 0;
-        frontier.Add(start);
-        cameFrom[start] = null;
-        costSoFar[start] = 0;
-        while (!frontier.IsEmpty)
-        {
-            GridLocation current = frontier.DeleteMin();
-            SetVertex(bitmap, cameFrom, costSoFar, current);
-            if (current.Equals(goal))
-            {
-                return GridSearch.RebuildPath(goal, cameFrom);
-            }
-            closedSet.Add(current);
-            foreach (GridLocation next in bitmap.Neighbours(current))
-            {
-                double computedCost = lazyComputeCost(cameFrom, costSoFar, current, next);
-                if (!costSoFar.ContainsKey(next) || computedCost < costSoFar[next])
-                {
-                    cameFrom[next] = cameFrom[current];
-                    costSoFar[next] = computedCost;
-                    double p = computedCost + next.distanceTo(goal);
-                    next.priority = p;
-                    frontier.Add(next);
-                }
-            }
-        }
-        return null;
-    }
+    //    var frontier = new C5.IntervalHeap<GridLocation>();
+    //    start.priority = 0;
+    //    frontier.Add(start);
+    //    cameFrom[start] = null;
+    //    costSoFar[start] = 0;
+    //    while (!frontier.IsEmpty)
+    //    {
+    //        GridLocation current = frontier.DeleteMin();
+    //        SetVertex(bitmap, cameFrom, costSoFar, current);
+    //        if (current.Equals(goal))
+    //        {
+    //            return GridSearch.RebuildPath(goal, cameFrom);
+    //        }
+    //        closedSet.Add(current);
+    //        foreach (GridLocation next in bitmap.Neighbours(current))
+    //        {
+    //            double computedCost = lazyComputeCost(cameFrom, costSoFar, current, next);
+    //            if (!costSoFar.ContainsKey(next) || computedCost < costSoFar[next])
+    //            {
+    //                cameFrom[next] = cameFrom[current];
+    //                costSoFar[next] = computedCost;
+    //                double p = computedCost + next.distanceTo(goal);
+    //                next.priority = p;
+    //                frontier.Add(next);
+    //            }
+    //        }
+    //    }
+    //    return null;
+    //}
 
 
     public double ComputeCost(GridLocation start, GridLocation end,
