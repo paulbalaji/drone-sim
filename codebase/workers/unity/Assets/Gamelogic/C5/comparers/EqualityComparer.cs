@@ -4,7 +4,6 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using NUnit.Compatibility;
 using SCG = System.Collections.Generic;
 
 namespace C5
