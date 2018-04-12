@@ -20,7 +20,7 @@ public class GridGlobalLayer : MonoBehaviour
     IGridSearch ASearch;
     public Improbable.Collections.List<Improbable.Controller.NoFlyZone> zones;
 
-    public void InitGlobalLayer(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
+    public void InitGlobalLayer(Improbable.Vector3f topLeft, Improbable.Vector3f bottomRight)
     {
         bitmap = gameObject.GetComponent<Bitmap>();
         bitmap.InitialiseBitmap(topLeft, bottomRight);
@@ -66,12 +66,12 @@ public class GridGlobalLayer : MonoBehaviour
     }
 
     // Converts a grid location back into cartesian coordinate.
-    private Improbable.Vector3d convertLocation(GridLocation l)
+    private Improbable.Vector3f convertLocation(GridLocation l)
     {
         return bitmap.getPointFromCoordinates(new int[] { l.x, l.z });
     }
 
-    public Improbable.Collections.List<Improbable.Vector3f> generatePlan(List<Improbable.Vector3d> waypoints)
+    public Improbable.Collections.List<Improbable.Vector3f> generatePlan(List<Improbable.Vector3f> waypoints)
     {
         // If can not plan for all the waypoints,
         // this will return null to indicate that the route is unachievable.
@@ -89,7 +89,7 @@ public class GridGlobalLayer : MonoBehaviour
         return result;
     }
 
-    private bool isPointInNoFlyZone(Improbable.Vector3d point)
+    private bool isPointInNoFlyZone(Improbable.Vector3f point)
     {
         foreach (Improbable.Controller.NoFlyZone zone in zones)
         {
@@ -131,8 +131,8 @@ public class GridGlobalLayer : MonoBehaviour
 
         // N.B.  As BitMap and A* do not give us Z (altitude) values,
         // we gradually step z from p1 to p2 throughout the plan.
-        double yStep = (p2.y - p1.y) / locs.Count;
-        double yCurr = p1.y; // starting Z;
+        float yStep = (p2.y - p1.y) / locs.Count;
+        float yCurr = p1.y; // starting Z;
         foreach (GridLocation l in locs)
         {
             Improbable.Vector3f convertedLocation = convertLocation(l);
@@ -143,7 +143,7 @@ public class GridGlobalLayer : MonoBehaviour
         return result;
     }
 
-    public double distanceToNoFlyZone(Improbable.Vector3d point)
+    public double distanceToNoFlyZone(Improbable.Vector3f point)
     {
         // TODO: Implement this
         return 0;

@@ -21,24 +21,24 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateControllerTemplate(
                     new Coordinates(0, 0, 0),
-                    new Vector3d(-1000, 0, 1000),
-                    new Vector3d(1000, 0, -1000),
+                    new Vector3f(-1000, 0, 1000),
+                    new Vector3f(1000, 0, -1000),
                     new NFZTemplate[] {
                         NFZTemplate.BASIC
                     }
             ));
 
-            Coordinates spawn = new Coordinates(50, 0, 50);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
-            );
+            //Coordinates spawn = new Coordinates(50, 0, 50);
+            //snapshotEntities.Add(
+            //    new EntityId(currentEntityId++),
+            //    EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
+            //);
 
-            spawn = new Coordinates(-50, 0, -50);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
-            );
+            //spawn = new Coordinates(-50, 0, -50);
+            //snapshotEntities.Add(
+            //    new EntityId(currentEntityId++),
+            //    EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
+            //);
 
             SaveSnapshot(snapshotEntities, "phase1_basic");
         }

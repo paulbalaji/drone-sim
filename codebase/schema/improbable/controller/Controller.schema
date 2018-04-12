@@ -25,8 +25,8 @@ component Controller {
   map<EntityId, DroneInfo> drone_map = 3;
 
   bool initialised = 4;
-  Vector3d top_left = 5;
-  Vector3d bottom_right = 6;
+  Vector3f top_left = 5;
+  Vector3f bottom_right = 6;
 
   command TargetResponse request_new_target(TargetRequest);
 }

@@ -12,8 +12,8 @@ enum GridType {
 component BitmapComponent {
 	id = 1204;
 
-  improbable.Vector3d top_left = 1;
-  improbable.Vector3d bottom_right = 2;
+  improbable.Vector3f top_left = 1;
+  improbable.Vector3f bottom_right = 2;
 
   int32 width = 3;
   int32 height = 4;

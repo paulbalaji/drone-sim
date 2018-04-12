@@ -14,13 +14,13 @@ public class Bitmap : MonoBehaviour
 
     public static int BIT_SIZE = 25; // meters that each bit in the grid corresponds to
     const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
-    Improbable.Vector3d TopLeft;
-    Improbable.Vector3d BottomRight;
+    Improbable.Vector3f TopLeft;
+    Improbable.Vector3f BottomRight;
     private int Width; // Meters
     private int Height; // Meters
     public Improbable.Collections.List<GridType> Grid;
 
-    public void InitialiseBitmap(Improbable.Vector3d topLeft, Improbable.Vector3d bottomRight)
+    public void InitialiseBitmap(Improbable.Vector3f topLeft, Improbable.Vector3f bottomRight)
     {
         if (!BitmapWriter.Data.initialised)
         {
@@ -110,11 +110,11 @@ public class Bitmap : MonoBehaviour
 
     public void addNoFlyZone(Improbable.Controller.NoFlyZone noFlyZone)
     {
-        Improbable.Vector3d[] vertices = noFlyZone.vertices.ToArray();
-        Improbable.Vector3d previousWaypoint = vertices[0];
+        Improbable.Vector3f[] vertices = noFlyZone.vertices.ToArray();
+        Improbable.Vector3f previousWaypoint = vertices[0];
         for (int i = 1; i < vertices.Length; i++)
         {
-            Improbable.Vector3d currentWaypoint = vertices[i];
+            Improbable.Vector3f currentWaypoint = vertices[i];
             setLine(previousWaypoint, currentWaypoint);
             previousWaypoint = currentWaypoint;
         }
@@ -144,7 +144,7 @@ public class Bitmap : MonoBehaviour
         return getGridCell(x, z) == GridType.NEAR;
     }
 
-    public Improbable.Vector3d nearestNoFlyZonePoint(Improbable.Vector3d point)
+    public Improbable.Vector3f nearestNoFlyZonePoint(Improbable.Vector3f point)
     {
         // Find out where point is in the grid
         int[] gridCo = findGridCoordinatesOfPoint(point);
@@ -248,11 +248,11 @@ public class Bitmap : MonoBehaviour
         }
         if (!foundNoFlyZone)
         {
-            return new Improbable.Vector3d(0, -1, 0);
+            return new Improbable.Vector3f(0, -1, 0);
         }
 
         //given set point, convert (x,y) -> cartesian
-        Improbable.Vector3d nearPoint = getPointFromCoordinates(new int[] { nearestLocation.x, nearestLocation.z });
+        Improbable.Vector3f nearPoint = getPointFromCoordinates(new int[] { nearestLocation.x, nearestLocation.z });
         //assert third element of vector is 0
         //TODO: assert nearPoint only has 2 non-zero elements
         //Console.WriteLine(nearestLocation);
@@ -261,9 +261,9 @@ public class Bitmap : MonoBehaviour
     }
 
     // Returns positive infinity if no point is found within a certain amount of layers.
-    public double distanceToNoFlyZone(Improbable.Vector3d point)
+    public double distanceToNoFlyZone(Improbable.Vector3f point)
     {
-        Improbable.Vector3d p = nearestNoFlyZonePoint(point);
+        Improbable.Vector3f p = nearestNoFlyZonePoint(point);
         if (p.y >= 0)
         {
             double w = p.x - point.x;
@@ -273,17 +273,17 @@ public class Bitmap : MonoBehaviour
         return Double.MaxValue;
     }
 
-    public void setLine(Improbable.Vector3d startPoint, Improbable.Vector3d endPoint)
+    public void setLine(Improbable.Vector3f startPoint, Improbable.Vector3f endPoint)
     {
         // setting the size of each step as we are walking along the line; this should be 1 meter
-        Improbable.Vector3d incrementationVector = endPoint - startPoint;
+        Improbable.Vector3f incrementationVector = endPoint - startPoint;
         incrementationVector = incrementationVector.Normalized() * SIZE_OF_A_STEP;
 
-        Improbable.Vector3d prevPoint = startPoint;
+        Improbable.Vector3f prevPoint = startPoint;
         int[] prevCoord = findAndSetPointInGrid(startPoint);
         while (!nextPointIsEndpoint(prevPoint, endPoint))
         {
-            Improbable.Vector3d currentPoint = prevPoint + incrementationVector;
+            Improbable.Vector3f currentPoint = prevPoint + incrementationVector;
             int[] currCoord = findAndSetPointInGrid(currentPoint);
 
             // if diagonal, set the box lower to the diagonalization
@@ -313,7 +313,7 @@ public class Bitmap : MonoBehaviour
         return fstCoord[1] < sndCoord[1] ? fstCoord : sndCoord;
     }
 
-    private bool nextPointIsEndpoint(Improbable.Vector3d currentPoint, Improbable.Vector3d endPoint)
+    private bool nextPointIsEndpoint(Improbable.Vector3f currentPoint, Improbable.Vector3f endPoint)
     {
         double distanceToEndPoint = Math.Sqrt(Math.Pow(endPoint.x - currentPoint.x, 2) +
                                               Math.Pow(endPoint.z - currentPoint.z, 2));
@@ -323,7 +323,7 @@ public class Bitmap : MonoBehaviour
     /*
      * Sets the corresponding bit in the grid and returns the coordinates
      */
-    public int[] findAndSetPointInGrid(Improbable.Vector3d point)
+    public int[] findAndSetPointInGrid(Improbable.Vector3f point)
     {
         int[] coord = findGridCoordinatesOfPoint(point);
         GridLocation loc = new GridLocation(coord[0], coord[1]);
@@ -351,14 +351,14 @@ public class Bitmap : MonoBehaviour
     /**
      * 'point' has components in cartesian format
      */
-    public bool isNoFlyZone(Improbable.Vector3d point)
+    public bool isNoFlyZone(Improbable.Vector3f point)
     {
         int[] coord = findGridCoordinatesOfPoint(point);
         return isNoFlyZone(coord[0], coord[1]);
     }
 
     // Returns an int[] of the form {x, y}.
-    public int[] findGridCoordinatesOfPoint(Improbable.Vector3d point)
+    public int[] findGridCoordinatesOfPoint(Improbable.Vector3f point)
     {
         int x = (int)Math.Floor((point.x - TopLeft.x) / BIT_SIZE);
         int z = (int)Math.Floor((point.z - TopLeft.z) / BIT_SIZE);
@@ -372,13 +372,13 @@ public class Bitmap : MonoBehaviour
         return result;
     }
 
-    public Improbable.Vector3d getPointFromCoordinates(int[] coords)
+    public Improbable.Vector3f getPointFromCoordinates(int[] coords)
     {
         // TODO do sanity check
-        double x = TopLeft.x + coords[0] * BIT_SIZE;
-        double z = TopLeft.z + coords[1] * BIT_SIZE;
+        float x = TopLeft.x + coords[0] * BIT_SIZE;
+        float z = TopLeft.z + coords[1] * BIT_SIZE;
 
-        return new Improbable.Vector3d(x, 0, z);
+        return new Improbable.Vector3f(x, 0, z);
     }
 
     public String toString()

@@ -9,7 +9,7 @@ using Improbable.Unity.Visualizer;
 
 public static class NoFlyZone
 {
-    private static bool isInPolygon(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3d point)
+    private static bool isInPolygon(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3f point)
     {
         bool isInside = false;
 
@@ -27,17 +27,17 @@ public static class NoFlyZone
         return isInside;
     }
 
-    public static bool hasCollidedWith(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3d point)
+    public static bool hasCollidedWith(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3f point)
     {
         return isInPolygon(nfz, point);
     }
 
     public static void setBoundingBoxCoordinates(ref Improbable.Controller.NoFlyZone nfz)
     {
-        Vector3d BoundingBoxBottomLeft = nfz.vertices[0];
-        Vector3d BoundingBoxTopRight = nfz.vertices[0];
+        Vector3f BoundingBoxBottomLeft = nfz.vertices[0];
+        Vector3f BoundingBoxTopRight = nfz.vertices[0];
 
-        foreach (Improbable.Vector3d vertex in nfz.vertices)
+        foreach (Improbable.Vector3f vertex in nfz.vertices)
         {
             if (vertex.x > BoundingBoxTopRight.x)
             {
@@ -61,7 +61,7 @@ public static class NoFlyZone
         nfz.boundingBoxTopRight = BoundingBoxTopRight;
     }
 
-    public static bool isPointInTheBoundingBox(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3d point)
+    public static bool isPointInTheBoundingBox(Improbable.Controller.NoFlyZone nfz, Improbable.Vector3f point)
     {
         bool res = false;
         if (point.x >= nfz.boundingBoxBottomLeft.x & point.x <= nfz.boundingBoxTopRight.x)

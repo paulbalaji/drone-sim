@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 114709796403539222}
   - component: {fileID: 114498112825592344}
   - component: {fileID: 114472724592279704}
+  - component: {fileID: 114830921744061130}
+  - component: {fileID: 114128210778326462}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -42,6 +44,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114128210778326462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377683206676534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ba0b62cf9d34215bac780ce9e3aad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114472724592279704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,5 +86,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3de01a43f0cad9459a470d545200b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114830921744061130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377683206676534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d07a47d72fe047259c7d7ffbb964d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

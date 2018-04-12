@@ -20,10 +20,10 @@ public class ControllerBehaviour : MonoBehaviour
 
     Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
 
+    bool tempSpawnBool = false;
+
     private void OnEnable()
     {
-        
-
         ControllerWriter.DroneMapUpdated.AddAndInvoke(HandleAction);
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(CalculateNewTarget);
@@ -99,15 +99,36 @@ public class ControllerBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (Time.time > nextActionTime)
+        if (!tempSpawnBool)
         {
-            nextActionTime += period;
-
-            //SpawnDrone();
+            SpawnDrone(new Coordinates(50, 0, 50), new Vector3f(50, 0, 50), 2, 1);
+            SpawnDrone(new Coordinates(-50, 0, -50), new Vector3f(50, 0, 50), 2, 1);
         }
+
+        //if (Time.time > nextActionTime)
+        //{
+        //    nextActionTime += period;
+
+        //    //SpawnDrone();
+        //}
     }
 
-    void SpawnDrone()
+    void SpawnDrone(Coordinates spawn, Vector3f target, float speed = -1, float radius = -1)
+    {
+        if (speed < 0)
+        {
+            speed = Random.Range(2, 10);
+        }
+
+        if (radius < 0)
+        {
+            radius = Random.Range(0.5f, 2);
+        }
+
+        droneTranstructor.CreateDrone(spawn, target, speed, radius);
+    }
+
+    void SpawnCompletelyRandomDrone()
     {
         // TODO: check count < maxCount at the .OnSuccess stage as well
         // should be fine for now, but if you want to be more strict about limits
@@ -118,10 +139,8 @@ public class ControllerBehaviour : MonoBehaviour
 
             Coordinates spawn = new Coordinates(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
             Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
-            float speed = Random.Range(2, 10);
-            float radius = Random.Range(0.5f, 2);
 
-            droneTranstructor.CreateDrone(spawn, target, speed, radius);
+            SpawnDrone(spawn, target);
         }
     }
 
