@@ -42,7 +42,7 @@ public class GridLocation : IComparable<GridLocation>
 
     public override string ToString()
     {
-        return string.Format("Location: {0} {1}", x, z);
+        return string.Format("Grid Location: {0} {1}", x, z);
     }
 
     public double distanceTo(GridLocation b)

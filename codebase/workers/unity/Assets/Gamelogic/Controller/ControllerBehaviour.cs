@@ -20,7 +20,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
 
-    bool tempSpawnBool = false;
+    bool stopSpawning = false;
 
     private void OnEnable()
     {
@@ -30,12 +30,6 @@ public class ControllerBehaviour : MonoBehaviour
 
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
-
-        if (!ControllerWriter.Data.initialised)
-        {
-            globalLayer.InitGlobalLayer(ControllerWriter.Data.topLeft, ControllerWriter.Data.bottomRight);
-            ControllerWriter.Send(new Controller.Update().SetInitialised(true));
-        }
     }
 
     private void OnDisable()
@@ -90,6 +84,12 @@ public class ControllerBehaviour : MonoBehaviour
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(
             handle.Request.location,
             new Vector3f(-handle.Request.location.x, 0, -handle.Request.location.z));
+
+        if (droneInfo.waypoints == null)
+        {
+            //something went wrong so signal that back to drone!
+            return;
+        }
         
         droneMap.Add(handle.Request.droneId, droneInfo);
         UpdateDroneMap();
@@ -99,10 +99,20 @@ public class ControllerBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (!tempSpawnBool)
+        if (!ControllerWriter.Data.initialised)
+        {
+            Debug.LogError("call init global layer");
+            globalLayer.InitGlobalLayer(ControllerWriter.Data.topLeft, ControllerWriter.Data.bottomRight);
+            Debug.LogError("Global Layer Ready");
+            ControllerWriter.Send(new Controller.Update().SetInitialised(true));
+            return;
+        }
+
+        if (!stopSpawning)
         {
             SpawnDrone(new Coordinates(50, 0, 50), new Vector3f(50, 0, 50), 2, 1);
             SpawnDrone(new Coordinates(-50, 0, -50), new Vector3f(50, 0, 50), 2, 1);
+            stopSpawning = true;
         }
 
         //if (Time.time > nextActionTime)

@@ -5,6 +5,7 @@ using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
 using UnityEngine;
 
+[WorkerType(WorkerPlatform.UnityWorker)]
 public class DroneTranstructor : MonoBehaviour
 {
     [Require]

@@ -7,6 +7,7 @@ using Improbable.Unity;
 using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
 
+[WorkerType(WorkerPlatform.UnityWorker)]
 public class Bitmap : MonoBehaviour
 {
     [Require]
@@ -18,27 +19,36 @@ public class Bitmap : MonoBehaviour
     Improbable.Vector3f BottomRight;
     private int Width; // Meters
     private int Height; // Meters
+    private int GridWidth; // columns in the grid array
+    private int GridHeight; // rows in the grid array
     public Improbable.Collections.List<GridType> Grid;
 
     public void InitialiseBitmap(Improbable.Vector3f topLeft, Improbable.Vector3f bottomRight)
     {
-        if (!BitmapWriter.Data.initialised)
+        Debug.LogError("first if");
+        if (BitmapWriter.Data.initialised)
         {
             Debug.LogError("Bitmap already initialised");
             return;
         }
 
-        if (topLeft.x > bottomRight.x || bottomRight.z < topLeft.z)
+        Debug.LogError("second if");
+        if (topLeft.x > bottomRight.x || bottomRight.z > topLeft.z)
         {
             Debug.LogError("Unsupported grid coordinates");
             return;
         }
 
+        Debug.LogError("harmless shit");
         TopLeft = topLeft;
         BottomRight = bottomRight;
         Width = (int)Math.Ceiling(Math.Abs(bottomRight.x - topLeft.x));
         Height = (int)Math.Ceiling(Math.Abs(topLeft.z - bottomRight.z));
-        Grid = createBitmapOfGivenSize(Width, Height);
+
+        Debug.LogError("potential danger");
+        createBitmapOfGivenSize(Width, Height);
+
+        Debug.LogError("init || topLeft: " + TopLeft);
 
         BitmapWriter.Send(new BitmapComponent.Update()
                           .SetTopLeft(TopLeft)
@@ -46,14 +56,18 @@ public class Bitmap : MonoBehaviour
                           .SetWidth(Width)
                           .SetHeight(Height)
                           .SetGrid(Grid)
+                          .SetGridWidth(GridWidth)
+                          .SetGridHeight(GridHeight)
                           .SetInitialised(true));
+
+        WaitUntil.Equals(BitmapWriter.Data.initialised, true);
     }
 
-    private Improbable.Collections.List<GridType> createBitmapOfGivenSize(double width, double height)
+    private void createBitmapOfGivenSize(double width, double height)
     {
-        int columns = (int)Math.Ceiling(width / BIT_SIZE);
-        int rows = (int)Math.Ceiling(height / BIT_SIZE);
-        return new Improbable.Collections.List<GridType>(rows * columns);
+        GridWidth = (int)Math.Ceiling(width / BIT_SIZE);
+        GridHeight = (int)Math.Ceiling(height / BIT_SIZE);
+        Grid = new Improbable.Collections.List<GridType>(GridWidth * GridHeight);
     }
 
     private void OnEnable()
@@ -67,6 +81,8 @@ public class Bitmap : MonoBehaviour
             Width = BitmapWriter.Data.width;
             Height = BitmapWriter.Data.height;
             Grid = BitmapWriter.Data.grid;
+            GridHeight = BitmapWriter.Data.gridHeight;
+            GridWidth = BitmapWriter.Data.gridWidth;
         }
     }
 
@@ -74,6 +90,7 @@ public class Bitmap : MonoBehaviour
     {
         if (obj.topLeft.HasValue)
         {
+            Debug.LogError("hand || topLeft: " + TopLeft);
             TopLeft = obj.topLeft.Value;
         }
 
@@ -95,6 +112,16 @@ public class Bitmap : MonoBehaviour
         if (obj.grid.HasValue)
         {
             Grid = obj.grid.Value;
+        }
+
+        if (obj.gridWidth.HasValue)
+        {
+            GridWidth = obj.gridWidth.Value;
+        }
+
+        if (obj.gridHeight.HasValue)
+        {
+            GridHeight = obj.gridHeight.Value;
         }
     }
 
@@ -126,7 +153,14 @@ public class Bitmap : MonoBehaviour
 
     private void setGridCell(int x, int z, GridType value)
     {
-        Grid[z * Width + x] = value;
+        int index = z * GridWidth + x;
+        if (index >= Grid.Capacity)
+        {
+            Debug.LogError("SETTING INDEX > GRID CAPACITY " + Grid.Capacity);
+            return;
+        }
+            
+        Grid[index] = value;
     }
 
     private void sendGridUpdate()
@@ -136,22 +170,29 @@ public class Bitmap : MonoBehaviour
 
     private GridType getGridCell(int x, int z)
     {
-        return Grid[z * Width + x];
+        int index = z * GridWidth + x;
+        if (index >= Grid.Capacity)
+        {
+            Debug.LogError("GETTING INDEX > GRID CAPACITY" + Grid.Capacity);
+        }
+
+        return Grid[index];
     }
 
     public bool isNearNoFlyZone(int x, int z)
     {
-        return getGridCell(x, z) == GridType.NEAR;
+        int[] xz = findGridCoordinatesOfPoint(new Vector3f(x, 0, z));
+        return getGridCell(xz[0], xz[1]) == GridType.NEAR;
     }
 
     public Improbable.Vector3f nearestNoFlyZonePoint(Improbable.Vector3f point)
     {
         // Find out where point is in the grid
         int[] gridCo = findGridCoordinatesOfPoint(point);
-        int z = gridCo[0];
-        int x = gridCo[1];
+        int x = gridCo[0];
+        int z = gridCo[1];
 
-        GridLocation anchor = new GridLocation(z, x);
+        GridLocation anchor = new GridLocation(x, z);
 
         double nearestDistance = Double.PositiveInfinity;
         GridLocation nearestLocation = new GridLocation(0, 0); // placeholder.
@@ -169,7 +210,7 @@ public class Bitmap : MonoBehaviour
                 for (k = -layer; k < layer; ++k)
                 {
                     xi = x + k;
-                    if (InBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
+                    if (InGridBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
                     {
                         foundNoFlyZone = true;
                         GridLocation candidate = new GridLocation(xi, zi);
@@ -190,7 +231,7 @@ public class Bitmap : MonoBehaviour
                 for (k = -layer; k < layer; ++k)
                 {
                     zi = z + k;
-                    if (InBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
+                    if (InGridBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
                     {
                         foundNoFlyZone = true;
                         GridLocation candidate = new GridLocation(xi, zi);
@@ -211,7 +252,7 @@ public class Bitmap : MonoBehaviour
                 for (k = layer; k > -layer; --k)
                 {
                     xi = x + k;
-                    if (InBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
+                    if (InGridBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
                     {
                         foundNoFlyZone = true;
                         GridLocation candidate = new GridLocation(xi, zi);
@@ -232,7 +273,7 @@ public class Bitmap : MonoBehaviour
                 for (k = layer; k > -layer; --k)
                 {
                     zi = z + k;
-                    if (InBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
+                    if (InGridBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
                     {
                         foundNoFlyZone = true;
                         GridLocation candidate = new GridLocation(xi, zi);
@@ -246,17 +287,16 @@ public class Bitmap : MonoBehaviour
                 }
             }
         }
+
         if (!foundNoFlyZone)
         {
             return new Improbable.Vector3f(0, -1, 0);
         }
 
-        //given set point, convert (x,y) -> cartesian
-        Improbable.Vector3f nearPoint = getPointFromCoordinates(new int[] { nearestLocation.x, nearestLocation.z });
-        //assert third element of vector is 0
+        //given set point, convert grid -> real world
+        Improbable.Vector3f nearPoint = getPointFromGridCoordinates(new int[] { nearestLocation.x, nearestLocation.z });
+        //assert vector.y is 0
         //TODO: assert nearPoint only has 2 non-zero elements
-        //Console.WriteLine(nearestLocation);
-        //compute euclidean distance between the two
         return nearPoint;
     }
 
@@ -286,11 +326,14 @@ public class Bitmap : MonoBehaviour
             Improbable.Vector3f currentPoint = prevPoint + incrementationVector;
             int[] currCoord = findAndSetPointInGrid(currentPoint);
 
-            // if diagonal, set the box lower to the diagonalization
-            if (pointsAreDiagonal(prevCoord, currCoord))
+            if (currCoord[0] != prevCoord[0] && currCoord[1] != prevCoord[1])
             {
-                int[] higherCoordinate = findHigherCoordinate(prevCoord, currCoord);
-                setGridCell(higherCoordinate[0], higherCoordinate[1] + 1, GridType.NEAR);
+                // if diagonal, set the box lower to the diagonalization
+                if (gridPointsAreDiagonal(prevCoord, currCoord))
+                {
+                    int[] higherCoordinate = findHigherGridCoordinate(prevCoord, currCoord);
+                    setGridCell(higherCoordinate[0], higherCoordinate[1] + 1, GridType.NEAR);
+                }
             }
 
             prevPoint = currentPoint;
@@ -300,7 +343,7 @@ public class Bitmap : MonoBehaviour
         findAndSetPointInGrid(endPoint);
     }
 
-    public bool pointsAreDiagonal(int[] fstCoord, int[] sndCoord)
+    public bool gridPointsAreDiagonal(int[] fstCoord, int[] sndCoord)
     {
         return (Math.Abs(fstCoord[0] - sndCoord[0]) == 1) && (Math.Abs(fstCoord[1] - sndCoord[1]) == 1);
     }
@@ -308,7 +351,7 @@ public class Bitmap : MonoBehaviour
     /*
      * Returns the coordinate with bigger z value 
      */
-    public int[] findHigherCoordinate(int[] fstCoord, int[] sndCoord)
+    public int[] findHigherGridCoordinate(int[] fstCoord, int[] sndCoord)
     {
         return fstCoord[1] < sndCoord[1] ? fstCoord : sndCoord;
     }
@@ -343,7 +386,7 @@ public class Bitmap : MonoBehaviour
     /** 
      * x and y are coordinates in the grid
      * */
-    public bool isNoFlyZone(int x, int z)
+    public bool isGridCellNoFlyZone(int x, int z)
     {
         return getGridCell(x, z) == GridType.IN;
     }
@@ -354,17 +397,18 @@ public class Bitmap : MonoBehaviour
     public bool isNoFlyZone(Improbable.Vector3f point)
     {
         int[] coord = findGridCoordinatesOfPoint(point);
-        return isNoFlyZone(coord[0], coord[1]);
+        return isGridCellNoFlyZone(coord[0], coord[1]);
     }
 
     // Returns an int[] of the form {x, y}.
     public int[] findGridCoordinatesOfPoint(Improbable.Vector3f point)
     {
         int x = (int)Math.Floor((point.x - TopLeft.x) / BIT_SIZE);
-        int z = (int)Math.Floor((point.z - TopLeft.z) / BIT_SIZE);
-        if (x < 0 || x >= Width || z < 0 || z >= Height)
+        int z = (int)Math.Floor((TopLeft.z - point.z) / BIT_SIZE);
+        if (x < 0 || x >= GridWidth || z < 0 || z >= GridHeight)
         {
-            Debug.LogError("Invalid bitmap index: x - " + x + ", z - " + z);
+            Debug.LogError("Invalid bitmap index: x= " + x + ", z= " + z);
+            Debug.LogError("G->P || point: " + point + " ,topLeft: " + TopLeft);
             return null;
         }
 
@@ -372,11 +416,12 @@ public class Bitmap : MonoBehaviour
         return result;
     }
 
-    public Improbable.Vector3f getPointFromCoordinates(int[] coords)
+    // grid --> real world
+    public Improbable.Vector3f getPointFromGridCoordinates(int[] coords)
     {
         // TODO do sanity check
         float x = TopLeft.x + coords[0] * BIT_SIZE;
-        float z = TopLeft.z + coords[1] * BIT_SIZE;
+        float z = TopLeft.z - coords[1] * BIT_SIZE;
 
         return new Improbable.Vector3f(x, 0, z);
     }
@@ -398,7 +443,12 @@ public class Bitmap : MonoBehaviour
 
     public bool InBounds(int x, int z)
     {
-        return 0 <= x && x < Width && 0 <= z && z < Height;
+        return TopLeft.x <= x && x <= BottomRight.x && TopLeft.z >= z && z >= BottomRight.z;
+    }
+
+    public bool InGridBounds(int x, int z)
+    {
+        return 0 <= x && x < GridWidth && 0 <= z && z < GridHeight;
     }
 
     public HashSet<GridLocation> GeneralNeighbours(GridLocation current, int layers)
@@ -408,7 +458,7 @@ public class Bitmap : MonoBehaviour
         {
             for (int j = -layers; j <= layers; ++j)
             {
-                if ((i != 0 || j != 0) && InBounds(current.x + i, current.z + j)
+                if ((i != 0 || j != 0) && InGridBounds(current.x + i, current.z + j)
                     && (getGridCell(current.x + i, current.z + j) == GridType.OUT))
                 {
                     set.Add(new GridLocation(current.x + i, current.z + j));

@@ -7,6 +7,7 @@ using Improbable.Unity;
 using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
 
+[WorkerType(WorkerPlatform.UnityWorker)]
 public class GridGlobalLayer : MonoBehaviour
 {
     [Require]
@@ -22,9 +23,11 @@ public class GridGlobalLayer : MonoBehaviour
 
     public void InitGlobalLayer(Improbable.Vector3f topLeft, Improbable.Vector3f bottomRight)
     {
-        bitmap = gameObject.GetComponent<Bitmap>();
+        Debug.LogError("call init bitmap " + bitmap != null);
         bitmap.InitialiseBitmap(topLeft, bottomRight);
+        Debug.LogError("Bitmap Ready");
         bitmap.updateWithNoFlyZones(GlobalLayerWriter.Data.zones);
+        Debug.LogError("Bitmap w/NFZs Ready");
     }
 
     private void OnEnable()
@@ -68,7 +71,7 @@ public class GridGlobalLayer : MonoBehaviour
     // Converts a grid location back into cartesian coordinate.
     private Improbable.Vector3f convertLocation(GridLocation l)
     {
-        return bitmap.getPointFromCoordinates(new int[] { l.x, l.z });
+        return bitmap.getPointFromGridCoordinates(new int[] { l.x, l.z });
     }
 
     public Improbable.Collections.List<Improbable.Vector3f> generatePlan(List<Improbable.Vector3f> waypoints)
@@ -109,7 +112,15 @@ public class GridGlobalLayer : MonoBehaviour
         }
 
         int[] coord1 = bitmap.findGridCoordinatesOfPoint(p1);
+        if (coord1 == null) {
+            return null;
+        }
+
         int[] coord2 = bitmap.findGridCoordinatesOfPoint(p2);
+        if (coord1 == null)
+        {
+            return null;
+        }
 
         GridLocation l1 = new GridLocation(coord1[0], coord1[1]);
         GridLocation l2 = new GridLocation(coord2[0], coord2[1]);
@@ -122,10 +133,6 @@ public class GridGlobalLayer : MonoBehaviour
         { // The case that a path could not be found.
             return null; // Just return empty list.
         }
-
-        // Below lines can be used debug the BitMap and search strategy.
-        //Util.DebugUtil.writeStringToFile (BitMap.toString (), "/users/Sam/Desktop/bitmap.txt");
-        //Util.DebugUtil.writeStringToFile (ASearch.stringifyPath (locs), "/users/Sam/Desktop/AStar.txt");
 
         Improbable.Collections.List<Improbable.Vector3f> result = new Improbable.Collections.List<Improbable.Vector3f>();
 
@@ -145,7 +152,6 @@ public class GridGlobalLayer : MonoBehaviour
 
     public double distanceToNoFlyZone(Improbable.Vector3f point)
     {
-        // TODO: Implement this
-        return 0;
+        return bitmap.distanceToNoFlyZone(point);
     }
 }
