@@ -13,7 +13,7 @@ public class Bitmap : MonoBehaviour
     [Require]
     private BitmapComponent.Writer BitmapWriter;
 
-    public static int BIT_SIZE = 25; // meters that each bit in the grid corresponds to
+    public static int BIT_SIZE = 5; // meters that each bit in the grid corresponds to
     const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
     Improbable.Vector3f TopLeft;
     Improbable.Vector3f BottomRight;
@@ -21,7 +21,7 @@ public class Bitmap : MonoBehaviour
     private int Height; // Meters
     private int GridWidth; // columns in the grid array
     private int GridHeight; // rows in the grid array
-    public Improbable.Collections.List<GridType> Grid;
+    public Improbable.Collections.Map<int, GridType> Grid;
 
     public void InitialiseBitmap(Improbable.Vector3f topLeft, Improbable.Vector3f bottomRight)
     {
@@ -67,7 +67,7 @@ public class Bitmap : MonoBehaviour
     {
         GridWidth = (int)Math.Ceiling(width / BIT_SIZE);
         GridHeight = (int)Math.Ceiling(height / BIT_SIZE);
-        Grid = new Improbable.Collections.List<GridType>(GridWidth * GridHeight);
+        Grid = new Improbable.Collections.Map<int, GridType>();
     }
 
     private void OnEnable()
@@ -80,9 +80,9 @@ public class Bitmap : MonoBehaviour
             BottomRight = BitmapWriter.Data.bottomRight;
             Width = BitmapWriter.Data.width;
             Height = BitmapWriter.Data.height;
-            Grid = BitmapWriter.Data.grid;
             GridHeight = BitmapWriter.Data.gridHeight;
             GridWidth = BitmapWriter.Data.gridWidth;
+            Grid = BitmapWriter.Data.grid;
         }
     }
 
@@ -154,13 +154,13 @@ public class Bitmap : MonoBehaviour
     private void setGridCell(int x, int z, GridType value)
     {
         int index = z * GridWidth + x;
-        if (index >= Grid.Capacity)
+
+        if(Grid.ContainsKey(index))
         {
-            Debug.LogError("SETTING INDEX > GRID CAPACITY " + Grid.Capacity);
-            return;
+            Grid.Remove(index);
         }
-            
-        Grid[index] = value;
+
+        Grid.Add(index, value);
     }
 
     private void sendGridUpdate()
@@ -170,13 +170,15 @@ public class Bitmap : MonoBehaviour
 
     private GridType getGridCell(int x, int z)
     {
+        GridType gridCell;
         int index = z * GridWidth + x;
-        if (index >= Grid.Capacity)
+
+        if (Grid.TryGetValue(index, out gridCell))
         {
-            Debug.LogError("GETTING INDEX > GRID CAPACITY" + Grid.Capacity);
+            return gridCell;
         }
 
-        return Grid[index];
+        return GridType.OUT;
     }
 
     public bool isNearNoFlyZone(int x, int z)

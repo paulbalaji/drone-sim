@@ -3,9 +3,9 @@ package improbable.controller;
 import "improbable/vector3.schema";
 
 enum GridType {
-  OUT = 1;
-  IN = 2;
-  NEAR = 3;
+  OUT = 0;
+  IN = 1;
+  NEAR = 2;
 }
 
 component BitmapComponent {
@@ -20,7 +20,7 @@ component BitmapComponent {
   int32 grid_width = 7;
   int32 grid_height = 8;
 
-  list<GridType> grid = 5;
+  map<int32, GridType> grid = 5;
 
   bool initialised = 6;
 }

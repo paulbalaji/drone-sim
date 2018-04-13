@@ -72,7 +72,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new Controller.Data(0, SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DroneInfo>(), false, topLeft, bottomRight), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new List<GridType>(), false), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return controllerTemplate;

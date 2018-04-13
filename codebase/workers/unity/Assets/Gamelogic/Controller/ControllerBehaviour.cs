@@ -1,7 +1,9 @@
 ﻿using Assets.Gamelogic.Core;
 using Improbable;
+using Improbable.Drone;
 using Improbable.Controller;
 using Improbable.Unity;
+using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
 using UnityEngine;
 
@@ -52,16 +54,29 @@ public class ControllerBehaviour : MonoBehaviour
 
     void CalculateNewTarget(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
+        handle.Respond(new TargetResponse());
+        Debug.LogWarning("CONTROLLER New Target Request");
+
         DroneInfo droneInfo;
 
+        Debug.LogWarning("try get val");
         if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
         {
             //TODO: need to verify if the drone is actually at its target
 
+            Debug.LogWarning("is final waypoint?");
             //not final waypoint, get next waypoint
             if (droneInfo.waypoints.Count > droneInfo.nextWaypoint) 
             {
-                handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint]));
+                Debug.LogWarning("send next waypoint back!");
+                //SEND BACK 
+                SpatialOS.Commands.SendCommand(
+                    ControllerWriter,
+                    DroneData.Commands.ReceiveNewTarget.Descriptor,
+                    new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
+                    handle.Request.droneId)
+                         .OnFailure((response) => Debug.LogError("Unable to give drone new target"));
+                //TODO: OnSuccess / OnFailure
 
                 droneInfo.nextWaypoint++;
 
@@ -79,22 +94,39 @@ public class ControllerBehaviour : MonoBehaviour
             //for now just give it a new target and generate a random plan for that?
         }
 
+        Debug.LogWarning("point to point plan");
         //for new flight plan
         droneInfo.nextWaypoint = 1;
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(
             handle.Request.location,
             new Vector3f(-handle.Request.location.x, 0, -handle.Request.location.z));
 
+        Debug.LogWarning("null check");
         if (droneInfo.waypoints == null)
         {
             //something went wrong so signal that back to drone!
+            //TODO: OnSuccess / OnFailure + Send "failure" command back to drone
+            SpatialOS.Commands.SendCommand(
+                ControllerWriter,
+                DroneData.Commands.ReceiveNewTarget.Descriptor,
+                new NewTargetRequest(new Vector3f(0, -1, 0)),
+                handle.Request.droneId)
+                     .OnFailure((response) => Debug.LogError("Unable to tell drone it failed"));
             return;
         }
-        
+
         droneMap.Add(handle.Request.droneId, droneInfo);
         UpdateDroneMap();
 
-        handle.Respond(new TargetResponse(droneInfo.waypoints[0]));
+        Debug.LogWarning("send first waypoint!");
+        //SEND BACK 
+        SpatialOS.Commands.SendCommand(
+            ControllerWriter,
+            DroneData.Commands.ReceiveNewTarget.Descriptor,
+            new NewTargetRequest(droneInfo.waypoints[0]),
+            handle.Request.droneId)
+                 .OnFailure((response) => Debug.LogError("Unable to find path for drone"));
+        //TODO: OnSuccess / OnFailure
     }
 
     void Update()
@@ -110,8 +142,8 @@ public class ControllerBehaviour : MonoBehaviour
 
         if (!stopSpawning)
         {
-            SpawnDrone(new Coordinates(50, 0, 50), new Vector3f(50, 0, 50), 2, 1);
-            SpawnDrone(new Coordinates(-50, 0, -50), new Vector3f(50, 0, 50), 2, 1);
+            SpawnDrone(new Coordinates(100, 0, 100), new Vector3f(100, 0, 100), 50, 1);
+            SpawnDrone(new Coordinates(100, 0, -100), new Vector3f(100, 0, -100), 50, 1);
             stopSpawning = true;
         }
 

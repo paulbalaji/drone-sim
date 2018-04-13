@@ -23,6 +23,9 @@ public class DroneBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
+        //register command
+        DroneDataWriter.CommandReceiver.OnReceiveNewTarget.RegisterAsyncResponse(ReceivedNewTarget);
+
         //register for direction/speed updates
         DroneDataWriter.TargetUpdated.Add(OnTargetUpdate);
         DroneDataWriter.SpeedUpdated.Add(OnSpeedUpdated);
@@ -39,6 +42,9 @@ public class DroneBehaviour : MonoBehaviour
     private void OnDisable()
     {
         simulate = false;
+
+        //deregister command
+        DroneDataWriter.CommandReceiver.OnReceiveNewTarget.DeregisterResponse();
 
         //deregister for direction/speed updates
         DroneDataWriter.TargetUpdated.Remove(OnTargetUpdate);
@@ -61,7 +67,7 @@ public class DroneBehaviour : MonoBehaviour
         radius = newRadius;
     }
 
-	void FixedUpdate()
+	void Update()
 	{
         if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
         {
@@ -89,20 +95,27 @@ public class DroneBehaviour : MonoBehaviour
             PositionWriter,
             Controller.Commands.RequestNewTarget.Descriptor,
             new TargetRequest(gameObject.EntityId(), transform.position.ToSpatialVector3f()), new EntityId(1))
-                 .OnSuccess((TargetResponse response) => requestTargetSuccess(response.target))
                  .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
-    }
-
-    private void requestTargetSuccess(Vector3f newTarget)
-    {
-        //Debug.LogError("update target function");
-        DroneDataWriter.Send(new DroneData.Update().SetTarget(newTarget).SetTargetPending(TargetPending.RECEIVED));
     }
 
     private void requestTargetFailure(string errorMessage)
     {
         Debug.LogError("Failed to request new target, with error: " + errorMessage);
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.REQUEST));
+    }
+
+    void ReceivedNewTarget(Improbable.Entity.Component.ResponseHandle<DroneData.Commands.ReceiveNewTarget, NewTargetRequest, NewTargetResponse> handle)
+    {
+        handle.Respond(new NewTargetResponse());
+        if (handle.Request.target.y < 0)
+        {
+            requestTargetFailure("Controller failed to pathfind.");
+            return;
+        }
+
+        Debug.LogWarning("DRONE New Target Received");
+
+        DroneDataWriter.Send(new DroneData.Update().SetTarget(handle.Request.target).SetTargetPending(TargetPending.RECEIVED));
     }
 
     private void updatePosition()

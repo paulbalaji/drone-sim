@@ -7,9 +7,7 @@ type TargetRequest {
 	improbable.Vector3f location = 2;
 }
 
-type TargetResponse {
-	improbable.Vector3f target = 1; // next target
-}
+type TargetResponse {}
 
 type DroneInfo {
 	int32 next_waypoint = 1;
