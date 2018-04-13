@@ -17,16 +17,20 @@ namespace Assets.Editor
             var snapshotEntities = new Dictionary<EntityId, Entity>();
             var currentEntityId = 1;
 
+            NFZTemplate[] nfzTemplates = {
+                NFZTemplate.BASIC
+            };
+
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateControllerTemplate(
                     new Coordinates(0, 0, 0),
                     new Vector3f(-1000, 0, 1000),
                     new Vector3f(1000, 0, -1000),
-                    new NFZTemplate[] {
-                        NFZTemplate.BASIC
-                    }
+                    nfzTemplates
             ));
+
+            currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
             //Coordinates spawn = new Coordinates(50, 0, 50);
             //snapshotEntities.Add(
@@ -41,6 +45,30 @@ namespace Assets.Editor
             //);
 
             SaveSnapshot(snapshotEntities, "phase1_basic");
+        }
+
+        private static int DisplayNoFlyZone(NFZTemplate template, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
+        {
+            float[] points = NFZ_Templates.getPoints(template);
+            for (int i = 0; i < points.Length; i += 2)
+            {
+                snapshotEntities.Add(
+                    new EntityId(currentEntityId++),
+                    EntityTemplateFactory.CreateNfzNodeTemplate(new Coordinates(points[i], 0, points[i+1]))
+                );
+            }
+
+            return currentEntityId;
+        }
+
+        private static int DisplayNoFlyZones(NFZTemplate[] templates, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
+        {
+            foreach(NFZTemplate template in templates)
+            {
+                currentEntityId = DisplayNoFlyZone(template, snapshotEntities, currentEntityId);
+            }
+
+            return currentEntityId;
         }
 
         //[MenuItem("Improbable/Snapshots/Generate Phase 0 DEV Snapshot")]

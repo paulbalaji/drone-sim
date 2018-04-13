@@ -142,8 +142,8 @@ public class ControllerBehaviour : MonoBehaviour
 
         if (!stopSpawning)
         {
-            SpawnDrone(new Coordinates(100, 0, 100), new Vector3f(100, 0, 100), 50, 1);
-            SpawnDrone(new Coordinates(100, 0, -100), new Vector3f(100, 0, -100), 50, 1);
+            SpawnDrone(new Coordinates(400, 0, 400), new Vector3f(400, 0, 400), 50, 1);
+            SpawnDrone(new Coordinates(400, 0, -400), new Vector3f(400, 0, -400), 50, 1);
             stopSpawning = true;
         }
 

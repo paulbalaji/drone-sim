@@ -56,6 +56,19 @@ public class EntityTemplateFactory : MonoBehaviour
         return cubeTemplate;
     }
 
+    public static Entity CreateNfzNodeTemplate(Coordinates spawn)
+    {
+        var nfzTemplate = EntityBuilder.Begin()
+            .AddPositionComponent(spawn, CommonRequirementSets.PhysicsOnly)
+            .AddMetadataComponent(entityType: SimulationSettings.NfzNodePrefabName)
+            .SetPersistence(true)
+            .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
+            .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
+            .Build();
+
+        return nfzTemplate;
+    }
+
     public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint, Vector3f topLeft, Vector3f bottomRight, NFZTemplate[] templates)
     {
         List<Improbable.Controller.NoFlyZone> nfzs = new List<Improbable.Controller.NoFlyZone>();

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using UnityEngine;
 
 public class ThetaStarSearch : IGridSearch
 {
@@ -68,23 +68,31 @@ public class ThetaStarSearch : IGridSearch
     {
         if (start.Equals(goal))
         {
-            // Return start and goal here so that we interpolate z values
+            Debug.LogError("TS: start == goal");
+            // Return start and goal here so that we interpolate y values
             return new List<GridLocation> { start, goal };
         }
+
+        Debug.LogError("TS: setup dictionaries");
         Dictionary<GridLocation, GridLocation> cameFrom = new Dictionary<GridLocation, GridLocation>();
         Dictionary<GridLocation, double> costSoFar = new Dictionary<GridLocation, double>();
 
+        Debug.LogError("TS: setup interval heap");
         var frontier = new C5.IntervalHeap<GridLocation>();
         start.priority = 0;
         frontier.Add(start);
         cameFrom[start] = null;
         costSoFar[start] = 0;
+        Debug.LogError("TS: while loop BEGIN");
         while (!frontier.IsEmpty)
         {
+            Debug.LogError("TS: while loop entered");
             GridLocation current = frontier.DeleteMin();
+            Debug.LogError("TS: while loop SetVertex");
             SetVertex(bitmap, cameFrom, costSoFar, current);
             if (current.Equals(goal))
             {
+                Debug.LogError("TS: current == goal");
                 return GridSearch.RebuildPath(goal, cameFrom);
             }
             closedSet.Add(current);
@@ -101,6 +109,7 @@ public class ThetaStarSearch : IGridSearch
                 }
             }
         }
+        Debug.LogError("TS: returning null");
         return null;
     }
 

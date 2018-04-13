@@ -138,6 +138,8 @@ public class GridGlobalLayer : MonoBehaviour
             return null; // Just return empty list.
         }
 
+        Debug.LogWarning("NUM VERTICES IN PATH: " + locs.Count);
+
         Improbable.Collections.List<Improbable.Vector3f> result = new Improbable.Collections.List<Improbable.Vector3f>();
 
         // N.B.  As BitMap and A* do not give us Z (altitude) values,
