@@ -35,7 +35,7 @@ public class ControllerBehaviour : MonoBehaviour
 
         //ControllerWriter.DroneMapUpdated.Add(HandleAction);
 
-        ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(CalculateNewTarget);
+        ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(EnqueueTargetRequest);
 
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
@@ -160,18 +160,19 @@ public class ControllerBehaviour : MonoBehaviour
             return;
         }
 
-        if (ControllerWriter.Data.droneCount < 2)
+        if (!stopSpawning)
         {
             SpawnDrone(new Coordinates(400, 0, 400), new Vector3f(400, 0, 400), 50, 1);
             SpawnDrone(new Coordinates(400, 0, -400), new Vector3f(400, 0, -400), 50, 1);
+            SpawnDrone(new Coordinates(-400, 0, -400), new Vector3f(-400, 0, -400), 50, 1);
+            SpawnDrone(new Coordinates(-400, 0, 400), new Vector3f(-400, 0, 400), 50, 1);
             stopSpawning = true;
         }
 
         //don't need to do anything if no requests in the queue
         if (queue.Count > 0)
         {
-            TargetRequest request = queue.Dequeue();
-
+            HandleTargetRequest(queue.Dequeue());
         }
 
         //if (Time.time > nextActionTime)
