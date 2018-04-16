@@ -32,7 +32,7 @@ namespace Assets.Editor
 
             currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            SaveSnapshot(snapshotEntities, "phase1_basic");
+            SaveSnapshot(snapshotEntities, "phase1/basic/square");
         }
 
         [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 2 RECTANGLE")]
@@ -56,7 +56,7 @@ namespace Assets.Editor
 
             currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            SaveSnapshot(snapshotEntities, "phase1_basic_rectangle");
+            SaveSnapshot(snapshotEntities, "phase1/basic/rectangle");
         }
 
         //[MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE")]
@@ -92,7 +92,7 @@ namespace Assets.Editor
         //        EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
         //    );
 
-        //    SaveSnapshot(snapshotEntities, "phase1_basic_enclosure");
+        //    SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
         //}
 
         private static int DisplayNoFlyZone(NFZTemplate template, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
