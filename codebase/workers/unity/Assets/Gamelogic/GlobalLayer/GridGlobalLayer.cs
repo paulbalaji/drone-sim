@@ -35,13 +35,18 @@ public class GridGlobalLayer : MonoBehaviour
         bitmap = gameObject.GetComponent<Bitmap>();
         zones = GlobalLayerWriter.Data.zones;
 
-        GlobalLayerWriter.ZonesUpdated.Add(HandleZonesUpdate);
+        //GlobalLayerWriter.ZonesUpdated.Add(HandleZonesUpdate);
     }
 
-    void HandleZonesUpdate(Improbable.Collections.List<Improbable.Controller.NoFlyZone> updatedZones)
-    {
-        zones = updatedZones;
-    }
+	private void OnDisable()
+	{
+        //GlobalLayerWriter.ZonesUpdated.Remove(HandleZonesUpdate);
+	}
+
+	//void HandleZonesUpdate(Improbable.Collections.List<Improbable.Controller.NoFlyZone> updatedZones)
+    //{
+    //    zones = updatedZones;
+    //}
 
     public void AddNoFlyZones(Improbable.Controller.NoFlyZone[] noFlyZones)
     {
@@ -55,12 +60,12 @@ public class GridGlobalLayer : MonoBehaviour
     public void AddNoFlyZone(Improbable.Controller.NoFlyZone zone, bool sendUpdate = true)
     {
         zones.Add(zone);
+        bitmap.addNoFlyZone(zone, sendUpdate);
+
         if (sendUpdate)
         {
             SendZonesUpdate();
         }
-
-        bitmap.addNoFlyZone(zone);
     }
 
     private void SendZonesUpdate()

@@ -72,7 +72,7 @@ public class Bitmap : MonoBehaviour
 
     private void OnEnable()
     {
-        BitmapWriter.ComponentUpdated.Add(HandleAction);
+        //BitmapWriter.ComponentUpdated.Add(HandleAction);
 
         if (BitmapWriter.Data.initialised)
         {
@@ -86,56 +86,60 @@ public class Bitmap : MonoBehaviour
         }
     }
 
-    private void HandleAction(BitmapComponent.Update obj)
-    {
-        if (obj.topLeft.HasValue)
-        {
-            Debug.LogError("hand || topLeft: " + TopLeft);
-            TopLeft = obj.topLeft.Value;
-        }
-
-        if (obj.bottomRight.HasValue)
-        {
-            BottomRight = obj.bottomRight.Value;
-        }
-
-        if (obj.width.HasValue)
-        {
-            Width = obj.width.Value;
-        }
-
-        if (obj.height.HasValue)
-        {
-            Height = obj.height.Value;
-        }
-
-        if (obj.grid.HasValue)
-        {
-            Grid = obj.grid.Value;
-        }
-
-        if (obj.gridWidth.HasValue)
-        {
-            GridWidth = obj.gridWidth.Value;
-        }
-
-        if (obj.gridHeight.HasValue)
-        {
-            GridHeight = obj.gridHeight.Value;
-        }
-    }
-
     private void OnDisable()
     {
-        BitmapWriter.ComponentUpdated.Remove(HandleAction);
+        //BitmapWriter.ComponentUpdated.Remove(HandleAction);
     }
+
+    //private void HandleAction(BitmapComponent.Update obj)
+    //{
+    //    if (obj.topLeft.HasValue)
+    //    {
+    //        Debug.LogError("hand || topLeft: " + TopLeft);
+    //        TopLeft = obj.topLeft.Value;
+    //    }
+
+    //    if (obj.bottomRight.HasValue)
+    //    {
+    //        BottomRight = obj.bottomRight.Value;
+    //    }
+
+    //    if (obj.width.HasValue)
+    //    {
+    //        Width = obj.width.Value;
+    //    }
+
+    //    if (obj.height.HasValue)
+    //    {
+    //        Height = obj.height.Value;
+    //    }
+
+    //    if (obj.grid.HasValue)
+    //    {
+    //        Grid = obj.grid.Value;
+    //    }
+
+    //    if (obj.gridWidth.HasValue)
+    //    {
+    //        GridWidth = obj.gridWidth.Value;
+    //    }
+
+    //    if (obj.gridHeight.HasValue)
+    //    {
+    //        GridHeight = obj.gridHeight.Value;
+    //    }
+    //}
 
     public void updateWithNoFlyZones(List<Improbable.Controller.NoFlyZone> zones)
     {
-        zones.ForEach(addNoFlyZone);
+        foreach(Improbable.Controller.NoFlyZone zone in zones)
+        {
+            addNoFlyZone(zone, false);
+        }
+        sendGridUpdate();
     }
 
-    public void addNoFlyZone(Improbable.Controller.NoFlyZone noFlyZone)
+    public void addNoFlyZone(Improbable.Controller.NoFlyZone noFlyZone, bool sendUpdate = true)
     {
         Improbable.Vector3f[] vertices = noFlyZone.vertices.ToArray();
         Improbable.Vector3f previousWaypoint = vertices[0];
@@ -148,7 +152,10 @@ public class Bitmap : MonoBehaviour
 
         setLine(previousWaypoint, vertices[0]); // setting the final line
 
-        sendGridUpdate();
+        if (sendUpdate)
+        {
+            sendGridUpdate();
+        }
     }
 
     private void setGridCell(int x, int z, GridType value)

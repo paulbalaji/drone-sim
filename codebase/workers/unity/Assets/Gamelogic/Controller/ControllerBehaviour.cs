@@ -5,6 +5,8 @@ using Improbable.Controller;
 using Improbable.Unity;
 using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [WorkerType(WorkerPlatform.UnityWorker)]
@@ -22,11 +24,16 @@ public class ControllerBehaviour : MonoBehaviour
 
     Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
 
+    Queue<TargetRequest> queue;
+
     bool stopSpawning = false;
 
     private void OnEnable()
     {
-        ControllerWriter.DroneMapUpdated.AddAndInvoke(HandleAction);
+        droneMap = ControllerWriter.Data.droneMap;
+        queue = new Queue<TargetRequest>(ControllerWriter.Data.requestQueue);
+
+        //ControllerWriter.DroneMapUpdated.Add(HandleAction);
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(CalculateNewTarget);
 
@@ -36,7 +43,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     private void OnDisable()
     {
-        ControllerWriter.DroneMapUpdated.Remove(HandleAction);
+        //ControllerWriter.DroneMapUpdated.Remove(HandleAction);
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
     }
@@ -51,16 +58,25 @@ public class ControllerBehaviour : MonoBehaviour
         ControllerWriter.Send(new Controller.Update().SetDroneMap(droneMap));
     }
 
-
-    void CalculateNewTarget(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
+    void UpdateRequestQueue()
     {
-        handle.Respond(new TargetResponse());
-        Debug.LogWarning("CONTROLLER New Target Request");
+        ControllerWriter.Send(new Controller.Update().SetRequestQueue(new Improbable.Collections.List<TargetRequest>(queue.ToArray())));
+    }
 
+    void EnqueueTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
+    {
+        Debug.LogWarning("CONTROLLER New Target Request");
+        handle.Respond(new TargetResponse());
+        queue.Enqueue(handle.Request);
+        UpdateRequestQueue();
+    }
+
+    void HandleTargetRequest(TargetRequest request)
+    {
         DroneInfo droneInfo;
 
         Debug.LogWarning("try get val");
-        if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+        if (droneMap.TryGetValue(request.droneId, out droneInfo))
         {
             //TODO: need to verify if the drone is actually at its target
 
@@ -74,22 +90,22 @@ public class ControllerBehaviour : MonoBehaviour
                     ControllerWriter,
                     DroneData.Commands.ReceiveNewTarget.Descriptor,
                     new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
-                    handle.Request.droneId)
+                    request.droneId)
                          .OnFailure((response) => Debug.LogError("Unable to give drone new target"));
                 //TODO: OnSuccess / OnFailure
 
                 droneInfo.nextWaypoint++;
 
                 //stupidly you have to remove/add to update
-                droneMap.Remove(handle.Request.droneId);
-                droneMap.Add(handle.Request.droneId, droneInfo);
+                droneMap.Remove(request.droneId);
+                droneMap.Add(request.droneId, droneInfo);
                 UpdateDroneMap();
 
                 return;
             }
 
             //if final waypoint, remove current flight plan
-            droneMap.Remove(handle.Request.droneId);
+            droneMap.Remove(request.droneId);
 
             //for now just give it a new target and generate a random plan for that?
         }
@@ -98,24 +114,28 @@ public class ControllerBehaviour : MonoBehaviour
         //for new flight plan
         droneInfo.nextWaypoint = 1;
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(
-            handle.Request.location,
-            new Vector3f(-handle.Request.location.x, 0, -handle.Request.location.z));
+            request.location,
+            new Vector3f(-request.location.x, 0, -request.location.z));
 
         Debug.LogWarning("null check");
         if (droneInfo.waypoints == null)
         {
+            //droneMap.Remove(request.droneId);
+            //DestroyDrone(request.droneId);
+            //return;
+
             //something went wrong so signal that back to drone!
             //TODO: OnSuccess / OnFailure + Send "failure" command back to drone
             SpatialOS.Commands.SendCommand(
                 ControllerWriter,
                 DroneData.Commands.ReceiveNewTarget.Descriptor,
                 new NewTargetRequest(new Vector3f(0, -1, 0)),
-                handle.Request.droneId)
+                request.droneId)
                      .OnFailure((response) => Debug.LogError("Unable to tell drone it failed"));
             return;
         }
 
-        droneMap.Add(handle.Request.droneId, droneInfo);
+        droneMap.Add(request.droneId, droneInfo);
         UpdateDroneMap();
 
         Debug.LogWarning("send first waypoint!");
@@ -124,8 +144,8 @@ public class ControllerBehaviour : MonoBehaviour
             ControllerWriter,
             DroneData.Commands.ReceiveNewTarget.Descriptor,
             new NewTargetRequest(droneInfo.waypoints[0]),
-            handle.Request.droneId)
-                 .OnFailure((response) => Debug.LogError("Unable to find path for drone"));
+            request.droneId)
+                 .OnFailure((response) => Debug.LogError("Unable to tell drone that pathfinding failed"));
         //TODO: OnSuccess / OnFailure
     }
 
@@ -140,11 +160,18 @@ public class ControllerBehaviour : MonoBehaviour
             return;
         }
 
-        if (!stopSpawning)
+        if (ControllerWriter.Data.droneCount < 2)
         {
             SpawnDrone(new Coordinates(400, 0, 400), new Vector3f(400, 0, 400), 50, 1);
             SpawnDrone(new Coordinates(400, 0, -400), new Vector3f(400, 0, -400), 50, 1);
             stopSpawning = true;
+        }
+
+        //don't need to do anything if no requests in the queue
+        if (queue.Count > 0)
+        {
+            TargetRequest request = queue.Dequeue();
+
         }
 
         //if (Time.time > nextActionTime)
@@ -159,12 +186,12 @@ public class ControllerBehaviour : MonoBehaviour
     {
         if (speed < 0)
         {
-            speed = Random.Range(2, 10);
+            speed = UnityEngine.Random.Range(2, 10);
         }
 
         if (radius < 0)
         {
-            radius = Random.Range(0.5f, 2);
+            radius = UnityEngine.Random.Range(0.5f, 2);
         }
 
         droneTranstructor.CreateDrone(spawn, target, speed, radius);
@@ -179,8 +206,8 @@ public class ControllerBehaviour : MonoBehaviour
         {
             var squareSize = SimulationSettings.squareSize;
 
-            Coordinates spawn = new Coordinates(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
-            Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+            Coordinates spawn = new Coordinates(UnityEngine.Random.Range(-squareSize, squareSize), 0, UnityEngine.Random.Range(-squareSize, squareSize));
+            Vector3f target = new Vector3f(UnityEngine.Random.Range(-squareSize, squareSize), 0, UnityEngine.Random.Range(-squareSize, squareSize));
 
             SpawnDrone(spawn, target);
         }

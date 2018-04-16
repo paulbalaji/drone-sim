@@ -26,5 +26,7 @@ component Controller {
   Vector3f top_left = 5;
   Vector3f bottom_right = 6;
 
+  list<TargetRequest> request_queue = 7;
+
   command TargetResponse request_new_target(TargetRequest);
 }
