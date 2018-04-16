@@ -7,6 +7,12 @@ namespace Assets.Gamelogic.Core
         public static readonly float numDrones = 60;
         public static readonly float squareSize = 200;
 
+        public static readonly float RoutingShortCircuitThreshold = 50;
+
+        public static readonly float MinimumDroneHeight = 10;
+        public static readonly float SuggestedDroneHeight = 100;
+        public static readonly float MaximumDroneHeight = 120;
+
         public static readonly uint ControllerCount = 1;
 
         public static readonly uint MaxDroneCount = (uint) numDrones;

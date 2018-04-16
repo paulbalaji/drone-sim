@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Gamelogic.Core;
 using UnityEngine;
 using Improbable;
 using Improbable.Controller;
@@ -23,11 +24,11 @@ public class GridGlobalLayer : MonoBehaviour
 
     public void InitGlobalLayer(Improbable.Vector3f topLeft, Improbable.Vector3f bottomRight)
     {
-        Debug.LogError("call init bitmap " + bitmap != null);
+        Debug.LogWarning("call init bitmap " + bitmap != null);
         bitmap.InitialiseBitmap(topLeft, bottomRight);
-        Debug.LogError("Bitmap Ready");
+        Debug.LogWarning("Bitmap Ready");
         bitmap.updateWithNoFlyZones(GlobalLayerWriter.Data.zones);
-        Debug.LogError("Bitmap w/NFZs Ready");
+        Debug.LogWarning("Bitmap w/NFZs Ready");
     }
 
     private void OnEnable()
@@ -134,30 +135,48 @@ public class GridGlobalLayer : MonoBehaviour
         GridLocation l2 = new GridLocation(coord2[0], coord2[1]);
 
         ASearch = new ThetaStarSearch(true); // Use AStarSearch or ThetaStarSearch here.
-        //ASearch = new AStarSearch();
 
-        List<GridLocation> locs = ASearch.run(bitmap, l1, l2);
-        if (locs == null)
-        { // The case that a path could not be found.
-            Debug.LogError("search fail");
-            return null; // Just return empty list.
+        List<GridLocation> locs = null;
+        float droneHeight = SimulationSettings.SuggestedDroneHeight;
+        if (Vector3.Distance(p1.ToUnityVector(), p2.ToUnityVector()) < SimulationSettings.RoutingShortCircuitThreshold) {
+            Debug.LogWarning("Global Layer: within short circuit threshold");
+            droneHeight = SimulationSettings.MinimumDroneHeight;
+        } else {
+            locs = ASearch.run(bitmap, l1, l2);
+
+            if (locs == null)
+            { // The case that a path could not be found.
+                Debug.LogError("search fail");
+                return null; // Just return empty list.
+            }
         }
 
         Debug.LogWarning("NUM VERTICES IN PATH: " + locs.Count);
 
         Improbable.Collections.List<Improbable.Vector3f> result = new Improbable.Collections.List<Improbable.Vector3f>();
 
-        // N.B.  As BitMap and A* do not give us Z (altitude) values,
-        // we gradually step z from p1 to p2 throughout the plan.
-        float yStep = (p2.y - p1.y) / locs.Count;
-        float yCurr = p1.y; // starting Z;
+        // N.B.  As BitMap and A* do not give us Y (height) values,
+        // we gradually step y from p1 to p2 throughout the plan.
+        //float yStep = (p2.y - p1.y) / locs.Count;
+        //float yCurr = p1.y; // starting Y;
+
+        result.Add(new Vector3f(p1.x, droneHeight, p1.z));
+        if (locs == null)
+        {
+            //if locs null at this stage that means start/end in the same 25x25 grid cell
+            //then just make sure penultimate destination is p2 x/z at the required drone height
+            result.Add(new Vector3f(p2.x, droneHeight, p2.z));
+        }
+
         foreach (GridLocation l in locs)
         {
             Improbable.Vector3f convertedLocation = convertLocation(l);
-            Improbable.Vector3f location = new Improbable.Vector3f(convertedLocation.x, yCurr,  convertedLocation.z);
+            Improbable.Vector3f location = new Improbable.Vector3f(convertedLocation.x, droneHeight, convertedLocation.z);
             result.Add(location);
-            yCurr += yStep;
+            //yCurr += yStep;
         }
+
+        result.Add(p2);
         return result;
     }
 

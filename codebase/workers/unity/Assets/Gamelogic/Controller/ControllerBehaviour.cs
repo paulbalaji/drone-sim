@@ -153,9 +153,9 @@ public class ControllerBehaviour : MonoBehaviour
     {
         if (!ControllerWriter.Data.initialised)
         {
-            Debug.LogError("call init global layer");
+            Debug.LogWarning("call init global layer");
             globalLayer.InitGlobalLayer(ControllerWriter.Data.topLeft, ControllerWriter.Data.bottomRight);
-            Debug.LogError("Global Layer Ready");
+            Debug.LogWarning("Global Layer Ready");
             ControllerWriter.Send(new Controller.Update().SetInitialised(true));
             return;
         }

@@ -63,38 +63,39 @@ public class ThetaStarSearch : IGridSearch
         return GridSearch.run(bitmap, start, end, ComputeCost);
     }
 
-
     private List<GridLocation> LazyRun(Bitmap bitmap, GridLocation start, GridLocation goal)
     {
-        if (start.Equals(goal))
-        {
-            Debug.LogError("TS: start == goal");
-            // Return start and goal here so that we interpolate y values
-            return new List<GridLocation> { start, goal };
-        }
-
-        Debug.LogError("TS: setup dictionaries");
+        Debug.LogWarning("TS: setup dictionaries");
         Dictionary<GridLocation, GridLocation> cameFrom = new Dictionary<GridLocation, GridLocation>();
         Dictionary<GridLocation, double> costSoFar = new Dictionary<GridLocation, double>();
 
-        Debug.LogError("TS: setup interval heap");
+        Debug.LogWarning("TS: setup interval heap");
         var frontier = new C5.IntervalHeap<GridLocation>();
         start.priority = 0;
         frontier.Add(start);
         cameFrom[start] = null;
         costSoFar[start] = 0;
-        Debug.LogError("TS: while loop BEGIN");
+
+        Debug.LogWarning("TS: while loop BEGIN");
+        float exitLoopTime = Time.time + 5f;
         while (!frontier.IsEmpty)
         {
-            Debug.LogError("TS: while loop entered");
+            if (Time.time > exitLoopTime)
+            {
+                Debug.LogError("TS: theta star timeout");
+                return null;
+            }
+
+            Debug.LogWarning("TS: while loop entered");
             GridLocation current = frontier.DeleteMin();
-            Debug.LogError("TS: while loop SetVertex");
+            Debug.LogWarning("TS: while loop SetVertex");
             SetVertex(bitmap, cameFrom, costSoFar, current);
             if (current.Equals(goal))
             {
-                Debug.LogError("TS: current == goal");
+                Debug.LogWarning("TS: current == goal");
                 return GridSearch.RebuildPath(goal, cameFrom);
             }
+
             closedSet.Add(current);
             foreach (GridLocation next in bitmap.Neighbours(current))
             {
@@ -109,6 +110,7 @@ public class ThetaStarSearch : IGridSearch
                 }
             }
         }
+
         Debug.LogError("TS: returning null");
         return null;
     }

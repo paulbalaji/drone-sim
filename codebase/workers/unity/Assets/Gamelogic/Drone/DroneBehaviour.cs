@@ -71,22 +71,17 @@ public class DroneBehaviour : MonoBehaviour
 	{
         if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
         {
-            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || withinTargetRange(target)) {
+            Vector3 direction = target - transform.position;
+
+            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || direction.magnitude < radius) {
                 requestNewTarget();
             } else {
-                Vector3 direction = target - transform.position;
                 direction.Normalize();
                 transform.position += direction * speed * Time.deltaTime;
                 updatePosition();
             }
         }
 	}
-
-    private bool withinTargetRange(Vector3 target)
-    {
-        //Debug.LogError("target range function");
-        return Mathf.Pow(transform.position.x - target.x, 2) + Mathf.Pow(transform.position.z - target.z, 2) < Mathf.Pow(radius, 2);
-    }
 
     private void requestNewTarget()
     {
