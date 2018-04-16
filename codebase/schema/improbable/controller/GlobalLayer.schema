@@ -3,7 +3,9 @@ package improbable.controller;
 import "improbable/vector3.schema";
 
 enum NFZTemplate {
-  BASIC = 1;
+  BASIC_SQUARE = 1;
+  BASIC_RECTANGLE = 2;
+  BASIC_ENCLOSURE = 3;
 }
 
 type NoFlyZone {

@@ -25,30 +25,30 @@ public class Bitmap : MonoBehaviour
 
     public void InitialiseBitmap(Improbable.Vector3f topLeft, Improbable.Vector3f bottomRight)
     {
-        Debug.LogError("first if");
+        Debug.LogWarning("first if");
         if (BitmapWriter.Data.initialised)
         {
             Debug.LogError("Bitmap already initialised");
             return;
         }
 
-        Debug.LogError("second if");
+        Debug.LogWarning("second if");
         if (topLeft.x > bottomRight.x || bottomRight.z > topLeft.z)
         {
             Debug.LogError("Unsupported grid coordinates");
             return;
         }
 
-        Debug.LogError("harmless shit");
+        Debug.LogWarning("harmless shit");
         TopLeft = topLeft;
         BottomRight = bottomRight;
         Width = (int)Math.Ceiling(Math.Abs(bottomRight.x - topLeft.x));
         Height = (int)Math.Ceiling(Math.Abs(topLeft.z - bottomRight.z));
 
-        Debug.LogError("potential danger");
+        Debug.LogWarning("potential danger");
         createBitmapOfGivenSize(Width, Height);
 
-        Debug.LogError("init || topLeft: " + TopLeft);
+        Debug.LogWarning("init || topLeft: " + TopLeft);
 
         BitmapWriter.Send(new BitmapComponent.Update()
                           .SetTopLeft(TopLeft)
