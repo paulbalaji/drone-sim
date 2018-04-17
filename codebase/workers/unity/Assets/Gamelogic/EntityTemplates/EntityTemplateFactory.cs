@@ -99,7 +99,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new DroneData.Data(initialTarget, droneSpeed, hitRadius, TargetPending.REQUEST, snapshot), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DroneData.Data(initialTarget, 5, hitRadius, TargetPending.REQUEST, snapshot), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return droneTemplate;

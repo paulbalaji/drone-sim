@@ -7,6 +7,8 @@ namespace Assets.Gamelogic.Core
         public static readonly float numDrones = 60;
         public static readonly float squareSize = 200;
 
+        // GLOBAL LAYER START //
+
         public static int BIT_SIZE = 5; // meters that each bit in the grid corresponds to
         public const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
 
@@ -15,6 +17,20 @@ namespace Assets.Gamelogic.Core
         public static readonly float MinimumDroneHeight = 10;
         public static readonly float SuggestedDroneHeight = 100;
         public static readonly float MaximumDroneHeight = 120;
+
+        // GLOBAL LAYER END //
+
+        // REACTIVE LAYER START //
+
+        public static float RepulsionConst = 446.78f;
+        public static float AttractionConst = 1.0038f;
+        public static float VelocityConst = 10f;
+        public static float p0 = 532;
+        public static float ReturnConstant = 0.689f;
+
+        public const float SafeDistance = 10;
+
+        // REACTIVE LAYER END //
 
         public static readonly uint ControllerCount = 1;
 

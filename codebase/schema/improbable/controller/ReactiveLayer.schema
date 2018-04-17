@@ -1,0 +1,15 @@
+package improbable.controller;
+
+import "improbable/vector3.schema";
+
+enum APFObstacleType {
+  NONE = 0;
+  MANNED_AVIATION = 1;
+  DRONE = 2;
+  NO_FLY_ZONE = 3;
+  HIDDEN_OBSTACLE = 4;
+}
+ 
+component ReactiveLayer {
+  id = 1205;
+}
