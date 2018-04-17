@@ -65,7 +65,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void EnqueueTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
-        Debug.LogWarning("CONTROLLER New Target Request");
+        //Debug.LogWarning("CONTROLLER New Target Request");
         handle.Respond(new TargetResponse());
         queue.Enqueue(handle.Request);
         UpdateRequestQueue();
@@ -75,16 +75,16 @@ public class ControllerBehaviour : MonoBehaviour
     {
         DroneInfo droneInfo;
 
-        Debug.LogWarning("try get val");
+        //Debug.LogWarning("try get val");
         if (droneMap.TryGetValue(request.droneId, out droneInfo))
         {
             //TODO: need to verify if the drone is actually at its target
 
-            Debug.LogWarning("is final waypoint?");
+            //Debug.LogWarning("is final waypoint?");
             //not final waypoint, get next waypoint
             if (droneInfo.waypoints.Count > droneInfo.nextWaypoint) 
             {
-                Debug.LogWarning("send next waypoint back!");
+                //Debug.LogWarning("send next waypoint back!");
                 //SEND BACK 
                 SpatialOS.Commands.SendCommand(
                     ControllerWriter,
@@ -110,20 +110,20 @@ public class ControllerBehaviour : MonoBehaviour
             //for now just give it a new target and generate a random plan for that?
         }
 
-        Debug.LogWarning("point to point plan");
+        //Debug.LogWarning("point to point plan");
         //for new flight plan
         droneInfo.nextWaypoint = 1;
 
         //calculate the next final target
-        Debug.LogWarning("finding final destination");
+        //Debug.LogWarning("finding final destination");
         Vector3f nextTarget = request.target.HasValue
                                      ? request.target.Value 
                                      : new Vector3f(-request.location.x, 0, -request.location.z);
 
-        Debug.LogWarning("planning for final destination");
+        //Debug.LogWarning("planning for final destination");
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(request.location, nextTarget);
 
-        Debug.LogWarning("null check");
+        //Debug.LogWarning("null check");
         if (droneInfo.waypoints == null)
         {
             //droneMap.Remove(request.droneId);
@@ -144,7 +144,7 @@ public class ControllerBehaviour : MonoBehaviour
         droneMap.Add(request.droneId, droneInfo);
         UpdateDroneMap();
 
-        Debug.LogWarning("send first waypoint!");
+        //Debug.LogWarning("send first waypoint!");
         //SEND BACK 
         SpatialOS.Commands.SendCommand(
             ControllerWriter,
@@ -159,9 +159,9 @@ public class ControllerBehaviour : MonoBehaviour
     {
         if (!ControllerWriter.Data.initialised)
         {
-            Debug.LogWarning("call init global layer");
+            //Debug.LogWarning("call init global layer");
             globalLayer.InitGlobalLayer(ControllerWriter.Data.topLeft, ControllerWriter.Data.bottomRight);
-            Debug.LogWarning("Global Layer Ready");
+            //Debug.LogWarning("Global Layer Ready");
             ControllerWriter.Send(new Controller.Update().SetInitialised(true));
             return;
         }

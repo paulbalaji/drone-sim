@@ -65,18 +65,18 @@ public class ThetaStarSearch : IGridSearch
 
     private List<GridLocation> LazyRun(Bitmap bitmap, GridLocation start, GridLocation goal)
     {
-        Debug.LogWarning("TS: setup dictionaries");
+        //Debug.LogWarning("TS: setup dictionaries");
         Dictionary<GridLocation, GridLocation> cameFrom = new Dictionary<GridLocation, GridLocation>();
         Dictionary<GridLocation, double> costSoFar = new Dictionary<GridLocation, double>();
 
-        Debug.LogWarning("TS: setup interval heap");
+        //Debug.LogWarning("TS: setup interval heap");
         var frontier = new C5.IntervalHeap<GridLocation>();
         start.priority = 0;
         frontier.Add(start);
         cameFrom[start] = null;
         costSoFar[start] = 0;
 
-        Debug.LogWarning("TS: while loop BEGIN");
+        //Debug.LogWarning("TS: while loop BEGIN");
         float exitLoopTime = Time.time + 5f;
         while (!frontier.IsEmpty)
         {
@@ -86,13 +86,13 @@ public class ThetaStarSearch : IGridSearch
                 return null;
             }
 
-            Debug.LogWarning("TS: while loop entered");
+            //Debug.LogWarning("TS: while loop entered");
             GridLocation current = frontier.DeleteMin();
-            Debug.LogWarning("TS: while loop SetVertex");
+            //Debug.LogWarning("TS: while loop SetVertex");
             SetVertex(bitmap, cameFrom, costSoFar, current);
             if (current.Equals(goal))
             {
-                Debug.LogWarning("TS: current == goal");
+                //Debug.LogWarning("TS: current == goal");
                 return GridSearch.RebuildPath(goal, cameFrom);
             }
 

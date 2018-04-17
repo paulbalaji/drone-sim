@@ -119,7 +119,7 @@ public class DroneBehaviour : MonoBehaviour
             return;
         }
 
-        Debug.LogWarning("DRONE New Target Received");
+        //Debug.LogWarning("DRONE New Target Received");
 
         DroneDataWriter.Send(new DroneData.Update()
                              .SetTarget(handle.Request.target)
@@ -129,7 +129,7 @@ public class DroneBehaviour : MonoBehaviour
 
     private void updatePosition()
     {
-        //Debug.LogError("update position function");
+        //Debug.LogWarning("update position function");
         PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
     }
 }

@@ -24,11 +24,11 @@ public class GridGlobalLayer : MonoBehaviour
 
     public void InitGlobalLayer(Improbable.Vector3f topLeft, Improbable.Vector3f bottomRight)
     {
-        Debug.LogWarning("call init bitmap " + bitmap != null);
+        //Debug.LogWarning("call init bitmap " + bitmap != null);
         bitmap.InitialiseBitmap(topLeft, bottomRight);
-        Debug.LogWarning("Bitmap Ready");
+        //Debug.LogWarning("Bitmap Ready");
         bitmap.updateWithNoFlyZones(GlobalLayerWriter.Data.zones);
-        Debug.LogWarning("Bitmap w/NFZs Ready");
+        //Debug.LogWarning("Bitmap w/NFZs Ready");
     }
 
     private void OnEnable()
@@ -139,7 +139,7 @@ public class GridGlobalLayer : MonoBehaviour
         List<GridLocation> locs = null;
         float droneHeight = SimulationSettings.SuggestedDroneHeight;
         if (Vector3.Distance(p1.ToUnityVector(), p2.ToUnityVector()) < SimulationSettings.RoutingShortCircuitThreshold) {
-            Debug.LogWarning("Global Layer: within short circuit threshold");
+            //Debug.LogWarning("Global Layer: within short circuit threshold");
             droneHeight = SimulationSettings.MinimumDroneHeight;
         } else {
             locs = ASearch.run(bitmap, l1, l2);
@@ -151,7 +151,7 @@ public class GridGlobalLayer : MonoBehaviour
             }
         }
 
-        Debug.LogWarning("NUM VERTICES IN PATH: " + locs.Count);
+        //Debug.LogWarning("NUM VERTICES IN PATH: " + locs.Count);
 
         Improbable.Collections.List<Improbable.Vector3f> result = new Improbable.Collections.List<Improbable.Vector3f>();
 
