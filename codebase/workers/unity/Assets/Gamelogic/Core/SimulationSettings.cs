@@ -7,6 +7,9 @@ namespace Assets.Gamelogic.Core
         public static readonly float numDrones = 60;
         public static readonly float squareSize = 200;
 
+        public static int BIT_SIZE = 5; // meters that each bit in the grid corresponds to
+        public const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
+
         public static readonly float RoutingShortCircuitThreshold = 50;
 
         public static readonly float MinimumDroneHeight = 10;

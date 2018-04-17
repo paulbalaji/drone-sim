@@ -6,6 +6,7 @@ using Improbable.Controller;
 using Improbable.Unity;
 using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
+using Assets.Gamelogic.Core;
 
 [WorkerType(WorkerPlatform.UnityWorker)]
 public class Bitmap : MonoBehaviour
@@ -13,8 +14,8 @@ public class Bitmap : MonoBehaviour
     [Require]
     private BitmapComponent.Writer BitmapWriter;
 
-    public static int BIT_SIZE = 5; // meters that each bit in the grid corresponds to
-    const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
+    public static int BIT_SIZE = SimulationSettings.BIT_SIZE; // meters that each bit in the grid corresponds to
+    const int SIZE_OF_A_STEP = SimulationSettings.SIZE_OF_A_STEP; // used when setting bits from a no fly zone
     Improbable.Vector3f TopLeft;
     Improbable.Vector3f BottomRight;
     private int Width; // Meters
