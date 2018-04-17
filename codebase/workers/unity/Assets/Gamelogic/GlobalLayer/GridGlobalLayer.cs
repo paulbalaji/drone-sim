@@ -172,8 +172,12 @@ public class GridGlobalLayer : MonoBehaviour
         {
             Improbable.Vector3f convertedLocation = convertLocation(l);
             Improbable.Vector3f location = new Improbable.Vector3f(convertedLocation.x, droneHeight, convertedLocation.z);
-            result.Add(location);
-            //yCurr += yStep;
+
+            if (Vector3.Distance(location.ToUnityVector(), p2.ToUnityVector()) > SimulationSettings.RoutingShortCircuitThreshold)
+            {
+                result.Add(location);
+                //yCurr += yStep;
+            }
         }
 
         result.Add(p2);

@@ -85,11 +85,22 @@ public class DroneBehaviour : MonoBehaviour
 
     private void requestNewTarget()
     {
+        Improbable.Collections.Option<Vector3f> requestTarget = new Improbable.Collections.Option<Vector3f>();
+
+        if (DroneDataWriter.Data.snapshot)
+        {
+            requestTarget = new Improbable.Collections.Option<Vector3f>(DroneDataWriter.Data.target);
+        }
+
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
         SpatialOS.Commands.SendCommand(
             PositionWriter,
             Controller.Commands.RequestNewTarget.Descriptor,
-            new TargetRequest(gameObject.EntityId(), transform.position.ToSpatialVector3f()), new EntityId(1))
+            new TargetRequest(
+                gameObject.EntityId(),
+                transform.position.ToSpatialVector3f(),
+                requestTarget),
+            new EntityId(1))
                  .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
     }
 
@@ -110,7 +121,10 @@ public class DroneBehaviour : MonoBehaviour
 
         Debug.LogWarning("DRONE New Target Received");
 
-        DroneDataWriter.Send(new DroneData.Update().SetTarget(handle.Request.target).SetTargetPending(TargetPending.RECEIVED));
+        DroneDataWriter.Send(new DroneData.Update()
+                             .SetTarget(handle.Request.target)
+                             .SetTargetPending(TargetPending.RECEIVED)
+                             .SetSnapshot(false));
     }
 
     private void updatePosition()

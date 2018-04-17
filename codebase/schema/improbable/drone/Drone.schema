@@ -22,5 +22,7 @@ component DroneData {
   float radius = 3; // radius to count as "hit" 
   TargetPending target_pending = 4; //to indicate what stage of target fetching we are in
 
+  bool snapshot = 5; //true if created from a snapshot
+
   command NewTargetResponse receive_new_target(NewTargetRequest);
 }

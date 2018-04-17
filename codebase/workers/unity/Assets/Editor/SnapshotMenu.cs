@@ -59,41 +59,44 @@ namespace Assets.Editor
             SaveSnapshot(snapshotEntities, "phase1/basic/rectangle");
         }
 
-        //[MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE")]
-        //private static void GeneratePhase1SnapshotDev3()
-        //{
-        //    var snapshotEntities = new Dictionary<EntityId, Entity>();
-        //    var currentEntityId = 1;
+        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE")]
+        private static void GeneratePhase1SnapshotDev3()
+        {
+            var snapshotEntities = new Dictionary<EntityId, Entity>();
+            var currentEntityId = 1;
 
-        //    NFZTemplate[] nfzTemplates = {
-        //        NFZTemplate.BASIC_ENCLOSURE
-        //    };
+            NFZTemplate[] nfzTemplates = {
+                NFZTemplate.BASIC_ENCLOSURE
+            };
 
-        //    snapshotEntities.Add(
-        //        new EntityId(currentEntityId++),
-        //        EntityTemplateFactory.CreateControllerTemplate(
-        //            new Coordinates(0, 0, 0),
-        //            new Vector3f(-1000, 0, 1000),
-        //            new Vector3f(1000, 0, -1000),
-        //            nfzTemplates
-        //    ));
+            snapshotEntities.Add(
+                new EntityId(currentEntityId++),
+                EntityTemplateFactory.CreateControllerTemplate(
+                    new Coordinates(0, 0, 0),
+                    new Vector3f(-1000, 0, 1000),
+                    new Vector3f(1000, 0, -1000),
+                    nfzTemplates
+            ));
 
-        //    currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
+            currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-        //    Coordinates spawn = new Coordinates(0, 0, -56);
-        //    snapshotEntities.Add(
-        //        new EntityId(currentEntityId++),
-        //        EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
-        //    );
+            Coordinates spawn = new Coordinates(0, 0, -56);
+            snapshotEntities.Add(
+                new EntityId(currentEntityId++),
+                EntityTemplateFactory.CreateDroneTemplate(
+                    spawn,
+                    new Vector3f(0, 0, 100),
+                    50, 1, true)
+            );
 
-        //    spawn = new Coordinates(-50, 0, -50);
-        //    snapshotEntities.Add(
-        //        new EntityId(currentEntityId++),
-        //        EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1)
-        //    );
+            spawn = new Coordinates(-50, 0, -50);
+            snapshotEntities.Add(
+                new EntityId(currentEntityId++),
+                EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1, true)
+            );
 
-        //    SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
-        //}
+            SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
+        }
 
         private static int DisplayNoFlyZone(NFZTemplate template, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
         {

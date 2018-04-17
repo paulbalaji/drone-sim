@@ -113,9 +113,15 @@ public class ControllerBehaviour : MonoBehaviour
         Debug.LogWarning("point to point plan");
         //for new flight plan
         droneInfo.nextWaypoint = 1;
-        droneInfo.waypoints = globalLayer.generatePointToPointPlan(
-            request.location,
-            new Vector3f(-request.location.x, 0, -request.location.z));
+
+        //calculate the next final target
+        Debug.LogWarning("finding final destination");
+        Vector3f nextTarget = request.target.HasValue
+                                     ? request.target.Value 
+                                     : new Vector3f(-request.location.x, 0, -request.location.z);
+
+        Debug.LogWarning("planning for final destination");
+        droneInfo.waypoints = globalLayer.generatePointToPointPlan(request.location, nextTarget);
 
         Debug.LogWarning("null check");
         if (droneInfo.waypoints == null)
