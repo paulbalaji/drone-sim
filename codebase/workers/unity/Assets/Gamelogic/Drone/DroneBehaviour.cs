@@ -72,13 +72,14 @@ public class DroneBehaviour : MonoBehaviour
         if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
         {
             Vector3 direction = target - transform.position;
+            float distance = direction.magnitude;
 
             if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || direction.magnitude < radius) {
                 requestNewTarget();
             } else {
                 direction.Normalize();
-                transform.position += direction * speed * Time.deltaTime;
-                updatePosition();
+                Vector3 newPosition = transform.position + direction * Mathf.Max(speed, distance) * Time.deltaTime;
+                updatePosition(newPosition.ToCoordinates());
             }
         }
 	}
@@ -127,9 +128,9 @@ public class DroneBehaviour : MonoBehaviour
                              .SetSnapshot(false));
     }
 
-    private void updatePosition()
+    private void updatePosition(Coordinates newPosition)
     {
         //Debug.LogWarning("update position function");
-        PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
+        PositionWriter.Send(new Position.Update().SetCoords(newPosition));
     }
 }
