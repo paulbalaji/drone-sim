@@ -13,7 +13,7 @@ public class Bitmap : MonoBehaviour
     [Require]
     private BitmapComponent.Writer BitmapWriter;
 
-    public static int BIT_SIZE = 25; // meters that each bit in the grid corresponds to
+    public static int BIT_SIZE = 5; // meters that each bit in the grid corresponds to
     const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
     Improbable.Vector3f TopLeft;
     Improbable.Vector3f BottomRight;

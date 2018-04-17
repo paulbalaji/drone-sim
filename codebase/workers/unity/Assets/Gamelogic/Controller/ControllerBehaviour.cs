@@ -166,19 +166,20 @@ public class ControllerBehaviour : MonoBehaviour
             return;
         }
 
-        if (!stopSpawning)
-        {
-            SpawnDrone(new Coordinates(400, 0, 400), new Vector3f(400, 0, 400), 50, 1);
-            SpawnDrone(new Coordinates(400, 0, -400), new Vector3f(400, 0, -400), 50, 1);
-            SpawnDrone(new Coordinates(-400, 0, -400), new Vector3f(-400, 0, -400), 50, 1);
-            SpawnDrone(new Coordinates(-400, 0, 400), new Vector3f(-400, 0, 400), 50, 1);
-            stopSpawning = true;
-        }
+        //if (!stopSpawning)
+        //{
+        //    SpawnDrone(new Coordinates(400, 0, 400), new Vector3f(400, 0, 400), 50, 1);
+        //    SpawnDrone(new Coordinates(400, 0, -400), new Vector3f(400, 0, -400), 50, 1);
+        //    SpawnDrone(new Coordinates(-400, 0, -400), new Vector3f(-400, 0, -400), 50, 1);
+        //    SpawnDrone(new Coordinates(-400, 0, 400), new Vector3f(-400, 0, 400), 50, 1);
+        //    stopSpawning = true;
+        //}
 
         //don't need to do anything if no requests in the queue
         if (queue.Count > 0)
         {
             HandleTargetRequest(queue.Dequeue());
+            UpdateRequestQueue();
         }
 
         //if (Time.time > nextActionTime)

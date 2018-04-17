@@ -89,12 +89,6 @@ namespace Assets.Editor
                     50, 1, true)
             );
 
-            spawn = new Coordinates(-50, 0, -50);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(spawn, spawn.ToSpatialVector3f(), 2, 1, true)
-            );
-
             SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
         }
 
