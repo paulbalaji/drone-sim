@@ -154,7 +154,12 @@ public class ControllerBehaviour : MonoBehaviour
         //TODO: OnSuccess / OnFailure
     }
 
-    void ControllerTick()
+	private void Start()
+	{
+        InvokeRepeating("ControllerTick", SimulationSettings.ControllerUpdateInterval, SimulationSettings.ControllerUpdateInterval);
+	}
+
+	void ControllerTick()
     {
         if (!ControllerWriter.Data.initialised)
         {
@@ -175,15 +180,10 @@ public class ControllerBehaviour : MonoBehaviour
         //}
 
         //don't need to do anything if no requests in the queue
-        if (Time.time > nextActionTime)
+        if (queue.Count > 0)
         {
-            nextActionTime = Time.time + SimulationSettings.ControllerUpdateInterval;
-
-            if (queue.Count > 0)
-            {
-                HandleTargetRequest(queue.Dequeue());
-                UpdateRequestQueue();
-            }
+            HandleTargetRequest(queue.Dequeue());
+            UpdateRequestQueue();
         }
     }
 

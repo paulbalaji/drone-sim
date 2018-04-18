@@ -25,7 +25,7 @@ namespace Assets.Gamelogic.Core
         public static readonly float RoutingShortCircuitThreshold = 50;
 
         public static readonly float MinimumDroneHeight = 10;
-        public static readonly float SuggestedDroneHeight = 100;
+        public static readonly float SuggestedDroneHeight = 80;
         public static readonly float MaximumDroneHeight = 120;
 
         // GLOBAL LAYER END //

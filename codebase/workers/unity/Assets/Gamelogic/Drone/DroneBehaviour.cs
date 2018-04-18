@@ -70,27 +70,27 @@ public class DroneBehaviour : MonoBehaviour
         radius = newRadius;
     }
 
+	private void Start()
+	{
+        InvokeRepeating("DroneTick", SimulationSettings.DroneUpdateInterval, SimulationSettings.DroneUpdateInterval);
+	}
+
     void DroneTick()
 	{
-        if (Time.time > nextActionTime)
+        if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
         {
-            nextActionTime = Time.time + SimulationSettings.DroneUpdateInterval;
+            Vector3 direction = target - transform.position;
+            float distance = direction.magnitude;
 
-            if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
+            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || direction.magnitude < radius)
             {
-                Vector3 direction = target - transform.position;
-                float distance = direction.magnitude;
-
-                if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || direction.magnitude < radius)
-                {
-                    requestNewTarget();
-                }
-                else
-                {
-                    direction.Normalize();
-                    Vector3 newPosition = transform.position + direction * Mathf.Max(speed, distance) * SimulationSettings.DroneUpdateInterval;
-                    updatePosition(newPosition.ToCoordinates());
-                }
+                requestNewTarget();
+            }
+            else
+            {
+                direction.Normalize();
+                transform.position += direction * Mathf.Max(speed, distance) * SimulationSettings.DroneUpdateInterval;
+                updatePosition();
             }
         }
 	}
@@ -139,9 +139,9 @@ public class DroneBehaviour : MonoBehaviour
                              .SetSnapshot(false));
     }
 
-    private void updatePosition(Coordinates newPosition)
+    private void updatePosition()
     {
         //Debug.LogWarning("update position function");
-        PositionWriter.Send(new Position.Update().SetCoords(newPosition));
+        PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
     }
 }
