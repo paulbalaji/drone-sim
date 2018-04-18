@@ -9,9 +9,9 @@ namespace Assets.Gamelogic.Core
 
         // DRONE CONSTANTS START //
 
-        public static readonly float DroneUpdateInterval = 0.5f;
+        public static readonly float DroneUpdateInterval = 0.25F;
 
-        public static readonly float MaxDroneSpeed = 20;
+        public const float MaxDroneSpeed = 20;
 
         // DRONE CONSTANTS END //
 

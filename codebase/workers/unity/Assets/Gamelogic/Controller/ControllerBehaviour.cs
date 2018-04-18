@@ -159,7 +159,7 @@ public class ControllerBehaviour : MonoBehaviour
         InvokeRepeating("ControllerTick", SimulationSettings.ControllerUpdateInterval, SimulationSettings.ControllerUpdateInterval);
 	}
 
-	void ControllerTick()
+    void ControllerTick()
     {
         if (!ControllerWriter.Data.initialised)
         {
@@ -182,6 +182,7 @@ public class ControllerBehaviour : MonoBehaviour
         //don't need to do anything if no requests in the queue
         if (queue.Count > 0)
         {
+            //Debug.LogWarning("handling target request");
             HandleTargetRequest(queue.Dequeue());
             UpdateRequestQueue();
         }

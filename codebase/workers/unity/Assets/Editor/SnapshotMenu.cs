@@ -86,7 +86,7 @@ namespace Assets.Editor
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
                     new Vector3f(0, 0, 100),
-                    50, 1, true)
+                    50, true)
             );
 
             SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
@@ -119,7 +119,7 @@ namespace Assets.Editor
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
                     new Vector3f(0, 0, 100),
-                    50, 1, true)
+                    50, true)
             );
 
             spawn = new Coordinates(300, 0, 300);
@@ -128,7 +128,7 @@ namespace Assets.Editor
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
                     spawn.ToSpatialVector3f(),
-                    50, 1)
+                    50)
             );
 
             spawn = new Coordinates(300, 0, -300);
@@ -136,8 +136,7 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    spawn.ToSpatialVector3f(),
-                    50, 1)
+                    spawn.ToSpatialVector3f())
             );
 
             spawn = new Coordinates(-300, 0, -300);
@@ -145,8 +144,7 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    spawn.ToSpatialVector3f(),
-                    50, 1)
+                    spawn.ToSpatialVector3f())
             );
 
             spawn = new Coordinates(-300, 0, 300);
@@ -154,8 +152,7 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    spawn.ToSpatialVector3f(),
-                    50, 1)
+                    spawn.ToSpatialVector3f())
             );
 
             SaveSnapshot(snapshotEntities, "phase1/basic/enclosure2");
@@ -244,7 +241,7 @@ namespace Assets.Editor
                 Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
                 float speed = Random.Range(2, 10);
                 float radius = Random.Range(0.5f, 2);
-                snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, speed, radius));
+                snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, speed));
             }
 
             //SaveSnapshot(snapshotEntities, "phase0_d" + numDrones + "s" + squareSize);

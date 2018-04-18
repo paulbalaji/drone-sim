@@ -27,7 +27,6 @@ component DroneData {
 
   improbable.Vector3f target = 1; // next target
   float speed = 2; // speed of the drone
-  float radius = 3; // radius to count as "hit" 
   TargetPending target_pending = 4; //to indicate what stage of target fetching we are in
 
   bool snapshot = 5; //true if created from a snapshot

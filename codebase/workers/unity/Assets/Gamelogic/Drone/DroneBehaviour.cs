@@ -31,13 +31,11 @@ public class DroneBehaviour : MonoBehaviour
 
         //register for direction/speed updates
         DroneDataWriter.TargetUpdated.Add(OnTargetUpdate);
-        DroneDataWriter.SpeedUpdated.Add(OnSpeedUpdated);
-        DroneDataWriter.RadiusUpdated.Add(OnRadiusUpdated);
 
         //get latest component values
         target = DroneDataWriter.Data.target.ToVector3();
         speed = DroneDataWriter.Data.speed;
-        radius = DroneDataWriter.Data.radius;
+        radius = speed * SimulationSettings.DroneUpdateInterval;
 
         simulate = true;
     }
@@ -51,23 +49,11 @@ public class DroneBehaviour : MonoBehaviour
 
         //deregister for direction/speed updates
         DroneDataWriter.TargetUpdated.Remove(OnTargetUpdate);
-        DroneDataWriter.SpeedUpdated.Remove(OnSpeedUpdated);
-        DroneDataWriter.RadiusUpdated.Remove(OnRadiusUpdated);
     }
 
     private void OnTargetUpdate(Vector3f newTarget)
     {
         target = newTarget.ToVector3();
-    }
-
-    private void OnSpeedUpdated(float newSpeed)
-    {
-        speed = newSpeed;
-    }
-
-    private void OnRadiusUpdated(float newRadius)
-    {
-        radius = newRadius;
     }
 
 	private void Start()
@@ -89,7 +75,7 @@ public class DroneBehaviour : MonoBehaviour
             else
             {
                 direction.Normalize();
-                transform.position += direction * Mathf.Max(speed, distance) * SimulationSettings.DroneUpdateInterval;
+                transform.position += direction * speed * SimulationSettings.DroneUpdateInterval;
                 updatePosition();
             }
         }
@@ -97,6 +83,8 @@ public class DroneBehaviour : MonoBehaviour
 
     private void requestNewTarget()
     {
+        //Debug.LogWarning("requesting new target");
+
         Improbable.Collections.Option<Vector3f> requestTarget = new Improbable.Collections.Option<Vector3f>();
 
         if (DroneDataWriter.Data.snapshot)
