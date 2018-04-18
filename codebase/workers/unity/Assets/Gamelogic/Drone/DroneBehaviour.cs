@@ -1,4 +1,5 @@
-﻿using Improbable;
+﻿using Assets.Gamelogic.Core;
+using Improbable;
 using Improbable.Drone;
 using Improbable.Controller;
 using Improbable.Unity;
@@ -17,9 +18,11 @@ public class DroneBehaviour : MonoBehaviour
 
     private bool simulate = false;
 
-    Vector3 target;
-    float speed;
-    float radius;
+    private Vector3 target;
+    private float speed;
+    private float radius;
+
+    private float nextActionTime = 0f;
 
     private void OnEnable()
     {
@@ -67,19 +70,27 @@ public class DroneBehaviour : MonoBehaviour
         radius = newRadius;
     }
 
-	void Update()
+    void DroneTick()
 	{
-        if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
+        if (Time.time > nextActionTime)
         {
-            Vector3 direction = target - transform.position;
-            float distance = direction.magnitude;
+            nextActionTime = Time.time + SimulationSettings.DroneUpdateInterval;
 
-            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || direction.magnitude < radius) {
-                requestNewTarget();
-            } else {
-                direction.Normalize();
-                Vector3 newPosition = transform.position + direction * Mathf.Max(speed, distance) * Time.deltaTime;
-                updatePosition(newPosition.ToCoordinates());
+            if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
+            {
+                Vector3 direction = target - transform.position;
+                float distance = direction.magnitude;
+
+                if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || direction.magnitude < radius)
+                {
+                    requestNewTarget();
+                }
+                else
+                {
+                    direction.Normalize();
+                    Vector3 newPosition = transform.position + direction * Mathf.Max(speed, distance) * SimulationSettings.DroneUpdateInterval;
+                    updatePosition(newPosition.ToCoordinates());
+                }
             }
         }
 	}

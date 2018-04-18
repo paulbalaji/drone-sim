@@ -8,6 +8,14 @@ enum TargetPending {
 	RECEIVED = 3;
 }
 
+enum DroneStatus {
+	HOVER = 0;
+	MOVE = 1;
+	LAND = 2;
+	LOST = 3;
+	DEAD = 4;
+}
+
 type NewTargetRequest {
 	improbable.Vector3f target = 1;
 }

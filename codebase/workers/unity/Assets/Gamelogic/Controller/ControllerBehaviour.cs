@@ -16,7 +16,6 @@ public class ControllerBehaviour : MonoBehaviour
     private Controller.Writer ControllerWriter;
 
     private float nextActionTime = 0.0f;
-    private float period = 1f;
 
     DroneTranstructor droneTranstructor;
 
@@ -155,7 +154,7 @@ public class ControllerBehaviour : MonoBehaviour
         //TODO: OnSuccess / OnFailure
     }
 
-    void Update()
+    void ControllerTick()
     {
         if (!ControllerWriter.Data.initialised)
         {
@@ -176,18 +175,16 @@ public class ControllerBehaviour : MonoBehaviour
         //}
 
         //don't need to do anything if no requests in the queue
-        if (queue.Count > 0)
+        if (Time.time > nextActionTime)
         {
-            HandleTargetRequest(queue.Dequeue());
-            UpdateRequestQueue();
+            nextActionTime = Time.time + SimulationSettings.ControllerUpdateInterval;
+
+            if (queue.Count > 0)
+            {
+                HandleTargetRequest(queue.Dequeue());
+                UpdateRequestQueue();
+            }
         }
-
-        //if (Time.time > nextActionTime)
-        //{
-        //    nextActionTime += period;
-
-        //    //SpawnDrone();
-        //}
     }
 
     void SpawnDrone(Coordinates spawn, Vector3f target, float speed = -1, float radius = -1)
