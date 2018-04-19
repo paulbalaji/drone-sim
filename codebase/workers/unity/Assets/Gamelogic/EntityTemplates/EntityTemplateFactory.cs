@@ -86,6 +86,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .AddComponent(new Controller.Data(0, SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DroneInfo>(), false, topLeft, bottomRight, new List<TargetRequest>()), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return controllerTemplate;

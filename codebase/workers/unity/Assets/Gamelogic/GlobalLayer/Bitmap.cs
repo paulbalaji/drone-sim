@@ -14,8 +14,8 @@ public class Bitmap : MonoBehaviour
     [Require]
     private BitmapComponent.Writer BitmapWriter;
 
-    public static int BIT_SIZE = SimulationSettings.BIT_SIZE; // meters that each bit in the grid corresponds to
-    const int SIZE_OF_A_STEP = SimulationSettings.SIZE_OF_A_STEP; // used when setting bits from a no fly zone
+    public static int BIT_SIZE; // meters that each bit in the grid corresponds to
+    static int SIZE_OF_A_STEP; // used when setting bits from a no fly zone
     Improbable.Vector3f TopLeft;
     Improbable.Vector3f BottomRight;
     private int Width; // Meters
@@ -73,6 +73,9 @@ public class Bitmap : MonoBehaviour
 
     private void OnEnable()
     {
+        BIT_SIZE = SimulationSettings.BIT_SIZE; // meters that each bit in the grid corresponds to
+        SIZE_OF_A_STEP = SimulationSettings.SIZE_OF_A_STEP; // used when setting bits from a no fly zone
+
         //BitmapWriter.ComponentUpdated.Add(HandleAction);
 
         if (BitmapWriter.Data.initialised)
@@ -311,16 +314,16 @@ public class Bitmap : MonoBehaviour
     }
 
     // Returns positive infinity if no point is found within a certain amount of layers.
-    public double distanceToNoFlyZone(Improbable.Vector3f point)
+    public float distanceToNoFlyZone(Improbable.Vector3f point)
     {
         Improbable.Vector3f p = nearestNoFlyZonePoint(point);
         if (p.y >= 0)
         {
-            double w = p.x - point.x;
-            double h = p.z - point.z;
-            return Math.Sqrt(Math.Pow(w, 2) + Math.Pow(h, 2));
+            float w = p.x - point.x;
+            float h = p.z - point.z;
+            return Mathf.Sqrt(Mathf.Pow(w, 2) + Mathf.Pow(h, 2));
         }
-        return Double.MaxValue;
+        return float.PositiveInfinity;
     }
 
     public void setLine(Improbable.Vector3f startPoint, Improbable.Vector3f endPoint)

@@ -24,6 +24,8 @@ public class DroneBehaviour : MonoBehaviour
 
     private float nextActionTime = 0f;
 
+    private APF apf;
+
     private void OnEnable()
     {
         //register command
@@ -36,6 +38,8 @@ public class DroneBehaviour : MonoBehaviour
         target = DroneDataWriter.Data.target.ToVector3();
         speed = DroneDataWriter.Data.speed;
         radius = speed * SimulationSettings.DroneUpdateInterval;
+
+        apf = gameObject.GetComponent<APF>();
 
         simulate = true;
     }
@@ -65,18 +69,14 @@ public class DroneBehaviour : MonoBehaviour
 	{
         if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
         {
-            Vector3 direction = target - transform.position;
-            float distance = direction.magnitude;
-
-            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || direction.magnitude < radius)
+            float distanceToTarget = Vector3.Distance(target, transform.position);
+            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || distanceToTarget < radius)
             {
                 requestNewTarget();
             }
             else
             {
-                direction.Normalize();
-                transform.position += direction * speed * SimulationSettings.DroneUpdateInterval;
-                updatePosition();
+                apf.Recalculate();
             }
         }
 	}

@@ -1,0 +1,30 @@
+package improbable.drone;
+
+import "improbable/vector3.schema";
+
+enum APFObstacleType {
+  NONE = 0;
+  MANNED_AVIATION = 1;
+  DRONE = 2;
+  NO_FLY_ZONE = 3;
+  HIDDEN_OBSTACLE = 4;
+}
+
+type APFObstacle{
+	APFObstacleType type = 1;
+	improbable.Vector3f position = 2;
+}
+
+type ObstacleRequest {
+	improbable.Vector3f location = 1;
+}
+
+type ObstacleResponse {
+	APFObstacle obstacle = 1;
+}
+ 
+component ReactiveLayer {
+  id = 1205;
+
+  command ObstacleResponse get_nearest_obstacle(ObstacleRequest);
+}
