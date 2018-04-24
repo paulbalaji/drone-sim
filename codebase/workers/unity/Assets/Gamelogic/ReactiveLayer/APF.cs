@@ -67,38 +67,26 @@ public class APF : MonoBehaviour
         return new Vector3(xD, yD, zD);
     }
 
-    private float calculateDroneRepulsionPart(Vector3f dronePosition)
+    private float calculateRepulsionPart(Vector3f dronePosition)
     {
         Vector3 finalForce = new Vector3();
 
-        if (nearestDrones.Count == 0)
+        // static obstacles
+        if (nearestStaticObstacle.type != APFObstacleType.NONE)
         {
-            return 0;
+            finalForce += dronePosition.ToUnityVector() - nearestStaticObstacle.position.ToUnityVector();
         }
 
-        foreach (APFObstacle nearbyDrone in nearestDrones)
+        // nearby drones
+        if (nearestDrones.Count > 0)
         {
-            finalForce += dronePosition.ToUnityVector() - nearbyDrone.position.ToUnityVector();
+            foreach (APFObstacle nearbyDrone in nearestDrones)
+            {
+                finalForce += dronePosition.ToUnityVector() - nearbyDrone.position.ToUnityVector();
+            }
         }
-
-        finalForce += dronePosition.ToUnityVector() - nearestStaticObstacle.position.ToUnityVector();
 
         float distanceToNearestObstacle = finalForce.magnitude;
-        return distanceToNearestObstacle < InfuentialDistanceConstant
-            ? RepulsionConst / (distanceToNearestObstacle - safeDistance)
-            : 0;
-    }
-
-    private float calculateRepulsionPart(Vector3f dronePosition, APFObstacle nearestObstacle)
-    {
-        if (nearestObstacle.type == APFObstacleType.NONE)
-        {
-            return 0;
-        }
-
-
-
-        float distanceToNearestObstacle = Vector3.Distance(dronePosition.ToUnityVector(), nearestObstacle.position.ToUnityVector());
         return distanceToNearestObstacle < InfuentialDistanceConstant
             ? RepulsionConst / (distanceToNearestObstacle - safeDistance)
             : 0;
@@ -113,10 +101,10 @@ public class APF : MonoBehaviour
         float distanceToGoal = Vector3.Distance(goal.ToUnityVector(), dronePosition.ToUnityVector());
         float uAttract = AttractionConst * distanceToGoal;
 
-        float uRepel = 0;
-        uRepel += calculateRepulsionPart(dronePosition, nearestDrones[0]);
-        uRepel += calculateRepulsionPart(dronePosition, nearestStaticObstacle);
+        //Calculate uRepel, find midpoint of obstacle repulsive force and use that for distance
+        float uRepel = calculateRepulsionPart(dronePosition);
 
+        //Calculate uRet = pRepel * dPrevTarget
         Vector3f previousTarget = DroneDataWriter.Data.previousTarget;
         float uRet = previousTarget.y < 0
            ? 0
