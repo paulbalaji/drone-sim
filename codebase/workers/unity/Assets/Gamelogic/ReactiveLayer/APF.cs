@@ -67,34 +67,26 @@ public class APF : MonoBehaviour
         return new Vector3(xD, yD, zD);
     }
 
-    private float calculateRepulsionPart(Vector3f dronePosition, APFObstacle nearestObstacle)
-    {
-        // nearest dynamic obstacle
-        if (nearestObstacle.type == APFObstacleType.NONE)
-        {
-            return 0;
-        }
-        else
-        {
-            float distanceToNearestObstacle = Vector3.Distance(dronePosition.ToUnityVector(), nearestObstacle.position.ToUnityVector());
-            return distanceToNearestObstacle < InfuentialDistanceConstant
-                ? RepulsionConst / (distanceToNearestObstacle - safeDistance)
-                : 0;
-        }
-    }
-
     private float calculateTotalPotential(Vector3f dronePosition, Vector3f goal)
     {
-        //APFObstacle nearestObstacle = GetNearestObstacle(dronePosition.ToUnityVector());
-        GetNearestObstacle(dronePosition.ToUnityVector());
+        APFObstacle nearestObstacle = GetNearestObstacle(dronePosition.ToUnityVector());
 
         //Calculate uAttract = pAttract * dGoal
         float distanceToGoal = Vector3.Distance(goal.ToUnityVector(), dronePosition.ToUnityVector());
         float uAttract = AttractionConst * distanceToGoal;
 
-        float uRepel = 0;
-        uRepel += calculateRepulsionPart(dronePosition, nearestDrone);
-        uRepel += calculateRepulsionPart(dronePosition, nearestStaticObstacle);
+        float uRepel;
+        if (nearestObstacle.type == APFObstacleType.NONE)
+        {
+            uRepel = 0;
+        }
+        else
+        {
+            float distanceToNearestObstacle = Vector3.Distance(dronePosition.ToUnityVector(), nearestObstacle.position.ToUnityVector());
+            uRepel = distanceToNearestObstacle < InfuentialDistanceConstant
+                ? uRepel = RepulsionConst / (distanceToNearestObstacle - safeDistance)
+                : 0;
+        }
 
         Vector3f previousTarget = DroneDataWriter.Data.previousTarget;
         float uRet = previousTarget.y < 0
@@ -124,17 +116,17 @@ public class APF : MonoBehaviour
         }
     }
 
-    private void GetNearestObstacle(Vector3 dronePosition)
+    private APFObstacle GetNearestObstacle(Vector3 dronePosition)
     {
         // check for nearest dynamic obstacle, currently just looking for other drones
         CheckForNearbyDrones(dronePosition);
 
-        //// if no static obstacles, pass in drone obstacle
-        //// it'll resolve itself if drone is none later
-        //if (nearestStaticObstacle.type == APFObstacleType.NONE)
-        //{
-        //    return nearestDrone;
-        //}
+        // if no static obstacles, pass in drone obstacle
+        // it'll resolve itself if drone is none later
+        if (nearestStaticObstacle.type == APFObstacleType.NONE)
+        {
+            return nearestDrone;
+        }
 
         // if obstacle is NFZ, update obstacle height to match drone
         if (nearestStaticObstacle.type == APFObstacleType.NO_FLY_ZONE)
@@ -142,27 +134,27 @@ public class APF : MonoBehaviour
             nearestStaticObstacle.position.y = dronePosition.y;
         }
 
-        //// nearby obstacle but no nearby drones, so send obstacle info
-        //if (nearestDrone.type == APFObstacleType.NONE)
-        //{
-        //    return nearestStaticObstacle;
-        //}
-        //else
-        //{
-        //    // both obstacle and drone exist, so send info of whichever is closest to self
-        //    // if static obstacle's distance > dynamic obstacle's distance, return dynamic obstacle's distance
-        //    if (Vector3.Distance(dronePosition, nearestStaticObstacle.position.ToUnityVector()) > nearestDroneDistance)
-        //    {
-        //        // if distance to obstacle > distance to nearest drone, send drone info
-        //        //Debug.LogError("using drone as nearest obstacle (not an error)");
-        //        return nearestDrone;
-        //    }
-        //    else
-        //    {
-        //        // distance to obstacle < distance to nearest drone, send obstacle info
-        //        return nearestStaticObstacle;
-        //    }
-        //}
+        // nearby obstacle but no nearby drones, so send obstacle info
+        if (nearestDrone.type == APFObstacleType.NONE)
+        {
+            return nearestStaticObstacle;
+        }
+        else
+        {
+            // both obstacle and drone exist, so send info of whichever is closest to self
+            // if static obstacle's distance > dynamic obstacle's distance, return dynamic obstacle's distance
+            if (Vector3.Distance(dronePosition, nearestStaticObstacle.position.ToUnityVector()) > nearestDroneDistance)
+            {
+                // if distance to obstacle > distance to nearest drone, send drone info
+                //Debug.LogError("using drone as nearest obstacle (not an error)");
+                return nearestDrone;
+            }
+            else
+            {
+                // distance to obstacle < distance to nearest drone, send obstacle info
+                return nearestStaticObstacle;
+            }
+        }
     }
 
     private void MoveDrone(APFObstacle obstacle)
