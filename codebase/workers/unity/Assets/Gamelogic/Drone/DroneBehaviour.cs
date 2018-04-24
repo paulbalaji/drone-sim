@@ -122,6 +122,7 @@ public class DroneBehaviour : MonoBehaviour
         //Debug.LogWarning("DRONE New Target Received");
 
         DroneDataWriter.Send(new DroneData.Update()
+                             .SetPreviousTarget(DroneDataWriter.Data.target)
                              .SetTarget(handle.Request.target)
                              .SetTargetPending(TargetPending.RECEIVED)
                              .SetSnapshot(false));

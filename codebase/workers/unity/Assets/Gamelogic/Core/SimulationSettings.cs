@@ -33,11 +33,11 @@ namespace Assets.Gamelogic.Core
         // REACTIVE LAYER START //
 
         //constants initially genetically discovered for 10 m/s speed
-        //public static float RepulsionConst = 446.78f;
-        public static float RepulsionConst = 223.39f;
+        public static float RepulsionConst = 446.78f;
+        //public static float RepulsionConst = 223.39f;
         //public static float RepulsionConst = 111.7f;
-        //public static float AttractionConst = 1.0038f;
-        public static float AttractionConst = 2.0076f;
+        public static float AttractionConst = 1.0038f;
+        //public static float AttractionConst = 2.0076f;
         public static float p0 = 532;
         public static float ReturnConstant = 0.689f;
 

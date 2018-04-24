@@ -81,11 +81,13 @@ public class APF : MonoBehaviour
         {
             float distanceToNearestObstacle = Vector3.Distance(dronePosition.ToUnityVector(), nearestObstacle.position.ToUnityVector());
             uRepel = distanceToNearestObstacle < safeDistance
-                ? uRepel = Mathf.Pow(RepulsionConst / (distanceToNearestObstacle - safeDistance), 2)
+                ? uRepel = RepulsionConst / (distanceToNearestObstacle - safeDistance)
                 : 0;
         }
 
-        return uAttract + uRepel;
+        float uRet = ReturnConstant * Vector3.Distance(transform.position, DroneDataWriter.Data.previousTarget.ToUnityVector());
+
+        return uAttract + uRepel + uRet;
     }
 
     private void MoveDrone(APFObstacle obstacle)

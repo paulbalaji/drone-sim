@@ -29,6 +29,9 @@ component DroneData {
   float speed = 2; // speed of the drone
   TargetPending target_pending = 4; //to indicate what stage of target fetching we are in
 
+  // drone's last target, used to push self away from previous checkpoint
+  improbable.Vector3f previous_target = 6; 
+
   bool snapshot = 5; //true if created from a snapshot
 
   command NewTargetResponse receive_new_target(NewTargetRequest);
