@@ -21,7 +21,7 @@ public class APF : MonoBehaviour
 
     public static float AttractionConst;
 
-    public static float p0;
+    public static float InfuentialDistanceConstant;
 
     public static float ReturnConstant;
 
@@ -38,7 +38,7 @@ public class APF : MonoBehaviour
 	{
         RepulsionConst = SimulationSettings.RepulsionConst;
         AttractionConst = SimulationSettings.AttractionConst;
-        p0 = SimulationSettings.p0;
+        InfuentialDistanceConstant = SimulationSettings.InfuentialDistanceConstant;
         ReturnConstant = SimulationSettings.ReturnConstant;
         droneCalcReady = false;
         dummyObstacle = new APFObstacle(APFObstacleType.NONE, new Vector3f(0, -1, 0));
@@ -80,12 +80,12 @@ public class APF : MonoBehaviour
         else
         {
             float distanceToNearestObstacle = Vector3.Distance(dronePosition.ToUnityVector(), nearestObstacle.position.ToUnityVector());
-            uRepel = distanceToNearestObstacle < safeDistance
+            uRepel = distanceToNearestObstacle < InfuentialDistanceConstant
                 ? uRepel = RepulsionConst / (distanceToNearestObstacle - safeDistance)
                 : 0;
         }
 
-        float uRet = ReturnConstant * Vector3.Distance(transform.position, DroneDataWriter.Data.previousTarget.ToUnityVector());
+        float uRet = ReturnConstant * Vector3.Distance(dronePosition.ToUnityVector(), DroneDataWriter.Data.previousTarget.ToUnityVector());
 
         return uAttract + uRepel + uRet;
     }

@@ -38,7 +38,7 @@ namespace Assets.Gamelogic.Core
         //public static float RepulsionConst = 111.7f;
         public static float AttractionConst = 1.0038f;
         //public static float AttractionConst = 2.0076f;
-        public static float p0 = 532;
+        public static float InfuentialDistanceConstant = 532;
         public static float ReturnConstant = 0.689f;
 
         public const float SafeDistance = 10;
