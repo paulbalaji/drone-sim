@@ -80,12 +80,12 @@ namespace Assets.Editor
 
             currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            Coordinates spawn = new Coordinates(0, 0, -56);
+            Coordinates spawn = new Coordinates(0, 0, -125);
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    new Vector3f(0, 0, 100),
+                    new Vector3f(0, 0, 150),
                     50, true)
             );
 
@@ -113,12 +113,12 @@ namespace Assets.Editor
 
             currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            Coordinates spawn = new Coordinates(0, 0, -56);
+            Coordinates spawn = new Coordinates(0, 0, -200);
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    new Vector3f(0, 0, 100),
+                    new Vector3f(0, 0, 150),
                     50, true)
             );
 
@@ -179,12 +179,12 @@ namespace Assets.Editor
 
             currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            Coordinates spawn = new Coordinates(0, 0, -56);
+            Coordinates spawn = new Coordinates(0, 0, -125);
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    new Vector3f(0, 0, 100),
+                    new Vector3f(0, 0, 150),
                     50, true)
             );
 

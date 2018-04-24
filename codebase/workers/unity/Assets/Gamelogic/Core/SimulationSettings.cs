@@ -19,7 +19,7 @@ namespace Assets.Gamelogic.Core
 
         public static readonly float ControllerUpdateInterval = 0.1f;
 
-        public static readonly int BIT_SIZE = 10; // meters that each bit in the grid corresponds to
+        public static readonly int BIT_SIZE = 25; // meters that each bit in the grid corresponds to, OG 25 in AATC 
         public const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
 
         public static readonly float RoutingShortCircuitThreshold = 50;

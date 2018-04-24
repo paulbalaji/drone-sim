@@ -31,6 +31,7 @@ public class APF : MonoBehaviour
 
     private bool droneCalcReady;
 
+    private APFObstacle nearestStaticObstacle;
     private APFObstacle nearestDrone;
     private float nearestDroneDistance;
 
@@ -48,26 +49,28 @@ public class APF : MonoBehaviour
         nearestDroneDistance = 2 * safeDistance;
 	}
 
-    private Vector3 calculateGradient(APFObstacle obstacle)
+    private Vector3 calculateGradient()
     {
         Vector3f dp = transform.position.ToSpatialVector3f();
         Vector3f goal = DroneDataWriter.Data.target;
 
-        float potentialAtDrone = calculateTotalPotential(dp, goal, obstacle);
+        float potentialAtDrone = calculateTotalPotential(dp, goal);
         Vector3f xDpos = new Vector3f(dp.x + 1, dp.y, dp.z);
         Vector3f yDpos = new Vector3f(dp.x, dp.y + 1, dp.z);
         Vector3f zDpos = new Vector3f(dp.x, dp.y, dp.z + 1);
 
-        float xD = calculateTotalPotential(xDpos, goal, obstacle) - potentialAtDrone;
-        float yD = calculateTotalPotential(yDpos, goal, obstacle) - potentialAtDrone;
-        float zD = calculateTotalPotential(zDpos, goal, obstacle) - potentialAtDrone;
+        float xD = calculateTotalPotential(xDpos, goal) - potentialAtDrone;
+        float yD = calculateTotalPotential(yDpos, goal) - potentialAtDrone;
+        float zD = calculateTotalPotential(zDpos, goal) - potentialAtDrone;
         // TODO: Add modifying factor here in order to disencourage changes in altitude
 
         return new Vector3(xD, yD, zD);
     }
 
-    private float calculateTotalPotential(Vector3f dronePosition, Vector3f goal, APFObstacle nearestObstacle)
+    private float calculateTotalPotential(Vector3f dronePosition, Vector3f goal)
     {
+        APFObstacle nearestObstacle = GetNearestObstacle(dronePosition.ToUnityVector());
+
         //Calculate uAttract = pAttract * dGoal
         float distanceToGoal = Vector3.Distance(goal.ToUnityVector(), dronePosition.ToUnityVector());
         float uAttract = AttractionConst * distanceToGoal;
@@ -85,81 +88,88 @@ public class APF : MonoBehaviour
                 : 0;
         }
 
-        float uRet = ReturnConstant * Vector3.Distance(dronePosition.ToUnityVector(), DroneDataWriter.Data.previousTarget.ToUnityVector());
+        Vector3f previousTarget = DroneDataWriter.Data.previousTarget;
+        float uRet = previousTarget.y < 0
+           ? 0
+           : ReturnConstant * Vector3.Distance(dronePosition.ToUnityVector(), DroneDataWriter.Data.previousTarget.ToUnityVector());
 
         return uAttract + uRepel + uRet;
     }
 
-    private void MoveDrone(APFObstacle obstacle)
+    private void CheckForNearbyDrones(Vector3 dronePosition)
     {
-        Vector3 gradient = new Vector3();
-
-        //get nearest dynamic obstacle, currently just other drones
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, safeDistance);
         nearestDrone.type = APFObstacleType.NONE;
         nearestDrone.position = new Vector3f(0, -1, 0);
         nearestDroneDistance = safeDistance;
+
+        Collider[] hitColliders = Physics.OverlapSphere(dronePosition, safeDistance);
         foreach (Collider hitCollider in hitColliders)
         {
             if (hitCollider.gameObject.EntityId() != gameObject.EntityId())
             {
-                if (Vector3.Distance(hitCollider.transform.position, transform.position) < nearestDroneDistance)
+                if (Vector3.Distance(hitCollider.transform.position, dronePosition) < nearestDroneDistance)
                 {
                     nearestDrone.position = hitCollider.transform.position.ToSpatialVector3f();
                     nearestDrone.type = APFObstacleType.DRONE;
                 }
             }
         }
+    }
 
-        if (obstacle.type == APFObstacleType.NONE)
+    private APFObstacle GetNearestObstacle(Vector3 dronePosition)
+    {
+        // check for nearest dynamic obstacle, currently just looking for other drones
+        CheckForNearbyDrones(dronePosition);
+
+        if (nearestStaticObstacle.type == APFObstacleType.NONE)
         {
             if (nearestDrone.type == APFObstacleType.NONE)
             {
                 // no nearby obstacles so use whatever empty info you want
-                gradient = calculateGradient(obstacle).normalized;
+                return nearestStaticObstacle;
             }
             else
             {
                 // only drone nearby so use drone info
-                Debug.LogError("using drone as nearest obstacle (not an error)");
-                gradient = calculateGradient(nearestDrone).normalized;
+                //Debug.LogError("using drone as nearest obstacle (not an error)");
+                return nearestDrone;
             }
         }
         else
         {
             // if obstacle is NFZ, update obstacle height to match drone
-            if (obstacle.type == APFObstacleType.NO_FLY_ZONE)
+            if (nearestStaticObstacle.type == APFObstacleType.NO_FLY_ZONE)
             {
-                obstacle.position.y = transform.position.y;
+                nearestStaticObstacle.position.y = dronePosition.y;
             }
 
             if (nearestDrone.type == APFObstacleType.NONE)
             {
                 // obstacle but no drone, so send obstacle info
-                gradient = calculateGradient(obstacle).normalized;
+                return nearestStaticObstacle;
             }
-            else 
+            else
             {
                 // both obstacle and drone exist, so send info of whichever is closest to self
-                if (Vector3.Distance(transform.position, obstacle.position.ToUnityVector()) > nearestDroneDistance)
+                if (Vector3.Distance(dronePosition, nearestStaticObstacle.position.ToUnityVector()) > nearestDroneDistance)
                 {
                     // if distance to obstacle > distance to nearest drone, send drone info
-                    Debug.LogError("using drone as nearest obstacle (not an error)");
-                    gradient = calculateGradient(nearestDrone).normalized;
-
-                } else {
+                    //Debug.LogError("using drone as nearest obstacle (not an error)");
+                    return nearestDrone;
+                }
+                else
+                {
                     // distance to obstacle < distance to nearest drone, send obstacle info
-                    gradient = calculateGradient(obstacle).normalized;
+                    return nearestStaticObstacle;
                 }
             }
         }
+    }
 
-        //if (obstacle.type == APFObstacleType.NO_FLY_ZONE)
-        //{
-        //    obstacle.position.y = transform.position.y;
-        //}
-        //gradient = calculateGradient(obstacle).normalized;
-        Vector3 direction = -1 * gradient;
+    private void MoveDrone(APFObstacle obstacle)
+    {
+        nearestStaticObstacle = obstacle;
+        Vector3 direction = -1 * calculateGradient().normalized;
         transform.position += direction * DroneDataWriter.Data.speed * SimulationSettings.DroneUpdateInterval;
         PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
     }
