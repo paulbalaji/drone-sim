@@ -59,7 +59,7 @@ namespace Assets.Editor
             SaveSnapshot(snapshotEntities, "phase1/basic/rectangle");
         }
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE V1")]
+        [MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 1 ENCLOSURE V1")]
         private static void GeneratePhase1SnapshotDev3()
         {
             var snapshotEntities = new Dictionary<EntityId, Entity>();
@@ -89,10 +89,10 @@ namespace Assets.Editor
                     50, true)
             );
 
-            SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
+            SaveSnapshot(snapshotEntities, "phase2/basic/enclosure");
         }
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE V2")]
+        [MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 2 ENCLOSURE V2")]
         private static void GeneratePhase1SnapshotDev3v2()
         {
             var snapshotEntities = new Dictionary<EntityId, Entity>();
@@ -155,10 +155,10 @@ namespace Assets.Editor
                     spawn.ToSpatialVector3f())
             );
 
-            SaveSnapshot(snapshotEntities, "phase1/basic/enclosure2");
+            SaveSnapshot(snapshotEntities, "phase2/basic/enclosure2");
         }
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE V3")]
+        [MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 3 ENCLOSURE V3")]
         private static void GeneratePhase1SnapshotDev3v3()
         {
             var snapshotEntities = new Dictionary<EntityId, Entity>();
@@ -179,7 +179,7 @@ namespace Assets.Editor
 
             currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            Coordinates spawn = new Coordinates(0, 0, -125);
+            Coordinates spawn = new Coordinates(0, 0, -200);
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
@@ -253,7 +253,7 @@ namespace Assets.Editor
                     spawn.ToSpatialVector3f())
             );
 
-            SaveSnapshot(snapshotEntities, "phase1/basic/enclosure3");
+            SaveSnapshot(snapshotEntities, "phase2/basic/enclosure3");
         }
 
         private static int DisplayNoFlyZone(NFZTemplate template, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
