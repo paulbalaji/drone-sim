@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Improbable;
 using Improbable.Collections;
+using Improbable.Controller;
 using Improbable.Drone;
 using Improbable.Unity;
 using Improbable.Unity.Core;
@@ -25,9 +26,11 @@ public class APF : MonoBehaviour
 
     public static float ReturnConstant;
 
+    public static float DroneRadius;
+
     private APFObstacle dummyObstacle;
 
-    private float safeDistance;
+    private float radiusOfInfluence;
 
     private bool droneCalcReady;
 
@@ -41,12 +44,13 @@ public class APF : MonoBehaviour
         AttractionConst = SimulationSettings.AttractionConst;
         InfuentialDistanceConstant = SimulationSettings.InfuentialDistanceConstant;
         ReturnConstant = SimulationSettings.ReturnConstant;
+        DroneRadius = SimulationSettings.DroneRadius;
         droneCalcReady = false;
         dummyObstacle = new APFObstacle(APFObstacleType.NONE, new Vector3f(0, -1, 0));
         nearestDrone = new APFObstacle(APFObstacleType.DRONE, new Vector3f(0, -1, 0));
 
-        safeDistance = DroneDataWriter.Data.speed * SimulationSettings.DroneUpdateInterval;
-        nearestDroneDistance = 2 * safeDistance;
+        radiusOfInfluence = 2 * DroneDataWriter.Data.speed * SimulationSettings.DroneUpdateInterval;
+        nearestDroneDistance = radiusOfInfluence;
 	}
 
     private Vector3 calculateGradient()
@@ -54,7 +58,7 @@ public class APF : MonoBehaviour
         Vector3f dp = transform.position.ToSpatialVector3f();
         Vector3f goal = DroneDataWriter.Data.target;
 
-        float potentialAtDrone = calculateTotalPotential(dp, goal);
+        float potentialAtDrone = calculateTotalPotential(dp, goal, true);
         Vector3f xDpos = new Vector3f(dp.x + 1, dp.y, dp.z);
         Vector3f yDpos = new Vector3f(dp.x, dp.y + 1, dp.z);
         Vector3f zDpos = new Vector3f(dp.x, dp.y, dp.z + 1);
@@ -67,9 +71,9 @@ public class APF : MonoBehaviour
         return new Vector3(xD, yD, zD);
     }
 
-    private float calculateTotalPotential(Vector3f dronePosition, Vector3f goal)
+    private float calculateTotalPotential(Vector3f dronePosition, Vector3f goal, bool collisionDetection = false)
     {
-        APFObstacle nearestObstacle = GetNearestObstacle(dronePosition.ToUnityVector());
+        APFObstacle nearestObstacle = GetNearestObstacle(dronePosition.ToUnityVector(), collisionDetection);
 
         //Calculate uAttract = pAttract * dGoal
         float distanceToGoal = Vector3.Distance(goal.ToUnityVector(), dronePosition.ToUnityVector());
@@ -84,7 +88,7 @@ public class APF : MonoBehaviour
         {
             float distanceToNearestObstacle = Vector3.Distance(dronePosition.ToUnityVector(), nearestObstacle.position.ToUnityVector());
             uRepel = distanceToNearestObstacle < InfuentialDistanceConstant
-                ? uRepel = RepulsionConst / (distanceToNearestObstacle - safeDistance)
+                ? uRepel = RepulsionConst / (distanceToNearestObstacle - DroneRadius)
                 : 0;
         }
 
@@ -96,30 +100,47 @@ public class APF : MonoBehaviour
         return uAttract + uRepel + uRet;
     }
 
-    private void CheckForNearbyDrones(Vector3 dronePosition)
+    private void CheckForNearbyDrones(Vector3 dronePosition, bool collisionDetection)
     {
         nearestDrone.type = APFObstacleType.NONE;
         nearestDrone.position = new Vector3f(0, -1, 0);
-        nearestDroneDistance = safeDistance;
+        nearestDroneDistance = radiusOfInfluence;
 
-        Collider[] hitColliders = Physics.OverlapSphere(dronePosition, safeDistance);
+        Collider[] hitColliders = Physics.OverlapSphere(dronePosition, radiusOfInfluence);
         foreach (Collider hitCollider in hitColliders)
         {
             if (hitCollider.gameObject.EntityId() != gameObject.EntityId())
             {
-                if (Vector3.Distance(hitCollider.transform.position, dronePosition) < nearestDroneDistance)
+                
+                float currentDroneDistance = Vector3.Distance(hitCollider.transform.position, dronePosition);
+
+                if (collisionDetection && currentDroneDistance < 1)
+                {
+                    Debug.LogWarning("DRONE REPORTING COLLISION");
+                    SpatialOS.Commands.SendCommand(
+                        PositionWriter,
+                        Controller.Commands.Collision.Descriptor,
+                        new CollisionRequest(gameObject.EntityId(), hitCollider.gameObject.EntityId()),
+                        new EntityId(1))
+                             .OnSuccess((response) => Debug.LogWarning("DRONE COLLISION."))
+                             .OnFailure((response) => Debug.LogError("UNABLE TO REPORT DRONE COLLISION."));
+                    return;
+                }
+
+                if (currentDroneDistance < nearestDroneDistance)
                 {
                     nearestDrone.position = hitCollider.transform.position.ToSpatialVector3f();
                     nearestDrone.type = APFObstacleType.DRONE;
+                    nearestDroneDistance = currentDroneDistance;
                 }
             }
         }
     }
 
-    private APFObstacle GetNearestObstacle(Vector3 dronePosition)
+    private APFObstacle GetNearestObstacle(Vector3 dronePosition, bool collisionDetection)
     {
         // check for nearest dynamic obstacle, currently just looking for other drones
-        CheckForNearbyDrones(dronePosition);
+        CheckForNearbyDrones(dronePosition, collisionDetection);
 
         // if no static obstacles, pass in drone obstacle
         // it'll resolve itself if drone is none later

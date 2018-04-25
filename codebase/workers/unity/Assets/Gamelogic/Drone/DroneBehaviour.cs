@@ -26,6 +26,8 @@ public class DroneBehaviour : MonoBehaviour
 
     private APF apf;
 
+    private int failCount = 0;
+
     private void OnEnable()
     {
         //register command
@@ -42,6 +44,9 @@ public class DroneBehaviour : MonoBehaviour
         apf = gameObject.GetComponent<APF>();
 
         simulate = true;
+
+        InvokeRepeating("DroneTick", DroneDataWriter.Data.startingDelay + SimulationSettings.DroneUpdateInterval, SimulationSettings.DroneUpdateInterval);
+        DroneDataWriter.Send(new DroneData.Update().SetStartingDelay(0));
     }
 
     private void OnDisable()
@@ -59,11 +64,6 @@ public class DroneBehaviour : MonoBehaviour
     {
         target = newTarget.ToVector3();
     }
-
-	private void Start()
-	{
-        InvokeRepeating("DroneTick", SimulationSettings.DroneUpdateInterval, SimulationSettings.DroneUpdateInterval);
-	}
 
     void DroneTick()
 	{
@@ -106,8 +106,21 @@ public class DroneBehaviour : MonoBehaviour
 
     private void requestTargetFailure(string errorMessage)
     {
-        Debug.LogError("Failed to request new target, with error: " + errorMessage);
+        failCount++;
+        Debug.LogError("Failed to request new target. Fail #" + failCount + " with error: " + errorMessage);
+
+        if (failCount > SimulationSettings.MaxTargetRequestFailures)
+        {
+            Debug.LogError("Too many failures. Drone Self-Destructing.");
+            SelfDestruct();
+        }
+
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.REQUEST));
+    }
+
+    private void SelfDestruct()
+    {
+        SpatialOS.Commands.DeleteEntity(PositionWriter, transform.gameObject.EntityId());
     }
 
     void ReceivedNewTarget(Improbable.Entity.Component.ResponseHandle<DroneData.Commands.ReceiveNewTarget, NewTargetRequest, NewTargetResponse> handle)

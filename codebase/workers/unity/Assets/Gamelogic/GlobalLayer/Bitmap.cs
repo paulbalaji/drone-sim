@@ -383,8 +383,7 @@ public class Bitmap : MonoBehaviour
     {
         int[] coord = findGridCoordinatesOfPoint(point);
         GridLocation loc = new GridLocation(coord[0], coord[1]);
-        int NFZ_PADDING = 2;
-        foreach (var n in GeneralNeighbours(loc, NFZ_PADDING))
+        foreach (var n in GeneralNeighbours(loc, SimulationSettings.NFZ_PADDING))
         {
             if (getGridCell(n.x, n.z) != GridType.IN)
             {

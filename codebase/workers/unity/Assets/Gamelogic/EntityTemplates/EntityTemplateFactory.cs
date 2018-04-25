@@ -92,7 +92,7 @@ public class EntityTemplateFactory : MonoBehaviour
         return controllerTemplate;
     }
 
-    public static Entity CreateDroneTemplate(Improbable.Coordinates spawnPoint, Vector3f initialTarget, float droneSpeed = SimulationSettings.MaxDroneSpeed, bool snapshot = false)
+    public static Entity CreateDroneTemplate(Improbable.Coordinates spawnPoint, Vector3f initialTarget, float droneSpeed = SimulationSettings.MaxDroneSpeed, float delay = SimulationSettings.DroneUpdateInterval, bool snapshot = false)
     {
         var droneTemplate = EntityBuilder.Begin()
             .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
@@ -100,7 +100,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new DroneData.Data(initialTarget, Mathf.Min(SimulationSettings.MaxDroneSpeed, droneSpeed), TargetPending.REQUEST, new Vector3f(0, -1, 0), snapshot), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DroneData.Data(initialTarget, Mathf.Min(SimulationSettings.MaxDroneSpeed, droneSpeed), TargetPending.REQUEST, new Vector3f(0, -1, 0), delay, snapshot), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return droneTemplate;

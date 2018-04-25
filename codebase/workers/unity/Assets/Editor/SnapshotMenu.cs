@@ -86,13 +86,13 @@ namespace Assets.Editor
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
                     new Vector3f(0, 0, 150),
-                    50, true)
+                    50, snapshot:true)
             );
 
             SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
         }
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE V2")]
+        [MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 1 ENCLOSURE V2")]
         private static void GeneratePhase1SnapshotDev3v2()
         {
             var snapshotEntities = new Dictionary<EntityId, Entity>();
@@ -113,13 +113,14 @@ namespace Assets.Editor
 
             currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            Coordinates spawn = new Coordinates(0, 0, -200);
+            Coordinates spawn = new Coordinates(0, 0, -56);
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
                     new Vector3f(0, 0, 150),
-                    50, true)
+                    50,
+                    snapshot:true)
             );
 
             spawn = new Coordinates(300, 0, 300);
@@ -155,10 +156,10 @@ namespace Assets.Editor
                     spawn.ToSpatialVector3f())
             );
 
-            SaveSnapshot(snapshotEntities, "phase1/basic/enclosure2");
+            SaveSnapshot(snapshotEntities, "phase2/basic/enclosure2");
         }
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE V3")]
+        [MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 2 ENCLOSURE V3")]
         private static void GeneratePhase1SnapshotDev3v3()
         {
             var snapshotEntities = new Dictionary<EntityId, Entity>();
@@ -185,7 +186,7 @@ namespace Assets.Editor
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
                     new Vector3f(0, 0, 150),
-                    50, true)
+                    50, snapshot:true)
             );
 
             spawn = new Coordinates(300, 0, 300);
@@ -194,7 +195,7 @@ namespace Assets.Editor
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
                     spawn.ToSpatialVector3f(),
-                    50)
+                    50, delay:5)
             );
 
             spawn = new Coordinates(300, 0, -300);
@@ -202,7 +203,8 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    spawn.ToSpatialVector3f())
+                    spawn.ToSpatialVector3f(),
+                    delay: 10)
             );
 
             spawn = new Coordinates(-300, 0, -300);
@@ -210,7 +212,8 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    spawn.ToSpatialVector3f())
+                    spawn.ToSpatialVector3f(),
+                    delay: 15)
             );
 
             spawn = new Coordinates(-300, 0, 300);
@@ -218,15 +221,8 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    spawn.ToSpatialVector3f())
-            );
-
-            spawn = new Coordinates(-300, 0, 0);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f())
+                    spawn.ToSpatialVector3f(),
+                    delay: 20)
             );
 
             spawn = new Coordinates(0, 0, 300);
@@ -234,15 +230,8 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    spawn.ToSpatialVector3f())
-            );
-
-            spawn = new Coordinates(300, 0, 0);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f())
+                    spawn.ToSpatialVector3f(),
+                    delay: 25)
             );
 
             spawn = new Coordinates(0, 0, -300);
@@ -250,10 +239,11 @@ namespace Assets.Editor
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateDroneTemplate(
                     spawn,
-                    spawn.ToSpatialVector3f())
+                    spawn.ToSpatialVector3f(),
+                    delay: 30)
             );
 
-            SaveSnapshot(snapshotEntities, "phase1/basic/enclosure3");
+            SaveSnapshot(snapshotEntities, "phase2/basic/enclosure3");
         }
 
         private static int DisplayNoFlyZone(NFZTemplate template, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)

@@ -14,7 +14,14 @@ type DroneInfo {
 	int32 next_waypoint = 1;
 	list<improbable.Vector3f> waypoints = 2;
 }
- 
+
+type CollisionRequest {
+  EntityId drone_id = 1;
+  EntityId collider_id = 2;
+}
+
+type CollisionResponse {}
+
 component Controller {
   id = 1200;
 
@@ -30,4 +37,6 @@ component Controller {
   list<TargetRequest> request_queue = 7;
 
   command TargetResponse request_new_target(TargetRequest);
+
+  command CollisionResponse collision(CollisionRequest);
 }

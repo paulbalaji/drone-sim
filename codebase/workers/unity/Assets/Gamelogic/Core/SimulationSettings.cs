@@ -9,9 +9,13 @@ namespace Assets.Gamelogic.Core
 
         // DRONE CONSTANTS START //
 
-        public static readonly float DroneUpdateInterval = 0.25F;
+        public const float DroneUpdateInterval = 0.25F;
 
         public const float MaxDroneSpeed = 20;
+
+        public const int MaxTargetRequestFailures = 5;
+
+        public static float DroneRadius = 0.5f;
 
         // DRONE CONSTANTS END //
 
@@ -19,7 +23,7 @@ namespace Assets.Gamelogic.Core
 
         public static readonly float ControllerUpdateInterval = 0.1f;
 
-        public static readonly int BIT_SIZE = 25; // meters that each bit in the grid corresponds to, OG 25 in AATC 
+        public static readonly int BIT_SIZE = 5; // meters that each bit in the grid corresponds to, OG 25 in AATC 
         public const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
 
         public static readonly float RoutingShortCircuitThreshold = 50;
@@ -28,16 +32,19 @@ namespace Assets.Gamelogic.Core
         public static readonly float SuggestedDroneHeight = 80;
         public static readonly float MaximumDroneHeight = 120;
 
+        public static readonly int NFZ_PADDING_RAW = 50;
+        public static readonly int NFZ_PADDING = NFZ_PADDING_RAW / BIT_SIZE;
+
         // GLOBAL LAYER END //
 
         // REACTIVE LAYER START //
 
         //constants initially genetically discovered for 10 m/s speed
-        public static float RepulsionConst = 446.78f;
-        //public static float RepulsionConst = 223.39f;
+        //public static float RepulsionConst = 446.78f;
+        public static float RepulsionConst = 223.39f;
         //public static float RepulsionConst = 111.7f;
-        public static float AttractionConst = 1.0038f;
-        //public static float AttractionConst = 2.0076f;
+        //public static float AttractionConst = 1.0038f;
+        public static float AttractionConst = 2.0076f;
         public static float InfuentialDistanceConstant = 532;
         public static float ReturnConstant = 0.689f;
 

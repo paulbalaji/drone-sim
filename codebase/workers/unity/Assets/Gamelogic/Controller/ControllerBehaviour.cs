@@ -32,24 +32,34 @@ public class ControllerBehaviour : MonoBehaviour
         droneMap = ControllerWriter.Data.droneMap;
         queue = new Queue<TargetRequest>(ControllerWriter.Data.requestQueue);
 
-        //ControllerWriter.DroneMapUpdated.Add(HandleAction);
-
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(EnqueueTargetRequest);
+        ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
 
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
+
+        InvokeRepeating("ControllerTick", SimulationSettings.ControllerUpdateInterval, SimulationSettings.ControllerUpdateInterval);
     }
 
     private void OnDisable()
     {
-        //ControllerWriter.DroneMapUpdated.Remove(HandleAction);
-
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
+        ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
     }
 
-    void HandleAction(Improbable.Collections.Map<EntityId, DroneInfo> spatialDroneMap)
+    void HandleCollision(Improbable.Entity.Component.ResponseHandle<Controller.Commands.Collision, CollisionRequest, CollisionResponse> handle)
     {
-        droneMap = spatialDroneMap;
+        handle.Respond(new CollisionResponse());
+
+        DestroyDrone(handle.Request.droneId);
+        DestroyDrone(handle.Request.colliderId);
+        UpdateDroneMap();
+    }
+
+    void DestroyDrone(EntityId entityId)
+    {
+        droneMap.Remove(entityId);
+        droneTranstructor.DestroyDrone(entityId);
     }
 
     void UpdateDroneMap()
@@ -154,11 +164,6 @@ public class ControllerBehaviour : MonoBehaviour
         //TODO: OnSuccess / OnFailure
     }
 
-	private void Start()
-	{
-        InvokeRepeating("ControllerTick", SimulationSettings.ControllerUpdateInterval, SimulationSettings.ControllerUpdateInterval);
-	}
-
     void ControllerTick()
     {
         if (!ControllerWriter.Data.initialised)
@@ -216,14 +221,6 @@ public class ControllerBehaviour : MonoBehaviour
             Vector3f target = new Vector3f(UnityEngine.Random.Range(-squareSize, squareSize), 0, UnityEngine.Random.Range(-squareSize, squareSize));
 
             SpawnDrone(spawn, target);
-        }
-    }
-
-    void DestroyDrone(EntityId entityId)
-    {
-        uint currentCount = ControllerWriter.Data.droneCount;
-        if (currentCount > 0) {
-            droneTranstructor.DestroyDrone(entityId);
         }
     }
 }

@@ -32,6 +32,8 @@ component DroneData {
   // drone's last target, used to push self away from previous checkpoint
   improbable.Vector3f previous_target = 6; 
 
+  float starting_delay = 7; //time to pause upon creation before starting
+
   bool snapshot = 5; //true if created from a snapshot
 
   command NewTargetResponse receive_new_target(NewTargetRequest);
