@@ -246,7 +246,7 @@ namespace Assets.Editor
             SaveSnapshot(snapshotEntities, "phase2/basic/enclosure3");
         }
 
-        private static int DisplayNoFlyZone(NFZTemplate template, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
+        public static int DisplayNoFlyZone(NFZTemplate template, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
         {
             float[] points = NFZ_Templates.getPoints(template);
             for (int i = 0; i < points.Length; i += 2)
@@ -260,7 +260,7 @@ namespace Assets.Editor
             return currentEntityId;
         }
 
-        private static int DisplayNoFlyZones(NFZTemplate[] templates, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
+        public static int DisplayNoFlyZones(NFZTemplate[] templates, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
         {
             foreach(NFZTemplate template in templates)
             {
@@ -336,7 +336,7 @@ namespace Assets.Editor
             SaveSnapshot(snapshotEntities, "phase0");
         }
 
-        private static void SaveSnapshot(IDictionary<EntityId, Entity> snapshotEntities, string snapshotName)
+        public static void SaveSnapshot(IDictionary<EntityId, Entity> snapshotEntities, string snapshotName)
         {
             string snapshotPath = Application.dataPath + "/../../../snapshots/" + snapshotName + ".snapshot";
 
@@ -357,7 +357,7 @@ namespace Assets.Editor
             Debug.LogFormat("Successfully generated initial world snapshot at {0}", snapshotPath);
         }
 
-		private static void SaveSnapshot(IDictionary<EntityId, Entity> snapshotEntities)
+		public static void SaveSnapshot(IDictionary<EntityId, Entity> snapshotEntities)
 		{
             SaveSnapshot(snapshotEntities, "default");
 		}

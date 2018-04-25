@@ -175,52 +175,12 @@ public class ControllerBehaviour : MonoBehaviour
             return;
         }
 
-        //if (!stopSpawning)
-        //{
-        //    SpawnDrone(new Coordinates(400, 0, 400), new Vector3f(400, 0, 400), 50, 1);
-        //    SpawnDrone(new Coordinates(400, 0, -400), new Vector3f(400, 0, -400), 50, 1);
-        //    SpawnDrone(new Coordinates(-400, 0, -400), new Vector3f(-400, 0, -400), 50, 1);
-        //    SpawnDrone(new Coordinates(-400, 0, 400), new Vector3f(-400, 0, 400), 50, 1);
-        //    stopSpawning = true;
-        //}
-
         //don't need to do anything if no requests in the queue
         if (queue.Count > 0)
         {
             //Debug.LogWarning("handling target request");
             HandleTargetRequest(queue.Dequeue());
             UpdateRequestQueue();
-        }
-    }
-
-    void SpawnDrone(Coordinates spawn, Vector3f target, float speed = -1, float radius = -1)
-    {
-        if (speed < 0)
-        {
-            speed = UnityEngine.Random.Range(2, 10);
-        }
-
-        if (radius < 0)
-        {
-            radius = UnityEngine.Random.Range(0.5f, 2);
-        }
-
-        droneTranstructor.CreateDrone(spawn, target, speed, radius);
-    }
-
-    void SpawnCompletelyRandomDrone()
-    {
-        // TODO: check count < maxCount at the .OnSuccess stage as well
-        // should be fine for now, but if you want to be more strict about limits
-        uint currentCount = ControllerWriter.Data.droneCount;
-        if (currentCount < ControllerWriter.Data.maxDroneCount)
-        {
-            var squareSize = SimulationSettings.squareSize;
-
-            Coordinates spawn = new Coordinates(UnityEngine.Random.Range(-squareSize, squareSize), 0, UnityEngine.Random.Range(-squareSize, squareSize));
-            Vector3f target = new Vector3f(UnityEngine.Random.Range(-squareSize, squareSize), 0, UnityEngine.Random.Range(-squareSize, squareSize));
-
-            SpawnDrone(spawn, target);
         }
     }
 }

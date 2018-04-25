@@ -14,7 +14,7 @@ public class DroneTranstructor : MonoBehaviour
     [Require]
     private Position.Writer PositionWriter;
 
-    public void CreateDrone(Coordinates position, Vector3f target, float speed, float radius)
+    public void CreateDrone(Coordinates position, Vector3f target, float speed)
     {
         var droneTemplate = EntityTemplateFactory.CreateDroneTemplate(position, target, speed);
 
