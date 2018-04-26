@@ -91,7 +91,7 @@ public class ControllerBehaviour : MonoBehaviour
 
             //Debug.LogWarning("is final waypoint?");
             //not final waypoint, get next waypoint
-            if (droneInfo.waypoints.Count > droneInfo.nextWaypoint) 
+            if (droneInfo.waypoints.Count > droneInfo.nextWaypoint)
             {
                 //Debug.LogWarning("send next waypoint back!");
                 //SEND BACK 
