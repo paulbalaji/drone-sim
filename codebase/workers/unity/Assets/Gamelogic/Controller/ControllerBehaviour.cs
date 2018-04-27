@@ -34,6 +34,7 @@ public class ControllerBehaviour : MonoBehaviour
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(EnqueueTargetRequest);
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
+        ControllerWriter.CommandReceiver.OnRegeneratePath.RegisterAsyncResponse(HandleRegenPathRequest);
 
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
@@ -45,6 +46,7 @@ public class ControllerBehaviour : MonoBehaviour
     {
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
+        ControllerWriter.CommandReceiver.OnRegeneratePath.DeregisterResponse();
     }
 
     void HandleCollision(Improbable.Entity.Component.ResponseHandle<Controller.Commands.Collision, CollisionRequest, CollisionResponse> handle)
@@ -79,6 +81,45 @@ public class ControllerBehaviour : MonoBehaviour
         queue.Enqueue(handle.Request);
         UpdateRequestQueue();
     }
+
+    void HandleRegenPathRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RegeneratePath, RegenPathRequest, RegenPathResponse> handle)
+    {
+        handle.Respond(new RegenPathResponse());
+
+        DroneInfo droneInfo;
+
+        if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+        {
+            droneMap.Remove(handle.Request.droneId);
+
+            Vector3f newTarget = droneInfo.waypoints[droneInfo.waypoints.Count - 1];
+            droneInfo.waypoints = globalLayer.generatePointToPointPlan(handle.Request.location, newTarget);
+
+            if (droneInfo.waypoints == null)
+            {
+                SpatialOS.Commands.SendCommand(
+                    ControllerWriter,
+                    DroneData.Commands.ReceiveNewTarget.Descriptor,
+                    new NewTargetRequest(new Vector3f(0, -1, 0)),
+                    handle.Request.droneId)
+                         .OnFailure((response) => Debug.LogError("Unable to tell drone it failed"));
+                return;
+            }
+
+            droneMap.Add(handle.Request.droneId, droneInfo);
+            UpdateDroneMap();
+
+            SpatialOS.Commands.SendCommand(
+                ControllerWriter,
+                DroneData.Commands.ReceiveNewTarget.Descriptor,
+                new NewTargetRequest(droneInfo.waypoints[0]),
+                handle.Request.droneId)
+                     .OnFailure((response) => Debug.LogError("Unable to tell drone that pathfinding failed"));
+
+            droneInfo.nextWaypoint = 1;
+        }
+    }
+
 
     void HandleTargetRequest(TargetRequest request)
     {

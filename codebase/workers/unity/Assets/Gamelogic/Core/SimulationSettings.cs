@@ -17,6 +17,8 @@ namespace Assets.Gamelogic.Core
 
         public static float DroneRadius = 0.5f;
 
+        public static float MaxRequestWaitTime = 10f;
+
         // DRONE CONSTANTS END //
 
         // GLOBAL LAYER START //

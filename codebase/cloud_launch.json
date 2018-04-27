@@ -14,23 +14,10 @@
     {
       "worker_type": "UnityWorker",
       "load_balancing": {
-        "dynamic_loadbalancer": {
-          "worker_scaler_config": {
-            "entity_count_config": {
-              "entities_per_worker": 50
-            }
-          },
-          "worker_placer_config": {
-            "auto_hex_grid_params": {
-              "num_workers": 10
-            }
-          },
-          "loadbalancer_config": {
-            "min_range_meters": 100.0,
-            "max_range_meters": 2000.0,
-            "speed_meters_per_second": 200.0,
-            "expansion_time_millis": 60000
-          }
+        "static_hex_grid": {
+          "worker_radius_meters": 300.0,
+          "grid_width": 4,
+          "grid_height": 4
         }
       },
       "permissions": [{

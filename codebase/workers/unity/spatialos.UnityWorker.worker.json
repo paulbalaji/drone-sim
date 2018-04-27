@@ -11,37 +11,22 @@
     },
     "entity_interest": {
       "range_entity_interest": {
-        "radius": 50
+        "radius": 25
       }
     },
     "streaming_query": [],
     "component_delivery": {
       "default": "RELIABLE_ORDERED",
-      "checkout_all_initially": false,
+      "checkout_all_initially": true,
       "override": {
         "improbable.Position": {
-            "checkout_initially": true,
             "message_delivery": "UNRELIABLE_ORDERED"
         },
-        "improbable.controller.Bitmap": {
-          "checkout_initially": true,
+        "improbable.controller.BitmapComponent": {
           "message_delivery": "UNRELIABLE_ORDERED"
-        },
-        "improbable.controller.Controller": {
-          "checkout_initially": true,
-          "message_delivery": "RELIABLE_ORDERED"
         },
         "improbable.controller.GlobalLayer": {
-          "checkout_initially": true,
           "message_delivery": "UNRELIABLE_ORDERED"
-        },
-        "improbable.drone.Bitmap": {
-          "checkout_initially": true,
-          "message_delivery": "RELIABLE_ORDERED"
-        },
-        "improbable.drone.ReactiveLayer": {
-          "checkout_initially": true,
-          "message_delivery": "RELIABLE_ORDERED"
         }
       }
     }

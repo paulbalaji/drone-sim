@@ -22,7 +22,9 @@ public class DroneBehaviour : MonoBehaviour
     private float speed;
     private float radius;
 
-    private float nextActionTime = 0f;
+    private float nextRequestTime = 0f;
+
+    private float latestArrivalTime = 0f;
 
     private APF apf;
 
@@ -67,23 +69,54 @@ public class DroneBehaviour : MonoBehaviour
 
     void DroneTick()
 	{
-        if (simulate && DroneDataWriter.Data.targetPending != TargetPending.WAITING)
+        if (DroneDataWriter.Data.targetPending != TargetPending.WAITING)
         {
-            float distanceToTarget = Vector3.Distance(target, transform.position);
-            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || distanceToTarget < radius)
+            if (simulate)
             {
-                requestNewTarget();
+                if (Time.time > latestArrivalTime)
+                {
+                    requestNewFlightPlan();
+                }
+
+                float distanceToTarget = Vector3.Distance(target, transform.position);
+                if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || distanceToTarget < radius)
+                {
+                    requestNewTarget();
+                }
+                else
+                {
+                    apf.Recalculate();
+                }
             }
-            else
-            {
-                apf.Recalculate();
-            }
+        }
+        else
+        {
+            requestNewTarget();
         }
 	}
 
+    private void requestNewFlightPlan()
+    {
+        SpatialOS.Commands.SendCommand(
+            PositionWriter,
+            Controller.Commands.RegeneratePath.Descriptor,
+            new RegenPathRequest(
+                gameObject.EntityId(),
+                transform.position.ToSpatialVector3f()),
+            new EntityId(1))
+                 .OnFailure((response) => Debug.LogError("Unable to request new path for Drone ID: " + gameObject.EntityId()));
+    }
+
     private void requestNewTarget()
     {
+        if (Time.time < nextRequestTime)
+        {
+            return;
+        }
+
         //Debug.LogWarning("requesting new target");
+
+        nextRequestTime = Time.time + SimulationSettings.MaxRequestWaitTime;
 
         Improbable.Collections.Option<Vector3f> requestTarget = new Improbable.Collections.Option<Vector3f>();
 
@@ -133,6 +166,7 @@ public class DroneBehaviour : MonoBehaviour
         }
 
         //Debug.LogWarning("DRONE New Target Received");
+        latestArrivalTime = Time.time + (2 * Vector3.Distance(transform.position, handle.Request.target.ToUnityVector()) / speed);
 
         DroneDataWriter.Send(new DroneData.Update()
                              .SetPreviousTarget(DroneDataWriter.Data.target)
