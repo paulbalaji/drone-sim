@@ -103,7 +103,7 @@ public class DroneBehaviour : MonoBehaviour
             new RegenPathRequest(
                 gameObject.EntityId(),
                 transform.position.ToSpatialVector3f()),
-            new EntityId(1))
+            DroneDataWriter.Data.designatedController)
                  .OnFailure((response) => Debug.LogError("Unable to request new path for Drone ID: " + gameObject.EntityId()));
 
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
@@ -135,7 +135,7 @@ public class DroneBehaviour : MonoBehaviour
                 gameObject.EntityId(),
                 transform.position.ToSpatialVector3f(),
                 requestTarget),
-            new EntityId(1))
+            DroneDataWriter.Data.designatedController)
                  .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
     }
 

@@ -36,5 +36,7 @@ component DroneData {
 
   bool snapshot = 5; //true if created from a snapshot
 
+  EntityId designated_controller = 8;
+
   command NewTargetResponse receive_new_target(NewTargetRequest);
 }

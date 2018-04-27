@@ -11,240 +11,240 @@ namespace Assets.Editor
 {
 	public class SnapshotMenu : MonoBehaviour
 	{
-        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 1 BASIC")]
-        private static void GeneratePhase1SnapshotDev()
-        {
-            var snapshotEntities = new Dictionary<EntityId, Entity>();
-            var currentEntityId = 1;
+        //[MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 1 BASIC")]
+        //private static void GeneratePhase1SnapshotDev()
+        //{
+        //    var snapshotEntities = new Dictionary<EntityId, Entity>();
+        //    var currentEntityId = 1;
 
-            NFZTemplate[] nfzTemplates = {
-                NFZTemplate.BASIC_SQUARE
-            };
+        //    NFZTemplate[] nfzTemplates = {
+        //        NFZTemplate.BASIC_SQUARE
+        //    };
 
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateControllerTemplate(
-                    new Coordinates(0, 0, 0),
-                    new Vector3f(-1000, 0, 1000),
-                    new Vector3f(1000, 0, -1000),
-                    nfzTemplates
-            ));
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateControllerTemplate(
+        //            new Coordinates(0, 0, 0),
+        //            new Vector3f(-1000, 0, 1000),
+        //            new Vector3f(1000, 0, -1000),
+        //            nfzTemplates
+        //    ));
 
-            currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
+        //    currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            SaveSnapshot(snapshotEntities, "phase1/basic/square");
-        }
+        //    SaveSnapshot(snapshotEntities, "phase1/basic/square");
+        //}
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 2 RECTANGLE")]
-        private static void GeneratePhase1SnapshotDev2()
-        {
-            var snapshotEntities = new Dictionary<EntityId, Entity>();
-            var currentEntityId = 1;
+        //[MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 2 RECTANGLE")]
+        //private static void GeneratePhase1SnapshotDev2()
+        //{
+        //    var snapshotEntities = new Dictionary<EntityId, Entity>();
+        //    var currentEntityId = 1;
 
-            NFZTemplate[] nfzTemplates = {
-                NFZTemplate.BASIC_RECTANGLE
-            };
+        //    NFZTemplate[] nfzTemplates = {
+        //        NFZTemplate.BASIC_RECTANGLE
+        //    };
 
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateControllerTemplate(
-                    new Coordinates(0, 0, 0),
-                    new Vector3f(-1000, 0, 1000),
-                    new Vector3f(1000, 0, -1000),
-                    nfzTemplates
-            ));
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateControllerTemplate(
+        //            new Coordinates(0, 0, 0),
+        //            new Vector3f(-1000, 0, 1000),
+        //            new Vector3f(1000, 0, -1000),
+        //            nfzTemplates
+        //    ));
 
-            currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
+        //    currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            SaveSnapshot(snapshotEntities, "phase1/basic/rectangle");
-        }
+        //    SaveSnapshot(snapshotEntities, "phase1/basic/rectangle");
+        //}
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE V1")]
-        private static void GeneratePhase1SnapshotDev3()
-        {
-            var snapshotEntities = new Dictionary<EntityId, Entity>();
-            var currentEntityId = 1;
+        //[MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 3 ENCLOSURE V1")]
+        //private static void GeneratePhase1SnapshotDev3()
+        //{
+        //    var snapshotEntities = new Dictionary<EntityId, Entity>();
+        //    var currentEntityId = 1;
 
-            NFZTemplate[] nfzTemplates = {
-                NFZTemplate.BASIC_ENCLOSURE
-            };
+        //    NFZTemplate[] nfzTemplates = {
+        //        NFZTemplate.BASIC_ENCLOSURE
+        //    };
 
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateControllerTemplate(
-                    new Coordinates(0, 0, 0),
-                    new Vector3f(-1000, 0, 1000),
-                    new Vector3f(1000, 0, -1000),
-                    nfzTemplates
-            ));
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateControllerTemplate(
+        //            new Coordinates(0, 0, 0),
+        //            new Vector3f(-1000, 0, 1000),
+        //            new Vector3f(1000, 0, -1000),
+        //            nfzTemplates
+        //    ));
 
-            currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
+        //    currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            Coordinates spawn = new Coordinates(0, 0, -125);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    new Vector3f(0, 0, 150),
-                    50, snapshot:true)
-            );
+        //    Coordinates spawn = new Coordinates(0, 0, -125);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            new Vector3f(0, 0, 150),new EntityId(1),
+        //            50, snapshot:true)
+        //    );
 
-            SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
-        }
+        //    SaveSnapshot(snapshotEntities, "phase1/basic/enclosure");
+        //}
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 1 ENCLOSURE V2")]
-        private static void GeneratePhase1SnapshotDev3v2()
-        {
-            var snapshotEntities = new Dictionary<EntityId, Entity>();
-            var currentEntityId = 1;
+        //[MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 1 ENCLOSURE V2")]
+        //private static void GeneratePhase1SnapshotDev3v2()
+        //{
+        //    var snapshotEntities = new Dictionary<EntityId, Entity>();
+        //    var currentEntityId = 1;
 
-            NFZTemplate[] nfzTemplates = {
-                NFZTemplate.BASIC_ENCLOSURE
-            };
+        //    NFZTemplate[] nfzTemplates = {
+        //        NFZTemplate.BASIC_ENCLOSURE
+        //    };
 
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateControllerTemplate(
-                    new Coordinates(0, 0, 0),
-                    new Vector3f(-1000, 0, 1000),
-                    new Vector3f(1000, 0, -1000),
-                    nfzTemplates
-            ));
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateControllerTemplate(
+        //            new Coordinates(0, 0, 0),
+        //            new Vector3f(-1000, 0, 1000),
+        //            new Vector3f(1000, 0, -1000),
+        //            nfzTemplates
+        //    ));
 
-            currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
+        //    currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            Coordinates spawn = new Coordinates(0, 0, -56);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    new Vector3f(0, 0, 150),
-                    50,
-                    snapshot:true)
-            );
+        //    Coordinates spawn = new Coordinates(0, 0, -56);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            new Vector3f(0, 0, 150),new EntityId(1),
+        //            50,
+        //            snapshot:true)
+        //    );
 
-            spawn = new Coordinates(300, 0, 300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f(),
-                    50)
-            );
+        //    spawn = new Coordinates(300, 0, 300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(),new EntityId(1),
+        //            50)
+        //    );
 
-            spawn = new Coordinates(300, 0, -300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f())
-            );
+        //    spawn = new Coordinates(300, 0, -300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(), new EntityId(1))
+        //    );
 
-            spawn = new Coordinates(-300, 0, -300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f())
-            );
+        //    spawn = new Coordinates(-300, 0, -300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(), new EntityId(1))
+        //    );
 
-            spawn = new Coordinates(-300, 0, 300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f())
-            );
+        //    spawn = new Coordinates(-300, 0, 300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(), new EntityId(1))
+        //    );
 
-            SaveSnapshot(snapshotEntities, "phase2/basic/enclosure2");
-        }
+        //    SaveSnapshot(snapshotEntities, "phase2/basic/enclosure2");
+        //}
 
-        [MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 2 ENCLOSURE V3")]
-        private static void GeneratePhase1SnapshotDev3v3()
-        {
-            var snapshotEntities = new Dictionary<EntityId, Entity>();
-            var currentEntityId = 1;
+        //[MenuItem("Improbable/Snapshots/Generate Phase 2 Snapshot - 2 ENCLOSURE V3")]
+        //private static void GeneratePhase1SnapshotDev3v3()
+        //{
+        //    var snapshotEntities = new Dictionary<EntityId, Entity>();
+        //    var currentEntityId = 1;
 
-            NFZTemplate[] nfzTemplates = {
-                NFZTemplate.BASIC_ENCLOSURE
-            };
+        //    NFZTemplate[] nfzTemplates = {
+        //        NFZTemplate.BASIC_ENCLOSURE
+        //    };
 
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateControllerTemplate(
-                    new Coordinates(0, 0, 0),
-                    new Vector3f(-1000, 0, 1000),
-                    new Vector3f(1000, 0, -1000),
-                    nfzTemplates
-            ));
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateControllerTemplate(
+        //            new Coordinates(0, 0, 0),
+        //            new Vector3f(-1000, 0, 1000),
+        //            new Vector3f(1000, 0, -1000),
+        //            nfzTemplates
+        //    ));
 
-            currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
+        //    currentEntityId = DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
-            Coordinates spawn = new Coordinates(0, 0, -125);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    new Vector3f(0, 0, 150),
-                    50, snapshot:true)
-            );
+        //    Coordinates spawn = new Coordinates(0, 0, -125);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            new Vector3f(0, 0, 150), new EntityId(1), 
+        //            50, snapshot:true)
+        //    );
 
-            spawn = new Coordinates(300, 0, 300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f(),
-                    50, delay:5)
-            );
+        //    spawn = new Coordinates(300, 0, 300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(),new EntityId(1),
+        //            50, delay:5)
+        //    );
 
-            spawn = new Coordinates(300, 0, -300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f(),
-                    delay: 10)
-            );
+        //    spawn = new Coordinates(300, 0, -300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(), new EntityId(1),
+        //            delay: 10)
+        //    );
 
-            spawn = new Coordinates(-300, 0, -300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f(),
-                    delay: 15)
-            );
+        //    spawn = new Coordinates(-300, 0, -300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(), new EntityId(1),
+        //            delay: 15)
+        //    );
 
-            spawn = new Coordinates(-300, 0, 300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f(),
-                    delay: 20)
-            );
+        //    spawn = new Coordinates(-300, 0, 300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(), new EntityId(1),
+        //            delay: 20)
+        //    );
 
-            spawn = new Coordinates(0, 0, 300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f(),
-                    delay: 25)
-            );
+        //    spawn = new Coordinates(0, 0, 300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(), new EntityId(1),
+        //            delay: 25)
+        //    );
 
-            spawn = new Coordinates(0, 0, -300);
-            snapshotEntities.Add(
-                new EntityId(currentEntityId++),
-                EntityTemplateFactory.CreateDroneTemplate(
-                    spawn,
-                    spawn.ToSpatialVector3f(),
-                    delay: 30)
-            );
+        //    spawn = new Coordinates(0, 0, -300);
+        //    snapshotEntities.Add(
+        //        new EntityId(currentEntityId++),
+        //        EntityTemplateFactory.CreateDroneTemplate(
+        //            spawn,
+        //            spawn.ToSpatialVector3f(), new EntityId(1),
+        //            delay: 30)
+        //    );
 
-            SaveSnapshot(snapshotEntities, "phase2/basic/enclosure3");
-        }
+        //    SaveSnapshot(snapshotEntities, "phase2/basic/enclosure3");
+        //}
 
         public static int DisplayNoFlyZone(NFZTemplate template, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
         {
@@ -329,7 +329,7 @@ namespace Assets.Editor
                 Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
                 float speed = Random.Range(2, 10);
                 float radius = Random.Range(0.5f, 2);
-                snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, speed));
+                snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, new EntityId(1)));
             }
 
             //SaveSnapshot(snapshotEntities, "phase0_d" + numDrones + "s" + squareSize);

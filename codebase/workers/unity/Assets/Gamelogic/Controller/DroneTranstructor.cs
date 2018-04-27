@@ -16,7 +16,7 @@ public class DroneTranstructor : MonoBehaviour
 
     public void CreateDrone(Coordinates position, Vector3f target, float speed)
     {
-        var droneTemplate = EntityTemplateFactory.CreateDroneTemplate(position, target, speed);
+        var droneTemplate = EntityTemplateFactory.CreateDroneTemplate(position, target, gameObject.EntityId(), speed);
 
         SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
                  .OnSuccess(CreateDroneSuccess);
