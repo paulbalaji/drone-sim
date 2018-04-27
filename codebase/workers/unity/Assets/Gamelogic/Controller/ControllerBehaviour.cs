@@ -94,6 +94,7 @@ public class ControllerBehaviour : MonoBehaviour
 
             if (globalLayer.isPointInNoFlyZone(handle.Request.location))
             {
+                Debug.LogError("DRONE STUCK IN NO FLY ZONE: " + handle.Request.droneId);
                 droneTranstructor.DestroyDrone(handle.Request.droneId);
             }
 

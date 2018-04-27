@@ -69,9 +69,9 @@ public class DroneBehaviour : MonoBehaviour
 
     void DroneTick()
 	{
-        if (DroneDataWriter.Data.targetPending != TargetPending.WAITING)
+        if (simulate)
         {
-            if (simulate)
+            if (DroneDataWriter.Data.targetPending != TargetPending.WAITING)
             {
                 if (Time.time > latestArrivalTime)
                 {
@@ -88,10 +88,10 @@ public class DroneBehaviour : MonoBehaviour
                     apf.Recalculate();
                 }
             }
-        }
-        else
-        {
-            requestNewTarget();
+            else
+            {
+                requestNewTarget();
+            }
         }
 	}
 
@@ -105,6 +105,8 @@ public class DroneBehaviour : MonoBehaviour
                 transform.position.ToSpatialVector3f()),
             new EntityId(1))
                  .OnFailure((response) => Debug.LogError("Unable to request new path for Drone ID: " + gameObject.EntityId()));
+
+        DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
     }
 
     private void requestNewTarget()
