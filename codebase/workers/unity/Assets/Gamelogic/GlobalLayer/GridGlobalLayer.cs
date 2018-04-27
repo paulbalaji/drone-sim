@@ -98,7 +98,7 @@ public class GridGlobalLayer : MonoBehaviour
         return result;
     }
 
-    private bool isPointInNoFlyZone(Improbable.Vector3f point)
+    public bool isPointInNoFlyZone(Improbable.Vector3f point)
     {
         foreach (Improbable.Controller.NoFlyZone zone in zones)
         {

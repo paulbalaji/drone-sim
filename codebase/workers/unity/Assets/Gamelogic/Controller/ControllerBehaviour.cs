@@ -92,6 +92,11 @@ public class ControllerBehaviour : MonoBehaviour
         {
             droneMap.Remove(handle.Request.droneId);
 
+            if (globalLayer.isPointInNoFlyZone(handle.Request.location))
+            {
+                droneTranstructor.DestroyDrone(handle.Request.droneId);
+            }
+
             Vector3f newTarget = droneInfo.waypoints[droneInfo.waypoints.Count - 1];
             droneInfo.waypoints = globalLayer.generatePointToPointPlan(handle.Request.location, newTarget);
 
