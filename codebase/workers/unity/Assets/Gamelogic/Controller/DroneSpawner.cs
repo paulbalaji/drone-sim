@@ -23,7 +23,7 @@ public class DroneSpawner : MonoBehaviour
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         bitmap = gameObject.GetComponent<Bitmap>();
 
-        InvokeRepeating("DroneSpawnerTick", SimulationSettings.DroneSpawnInterval, SimulationSettings.DroneSpawnInterval);
+        InvokeRepeating("DroneSpawnerTick", gameObject.EntityId().Id * SimulationSettings.DroneSpawnerSpacing, SimulationSettings.DroneSpawnInterval);
     }
 
     void DroneSpawnerTick()

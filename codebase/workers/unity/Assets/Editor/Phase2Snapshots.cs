@@ -83,7 +83,7 @@ namespace Assets.Editor
                     snapshotEntities.Add(
                         new EntityId(currentEntityId++),
                         EntityTemplateFactory.CreateControllerTemplate(
-                            new Coordinates(0, 0, 0),
+                            new Coordinates(xCoord, 0, zCoord),
                             new Vector3f(-maxX, 0, maxZ),
                             new Vector3f(maxX, 0, -maxZ),
                             nfzTemplates
