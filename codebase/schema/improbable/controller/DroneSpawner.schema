@@ -1,0 +1,11 @@
+package improbable.controller;
+
+type DroneSpawnRequest {}
+
+type DroneSpawnResponse {}
+
+component DroneSpawnerComponent {
+  id = 1201;
+
+  command DroneSpawnResponse request_new_target(DroneSpawnRequest);
+}

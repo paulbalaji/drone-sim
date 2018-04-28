@@ -96,6 +96,13 @@ namespace Assets.Editor
 
             currentEntityId = SnapshotMenu.DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
 
+            snapshotEntities.Add(
+                new EntityId(currentEntityId++),
+                EntityTemplateFactory.CreateSchedulerTemplate(
+                    new Vector3(0, 0, 0)
+                )
+            );
+
             SnapshotMenu.SaveSnapshot(snapshotEntities, "phase2/advanced/multicontroller");
         }
     }

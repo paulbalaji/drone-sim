@@ -87,6 +87,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DroneSpawnerComponent.Data(), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return controllerTemplate;
@@ -104,5 +105,18 @@ public class EntityTemplateFactory : MonoBehaviour
             .Build();
 
         return droneTemplate;
+    }
+
+    public static Entity CreateSchedulerTemplate(Vector3 spawnPoint)
+    {
+        var schedulerTemplate = EntityBuilder.Begin()
+            .AddPositionComponent(spawnPoint, CommonRequirementSets.PhysicsOnly)
+            .AddMetadataComponent(entityType: SimulationSettings.SchedulerPrefabName)
+            .SetPersistence(true)
+            .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
+            .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
+            .Build();
+
+        return schedulerTemplate;
     }
 }

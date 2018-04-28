@@ -15,6 +15,9 @@ public class DroneSpawner : MonoBehaviour
     [Require]
     private Controller.Writer ControllerWriter;
 
+    [Require]
+    private DroneSpawnerComponent.Writer DroneSpawnerWriter;
+
     DroneTranstructor droneTranstructor;
     Bitmap bitmap;
 
@@ -23,11 +26,13 @@ public class DroneSpawner : MonoBehaviour
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         bitmap = gameObject.GetComponent<Bitmap>();
 
-        InvokeRepeating("DroneSpawnerTick", gameObject.EntityId().Id * SimulationSettings.DroneSpawnerSpacing, SimulationSettings.DroneSpawnInterval);
+        DroneSpawnerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(HandleSpawnRequest);
     }
 
-    void DroneSpawnerTick()
+    void HandleSpawnRequest(Improbable.Entity.Component.ResponseHandle<DroneSpawnerComponent.Commands.RequestNewTarget, DroneSpawnRequest, DroneSpawnResponse> handle)
     {
+        handle.Respond(new DroneSpawnResponse());
+
         if (ControllerWriter.Data.initialised)
         {
             SpawnCompletelyRandomDrone();
