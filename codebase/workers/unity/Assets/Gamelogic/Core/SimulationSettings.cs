@@ -4,8 +4,8 @@ namespace Assets.Gamelogic.Core
 {
     public static class SimulationSettings
     {
-        public static readonly float numDrones = 100;
-        public static readonly float squareSize = 1900;
+        public static readonly float numDrones = 10;
+        public static readonly float squareSize = 400;
 
         // DRONE CONSTANTS START //
 
