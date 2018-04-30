@@ -53,28 +53,33 @@ public class APF : MonoBehaviour
         nearestDroneDistance = radiusOfInfluence;
 	}
 
-    private Vector3 calculateGradient()
+    private Vector3 CalculateDirection()
     {
         Vector3f dp = transform.position.ToSpatialVector3f();
         Vector3f goal = DroneDataWriter.Data.target;
 
-        float potentialAtDrone = calculateTotalPotential(dp, goal, true);
+        APFObstacle nearest = GetNearestObstacle(dp.ToUnityVector(), true);
+        if (nearest.type == APFObstacleType.NONE)
+        {
+            Vector3 direction = goal.ToUnityVector() - dp.ToUnityVector();
+            return direction.normalized;
+        }
+
+        float potentialAtDrone = calculateTotalPotential(dp, goal, );
         Vector3f xDpos = new Vector3f(dp.x + 1, dp.y, dp.z);
         Vector3f yDpos = new Vector3f(dp.x, dp.y + 1, dp.z);
         Vector3f zDpos = new Vector3f(dp.x, dp.y, dp.z + 1);
 
-        float xD = calculateTotalPotential(xDpos, goal) - potentialAtDrone;
-        float yD = calculateTotalPotential(yDpos, goal) - potentialAtDrone;
-        float zD = calculateTotalPotential(zDpos, goal) - potentialAtDrone;
+        float xD = calculateTotalPotential(xDpos, goal, GetNearestObstacle(xDpos.ToUnityVector(), false)) - potentialAtDrone;
+        float yD = calculateTotalPotential(yDpos, goal, GetNearestObstacle(yDpos.ToUnityVector(), false)) - potentialAtDrone;
+        float zD = calculateTotalPotential(zDpos, goal, GetNearestObstacle(zDpos.ToUnityVector(), false)) - potentialAtDrone;
         // TODO: Add modifying factor here in order to disencourage changes in altitude
 
-        return new Vector3(xD, yD, zD);
+        return -1 * new Vector3(xD, yD, zD).normalized;
     }
 
-    private float calculateTotalPotential(Vector3f dronePosition, Vector3f goal, bool collisionDetection = false)
+    private float calculateTotalPotential(Vector3f dronePosition, Vector3f goal, APFObstacle nearestObstacle, bool collisionDetection = false)
     {
-        APFObstacle nearestObstacle = GetNearestObstacle(dronePosition.ToUnityVector(), collisionDetection);
-
         //Calculate uAttract = pAttract * dGoal
         float distanceToGoal = Vector3.Distance(goal.ToUnityVector(), dronePosition.ToUnityVector());
         float uAttract = AttractionConst * distanceToGoal;
@@ -149,6 +154,12 @@ public class APF : MonoBehaviour
             return nearestDrone;
         }
 
+        float distanceToStaticObstacle = Vector3.Distance(dronePosition, nearestStaticObstacle.position.ToUnityVector());
+        if (distanceToStaticObstacle > SimulationSettings.InfuentialDistanceConstant)
+        {
+            return nearestDrone;
+        }
+
         // if obstacle is NFZ, update obstacle height to match drone
         if (nearestStaticObstacle.type == APFObstacleType.NO_FLY_ZONE)
         {
@@ -164,7 +175,7 @@ public class APF : MonoBehaviour
         {
             // both obstacle and drone exist, so send info of whichever is closest to self
             // if static obstacle's distance > dynamic obstacle's distance, return dynamic obstacle's distance
-            if (Vector3.Distance(dronePosition, nearestStaticObstacle.position.ToUnityVector()) > nearestDroneDistance)
+            if (distanceToStaticObstacle > nearestDroneDistance)
             {
                 // if distance to obstacle > distance to nearest drone, send drone info
                 //Debug.LogError("using drone as nearest obstacle (not an error)");
@@ -181,9 +192,11 @@ public class APF : MonoBehaviour
     private void MoveDrone(APFObstacle obstacle)
     {
         nearestStaticObstacle = obstacle;
-        Vector3 direction = -1 * calculateGradient().normalized;
-        transform.position += direction * DroneDataWriter.Data.speed * SimulationSettings.DroneUpdateInterval;
-        PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
+        Vector3 direction = CalculateDirection();
+        //transform.position += direction * DroneDataWriter.Data.speed * SimulationSettings.DroneUpdateInterval;
+        //PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
+
+        DroneDataWriter.Send(new DroneData.Update().SetDirection(direction.ToSpatialVector3f()));
     }
 
     private void BackupMove()

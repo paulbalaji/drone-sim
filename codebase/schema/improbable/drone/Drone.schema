@@ -27,6 +27,7 @@ component DroneData {
 
   improbable.Vector3f target = 1; // next target
   float speed = 2; // speed of the drone
+  improbable.Vector3f direction = 3; // last set direction of the drone
   TargetPending target_pending = 4; //to indicate what stage of target fetching we are in
 
   // drone's last target, used to push self away from previous checkpoint

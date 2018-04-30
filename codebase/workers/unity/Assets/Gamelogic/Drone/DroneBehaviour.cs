@@ -21,6 +21,7 @@ public class DroneBehaviour : MonoBehaviour
     private Vector3 target;
     private float speed;
     private float radius;
+    private Vector3 direction;
 
     private float nextRequestTime = 0f;
 
@@ -37,6 +38,7 @@ public class DroneBehaviour : MonoBehaviour
 
         //register for direction/speed updates
         DroneDataWriter.TargetUpdated.Add(OnTargetUpdate);
+        DroneDataWriter.DirectionUpdated.Add(OnDirectionUpdate);
 
         //get latest component values
         target = DroneDataWriter.Data.target.ToVector3();
@@ -67,12 +69,19 @@ public class DroneBehaviour : MonoBehaviour
         target = newTarget.ToVector3();
     }
 
+    void OnDirectionUpdate(Vector3f newDirection)
+    {
+        direction = newDirection.ToUnityVector();
+    }
+
     void DroneTick()
 	{
         if (simulate)
         {
             if (DroneDataWriter.Data.targetPending != TargetPending.WAITING)
             {
+                SendPositionUpdate();
+
                 if (Time.time > latestArrivalTime)
                 {
                     requestNewFlightPlan();
@@ -95,7 +104,12 @@ public class DroneBehaviour : MonoBehaviour
         }
 	}
 
-    private void requestNewFlightPlan()
+	private void FixedUpdate()
+	{
+        transform.position += direction * DroneDataWriter.Data.speed * Time.fixedDeltaTime;
+	}
+
+	private void requestNewFlightPlan()
     {
         SpatialOS.Commands.SendCommand(
             PositionWriter,
@@ -177,7 +191,7 @@ public class DroneBehaviour : MonoBehaviour
                              .SetSnapshot(false));
     }
 
-    private void updatePosition()
+    private void SendPositionUpdate()
     {
         //Debug.LogWarning("update position function");
         PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
