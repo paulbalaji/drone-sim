@@ -28,7 +28,7 @@ namespace Assets.Gamelogic.Core
         public static readonly float DroneSpawnInterval = DroneSpawnerSpacing * ControllerCount;
 
         public static readonly int BIT_SIZE = 5; // meters that each bit in the grid corresponds to, OG 25 in AATC 
-        public const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
+        public const int SIZE_OF_A_STEP = (int)(DroneUpdateInterval * MaxDroneSpeed); // used when setting bits from a no fly zone
 
         public static readonly float RoutingShortCircuitThreshold = 50;
 

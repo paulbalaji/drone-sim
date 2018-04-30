@@ -17,7 +17,7 @@
         "dynamic_loadbalancer": {
           "worker_scaler_config": {
             "entity_count_config": {
-              "entities_per_worker": 50
+              "entities_per_worker": 20
             }
           },
           "worker_placer_config": {
