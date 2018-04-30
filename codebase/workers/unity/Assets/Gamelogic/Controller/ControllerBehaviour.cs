@@ -90,6 +90,20 @@ public class ControllerBehaviour : MonoBehaviour
 
         if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
         {
+            if (droneInfo.nextWaypoint < droneInfo.waypoints.Count)
+            {
+                droneInfo.waypoints.Reverse();
+                SpatialOS.Commands.SendCommand(
+                    ControllerWriter,
+                    DroneData.Commands.ReceiveNewTarget.Descriptor,
+                    new NewTargetRequest(droneInfo.waypoints[0]),
+                    handle.Request.droneId)
+                         .OnFailure((response) => Debug.LogError("Unable to tell drone that pathfinding failed"));
+
+                droneInfo.nextWaypoint = 1;
+                return;
+            }
+
             droneMap.Remove(handle.Request.droneId);
 
             if (globalLayer.isPointInNoFlyZone(handle.Request.location))

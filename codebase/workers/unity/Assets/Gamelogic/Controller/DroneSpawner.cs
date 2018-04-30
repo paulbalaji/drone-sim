@@ -27,6 +27,8 @@ public class DroneSpawner : MonoBehaviour
         bitmap = gameObject.GetComponent<Bitmap>();
 
         DroneSpawnerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(HandleSpawnRequest);
+
+        UnityEngine.Random.InitState((int) gameObject.EntityId().Id);
     }
 
     void HandleSpawnRequest(Improbable.Entity.Component.ResponseHandle<DroneSpawnerComponent.Commands.RequestNewTarget, DroneSpawnRequest, DroneSpawnResponse> handle)

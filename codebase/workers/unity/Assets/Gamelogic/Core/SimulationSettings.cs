@@ -4,12 +4,12 @@ namespace Assets.Gamelogic.Core
 {
     public static class SimulationSettings
     {
-        public static readonly float numDrones = 10;
+        public static readonly float numDrones = 20;
         public static readonly float squareSize = 400;
 
         // DRONE CONSTANTS START //
 
-        public const float DroneUpdateInterval = 0.25F;
+        public const float DroneUpdateInterval = 0.5F;
 
         public const float MaxDroneSpeed = 20;
 
@@ -23,12 +23,12 @@ namespace Assets.Gamelogic.Core
 
         // GLOBAL LAYER START //
 
-        public static readonly float ControllerUpdateInterval = 0.1f;
+        public static readonly float ControllerUpdateInterval = 0.2f;
         public static readonly float DroneSpawnerSpacing = 2f;
         public static readonly float DroneSpawnInterval = DroneSpawnerSpacing * ControllerCount;
 
-        public static readonly int BIT_SIZE = 5; // meters that each bit in the grid corresponds to, OG 25 in AATC 
-        public const int SIZE_OF_A_STEP = (int)(DroneUpdateInterval * MaxDroneSpeed); // used when setting bits from a no fly zone
+        public static readonly int BIT_SIZE = 10; // meters that each bit in the grid corresponds to, OG 25 in AATC 
+        public const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
 
         public static readonly float RoutingShortCircuitThreshold = 50;
 

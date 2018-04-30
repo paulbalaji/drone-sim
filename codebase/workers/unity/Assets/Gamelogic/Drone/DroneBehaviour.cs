@@ -182,7 +182,7 @@ public class DroneBehaviour : MonoBehaviour
         }
 
         //Debug.LogWarning("DRONE New Target Received");
-        latestArrivalTime = Time.time + (2 * Vector3.Distance(transform.position, handle.Request.target.ToUnityVector()) / speed);
+        latestArrivalTime = Time.time + (3 * Vector3.Distance(transform.position, handle.Request.target.ToUnityVector()) / speed);
 
         DroneDataWriter.Send(new DroneData.Update()
                              .SetPreviousTarget(DroneDataWriter.Data.target)

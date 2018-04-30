@@ -66,8 +66,7 @@ namespace Assets.Editor
             var currentEntityId = 1;
 
             NFZTemplate[] nfzTemplates = {
-                NFZTemplate.RIGHT_RECTANGLE,
-                NFZTemplate.TOP_LEFT_SQUARE
+                NFZTemplate.BASIC_RECTANGLE
             };
 
             float maxX = 2000;

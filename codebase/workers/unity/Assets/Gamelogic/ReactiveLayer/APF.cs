@@ -65,7 +65,7 @@ public class APF : MonoBehaviour
             return direction.normalized;
         }
 
-        float potentialAtDrone = calculateTotalPotential(dp, goal, );
+        float potentialAtDrone = calculateTotalPotential(dp, goal, nearest);
         Vector3f xDpos = new Vector3f(dp.x + 1, dp.y, dp.z);
         Vector3f yDpos = new Vector3f(dp.x, dp.y + 1, dp.z);
         Vector3f zDpos = new Vector3f(dp.x, dp.y, dp.z + 1);
