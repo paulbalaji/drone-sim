@@ -6,6 +6,8 @@ enum NFZTemplate {
   BASIC_SQUARE = 1;
   BASIC_RECTANGLE = 2;
   BASIC_ENCLOSURE = 3;
+  TOP_LEFT_SQUARE = 4;
+  RIGHT_RECTANGLE = 5;
 }
 
 type NoFlyZone {

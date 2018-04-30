@@ -137,7 +137,7 @@ public class GridGlobalLayer : MonoBehaviour
         ASearch = new ThetaStarSearch(true); // Use AStarSearch or ThetaStarSearch here.
 
         List<GridLocation> locs = null;
-        float droneHeight = SimulationSettings.SuggestedDroneHeight;
+        float droneHeight = UnityEngine.Random.Range(SimulationSettings.MinimumDroneHeight, SimulationSettings.MaximumDroneHeight);
         if (Vector3.Distance(p1.ToUnityVector(), p2.ToUnityVector()) < SimulationSettings.RoutingShortCircuitThreshold) {
             //Debug.LogWarning("Global Layer: within short circuit threshold");
             droneHeight = SimulationSettings.MinimumDroneHeight;

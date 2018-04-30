@@ -66,11 +66,12 @@ namespace Assets.Editor
             var currentEntityId = 1;
 
             NFZTemplate[] nfzTemplates = {
-                NFZTemplate.BASIC_ENCLOSURE
+                NFZTemplate.RIGHT_RECTANGLE,
+                NFZTemplate.TOP_LEFT_SQUARE
             };
 
-            float maxX = 1000;
-            float maxZ = 1000;
+            float maxX = 4000;
+            float maxZ = maxX;
             float xStep = 2 * maxX / SimulationSettings.ControllerColumns;
             float zStep = 2 * maxZ / SimulationSettings.ControllerRows;
 

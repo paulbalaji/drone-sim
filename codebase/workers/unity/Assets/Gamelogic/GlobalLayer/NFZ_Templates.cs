@@ -28,6 +28,20 @@ public static class NFZ_Templates
         -251, 61
     };
 
+    private static float[] topLeftSquare = {
+        -800, 800,
+        -600, 800,
+        -600, 600,
+        -800, 600
+    };
+
+    private static float[] rightRectangle = {
+        300, 150,
+        400, 150,
+        400, -150,
+        300, -150
+    };
+
     public static Improbable.Controller.NoFlyZone GetNoFlyZone(NFZTemplate template)
     {
         Improbable.Controller.NoFlyZone nfz = new Improbable.Controller.NoFlyZone();
@@ -48,6 +62,10 @@ public static class NFZ_Templates
     {
         switch (template)
         {
+            case NFZTemplate.RIGHT_RECTANGLE:
+                return rightRectangle;
+            case NFZTemplate.TOP_LEFT_SQUARE:
+                return topLeftSquare;
             case NFZTemplate.BASIC_ENCLOSURE:
                 return basicEnclosure;
             case NFZTemplate.BASIC_RECTANGLE:

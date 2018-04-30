@@ -5,7 +5,7 @@ namespace Assets.Gamelogic.Core
     public static class SimulationSettings
     {
         public static readonly float numDrones = 100;
-        public static readonly float squareSize = 900;
+        public static readonly float squareSize = 1900;
 
         // DRONE CONSTANTS START //
 
@@ -27,7 +27,7 @@ namespace Assets.Gamelogic.Core
         public static readonly float DroneSpawnerSpacing = 2f;
         public static readonly float DroneSpawnInterval = DroneSpawnerSpacing * ControllerCount;
 
-        public static readonly int BIT_SIZE = 10; // meters that each bit in the grid corresponds to, OG 25 in AATC 
+        public static readonly int BIT_SIZE = 5; // meters that each bit in the grid corresponds to, OG 25 in AATC 
         public const int SIZE_OF_A_STEP = 1; // used when setting bits from a no fly zone
 
         public static readonly float RoutingShortCircuitThreshold = 50;
@@ -36,7 +36,7 @@ namespace Assets.Gamelogic.Core
         public static readonly float SuggestedDroneHeight = 80;
         public static readonly float MaximumDroneHeight = 120;
 
-        public static readonly int NFZ_PADDING_RAW = 50;
+        public static readonly int NFZ_PADDING_RAW = 15;
         public static readonly int NFZ_PADDING = NFZ_PADDING_RAW / BIT_SIZE;
 
         // GLOBAL LAYER END //
@@ -44,11 +44,11 @@ namespace Assets.Gamelogic.Core
         // REACTIVE LAYER START //
 
         //constants initially genetically discovered for 10 m/s speed
-        //public static float RepulsionConst = 446.78f;
-        public static float RepulsionConst = 223.39f;
+        public static float RepulsionConst = 446.78f;
+        //public static float RepulsionConst = 223.39f;
         //public static float RepulsionConst = 111.7f;
-        //public static float AttractionConst = 1.0038f;
-        public static float AttractionConst = 2.0076f;
+        public static float AttractionConst = 1.0038f;
+        //public static float AttractionConst = 2.0076f;
         public static float InfuentialDistanceConstant = 532;
         public static float ReturnConstant = 0.689f;
 
@@ -56,8 +56,8 @@ namespace Assets.Gamelogic.Core
 
         // REACTIVE LAYER END //
 
-        public static readonly uint ControllerRows = 4;
-        public static readonly uint ControllerColumns = 4;
+        public static readonly uint ControllerRows = 2;
+        public static readonly uint ControllerColumns = 2;
         public static readonly uint ControllerCount = ControllerRows * ControllerColumns;
 
         public static readonly uint MaxDroneCount = (uint) numDrones;
