@@ -4,6 +4,7 @@ using Improbable.Core;
 using Improbable.Player;
 using Improbable.Drone;
 using Improbable.Controller;
+using Improbable.Scheduler;
 using Improbable.Unity.Core.Acls;
 using Improbable.Worker;
 using Quaternion = UnityEngine.Quaternion;
@@ -69,6 +70,24 @@ public class EntityTemplateFactory : MonoBehaviour
         return nfzTemplate;
     }
 
+    public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint, Vector3f topLeft, Vector3f bottomRight, List<Improbable.Controller.NoFlyZone> nfzs)
+    {
+        var controllerTemplate = EntityBuilder.Begin()
+            .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
+            .AddMetadataComponent(entityType: SimulationSettings.ControllerPrefabName)
+            .SetPersistence(true)
+            .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
+            .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new Controller.Data(0, SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DroneInfo>(), false, topLeft, bottomRight, new List<TargetRequest>()), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DroneSpawnerComponent.Data(), CommonRequirementSets.PhysicsOnly)
+            .Build();
+
+        return controllerTemplate;
+    }
+
     public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint, Vector3f topLeft, Vector3f bottomRight, NFZTemplate[] templates)
     {
         List<Improbable.Controller.NoFlyZone> nfzs = new List<Improbable.Controller.NoFlyZone>();
@@ -107,7 +126,7 @@ public class EntityTemplateFactory : MonoBehaviour
         return droneTemplate;
     }
 
-    public static Entity CreateSchedulerTemplate(Vector3 spawnPoint)
+    public static Entity CreateSchedulerTemplate(Vector3 spawnPoint, int firstController, int lastController)
     {
         var schedulerTemplate = EntityBuilder.Begin()
             .AddPositionComponent(spawnPoint, CommonRequirementSets.PhysicsOnly)
@@ -115,6 +134,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new Scheduler.Data(firstController, lastController), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return schedulerTemplate;

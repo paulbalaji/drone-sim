@@ -41,4 +41,9 @@ public static class Vector3Extensions
     {
         return new Vector3d(vector.x, vector.y, vector.z);
     }
+
+    public static Coordinates ToCoordinates(this Vector3f vector)
+    {
+        return new Coordinates(vector.x, vector.y, vector.z);
+    }
 }

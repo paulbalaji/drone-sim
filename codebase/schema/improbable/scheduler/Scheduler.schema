@@ -1,0 +1,8 @@
+package improbable.scheduler;
+ 
+component Scheduler {
+  id = 1206;
+
+  int32 first_controller = 1;
+  int32 last_controller = 2;
+}

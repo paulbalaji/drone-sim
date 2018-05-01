@@ -16,3 +16,4 @@
 1203 - GlobalLayer
 1204 - BitmapComponent
 1205 - ReactiveLayer
+1206 - Scheduler

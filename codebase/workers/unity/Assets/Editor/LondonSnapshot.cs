@@ -11,51 +11,79 @@ namespace Assets.Editor
 {
     public class LondonSnapshot : MonoBehaviour
     {
-        [MenuItem("Improbable/Snapshots/London")]
-        private static void London()
+        [MenuItem("Improbable/Snapshots/LondonLarge")]
+        private static void LondonLarge()
         {
+            float maxX = 15750; //routable width is 31500m
+            float maxZ = 7000; //routable height is 14000m
+
             var snapshotEntities = new Dictionary<EntityId, Entity>();
             var currentEntityId = 1;
 
-            NFZTemplate[] nfzTemplates = {
-                NFZTemplate.BASIC_RECTANGLE
-            };
+            Improbable.Collections.List<Improbable.Controller.NoFlyZone> noFlyZones = new Improbable.Collections.List<Improbable.Controller.NoFlyZone>();
 
-            float maxX = 6000;
-            float maxZ = 3500;
-            float xStep = 2 * maxX / SimulationSettings.ControllerColumns;
-            float zStep = 2 * maxZ / SimulationSettings.ControllerRows;
-
-            float zCoord = -maxZ + zStep / 2;
-            for (int i = 0; i < SimulationSettings.ControllerRows; i++)
+            // NO FLY ZONES
+            // start creating no fly zones from the editor
+            NFZScript[] noFlyZoneScripts = FindObjectsOfType<NFZScript>();
+            foreach (NFZScript noFlyZoneScript in noFlyZoneScripts)
             {
-                float xCoord = -maxX + xStep / 2;
-                for (int j = 0; j < SimulationSettings.ControllerColumns; j++)
-                {
-                    snapshotEntities.Add(
-                        new EntityId(currentEntityId++),
-                        EntityTemplateFactory.CreateControllerTemplate(
-                            new Coordinates(xCoord, 0, zCoord),
-                            new Vector3f(-maxX, 0, maxZ),
-                            new Vector3f(maxX, 0, -maxZ),
-                            nfzTemplates
-                    ));
-                    xCoord += xStep;
-                }
-
-                zCoord += zStep;
+                noFlyZones.Add(noFlyZoneScript.GetNoFlyZone());
             }
+            // end creation of no fly zones
 
-            currentEntityId = SnapshotMenu.DisplayNoFlyZones(nfzTemplates, snapshotEntities, currentEntityId);
+            // CONTROLLERS
+            // start placing controllers
+            int firstController = currentEntityId;
+            ControllerBehaviour[] controllerScripts = FindObjectsOfType<ControllerBehaviour>();
+            foreach (ControllerBehaviour controllerScript in controllerScripts)
+            {
+                snapshotEntities.Add(
+                    new EntityId(currentEntityId++),
+                    EntityTemplateFactory.CreateControllerTemplate(
+                        controllerScript.gameObject.transform.position.ToCoordinates(),
+                        new Vector3f(-maxX, 0, maxZ),
+                        new Vector3f(maxX, 0, -maxZ),
+                        noFlyZones
+                ));
+            }
+            int lastController = currentEntityId;
+            // controller placement complete
+
+            currentEntityId = ShowNoFlyZones(noFlyZones, snapshotEntities, currentEntityId);
 
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateSchedulerTemplate(
-                    new Vector3(0, 0, 0)
+                    new Vector3(0, 0, 0),
+                    firstController,
+                    lastController
                 )
             );
 
-            SnapshotMenu.SaveSnapshot(snapshotEntities, "london");
+            SnapshotMenu.SaveSnapshot(snapshotEntities, "london_large");
+        }
+
+        private static int ShowNoFlyZones(Improbable.Controller.NoFlyZone noFlyZone, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
+        {
+            foreach (Vector3f vertex in noFlyZone.vertices)
+            {
+                snapshotEntities.Add(
+                    new EntityId(currentEntityId++),
+                    EntityTemplateFactory.CreateNfzNodeTemplate(vertex.ToCoordinates())
+                );
+            }
+
+            return currentEntityId;
+        }
+
+        private static int ShowNoFlyZones(Improbable.Collections.List<Improbable.Controller.NoFlyZone> noFlyZones, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
+        {
+            foreach (Improbable.Controller.NoFlyZone noFlyZone in noFlyZones)
+            {
+                currentEntityId = ShowNoFlyZones(noFlyZone, snapshotEntities, currentEntityId);
+            }
+
+            return currentEntityId;
         }
     }
 }
