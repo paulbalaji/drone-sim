@@ -223,7 +223,7 @@ public class Bitmap : MonoBehaviour
                 for (k = -layer; k < layer; ++k)
                 {
                     xi = x + k;
-                    if (InGridBounds(xi, zi) && (getGridCell(xi, zi) == GridType.IN || getGridCell(xi, zi) == GridType.NEAR))
+                    if (InGridBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
                     {
                         foundNoFlyZone = true;
                         GridLocation candidate = new GridLocation(xi, zi);
@@ -244,7 +244,7 @@ public class Bitmap : MonoBehaviour
                 for (k = -layer; k < layer; ++k)
                 {
                     zi = z + k;
-                    if (InGridBounds(xi, zi) && (getGridCell(xi, zi) == GridType.IN || getGridCell(xi, zi) == GridType.NEAR))
+                    if (InGridBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
                     {
                         foundNoFlyZone = true;
                         GridLocation candidate = new GridLocation(xi, zi);
@@ -265,7 +265,7 @@ public class Bitmap : MonoBehaviour
                 for (k = layer; k > -layer; --k)
                 {
                     xi = x + k;
-                    if (InGridBounds(xi, zi) && (getGridCell(xi, zi) == GridType.IN || getGridCell(xi, zi) == GridType.NEAR))
+                    if (InGridBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
                     {
                         foundNoFlyZone = true;
                         GridLocation candidate = new GridLocation(xi, zi);
@@ -286,7 +286,7 @@ public class Bitmap : MonoBehaviour
                 for (k = layer; k > -layer; --k)
                 {
                     zi = z + k;
-                    if (InGridBounds(xi, zi) && (getGridCell(xi, zi) == GridType.IN || getGridCell(xi, zi) == GridType.NEAR))
+                    if (InGridBounds(xi, zi) && getGridCell(xi, zi) == GridType.IN)
                     {
                         foundNoFlyZone = true;
                         GridLocation candidate = new GridLocation(xi, zi);
