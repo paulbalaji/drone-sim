@@ -1,4 +1,6 @@
 ﻿using System;
+using UnityEngine;
+using Improbable;
 using Improbable.Controller;
 
 public static class NFZ_Templates
@@ -41,6 +43,15 @@ public static class NFZ_Templates
         400, -150,
         300, -150
     };
+
+    public static Improbable.Controller.NoFlyZone CreateCustomNoFlyZone(Improbable.Collections.List<Vector3f> vertices)
+    {
+        Improbable.Controller.NoFlyZone nfz = new Improbable.Controller.NoFlyZone();
+        nfz.vertices = vertices;
+        NoFlyZone.setBoundingBoxCoordinates(ref nfz);
+
+        return nfz;
+    }
 
     public static Improbable.Controller.NoFlyZone GetNoFlyZone(NFZTemplate template)
     {
