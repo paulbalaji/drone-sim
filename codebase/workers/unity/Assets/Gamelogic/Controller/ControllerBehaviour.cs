@@ -144,6 +144,7 @@ public class ControllerBehaviour : MonoBehaviour
     void HandleTargetRequest(TargetRequest request)
     {
         DroneInfo droneInfo;
+        Vector3f nextTarget;
 
         //Debug.LogWarning("try get val");
         if (droneMap.TryGetValue(request.droneId, out droneInfo))
@@ -186,9 +187,7 @@ public class ControllerBehaviour : MonoBehaviour
 
         //calculate the next final target
         //Debug.LogWarning("finding final destination");
-        Vector3f nextTarget = request.target.HasValue
-                                     ? request.target.Value 
-                                     : new Vector3f(-request.location.x, 0, -request.location.z);
+        nextTarget = new Vector3f(-request.location.x, 0, -request.location.z);
 
         //Debug.LogWarning("planning for final destination");
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(request.location, nextTarget);

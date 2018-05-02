@@ -25,10 +25,12 @@ public class ReactiveLayerBehaviour : MonoBehaviour
 
     void GetNearestObstacle(Improbable.Entity.Component.ResponseHandle<ReactiveLayer.Commands.GetNearestObstacle, ObstacleRequest, ObstacleResponse> handle)
     {
-        //only return NFZ for now
-        handle.Respond(new ObstacleResponse(
-            new APFObstacle(
-                APFObstacleType.NO_FLY_ZONE,
-                bitmap.nearestNoFlyZonePoint(handle.Request.location))));
+        Vector3f nearestNoFlyZone = bitmap.nearestNoFlyZonePoint(handle.Request.location);
+        APFObstacleType obstacleType = APFObstacleType.NO_FLY_ZONE;
+        if (nearestNoFlyZone.y < 0)
+        {
+            obstacleType = APFObstacleType.NONE;
+        }
+        handle.Respond(new ObstacleResponse(new APFObstacle(obstacleType, nearestNoFlyZone)));
     }
 }

@@ -49,8 +49,7 @@ public class DroneBehaviour : MonoBehaviour
 
         simulate = true;
 
-        InvokeRepeating("DroneTick", DroneDataWriter.Data.startingDelay + SimulationSettings.DroneUpdateInterval, SimulationSettings.DroneUpdateInterval);
-        DroneDataWriter.Send(new DroneData.Update().SetStartingDelay(0));
+        InvokeRepeating("DroneTick", SimulationSettings.DroneUpdateInterval, SimulationSettings.DroneUpdateInterval);
     }
 
     private void OnDisable()
@@ -78,26 +77,19 @@ public class DroneBehaviour : MonoBehaviour
 	{
         if (simulate)
         {
-            if (DroneDataWriter.Data.targetPending != TargetPending.WAITING)
+            if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
             {
                 SendPositionUpdate();
-
-                if (Time.time > latestArrivalTime)
-                {
-                    requestNewFlightPlan();
-                }
-
-                float distanceToTarget = Vector3.Distance(target, transform.position);
-                if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || distanceToTarget < radius)
-                {
-                    requestNewTarget();
-                }
-                else
-                {
-                    apf.Recalculate();
-                }
+                apf.Recalculate();
             }
-            else
+
+            if (DroneDataWriter.Data.targetPending == TargetPending.WAITING && Time.time > nextRequestTime)
+            {
+                requestNewTarget();
+            }
+
+            float distanceToTarget = Vector3.Distance(target, transform.position);
+            if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST || distanceToTarget < radius)
             {
                 requestNewTarget();
             }
@@ -106,40 +98,31 @@ public class DroneBehaviour : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-        transform.position += direction * DroneDataWriter.Data.speed * Time.fixedDeltaTime;
+        if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
+        {
+            transform.position += direction * DroneDataWriter.Data.speed * Time.fixedDeltaTime;
+        }
 	}
 
-	private void requestNewFlightPlan()
-    {
-        SpatialOS.Commands.SendCommand(
-            PositionWriter,
-            Controller.Commands.RegeneratePath.Descriptor,
-            new RegenPathRequest(
-                gameObject.EntityId(),
-                transform.position.ToSpatialVector3f()),
-            DroneDataWriter.Data.designatedController)
-                 .OnFailure((response) => Debug.LogError("Unable to request new path for Drone ID: " + gameObject.EntityId()));
+	//private void requestNewFlightPlan()
+    //{
+    //    SpatialOS.Commands.SendCommand(
+    //        PositionWriter,
+    //        Controller.Commands.RegeneratePath.Descriptor,
+    //        new RegenPathRequest(
+    //            gameObject.EntityId(),
+    //            transform.position.ToSpatialVector3f()),
+    //        DroneDataWriter.Data.designatedController)
+    //             .OnFailure((response) => Debug.LogError("Unable to request new path for Drone ID: " + gameObject.EntityId()));
 
-        DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
-    }
+    //    DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
+    //}
 
     private void requestNewTarget()
     {
-        if (Time.time < nextRequestTime)
-        {
-            return;
-        }
-
         //Debug.LogWarning("requesting new target");
 
         nextRequestTime = Time.time + SimulationSettings.MaxRequestWaitTime;
-
-        Improbable.Collections.Option<Vector3f> requestTarget = new Improbable.Collections.Option<Vector3f>();
-
-        if (DroneDataWriter.Data.snapshot)
-        {
-            requestTarget = new Improbable.Collections.Option<Vector3f>(DroneDataWriter.Data.target);
-        }
 
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
         SpatialOS.Commands.SendCommand(
@@ -147,8 +130,7 @@ public class DroneBehaviour : MonoBehaviour
             Controller.Commands.RequestNewTarget.Descriptor,
             new TargetRequest(
                 gameObject.EntityId(),
-                transform.position.ToSpatialVector3f(),
-                requestTarget),
+                transform.position.ToSpatialVector3f()),
             DroneDataWriter.Data.designatedController)
                  .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
     }
@@ -182,13 +164,13 @@ public class DroneBehaviour : MonoBehaviour
         }
 
         //Debug.LogWarning("DRONE New Target Received");
-        latestArrivalTime = Time.time + (3 * Vector3.Distance(transform.position, handle.Request.target.ToUnityVector()) / speed);
+        latestArrivalTime = Time.time + (SimulationSettings.DroneETAConstant * Vector3.Distance(transform.position, handle.Request.target.ToUnityVector()) / speed);
 
         DroneDataWriter.Send(new DroneData.Update()
                              .SetPreviousTarget(DroneDataWriter.Data.target)
                              .SetTarget(handle.Request.target)
                              .SetTargetPending(TargetPending.RECEIVED)
-                             .SetSnapshot(false));
+                             .SetDroneStatus(DroneStatus.MOVE));
     }
 
     private void SendPositionUpdate()

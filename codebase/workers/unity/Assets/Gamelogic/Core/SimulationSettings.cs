@@ -19,6 +19,8 @@ namespace Assets.Gamelogic.Core
 
         public static float MaxRequestWaitTime = 10f;
 
+        public static int DroneETAConstant = 3;
+
         // DRONE CONSTANTS END //
 
         // GLOBAL LAYER START //

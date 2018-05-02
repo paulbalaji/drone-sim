@@ -193,15 +193,7 @@ public class APF : MonoBehaviour
     {
         nearestStaticObstacle = obstacle;
         Vector3 direction = CalculateDirection();
-        //transform.position += direction * DroneDataWriter.Data.speed * SimulationSettings.DroneUpdateInterval;
-        //PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
-
         DroneDataWriter.Send(new DroneData.Update().SetDirection(direction.ToSpatialVector3f()));
-    }
-
-    private void BackupMove()
-    {
-        MoveDrone(dummyObstacle);
     }
 
     public void Recalculate()
@@ -213,6 +205,6 @@ public class APF : MonoBehaviour
             new ObstacleRequest(transform.position.ToSpatialVector3f()),
             new EntityId(1))
                  .OnSuccess((response) => MoveDrone(response.obstacle))
-                 .OnFailure((response) => BackupMove());
+                 .OnFailure((response) => MoveDrone(dummyObstacle));
     }
 }

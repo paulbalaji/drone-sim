@@ -9,7 +9,7 @@ enum TargetPending {
 }
 
 enum DroneStatus {
-	HOVER = 0;
+	IDLE = 0;
 	MOVE = 1;
 	LAND = 2;
 	LOST = 3;
@@ -29,15 +29,13 @@ component DroneData {
   float speed = 2; // speed of the drone
   improbable.Vector3f direction = 3; // last set direction of the drone
   TargetPending target_pending = 4; //to indicate what stage of target fetching we are in
+  DroneStatus drone_status = 5;
 
   // drone's last target, used to push self away from previous checkpoint
   improbable.Vector3f previous_target = 6; 
 
-  float starting_delay = 7; //time to pause upon creation before starting
-
-  bool snapshot = 5; //true if created from a snapshot
-
-  EntityId designated_controller = 8;
+  // controller that drone is currently paired with
+  EntityId designated_controller = 7;
 
   command NewTargetResponse receive_new_target(NewTargetRequest);
 }
