@@ -49,16 +49,21 @@ namespace Assets.Editor
             int lastController = currentEntityId;
             // controller placement complete
 
+            // make nfz nodes show up on the inspector map
             currentEntityId = ShowNoFlyZones(noFlyZones, snapshotEntities, currentEntityId);
 
+            // SCHEDULER 
+            // find and place scheduler
+            RootSpawner rootSpawnerScript = FindObjectOfType<RootSpawner>();
             snapshotEntities.Add(
                 new EntityId(currentEntityId++),
                 EntityTemplateFactory.CreateSchedulerTemplate(
-                    new Vector3(0, 0, 0),
+                    rootSpawnerScript.gameObject.transform.position,
                     firstController,
                     lastController
                 )
             );
+            // end scheduler placement
 
             SnapshotMenu.SaveSnapshot(snapshotEntities, "london_large");
         }

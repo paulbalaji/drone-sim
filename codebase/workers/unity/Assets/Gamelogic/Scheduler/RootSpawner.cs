@@ -2,6 +2,7 @@ using Assets.Gamelogic.Core;
 using Improbable;
 using Improbable.Drone;
 using Improbable.Controller;
+using Improbable.Scheduler;
 using Improbable.Unity;
 using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
@@ -14,17 +15,23 @@ public class RootSpawner : MonoBehaviour
     [Require]
     private Position.Writer PositionWriter;
 
-    private int controllerNum = 1;
+    [Require]
+    private Scheduler.Writer SchedulerWriter;
+
+    private int controllerNum;
 
 	void Start()
 	{
         InvokeRepeating("RootSpawnerTick", SimulationSettings.DroneSpawnerSpacing, SimulationSettings.DroneSpawnerSpacing);
 	}
 
-    void RootSpawnerTick()
-    {
-        //int randNum = UnityEngine.Random.Range(1, (int)SimulationSettings.ControllerCount);
+	private void OnEnable()
+	{
+        controllerNum = SchedulerWriter.Data.firstController;
+	}
 
+	void RootSpawnerTick()
+    {
         SpatialOS.Commands.SendCommand(
             PositionWriter,
             DroneSpawnerComponent.Commands.RequestNewTarget.Descriptor,
@@ -32,9 +39,9 @@ public class RootSpawner : MonoBehaviour
             new EntityId(controllerNum++)
         );
 
-        if (controllerNum > SimulationSettings.ControllerCount)
+        if (controllerNum > SchedulerWriter.Data.lastController)
         {
-            controllerNum = 1;
+            controllerNum = SchedulerWriter.Data.firstController;
         }
     }
 }
