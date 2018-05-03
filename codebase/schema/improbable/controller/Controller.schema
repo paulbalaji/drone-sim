@@ -25,7 +25,6 @@ type CollisionResponse {}
 component Controller {
   id = 1200;
 
-  uint32 drone_count = 1;
   uint32 max_drone_count = 2;
 
   map<EntityId, DroneInfo> drone_map = 3;

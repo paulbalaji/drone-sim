@@ -32,10 +32,12 @@ public class RootSpawner : MonoBehaviour
 
 	void RootSpawnerTick()
     {
+        Vector3f deliveryDestination = new Vector3f();
+
         SpatialOS.Commands.SendCommand(
             PositionWriter,
-            DroneSpawnerComponent.Commands.RequestNewTarget.Descriptor,
-            new DroneSpawnRequest(),
+            DeliveryHandler.Commands.RequestDelivery.Descriptor,
+            new DeliveryRequest(deliveryDestination),
             new EntityId(controllerNum++)
         );
 

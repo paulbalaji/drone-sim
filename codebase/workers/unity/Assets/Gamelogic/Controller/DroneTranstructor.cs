@@ -25,21 +25,13 @@ public class DroneTranstructor : MonoBehaviour
     void CreateDroneSuccess(Improbable.Unity.Core.EntityQueries.CreateEntityResult response)
     {
         EntityId entityId = response.CreatedEntityId;
-        ControllerWriter.Send(new Controller.Update().SetDroneCount(ControllerWriter.Data.droneCount + 1));
 
-        Debug.LogWarning("DRONE COUNT FOR CONTROLLER #" + gameObject.EntityId().ToString() + ": " + ControllerWriter.Data.droneCount);
+        Debug.LogWarning("DRONE COUNT FOR CONTROLLER #" + gameObject.EntityId().ToString() + ": " + ControllerWriter.Data.droneMap.Keys.Count);
     }
 
     public void DestroyDrone(EntityId entityId)
     {
         Debug.LogWarning("Destroying Drone, EntityId: " + entityId);
-        SpatialOS.Commands.DeleteEntity(PositionWriter, entityId)
-                 .OnSuccess(DestroyDroneSuccess);
-    }
-
-    void DestroyDroneSuccess(Improbable.Unity.Core.EntityQueries.DeleteEntityResult response)
-    {
-
-        ControllerWriter.Send(new Controller.Update().SetDroneCount(ControllerWriter.Data.droneCount - 1));
+        SpatialOS.Commands.DeleteEntity(PositionWriter, entityId);
     }
 }
