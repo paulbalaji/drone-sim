@@ -12,7 +12,7 @@
 
 *** CONTROLLER ***
 1200 - Controller
-1201 - DroneSpawner
+1201 - DeliveryHandler
 1203 - GlobalLayer
 1204 - BitmapComponent
 1205 - ReactiveLayer

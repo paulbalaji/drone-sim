@@ -104,25 +104,15 @@ public class DroneBehaviour : MonoBehaviour
         }
 	}
 
-	//private void requestNewFlightPlan()
-    //{
-    //    SpatialOS.Commands.SendCommand(
-    //        PositionWriter,
-    //        Controller.Commands.RegeneratePath.Descriptor,
-    //        new RegenPathRequest(
-    //            gameObject.EntityId(),
-    //            transform.position.ToSpatialVector3f()),
-    //        DroneDataWriter.Data.designatedController)
-    //             .OnFailure((response) => Debug.LogError("Unable to request new path for Drone ID: " + gameObject.EntityId()));
-
-    //    DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
-    //}
-
     private void requestNewTarget()
     {
         //Debug.LogWarning("requesting new target");
 
         nextRequestTime = Time.time + SimulationSettings.MaxRequestWaitTime;
+
+        Improbable.Collections.Option<Vector3f> targetRequestDestination = DroneDataWriter.Data.droneStatus == DroneStatus.JUST_SPAWNED
+            ? new Improbable.Collections.Option<Vector3f>(DroneDataWriter.Data.target)
+            : new Improbable.Collections.Option<Vector3f>();
 
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
         SpatialOS.Commands.SendCommand(
@@ -130,7 +120,7 @@ public class DroneBehaviour : MonoBehaviour
             Controller.Commands.RequestNewTarget.Descriptor,
             new TargetRequest(
                 gameObject.EntityId(),
-                transform.position.ToSpatialVector3f()),
+                targetRequestDestination),
             DroneDataWriter.Data.designatedController)
                  .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
     }

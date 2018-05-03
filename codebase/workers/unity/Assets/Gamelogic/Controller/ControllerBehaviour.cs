@@ -34,7 +34,6 @@ public class ControllerBehaviour : MonoBehaviour
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(EnqueueTargetRequest);
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
-        ControllerWriter.CommandReceiver.OnRegeneratePath.RegisterAsyncResponse(HandleRegenPathRequest);
 
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
@@ -46,7 +45,19 @@ public class ControllerBehaviour : MonoBehaviour
     {
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
-        ControllerWriter.CommandReceiver.OnRegeneratePath.DeregisterResponse();
+    }
+
+    void EnqueueTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
+    {
+        //Debug.LogWarning("CONTROLLER New Target Request");
+        handle.Respond(new TargetResponse());
+        queue.Enqueue(handle.Request);
+        UpdateRequestQueue();
+    }
+
+    void UpdateRequestQueue()
+    {
+        ControllerWriter.Send(new Controller.Update().SetRequestQueue(new Improbable.Collections.List<TargetRequest>(queue.ToArray())));
     }
 
     void HandleCollision(Improbable.Entity.Component.ResponseHandle<Controller.Commands.Collision, CollisionRequest, CollisionResponse> handle)
@@ -69,77 +80,80 @@ public class ControllerBehaviour : MonoBehaviour
         ControllerWriter.Send(new Controller.Update().SetDroneMap(droneMap));
     }
 
-    void UpdateRequestQueue()
+    void NextWaypointRequest(EntityId droneId, DroneInfo droneInfo)
     {
-        ControllerWriter.Send(new Controller.Update().SetRequestQueue(new Improbable.Collections.List<TargetRequest>(queue.ToArray())));
-    }
+        //TODO: need to verify if the drone is actually at its target
 
-    void EnqueueTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
-    {
-        //Debug.LogWarning("CONTROLLER New Target Request");
-        handle.Respond(new TargetResponse());
-        queue.Enqueue(handle.Request);
-        UpdateRequestQueue();
-    }
-
-    void HandleRegenPathRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RegeneratePath, RegenPathRequest, RegenPathResponse> handle)
-    {
-        handle.Respond(new RegenPathResponse());
-
-        DroneInfo droneInfo;
-
-        if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+        //Debug.LogWarning("is final waypoint?");
+        //not final waypoint, get next waypoint
+        if (droneInfo.waypoints.Count > droneInfo.nextWaypoint)
         {
-            if (droneInfo.nextWaypoint < droneInfo.waypoints.Count)
-            {
-                droneInfo.waypoints.Reverse();
-                SpatialOS.Commands.SendCommand(
-                    ControllerWriter,
-                    DroneData.Commands.ReceiveNewTarget.Descriptor,
-                    new NewTargetRequest(droneInfo.waypoints[0]),
-                    handle.Request.droneId)
-                         .OnFailure((response) => Debug.LogError("Unable to tell drone that pathfinding failed"));
+            //Debug.LogWarning("send next waypoint back!");
+            //SEND BACK 
+            SpatialOS.Commands.SendCommand(
+                ControllerWriter,
+                DroneData.Commands.ReceiveNewTarget.Descriptor,
+                new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
+                droneId)
+                     .OnSuccess((response) => IncrementNextWaypoint(droneId, droneInfo))
+                     .OnFailure((response) => TargetReplyFailure(response));
+            return;
+        }
 
-                droneInfo.nextWaypoint = 1;
-                return;
-            }
+        DroneDeliveryComplete(droneId, droneInfo);
+    }
 
-            droneMap.Remove(handle.Request.droneId);
+    void TargetReplyFailure(ICommandErrorDetails errorDetails)
+    {
+        Debug.LogError("Unable to give drone new target");
+    }
 
-            if (globalLayer.isPointInNoFlyZone(handle.Request.location))
-            {
-                Debug.LogError("DRONE STUCK IN NO FLY ZONE: " + handle.Request.droneId);
-                droneTranstructor.DestroyDrone(handle.Request.droneId);
-            }
+    void DroneDeliveryComplete(EntityId droneId, DroneInfo droneInfo)
+    {
+        if (droneInfo.returning)
+        {
+            DestroyDrone(droneId);
+        }
+        else
+        {
+            droneInfo.returning = true;
+            droneInfo.waypoints.Reverse();
+            droneInfo.nextWaypoint = 0;
 
-            Vector3f newTarget = droneInfo.waypoints[droneInfo.waypoints.Count - 1];
-            droneInfo.waypoints = globalLayer.generatePointToPointPlan(handle.Request.location, newTarget);
-
-            if (droneInfo.waypoints == null)
-            {
-                SpatialOS.Commands.SendCommand(
-                    ControllerWriter,
-                    DroneData.Commands.ReceiveNewTarget.Descriptor,
-                    new NewTargetRequest(new Vector3f(0, -1, 0)),
-                    handle.Request.droneId)
-                         .OnFailure((response) => Debug.LogError("Unable to tell drone it failed"));
-                return;
-            }
-
-            droneMap.Add(handle.Request.droneId, droneInfo);
+            droneMap.Remove(droneId);
+            droneMap.Add(droneId, droneInfo);
             UpdateDroneMap();
 
             SpatialOS.Commands.SendCommand(
                 ControllerWriter,
                 DroneData.Commands.ReceiveNewTarget.Descriptor,
-                new NewTargetRequest(droneInfo.waypoints[0]),
-                handle.Request.droneId)
-                     .OnFailure((response) => Debug.LogError("Unable to tell drone that pathfinding failed"));
-
-            droneInfo.nextWaypoint = 1;
+                new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
+                droneId)
+                    .OnSuccess((response) => IncrementNextWaypoint(droneId, droneInfo))
+                    .OnFailure((response) => Debug.LogError("Unable to tell drone to return."));
         }
     }
 
+    void UnableToDeliver(EntityId droneId)
+    {
+        //something went wrong so signal that back to drone!
+        SpatialOS.Commands.SendCommand(
+            ControllerWriter,
+            DroneData.Commands.ReceiveNewTarget.Descriptor,
+            new NewTargetRequest(new Vector3f(0, -1, 0)),
+            droneId)
+                 .OnFailure((response) => Debug.LogError("Unable to tell drone pathfinding failed."));
+
+        // will also need to let scheduler know that pathfinding failed and that job needs to be given to another controller
+    }
+
+    private void IncrementNextWaypoint(EntityId droneId, DroneInfo droneInfo)
+    {
+        droneInfo.nextWaypoint++;
+        droneMap.Remove(droneId);
+        droneMap.Add(droneId, droneInfo);
+        UpdateDroneMap();
+    }
 
     void HandleTargetRequest(TargetRequest request)
     {
@@ -149,79 +163,41 @@ public class ControllerBehaviour : MonoBehaviour
         //Debug.LogWarning("try get val");
         if (droneMap.TryGetValue(request.droneId, out droneInfo))
         {
-            //TODO: need to verify if the drone is actually at its target
-
-            //Debug.LogWarning("is final waypoint?");
-            //not final waypoint, get next waypoint
-            if (droneInfo.waypoints.Count > droneInfo.nextWaypoint)
-            {
-                //Debug.LogWarning("send next waypoint back!");
-                //SEND BACK 
-                SpatialOS.Commands.SendCommand(
-                    ControllerWriter,
-                    DroneData.Commands.ReceiveNewTarget.Descriptor,
-                    new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
-                    request.droneId)
-                         .OnFailure((response) => Debug.LogError("Unable to give drone new target"));
-                //TODO: OnSuccess / OnFailure
-
-                droneInfo.nextWaypoint++;
-
-                //stupidly you have to remove/add to update
-                droneMap.Remove(request.droneId);
-                droneMap.Add(request.droneId, droneInfo);
-                UpdateDroneMap();
-
-                return;
-            }
-
-            //if final waypoint, remove current flight plan
-            droneMap.Remove(request.droneId);
-
-            //for now just give it a new target and generate a random plan for that?
-        }
-
-        //Debug.LogWarning("point to point plan");
-        //for new flight plan
-        droneInfo.nextWaypoint = 1;
-
-        //calculate the next final target
-        //Debug.LogWarning("finding final destination");
-        nextTarget = new Vector3f(-request.location.x, 0, -request.location.z);
-
-        //Debug.LogWarning("planning for final destination");
-        droneInfo.waypoints = globalLayer.generatePointToPointPlan(request.location, nextTarget);
-
-        //Debug.LogWarning("null check");
-        if (droneInfo.waypoints == null)
-        {
-            //droneMap.Remove(request.droneId);
-            //DestroyDrone(request.droneId);
-            //return;
-
-            //something went wrong so signal that back to drone!
-            //TODO: OnSuccess / OnFailure + Send "failure" command back to drone
-            SpatialOS.Commands.SendCommand(
-                ControllerWriter,
-                DroneData.Commands.ReceiveNewTarget.Descriptor,
-                new NewTargetRequest(new Vector3f(0, -1, 0)),
-                request.droneId)
-                     .OnFailure((response) => Debug.LogError("Unable to tell drone it failed"));
+            NextWaypointRequest(request.droneId, droneInfo);
             return;
         }
 
-        droneMap.Add(request.droneId, droneInfo);
-        UpdateDroneMap();
+        if (request.destination.HasValue)
+        {
+            //Debug.LogWarning("point to point plan");
+            //for new flight plan
+            droneInfo.nextWaypoint = 0;
+            droneInfo.returning = false;
+            droneInfo.waypoints = globalLayer.generatePointToPointPlan(
+                transform.position.ToSpatialVector3f(),
+                request.destination.Value);
 
-        //Debug.LogWarning("send first waypoint!");
-        //SEND BACK 
-        SpatialOS.Commands.SendCommand(
-            ControllerWriter,
-            DroneData.Commands.ReceiveNewTarget.Descriptor,
-            new NewTargetRequest(droneInfo.waypoints[0]),
-            request.droneId)
-                 .OnFailure((response) => Debug.LogError("Unable to tell drone that pathfinding failed"));
-        //TODO: OnSuccess / OnFailure
+            //Debug.LogWarning("null check");
+            if (droneInfo.waypoints == null)
+            {
+                UnableToDeliver(request.droneId);
+                return;
+            }
+
+            droneMap.Add(request.droneId, droneInfo);
+            UpdateDroneMap();
+
+            //Debug.LogWarning("send first waypoint!");
+            //SEND BACK 
+            SpatialOS.Commands.SendCommand(
+                ControllerWriter,
+                DroneData.Commands.ReceiveNewTarget.Descriptor,
+                new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
+                request.droneId)
+                     .OnSuccess((response) => IncrementNextWaypoint(request.droneId, droneInfo))
+                     .OnFailure((response) => Debug.LogError("Unable to tell drone that pathfinding failed"));
+            return;
+        }
     }
 
     void ControllerTick()

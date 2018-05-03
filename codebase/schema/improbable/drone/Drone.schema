@@ -9,7 +9,7 @@ enum TargetPending {
 }
 
 enum DroneStatus {
-	IDLE = 0;
+	JUST_SPAWNED = 0;
 	MOVE = 1;
 	LAND = 2;
 	LOST = 3;

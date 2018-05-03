@@ -4,21 +4,15 @@ import "improbable/vector3.schema";
 
 type TargetRequest {
 	EntityId drone_id = 1;
-	improbable.Vector3f location = 2;
+	option<improbable.Vector3f> destination = 2;
 }
 
 type TargetResponse {}
 
-type RegenPathRequest{
-  EntityId drone_id = 1;
-  improbable.Vector3f location = 2;
-}
-
-type RegenPathResponse {}
-
 type DroneInfo {
 	int32 next_waypoint = 1;
 	list<improbable.Vector3f> waypoints = 2;
+  bool returning = 3;
 }
 
 type CollisionRequest {
@@ -43,7 +37,5 @@ component Controller {
   list<TargetRequest> request_queue = 7;
 
   command TargetResponse request_new_target(TargetRequest);
-  command RegenPathResponse regenerate_path(RegenPathRequest);
-
   command CollisionResponse collision(CollisionRequest);
 }

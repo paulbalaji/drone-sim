@@ -82,7 +82,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new DroneSpawnerComponent.Data(), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DeliveryHandler.Data(), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return controllerTemplate;
@@ -106,7 +106,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new DroneSpawnerComponent.Data(), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DeliveryHandler.Data(), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return controllerTemplate;
@@ -120,7 +120,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new DroneData.Data(initialTarget, Mathf.Min(SimulationSettings.MaxDroneSpeed, droneSpeed), new Vector3f(), TargetPending.REQUEST, DroneStatus.IDLE, new Vector3f(0, -1, 0), controller), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DroneData.Data(initialTarget, Mathf.Min(SimulationSettings.MaxDroneSpeed, droneSpeed), new Vector3f(), TargetPending.REQUEST, DroneStatus.JUST_SPAWNED, new Vector3f(0, -1, 0), controller), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return droneTemplate;

@@ -18,7 +18,7 @@ namespace Assets.Editor
             float maxZ = 7000; //routable height is 14000m
 
             var snapshotEntities = new Dictionary<EntityId, Entity>();
-            var currentEntityId = 1;
+            var currentEntityId = 2; //reserve id 1 for the scheduler
 
             Improbable.Collections.List<Improbable.Controller.NoFlyZone> noFlyZones = new Improbable.Collections.List<Improbable.Controller.NoFlyZone>();
 
@@ -56,7 +56,7 @@ namespace Assets.Editor
             // find and place scheduler
             RootSpawner rootSpawnerScript = FindObjectOfType<RootSpawner>();
             snapshotEntities.Add(
-                new EntityId(currentEntityId++),
+                SimulationSettings.SchedulerEntityId,
                 EntityTemplateFactory.CreateSchedulerTemplate(
                     rootSpawnerScript.gameObject.transform.position,
                     firstController,

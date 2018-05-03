@@ -1,4 +1,4 @@
-﻿using Improbable;
+using Improbable;
 using Improbable.Controller;
 using Improbable.Unity;
 using Improbable.Unity.Core;
@@ -39,7 +39,7 @@ public class DroneTranstructor : MonoBehaviour
 
     void DestroyDroneSuccess(Improbable.Unity.Core.EntityQueries.DeleteEntityResult response)
     {
-        
+
         ControllerWriter.Send(new Controller.Update().SetDroneCount(ControllerWriter.Data.droneCount - 1));
     }
 }

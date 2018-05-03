@@ -1,0 +1,15 @@
+package improbable.controller;
+
+import "improbable/vector3.schema";
+
+type DeliveryRequest {
+  improbable.Vector3f destination = 1;
+}
+
+type DeliveryResponse {}
+
+component DeliveryHandler {
+  id = 1201;
+
+  command DeliveryResponse request_delivery(DeliveryRequest);
+}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Improbable;
 
 namespace Assets.Gamelogic.Core
 {
@@ -22,6 +23,13 @@ namespace Assets.Gamelogic.Core
         public static int DroneETAConstant = 3;
 
         // DRONE CONSTANTS END //
+
+        // SCHEDULER CONSTANTS START //
+
+        public static EntityId SchedulerEntityId = new EntityId(1);
+
+        // SCHEDULER CONSTANTS END //
+
 
         // GLOBAL LAYER START //
 
