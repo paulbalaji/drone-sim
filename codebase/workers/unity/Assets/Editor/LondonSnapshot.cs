@@ -11,7 +11,7 @@ namespace Assets.Editor
 {
     public class LondonSnapshot : MonoBehaviour
     {
-        [MenuItem("Improbable/Snapshots/LondonLarge")]
+        [MenuItem("Drone Sim/London Snapshot Large")]
         private static void LondonLarge()
         {
             float maxX = 15750; //routable width is 31500m

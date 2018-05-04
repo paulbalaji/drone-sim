@@ -2,11 +2,12 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections;
 using System.IO;
+using System.Text;
 using Assets.Gamelogic.Core;
 
 public class ControllerAnalyser: MonoBehaviour
 {
-    [MenuItem("Improbable/Controller Analysis")]
+    [MenuItem("Drone Sim/Controller Analysis")]
     private static void AnalyseControllers()
     {
         int x = 15750; //31500m
@@ -59,5 +60,36 @@ public class ControllerAnalyser: MonoBehaviour
         File.WriteAllBytes(filepath, bytes);
 
         Debug.Log("Successfully generated image at " + filepath);
+
+
+    }
+
+    [MenuItem("Drone Sim/Generate Points of Interest")]
+    private static void GeneratePointsOfInterest()
+    {
+        string filepath = Application.dataPath + "/../../../Points_Of_Interest.txt";
+
+        StringBuilder stringBuilder = new StringBuilder("[");
+
+        ControllerBehaviour[] controllerScripts = FindObjectsOfType<ControllerBehaviour>();
+        AppendPoint(stringBuilder, controllerScripts[0].gameObject.transform.position);
+        for (int i = 1; i < controllerScripts.Length; i++)
+        {
+            stringBuilder.Append(",");
+            AppendPoint(stringBuilder, controllerScripts[i].gameObject.transform.position);
+        }
+
+        stringBuilder.Append("]");
+
+        StreamWriter writer = new StreamWriter(filepath, false);
+        writer.WriteLine(stringBuilder.ToString());
+        writer.Close();
+
+        Debug.Log("Generated file at " + filepath);
+    }
+
+    private static void AppendPoint(StringBuilder stringBuilder, Vector3 point)
+    {
+        stringBuilder.AppendFormat("{{ \"x\": {0}, \"z\": {1} }}", point.x, point.z);
     }
 }
