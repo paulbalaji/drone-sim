@@ -18,16 +18,9 @@ public class RootSpawner : MonoBehaviour
     [Require]
     private Scheduler.Writer SchedulerWriter;
 
-    private int controllerNum;
-
 	void Start()
 	{
         InvokeRepeating("RootSpawnerTick", SimulationSettings.DroneSpawnerSpacing, SimulationSettings.DroneSpawnerSpacing);
-	}
-
-	private void OnEnable()
-	{
-        controllerNum = SchedulerWriter.Data.firstController;
 	}
 
 	void RootSpawnerTick()
@@ -39,13 +32,8 @@ public class RootSpawner : MonoBehaviour
             PositionWriter,
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
             new DeliveryRequest(deliveryDestination),
-            new EntityId(controllerNum++)
+            closestController
         );
-
-        if (controllerNum > SchedulerWriter.Data.lastController)
-        {
-            controllerNum = SchedulerWriter.Data.firstController;
-        }
     }
 
     private EntityId GetClosestController(Vector3f destination)
