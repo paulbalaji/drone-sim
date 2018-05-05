@@ -77,8 +77,8 @@ public class RootSpawner : MonoBehaviour
 
         do
         {
-            point.x = UnityEngine.Random.Range(-squareSize, squareSize);
-            point.z = UnityEngine.Random.Range(-squareSize, squareSize);
+            point.x = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxX);
+            point.z = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxZ);
         } while (!ValidPoint(ref point));
 
         return point;

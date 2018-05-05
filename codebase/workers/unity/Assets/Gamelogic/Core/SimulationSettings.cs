@@ -8,6 +8,9 @@ namespace Assets.Gamelogic.Core
         public static readonly float numDrones = 20;
         public static readonly float squareSize = 400;
 
+        public static readonly float maxX = 15750; //31500m width
+        public static readonly float maxZ = 7000; //14000m height
+
         // DRONE CONSTANTS START //
 
         public const float DroneUpdateInterval = 0.5F;

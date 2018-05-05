@@ -15,8 +15,8 @@ namespace Assets.Editor
         [MenuItem("Drone Sim/London Snapshot Large")]
         private static void LondonLarge()
         {
-            float maxX = 15750; //routable width is 31500m
-            float maxZ = 7000; //routable height is 14000m
+            float maxX = SimulationSettings.maxX; //routable width is 31500m
+            float maxZ = SimulationSettings.maxZ; //routable height is 14000m
 
             var snapshotEntities = new Dictionary<EntityId, Entity>();
             var currentEntityId = 2; //reserve id 1 for the scheduler
