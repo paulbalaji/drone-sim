@@ -1,8 +1,19 @@
 package improbable.scheduler;
+
+import "improbable/vector3.schema";
+import "improbable/controller/GlobalLayer.schema";
  
+type ControllerInfo {
+	EntityId controller_id = 1;
+	improbable.Vector3f location = 2;
+}
+
 component Scheduler {
   id = 1206;
 
   int32 first_controller = 1;
   int32 last_controller = 2;
+
+  list<improbable.controller.NoFlyZone> zones = 3;
+  list<ControllerInfo> controllers = 4;
 }

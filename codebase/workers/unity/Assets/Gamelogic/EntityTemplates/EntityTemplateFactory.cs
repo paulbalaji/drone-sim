@@ -126,7 +126,7 @@ public class EntityTemplateFactory : MonoBehaviour
         return droneTemplate;
     }
 
-    public static Entity CreateSchedulerTemplate(Vector3 spawnPoint, int firstController, int lastController)
+    public static Entity CreateSchedulerTemplate(Vector3 spawnPoint, int firstController, int lastController, List<Improbable.Controller.NoFlyZone> nfzs, List<ControllerInfo> controllers)
     {
         var schedulerTemplate = EntityBuilder.Begin()
             .AddPositionComponent(spawnPoint, CommonRequirementSets.PhysicsOnly)
@@ -134,7 +134,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new Scheduler.Data(firstController, lastController), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new Scheduler.Data(firstController, lastController, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return schedulerTemplate;

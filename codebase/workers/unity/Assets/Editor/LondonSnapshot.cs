@@ -2,6 +2,7 @@ using Assets.Gamelogic.Core;
 using Improbable;
 using Improbable.Worker;
 using Improbable.Controller;
+using Improbable.Scheduler;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -21,6 +22,7 @@ namespace Assets.Editor
             var currentEntityId = 2; //reserve id 1 for the scheduler
 
             Improbable.Collections.List<Improbable.Controller.NoFlyZone> noFlyZones = new Improbable.Collections.List<Improbable.Controller.NoFlyZone>();
+            Improbable.Collections.List<ControllerInfo> controllers = new Improbable.Collections.List<ControllerInfo>();
 
             // NO FLY ZONES
             // start creating no fly zones from the editor
@@ -37,10 +39,15 @@ namespace Assets.Editor
             ControllerBehaviour[] controllerScripts = FindObjectsOfType<ControllerBehaviour>();
             foreach (ControllerBehaviour controllerScript in controllerScripts)
             {
+                EntityId controllerId = new EntityId(currentEntityId++);
+                Coordinates controllerPos = controllerScript.gameObject.transform.position.ToCoordinates();
+
+                controllers.Add(new ControllerInfo(controllerId, controllerPos.ToSpatialVector3f()));
+
                 snapshotEntities.Add(
-                    new EntityId(currentEntityId++),
+                    controllerId,
                     EntityTemplateFactory.CreateControllerTemplate(
-                        controllerScript.gameObject.transform.position.ToCoordinates(),
+                        controllerPos,
                         new Vector3f(-maxX, 0, maxZ),
                         new Vector3f(maxX, 0, -maxZ),
                         noFlyZones
@@ -60,7 +67,9 @@ namespace Assets.Editor
                 EntityTemplateFactory.CreateSchedulerTemplate(
                     rootSpawnerScript.gameObject.transform.position,
                     firstController,
-                    lastController
+                    lastController,
+                    noFlyZones,
+                    controllers
                 )
             );
             // end scheduler placement
