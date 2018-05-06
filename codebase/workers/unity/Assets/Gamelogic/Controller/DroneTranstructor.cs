@@ -26,7 +26,7 @@ public class DroneTranstructor : MonoBehaviour
     {
         EntityId entityId = response.CreatedEntityId;
 
-        Debug.LogWarning("DRONE COUNT FOR CONTROLLER #" + gameObject.EntityId().ToString() + ": " + ControllerWriter.Data.droneMap.Keys.Count);
+        //Debug.LogWarning("DRONE COUNT FOR CONTROLLER #" + gameObject.EntityId().ToString() + ": " + ControllerWriter.Data.droneMap.Keys.Count);
     }
 
     public void DestroyDrone(EntityId entityId)

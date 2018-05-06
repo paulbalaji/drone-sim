@@ -122,7 +122,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-        Debug.LogFormat("METRICS Controller_{0} Completed_Deliveries {1}", gameObject.EntityId().Id, completedDeliveries);
+        Debug.LogFormat("METRICS Controller_{0} Completed_Deliveries {1} Linked_Drones {2}", gameObject.EntityId().Id, completedDeliveries, droneMap.Count);
     }
 
     void DroneDeliveryComplete(EntityId droneId, DroneInfo droneInfo)
