@@ -57,7 +57,7 @@ namespace Assets.Editor
             // controller placement complete
 
             // make nfz nodes show up on the inspector map
-            currentEntityId = ShowNoFlyZones(noFlyZones, snapshotEntities, currentEntityId);
+            //currentEntityId = ShowNoFlyZones(noFlyZones, snapshotEntities, currentEntityId);
 
             // SCHEDULER 
             // find and place scheduler

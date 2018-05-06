@@ -62,7 +62,7 @@ public class RootSpawner : MonoBehaviour
 
     void PrintMetrics()
     {
-        Debug.LogFormat("METRICS Scheduler_{0} Deliveries_Requested {1}", gameObject.EntityId().Id, deliveriesRequested);
+        Debug.LogWarningFormat("METRICS Scheduler_{0} Deliveries_Requested {1}", gameObject.EntityId().Id, deliveriesRequested);
     }
 
     private EntityId GetClosestController(Vector3f destination)
