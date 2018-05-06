@@ -1,0 +1,7 @@
+package improbable.metrics;
+
+component SchedulerMetrics {
+	id = 1401;
+
+	int32 deliveries_requested = 1;
+}

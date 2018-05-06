@@ -3,6 +3,7 @@ using Improbable;
 using Improbable.Drone;
 using Improbable.Controller;
 using Improbable.Scheduler;
+using Improbable.Metrics;
 using Improbable.Unity;
 using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
@@ -18,9 +19,20 @@ public class RootSpawner : MonoBehaviour
     [Require]
     private Scheduler.Writer SchedulerWriter;
 
+    [Require]
+    private SchedulerMetrics.Writer MetricsWriter;
+
+    int deliveriesRequested;
+
 	void Start()
 	{
         InvokeRepeating("RootSpawnerTick", SimulationSettings.DroneSpawnerSpacing, SimulationSettings.DroneSpawnerSpacing);
+        InvokeRepeating("PrintMetrics", SimulationSettings.SchedulerMetricsInterval, SimulationSettings.SchedulerMetricsInterval);
+	}
+
+	private void OnEnable()
+	{
+        deliveriesRequested = MetricsWriter.Data.deliveriesRequested;
 	}
 
 	void RootSpawnerTick()
@@ -32,8 +44,25 @@ public class RootSpawner : MonoBehaviour
             PositionWriter,
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
             new DeliveryRequest(deliveryDestination),
-            closestController
-        );
+            closestController)
+                 .OnSuccess(HandleCommandSuccessCallback);
+    }
+
+    void HandleCommandSuccessCallback(DeliveryResponse response)
+    {
+        deliveriesRequested++;
+        SendMetrics();
+        //PrintMetrics();
+    }
+
+    void SendMetrics()
+    {
+        MetricsWriter.Send(new SchedulerMetrics.Update().SetDeliveriesRequested(deliveriesRequested));
+    }
+
+    void PrintMetrics()
+    {
+        Debug.LogFormat("METRICS Scheduler_{0} Deliveries_Requested {1}", gameObject.EntityId().Id, deliveriesRequested);
     }
 
     private EntityId GetClosestController(Vector3f destination)

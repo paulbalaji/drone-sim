@@ -2,6 +2,7 @@
 using Improbable;
 using Improbable.Drone;
 using Improbable.Controller;
+using Improbable.Metrics;
 using Improbable.Unity;
 using Improbable.Unity.Core;
 using Improbable.Unity.Visualizer;
@@ -15,6 +16,9 @@ public class ControllerBehaviour : MonoBehaviour
     [Require]
     private Controller.Writer ControllerWriter;
 
+    [Require]
+    private ControllerMetrics.Writer MetricsWriter;
+
     private float nextActionTime = 0.0f;
 
     DroneTranstructor droneTranstructor;
@@ -26,11 +30,13 @@ public class ControllerBehaviour : MonoBehaviour
     Queue<TargetRequest> queue;
 
     bool stopSpawning = false;
+    int completedDeliveries;
 
     private void OnEnable()
     {
         droneMap = ControllerWriter.Data.droneMap;
         queue = new Queue<TargetRequest>(ControllerWriter.Data.requestQueue);
+        completedDeliveries = MetricsWriter.Data.completedDeliveries;
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(EnqueueTargetRequest);
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
@@ -39,6 +45,7 @@ public class ControllerBehaviour : MonoBehaviour
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
 
         InvokeRepeating("ControllerTick", SimulationSettings.ControllerUpdateInterval, SimulationSettings.ControllerUpdateInterval);
+        InvokeRepeating("PrintMetrics", SimulationSettings.ControllerMetricsInterval, SimulationSettings.ControllerMetricsInterval);
     }
 
     private void OnDisable()
@@ -108,10 +115,24 @@ public class ControllerBehaviour : MonoBehaviour
         Debug.LogError("Unable to give drone new target");
     }
 
+    void SendMetrics()
+    {
+        MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(completedDeliveries));
+    }
+
+    void PrintMetrics()
+    {
+        Debug.LogFormat("METRICS Controller_{0} Completed_Deliveries {1}", gameObject.EntityId().Id, completedDeliveries);
+    }
+
     void DroneDeliveryComplete(EntityId droneId, DroneInfo droneInfo)
     {
         if (droneInfo.returning)
         {
+            completedDeliveries++;
+            SendMetrics();
+            //PrintMetrics();
+
             DestroyDrone(droneId);
         }
         else

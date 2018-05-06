@@ -1,0 +1,7 @@
+package improbable.metrics;
+
+component ControllerMetrics {
+	id = 1400;
+
+	int32 completed_deliveries = 1;
+}

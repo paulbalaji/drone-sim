@@ -11,6 +11,13 @@ namespace Assets.Gamelogic.Core
         public static readonly float maxX = 15750; //31500m width
         public static readonly float maxZ = 7000; //14000m height
 
+        // METRICS START //
+
+        public static readonly float SchedulerMetricsInterval = 60f;
+        public static readonly float ControllerMetricsInterval = 60f;
+
+        // METRICS END //
+
         // DRONE CONSTANTS START //
 
         public const float DroneUpdateInterval = 0.5F;
