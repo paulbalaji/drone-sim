@@ -4,4 +4,5 @@ component ControllerMetrics {
 	id = 1400;
 
 	int32 completed_deliveries = 1;
+	int32 collisions_reported = 2;
 }

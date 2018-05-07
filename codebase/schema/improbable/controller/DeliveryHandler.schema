@@ -11,5 +11,7 @@ type DeliveryResponse {}
 component DeliveryHandler {
   id = 1201;
 
+  list<DeliveryRequest> request_queue = 1;
+
   command DeliveryResponse request_delivery(DeliveryRequest);
 }

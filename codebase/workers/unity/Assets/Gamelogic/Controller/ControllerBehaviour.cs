@@ -31,6 +31,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     bool stopSpawning = false;
     int completedDeliveries;
+    int collisionsReported;
 
     float nextScheduleTime = 0;
 
@@ -72,6 +73,8 @@ public class ControllerBehaviour : MonoBehaviour
     void HandleCollision(Improbable.Entity.Component.ResponseHandle<Controller.Commands.Collision, CollisionRequest, CollisionResponse> handle)
     {
         handle.Respond(new CollisionResponse());
+
+        collisionsReported++;
 
         DestroyDrone(handle.Request.droneId);
         DestroyDrone(handle.Request.colliderId);
@@ -124,7 +127,11 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-        Debug.LogWarningFormat("METRICS Controller_{0} Completed_Deliveries {1} Linked_Drones {2}", gameObject.EntityId().Id, completedDeliveries, droneMap.Count);
+        Debug.LogWarningFormat("METRICS Controller_{0} Completed_Deliveries {1} Linked_Drones {2} Collisions_Reported {3}"
+                               , gameObject.EntityId().Id
+                               , completedDeliveries
+                               , droneMap.Count
+                               , collisionsReported);
     }
 
     void DroneDeliveryComplete(EntityId droneId, DroneInfo droneInfo)
@@ -237,8 +244,6 @@ public class ControllerBehaviour : MonoBehaviour
         //don't need to do anything if no requests in the queue
         if (queue.Count > 0 && Time.time > nextScheduleTime)
         {
-            nextScheduleTime = Time.time + SimulationSettings.ControllerWaitTime;
-
             //Debug.LogWarning("handling target request");
             HandleTargetRequest(queue.Dequeue());
             UpdateRequestQueue();

@@ -20,11 +20,20 @@ public class DeliveryRequestHandler : MonoBehaviour
 
     DroneTranstructor droneTranstructor;
 
-    private void OnEnable()
+    Queue<DeliveryRequest> queue;
+
+	private void Start()
+	{
+        InvokeRepeating("DeliveryHandlerTick", SimulationSettings.RequestHandlerInterval, SimulationSettings.RequestHandlerInterval);
+	}
+
+	private void OnEnable()
     {
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
 
-        DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.RegisterAsyncResponse(HandleDeliveryRequest);
+        queue = new Queue<DeliveryRequest>(DeliveryHandlerWriter.Data.requestQueue);
+
+        DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.RegisterAsyncResponse(EnqueueDeliveryRequest);
 
         UnityEngine.Random.InitState((int) gameObject.EntityId().Id);
     }
@@ -34,16 +43,29 @@ public class DeliveryRequestHandler : MonoBehaviour
         DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.DeregisterResponse();
 	}
 
-	void HandleDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
+    void UpdateRequestQueue()
+    {
+        DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(new Improbable.Collections.List<DeliveryRequest>(queue.ToArray())));
+    }
+
+	void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
     {
         handle.Respond(new DeliveryResponse());
+        queue.Enqueue(handle.Request);
+    }
 
+    void DeliveryHandlerTick()
+    {
         if (ControllerWriter.Data.initialised)
         {
-            droneTranstructor.CreateDrone(
-                transform.position.ToCoordinates(),
-                handle.Request.destination,
-                SimulationSettings.MaxDroneSpeed);
+            if (queue.Count > 0)
+            {
+                DeliveryRequest request = queue.Dequeue();
+                droneTranstructor.CreateDrone(
+                    transform.position.ToCoordinates(),
+                    request.destination,
+                    SimulationSettings.MaxDroneSpeed);
+            }
         }
     }
 }
