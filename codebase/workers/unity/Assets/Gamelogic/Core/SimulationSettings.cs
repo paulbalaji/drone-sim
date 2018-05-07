@@ -37,6 +37,7 @@ namespace Assets.Gamelogic.Core
         // SCHEDULER CONSTANTS START //
 
         public static EntityId SchedulerEntityId = new EntityId(1);
+        public static readonly float SchedulerInterval = 5f;
 
         // SCHEDULER CONSTANTS END //
 

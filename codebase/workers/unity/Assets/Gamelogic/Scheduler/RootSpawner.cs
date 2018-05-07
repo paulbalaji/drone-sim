@@ -104,11 +104,13 @@ public class RootSpawner : MonoBehaviour
         float randX, randZ;
         Vector3f point = new Vector3f();
 
+        int tryCount = 0;
         do
         {
             point.x = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxX);
             point.z = UnityEngine.Random.Range(-SimulationSettings.maxZ, SimulationSettings.maxZ);
-        } while (!ValidPoint(ref point));
+            tryCount++;
+        } while (tryCount < 10 || !ValidPoint(ref point));
 
         return point;
     }
