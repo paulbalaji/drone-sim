@@ -11,6 +11,10 @@ namespace Assets.Gamelogic.Core
         public static readonly float maxX = 15750; //31500m width
         public static readonly float maxZ = 7000; //14000m height
 
+        //profiling, comment out when not used
+        //public static readonly float maxX = 400; //31500m width
+        //public static readonly float maxZ = 400; //14000m height
+
         // METRICS START //
 
         public static readonly float SchedulerMetricsInterval = 60f;
@@ -45,6 +49,7 @@ namespace Assets.Gamelogic.Core
         // GLOBAL LAYER START //
 
         public static readonly float ControllerUpdateInterval = 0.2f;
+        public static readonly float ControllerWaitTime = 10f;
         public static readonly float DroneSpawnerSpacing = 2f;
         public static readonly float DroneSpawnInterval = DroneSpawnerSpacing * ControllerCount;
 

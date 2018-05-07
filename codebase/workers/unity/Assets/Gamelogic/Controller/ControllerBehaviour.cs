@@ -32,6 +32,8 @@ public class ControllerBehaviour : MonoBehaviour
     bool stopSpawning = false;
     int completedDeliveries;
 
+    float nextScheduleTime = 0;
+
     private void OnEnable()
     {
         droneMap = ControllerWriter.Data.droneMap;
@@ -233,8 +235,10 @@ public class ControllerBehaviour : MonoBehaviour
         }
 
         //don't need to do anything if no requests in the queue
-        if (queue.Count > 0)
+        if (queue.Count > 0 && Time.time > nextScheduleTime)
         {
+            nextScheduleTime = Time.time + SimulationSettings.ControllerWaitTime;
+
             //Debug.LogWarning("handling target request");
             HandleTargetRequest(queue.Dequeue());
             UpdateRequestQueue();

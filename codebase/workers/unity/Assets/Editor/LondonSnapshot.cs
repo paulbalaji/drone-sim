@@ -12,6 +12,53 @@ namespace Assets.Editor
 {
     public class LondonSnapshot : MonoBehaviour
     {
+
+        [MenuItem("Drone Sim/Profiling Snapshot")]
+        private static void ProfilingSnapshot()
+        {
+            float maxX = 400;
+            float maxZ = 400;
+
+            var snapshotEntities = new Dictionary<EntityId, Entity>();
+            var currentEntityId = 2; //reserve id 1 for the scheduler
+
+            Improbable.Collections.List<Improbable.Controller.NoFlyZone> noFlyZones = new Improbable.Collections.List<Improbable.Controller.NoFlyZone>();
+            Improbable.Collections.List<ControllerInfo> controllers = new Improbable.Collections.List<ControllerInfo>();
+
+            // CONTROLLERS
+            int firstController = currentEntityId;
+            EntityId controllerId = new EntityId(currentEntityId++);
+            Coordinates controllerPos = new Coordinates(100, 0, 100);
+            controllers.Add(new ControllerInfo(controllerId, controllerPos.ToSpatialVector3f()));
+            snapshotEntities.Add(
+                controllerId,
+                EntityTemplateFactory.CreateControllerTemplate(
+                    controllerPos,
+                    new Vector3f(-maxX, 0, maxZ),
+                    new Vector3f(maxX, 0, -maxZ),
+                    noFlyZones
+            ));
+            int lastController = currentEntityId;
+            // controller placement complete
+
+            // SCHEDULER 
+            // find and place scheduler
+            RootSpawner rootSpawnerScript = FindObjectOfType<RootSpawner>();
+            snapshotEntities.Add(
+                SimulationSettings.SchedulerEntityId,
+                EntityTemplateFactory.CreateSchedulerTemplate(
+                    new Vector3(0, 0, 0),
+                    firstController,
+                    lastController,
+                    noFlyZones,
+                    controllers
+                )
+            );
+            // end scheduler placement
+
+            SnapshotMenu.SaveSnapshot(snapshotEntities, "profiling");
+        }
+
         [MenuItem("Drone Sim/London Snapshot Large")]
         private static void LondonLarge()
         {

@@ -38,6 +38,11 @@ public class RootSpawner : MonoBehaviour
 	void RootSpawnerTick()
     {
         Vector3f deliveryDestination = GetNonNFZPoint();
+        if (deliveryDestination.y < 0)
+        {
+            return;
+        }
+
         EntityId closestController = GetClosestController(deliveryDestination);
 
         SpatialOS.Commands.SendCommand(
@@ -99,18 +104,23 @@ public class RootSpawner : MonoBehaviour
 
     private Vector3f GetNonNFZPoint()
     {
-        var squareSize = SimulationSettings.squareSize;
-
         float randX, randZ;
         Vector3f point = new Vector3f();
-
         int tryCount = 0;
+        bool validPoint = false;
+
         do
         {
             point.x = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxX);
             point.z = UnityEngine.Random.Range(-SimulationSettings.maxZ, SimulationSettings.maxZ);
             tryCount++;
-        } while (tryCount < 10 || !ValidPoint(ref point));
+            validPoint = ValidPoint(ref point);
+        } while (tryCount < 10 || !validPoint);
+
+        if (!validPoint)
+        {
+            return new Vector3f(0, -1, 0);
+        }
 
         return point;
     }
