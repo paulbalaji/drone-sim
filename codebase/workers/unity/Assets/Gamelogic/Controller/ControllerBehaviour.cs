@@ -90,16 +90,19 @@ public class ControllerBehaviour : MonoBehaviour
             {
                 if (!DroneDeliveryComplete(handle.Request.droneId, droneInfo))
                 {
+                    //once DroneDeliveryComplete finishes running, we need to use the latest droneInfo
+                    droneMap.TryGetValue(handle.Request.droneId, out droneInfo);
                     handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
                     IncrementNextWaypoint(handle.Request.droneId);
                 } else {
                     UnsuccessfulTargetRequest(handle);
                 }
-                return;
             }
-
-            handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
-            IncrementNextWaypoint(handle.Request.droneId);
+            else
+            {
+                handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
+                IncrementNextWaypoint(handle.Request.droneId);
+            }
         }
         else
         {
@@ -270,7 +273,9 @@ public class ControllerBehaviour : MonoBehaviour
         }
 
         //don't need to do anything if no requests in the queue
-        if (deliveryRequestQueue.Count > 0 && Time.time > nextSpawnTime)
+        if (deliveryRequestQueue.Count > 0
+            && droneMap.Count < ControllerWriter.Data.maxDroneCount 
+            && Time.time > nextSpawnTime)
         {
             HandleDeliveryRequest(deliveryRequestQueue.Dequeue());
             UpdateDeliveryRequestQueue();
