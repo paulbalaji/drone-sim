@@ -30,6 +30,7 @@ namespace Assets.Gamelogic.Core
 
         public static readonly Vector3f ControllerArrivalOffset = new Vector3f(-75, 0, 75);
         public static readonly Vector3f ControllerDepartureOffset = new Vector3f(75, 0, -75);
+        public static readonly Vector3f ControllerRunwayDelta = ControllerDepartureOffset - ControllerArrivalOffset;
 
         // CONTROLLER END //
 
