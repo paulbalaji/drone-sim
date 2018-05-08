@@ -79,7 +79,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new Controller.Data(SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DroneInfo>(), false, topLeft, bottomRight, new List<TargetRequest>()), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new Controller.Data(SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DroneInfo>(), false, topLeft, bottomRight), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
@@ -98,21 +98,7 @@ public class EntityTemplateFactory : MonoBehaviour
             nfzs.Add(NFZ_Templates.GetNoFlyZone(template));
         }
 
-        var controllerTemplate = EntityBuilder.Begin()
-            .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
-            .AddMetadataComponent(entityType: SimulationSettings.ControllerPrefabName)
-            .SetPersistence(true)
-            .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
-            .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new Controller.Data(SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DroneInfo>(), false, topLeft, bottomRight, new List<TargetRequest>()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new DeliveryHandler.Data(new List<DeliveryRequest>()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new ControllerMetrics.Data(0, 0), CommonRequirementSets.PhysicsOnly)
-            .Build();
-
-        return controllerTemplate;
+        return CreateControllerTemplate(spawnPoint, topLeft, bottomRight, nfzs);
     }
 
     public static Entity CreateDroneTemplate(Improbable.Coordinates spawnPoint, Vector3f initialTarget, EntityId controller, float droneSpeed = SimulationSettings.MaxDroneSpeed)
@@ -123,7 +109,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new DroneData.Data(initialTarget, Mathf.Min(SimulationSettings.MaxDroneSpeed, droneSpeed), new Vector3f(), TargetPending.REQUEST, DroneStatus.JUST_SPAWNED, new Vector3f(0, -1, 0), controller), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new DroneData.Data(initialTarget, Mathf.Min(SimulationSettings.MaxDroneSpeed, droneSpeed), new Vector3f(), TargetPending.REQUEST, DroneStatus.MOVE, new Vector3f(0, -1, 0), controller), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return droneTemplate;

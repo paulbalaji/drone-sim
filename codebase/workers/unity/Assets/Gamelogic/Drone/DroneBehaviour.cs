@@ -33,9 +33,6 @@ public class DroneBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        //register command
-        DroneDataWriter.CommandReceiver.OnReceiveNewTarget.RegisterAsyncResponse(ReceivedNewTarget);
-
         //register for direction/speed updates
         DroneDataWriter.TargetUpdated.Add(OnTargetUpdate);
         DroneDataWriter.DirectionUpdated.Add(OnDirectionUpdate);
@@ -49,15 +46,13 @@ public class DroneBehaviour : MonoBehaviour
 
         simulate = true;
 
+        UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("DroneTick", Random.Range(0, SimulationSettings.DroneUpdateInterval), SimulationSettings.DroneUpdateInterval);
     }
 
     private void OnDisable()
     {
         simulate = false;
-
-        //deregister command
-        DroneDataWriter.CommandReceiver.OnReceiveNewTarget.DeregisterResponse();
 
         //deregister for direction/speed updates
         DroneDataWriter.TargetUpdated.Remove(OnTargetUpdate);
@@ -77,9 +72,10 @@ public class DroneBehaviour : MonoBehaviour
 	{
         if (simulate)
         {
+            SendPositionUpdate();
+
             if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
             {
-                SendPositionUpdate();
                 apf.Recalculate();
             }
 
@@ -110,19 +106,32 @@ public class DroneBehaviour : MonoBehaviour
 
         nextRequestTime = Time.time + SimulationSettings.MaxRequestWaitTime;
 
-        Improbable.Collections.Option<Vector3f> targetRequestDestination = DroneDataWriter.Data.droneStatus == DroneStatus.JUST_SPAWNED
-            ? new Improbable.Collections.Option<Vector3f>(DroneDataWriter.Data.target)
-            : new Improbable.Collections.Option<Vector3f>();
-
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
         SpatialOS.Commands.SendCommand(
             PositionWriter,
             Controller.Commands.RequestNewTarget.Descriptor,
-            new TargetRequest(
-                gameObject.EntityId(),
-                targetRequestDestination),
+            new TargetRequest(gameObject.EntityId()),
             DroneDataWriter.Data.designatedController)
+                 .OnSuccess((response) => requestTargetSuccess(response))
                  .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
+    }
+
+    void requestTargetSuccess(TargetResponse response)
+    {
+        if (!response.success)
+        {
+            requestTargetFailure("Controller failed to pathfind.");
+            return;
+        }
+
+        //Debug.LogWarning("DRONE New Target Received");
+        latestArrivalTime = Time.time + (SimulationSettings.DroneETAConstant * Vector3.Distance(transform.position, response.newTarget.ToUnityVector()) / speed);
+
+        DroneDataWriter.Send(new DroneData.Update()
+                             .SetPreviousTarget(DroneDataWriter.Data.target)
+                             .SetTarget(response.newTarget)
+                             .SetTargetPending(TargetPending.RECEIVED)
+                             .SetDroneStatus(DroneStatus.MOVE));
     }
 
     private void requestTargetFailure(string errorMessage)
@@ -142,25 +151,6 @@ public class DroneBehaviour : MonoBehaviour
     private void SelfDestruct()
     {
         SpatialOS.Commands.DeleteEntity(PositionWriter, transform.gameObject.EntityId());
-    }
-
-    void ReceivedNewTarget(Improbable.Entity.Component.ResponseHandle<DroneData.Commands.ReceiveNewTarget, NewTargetRequest, NewTargetResponse> handle)
-    {
-        handle.Respond(new NewTargetResponse());
-        if (handle.Request.target.y < 0)
-        {
-            requestTargetFailure("Controller failed to pathfind.");
-            return;
-        }
-
-        //Debug.LogWarning("DRONE New Target Received");
-        latestArrivalTime = Time.time + (SimulationSettings.DroneETAConstant * Vector3.Distance(transform.position, handle.Request.target.ToUnityVector()) / speed);
-
-        DroneDataWriter.Send(new DroneData.Update()
-                             .SetPreviousTarget(DroneDataWriter.Data.target)
-                             .SetTarget(handle.Request.target)
-                             .SetTargetPending(TargetPending.RECEIVED)
-                             .SetDroneStatus(DroneStatus.MOVE));
     }
 
     private void SendPositionUpdate()

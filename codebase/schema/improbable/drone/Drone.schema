@@ -16,12 +16,6 @@ enum DroneStatus {
 	DEAD = 4;
 }
 
-type NewTargetRequest {
-	improbable.Vector3f target = 1;
-}
-
-type NewTargetResponse {}
-
 component DroneData {
   id = 1100;
 
@@ -36,6 +30,4 @@ component DroneData {
 
   // controller that drone is currently paired with
   EntityId designated_controller = 7;
-
-  command NewTargetResponse receive_new_target(NewTargetRequest);
 }

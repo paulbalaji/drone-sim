@@ -14,12 +14,16 @@ using UnityEngine;
 public class ControllerBehaviour : MonoBehaviour
 {
     [Require]
+    private Position.Writer PositionWriter;
+
+    [Require]
     private Controller.Writer ControllerWriter;
 
     [Require]
     private ControllerMetrics.Writer MetricsWriter;
 
-    private float nextActionTime = 0.0f;
+    [Require]
+    private DeliveryHandler.Writer DeliveryHandlerWriter;
 
     DroneTranstructor droneTranstructor;
 
@@ -27,26 +31,39 @@ public class ControllerBehaviour : MonoBehaviour
 
     Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
 
-    Queue<TargetRequest> queue;
+    Queue<DeliveryRequest> deliveryRequestQueue;
+
+    Coordinates departuresPoint;
+    Coordinates arrivalsPoint;
 
     bool stopSpawning = false;
     int completedDeliveries;
     int collisionsReported;
 
-    float nextScheduleTime = 0;
+    private float nextSpawnTime = 0;
 
     private void OnEnable()
     {
         droneMap = ControllerWriter.Data.droneMap;
-        queue = new Queue<TargetRequest>(ControllerWriter.Data.requestQueue);
+
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
         collisionsReported = MetricsWriter.Data.collisionsReported;
 
-        ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(EnqueueTargetRequest);
+        departuresPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerDepartureOffset;
+        arrivalsPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerArrivalOffset;
+
+        deliveryRequestQueue = new Queue<DeliveryRequest>(DeliveryHandlerWriter.Data.requestQueue);
+
+        ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(HandleTargetRequest);
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
+
+        DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.RegisterAsyncResponse(EnqueueDeliveryRequest);
 
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
+
+        UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
+        InvokeRepeating("DeliveryHandlerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
 
         InvokeRepeating("ControllerTick", SimulationSettings.ControllerUpdateInterval, SimulationSettings.ControllerUpdateInterval);
         InvokeRepeating("PrintMetrics", SimulationSettings.ControllerMetricsInterval, SimulationSettings.ControllerMetricsInterval);
@@ -56,19 +73,65 @@ public class ControllerBehaviour : MonoBehaviour
     {
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
+
+        DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.DeregisterResponse();
     }
 
-    void EnqueueTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
+    void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
-        //Debug.LogWarning("CONTROLLER New Target Request");
-        handle.Respond(new TargetResponse());
-        queue.Enqueue(handle.Request);
-        UpdateRequestQueue();
+        DroneInfo droneInfo;
+        if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+        {
+            //TODO: need to verify if the drone is actually at its target
+
+            //Debug.LogWarning("is final waypoint?");
+            //final waypoint, figure out if it's back at controller or only just delivered
+            if (droneInfo.nextWaypoint > droneInfo.waypoints.Count)
+            {
+                if (!DroneDeliveryComplete(handle.Request.droneId, droneInfo))
+                {
+                    handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
+                    IncrementNextWaypoint(handle.Request.droneId);
+                } else {
+                    UnsuccessfulTargetRequest(handle);
+                }
+                return;
+            }
+
+            handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
+        }
+
+        UnsuccessfulTargetRequest(handle);
     }
 
-    void UpdateRequestQueue()
+    void UnsuccessfulTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
-        ControllerWriter.Send(new Controller.Update().SetRequestQueue(new Improbable.Collections.List<TargetRequest>(queue.ToArray())));
+        handle.Respond(new TargetResponse(new Vector3f(), false));
+    }
+
+    void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
+    {
+        handle.Respond(new DeliveryResponse());
+        deliveryRequestQueue.Enqueue(handle.Request);
+    }
+
+    void UpdateDeliveryRequestQueue()
+    {
+        DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(new Improbable.Collections.List<DeliveryRequest>(deliveryRequestQueue.ToArray())));
+    }
+
+    void SendMetrics()
+    {
+        MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(completedDeliveries));
+    }
+
+    void PrintMetrics()
+    {
+        Debug.LogWarningFormat("METRICS Controller_{0} Completed_Deliveries {1} Linked_Drones {2} Collisions_Reported {3}"
+                               , gameObject.EntityId().Id
+                               , completedDeliveries
+                               , droneMap.Count
+                               , collisionsReported);
     }
 
     void HandleCollision(Improbable.Entity.Component.ResponseHandle<Controller.Commands.Collision, CollisionRequest, CollisionResponse> handle)
@@ -93,49 +156,14 @@ public class ControllerBehaviour : MonoBehaviour
         ControllerWriter.Send(new Controller.Update().SetDroneMap(droneMap));
     }
 
-    void NextWaypointRequest(EntityId droneId, DroneInfo droneInfo)
-    {
-        //TODO: need to verify if the drone is actually at its target
 
-        //Debug.LogWarning("is final waypoint?");
-        //not final waypoint, get next waypoint
-        if (droneInfo.waypoints.Count > droneInfo.nextWaypoint)
-        {
-            //Debug.LogWarning("send next waypoint back!");
-            //SEND BACK 
-            SpatialOS.Commands.SendCommand(
-                ControllerWriter,
-                DroneData.Commands.ReceiveNewTarget.Descriptor,
-                new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
-                droneId)
-                     .OnSuccess((response) => IncrementNextWaypoint(droneId, droneInfo))
-                     .OnFailure((response) => TargetReplyFailure(response));
-            return;
-        }
-
-        DroneDeliveryComplete(droneId, droneInfo);
-    }
 
     void TargetReplyFailure(ICommandErrorDetails errorDetails)
     {
         Debug.LogError("Unable to give drone new target");
     }
 
-    void SendMetrics()
-    {
-        MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(completedDeliveries));
-    }
-
-    void PrintMetrics()
-    {
-        Debug.LogWarningFormat("METRICS Controller_{0} Completed_Deliveries {1} Linked_Drones {2} Collisions_Reported {3}"
-                               , gameObject.EntityId().Id
-                               , completedDeliveries
-                               , droneMap.Count
-                               , collisionsReported);
-    }
-
-    void DroneDeliveryComplete(EntityId droneId, DroneInfo droneInfo)
+    private bool DroneDeliveryComplete(EntityId droneId, DroneInfo droneInfo)
     {
         if (droneInfo.returning)
         {
@@ -144,38 +172,32 @@ public class ControllerBehaviour : MonoBehaviour
             //PrintMetrics();
 
             DestroyDrone(droneId);
+            return true;
         }
-        else
-        {
-            droneInfo.returning = true;
-            droneInfo.waypoints.Reverse();
-            droneInfo.nextWaypoint = 0;
 
-            droneMap.Remove(droneId);
-            droneMap.Add(droneId, droneInfo);
-            UpdateDroneMap();
+        droneInfo.returning = true;
+        droneInfo.waypoints.Reverse();
+        droneInfo.nextWaypoint = 1;
 
-            SpatialOS.Commands.SendCommand(
-                ControllerWriter,
-                DroneData.Commands.ReceiveNewTarget.Descriptor,
-                new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
-                droneId)
-                    .OnSuccess((response) => IncrementNextWaypoint(droneId, droneInfo))
-                    .OnFailure((response) => Debug.LogError("Unable to tell drone to return."));
-        }
+        droneMap.Remove(droneId);
+        droneMap.Add(droneId, droneInfo);
+        UpdateDroneMap();
+
+        return false;
     }
 
     void UnableToDeliver(EntityId droneId)
     {
-        //something went wrong so signal that back to drone!
-        SpatialOS.Commands.SendCommand(
-            ControllerWriter,
-            DroneData.Commands.ReceiveNewTarget.Descriptor,
-            new NewTargetRequest(new Vector3f(0, -1, 0)),
-            droneId)
-                 .OnFailure((response) => Debug.LogError("Unable to tell drone pathfinding failed."));
-
         // will also need to let scheduler know that pathfinding failed and that job needs to be given to another controller
+    }
+
+    private void IncrementNextWaypoint(EntityId droneId)
+    {
+        DroneInfo droneInfo;
+        if(droneMap.TryGetValue(droneId, out droneInfo))
+        {
+            IncrementNextWaypoint(droneId, droneInfo);
+        }
     }
 
     private void IncrementNextWaypoint(EntityId droneId, DroneInfo droneInfo)
@@ -186,49 +208,51 @@ public class ControllerBehaviour : MonoBehaviour
         UpdateDroneMap();
     }
 
-    void HandleTargetRequest(TargetRequest request)
+    void DroneDeploymentSuccess(EntityId droneId, DroneInfo droneInfo)
+    {
+        droneInfo.nextWaypoint++;
+        droneMap.Add(droneId, droneInfo);
+        UpdateDroneMap();
+
+        nextSpawnTime = Time.time + SimulationSettings.DroneSpawnInterval;
+    }
+
+    void DroneDeploymentFailure()
+    {
+        // tell scheduler that the job couldn't be done
+    }
+
+    void HandleDeliveryRequest(DeliveryRequest request)
     {
         DroneInfo droneInfo;
-        Vector3f nextTarget;
 
-        //Debug.LogWarning("try get val");
-        if (droneMap.TryGetValue(request.droneId, out droneInfo))
+        //Debug.LogWarning("point to point plan");
+        //for new flight plan
+        droneInfo.nextWaypoint = 1;
+        droneInfo.returning = false;
+        droneInfo.waypoints = globalLayer.generatePointToPointPlan(
+            transform.position.ToSpatialVector3f(),
+            request.destination);
+
+        //Debug.LogWarning("null check");
+        if (droneInfo.waypoints == null)
         {
-            NextWaypointRequest(request.droneId, droneInfo);
+            // let scheduler know that this job can't be done
+            DroneDeploymentFailure();
             return;
         }
 
-        if (request.destination.HasValue)
-        {
-            //Debug.LogWarning("point to point plan");
-            //for new flight plan
-            droneInfo.nextWaypoint = 0;
-            droneInfo.returning = false;
-            droneInfo.waypoints = globalLayer.generatePointToPointPlan(
-                transform.position.ToSpatialVector3f(),
-                request.destination.Value);
-
-            //Debug.LogWarning("null check");
-            if (droneInfo.waypoints == null)
-            {
-                UnableToDeliver(request.droneId);
-                return;
-            }
-
-            droneMap.Add(request.droneId, droneInfo);
-            UpdateDroneMap();
-
-            //Debug.LogWarning("send first waypoint!");
-            //SEND BACK 
-            SpatialOS.Commands.SendCommand(
-                ControllerWriter,
-                DroneData.Commands.ReceiveNewTarget.Descriptor,
-                new NewTargetRequest(droneInfo.waypoints[droneInfo.nextWaypoint]),
-                request.droneId)
-                     .OnSuccess((response) => IncrementNextWaypoint(request.droneId, droneInfo))
-                     .OnFailure((response) => Debug.LogError("Unable to tell drone that pathfinding failed"));
-            return;
-        }
+        //create drone
+        //if successful, add to droneMap
+        //if failure, tell scheduler job couldn't be done
+        var droneTemplate = EntityTemplateFactory.CreateDroneTemplate(
+            departuresPoint,
+            droneInfo.waypoints[droneInfo.nextWaypoint],
+            gameObject.EntityId(),
+            SimulationSettings.MaxDroneSpeed);
+        SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
+                 .OnSuccess((response) => DroneDeploymentSuccess(response.CreatedEntityId, droneInfo))
+                 .OnFailure((response) => DroneDeploymentFailure());
     }
 
     void ControllerTick()
@@ -243,11 +267,10 @@ public class ControllerBehaviour : MonoBehaviour
         }
 
         //don't need to do anything if no requests in the queue
-        if (queue.Count > 0 && Time.time > nextScheduleTime)
+        if (deliveryRequestQueue.Count > 0 && Time.time > nextSpawnTime)
         {
-            //Debug.LogWarning("handling target request");
-            HandleTargetRequest(queue.Dequeue());
-            UpdateRequestQueue();
+            HandleDeliveryRequest(deliveryRequestQueue.Dequeue());
+            UpdateDeliveryRequestQueue();
         }
     }
 }

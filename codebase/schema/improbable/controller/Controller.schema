@@ -4,10 +4,12 @@ import "improbable/vector3.schema";
 
 type TargetRequest {
 	EntityId drone_id = 1;
-	option<improbable.Vector3f> destination = 2;
 }
 
-type TargetResponse {}
+type TargetResponse {
+  improbable.Vector3f new_target = 1;
+  bool success = 2;
+}
 
 type DroneInfo {
 	int32 next_waypoint = 1;
@@ -32,8 +34,6 @@ component Controller {
   bool initialised = 4;
   Vector3f top_left = 5;
   Vector3f bottom_right = 6;
-
-  list<TargetRequest> request_queue = 7;
 
   command TargetResponse request_new_target(TargetRequest);
   command CollisionResponse collision(CollisionRequest);
