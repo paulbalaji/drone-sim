@@ -24,13 +24,13 @@ namespace Assets.Gamelogic.Core
 
         // CONTROLLER START //
 
-        public static readonly float RequestHandlerInterval = 10f;
+        public static readonly float RequestHandlerInterval = 5f;
 
         // CONTROLLER END //
 
         // DRONE CONSTANTS START //
 
-        public const float DroneUpdateInterval = 0.5F;
+        public const float DroneUpdateInterval = 1;
 
         public const float MaxDroneSpeed = 20;
 

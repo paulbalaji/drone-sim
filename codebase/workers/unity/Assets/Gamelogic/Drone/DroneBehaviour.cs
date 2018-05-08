@@ -49,7 +49,7 @@ public class DroneBehaviour : MonoBehaviour
 
         simulate = true;
 
-        InvokeRepeating("DroneTick", SimulationSettings.DroneUpdateInterval, SimulationSettings.DroneUpdateInterval);
+        InvokeRepeating("DroneTick", Random.Range(0, SimulationSettings.DroneUpdateInterval), SimulationSettings.DroneUpdateInterval);
     }
 
     private void OnDisable()

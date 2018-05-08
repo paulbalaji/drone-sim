@@ -24,7 +24,7 @@ public class DeliveryRequestHandler : MonoBehaviour
 
 	private void Start()
 	{
-        InvokeRepeating("DeliveryHandlerTick", SimulationSettings.RequestHandlerInterval, SimulationSettings.RequestHandlerInterval);
+        InvokeRepeating("DeliveryHandlerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
 	}
 
 	private void OnEnable()

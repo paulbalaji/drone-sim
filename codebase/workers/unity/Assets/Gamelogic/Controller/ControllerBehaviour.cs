@@ -40,6 +40,7 @@ public class ControllerBehaviour : MonoBehaviour
         droneMap = ControllerWriter.Data.droneMap;
         queue = new Queue<TargetRequest>(ControllerWriter.Data.requestQueue);
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
+        collisionsReported = MetricsWriter.Data.collisionsReported;
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(EnqueueTargetRequest);
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
