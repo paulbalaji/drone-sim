@@ -99,6 +99,7 @@ public class ControllerBehaviour : MonoBehaviour
             }
 
             handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
+            IncrementNextWaypoint(handle.Request.droneId);
         }
         else
         {
