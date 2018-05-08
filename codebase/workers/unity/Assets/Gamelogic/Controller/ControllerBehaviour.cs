@@ -100,8 +100,10 @@ public class ControllerBehaviour : MonoBehaviour
 
             handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
         }
-
-        UnsuccessfulTargetRequest(handle);
+        else
+        {
+            UnsuccessfulTargetRequest(handle);
+        }
     }
 
     void UnsuccessfulTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
