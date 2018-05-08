@@ -32,6 +32,19 @@ public static class NoFlyZone
         return isInPolygon(nfz, point);
     }
 
+    public static bool hasCollidedWithAny(Improbable.Collections.List<Improbable.Controller.NoFlyZone> zones, Vector3f point)
+    {
+        foreach (Improbable.Controller.NoFlyZone zone in zones)
+        {
+            if (isInPolygon(zone, point))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static void setBoundingBoxCoordinates(ref Improbable.Controller.NoFlyZone nfz)
     {
         Vector3f BoundingBoxBottomLeft = nfz.vertices[0];

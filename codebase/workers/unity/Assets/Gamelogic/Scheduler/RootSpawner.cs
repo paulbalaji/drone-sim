@@ -44,6 +44,10 @@ public class RootSpawner : MonoBehaviour
         }
 
         EntityId closestController = GetClosestController(deliveryDestination);
+        if (closestController.Id < 0)
+        {
+            return;
+        }
 
         SpatialOS.Commands.SendCommand(
             PositionWriter,
@@ -73,12 +77,12 @@ public class RootSpawner : MonoBehaviour
     private EntityId GetClosestController(Vector3f destination)
     {
         Vector3 dst = destination.ToUnityVector();
-        EntityId closestId = new EntityId();
+        EntityId closestId = new EntityId(-1);
         float closest = float.MaxValue;
         foreach (ControllerInfo controller in SchedulerWriter.Data.controllers)
         {
             float distance = Vector3.Distance(dst, controller.location.ToUnityVector());
-            if (distance < closest)
+            if (distance < closest && distance > SimulationSettings.MinimumDeliveryDistance)
             {
                 closest = distance;
                 closestId = controller.controllerId;
@@ -86,20 +90,6 @@ public class RootSpawner : MonoBehaviour
         }
 
         return closestId;
-    }
-
-    bool ValidPoint(ref Vector3f point)
-    {
-        foreach (Improbable.Controller.NoFlyZone zone in SchedulerWriter.Data.zones)
-        {
-            if (NoFlyZone.hasCollidedWith(zone, point))
-            {
-                return false;
-            }
-            
-        }
-
-        return true;
     }
 
     private Vector3f GetNonNFZPoint()
@@ -114,7 +104,7 @@ public class RootSpawner : MonoBehaviour
             point.x = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxX);
             point.z = UnityEngine.Random.Range(-SimulationSettings.maxZ, SimulationSettings.maxZ);
             tryCount++;
-            validPoint = ValidPoint(ref point);
+            validPoint = NoFlyZone.hasCollidedWithAny(SchedulerWriter.Data.zones, point);
         } while (tryCount < 10 || !validPoint);
 
         if (!validPoint)

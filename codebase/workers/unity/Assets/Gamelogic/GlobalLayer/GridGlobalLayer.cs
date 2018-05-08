@@ -136,38 +136,19 @@ public class GridGlobalLayer : MonoBehaviour
 
         ASearch = new ThetaStarSearch(true); // Use AStarSearch or ThetaStarSearch here.
 
-        List<GridLocation> locs = null;
         float droneHeight = UnityEngine.Random.Range(SimulationSettings.MinimumDroneHeight, SimulationSettings.MaximumDroneHeight);
-        if (Vector3.Distance(p1.ToUnityVector(), p2.ToUnityVector()) < SimulationSettings.RoutingShortCircuitThreshold) {
-            //Debug.LogWarning("Global Layer: within short circuit threshold");
-            droneHeight = SimulationSettings.MinimumDroneHeight;
-        } else {
-            locs = ASearch.run(bitmap, l1, l2);
-
-            if (locs == null)
-            { // The case that a path could not be found.
-                Debug.LogError("search fail");
-                return null; // Just return empty list.
-            }
+        List<GridLocation> locs = ASearch.run(bitmap, l1, l2);
+        if (locs == null)
+        { // The case that a path could not be found.
+            Debug.LogError("search fail");
+            return null; // Just return empty list.
         }
 
         //Debug.LogWarning("NUM VERTICES IN PATH: " + locs.Count);
 
         Improbable.Collections.List<Improbable.Vector3f> result = new Improbable.Collections.List<Improbable.Vector3f>();
 
-        // N.B.  As BitMap and A* do not give us Y (height) values,
-        // we gradually step y from p1 to p2 throughout the plan.
-        //float yStep = (p2.y - p1.y) / locs.Count;
-        //float yCurr = p1.y; // starting Y;
-
-        result.Add(new Vector3f(p1.x, droneHeight, p1.z));
-        if (locs == null)
-        {
-            //if locs null at this stage that means start/end in the same 25x25 grid cell
-            //then just make sure penultimate destination is p2 x/z at the required drone height
-            result.Add(new Vector3f(p2.x, droneHeight, p2.z));
-        }
-
+        result.Add(p1 + SimulationSettings.ControllerArrivalOffset);
         foreach (GridLocation l in locs)
         {
             Improbable.Vector3f convertedLocation = convertLocation(l);
@@ -175,8 +156,8 @@ public class GridGlobalLayer : MonoBehaviour
 
             result.Add(location);
         }
-
         result.Add(p2);
+
         return result;
     }
 

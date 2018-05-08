@@ -5,7 +5,7 @@ namespace Assets.Gamelogic.Core
 {
     public static class SimulationSettings
     {
-        public static readonly float numDrones = 20;
+        public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
 
         public static readonly float maxX = 15750; //31500m width
@@ -25,6 +25,11 @@ namespace Assets.Gamelogic.Core
         // CONTROLLER START //
 
         public static readonly float RequestHandlerInterval = 5f;
+
+        public static readonly float MinimumDeliveryDistance = 250;
+
+        public static readonly Vector3f ControllerArrivalOffset = new Vector3f(-75, 0, 75);
+        public static readonly Vector3f ControllerDepartureOffset = new Vector3f(75, 0, -75);
 
         // CONTROLLER END //
 
