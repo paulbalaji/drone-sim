@@ -124,7 +124,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new Scheduler.Data(firstController, lastController, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new SchedulerMetrics.Data(0), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new SchedulerMetrics.Data(0, 0), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return schedulerTemplate;

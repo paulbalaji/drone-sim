@@ -6,9 +6,15 @@ type TargetRequest {
 	EntityId drone_id = 1;
 }
 
+enum TargetResponseCode {
+  SUCCESS = 0;
+  WRONG_CONTROLLER = 1;
+  JOURNEY_COMPLETE = 2;
+}
+
 type TargetResponse {
   improbable.Vector3f new_target = 1;
-  bool success = 2;
+  TargetResponseCode success = 2;
 }
 
 type DroneInfo {

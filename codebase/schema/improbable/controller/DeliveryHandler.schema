@@ -6,7 +6,9 @@ type DeliveryRequest {
   improbable.Vector3f destination = 1;
 }
 
-type DeliveryResponse {}
+type DeliveryResponse {
+	bool success = 1;
+}
 
 component DeliveryHandler {
   id = 1201;

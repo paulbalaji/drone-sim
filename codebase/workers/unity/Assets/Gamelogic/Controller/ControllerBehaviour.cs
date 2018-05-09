@@ -2,6 +2,7 @@
 using Improbable;
 using Improbable.Drone;
 using Improbable.Controller;
+using Improbable.Scheduler;
 using Improbable.Metrics;
 using Improbable.Unity;
 using Improbable.Unity.Core;
@@ -86,55 +87,59 @@ public class ControllerBehaviour : MonoBehaviour
             //final waypoint, figure out if it's back at controller or only just delivered
             if (droneInfo.nextWaypoint < droneInfo.waypoints.Count)
             {
-                handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
+                handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], TargetResponseCode.SUCCESS));
                 IncrementNextWaypoint(handle.Request.droneId);
             }
             else
             {
                 if (droneInfo.returning)
                 {
+                    UnsuccessfulTargetRequest(handle, TargetResponseCode.JOURNEY_COMPLETE);
                     completedDeliveries++;
                     SendMetrics();
                     DestroyDrone(handle.Request.droneId);
+                    UpdateDroneMap();
                 }
                 else
                 {
                     droneInfo.returning = true;
                     droneInfo.waypoints.Reverse();
-                    droneInfo.nextWaypoint = 1;
+                    droneInfo.nextWaypoint = 2;
 
                     droneMap.Remove(handle.Request.droneId);
                     droneMap.Add(handle.Request.droneId, droneInfo);
                     UpdateDroneMap();
 
-                    handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
-                    IncrementNextWaypoint(handle.Request.droneId);
+                    //ignore 0 because that's the point that we've just reached
+                    //saved as 2, but sending 1 back to drone - only 1 spatial update instead of 2 now
+                    handle.Respond(new TargetResponse(droneInfo.waypoints[1], TargetResponseCode.SUCCESS));
                 }
             }
         }
         else
         {
-            UnsuccessfulTargetRequest(handle);
+            UnsuccessfulTargetRequest(handle, TargetResponseCode.WRONG_CONTROLLER);
         }
     }
 
-    void UnsuccessfulTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
+    void UnsuccessfulTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle, TargetResponseCode responseCode)
     {
-        handle.Respond(new TargetResponse(new Vector3f(), false));
+        handle.Respond(new TargetResponse(new Vector3f(), responseCode));
     }
 
     void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
     {
-        handle.Respond(new DeliveryResponse());
+        
 
         if (droneMap.Count >= ControllerWriter.Data.maxDroneCount &&
             deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
-            //tell controller this job can't be done
+            handle.Respond(new DeliveryResponse(false));
         }
         else
         {
             deliveryRequestQueue.Enqueue(handle.Request);
+            handle.Respond(new DeliveryResponse(true));
         }
     }
 
@@ -179,39 +184,9 @@ public class ControllerBehaviour : MonoBehaviour
         ControllerWriter.Send(new Controller.Update().SetDroneMap(droneMap));
     }
 
-
-
     void TargetReplyFailure(ICommandErrorDetails errorDetails)
     {
         Debug.LogError("Unable to give drone new target");
-    }
-
-    private bool DroneDeliveryComplete(EntityId droneId, DroneInfo droneInfo)
-    {
-        if (droneInfo.returning)
-        {
-            completedDeliveries++;
-            SendMetrics();
-            //PrintMetrics();
-
-            DestroyDrone(droneId);
-            return true;
-        }
-
-        droneInfo.returning = true;
-        droneInfo.waypoints.Reverse();
-        droneInfo.nextWaypoint = 1;
-
-        droneMap.Remove(droneId);
-        droneMap.Add(droneId, droneInfo);
-        UpdateDroneMap();
-
-        return false;
-    }
-
-    void UnableToDeliver(EntityId droneId)
-    {
-        // will also need to let scheduler know that pathfinding failed and that job needs to be given to another controller
     }
 
     private void IncrementNextWaypoint(EntityId droneId)
@@ -243,6 +218,11 @@ public class ControllerBehaviour : MonoBehaviour
     void DroneDeploymentFailure()
     {
         // tell scheduler that the job couldn't be done
+        SpatialOS.Commands.SendCommand(
+            PositionWriter,
+            Improbable.Scheduler.Scheduler.Commands.DeliveryFailure.Descriptor,
+            new DeliveryFailureRequest(),
+            SimulationSettings.SchedulerEntityId);
     }
 
     void HandleDeliveryRequest(DeliveryRequest request)

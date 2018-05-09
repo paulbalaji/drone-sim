@@ -8,6 +8,10 @@ type ControllerInfo {
 	improbable.Vector3f location = 2;
 }
 
+type DeliveryFailureRequest {}
+
+type DeliveryFailureResponse {}
+
 component Scheduler {
   id = 1300;
 
@@ -16,4 +20,6 @@ component Scheduler {
 
   list<improbable.controller.NoFlyZone> zones = 3;
   list<ControllerInfo> controllers = 4;
+
+  command DeliveryFailureResponse delivery_failure(DeliveryFailureRequest);
 }

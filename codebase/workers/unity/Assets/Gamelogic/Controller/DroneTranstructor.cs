@@ -36,7 +36,7 @@ public class DroneTranstructor : MonoBehaviour
 
     public void DestroyDrone(EntityId entityId)
     {
-        Debug.LogWarning("Destroying Drone, EntityId: " + entityId);
+        //Debug.LogWarning("Destroying Drone, EntityId: " + entityId);
         SpatialOS.Commands.DeleteEntity(PositionWriter, entityId);
     }
 }

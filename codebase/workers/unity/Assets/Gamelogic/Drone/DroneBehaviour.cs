@@ -94,9 +94,12 @@ public class DroneBehaviour : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-        if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
+        if (simulate)
         {
-            transform.position += direction * DroneDataWriter.Data.speed * Time.fixedDeltaTime;
+            if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
+            {
+                transform.position += direction * DroneDataWriter.Data.speed * Time.fixedDeltaTime;
+            }
         }
 	}
 
@@ -118,9 +121,16 @@ public class DroneBehaviour : MonoBehaviour
 
     void requestTargetSuccess(TargetResponse response)
     {
-        if (!response.success)
+        if (response.success == TargetResponseCode.WRONG_CONTROLLER)
         {
-            requestTargetFailure("Controller failed to pathfind.");
+            requestTargetFailure("Command sent to wrong controller.");
+            return;
+        }
+
+        if (response.success == TargetResponseCode.JOURNEY_COMPLETE)
+        {
+            //Debug.LogWarning("Drone has completed its journey. Shutting Down.");
+            simulate = false;
             return;
         }
 
