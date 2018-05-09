@@ -127,13 +127,14 @@ public class ControllerBehaviour : MonoBehaviour
     {
         handle.Respond(new DeliveryResponse());
 
-        if (deliveryRequestQueue.Count < SimulationSettings.MaxDeliveryRequestQueueSize)
+        if (droneMap.Count >= ControllerWriter.Data.maxDroneCount &&
+            deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
-            deliveryRequestQueue.Enqueue(handle.Request);
+            //tell controller this job can't be done
         }
         else
         {
-            //tell controller this job can't be done
+            deliveryRequestQueue.Enqueue(handle.Request);
         }
     }
 

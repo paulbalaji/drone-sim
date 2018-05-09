@@ -13,7 +13,7 @@ namespace Assets.Gamelogic.Core
         //public static readonly uint MaxDroneCountPerController = (uint)(MaxDroneCount / ControllerCount);
         public static readonly uint MaxDroneCountPerController = 100;
 
-        public static readonly uint MaxDeliveryRequestQueueSize = MaxDroneCountPerController;
+        public static readonly uint MaxDeliveryRequestQueueSize = 20;
 
         public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
