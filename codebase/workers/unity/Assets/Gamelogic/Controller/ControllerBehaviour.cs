@@ -63,9 +63,7 @@ public class ControllerBehaviour : MonoBehaviour
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
 
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
-        InvokeRepeating("DeliveryHandlerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
-
-        InvokeRepeating("ControllerTick", SimulationSettings.ControllerUpdateInterval, SimulationSettings.ControllerUpdateInterval);
+        InvokeRepeating("ControllerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
         InvokeRepeating("PrintMetrics", SimulationSettings.ControllerMetricsInterval, SimulationSettings.ControllerMetricsInterval);
     }
 
@@ -86,22 +84,32 @@ public class ControllerBehaviour : MonoBehaviour
 
             //Debug.LogWarning("is final waypoint?");
             //final waypoint, figure out if it's back at controller or only just delivered
-            if (droneInfo.nextWaypoint > droneInfo.waypoints.Count)
-            {
-                if (!DroneDeliveryComplete(handle.Request.droneId, droneInfo))
-                {
-                    //once DroneDeliveryComplete finishes running, we need to use the latest droneInfo
-                    droneMap.TryGetValue(handle.Request.droneId, out droneInfo);
-                    handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
-                    IncrementNextWaypoint(handle.Request.droneId);
-                } else {
-                    UnsuccessfulTargetRequest(handle);
-                }
-            }
-            else
+            if (droneInfo.nextWaypoint < droneInfo.waypoints.Count)
             {
                 handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
                 IncrementNextWaypoint(handle.Request.droneId);
+            }
+            else
+            {
+                if (droneInfo.returning)
+                {
+                    completedDeliveries++;
+                    SendMetrics();
+                    DestroyDrone(handle.Request.droneId);
+                }
+                else
+                {
+                    droneInfo.returning = true;
+                    droneInfo.waypoints.Reverse();
+                    droneInfo.nextWaypoint = 1;
+
+                    droneMap.Remove(handle.Request.droneId);
+                    droneMap.Add(handle.Request.droneId, droneInfo);
+                    UpdateDroneMap();
+
+                    handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], true));
+                    IncrementNextWaypoint(handle.Request.droneId);
+                }
             }
         }
         else
@@ -118,7 +126,15 @@ public class ControllerBehaviour : MonoBehaviour
     void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
     {
         handle.Respond(new DeliveryResponse());
-        deliveryRequestQueue.Enqueue(handle.Request);
+
+        if (deliveryRequestQueue.Count < SimulationSettings.MaxDeliveryRequestQueueSize)
+        {
+            deliveryRequestQueue.Enqueue(handle.Request);
+        }
+        else
+        {
+            //tell controller this job can't be done
+        }
     }
 
     void UpdateDeliveryRequestQueue()
@@ -274,8 +290,8 @@ public class ControllerBehaviour : MonoBehaviour
 
         //don't need to do anything if no requests in the queue
         if (deliveryRequestQueue.Count > 0
-            && droneMap.Count < ControllerWriter.Data.maxDroneCount 
-            && Time.time > nextSpawnTime)
+            && droneMap.Count < ControllerWriter.Data.maxDroneCount)
+            //&& Time.time > nextSpawnTime)
         {
             HandleDeliveryRequest(deliveryRequestQueue.Dequeue());
             UpdateDeliveryRequestQueue();

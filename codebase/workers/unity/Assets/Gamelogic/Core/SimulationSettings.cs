@@ -11,7 +11,9 @@ namespace Assets.Gamelogic.Core
 
         public static readonly uint MaxDroneCount = (uint)numDrones;
         //public static readonly uint MaxDroneCountPerController = (uint)(MaxDroneCount / ControllerCount);
-        public static readonly uint MaxDroneCountPerController = 25;
+        public static readonly uint MaxDroneCountPerController = 100;
+
+        public static readonly uint MaxDeliveryRequestQueueSize = MaxDroneCountPerController;
 
         public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
@@ -23,14 +25,17 @@ namespace Assets.Gamelogic.Core
         //public static readonly float maxX = 400; //31500m width
         //public static readonly float maxZ = 400; //14000m height
 
-        // METRICS START //
+        // METRICS //
 
         public static readonly float SchedulerMetricsInterval = 60f;
         public static readonly float ControllerMetricsInterval = 60f;
 
-        // METRICS END //
+        // SCHEDULER CONSTANTS //
 
-        // CONTROLLER START //
+        public static EntityId SchedulerEntityId = new EntityId(1);
+        public static readonly float SchedulerInterval = 1f;
+
+        // CONTROLLER //
 
         public static readonly float RequestHandlerInterval = 5f;
         public static readonly float DroneSpawnInterval = 5f;
@@ -41,9 +46,7 @@ namespace Assets.Gamelogic.Core
         public static readonly Vector3f ControllerDepartureOffset = new Vector3f(75, 0, -75);
         public static readonly Vector3f ControllerRunwayDelta = ControllerDepartureOffset - ControllerArrivalOffset;
 
-        // CONTROLLER END //
-
-        // DRONE CONSTANTS START //
+        // DRONE CONSTANTS //
 
         public const float DroneUpdateInterval = 1;
 
@@ -57,17 +60,7 @@ namespace Assets.Gamelogic.Core
 
         public static int DroneETAConstant = 3;
 
-        // DRONE CONSTANTS END //
-
-        // SCHEDULER CONSTANTS START //
-
-        public static EntityId SchedulerEntityId = new EntityId(1);
-        public static readonly float SchedulerInterval = 5f;
-
-        // SCHEDULER CONSTANTS END //
-
-
-        // GLOBAL LAYER START //
+        // GLOBAL LAYER //
 
         public static readonly float ControllerUpdateInterval = 0.2f;
         public static readonly float ControllerWaitTime = 10f;
@@ -84,9 +77,7 @@ namespace Assets.Gamelogic.Core
         public static readonly int NFZ_PADDING_RAW = 50;
         public static readonly int NFZ_PADDING = NFZ_PADDING_RAW / BIT_SIZE;
 
-        // GLOBAL LAYER END //
-
-        // REACTIVE LAYER START //
+        // REACTIVE LAYER //
 
         //constants initially genetically discovered for 10 m/s speed
         public static float RepulsionConst = 446.78f;
@@ -100,7 +91,7 @@ namespace Assets.Gamelogic.Core
 
         public const float SafeDistance = 10;
 
-        // REACTIVE LAYER END //
+        // GENERAL CONSTANTS //
 
         public static readonly string PlayerPrefabName = "Player";
         public static readonly string PlayerCreatorPrefabName = "PlayerCreator";
