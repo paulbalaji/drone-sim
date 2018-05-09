@@ -79,7 +79,7 @@ public class DroneBehaviour : MonoBehaviour
                 apf.Recalculate();
             }
 
-            if (DroneDataWriter.Data.targetPending == TargetPending.WAITING && Time.time > nextRequestTime)
+            if (DroneDataWriter.Data.targetPending == TargetPending.WAITING)
             {
                 requestNewTarget();
             }
@@ -107,6 +107,11 @@ public class DroneBehaviour : MonoBehaviour
     {
         //Debug.LogWarning("requesting new target");
 
+        if (Time.time < nextRequestTime)
+        {
+            return;
+        }
+
         nextRequestTime = Time.time + SimulationSettings.MaxRequestWaitTime;
 
         DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
@@ -126,6 +131,8 @@ public class DroneBehaviour : MonoBehaviour
             requestTargetFailure("Command sent to wrong controller.");
             return;
         }
+
+        failCount = 0;
 
         if (response.success == TargetResponseCode.JOURNEY_COMPLETE)
         {
@@ -155,7 +162,9 @@ public class DroneBehaviour : MonoBehaviour
             SelfDestruct();
         }
 
-        DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.REQUEST));
+        DroneDataWriter.Send(new DroneData.Update()
+                             .SetTargetPending(TargetPending.REQUEST)
+                             .SetDroneStatus(DroneStatus.HOVER));
     }
 
     private void SelfDestruct()
