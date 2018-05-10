@@ -24,8 +24,6 @@ public class RootSpawner : MonoBehaviour
 
     int deliveriesRequested;
 
-    int deliveriesFailed;
-
 	void Start()
 	{
         InvokeRepeating("RootSpawnerTick", SimulationSettings.SchedulerInterval, SimulationSettings.SchedulerInterval);
@@ -35,35 +33,9 @@ public class RootSpawner : MonoBehaviour
 	private void OnEnable()
 	{
         deliveriesRequested = MetricsWriter.Data.deliveriesRequested;
-        deliveriesFailed = MetricsWriter.Data.deliveriesFailed;
-
-        SchedulerWriter.CommandReceiver.OnDeliveryFailure.RegisterAsyncResponse(HandleDeliveryFailure);
 
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
 	}
-
-	private void OnDisable()
-	{
-        SchedulerWriter.CommandReceiver.OnDeliveryFailure.DeregisterResponse();
-	}
-
-    void HandleDeliveryFailure(Improbable.Entity.Component.ResponseHandle<Scheduler.Commands.DeliveryFailure, DeliveryFailureRequest, DeliveryFailureResponse> handle)
-    {
-        handle.Respond(new DeliveryFailureResponse());
-
-        IncrementFailedDeliveries();
-    }
-
-    void IncrementFailedDeliveries()
-    {
-        deliveriesFailed++;
-        SendDeliveriesFailedMetrics();
-    }
-
-    void SendDeliveriesFailedMetrics()
-    {
-        MetricsWriter.Send(new SchedulerMetrics.Update().SetDeliveriesFailed(deliveriesFailed));
-    }
 
     void RootSpawnerTick()
     {
@@ -91,19 +63,13 @@ public class RootSpawner : MonoBehaviour
     {
         if (response.success)
         {
-            deliveriesRequested++;
-            SendDeliveriesRequestedMetrics();
+			MetricsWriter.Send(new SchedulerMetrics.Update().SetDeliveriesRequested(++deliveriesRequested));
         }
-    }
-
-    void SendDeliveriesRequestedMetrics()
-    {
-        MetricsWriter.Send(new SchedulerMetrics.Update().SetDeliveriesRequested(deliveriesRequested));
     }
 
     void PrintMetrics()
     {
-        Debug.LogWarningFormat("METRICS Scheduler_{0} Deliveries_Requested {1} Deliveries_Failed {2}", gameObject.EntityId().Id, deliveriesRequested, deliveriesFailed);
+        Debug.LogWarningFormat("METRICS Scheduler_{0} Deliveries_Requested {1}", gameObject.EntityId().Id, deliveriesRequested);
     }
 
     private EntityId GetClosestController(Vector3f destination)

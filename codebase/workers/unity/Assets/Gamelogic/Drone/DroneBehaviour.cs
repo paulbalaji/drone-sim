@@ -41,6 +41,7 @@ public class DroneBehaviour : MonoBehaviour
         target = DroneDataWriter.Data.target.ToVector3();
         speed = DroneDataWriter.Data.speed;
         radius = speed * SimulationSettings.DroneUpdateInterval;
+		direction = DroneDataWriter.Data.direction.ToUnityVector();
 
         apf = gameObject.GetComponent<APF>();
 
@@ -48,6 +49,7 @@ public class DroneBehaviour : MonoBehaviour
 
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("DroneTick", Random.Range(0, SimulationSettings.DroneUpdateInterval), SimulationSettings.DroneUpdateInterval);
+		InvokeRepeating("MoveDrone", Random.Range(0, SimulationSettings.DroneMoveInterval), SimulationSettings.DroneMoveInterval);
     }
 
     private void OnDisable()
@@ -92,13 +94,13 @@ public class DroneBehaviour : MonoBehaviour
         }
 	}
 
-	private void FixedUpdate()
+	private void MoveDrone()
 	{
         if (simulate)
         {
             if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
             {
-                transform.position += direction * DroneDataWriter.Data.speed * Time.fixedDeltaTime;
+				transform.position += direction * DroneDataWriter.Data.speed * SimulationSettings.DroneMoveInterval;
             }
         }
 	}
@@ -175,7 +177,13 @@ public class DroneBehaviour : MonoBehaviour
             Controller.Commands.UnlinkDrone.Descriptor,
             new UnlinkRequest(gameObject.EntityId()),
             DroneDataWriter.Data.designatedController)
+		         .OnSuccess(UnlinkDroneSuccess)
                  .OnFailure(UnlinkDroneFailure);
+    }
+
+	private void UnlinkDroneSuccess(UnlinkResponse response)
+    {
+        SelfDestruct();
     }
 
     private void UnlinkDroneFailure(ICommandErrorDetails response)

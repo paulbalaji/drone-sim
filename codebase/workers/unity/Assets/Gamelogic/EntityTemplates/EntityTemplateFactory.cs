@@ -84,7 +84,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new DeliveryHandler.Data(new List<DeliveryRequest>()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new ControllerMetrics.Data(0, 0), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new ControllerMetrics.Data(0, 0, 0), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return controllerTemplate;
@@ -124,7 +124,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new Scheduler.Data(firstController, lastController, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new SchedulerMetrics.Data(0, 0), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new SchedulerMetrics.Data(0), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return schedulerTemplate;

@@ -40,6 +40,7 @@ public class ControllerBehaviour : MonoBehaviour
     bool stopSpawning = false;
     int completedDeliveries;
     int collisionsReported;
+	int failedDeliveries;
 
     private float nextSpawnTime = 0;
 
@@ -49,6 +50,7 @@ public class ControllerBehaviour : MonoBehaviour
 
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
         collisionsReported = MetricsWriter.Data.collisionsReported;
+		failedDeliveries = MetricsWriter.Data.failedDeliveries;
 
         departuresPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerDepartureOffset;
         arrivalsPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerArrivalOffset;
@@ -83,7 +85,7 @@ public class ControllerBehaviour : MonoBehaviour
         DroneInfo droneInfo;
         if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
         {
-            DestroyDrone(handle.Request.droneId);
+			DestroyDrone(handle.Request.droneId);
             UpdateDroneMap();
         }
 
@@ -110,8 +112,7 @@ public class ControllerBehaviour : MonoBehaviour
                 if (droneInfo.returning)
                 {
                     UnsuccessfulTargetRequest(handle, TargetResponseCode.JOURNEY_COMPLETE);
-                    completedDeliveries++;
-                    SendMetrics();
+					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(++completedDeliveries));
                     DestroyDrone(handle.Request.droneId);
                     UpdateDroneMap();
                 }
@@ -160,17 +161,13 @@ public class ControllerBehaviour : MonoBehaviour
         DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(new Improbable.Collections.List<DeliveryRequest>(deliveryRequestQueue.ToArray())));
     }
 
-    void SendMetrics()
-    {
-        MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(completedDeliveries));
-    }
-
     void PrintMetrics()
     {
-        Debug.LogWarningFormat("METRICS Controller_{0} Completed_Deliveries {1} Linked_Drones {2} Collisions_Reported {3}"
+		Debug.LogWarningFormat("METRICS Controller_{0} Linked_Drones {1} Completed_Deliveries {2} Failed_Deliveries {3} Collisions_Reported {4}"
                                , gameObject.EntityId().Id
+		                       , droneMap.Count
                                , completedDeliveries
-                               , droneMap.Count
+                               , failedDeliveries
                                , collisionsReported);
     }
 
@@ -178,7 +175,7 @@ public class ControllerBehaviour : MonoBehaviour
     {
         handle.Respond(new CollisionResponse());
 
-        collisionsReported++;
+		MetricsWriter.Send(new ControllerMetrics.Update().SetCollisionsReported(++collisionsReported));
 
         DestroyDrone(handle.Request.droneId);
         DestroyDrone(handle.Request.colliderId);
@@ -237,12 +234,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void DroneDeploymentFailure()
     {
-        // tell scheduler that the job couldn't be done
-        SpatialOS.Commands.SendCommand(
-            PositionWriter,
-            Improbable.Scheduler.Scheduler.Commands.DeliveryFailure.Descriptor,
-            new DeliveryFailureRequest(),
-            SimulationSettings.SchedulerEntityId);
+		MetricsWriter.Send(new ControllerMetrics.Update().SetFailedDeliveries(++failedDeliveries));
     }
 
     void HandleDeliveryRequest(DeliveryRequest request)
