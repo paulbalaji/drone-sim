@@ -38,11 +38,11 @@ public static class NoFlyZone
         {
             if (isInPolygon(zone, point))
             {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     public static void setBoundingBoxCoordinates(ref Improbable.Controller.NoFlyZone nfz)

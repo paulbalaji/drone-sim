@@ -38,6 +38,8 @@ public class RootSpawner : MonoBehaviour
         deliveriesFailed = MetricsWriter.Data.deliveriesFailed;
 
         SchedulerWriter.CommandReceiver.OnDeliveryFailure.RegisterAsyncResponse(HandleDeliveryFailure);
+
+        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
 	}
 
 	private void OnDisable()
@@ -127,17 +129,17 @@ public class RootSpawner : MonoBehaviour
         float randX, randZ;
         Vector3f point = new Vector3f();
         int tryCount = 0;
-        bool validPoint = false;
+        bool invalidPoint = false;
 
         do
         {
             point.x = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxX);
             point.z = UnityEngine.Random.Range(-SimulationSettings.maxZ, SimulationSettings.maxZ);
             tryCount++;
-            validPoint = NoFlyZone.hasCollidedWithAny(SchedulerWriter.Data.zones, point);
-        } while (tryCount < 10 || !validPoint);
+            invalidPoint = NoFlyZone.hasCollidedWithAny(SchedulerWriter.Data.zones, point);
+        } while (invalidPoint && tryCount < 10);
 
-        if (!validPoint)
+        if (invalidPoint)
         {
             return new Vector3f(0, -1, 0);
         }
