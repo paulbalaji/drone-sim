@@ -57,6 +57,7 @@ public class ControllerBehaviour : MonoBehaviour
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(HandleTargetRequest);
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
+        ControllerWriter.CommandReceiver.OnUnlinkDrone.RegisterAsyncResponse(HandleUnlinkRequest);
 
         DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.RegisterAsyncResponse(EnqueueDeliveryRequest);
 
@@ -72,8 +73,22 @@ public class ControllerBehaviour : MonoBehaviour
     {
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
+        ControllerWriter.CommandReceiver.OnUnlinkDrone.DeregisterResponse();
 
         DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.DeregisterResponse();
+    }
+
+    void HandleUnlinkRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.UnlinkDrone, UnlinkRequest, UnlinkResponse> handle)
+    {
+        DroneInfo droneInfo;
+        if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+        {
+            droneMap.Remove(handle.Request.droneId);
+            UpdateDroneMap();
+        }
+
+        handle.Respond(new UnlinkResponse());
+        DroneDeploymentFailure();
     }
 
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)

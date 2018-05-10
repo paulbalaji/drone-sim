@@ -30,6 +30,12 @@ type CollisionRequest {
 
 type CollisionResponse {}
 
+type UnlinkRequest {
+  EntityId drone_id = 1;
+}
+
+type UnlinkResponse {}
+
 component Controller {
   id = 1200;
 
@@ -43,4 +49,5 @@ component Controller {
 
   command TargetResponse request_new_target(TargetRequest);
   command CollisionResponse collision(CollisionRequest);
+  command UnlinkResponse unlink_drone(UnlinkRequest);
 }

@@ -119,7 +119,8 @@ public class DroneBehaviour : MonoBehaviour
             PositionWriter,
             Controller.Commands.RequestNewTarget.Descriptor,
             new TargetRequest(gameObject.EntityId()),
-            DroneDataWriter.Data.designatedController)
+            DroneDataWriter.Data.designatedController,
+            System.TimeSpan.FromSeconds(SimulationSettings.MaxRequestWaitTime))
                  .OnSuccess((response) => requestTargetSuccess(response))
                  .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
     }
@@ -158,13 +159,37 @@ public class DroneBehaviour : MonoBehaviour
 
         if (failCount > SimulationSettings.MaxTargetRequestFailures)
         {
-            Debug.LogError("Too many failures. Drone Self-Destructing.");
-            SelfDestruct();
+            failCount = 0;
+            simulate = false;
+            Debug.LogError("Too many failures. Drone Unlinking.");
+            UnlinkDrone();
         }
 
         DroneDataWriter.Send(new DroneData.Update()
                              .SetTargetPending(TargetPending.REQUEST)
                              .SetDroneStatus(DroneStatus.HOVER));
+    }
+
+    private void UnlinkDrone()
+    {
+        SpatialOS.Commands.SendCommand(
+            PositionWriter,
+            Controller.Commands.UnlinkDrone.Descriptor,
+            new UnlinkRequest(gameObject.EntityId()),
+            DroneDataWriter.Data.designatedController)
+                 .OnSuccess(UnlinkDroneSuccess)
+                 .OnFailure(UnlinkDroneFailure);
+    }
+
+    private void UnlinkDroneSuccess(UnlinkResponse response)
+    {
+        SelfDestruct();
+    }
+
+    private void UnlinkDroneFailure(ICommandErrorDetails response)
+    {
+        Debug.LogError("Unlink failed, self-destructing anyway.");
+        SelfDestruct();
     }
 
     private void SelfDestruct()
