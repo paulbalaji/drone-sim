@@ -129,10 +129,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
     {
-        
-
-        if (droneMap.Count >= ControllerWriter.Data.maxDroneCount &&
-            deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
+        if (deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
             handle.Respond(new DeliveryResponse(false));
         }
