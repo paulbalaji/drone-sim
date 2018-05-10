@@ -83,7 +83,7 @@ public class ControllerBehaviour : MonoBehaviour
         DroneInfo droneInfo;
         if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
         {
-            droneMap.Remove(handle.Request.droneId);
+            DestroyDrone(handle.Request.droneId);
             UpdateDroneMap();
         }
 
@@ -208,6 +208,14 @@ public class ControllerBehaviour : MonoBehaviour
         {
             IncrementNextWaypoint(droneId, droneInfo);
         }
+    }
+
+    private void DecrementNextWaypoint(EntityId droneId, DroneInfo droneInfo)
+    {
+        droneInfo.nextWaypoint--;
+        droneMap.Remove(droneId);
+        droneMap.Add(droneId, droneInfo);
+        UpdateDroneMap();
     }
 
     private void IncrementNextWaypoint(EntityId droneId, DroneInfo droneInfo)

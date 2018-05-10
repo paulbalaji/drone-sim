@@ -107,22 +107,20 @@ public class DroneBehaviour : MonoBehaviour
     {
         //Debug.LogWarning("requesting new target");
 
-        if (Time.time < nextRequestTime)
+        if (Time.time > nextRequestTime)
         {
-            return;
+            nextRequestTime = Time.time + SimulationSettings.MaxRequestWaitTime;
+
+            DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
+            SpatialOS.Commands.SendCommand(
+                PositionWriter,
+                Controller.Commands.RequestNewTarget.Descriptor,
+                new TargetRequest(gameObject.EntityId()),
+                DroneDataWriter.Data.designatedController,
+                System.TimeSpan.FromSeconds(SimulationSettings.MaxRequestWaitTime))
+                     .OnSuccess((response) => requestTargetSuccess(response))
+                     .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
         }
-
-        nextRequestTime = Time.time + SimulationSettings.MaxRequestWaitTime;
-
-        DroneDataWriter.Send(new DroneData.Update().SetTargetPending(TargetPending.WAITING));
-        SpatialOS.Commands.SendCommand(
-            PositionWriter,
-            Controller.Commands.RequestNewTarget.Descriptor,
-            new TargetRequest(gameObject.EntityId()),
-            DroneDataWriter.Data.designatedController,
-            System.TimeSpan.FromSeconds(SimulationSettings.MaxRequestWaitTime))
-                 .OnSuccess((response) => requestTargetSuccess(response))
-                 .OnFailure((response) => requestTargetFailure(response.ErrorMessage));
     }
 
     void requestTargetSuccess(TargetResponse response)
@@ -177,13 +175,7 @@ public class DroneBehaviour : MonoBehaviour
             Controller.Commands.UnlinkDrone.Descriptor,
             new UnlinkRequest(gameObject.EntityId()),
             DroneDataWriter.Data.designatedController)
-                 .OnSuccess(UnlinkDroneSuccess)
                  .OnFailure(UnlinkDroneFailure);
-    }
-
-    private void UnlinkDroneSuccess(UnlinkResponse response)
-    {
-        SelfDestruct();
     }
 
     private void UnlinkDroneFailure(ICommandErrorDetails response)

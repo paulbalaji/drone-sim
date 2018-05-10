@@ -203,7 +203,8 @@ public class APF : MonoBehaviour
             PositionWriter,
             ReactiveLayer.Commands.GetNearestObstacle.Descriptor,
             new ObstacleRequest(transform.position.ToSpatialVector3f()),
-            new EntityId(1))
+            new EntityId(1),
+            TimeSpan.FromSeconds(SimulationSettings.DroneUpdateInterval))
                  .OnSuccess((response) => MoveDrone(response.obstacle))
                  .OnFailure((response) => MoveDrone(dummyObstacle));
     }
