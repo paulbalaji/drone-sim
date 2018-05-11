@@ -276,7 +276,7 @@ public class ControllerBehaviour : MonoBehaviour
             = Time.time
             + (SimulationSettings.DroneETAConstant
                * Vector3.Distance(
-                   droneInfo.waypoints[0].ToUnityVector(),
+				   departurePoint.ToUnityVector(),
                    droneInfo.waypoints[1].ToUnityVector())
                / SimulationSettings.MaxDroneSpeed);
 
@@ -329,14 +329,23 @@ public class ControllerBehaviour : MonoBehaviour
 	void DroneMapPrune()
 	{
 		DroneInfo droneInfo;
+		List<EntityId> toPrune = new List<EntityId>();
+
 		foreach(EntityId droneId in droneMap.Keys)
 		{
-			droneMap.TryGetValue(droneId, out droneInfo);
-			if (Time.time > droneInfo.latestCheckinTime)
+			if (droneMap.TryGetValue(droneId, out droneInfo))
 			{
-				Debug.LogErrorFormat("Pruning Drone for taking too long. Delivered: {0}", droneInfo.returning);
-				DestroyDrone(droneId);
+				if (Time.time > droneInfo.latestCheckinTime)
+                {
+                    Debug.LogErrorFormat("Pruning Drone for taking too long. Delivered: {0}", droneInfo.returning);
+					toPrune.Add(droneId);
+                }
 			}
+		}
+
+		foreach(EntityId droneId in toPrune)
+		{
+			DestroyDrone(droneId);
 		}
 
 		UpdateDroneMap();
