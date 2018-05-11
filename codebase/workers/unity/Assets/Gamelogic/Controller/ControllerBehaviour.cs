@@ -38,6 +38,7 @@ public class ControllerBehaviour : MonoBehaviour
     Coordinates arrivalsPoint;
 
     bool stopSpawning = false;
+	int incomingRequests;
     int completedDeliveries;
 	int completedRoundTrips;
     int collisionsReported;
@@ -49,6 +50,7 @@ public class ControllerBehaviour : MonoBehaviour
     {
         droneMap = ControllerWriter.Data.droneMap;
 
+		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
 		completedRoundTrips = MetricsWriter.Data.completedRoundTrips;
         collisionsReported = MetricsWriter.Data.collisionsReported;
@@ -149,6 +151,8 @@ public class ControllerBehaviour : MonoBehaviour
 
     void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
     {
+		MetricsWriter.Send(new ControllerMetrics.Update().SetIncomingDeliveryRequests(++incomingRequests));
+
         if (deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
             handle.Respond(new DeliveryResponse(false));
@@ -167,13 +171,14 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS Controller_{0} Linked_Drones {1} Completed_Deliveries {2} Completed_Round_Trips {3} Failed_Deliveries {4} Collisions_Reported {5}"
+		Debug.LogWarningFormat("METRICS Controller_{0} Linked_Drones {1} Completed_Deliveries {2} Completed_Round_Trips {3} Failed_Deliveries {4} Collisions_Reported {5} Total_Requests {6}"
                                , gameObject.EntityId().Id
 		                       , droneMap.Count
                                , completedDeliveries
 		                       , completedRoundTrips
                                , failedDeliveries
-                               , collisionsReported);
+                               , collisionsReported
+		                       , incomingRequests);
     }
 
     void HandleCollision(Improbable.Entity.Component.ResponseHandle<Controller.Commands.Collision, CollisionRequest, CollisionResponse> handle)

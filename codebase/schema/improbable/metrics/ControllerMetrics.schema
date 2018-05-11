@@ -3,6 +3,7 @@ package improbable.metrics;
 component ControllerMetrics {
 	id = 1400;
 
+    int32 incoming_delivery_requests = 5;
 	int32 completed_deliveries = 1;
 	int32 completed_round_trips = 4;
 	int32 collisions_reported = 2;
