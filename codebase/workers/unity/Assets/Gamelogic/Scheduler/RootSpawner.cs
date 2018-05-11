@@ -24,17 +24,14 @@ public class RootSpawner : MonoBehaviour
 
     int deliveriesRequested;
 
-	void Start()
-	{
-        InvokeRepeating("RootSpawnerTick", SimulationSettings.SchedulerInterval, SimulationSettings.SchedulerInterval);
-        InvokeRepeating("PrintMetrics", SimulationSettings.SchedulerMetricsInterval, SimulationSettings.SchedulerMetricsInterval);
-	}
-
 	private void OnEnable()
 	{
         deliveriesRequested = MetricsWriter.Data.deliveriesRequested;
 
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+
+		InvokeRepeating("RootSpawnerTick", SimulationSettings.SchedulerInterval, SimulationSettings.SchedulerInterval);
+        InvokeRepeating("PrintMetrics", SimulationSettings.SchedulerMetricsInterval, SimulationSettings.SchedulerMetricsInterval);
 	}
 
     void RootSpawnerTick()
