@@ -35,7 +35,9 @@ namespace Assets.Gamelogic.Core
         public static EntityId SchedulerEntityId = new EntityId(1);
         public static readonly float SchedulerInterval = 0.75f;
 
-        // CONTROLLER //
+		// CONTROLLER //
+
+		public static readonly float DronePadRadius = 10f;
 
         public static readonly float RequestHandlerInterval = 3f; //5
         public static readonly float DroneSpawnInterval = 5f;

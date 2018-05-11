@@ -240,13 +240,20 @@ public class ControllerBehaviour : MonoBehaviour
     void HandleDeliveryRequest(DeliveryRequest request)
     {
         DroneInfo droneInfo;
+		Vector2 random;
+
+		random = UnityEngine.Random.insideUnitCircle * SimulationSettings.DronePadRadius;
+		Vector3f departurePoint = departuresPoint.ToSpatialVector3f() + new Vector3f(random.x, 0, random.y);
+
+		random = UnityEngine.Random.insideUnitCircle * SimulationSettings.DronePadRadius;
+		Vector3f arrivalPoint = arrivalsPoint.ToSpatialVector3f() + new Vector3f(random.x, 0, random.y);
 
         //Debug.LogWarning("point to point plan");
         //for new flight plan
         droneInfo.nextWaypoint = 1;
         droneInfo.returning = false;
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(
-			departuresPoint.ToSpatialVector3f(),
+			departurePoint,
             request.destination);
 
         //Debug.LogWarning("null check");
@@ -257,15 +264,15 @@ public class ControllerBehaviour : MonoBehaviour
             return;
         }
 
-        //0th index only useful as last point in return journey
-        //so make sure 0th index == last location in journey == arrivalsPoint
-		droneInfo.waypoints[0] = arrivalsPoint.ToSpatialVector3f();
+		//0th index only useful as last point in return journey
+		//so make sure 0th index == last location in journey == arrivalsPoint
+		droneInfo.waypoints[0] = arrivalPoint;
 
         //create drone
         //if successful, add to droneMap
         //if failure, tell scheduler job couldn't be done
         var droneTemplate = EntityTemplateFactory.CreateDroneTemplate(
-            departuresPoint,
+			departurePoint.ToCoordinates(),
             droneInfo.waypoints[droneInfo.nextWaypoint],
             gameObject.EntityId(),
             SimulationSettings.MaxDroneSpeed);
