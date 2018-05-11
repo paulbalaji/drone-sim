@@ -25,8 +25,6 @@ public class DroneBehaviour : MonoBehaviour
 
     private float nextRequestTime = 0f;
 
-    private float latestArrivalTime = 0f;
-
     private APF apf;
 
     private int failCount = 0;
@@ -143,8 +141,6 @@ public class DroneBehaviour : MonoBehaviour
         }
 
         //Debug.LogWarning("DRONE New Target Received");
-        latestArrivalTime = Time.time + (SimulationSettings.DroneETAConstant * Vector3.Distance(transform.position, response.newTarget.ToUnityVector()) / speed);
-
         DroneDataWriter.Send(new DroneData.Update()
                              .SetPreviousTarget(DroneDataWriter.Data.target)
                              .SetTarget(response.newTarget)

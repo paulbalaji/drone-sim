@@ -21,6 +21,7 @@ type DroneInfo {
 	int32 next_waypoint = 1;
 	list<improbable.Vector3f> waypoints = 2;
   bool returning = 3;
+  float latest_checkin_time = 4;
 }
 
 type CollisionRequest {

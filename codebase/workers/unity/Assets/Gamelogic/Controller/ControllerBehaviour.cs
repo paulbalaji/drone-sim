@@ -73,6 +73,7 @@ public class ControllerBehaviour : MonoBehaviour
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("ControllerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
         InvokeRepeating("PrintMetrics", SimulationSettings.ControllerMetricsInterval, SimulationSettings.ControllerMetricsInterval);
+		InvokeRepeating("DroneMapPrune", UnityEngine.Random.Range(0, SimulationSettings.DroneMapPruningInterval), SimulationSettings.DroneMapPruningInterval);
     }
 
     private void OnDisable()
@@ -127,6 +128,13 @@ public class ControllerBehaviour : MonoBehaviour
                     droneInfo.returning = true;
                     droneInfo.waypoints.Reverse();
                     droneInfo.nextWaypoint = 2;
+					droneInfo.latestCheckinTime
+                        = Time.time
+                        + (SimulationSettings.DroneETAConstant
+                           * Vector3.Distance(
+                               droneInfo.waypoints[0].ToUnityVector(),
+                               droneInfo.waypoints[1].ToUnityVector())
+                           / SimulationSettings.MaxDroneSpeed);
 
                     droneMap.Remove(handle.Request.droneId);
                     droneMap.Add(handle.Request.droneId, droneInfo);
@@ -217,17 +225,16 @@ public class ControllerBehaviour : MonoBehaviour
         }
     }
 
-    private void DecrementNextWaypoint(EntityId droneId, DroneInfo droneInfo)
-    {
-        droneInfo.nextWaypoint--;
-        droneMap.Remove(droneId);
-        droneMap.Add(droneId, droneInfo);
-        UpdateDroneMap();
-    }
-
     private void IncrementNextWaypoint(EntityId droneId, DroneInfo droneInfo)
     {
         droneInfo.nextWaypoint++;
+		droneInfo.latestCheckinTime
+            = Time.time
+            + (SimulationSettings.DroneETAConstant
+               * Vector3.Distance(
+				   droneInfo.waypoints[droneInfo.nextWaypoint - 1].ToUnityVector(),
+				   droneInfo.waypoints[droneInfo.nextWaypoint - 2].ToUnityVector())
+               / SimulationSettings.MaxDroneSpeed);
         droneMap.Remove(droneId);
         droneMap.Add(droneId, droneInfo);
         UpdateDroneMap();
@@ -265,6 +272,13 @@ public class ControllerBehaviour : MonoBehaviour
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(
 			departurePoint,
             request.destination);
+		droneInfo.latestCheckinTime
+            = Time.time
+            + (SimulationSettings.DroneETAConstant
+               * Vector3.Distance(
+                   droneInfo.waypoints[0].ToUnityVector(),
+                   droneInfo.waypoints[1].ToUnityVector())
+               / SimulationSettings.MaxDroneSpeed);
 
         //Debug.LogWarning("null check");
         if (droneInfo.waypoints == null)
@@ -311,4 +325,20 @@ public class ControllerBehaviour : MonoBehaviour
             UpdateDeliveryRequestQueue();
         }
     }
+
+	void DroneMapPrune()
+	{
+		DroneInfo droneInfo;
+		foreach(EntityId droneId in droneMap.Keys)
+		{
+			droneMap.TryGetValue(droneId, out droneInfo);
+			if (Time.time > droneInfo.latestCheckinTime)
+			{
+				Debug.LogErrorFormat("Pruning Drone for taking too long. Delivered: {0}", droneInfo.returning);
+				DestroyDrone(droneId);
+			}
+		}
+
+		UpdateDroneMap();
+	}
 }

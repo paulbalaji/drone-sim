@@ -39,6 +39,8 @@ namespace Assets.Gamelogic.Core
 
 		public static readonly float DronePadRadius = 10f;
 
+		public static readonly float DroneMapPruningInterval = 300f;
+
         public static readonly float RequestHandlerInterval = 3f; //5
         public static readonly float DroneSpawnInterval = 5f;
 
