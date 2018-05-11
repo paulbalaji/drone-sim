@@ -36,7 +36,12 @@ public class RootSpawner : MonoBehaviour
         InvokeRepeating("PrintMetrics", SimulationSettings.SchedulerMetricsInterval, SimulationSettings.SchedulerMetricsInterval);
 	}
 
-    void RootSpawnerTick()
+	private void OnDisable()
+	{
+		CancelInvoke();
+	}
+
+	void RootSpawnerTick()
     {
         Vector3f deliveryDestination = GetNonNFZPoint();
         if (deliveryDestination.y < 0)

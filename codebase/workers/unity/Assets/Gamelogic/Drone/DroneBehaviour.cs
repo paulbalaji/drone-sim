@@ -52,6 +52,8 @@ public class DroneBehaviour : MonoBehaviour
 
     private void OnDisable()
     {
+		CancelInvoke();
+
         simulate = false;
 
         //deregister for direction/speed updates

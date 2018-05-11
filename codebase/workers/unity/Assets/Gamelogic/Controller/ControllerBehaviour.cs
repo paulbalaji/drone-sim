@@ -76,6 +76,8 @@ public class ControllerBehaviour : MonoBehaviour
 
     private void OnDisable()
     {
+		CancelInvoke();
+
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnUnlinkDrone.DeregisterResponse();
