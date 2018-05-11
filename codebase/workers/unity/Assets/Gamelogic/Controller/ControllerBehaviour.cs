@@ -31,7 +31,7 @@ public class ControllerBehaviour : MonoBehaviour
     GridGlobalLayer globalLayer;
 
     Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
-
+    
     Queue<DeliveryRequest> deliveryRequestQueue;
 
     Coordinates departuresPoint;
