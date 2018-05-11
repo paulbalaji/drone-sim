@@ -246,7 +246,7 @@ public class ControllerBehaviour : MonoBehaviour
         droneInfo.nextWaypoint = 1;
         droneInfo.returning = false;
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(
-            transform.position.ToSpatialVector3f(),
+			departuresPoint.ToSpatialVector3f(),
             request.destination);
 
         //Debug.LogWarning("null check");
@@ -256,6 +256,10 @@ public class ControllerBehaviour : MonoBehaviour
             DroneDeploymentFailure();
             return;
         }
+
+        //0th index only useful as last point in return journey
+        //so make sure 0th index == last location in journey == arrivalsPoint
+		droneInfo.waypoints[0] = arrivalsPoint.ToSpatialVector3f();
 
         //create drone
         //if successful, add to droneMap
