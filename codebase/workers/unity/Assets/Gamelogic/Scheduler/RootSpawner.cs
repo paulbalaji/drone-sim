@@ -33,7 +33,7 @@ public class RootSpawner : MonoBehaviour
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
 
 		InvokeRepeating("RootSpawnerTick", SimulationSettings.SchedulerInterval, SimulationSettings.SchedulerInterval);
-        InvokeRepeating("PrintMetrics", SimulationSettings.SchedulerMetricsInterval, SimulationSettings.SchedulerMetricsInterval);
+        InvokeRepeating("PrintMetrics", 0, SimulationSettings.SchedulerMetricsInterval);
 	}
 
 	private void OnDisable()
