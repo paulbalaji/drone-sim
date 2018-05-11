@@ -39,6 +39,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     bool stopSpawning = false;
     int completedDeliveries;
+	int completedRoundTrips;
     int collisionsReported;
 	int failedDeliveries;
 
@@ -49,6 +50,7 @@ public class ControllerBehaviour : MonoBehaviour
         droneMap = ControllerWriter.Data.droneMap;
 
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
+		completedRoundTrips = MetricsWriter.Data.completedRoundTrips;
         collisionsReported = MetricsWriter.Data.collisionsReported;
 		failedDeliveries = MetricsWriter.Data.failedDeliveries;
 
@@ -118,6 +120,8 @@ public class ControllerBehaviour : MonoBehaviour
                 }
                 else
                 {
+					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedRoundTrips(++completedRoundTrips));
+
                     droneInfo.returning = true;
                     droneInfo.waypoints.Reverse();
                     droneInfo.nextWaypoint = 2;
@@ -163,10 +167,11 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS Controller_{0} Linked_Drones {1} Completed_Deliveries {2} Failed_Deliveries {3} Collisions_Reported {4}"
+		Debug.LogWarningFormat("METRICS Controller_{0} Linked_Drones {1} Completed_Deliveries {2} Completed_Round_Trips {3} Failed_Deliveries {4} Collisions_Reported {5}"
                                , gameObject.EntityId().Id
 		                       , droneMap.Count
                                , completedDeliveries
+		                       , completedRoundTrips
                                , failedDeliveries
                                , collisionsReported);
     }
