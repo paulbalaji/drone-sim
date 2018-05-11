@@ -13,7 +13,7 @@ namespace Assets.Gamelogic.Core
         //public static readonly uint MaxDroneCountPerController = (uint)(MaxDroneCount / ControllerCount);
         public static readonly uint MaxDroneCountPerController = 30;
 
-        public static readonly uint MaxDeliveryRequestQueueSize = MaxDroneCountPerController;
+        public static readonly uint MaxDeliveryRequestQueueSize = 30;
 
         public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
@@ -45,6 +45,8 @@ namespace Assets.Gamelogic.Core
         public static readonly float DroneSpawnInterval = 5f;
 
         public static readonly float MinimumDeliveryDistance = 250;
+
+		public static readonly float MaximumTimePerWaypoint = 300f;
 
         public static readonly Vector3f ControllerArrivalOffset = new Vector3f(-75, 0, 75);
         public static readonly Vector3f ControllerDepartureOffset = new Vector3f(75, 0, -75);

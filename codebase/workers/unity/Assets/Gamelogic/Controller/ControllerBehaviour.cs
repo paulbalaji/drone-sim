@@ -44,8 +44,6 @@ public class ControllerBehaviour : MonoBehaviour
     int collisionsReported;
 	int failedDeliveries;
 
-    private float nextSpawnTime = 0;
-
     private void OnEnable()
     {
         droneMap = ControllerWriter.Data.droneMap;
@@ -245,8 +243,6 @@ public class ControllerBehaviour : MonoBehaviour
         droneInfo.nextWaypoint++;
         droneMap.Add(droneId, droneInfo);
         UpdateDroneMap();
-
-        nextSpawnTime = Time.time + SimulationSettings.DroneSpawnInterval;
     }
 
     void DroneDeploymentFailure()
@@ -319,7 +315,6 @@ public class ControllerBehaviour : MonoBehaviour
         //don't need to do anything if no requests in the queue
         if (deliveryRequestQueue.Count > 0
             && droneMap.Count < ControllerWriter.Data.maxDroneCount)
-            //&& Time.time > nextSpawnTime)
         {
             HandleDeliveryRequest(deliveryRequestQueue.Dequeue());
             UpdateDeliveryRequestQueue();
@@ -328,6 +323,11 @@ public class ControllerBehaviour : MonoBehaviour
 
 	void DroneMapPrune()
 	{
+		if (!ControllerWriter.Data.initialised)
+		{
+			return;
+		}
+
 		DroneInfo droneInfo;
 		List<EntityId> toPrune = new List<EntityId>();
 
@@ -337,7 +337,7 @@ public class ControllerBehaviour : MonoBehaviour
 			{
 				if (Time.time > droneInfo.latestCheckinTime)
                 {
-                    Debug.LogErrorFormat("Pruning Drone for taking too long. Delivered: {0}", droneInfo.returning);
+					Debug.LogErrorFormat("Pruning Drone for taking too long. Drone {0} Delivered: {0}", droneId, droneInfo.returning);
 					toPrune.Add(droneId);
                 }
 			}
