@@ -4,4 +4,6 @@ component SchedulerMetrics {
 	id = 1401;
 
 	int32 deliveries_requested = 1;
+	int32 failed_requests = 2;
+	int32 failed_commands = 3;
 }

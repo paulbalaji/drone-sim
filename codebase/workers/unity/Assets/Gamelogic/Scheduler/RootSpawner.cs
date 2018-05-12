@@ -23,12 +23,16 @@ public class RootSpawner : MonoBehaviour
     private SchedulerMetrics.Writer MetricsWriter;
 
     int deliveriesRequested;
+	int failedRequests;
+	int failedCommands;
 
 	private void OnEnable()
 	{
 		Debug.LogWarningFormat("Controller_{0} Starting Up.", gameObject.EntityId().Id);
 
 		deliveriesRequested = MetricsWriter.Data.deliveriesRequested;
+		failedRequests = MetricsWriter.Data.failedRequests;
+		failedCommands = MetricsWriter.Data.failedCommands;
 
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
 
@@ -60,20 +64,34 @@ public class RootSpawner : MonoBehaviour
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
             new DeliveryRequest(deliveryDestination),
             closestController)
-                 .OnSuccess(HandleCommandSuccessCallback);
+		         .OnSuccess((response) => DeliveryRequestCallback(response.success))
+		         .OnFailure((response) => DeliveryRequestFail());
     }
 
-    void HandleCommandSuccessCallback(DeliveryResponse response)
+    void DeliveryRequestCallback(bool success)
     {
-        if (response.success)
-        {
+		if (success)
+		{
 			MetricsWriter.Send(new SchedulerMetrics.Update().SetDeliveriesRequested(++deliveriesRequested));
-        }
+		}
+		else
+		{
+			MetricsWriter.Send(new SchedulerMetrics.Update().SetFailedRequests(++failedRequests));
+		}
     }
+
+    void DeliveryRequestFail()
+	{
+		MetricsWriter.Send(new SchedulerMetrics.Update().SetFailedCommands(++failedCommands));
+	}
 
     void PrintMetrics()
     {
-        Debug.LogWarningFormat("METRICS Scheduler_{0} Deliveries_Requested {1}", gameObject.EntityId().Id, deliveriesRequested);
+		Debug.LogWarningFormat("METRICS Scheduler_{0} Success {1} Fails {2} Errors {3}"
+		                       , gameObject.EntityId().Id
+		                       , deliveriesRequested
+		                       , failedRequests
+		                       , failedCommands);
     }
 
     private EntityId GetClosestController(Vector3f destination)
