@@ -74,6 +74,11 @@ public class GridGlobalLayer : MonoBehaviour
         GlobalLayerWriter.Send(new GlobalLayer.Update().SetZones(zones));
     }
 
+	public Improbable.Vector3f GetClosestVector3fOnGrid(Improbable.Vector3f original)
+	{
+		return bitmap.getPointFromGridCoordinates(bitmap.findGridCoordinatesOfPoint(original));
+	}
+
     // Converts a grid location back into cartesian coordinate.
     private Improbable.Vector3f convertLocation(GridLocation l)
     {
@@ -148,7 +153,7 @@ public class GridGlobalLayer : MonoBehaviour
 
         Improbable.Collections.List<Improbable.Vector3f> result = new Improbable.Collections.List<Improbable.Vector3f>();
 
-        result.Add(p1 + SimulationSettings.ControllerArrivalOffset);
+        result.Add(p1);
         foreach (GridLocation l in locs)
         {
             Improbable.Vector3f convertedLocation = convertLocation(l);

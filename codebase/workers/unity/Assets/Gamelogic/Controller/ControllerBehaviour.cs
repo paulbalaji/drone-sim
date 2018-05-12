@@ -127,6 +127,9 @@ public class ControllerBehaviour : MonoBehaviour
 
                     droneInfo.returning = true;
                     droneInfo.waypoints.Reverse();
+					Vector3f arrivalsGridPoint = globalLayer.GetClosestVector3fOnGrid(droneInfo.waypoints[0]);
+					arrivalsGridPoint.y = droneInfo.waypoints[2].y;
+					droneInfo.waypoints[1] = arrivalsGridPoint;
                     droneInfo.nextWaypoint = 2;
 					droneInfo.latestCheckinTime
                         = Time.time
