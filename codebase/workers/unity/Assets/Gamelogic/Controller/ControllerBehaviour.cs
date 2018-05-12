@@ -179,9 +179,10 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS Controller_{0} Linked_Drones {1} Completed_Deliveries {2} Completed_Round_Trips {3} Failed_Deliveries {4} Collisions_Reported {5} Total_Requests {6}"
+		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} fails {5} collisions {6} totalRequests {7}"
                                , gameObject.EntityId().Id
 		                       , droneMap.Count
+		                       , deliveryRequestQueue.Count
                                , completedDeliveries
 		                       , completedRoundTrips
                                , failedDeliveries
