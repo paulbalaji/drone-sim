@@ -11,9 +11,9 @@ namespace Assets.Gamelogic.Core
 
         public static readonly uint MaxDroneCount = (uint)numDrones;
         //public static readonly uint MaxDroneCountPerController = (uint)(MaxDroneCount / ControllerCount);
-        public static readonly uint MaxDroneCountPerController = 30;
+        public static readonly uint MaxDroneCountPerController = 20;
 
-        public static readonly uint MaxDeliveryRequestQueueSize = 30;
+        public static readonly uint MaxDeliveryRequestQueueSize = 50;
 
         public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
@@ -33,7 +33,7 @@ namespace Assets.Gamelogic.Core
         // SCHEDULER CONSTANTS //
 
         public static EntityId SchedulerEntityId = new EntityId(1);
-        public static readonly float SchedulerInterval = 0.75f;
+        public static readonly float SchedulerInterval = 0.5f;
 
 		// CONTROLLER //
 
