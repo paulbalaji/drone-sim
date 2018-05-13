@@ -194,7 +194,6 @@ public class ControllerBehaviour : MonoBehaviour
         else
         {
             deliveryRequestQueue.Enqueue(handle.Request);
-			UpdateDeliveryRequestQueue();
             handle.Respond(new DeliveryResponse(true));
         }
     }
@@ -345,8 +344,9 @@ public class ControllerBehaviour : MonoBehaviour
             && droneMap.Count < ControllerWriter.Data.maxDroneCount)
         {
             HandleDeliveryRequest(deliveryRequestQueue.Dequeue());
-            UpdateDeliveryRequestQueue();
         }
+
+		UpdateDeliveryRequestQueue();
     }
 
 	void DroneMapPrune()
