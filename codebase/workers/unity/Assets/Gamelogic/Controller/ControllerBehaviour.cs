@@ -42,7 +42,11 @@ public class ControllerBehaviour : MonoBehaviour
     int completedDeliveries;
 	int completedRoundTrips;
     int collisionsReported;
+
+	int failedLaunches;
 	int failedDeliveries;
+	int failedReturns;
+	int unknownRequests;
 
     private void OnEnable()
     {
@@ -59,6 +63,8 @@ public class ControllerBehaviour : MonoBehaviour
 		completedRoundTrips = MetricsWriter.Data.completedRoundTrips;
         collisionsReported = MetricsWriter.Data.collisionsReported;
 		failedDeliveries = MetricsWriter.Data.failedDeliveries;
+		failedReturns = MetricsWriter.Data.failedReturns;
+		unknownRequests = MetricsWriter.Data.unknownRequests;
 
         departuresPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerDepartureOffset;
         arrivalsPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerArrivalOffset;
@@ -95,14 +101,26 @@ public class ControllerBehaviour : MonoBehaviour
     void HandleUnlinkRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.UnlinkDrone, UnlinkRequest, UnlinkResponse> handle)
     {
         DroneInfo droneInfo;
-        if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
-        {
+		if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+		{
+			if (droneInfo.returning)
+            {
+                MetricsWriter.Send(new ControllerMetrics.Update().SetFailedReturns(++failedReturns));
+            }
+            else
+            {
+                MetricsWriter.Send(new ControllerMetrics.Update().SetFailedDeliveries(++failedDeliveries));
+            }
+
 			DestroyDrone(handle.Request.droneId);
-            UpdateDroneMap();
-        }
+			UpdateDroneMap();
+		}
+		else
+		{
+			MetricsWriter.Send(new ControllerMetrics.Update().SetUnknownRequests(++unknownRequests));
+		}
 
         handle.Respond(new UnlinkResponse());
-        DroneDeploymentFailure();
     }
 
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
@@ -110,8 +128,6 @@ public class ControllerBehaviour : MonoBehaviour
         DroneInfo droneInfo;
         if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
         {
-            //TODO: need to verify if the drone is actually at its target
-
             //Debug.LogWarning("is final waypoint?");
             //final waypoint, figure out if it's back at controller or only just delivered
             if (droneInfo.nextWaypoint < droneInfo.waypoints.Count)
@@ -189,14 +205,17 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} fails {5} collisions {6} totalRequests {7}"
+		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} fDel {5} fRet {6} fLaunch {7} collisions {8} unknown {9} total {10}"
                                , gameObject.EntityId().Id
 		                       , droneMap.Count
 		                       , deliveryRequestQueue.Count
                                , completedDeliveries
 		                       , completedRoundTrips
                                , failedDeliveries
+		                       , failedReturns
+		                       , failedLaunches
                                , collisionsReported
+		                       , unknownRequests
 		                       , incomingRequests);
     }
 
@@ -260,7 +279,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void DroneDeploymentFailure()
     {
-		MetricsWriter.Send(new ControllerMetrics.Update().SetFailedDeliveries(++failedDeliveries));
+		MetricsWriter.Send(new ControllerMetrics.Update().SetFailedLaunches(++failedLaunches));
     }
 
     void HandleDeliveryRequest(DeliveryRequest request)
@@ -352,6 +371,15 @@ public class ControllerBehaviour : MonoBehaviour
                 {
 					Debug.LogErrorFormat("Pruning Drone for taking too long. Drone {0} Delivered: {0}", droneId, droneInfo.returning);
 					toPrune.Add(droneId);
+
+					if (droneInfo.returning)
+                    {
+						++failedReturns;
+                    }
+                    else
+                    {
+						++failedDeliveries;
+                    }
                 }
 			}
 		}
@@ -360,6 +388,10 @@ public class ControllerBehaviour : MonoBehaviour
 		{
 			DestroyDrone(droneId);
 		}
+
+		MetricsWriter.Send(new ControllerMetrics.Update()
+		                   .SetFailedReturns(failedReturns)
+		                   .SetFailedDeliveries(failedDeliveries));
         
 		UpdateDroneMap();
 	}
