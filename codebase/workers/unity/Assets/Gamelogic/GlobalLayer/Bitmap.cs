@@ -92,6 +92,7 @@ public class Bitmap : MonoBehaviour
 
     private void OnDisable()
     {
+		Grid.Clear();
         //BitmapWriter.ComponentUpdated.Remove(HandleAction);
     }
 

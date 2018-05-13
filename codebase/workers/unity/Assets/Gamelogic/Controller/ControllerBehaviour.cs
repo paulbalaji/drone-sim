@@ -30,9 +30,9 @@ public class ControllerBehaviour : MonoBehaviour
 
     GridGlobalLayer globalLayer;
 
-    Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
-    
-    Queue<DeliveryRequest> deliveryRequestQueue;
+	Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
+
+	Queue<DeliveryRequest> deliveryRequestQueue;
 
     Coordinates departuresPoint;
     Coordinates arrivalsPoint;
@@ -48,6 +48,12 @@ public class ControllerBehaviour : MonoBehaviour
     {
         droneMap = ControllerWriter.Data.droneMap;
 
+		deliveryRequestQueue = new Queue<DeliveryRequest>((int)SimulationSettings.MaxDeliveryRequestQueueSize);
+		foreach (DeliveryRequest request in DeliveryHandlerWriter.Data.requestQueue)
+        {
+            deliveryRequestQueue.Enqueue(request);
+        }
+
 		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
 		completedRoundTrips = MetricsWriter.Data.completedRoundTrips;
@@ -56,9 +62,7 @@ public class ControllerBehaviour : MonoBehaviour
 
         departuresPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerDepartureOffset;
         arrivalsPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerArrivalOffset;
-
-        deliveryRequestQueue = new Queue<DeliveryRequest>(DeliveryHandlerWriter.Data.requestQueue);
-
+        
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(HandleTargetRequest);
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
         ControllerWriter.CommandReceiver.OnUnlinkDrone.RegisterAsyncResponse(HandleUnlinkRequest);
@@ -77,6 +81,9 @@ public class ControllerBehaviour : MonoBehaviour
     private void OnDisable()
     {
 		CancelInvoke();
+
+		droneMap.Clear();
+		deliveryRequestQueue.Clear();
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
@@ -353,7 +360,7 @@ public class ControllerBehaviour : MonoBehaviour
 		{
 			DestroyDrone(droneId);
 		}
-
+        
 		UpdateDroneMap();
 	}
 }
