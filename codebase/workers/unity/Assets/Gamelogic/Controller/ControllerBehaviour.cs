@@ -194,6 +194,7 @@ public class ControllerBehaviour : MonoBehaviour
         else
         {
             deliveryRequestQueue.Enqueue(handle.Request);
+			UpdateDeliveryRequestQueue();
             handle.Respond(new DeliveryResponse(true));
         }
     }
@@ -239,11 +240,6 @@ public class ControllerBehaviour : MonoBehaviour
     void UpdateDroneMap()
     {
         ControllerWriter.Send(new Controller.Update().SetDroneMap(droneMap));
-    }
-
-    void TargetReplyFailure(ICommandErrorDetails errorDetails)
-    {
-        Debug.LogError("Unable to give drone new target");
     }
 
     private void IncrementNextWaypoint(EntityId droneId)
