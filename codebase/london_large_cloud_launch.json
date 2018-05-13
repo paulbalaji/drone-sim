@@ -7,10 +7,6 @@
     },
     "legacy_flags": [
       {
-        "name": "bridge_qos_max_timeout",
-        "value": "60000"
-      },
-      {
         "name": "qos_max_unacked_pings_rate",
         "value": "2.0d"
       }

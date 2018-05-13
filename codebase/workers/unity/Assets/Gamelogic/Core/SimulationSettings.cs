@@ -57,7 +57,7 @@ namespace Assets.Gamelogic.Core
         public const float DroneUpdateInterval = 1f;
 		public const float DroneMoveInterval = 0.25f;
 
-        public const float MaxDroneSpeed = 20;
+        public const float MaxDroneSpeed = 10;
 
         public const int MaxTargetRequestFailures = 5;
 
