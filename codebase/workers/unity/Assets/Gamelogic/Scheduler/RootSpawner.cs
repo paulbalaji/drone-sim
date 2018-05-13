@@ -28,7 +28,7 @@ public class RootSpawner : MonoBehaviour
 
 	private void OnEnable()
 	{
-		Debug.LogWarningFormat("Controller_{0} Starting Up.", gameObject.EntityId().Id);
+		Debug.LogWarningFormat("Scheduler_{0} Starting Up.", gameObject.EntityId().Id);
 
 		deliveriesRequested = MetricsWriter.Data.deliveriesRequested;
 		failedRequests = MetricsWriter.Data.failedRequests;
