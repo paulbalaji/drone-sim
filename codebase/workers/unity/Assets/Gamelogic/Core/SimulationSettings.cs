@@ -33,7 +33,7 @@ namespace Assets.Gamelogic.Core
         // SCHEDULER CONSTANTS //
 
 		public static EntityId OrderGeneratorEntityId = new EntityId(1);
-        public static readonly float OrderGenerationInterval = 0.5f;
+        public static readonly float OrderGenerationInterval = 0.4f;
 
 		// CONTROLLER //
 
