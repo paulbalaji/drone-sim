@@ -44,7 +44,7 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 		DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.DeregisterResponse();
 	}
 
-	void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
+	public void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
     {
         MetricsWriter.Send(new ControllerMetrics.Update().SetIncomingDeliveryRequests(++incomingRequests));
 
