@@ -11,10 +11,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class RootSpawner : MonoBehaviour
+public class OrderGeneratorBehaviour : MonoBehaviour
 {
     [Require]
-	private OrderGenerator.Writer OrderWriter;
+	private  OrderGeneratorComponent.Writer OrderWriter;
 
     [Require]
 	private OrderGeneratorMetrics.Writer MetricsWriter;

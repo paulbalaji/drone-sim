@@ -123,7 +123,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-		    .AddComponent(new OrderGenerator.Data(firstController, lastController, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
+		    .AddComponent(new OrderGeneratorComponent.Data(firstController, lastController, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
 		    .AddComponent(new OrderGeneratorMetrics.Data(0, 0, 0), CommonRequirementSets.PhysicsOnly)
             .Build();
 

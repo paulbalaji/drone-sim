@@ -43,7 +43,7 @@ namespace Assets.Editor
 
             // SCHEDULER 
             // find and place scheduler
-            RootSpawner rootSpawnerScript = FindObjectOfType<RootSpawner>();
+			OrderGeneratorBehaviour orderGenerator = FindObjectOfType<OrderGeneratorBehaviour>();
             snapshotEntities.Add(
                 SimulationSettings.SchedulerEntityId,
                 EntityTemplateFactory.CreateSchedulerTemplate(
@@ -108,11 +108,11 @@ namespace Assets.Editor
 
             // SCHEDULER 
             // find and place scheduler
-            RootSpawner rootSpawnerScript = FindObjectOfType<RootSpawner>();
+			OrderGeneratorBehaviour orderGenerator = FindObjectOfType<OrderGeneratorBehaviour>();
             snapshotEntities.Add(
                 SimulationSettings.SchedulerEntityId,
                 EntityTemplateFactory.CreateSchedulerTemplate(
-                    rootSpawnerScript.gameObject.transform.position,
+					orderGenerator.gameObject.transform.position,
                     firstController,
                     lastController,
                     noFlyZones,

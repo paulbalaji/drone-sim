@@ -8,7 +8,7 @@ type ControllerInfo {
 	improbable.Vector3f location = 2;
 }
 
-component OrderGenerator {
+component OrderGeneratorComponent {
   id = 1300;
 
   int32 first_controller = 1;
