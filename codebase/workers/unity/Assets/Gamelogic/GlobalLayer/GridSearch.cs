@@ -29,7 +29,7 @@ public static class GridSearch
         {
             if (Time.time > exitLoopTime)
             {
-                Debug.LogError("GS: grid search timeout");
+				Debug.LogWarning("GS: grid search timeout");
                 return null;
             }
 
@@ -62,7 +62,7 @@ public static class GridSearch
             }
         }
 
-        Debug.LogError("GS: returning null");
+		Debug.LogWarning("GS: returning null");
         return null;
     }
 

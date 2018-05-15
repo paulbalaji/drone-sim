@@ -82,7 +82,7 @@ public class ThetaStarSearch : IGridSearch
         {
             if (Time.time > exitLoopTime)
             {
-                Debug.LogError("TS: theta star timeout");
+				Debug.LogWarning("TS: theta star timeout");
                 return null;
             }
 
@@ -111,7 +111,7 @@ public class ThetaStarSearch : IGridSearch
             }
         }
 
-        Debug.LogError("TS: returning null");
+		Debug.LogWarning("TS: returning null");
         return null;
     }
 

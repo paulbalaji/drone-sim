@@ -14,9 +14,6 @@ using UnityEngine;
 public class RootSpawner : MonoBehaviour
 {
     [Require]
-    private Position.Writer PositionWriter;
-
-    [Require]
     private Scheduler.Writer SchedulerWriter;
 
     [Require]
@@ -36,7 +33,7 @@ public class RootSpawner : MonoBehaviour
 
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
 
-		InvokeRepeating("RootSpawnerTick", SimulationSettings.SchedulerInterval, SimulationSettings.SchedulerInterval);
+		InvokeRepeating("RootSpawnerTick", 0, SimulationSettings.SchedulerInterval);
         InvokeRepeating("PrintMetrics", 0, SimulationSettings.SchedulerMetricsInterval);
 	}
 
@@ -60,7 +57,7 @@ public class RootSpawner : MonoBehaviour
         }
 
         SpatialOS.Commands.SendCommand(
-            PositionWriter,
+			SchedulerWriter,
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
             new DeliveryRequest(deliveryDestination),
             closestController)
@@ -116,22 +113,21 @@ public class RootSpawner : MonoBehaviour
     {
         float randX, randZ;
         Vector3f point = new Vector3f();
-        int tryCount = 0;
         bool invalidPoint = false;
 
-        do
-        {
-            point.x = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxX);
+        //10 attempts per second to get a valid point
+		for (int i = 0; i < 10; i++)
+		{
+			point.x = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxX);
             point.z = UnityEngine.Random.Range(-SimulationSettings.maxZ, SimulationSettings.maxZ);
-            tryCount++;
             invalidPoint = NoFlyZone.hasCollidedWithAny(SchedulerWriter.Data.zones, point);
-        } while (invalidPoint && tryCount < 10);
 
-        if (invalidPoint)
-        {
-            return new Vector3f(0, -1, 0);
-        }
+			if (!invalidPoint)
+			{
+				return point;
+			}
+		}
 
-        return point;
+		return new Vector3f(0, -1, 0);
     }
 }

@@ -119,7 +119,7 @@ public class GridGlobalLayer : MonoBehaviour
     {
         if (isPointInNoFlyZone(p2))
         {
-            Debug.LogError("next target is in a NFZ");
+			Debug.LogError("next target is in a NFZ");
             return null; // A plan can not be found
         }
 
@@ -145,7 +145,7 @@ public class GridGlobalLayer : MonoBehaviour
         List<GridLocation> locs = ASearch.run(bitmap, l1, l2);
         if (locs == null)
         { // The case that a path could not be found.
-            Debug.LogError("search fail");
+			Debug.LogError("search fail");
             return null; // Just return empty list.
         }
 

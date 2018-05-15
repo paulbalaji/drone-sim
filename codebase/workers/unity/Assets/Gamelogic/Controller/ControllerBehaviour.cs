@@ -365,7 +365,7 @@ public class ControllerBehaviour : MonoBehaviour
 			{
 				if (Time.time > droneInfo.latestCheckinTime)
                 {
-					Debug.LogErrorFormat("Pruning Drone for taking too long. Drone {0} Delivered: {0}", droneId, droneInfo.returning);
+					Debug.LogErrorFormat("Pruning Drone for taking too long. Drone {0} Delivered: {1}", droneId, droneInfo.returning);
 					toPrune.Add(droneId);
 
 					if (droneInfo.returning)
