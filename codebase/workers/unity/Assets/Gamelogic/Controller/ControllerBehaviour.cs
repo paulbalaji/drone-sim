@@ -23,22 +23,19 @@ public class ControllerBehaviour : MonoBehaviour
     [Require]
     private ControllerMetrics.Writer MetricsWriter;
 
-    [Require]
-    private DeliveryHandler.Writer DeliveryHandlerWriter;
-
     DroneTranstructor droneTranstructor;
 
-    GridGlobalLayer globalLayer;
+	GridGlobalLayer globalLayer;
+
+	Scheduler scheduler;
 
 	Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
-
-	Queue<DeliveryRequest> deliveryRequestQueue;
 
     Coordinates departuresPoint;
     Coordinates arrivalsPoint;
 
     bool stopSpawning = false;
-	int incomingRequests;
+
     int completedDeliveries;
 	int completedRoundTrips;
     int collisionsReported;
@@ -52,13 +49,6 @@ public class ControllerBehaviour : MonoBehaviour
     {
         droneMap = ControllerWriter.Data.droneMap;
 
-		deliveryRequestQueue = new Queue<DeliveryRequest>((int)SimulationSettings.MaxDeliveryRequestQueueSize);
-		foreach (DeliveryRequest request in DeliveryHandlerWriter.Data.requestQueue)
-        {
-            deliveryRequestQueue.Enqueue(request);
-        }
-
-		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
 		completedRoundTrips = MetricsWriter.Data.completedRoundTrips;
         collisionsReported = MetricsWriter.Data.collisionsReported;
@@ -73,10 +63,9 @@ public class ControllerBehaviour : MonoBehaviour
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
         ControllerWriter.CommandReceiver.OnUnlinkDrone.RegisterAsyncResponse(HandleUnlinkRequest);
 
-        DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.RegisterAsyncResponse(EnqueueDeliveryRequest);
-
         droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
+		scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
 
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("ControllerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
@@ -89,13 +78,10 @@ public class ControllerBehaviour : MonoBehaviour
 		CancelInvoke();
 
 		droneMap.Clear();
-		deliveryRequestQueue.Clear();
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnUnlinkDrone.DeregisterResponse();
-
-        DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.DeregisterResponse();
     }
 
     void HandleUnlinkRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.UnlinkDrone, UnlinkRequest, UnlinkResponse> handle)
@@ -183,32 +169,12 @@ public class ControllerBehaviour : MonoBehaviour
         handle.Respond(new TargetResponse(new Vector3f(), responseCode));
     }
 
-    void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
-    {
-		MetricsWriter.Send(new ControllerMetrics.Update().SetIncomingDeliveryRequests(++incomingRequests));
-
-        if (deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
-        {
-            handle.Respond(new DeliveryResponse(false));
-        }
-        else
-        {
-            deliveryRequestQueue.Enqueue(handle.Request);
-            handle.Respond(new DeliveryResponse(true));
-        }
-    }
-
-    void UpdateDeliveryRequestQueue()
-    {
-        DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(new Improbable.Collections.List<DeliveryRequest>(deliveryRequestQueue.ToArray())));
-    }
-
     void PrintMetrics()
     {
 		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} fDel {5} fRet {6} fLaunch {7} collisions {8} unknown {9} total {10}"
                                , gameObject.EntityId().Id
 		                       , droneMap.Count
-		                       , deliveryRequestQueue.Count
+		                       , scheduler.GetQueueSize()
                                , completedDeliveries
 		                       , completedRoundTrips
                                , failedDeliveries
@@ -216,7 +182,7 @@ public class ControllerBehaviour : MonoBehaviour
 		                       , failedLaunches
                                , collisionsReported
 		                       , unknownRequests
-		                       , incomingRequests);
+		                       , scheduler.GetTotalRequests());
     }
 
     void HandleCollision(Improbable.Entity.Component.ResponseHandle<Controller.Commands.Collision, CollisionRequest, CollisionResponse> handle)
@@ -339,14 +305,17 @@ public class ControllerBehaviour : MonoBehaviour
             return;
         }
 
-        //don't need to do anything if no requests in the queue
-        if (deliveryRequestQueue.Count > 0
-            && droneMap.Count < ControllerWriter.Data.maxDroneCount)
+		//don't need to do anything if no requests in the queue
+		DeliveryRequest nextRequest;
+        if (droneMap.Count < ControllerWriter.Data.maxDroneCount)
         {
-            HandleDeliveryRequest(deliveryRequestQueue.Dequeue());
+			if (scheduler.GetNextRequest(out nextRequest))
+			{
+				HandleDeliveryRequest(nextRequest);
+			}
         }
 
-		UpdateDeliveryRequestQueue();
+		scheduler.UpdateDeliveryRequestQueue();
     }
 
 	void DroneMapPrune()
