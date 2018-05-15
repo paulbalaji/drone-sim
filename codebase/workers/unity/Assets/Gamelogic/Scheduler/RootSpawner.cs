@@ -2,7 +2,7 @@ using Assets.Gamelogic.Core;
 using Improbable;
 using Improbable.Drone;
 using Improbable.Controller;
-using Improbable.Scheduler;
+using Improbable.Orders;
 using Improbable.Metrics;
 using Improbable.Unity;
 using Improbable.Unity.Core;
@@ -14,10 +14,10 @@ using UnityEngine;
 public class RootSpawner : MonoBehaviour
 {
     [Require]
-    private Scheduler.Writer SchedulerWriter;
+	private OrderGenerator.Writer OrderWriter;
 
     [Require]
-    private SchedulerMetrics.Writer MetricsWriter;
+	private OrderGeneratorMetrics.Writer MetricsWriter;
 
     int deliveriesRequested;
 	int failedRequests;
@@ -57,7 +57,7 @@ public class RootSpawner : MonoBehaviour
         }
 
         SpatialOS.Commands.SendCommand(
-			SchedulerWriter,
+			OrderWriter,
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
             new DeliveryRequest(deliveryDestination),
             closestController)
@@ -69,17 +69,17 @@ public class RootSpawner : MonoBehaviour
     {
 		if (success)
 		{
-			MetricsWriter.Send(new SchedulerMetrics.Update().SetDeliveriesRequested(++deliveriesRequested));
+			MetricsWriter.Send(new OrderGeneratorMetrics.Update().SetDeliveriesRequested(++deliveriesRequested));
 		}
 		else
 		{
-			MetricsWriter.Send(new SchedulerMetrics.Update().SetFailedRequests(++failedRequests));
+			MetricsWriter.Send(new OrderGeneratorMetrics.Update().SetFailedRequests(++failedRequests));
 		}
     }
 
     void DeliveryRequestFail()
 	{
-		MetricsWriter.Send(new SchedulerMetrics.Update().SetFailedCommands(++failedCommands));
+		MetricsWriter.Send(new OrderGeneratorMetrics.Update().SetFailedCommands(++failedCommands));
 	}
 
     void PrintMetrics()
@@ -96,7 +96,7 @@ public class RootSpawner : MonoBehaviour
         Vector3 dst = destination.ToUnityVector();
         EntityId closestId = new EntityId(-1);
         float closest = float.MaxValue;
-        foreach (ControllerInfo controller in SchedulerWriter.Data.controllers)
+		foreach (ControllerInfo controller in OrderWriter.Data.controllers)
         {
             float distance = Vector3.Distance(dst, controller.location.ToUnityVector());
             if (distance < closest && distance > SimulationSettings.MinimumDeliveryDistance)
@@ -120,7 +120,7 @@ public class RootSpawner : MonoBehaviour
 		{
 			point.x = UnityEngine.Random.Range(-SimulationSettings.maxX, SimulationSettings.maxX);
             point.z = UnityEngine.Random.Range(-SimulationSettings.maxZ, SimulationSettings.maxZ);
-            invalidPoint = NoFlyZone.hasCollidedWithAny(SchedulerWriter.Data.zones, point);
+			invalidPoint = NoFlyZone.hasCollidedWithAny(OrderWriter.Data.zones, point);
 
 			if (!invalidPoint)
 			{

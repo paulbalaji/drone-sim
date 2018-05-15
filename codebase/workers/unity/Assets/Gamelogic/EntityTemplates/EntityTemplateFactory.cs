@@ -4,7 +4,7 @@ using Improbable.Core;
 using Improbable.Player;
 using Improbable.Drone;
 using Improbable.Controller;
-using Improbable.Scheduler;
+using Improbable.Orders;
 using Improbable.Metrics;
 using Improbable.Unity.Core.Acls;
 using Improbable.Worker;
@@ -123,8 +123,8 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new Scheduler.Data(firstController, lastController, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new SchedulerMetrics.Data(0, 0, 0), CommonRequirementSets.PhysicsOnly)
+		    .AddComponent(new OrderGenerator.Data(firstController, lastController, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
+		    .AddComponent(new OrderGeneratorMetrics.Data(0, 0, 0), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return schedulerTemplate;

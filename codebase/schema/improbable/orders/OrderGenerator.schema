@@ -1,4 +1,4 @@
-package improbable.scheduler;
+package improbable.orders;
 
 import "improbable/vector3.schema";
 import "improbable/controller/GlobalLayer.schema";
@@ -8,7 +8,7 @@ type ControllerInfo {
 	improbable.Vector3f location = 2;
 }
 
-component Scheduler {
+component OrderGenerator {
   id = 1300;
 
   int32 first_controller = 1;
