@@ -27,13 +27,13 @@ namespace Assets.Gamelogic.Core
 
         // METRICS //
 
-        public static readonly float SchedulerMetricsInterval = 60f;
+		public static readonly float OrderGenerationMetricsInterval = 60f;
         public static readonly float ControllerMetricsInterval = 60f;
 
         // SCHEDULER CONSTANTS //
 
-        public static EntityId SchedulerEntityId = new EntityId(1);
-        public static readonly float SchedulerInterval = 0.5f;
+		public static EntityId OrderGeneratorEntityId = new EntityId(1);
+        public static readonly float OrderGenerationInterval = 0.5f;
 
 		// CONTROLLER //
 

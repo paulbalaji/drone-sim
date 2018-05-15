@@ -33,8 +33,8 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
 
-		InvokeRepeating("RootSpawnerTick", 0, SimulationSettings.SchedulerInterval);
-        InvokeRepeating("PrintMetrics", 0, SimulationSettings.SchedulerMetricsInterval);
+		InvokeRepeating("RootSpawnerTick", 0, SimulationSettings.OrderGenerationInterval);
+		InvokeRepeating("PrintMetrics", 0, SimulationSettings.OrderGenerationMetricsInterval);
 	}
 
 	private void OnDisable()

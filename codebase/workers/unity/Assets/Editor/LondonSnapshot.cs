@@ -41,11 +41,11 @@ namespace Assets.Editor
             int lastController = currentEntityId;
             // controller placement complete
 
-            // SCHEDULER 
-            // find and place scheduler
+            // ORDER GENERATOR 
+            // find and place order generator
 			OrderGeneratorBehaviour orderGenerator = FindObjectOfType<OrderGeneratorBehaviour>();
             snapshotEntities.Add(
-                SimulationSettings.SchedulerEntityId,
+				SimulationSettings.OrderGeneratorEntityId,
                 EntityTemplateFactory.CreateSchedulerTemplate(
                     new Vector3(0, 0, 0),
                     firstController,
@@ -106,11 +106,11 @@ namespace Assets.Editor
             // make nfz nodes show up on the inspector map
             //currentEntityId = ShowNoFlyZones(noFlyZones, snapshotEntities, currentEntityId);
 
-            // SCHEDULER 
-            // find and place scheduler
+            // ORDER GENERATOR 
+            // find and place order generator
 			OrderGeneratorBehaviour orderGenerator = FindObjectOfType<OrderGeneratorBehaviour>();
             snapshotEntities.Add(
-                SimulationSettings.SchedulerEntityId,
+				SimulationSettings.OrderGeneratorEntityId,
                 EntityTemplateFactory.CreateSchedulerTemplate(
 					orderGenerator.gameObject.transform.position,
                     firstController,
