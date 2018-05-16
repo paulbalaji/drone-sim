@@ -126,13 +126,13 @@ public class ControllerBehaviour : MonoBehaviour
                 if (droneInfo.returning)
                 {
                     UnsuccessfulTargetRequest(handle, TargetResponseCode.JOURNEY_COMPLETE);
-					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(++completedDeliveries));
+					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedRoundTrips(++completedRoundTrips));
                     DestroyDrone(handle.Request.droneId);
                     UpdateDroneMap();
                 }
                 else
                 {
-					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedRoundTrips(++completedRoundTrips));
+					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(++completedDeliveries));
 
                     droneInfo.returning = true;
                     droneInfo.waypoints.Reverse();
