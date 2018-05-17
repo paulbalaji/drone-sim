@@ -29,7 +29,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 	Scheduler scheduler;
 
-	Improbable.Collections.Map<EntityId, DroneInfo> droneMap;
+	Improbable.Collections.Map<EntityId, DeliveryInfo> droneMap;
 
     Coordinates departuresPoint;
     Coordinates arrivalsPoint;
@@ -86,7 +86,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void HandleUnlinkRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.UnlinkDrone, UnlinkRequest, UnlinkResponse> handle)
     {
-        DroneInfo droneInfo;
+		DeliveryInfo droneInfo;
 		if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
 		{
 			if (droneInfo.returning)
@@ -111,19 +111,19 @@ public class ControllerBehaviour : MonoBehaviour
 
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
-        DroneInfo droneInfo;
-        if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+		DeliveryInfo deliveryInfo;
+		if (droneMap.TryGetValue(handle.Request.droneId, out deliveryInfo))
         {
             //Debug.LogWarning("is final waypoint?");
             //final waypoint, figure out if it's back at controller or only just delivered
-            if (droneInfo.nextWaypoint < droneInfo.waypoints.Count)
+			if (deliveryInfo.nextWaypoint < deliveryInfo.waypoints.Count)
             {
-                handle.Respond(new TargetResponse(droneInfo.waypoints[droneInfo.nextWaypoint], TargetResponseCode.SUCCESS));
+				handle.Respond(new TargetResponse(deliveryInfo.waypoints[deliveryInfo.nextWaypoint], TargetResponseCode.SUCCESS));
                 IncrementNextWaypoint(handle.Request.droneId);
             }
             else
             {
-                if (droneInfo.returning)
+				if (deliveryInfo.returning)
                 {
                     UnsuccessfulTargetRequest(handle, TargetResponseCode.JOURNEY_COMPLETE);
 					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedRoundTrips(++completedRoundTrips));
@@ -134,27 +134,27 @@ public class ControllerBehaviour : MonoBehaviour
                 {
 					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(++completedDeliveries));
 
-                    droneInfo.returning = true;
-                    droneInfo.waypoints.Reverse();
-					Vector3f arrivalsGridPoint = globalLayer.GetClosestVector3fOnGrid(droneInfo.waypoints[0]);
-					arrivalsGridPoint.y = droneInfo.waypoints[2].y;
-					droneInfo.waypoints[1] = arrivalsGridPoint;
-                    droneInfo.nextWaypoint = 2;
-					droneInfo.latestCheckinTime
+					deliveryInfo.returning = true;
+					deliveryInfo.waypoints.Reverse();
+					Vector3f arrivalsGridPoint = globalLayer.GetClosestVector3fOnGrid(deliveryInfo.waypoints[0]);
+					arrivalsGridPoint.y = deliveryInfo.waypoints[2].y;
+					deliveryInfo.waypoints[1] = arrivalsGridPoint;
+					deliveryInfo.nextWaypoint = 2;
+					deliveryInfo.latestCheckinTime
                         = Time.time
                         + (SimulationSettings.DroneETAConstant
                            * Vector3.Distance(
-                               droneInfo.waypoints[0].ToUnityVector(),
-                               droneInfo.waypoints[1].ToUnityVector())
+							   deliveryInfo.waypoints[0].ToUnityVector(),
+							   deliveryInfo.waypoints[1].ToUnityVector())
                            / SimulationSettings.MaxDroneSpeed);
 
                     droneMap.Remove(handle.Request.droneId);
-                    droneMap.Add(handle.Request.droneId, droneInfo);
+					droneMap.Add(handle.Request.droneId, deliveryInfo);
                     UpdateDroneMap();
 
                     //ignore 0 because that's the point that we've just reached
                     //saved as 2, but sending 1 back to drone - only 1 spatial update instead of 2 now
-                    handle.Respond(new TargetResponse(droneInfo.waypoints[1], TargetResponseCode.SUCCESS));
+					handle.Respond(new TargetResponse(deliveryInfo.waypoints[1], TargetResponseCode.SUCCESS));
                 }
             }
         }
@@ -209,32 +209,32 @@ public class ControllerBehaviour : MonoBehaviour
 
     private void IncrementNextWaypoint(EntityId droneId)
     {
-        DroneInfo droneInfo;
-        if(droneMap.TryGetValue(droneId, out droneInfo))
+		DeliveryInfo deliveryInfo;
+		if(droneMap.TryGetValue(droneId, out deliveryInfo))
         {
-            IncrementNextWaypoint(droneId, droneInfo);
+			IncrementNextWaypoint(droneId, deliveryInfo);
         }
     }
 
-    private void IncrementNextWaypoint(EntityId droneId, DroneInfo droneInfo)
+	private void IncrementNextWaypoint(EntityId droneId, DeliveryInfo deliveryInfo)
     {
-        droneInfo.nextWaypoint++;
-		droneInfo.latestCheckinTime
+		deliveryInfo.nextWaypoint++;
+		deliveryInfo.latestCheckinTime
             = Time.time
             + (SimulationSettings.DroneETAConstant
                * Vector3.Distance(
-				   droneInfo.waypoints[droneInfo.nextWaypoint - 1].ToUnityVector(),
-				   droneInfo.waypoints[droneInfo.nextWaypoint - 2].ToUnityVector())
+				   deliveryInfo.waypoints[deliveryInfo.nextWaypoint - 1].ToUnityVector(),
+				   deliveryInfo.waypoints[deliveryInfo.nextWaypoint - 2].ToUnityVector())
                / SimulationSettings.MaxDroneSpeed);
         droneMap.Remove(droneId);
-        droneMap.Add(droneId, droneInfo);
+		droneMap.Add(droneId, deliveryInfo);
         UpdateDroneMap();
     }
 
-    void DroneDeploymentSuccess(EntityId droneId, DroneInfo droneInfo)
+	void DroneDeploymentSuccess(EntityId droneId, DeliveryInfo deliveryInfo)
     {
-        droneInfo.nextWaypoint++;
-        droneMap.Add(droneId, droneInfo);
+		deliveryInfo.nextWaypoint++;
+		droneMap.Add(droneId, deliveryInfo);
         UpdateDroneMap();
     }
 
@@ -245,8 +245,10 @@ public class ControllerBehaviour : MonoBehaviour
 
     void HandleDeliveryRequest(DeliveryRequest request)
     {
-        DroneInfo droneInfo;
+		DeliveryInfo deliveryInfo;
 		Vector2 random;
+
+		deliveryInfo.slot = -1;
 
 		random = UnityEngine.Random.insideUnitCircle * SimulationSettings.DronePadRadius;
 		Vector3f departurePoint = departuresPoint.ToSpatialVector3f() + new Vector3f(random.x, 0, random.y);
@@ -256,12 +258,12 @@ public class ControllerBehaviour : MonoBehaviour
 
         //Debug.LogWarning("point to point plan");
         //for new flight plan
-        droneInfo.nextWaypoint = 1;
-        droneInfo.returning = false;
+		deliveryInfo.nextWaypoint = 1;
+		deliveryInfo.returning = false;
 		Improbable.Collections.List<Improbable.Vector3f> plan = globalLayer.generatePointToPointPlan(
 			departurePoint,
             request.destination);
-
+		
         //Debug.LogWarning("null check");
 		if (plan == null || plan.Count < 2)
         {
@@ -270,17 +272,17 @@ public class ControllerBehaviour : MonoBehaviour
             return;
         }
 
-		droneInfo.waypoints = plan;
+		deliveryInfo.waypoints = plan;
 
 		//0th index only useful as last point in return journey
 		//so make sure 0th index == last location in journey == arrivalsPoint
-		droneInfo.waypoints[0] = arrivalPoint;
-		droneInfo.latestCheckinTime
+		deliveryInfo.waypoints[0] = arrivalPoint;
+		deliveryInfo.latestCheckinTime
             = Time.time
             + (SimulationSettings.DroneETAConstant
                * Vector3.Distance(
                    departurePoint.ToUnityVector(),
-                   droneInfo.waypoints[1].ToUnityVector())
+				   deliveryInfo.waypoints[1].ToUnityVector())
                / SimulationSettings.MaxDroneSpeed);
 
         //create drone
@@ -288,11 +290,11 @@ public class ControllerBehaviour : MonoBehaviour
         //if failure, tell scheduler job couldn't be done
         var droneTemplate = EntityTemplateFactory.CreateDroneTemplate(
 			departurePoint.ToCoordinates(),
-            droneInfo.waypoints[droneInfo.nextWaypoint],
+			deliveryInfo.waypoints[deliveryInfo.nextWaypoint],
             gameObject.EntityId(),
             SimulationSettings.MaxDroneSpeed);
         SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
-                 .OnSuccess((response) => DroneDeploymentSuccess(response.CreatedEntityId, droneInfo))
+		         .OnSuccess((response) => DroneDeploymentSuccess(response.CreatedEntityId, deliveryInfo))
                  .OnFailure((response) => DroneDeploymentFailure());
     }
 
@@ -327,19 +329,19 @@ public class ControllerBehaviour : MonoBehaviour
 			return;
 		}
 
-		DroneInfo droneInfo;
+		DeliveryInfo deliveryInfo;
 		List<EntityId> toPrune = new List<EntityId>();
 
 		foreach(EntityId droneId in droneMap.Keys)
 		{
-			if (droneMap.TryGetValue(droneId, out droneInfo))
+			if (droneMap.TryGetValue(droneId, out deliveryInfo))
 			{
-				if (Time.time > droneInfo.latestCheckinTime)
+				if (Time.time > deliveryInfo.latestCheckinTime)
                 {
-					Debug.LogErrorFormat("Pruning Drone for taking too long. Drone {0} Delivered: {1}", droneId, droneInfo.returning);
+					Debug.LogErrorFormat("Pruning Drone for taking too long. Drone {0} Delivered: {1}", droneId, deliveryInfo.returning);
 					toPrune.Add(droneId);
 
-					if (droneInfo.returning)
+					if (deliveryInfo.returning)
                     {
 						++failedReturns;
                     }

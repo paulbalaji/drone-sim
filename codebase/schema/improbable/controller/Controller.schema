@@ -17,7 +17,8 @@ type TargetResponse {
   TargetResponseCode success = 2;
 }
 
-type DroneInfo {
+type DeliveryInfo {
+  int32 slot = 5;
 	int32 next_waypoint = 1;
 	list<improbable.Vector3f> waypoints = 2;
   bool returning = 3;
@@ -42,7 +43,7 @@ component Controller {
 
   uint32 max_drone_count = 2;
 
-  map<EntityId, DroneInfo> drone_map = 3;
+  map<EntityId, DeliveryInfo> drone_map = 3;
 
   bool initialised = 4;
   Vector3f top_left = 5;
