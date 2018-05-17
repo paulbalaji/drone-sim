@@ -43,7 +43,7 @@ component Controller {
 
   uint32 max_drone_count = 2;
 
-  map<EntityId, DeliveryInfo> drone_map = 3;
+  map<EntityId, DeliveryInfo> deliveries_map = 3;
 
   bool initialised = 4;
   Vector3f top_left = 5;

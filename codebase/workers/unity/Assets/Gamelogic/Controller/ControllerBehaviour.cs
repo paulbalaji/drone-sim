@@ -29,7 +29,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 	Scheduler scheduler;
 
-	Improbable.Collections.Map<EntityId, DeliveryInfo> droneMap;
+	Improbable.Collections.Map<EntityId, DeliveryInfo> deliveriesMap;
 
     Coordinates departuresPoint;
     Coordinates arrivalsPoint;
@@ -47,7 +47,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        droneMap = ControllerWriter.Data.droneMap;
+		deliveriesMap = ControllerWriter.Data.deliveriesMap;
 
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
 		completedRoundTrips = MetricsWriter.Data.completedRoundTrips;
@@ -77,7 +77,7 @@ public class ControllerBehaviour : MonoBehaviour
     {
 		CancelInvoke();
 
-		droneMap.Clear();
+		deliveriesMap.Clear();
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
@@ -87,7 +87,7 @@ public class ControllerBehaviour : MonoBehaviour
     void HandleUnlinkRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.UnlinkDrone, UnlinkRequest, UnlinkResponse> handle)
     {
 		DeliveryInfo droneInfo;
-		if (droneMap.TryGetValue(handle.Request.droneId, out droneInfo))
+		if (deliveriesMap.TryGetValue(handle.Request.droneId, out droneInfo))
 		{
 			if (droneInfo.returning)
             {
@@ -112,7 +112,7 @@ public class ControllerBehaviour : MonoBehaviour
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
 		DeliveryInfo deliveryInfo;
-		if (droneMap.TryGetValue(handle.Request.droneId, out deliveryInfo))
+		if (deliveriesMap.TryGetValue(handle.Request.droneId, out deliveryInfo))
         {
             //Debug.LogWarning("is final waypoint?");
             //final waypoint, figure out if it's back at controller or only just delivered
@@ -148,8 +148,8 @@ public class ControllerBehaviour : MonoBehaviour
 							   deliveryInfo.waypoints[1].ToUnityVector())
                            / SimulationSettings.MaxDroneSpeed);
 
-                    droneMap.Remove(handle.Request.droneId);
-					droneMap.Add(handle.Request.droneId, deliveryInfo);
+					deliveriesMap.Remove(handle.Request.droneId);
+					deliveriesMap.Add(handle.Request.droneId, deliveryInfo);
                     UpdateDroneMap();
 
                     //ignore 0 because that's the point that we've just reached
@@ -173,7 +173,7 @@ public class ControllerBehaviour : MonoBehaviour
     {
 		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} fDel {5} fRet {6} fLaunch {7} collisions {8} unknown {9} total {10}"
                                , gameObject.EntityId().Id
-		                       , droneMap.Count
+		                       , deliveriesMap.Count
 		                       , scheduler.GetQueueSize()
                                , completedDeliveries
 		                       , completedRoundTrips
@@ -198,19 +198,19 @@ public class ControllerBehaviour : MonoBehaviour
 
     void DestroyDrone(EntityId entityId)
     {
-        droneMap.Remove(entityId);
+		deliveriesMap.Remove(entityId);
         droneTranstructor.DestroyDrone(entityId);
     }
 
     void UpdateDroneMap()
     {
-        ControllerWriter.Send(new Controller.Update().SetDroneMap(droneMap));
+		ControllerWriter.Send(new Controller.Update().SetDeliveriesMap(deliveriesMap));
     }
 
     private void IncrementNextWaypoint(EntityId droneId)
     {
 		DeliveryInfo deliveryInfo;
-		if(droneMap.TryGetValue(droneId, out deliveryInfo))
+		if(deliveriesMap.TryGetValue(droneId, out deliveryInfo))
         {
 			IncrementNextWaypoint(droneId, deliveryInfo);
         }
@@ -226,15 +226,15 @@ public class ControllerBehaviour : MonoBehaviour
 				   deliveryInfo.waypoints[deliveryInfo.nextWaypoint - 1].ToUnityVector(),
 				   deliveryInfo.waypoints[deliveryInfo.nextWaypoint - 2].ToUnityVector())
                / SimulationSettings.MaxDroneSpeed);
-        droneMap.Remove(droneId);
-		droneMap.Add(droneId, deliveryInfo);
+		deliveriesMap.Remove(droneId);
+		deliveriesMap.Add(droneId, deliveryInfo);
         UpdateDroneMap();
     }
 
 	void DroneDeploymentSuccess(EntityId droneId, DeliveryInfo deliveryInfo)
     {
 		deliveryInfo.nextWaypoint++;
-		droneMap.Add(droneId, deliveryInfo);
+		deliveriesMap.Add(droneId, deliveryInfo);
         UpdateDroneMap();
     }
 
@@ -311,7 +311,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 		//don't need to do anything if no requests in the queue
 		DeliveryRequest nextRequest;
-        if (droneMap.Count < ControllerWriter.Data.maxDroneCount)
+		if (deliveriesMap.Count < ControllerWriter.Data.maxDroneCount)
         {
 			if (scheduler.GetNextRequest(out nextRequest))
 			{
@@ -332,9 +332,9 @@ public class ControllerBehaviour : MonoBehaviour
 		DeliveryInfo deliveryInfo;
 		List<EntityId> toPrune = new List<EntityId>();
 
-		foreach(EntityId droneId in droneMap.Keys)
+		foreach(EntityId droneId in deliveriesMap.Keys)
 		{
-			if (droneMap.TryGetValue(droneId, out deliveryInfo))
+			if (deliveriesMap.TryGetValue(droneId, out deliveryInfo))
 			{
 				if (Time.time > deliveryInfo.latestCheckinTime)
                 {
