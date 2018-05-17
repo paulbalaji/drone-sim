@@ -258,30 +258,30 @@ public class ControllerBehaviour : MonoBehaviour
         //for new flight plan
         droneInfo.nextWaypoint = 1;
         droneInfo.returning = false;
-		bool success = false;
-        droneInfo.waypoints = globalLayer.generatePointToPointPlan(
+		Improbable.Collections.List<Improbable.Vector3f> plan = globalLayer.generatePointToPointPlan(
 			departurePoint,
-            request.destination,
-			out success);
-		droneInfo.latestCheckinTime
-            = Time.time
-            + (SimulationSettings.DroneETAConstant
-               * Vector3.Distance(
-				   departurePoint.ToUnityVector(),
-                   droneInfo.waypoints[1].ToUnityVector())
-               / SimulationSettings.MaxDroneSpeed);
+            request.destination);
 
         //Debug.LogWarning("null check");
-		if (!success)
+		if (plan == null || plan.Count == 0)
         {
             // let scheduler know that this job can't be done
             DroneDeploymentFailure();
             return;
         }
 
+		droneInfo.waypoints = plan;
+
 		//0th index only useful as last point in return journey
 		//so make sure 0th index == last location in journey == arrivalsPoint
 		droneInfo.waypoints[0] = arrivalPoint;
+		droneInfo.latestCheckinTime
+            = Time.time
+            + (SimulationSettings.DroneETAConstant
+               * Vector3.Distance(
+                   departurePoint.ToUnityVector(),
+                   droneInfo.waypoints[1].ToUnityVector())
+               / SimulationSettings.MaxDroneSpeed);
 
         //create drone
         //if successful, add to droneMap

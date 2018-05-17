@@ -116,10 +116,8 @@ public class GridGlobalLayer : MonoBehaviour
         return false;
     }
 
-    public Improbable.Collections.List<Improbable.Vector3f> generatePointToPointPlan(Improbable.Vector3f p1, Improbable.Vector3f p2, out bool success)
+    public Improbable.Collections.List<Improbable.Vector3f> generatePointToPointPlan(Improbable.Vector3f p1, Improbable.Vector3f p2)
     {
-		success = false;
-
         if (isPointInNoFlyZone(p2))
         {
 			Debug.LogError("next target is in a NFZ");
@@ -166,7 +164,6 @@ public class GridGlobalLayer : MonoBehaviour
         }
         result.Add(p2);
 
-		success = true;
         return result;
     }
 
