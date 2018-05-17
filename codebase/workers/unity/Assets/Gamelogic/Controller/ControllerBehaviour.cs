@@ -258,9 +258,11 @@ public class ControllerBehaviour : MonoBehaviour
         //for new flight plan
         droneInfo.nextWaypoint = 1;
         droneInfo.returning = false;
+		bool success = false;
         droneInfo.waypoints = globalLayer.generatePointToPointPlan(
 			departurePoint,
-            request.destination);
+            request.destination,
+			out success);
 		droneInfo.latestCheckinTime
             = Time.time
             + (SimulationSettings.DroneETAConstant
@@ -270,7 +272,7 @@ public class ControllerBehaviour : MonoBehaviour
                / SimulationSettings.MaxDroneSpeed);
 
         //Debug.LogWarning("null check");
-        if (droneInfo.waypoints == null)
+		if (!success)
         {
             // let scheduler know that this job can't be done
             DroneDeploymentFailure();

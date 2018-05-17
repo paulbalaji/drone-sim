@@ -1,7 +1,7 @@
 {
   "template": "medium",
   "world": {
-    "chunkEdgeLengthMeters": 500,
+    "chunkEdgeLengthMeters": 250,
     "snapshots": {
       "snapshotWritePeriodSeconds": 0
     },

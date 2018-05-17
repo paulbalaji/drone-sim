@@ -85,16 +85,17 @@ public class GridGlobalLayer : MonoBehaviour
         return bitmap.getPointFromGridCoordinates(new int[] { l.x, l.z });
     }
 
-    public Improbable.Collections.List<Improbable.Vector3f> generatePlan(List<Improbable.Vector3f> waypoints)
+    public Improbable.Collections.List<Improbable.Vector3f> generatePlan(List<Improbable.Vector3f> waypoints, out bool success)
     {
         // If can not plan for all the waypoints,
         // this will return null to indicate that the route is unachievable.
 
         Improbable.Collections.List<Improbable.Vector3f> result = new Improbable.Collections.List<Improbable.Vector3f>();
+		success = false;
         for (int i = 1; i < waypoints.Count; i++)
         {
-            Improbable.Collections.List<Improbable.Vector3f> planSection = generatePointToPointPlan(waypoints[i - 1], waypoints[i]);
-            if (planSection == null)
+			Improbable.Collections.List<Improbable.Vector3f> planSection = generatePointToPointPlan(waypoints[i - 1], waypoints[i], success);
+            if (!success)
             {
                 return null; // Return null to indicate a plan is unachievable.
             }
@@ -115,8 +116,10 @@ public class GridGlobalLayer : MonoBehaviour
         return false;
     }
 
-    public Improbable.Collections.List<Improbable.Vector3f> generatePointToPointPlan(Improbable.Vector3f p1, Improbable.Vector3f p2)
+    public Improbable.Collections.List<Improbable.Vector3f> generatePointToPointPlan(Improbable.Vector3f p1, Improbable.Vector3f p2, out bool success)
     {
+		success = false;
+
         if (isPointInNoFlyZone(p2))
         {
 			Debug.LogError("next target is in a NFZ");
@@ -163,6 +166,7 @@ public class GridGlobalLayer : MonoBehaviour
         }
         result.Add(p2);
 
+		success = true;
         return result;
     }
 
