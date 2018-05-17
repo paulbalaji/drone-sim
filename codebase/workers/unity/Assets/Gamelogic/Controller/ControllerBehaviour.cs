@@ -263,7 +263,7 @@ public class ControllerBehaviour : MonoBehaviour
             request.destination);
 
         //Debug.LogWarning("null check");
-		if (plan == null || plan.Count == 0)
+		if (plan == null || plan.Count < 2)
         {
             // let scheduler know that this job can't be done
             DroneDeploymentFailure();
