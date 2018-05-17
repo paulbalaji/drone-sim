@@ -94,7 +94,7 @@ public class GridGlobalLayer : MonoBehaviour
 		success = false;
         for (int i = 1; i < waypoints.Count; i++)
         {
-			Improbable.Collections.List<Improbable.Vector3f> planSection = generatePointToPointPlan(waypoints[i - 1], waypoints[i], success);
+			Improbable.Collections.List<Improbable.Vector3f> planSection = generatePointToPointPlan(waypoints[i - 1], waypoints[i], out success);
             if (!success)
             {
                 return null; // Return null to indicate a plan is unachievable.
