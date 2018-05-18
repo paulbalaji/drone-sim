@@ -30,6 +30,7 @@ public class ControllerBehaviour : MonoBehaviour
 	Scheduler scheduler;
 
 	Improbable.Collections.Map<EntityId, DeliveryInfo> deliveriesMap;
+	Improbable.Collections.List<DroneInfo> droneSlots;
 
     Coordinates departuresPoint;
     Coordinates arrivalsPoint;
@@ -48,6 +49,7 @@ public class ControllerBehaviour : MonoBehaviour
     private void OnEnable()
     {
 		deliveriesMap = ControllerWriter.Data.deliveriesMap;
+		droneSlots = ControllerWriter.Data.droneSlots;
 
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
 		completedRoundTrips = MetricsWriter.Data.completedRoundTrips;
@@ -78,6 +80,7 @@ public class ControllerBehaviour : MonoBehaviour
 		CancelInvoke();
 
 		deliveriesMap.Clear();
+		droneSlots.Clear();
 
         ControllerWriter.CommandReceiver.OnRequestNewTarget.DeregisterResponse();
         ControllerWriter.CommandReceiver.OnCollision.DeregisterResponse();
@@ -99,7 +102,7 @@ public class ControllerBehaviour : MonoBehaviour
             }
 
 			DestroyDrone(handle.Request.droneId);
-			UpdateDroneMap();
+			UpdateDeliveriesMap();
 		}
 		else
 		{
@@ -128,7 +131,7 @@ public class ControllerBehaviour : MonoBehaviour
                     UnsuccessfulTargetRequest(handle, TargetResponseCode.JOURNEY_COMPLETE);
 					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedRoundTrips(++completedRoundTrips));
                     DestroyDrone(handle.Request.droneId);
-                    UpdateDroneMap();
+                    UpdateDeliveriesMap();
                 }
                 else
                 {
@@ -150,7 +153,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 					deliveriesMap.Remove(handle.Request.droneId);
 					deliveriesMap.Add(handle.Request.droneId, deliveryInfo);
-                    UpdateDroneMap();
+                    UpdateDeliveriesMap();
 
                     //ignore 0 because that's the point that we've just reached
                     //saved as 2, but sending 1 back to drone - only 1 spatial update instead of 2 now
@@ -193,7 +196,7 @@ public class ControllerBehaviour : MonoBehaviour
 
         DestroyDrone(handle.Request.droneId);
         DestroyDrone(handle.Request.colliderId);
-        UpdateDroneMap();
+        UpdateDeliveriesMap();
     }
 
     void DestroyDrone(EntityId entityId)
@@ -202,7 +205,12 @@ public class ControllerBehaviour : MonoBehaviour
         droneTranstructor.DestroyDrone(entityId);
     }
 
-    void UpdateDroneMap()
+    void UpdateDroneSlots()
+	{
+		ControllerWriter.Send(new Controller.Update().SetDroneSlots(droneSlots));
+	}
+
+	void UpdateDeliveriesMap()
     {
 		ControllerWriter.Send(new Controller.Update().SetDeliveriesMap(deliveriesMap));
     }
@@ -228,14 +236,14 @@ public class ControllerBehaviour : MonoBehaviour
                / SimulationSettings.MaxDroneSpeed);
 		deliveriesMap.Remove(droneId);
 		deliveriesMap.Add(droneId, deliveryInfo);
-        UpdateDroneMap();
+        UpdateDeliveriesMap();
     }
 
 	void DroneDeploymentSuccess(EntityId droneId, DeliveryInfo deliveryInfo)
     {
 		deliveryInfo.nextWaypoint++;
 		deliveriesMap.Add(droneId, deliveryInfo);
-        UpdateDroneMap();
+        UpdateDeliveriesMap();
     }
 
     void DroneDeploymentFailure()
@@ -362,6 +370,6 @@ public class ControllerBehaviour : MonoBehaviour
 		                   .SetFailedReturns(failedReturns)
 		                   .SetFailedDeliveries(failedDeliveries));
         
-		UpdateDroneMap();
+		UpdateDeliveriesMap();
 	}
 }

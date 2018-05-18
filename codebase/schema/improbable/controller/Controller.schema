@@ -25,6 +25,13 @@ type DeliveryInfo {
   float latest_checkin_time = 4;
 }
 
+type DroneInfo {
+  bool occupied = 1;
+  EntityId delivery_id = 2;
+  float battery_level = 3;
+  float remaining_payload = 4;
+}
+
 type CollisionRequest {
   EntityId drone_id = 1;
   EntityId collider_id = 2;
@@ -44,6 +51,7 @@ component Controller {
   uint32 max_drone_count = 2;
 
   map<EntityId, DeliveryInfo> deliveries_map = 3;
+  list<DroneInfo> drone_slots = 7;
 
   bool initialised = 4;
   Vector3f top_left = 5;

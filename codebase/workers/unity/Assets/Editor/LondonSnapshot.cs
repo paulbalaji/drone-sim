@@ -36,7 +36,8 @@ namespace Assets.Editor
                     controllerPos,
                     new Vector3f(-maxX, 0, maxZ),
                     new Vector3f(maxX, 0, -maxZ),
-                    noFlyZones
+                    noFlyZones,
+					PopulateControllerSlots()
             ));
             int lastController = currentEntityId;
             // controller placement complete
@@ -97,7 +98,8 @@ namespace Assets.Editor
                         controllerPos,
                         new Vector3f(-maxX, 0, maxZ),
                         new Vector3f(maxX, 0, -maxZ),
-                        noFlyZones
+                        noFlyZones,
+						PopulateControllerSlots()
                 ));
             }
             int lastController = currentEntityId;
@@ -123,6 +125,21 @@ namespace Assets.Editor
 
             SnapshotMenu.SaveSnapshot(snapshotEntities, "london_large");
         }
+
+		private static DroneInfo GenerateDroneInfo()
+		{
+			return new DroneInfo(false, new Improbable.EntityId(-1), SimulationSettings.MaxDroneBattery, SimulationSettings.MaxDronePayload);
+		}
+
+		private static Improbable.Collections.List<DroneInfo> PopulateControllerSlots()
+		{
+			Improbable.Collections.List<DroneInfo> droneSlots = new Improbable.Collections.List<DroneInfo>((int)SimulationSettings.MaxDroneCountPerController);
+			for (int i = 0; i < (int)SimulationSettings.MaxDroneCountPerController; i++)
+			{
+				droneSlots[i] = GenerateDroneInfo();
+			}
+			return droneSlots;
+		}
 
         private static int ShowNoFlyZones(Improbable.Controller.NoFlyZone noFlyZone, Dictionary<EntityId, Entity> snapshotEntities, int currentEntityId)
         {

@@ -71,7 +71,7 @@ public class EntityTemplateFactory : MonoBehaviour
         return nfzTemplate;
     }
 
-    public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint, Vector3f topLeft, Vector3f bottomRight, List<Improbable.Controller.NoFlyZone> nfzs)
+	public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint, Vector3f topLeft, Vector3f bottomRight, List<Improbable.Controller.NoFlyZone> nfzs, List<Improbable.Controller.DroneInfo> droneSlots)
     {
         var controllerTemplate = EntityBuilder.Begin()
             .AddPositionComponent(spawnPoint.ToUnityVector(), CommonRequirementSets.PhysicsOnly)
@@ -79,7 +79,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-		    .AddComponent(new Controller.Data(SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DeliveryInfo>((int)SimulationSettings.MaxDroneCountPerController), false, topLeft, bottomRight), CommonRequirementSets.PhysicsOnly)
+		    .AddComponent(new Controller.Data(SimulationSettings.MaxDroneCountPerController, new Map<EntityId, DeliveryInfo>((int)SimulationSettings.MaxDroneCountPerController), droneSlots, false, topLeft, bottomRight), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
@@ -90,7 +90,7 @@ public class EntityTemplateFactory : MonoBehaviour
         return controllerTemplate;
     }
 
-    public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint, Vector3f topLeft, Vector3f bottomRight, NFZTemplate[] templates)
+	public static Entity CreateControllerTemplate(Improbable.Coordinates spawnPoint, Vector3f topLeft, Vector3f bottomRight, NFZTemplate[] templates, List<Improbable.Controller.DroneInfo> droneSlots)
     {
         List<Improbable.Controller.NoFlyZone> nfzs = new List<Improbable.Controller.NoFlyZone>();
         foreach(NFZTemplate template in templates)
@@ -98,7 +98,7 @@ public class EntityTemplateFactory : MonoBehaviour
             nfzs.Add(NFZ_Templates.GetNoFlyZone(template));
         }
 
-        return CreateControllerTemplate(spawnPoint, topLeft, bottomRight, nfzs);
+		return CreateControllerTemplate(spawnPoint, topLeft, bottomRight, nfzs, droneSlots);
     }
 
     public static Entity CreateDroneTemplate(Improbable.Coordinates spawnPoint, Vector3f initialTarget, EntityId controller, float droneSpeed = SimulationSettings.MaxDroneSpeed)
