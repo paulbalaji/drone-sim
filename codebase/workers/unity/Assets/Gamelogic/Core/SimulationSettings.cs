@@ -67,9 +67,9 @@ namespace Assets.Gamelogic.Core
 
         public static int DroneETAConstant = 10;
 
-		public static float MaxDroneBattery = 100; // percentage
+		public static float MaxDroneBattery = 10000; // mAh battery
 
-		public static float MaxDronePayload = 10; // kg
+		public static float MaxDronePayload = 5; // kg
 
         // GLOBAL LAYER //
 
