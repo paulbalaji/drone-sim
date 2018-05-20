@@ -9,17 +9,19 @@ namespace Assets.Gamelogic.Core
         public static readonly uint ControllerColumns = 2;
         public static readonly uint ControllerCount = ControllerRows * ControllerColumns;
 
-        public static readonly uint MaxDroneCount = (uint)numDrones;
-        //public static readonly uint MaxDroneCountPerController = (uint)(MaxDroneCount / ControllerCount);
         public static readonly uint MaxDroneCountPerController = 20;
-
         public static readonly uint MaxDeliveryRequestQueueSize = 50;
 
         public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
 
+        //London Large
         public static readonly float maxX = 15750; //31500m width
         public static readonly float maxZ = 7000; //14000m height
+
+		//London Small
+		//public static readonly float maxX = 2400; //4800m width
+        //public static readonly float maxZ = 1900; //3800m height
 
         //profiling, comment out when not used
         //public static readonly float maxX = 400; //31500m width
