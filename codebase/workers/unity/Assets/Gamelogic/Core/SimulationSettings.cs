@@ -16,12 +16,12 @@ namespace Assets.Gamelogic.Core
         public static readonly float squareSize = 400;
 
         //London Large
-        public static readonly float maxX = 15750; //31500m width
-        public static readonly float maxZ = 7000; //14000m height
+        //public static readonly float maxX = 15750; //31500m width
+        //public static readonly float maxZ = 7000; //14000m height
 
 		//London Small
-		//public static readonly float maxX = 2400; //4800m width
-        //public static readonly float maxZ = 1900; //3800m height
+		public static readonly float maxX = 2400; //4800m width
+        public static readonly float maxZ = 1900; //3800m height
 
         //profiling, comment out when not used
         //public static readonly float maxX = 400; //31500m width
