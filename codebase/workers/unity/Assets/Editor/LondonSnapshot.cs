@@ -126,7 +126,7 @@ namespace Assets.Editor
             SnapshotMenu.SaveSnapshot(snapshotEntities, "london_large");
         }
 
-		[MenuItem("Drone Sim/London Snapshot Small")]
+		[MenuItem("Drone Sim/London Snapshot SMALL")]
         private static void LondonSmall()
         {
             float maxX = SimulationSettings.maxX; //routable width is 31500m
@@ -200,9 +200,9 @@ namespace Assets.Editor
 		private static Improbable.Collections.List<DroneInfo> PopulateControllerSlots()
 		{
 			Improbable.Collections.List<DroneInfo> droneSlots = new Improbable.Collections.List<DroneInfo>((int)SimulationSettings.MaxDroneCountPerController);
-			for (int i = 0; i < (int)SimulationSettings.MaxDroneCountPerController; i++)
+			while (droneSlots.Count < droneSlots.Capacity)
 			{
-				droneSlots[i] = GenerateDroneInfo();
+				droneSlots.Add(GenerateDroneInfo());
 			}
 			return droneSlots;
 		}

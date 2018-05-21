@@ -9,8 +9,7 @@ namespace Assets.Gamelogic.Core
         public static readonly uint ControllerColumns = 2;
         public static readonly uint ControllerCount = ControllerRows * ControllerColumns;
 
-        public static readonly uint MaxDroneCountPerController = 20;
-        public static readonly uint MaxDeliveryRequestQueueSize = 50;
+        
 
         public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
@@ -18,10 +17,16 @@ namespace Assets.Gamelogic.Core
         //London Large
         //public static readonly float maxX = 15750; //31500m width
         //public static readonly float maxZ = 7000; //14000m height
+		//public static readonly float OrderGenerationInterval = 0.4f;
+		//public static readonly uint MaxDroneCountPerController = 20;
+        //public static readonly uint MaxDeliveryRequestQueueSize = 50;
 
 		//London Small
 		public static readonly float maxX = 2400; //4800m width
         public static readonly float maxZ = 1900; //3800m height
+		public static readonly float OrderGenerationInterval = 4f;
+		public static readonly uint MaxDroneCountPerController = 15;
+        public static readonly uint MaxDeliveryRequestQueueSize = 40;
 
         //profiling, comment out when not used
         //public static readonly float maxX = 400; //31500m width
@@ -32,15 +37,15 @@ namespace Assets.Gamelogic.Core
 		public static readonly float OrderGenerationMetricsInterval = 60f;
         public static readonly float ControllerMetricsInterval = 60f;
 
-        // SCHEDULER CONSTANTS //
+        // ORDER GENERATOR CONSTANTS //
 
 		public static EntityId OrderGeneratorEntityId = new EntityId(1);
-        public static readonly float OrderGenerationInterval = 0.4f;
-
+        
 		// CONTROLLER //
 
 		public static readonly float DronePadRadius = 10f;
 
+		//TODO: make this constant equal to the max time that a drone can last on one full charge
 		public static readonly float DroneMapPruningInterval = 300f;
 
         public static readonly float RequestHandlerInterval = 10f; //5
