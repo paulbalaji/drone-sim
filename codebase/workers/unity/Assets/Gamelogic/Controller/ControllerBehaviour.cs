@@ -22,9 +22,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     [Require]
     private ControllerMetrics.Writer MetricsWriter;
-
-    DroneTranstructor droneTranstructor;
-
+    
 	GridGlobalLayer globalLayer;
 
 	Scheduler scheduler;
@@ -64,8 +62,7 @@ public class ControllerBehaviour : MonoBehaviour
         ControllerWriter.CommandReceiver.OnRequestNewTarget.RegisterAsyncResponse(HandleTargetRequest);
         ControllerWriter.CommandReceiver.OnCollision.RegisterAsyncResponse(HandleCollision);
         ControllerWriter.CommandReceiver.OnUnlinkDrone.RegisterAsyncResponse(HandleUnlinkRequest);
-
-        droneTranstructor = gameObject.GetComponent<DroneTranstructor>();
+        
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
 		scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
 
@@ -202,7 +199,7 @@ public class ControllerBehaviour : MonoBehaviour
     void DestroyDrone(EntityId entityId)
     {
 		deliveriesMap.Remove(entityId);
-        droneTranstructor.DestroyDrone(entityId);
+		SpatialOS.Commands.DeleteEntity(PositionWriter, entityId);
     }
 
     void UpdateDroneSlots()
@@ -300,6 +297,8 @@ public class ControllerBehaviour : MonoBehaviour
 			departurePoint.ToCoordinates(),
 			deliveryInfo.waypoints[deliveryInfo.nextWaypoint],
             gameObject.EntityId(),
+			SimulationSettings.MaxDronePayload,
+			SimulationSettings.MaxDroneBattery,
             SimulationSettings.MaxDroneSpeed);
         SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
 		         .OnSuccess((response) => DroneDeploymentSuccess(response.CreatedEntityId, deliveryInfo))

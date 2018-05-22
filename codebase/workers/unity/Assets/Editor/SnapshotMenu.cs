@@ -318,23 +318,23 @@ namespace Assets.Editor
         //    GenerateSinglePhase0Snapshot(1000, 800);
         //}
 
-        private static void GenerateSinglePhase0Snapshot(int numDrones, int squareSize)
-        {
-            var snapshotEntities = new Dictionary<EntityId, Entity>();
-            var currentEntityId = 1;
+        //private static void GenerateSinglePhase0Snapshot(int numDrones, int squareSize)
+        //{
+        //    var snapshotEntities = new Dictionary<EntityId, Entity>();
+        //    var currentEntityId = 1;
 
-            for (int i = 0; i < numDrones; i++)
-            {
-                Coordinates spawn = new Coordinates(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
-                Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
-                float speed = Random.Range(2, 10);
-                float radius = Random.Range(0.5f, 2);
-                snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, new EntityId(1)));
-            }
+        //    for (int i = 0; i < numDrones; i++)
+        //    {
+        //        Coordinates spawn = new Coordinates(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+        //        Vector3f target = new Vector3f(Random.Range(-squareSize, squareSize), 0, Random.Range(-squareSize, squareSize));
+        //        float speed = Random.Range(2, 10);
+        //        float radius = Random.Range(0.5f, 2);
+        //        snapshotEntities.Add(new EntityId(currentEntityId++), EntityTemplateFactory.CreateDroneTemplate(spawn, target, new EntityId(1)));
+        //    }
 
-            //SaveSnapshot(snapshotEntities, "phase0_d" + numDrones + "s" + squareSize);
-            SaveSnapshot(snapshotEntities, "phase0");
-        }
+        //    //SaveSnapshot(snapshotEntities, "phase0_d" + numDrones + "s" + squareSize);
+        //    SaveSnapshot(snapshotEntities, "phase0");
+        //}
 
         public static void SaveSnapshot(IDictionary<EntityId, Entity> snapshotEntities, string snapshotName)
         {

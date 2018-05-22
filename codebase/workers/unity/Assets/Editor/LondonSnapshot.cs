@@ -194,7 +194,7 @@ namespace Assets.Editor
 
 		private static DroneInfo GenerateDroneInfo()
 		{
-			return new DroneInfo(false, new Improbable.EntityId(-1), SimulationSettings.MaxDroneBattery, SimulationSettings.MaxDronePayload);
+			return new DroneInfo(false, new Improbable.EntityId(-1), SimulationSettings.MaxDroneBattery);
 		}
 
 		private static Improbable.Collections.List<DroneInfo> PopulateControllerSlots()
