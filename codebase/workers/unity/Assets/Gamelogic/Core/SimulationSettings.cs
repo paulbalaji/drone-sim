@@ -9,8 +9,6 @@ namespace Assets.Gamelogic.Core
         public static readonly uint ControllerColumns = 2;
         public static readonly uint ControllerCount = ControllerRows * ControllerColumns;
 
-        
-
         public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
 

@@ -26,6 +26,9 @@ component DroneData {
   TargetPending target_pending = 4; //to indicate what stage of target fetching we are in
   DroneStatus drone_status = 5;
 
+  float battery_level = 8;
+  float payload_weight = 9;
+
   // drone's last target, used to push self away from previous checkpoint
   improbable.Vector3f previous_target = 6; 
 

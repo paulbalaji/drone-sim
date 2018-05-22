@@ -29,7 +29,6 @@ type DroneInfo {
   bool occupied = 1;
   EntityId delivery_id = 2;
   float battery_level = 3;
-  float remaining_payload = 4;
 }
 
 type CollisionRequest {
