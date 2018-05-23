@@ -44,6 +44,8 @@ public class ControllerBehaviour : MonoBehaviour
 	int failedReturns;
 	int unknownRequests;
 
+	int usedSlots;
+
     private void OnEnable()
     {
 		deliveriesMap = ControllerWriter.Data.deliveriesMap;
@@ -55,6 +57,14 @@ public class ControllerBehaviour : MonoBehaviour
 		failedDeliveries = MetricsWriter.Data.failedDeliveries;
 		failedReturns = MetricsWriter.Data.failedReturns;
 		unknownRequests = MetricsWriter.Data.unknownRequests;
+
+		for (int i = 0; i < droneSlots.Count; i++)
+		{
+			if (droneSlots[i].occupied)
+			{
+				usedSlots++;
+			}
+		}
 
         departuresPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerDepartureOffset;
         arrivalsPoint = transform.position.ToCoordinates() + SimulationSettings.ControllerArrivalOffset;
@@ -98,8 +108,8 @@ public class ControllerBehaviour : MonoBehaviour
                 MetricsWriter.Send(new ControllerMetrics.Update().SetFailedDeliveries(++failedDeliveries));
             }
 
-			DestroyDrone(handle.Request.droneId);
-			UpdateDeliveriesMap();
+			DestroyDrone(handle.Request.droneId, droneInfo.slot);
+			UpdateDroneSlotsAndMap();
 		}
 		else
 		{
@@ -119,7 +129,7 @@ public class ControllerBehaviour : MonoBehaviour
 			if (deliveryInfo.nextWaypoint < deliveryInfo.waypoints.Count)
             {
 				handle.Respond(new TargetResponse(deliveryInfo.waypoints[deliveryInfo.nextWaypoint], TargetResponseCode.SUCCESS));
-                IncrementNextWaypoint(handle.Request.droneId);
+				IncrementNextWaypoint(handle.Request.droneId, handle.Request.batteryLevel);
             }
             else
             {
@@ -127,8 +137,8 @@ public class ControllerBehaviour : MonoBehaviour
                 {
                     UnsuccessfulTargetRequest(handle, TargetResponseCode.JOURNEY_COMPLETE);
 					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedRoundTrips(++completedRoundTrips));
-                    DestroyDrone(handle.Request.droneId);
-                    UpdateDeliveriesMap();
+					DestroyDrone(handle.Request.droneId, deliveryInfo.slot);
+					UpdateDroneSlotsAndMap();
                 }
                 else
                 {
@@ -150,7 +160,12 @@ public class ControllerBehaviour : MonoBehaviour
 
 					deliveriesMap.Remove(handle.Request.droneId);
 					deliveriesMap.Add(handle.Request.droneId, deliveryInfo);
-                    UpdateDeliveriesMap();
+
+					DroneInfo droneInfo = droneSlots[deliveryInfo.slot];
+					droneInfo.batteryLevel = handle.Request.batteryLevel;
+					droneSlots[deliveryInfo.slot] = droneInfo;
+
+					UpdateDroneSlotsAndMap();
 
                     //ignore 0 because that's the point that we've just reached
                     //saved as 2, but sending 1 back to drone - only 1 spatial update instead of 2 now
@@ -193,12 +208,28 @@ public class ControllerBehaviour : MonoBehaviour
 
         DestroyDrone(handle.Request.droneId);
         DestroyDrone(handle.Request.colliderId);
-        UpdateDeliveriesMap();
+		UpdateDroneSlotsAndMap();
     }
 
-    void DestroyDrone(EntityId entityId)
+	void DestroyDrone(EntityId entityId)
+	{
+		DeliveryInfo deliveryInfo;
+		if (deliveriesMap.TryGetValue(entityId, out deliveryInfo))
+		{
+			DestroyDrone(entityId, deliveryInfo.slot);
+		}
+	}
+
+    void DestroyDrone(EntityId entityId, int slot)
     {
 		deliveriesMap.Remove(entityId);
+
+		DroneInfo droneInfo = droneSlots[slot];
+		droneInfo.occupied = false;
+		droneInfo.deliveryId = new EntityId(-1);
+		droneSlots[slot] = droneInfo;
+		usedSlots--;
+
 		SpatialOS.Commands.DeleteEntity(PositionWriter, entityId);
     }
 
@@ -207,21 +238,28 @@ public class ControllerBehaviour : MonoBehaviour
 		ControllerWriter.Send(new Controller.Update().SetDroneSlots(droneSlots));
 	}
 
-	void UpdateDeliveriesMap()
-    {
-		ControllerWriter.Send(new Controller.Update().SetDeliveriesMap(deliveriesMap));
-    }
+	//void UpdateDeliveriesMap()
+  //  {
+		//ControllerWriter.Send(new Controller.Update().SetDeliveriesMap(deliveriesMap));
+    //}
 
-    private void IncrementNextWaypoint(EntityId droneId)
+	void UpdateDroneSlotsAndMap()
+	{
+		ControllerWriter.Send(new Controller.Update()
+		                      .SetDeliveriesMap(deliveriesMap)
+		                      .SetDroneSlots(droneSlots));
+	}
+
+    private void IncrementNextWaypoint(EntityId droneId, float batteryLevel)
     {
 		DeliveryInfo deliveryInfo;
 		if(deliveriesMap.TryGetValue(droneId, out deliveryInfo))
         {
-			IncrementNextWaypoint(droneId, deliveryInfo);
+			IncrementNextWaypoint(droneId, deliveryInfo, batteryLevel);
         }
     }
 
-	private void IncrementNextWaypoint(EntityId droneId, DeliveryInfo deliveryInfo)
+	private void IncrementNextWaypoint(EntityId droneId, DeliveryInfo deliveryInfo, float batteryLevel)
     {
 		deliveryInfo.nextWaypoint++;
 		deliveryInfo.latestCheckinTime
@@ -233,27 +271,57 @@ public class ControllerBehaviour : MonoBehaviour
                / SimulationSettings.MaxDroneSpeed);
 		deliveriesMap.Remove(droneId);
 		deliveriesMap.Add(droneId, deliveryInfo);
-        UpdateDeliveriesMap();
+
+		DroneInfo droneInfo = droneSlots[deliveryInfo.slot];
+        droneInfo.batteryLevel = batteryLevel;
+        droneSlots[deliveryInfo.slot] = droneInfo;
+
+		UpdateDroneSlotsAndMap();
     }
 
 	void DroneDeploymentSuccess(EntityId droneId, DeliveryInfo deliveryInfo)
     {
 		deliveryInfo.nextWaypoint++;
 		deliveriesMap.Add(droneId, deliveryInfo);
-        UpdateDeliveriesMap();
+
+		DroneInfo droneInfo = droneSlots[deliveryInfo.slot];
+		droneInfo.deliveryId = droneId;
+		droneInfo.occupied = true;
+		droneSlots[deliveryInfo.slot] = droneInfo;
+
+		UpdateDroneSlotsAndMap();
     }
 
     void DroneDeploymentFailure()
     {
+		usedSlots--;
 		MetricsWriter.Send(new ControllerMetrics.Update().SetFailedLaunches(++failedLaunches));
     }
+
+    int GetNextSlot()
+	{
+		for (int i = 0; i < droneSlots.Count; i++)
+		{
+			if (!droneSlots[i].occupied)
+			{
+				usedSlots++;
+				return i;
+			}
+		}
+
+		return -1;
+	}
 
     void HandleDeliveryRequest(DeliveryRequest request)
     {
 		DeliveryInfo deliveryInfo;
 		Vector2 random;
 
-		deliveryInfo.slot = -1;
+		deliveryInfo.slot = GetNextSlot();
+		if (deliveryInfo.slot < 0)
+		{
+			Debug.LogError("Something's gone terribly wrong with the slot mechanics.");
+		}
 
 		random = UnityEngine.Random.insideUnitCircle * SimulationSettings.DronePadRadius;
 		Vector3f departurePoint = departuresPoint.ToSpatialVector3f() + new Vector3f(random.x, 0, random.y);
@@ -273,7 +341,7 @@ public class ControllerBehaviour : MonoBehaviour
 		if (plan == null || plan.Count < 2)
         {
             // let scheduler know that this job can't be done
-            DroneDeploymentFailure();
+			DroneDeploymentFailure();
             return;
         }
 
@@ -297,13 +365,18 @@ public class ControllerBehaviour : MonoBehaviour
 			departurePoint.ToCoordinates(),
 			deliveryInfo.waypoints[deliveryInfo.nextWaypoint],
             gameObject.EntityId(),
-			SimulationSettings.MaxDronePayload,
+			request.payload,
 			SimulationSettings.MaxDroneBattery,
             SimulationSettings.MaxDroneSpeed);
         SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
 		         .OnSuccess((response) => DroneDeploymentSuccess(response.CreatedEntityId, deliveryInfo))
-                 .OnFailure((response) => DroneDeploymentFailure());
+		         .OnFailure((response) => DroneDeploymentFailure());
     }
+
+    private bool ReadyForDeployment()
+	{
+		return usedSlots < ControllerWriter.Data.maxDroneCount;
+	}
 
     void ControllerTick()
     {
@@ -318,7 +391,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 		//don't need to do anything if no requests in the queue
 		DeliveryRequest nextRequest;
-		if (deliveriesMap.Count < ControllerWriter.Data.maxDroneCount)
+		if (ReadyForDeployment())
         {
 			if (scheduler.GetNextRequest(out nextRequest))
 			{
@@ -369,6 +442,6 @@ public class ControllerBehaviour : MonoBehaviour
 		                   .SetFailedReturns(failedReturns)
 		                   .SetFailedDeliveries(failedDeliveries));
         
-		UpdateDeliveriesMap();
+		UpdateDroneSlotsAndMap();
 	}
 }

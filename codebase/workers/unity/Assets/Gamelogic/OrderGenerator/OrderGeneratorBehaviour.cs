@@ -59,7 +59,7 @@ public class OrderGeneratorBehaviour : MonoBehaviour
         SpatialOS.Commands.SendCommand(
 			OrderWriter,
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
-            new DeliveryRequest(deliveryDestination),
+			new DeliveryRequest(deliveryDestination, GeneratePayload()),
             closestController)
 		         .OnSuccess((response) => DeliveryRequestCallback(response.success))
 		         .OnFailure((response) => DeliveryRequestFail());
@@ -90,6 +90,11 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 		                       , failedRequests
 		                       , failedCommands);
     }
+
+    private float GeneratePayload()
+	{
+		return 0;
+	}
 
     private EntityId GetClosestController(Vector3f destination)
     {

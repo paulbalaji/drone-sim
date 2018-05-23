@@ -4,6 +4,7 @@ import "improbable/vector3.schema";
 
 type DeliveryRequest {
   improbable.Vector3f destination = 1;
+  float payload = 2;
 }
 
 type DeliveryResponse {

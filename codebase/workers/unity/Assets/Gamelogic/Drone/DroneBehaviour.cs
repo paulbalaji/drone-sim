@@ -23,6 +23,8 @@ public class DroneBehaviour : MonoBehaviour
     private float radius;
     private Vector3 direction;
 
+	private float batteryLevel;
+
     private float nextRequestTime = 0f;
 
     private APF apf;
@@ -40,6 +42,8 @@ public class DroneBehaviour : MonoBehaviour
         speed = DroneDataWriter.Data.speed;
         radius = speed * SimulationSettings.DroneUpdateInterval;
 		direction = DroneDataWriter.Data.direction.ToUnityVector();
+
+		batteryLevel = DroneDataWriter.Data.batteryLevel;
 
         apf = gameObject.GetComponent<APF>();
 
@@ -75,6 +79,7 @@ public class DroneBehaviour : MonoBehaviour
         if (simulate)
         {
             SendPositionUpdate();
+			SendBatteryUpdate();
 
             if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
             {
@@ -101,6 +106,8 @@ public class DroneBehaviour : MonoBehaviour
             if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
             {
 				transform.position += direction * DroneDataWriter.Data.speed * SimulationSettings.DroneMoveInterval;
+
+				//TODO: fuel consumption considerations!
             }
         }
 	}
@@ -117,7 +124,7 @@ public class DroneBehaviour : MonoBehaviour
             SpatialOS.Commands.SendCommand(
                 PositionWriter,
                 Controller.Commands.RequestNewTarget.Descriptor,
-                new TargetRequest(gameObject.EntityId()),
+				new TargetRequest(gameObject.EntityId(), batteryLevel),
                 DroneDataWriter.Data.designatedController,
                 System.TimeSpan.FromSeconds(SimulationSettings.MaxRequestWaitTime))
                      .OnSuccess((response) => requestTargetSuccess(response))
@@ -200,4 +207,9 @@ public class DroneBehaviour : MonoBehaviour
         //Debug.LogWarning("update position function");
         PositionWriter.Send(new Position.Update().SetCoords(transform.position.ToCoordinates()));
     }
+
+	private void SendBatteryUpdate()
+	{
+		DroneDataWriter.Send(new DroneData.Update().SetBatteryLevel(batteryLevel));
+	}
 }
