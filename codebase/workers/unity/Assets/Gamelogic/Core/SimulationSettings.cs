@@ -63,6 +63,7 @@ namespace Assets.Gamelogic.Core
 
 		// DRONE CONSTANTS //
 
+        //Energy unit is Wh
 		public const float DroneEnergyMove = DronePowerMove * DroneMoveInterval / 3600;
 		public const float DroneEnergyHover = DronePowerHover * DroneMoveInterval / 3600;
 

@@ -46,6 +46,9 @@ public class ControllerBehaviour : MonoBehaviour
 
 	int usedSlots;
 
+	float revenue;
+	float costs;
+
     private void OnEnable()
     {
 		deliveriesMap = ControllerWriter.Data.deliveriesMap;
@@ -54,9 +57,14 @@ public class ControllerBehaviour : MonoBehaviour
         completedDeliveries = MetricsWriter.Data.completedDeliveries;
 		completedRoundTrips = MetricsWriter.Data.completedRoundTrips;
         collisionsReported = MetricsWriter.Data.collisionsReported;
+
+		failedLaunches = MetricsWriter.Data.failedLaunches;
 		failedDeliveries = MetricsWriter.Data.failedDeliveries;
 		failedReturns = MetricsWriter.Data.failedReturns;
 		unknownRequests = MetricsWriter.Data.unknownRequests;
+
+		revenue = MetricsWriter.Data.revenue;
+		costs = MetricsWriter.Data.costs;
 
 		for (int i = 0; i < droneSlots.Count; i++)
 		{
@@ -186,12 +194,14 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} fDel {5} fRet {6} fLaunch {7} collisions {8} unknown {9} total {10}"
+		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} revenue {5} costs {6} fDel {7} fRet {8} fLaunch {9} collisions {10} unknown {11} total {12}"
                                , gameObject.EntityId().Id
 		                       , deliveriesMap.Count
 		                       , scheduler.GetQueueSize()
                                , completedDeliveries
 		                       , completedRoundTrips
+		                       , revenue
+                               , costs
                                , failedDeliveries
 		                       , failedReturns
 		                       , failedLaunches
@@ -225,11 +235,17 @@ public class ControllerBehaviour : MonoBehaviour
 		}
 	}
 
+    void AddEnergyCost(float energyUsed)
+	{
+		costs += energyUsed * SimulationSettings.CostPerWh;
+	}
+
     void ReturnDroneSlot(int slot)
 	{
 		DroneInfo droneInfo = droneSlots[slot];
         droneInfo.occupied = false;
         droneInfo.deliveryId = new EntityId(-1);
+		AddEnergyCost(droneInfo.energyUsed);
 		droneInfo.energyUsed = 0;
         droneSlots[slot] = droneInfo;
         usedSlots--;

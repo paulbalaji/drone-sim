@@ -84,7 +84,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
 		    .AddComponent(new DeliveryHandler.Data(new List<DeliveryRequest>((int)SimulationSettings.MaxDeliveryRequestQueueSize)), CommonRequirementSets.PhysicsOnly)
-            .AddComponent(new ControllerMetrics.Data(0, 0, 0, 0, 0, 0, 0, 0), CommonRequirementSets.PhysicsOnly)
+            .AddComponent(new ControllerMetrics.Data(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), CommonRequirementSets.PhysicsOnly)
             .Build();
 
         return controllerTemplate;

@@ -25,7 +25,7 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 
 	private void OnEnable()
 	{
-		Debug.LogWarningFormat("Scheduler_{0} Starting Up.", gameObject.EntityId().Id);
+		Debug.LogWarningFormat("OrderGenerator_{0} Starting Up.", gameObject.EntityId().Id);
 
 		deliveriesRequested = MetricsWriter.Data.deliveriesRequested;
 		failedRequests = MetricsWriter.Data.failedRequests;
