@@ -218,17 +218,28 @@ public class ControllerBehaviour : MonoBehaviour
 		{
 			DestroyDrone(entityId, deliveryInfo.slot);
 		}
+		else
+		{
+			//if drone isn't in dronemap - just delete it anyway and correct controller will prune it out
+			SpatialOS.Commands.DeleteEntity(PositionWriter, entityId);
+		}
+	}
+
+    void ReturnDroneSlot(int slot)
+	{
+		DroneInfo droneInfo = droneSlots[slot];
+        droneInfo.occupied = false;
+        droneInfo.deliveryId = new EntityId(-1);
+		droneInfo.batteryLevel = SimulationSettings.MaxDroneBattery;
+        droneSlots[slot] = droneInfo;
+        usedSlots--;
 	}
 
     void DestroyDrone(EntityId entityId, int slot)
     {
 		deliveriesMap.Remove(entityId);
 
-		DroneInfo droneInfo = droneSlots[slot];
-		droneInfo.occupied = false;
-		droneInfo.deliveryId = new EntityId(-1);
-		droneSlots[slot] = droneInfo;
-		usedSlots--;
+		ReturnDroneSlot(slot);
 
 		SpatialOS.Commands.DeleteEntity(PositionWriter, entityId);
     }
@@ -298,7 +309,12 @@ public class ControllerBehaviour : MonoBehaviour
 		MetricsWriter.Send(new ControllerMetrics.Update().SetFailedLaunches(++failedLaunches));
     }
 
-    int GetNextSlot()
+    public int AvailableSlots()
+	{
+		return droneSlots.Count - usedSlots;
+	}
+
+    private int GetNextSlot()
 	{
 		for (int i = 0; i < droneSlots.Count; i++)
 		{
