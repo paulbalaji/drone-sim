@@ -398,7 +398,6 @@ public class ControllerBehaviour : MonoBehaviour
 			deliveryInfo.waypoints[deliveryInfo.nextWaypoint],
             gameObject.EntityId(),
 			request.payload,
-			SimulationSettings.MaxDroneBattery,
             SimulationSettings.MaxDroneSpeed);
         SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
 		         .OnSuccess((response) => DroneDeploymentSuccess(response.CreatedEntityId, deliveryInfo))
