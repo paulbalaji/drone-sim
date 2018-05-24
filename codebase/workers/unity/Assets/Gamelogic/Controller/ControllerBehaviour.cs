@@ -129,7 +129,7 @@ public class ControllerBehaviour : MonoBehaviour
 			if (deliveryInfo.nextWaypoint < deliveryInfo.waypoints.Count)
             {
 				handle.Respond(new TargetResponse(deliveryInfo.waypoints[deliveryInfo.nextWaypoint], TargetResponseCode.SUCCESS));
-				IncrementNextWaypoint(handle.Request.droneId, handle.Request.batteryLevel);
+				IncrementNextWaypoint(handle.Request.droneId, handle.Request.energyUsed);
             }
             else
             {
@@ -162,7 +162,7 @@ public class ControllerBehaviour : MonoBehaviour
 					deliveriesMap.Add(handle.Request.droneId, deliveryInfo);
 
 					DroneInfo droneInfo = droneSlots[deliveryInfo.slot];
-					droneInfo.batteryLevel = handle.Request.batteryLevel;
+					droneInfo.energyUsed = handle.Request.energyUsed;
 					droneSlots[deliveryInfo.slot] = droneInfo;
 
 					UpdateDroneSlotsAndMap();
@@ -230,7 +230,7 @@ public class ControllerBehaviour : MonoBehaviour
 		DroneInfo droneInfo = droneSlots[slot];
         droneInfo.occupied = false;
         droneInfo.deliveryId = new EntityId(-1);
-		droneInfo.batteryLevel = SimulationSettings.MaxDroneBattery;
+		droneInfo.energyUsed = 0;
         droneSlots[slot] = droneInfo;
         usedSlots--;
 	}
@@ -270,7 +270,7 @@ public class ControllerBehaviour : MonoBehaviour
         }
     }
 
-	private void IncrementNextWaypoint(EntityId droneId, DeliveryInfo deliveryInfo, float batteryLevel)
+	private void IncrementNextWaypoint(EntityId droneId, DeliveryInfo deliveryInfo, float energyUsed)
     {
 		deliveryInfo.nextWaypoint++;
 		deliveryInfo.latestCheckinTime
@@ -284,7 +284,7 @@ public class ControllerBehaviour : MonoBehaviour
 		deliveriesMap.Add(droneId, deliveryInfo);
 
 		DroneInfo droneInfo = droneSlots[deliveryInfo.slot];
-        droneInfo.batteryLevel = batteryLevel;
+		droneInfo.energyUsed = energyUsed;
         droneSlots[deliveryInfo.slot] = droneInfo;
 
 		UpdateDroneSlotsAndMap();

@@ -4,7 +4,7 @@ import "improbable/vector3.schema";
 
 type TargetRequest {
 	EntityId drone_id = 1;
-  float battery_used = 2;
+  float energy_used = 2;
 }
 
 enum TargetResponseCode {
@@ -29,7 +29,7 @@ type DeliveryInfo {
 type DroneInfo {
   bool occupied = 1;
   EntityId delivery_id = 2;
-  float battery_used = 3;
+  float energy_used = 3;
 }
 
 type CollisionRequest {

@@ -23,7 +23,7 @@ public class DroneBehaviour : MonoBehaviour
     private float radius;
     private Vector3 direction;
 
-	private float batteryLevel;
+	private float energyUsed;
 
     private float nextRequestTime = 0f;
 
@@ -43,7 +43,7 @@ public class DroneBehaviour : MonoBehaviour
         radius = speed * SimulationSettings.DroneUpdateInterval;
 		direction = DroneDataWriter.Data.direction.ToUnityVector();
 
-		batteryLevel = DroneDataWriter.Data.batteryLevel;
+		energyUsed = DroneDataWriter.Data.energyUsed;
 
         apf = gameObject.GetComponent<APF>();
 
@@ -107,8 +107,14 @@ public class DroneBehaviour : MonoBehaviour
             {
 				transform.position += direction * DroneDataWriter.Data.speed * SimulationSettings.DroneMoveInterval;
 
-				//TODO: fuel consumption considerations!
+				//TODO: energy consumption considerations!
+				energyUsed += SimulationSettings.DroneEnergyMove;
             }
+
+			if (DroneDataWriter.Data.droneStatus == DroneStatus.HOVER)
+			{
+				energyUsed += SimulationSettings.DroneEnergyHover;
+			}
         }
 	}
 
@@ -124,7 +130,7 @@ public class DroneBehaviour : MonoBehaviour
             SpatialOS.Commands.SendCommand(
                 PositionWriter,
                 Controller.Commands.RequestNewTarget.Descriptor,
-				new TargetRequest(gameObject.EntityId(), batteryLevel),
+				new TargetRequest(gameObject.EntityId(), energyUsed),
                 DroneDataWriter.Data.designatedController,
                 System.TimeSpan.FromSeconds(SimulationSettings.MaxRequestWaitTime))
                      .OnSuccess((response) => requestTargetSuccess(response))
@@ -210,6 +216,6 @@ public class DroneBehaviour : MonoBehaviour
 
 	private void SendBatteryUpdate()
 	{
-		DroneDataWriter.Send(new DroneData.Update().SetBatteryLevel(batteryLevel));
+		DroneDataWriter.Send(new DroneData.Update().SetEnergyUsed(energyUsed));
 	}
 }

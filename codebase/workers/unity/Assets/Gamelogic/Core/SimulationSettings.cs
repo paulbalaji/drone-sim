@@ -57,7 +57,17 @@ namespace Assets.Gamelogic.Core
         public static readonly Vector3f ControllerDepartureOffset = new Vector3f(75, 0, -75);
         public static readonly Vector3f ControllerRunwayDelta = ControllerDepartureOffset - ControllerArrivalOffset;
 
-        // DRONE CONSTANTS //
+		// MISC CONSTANTS //
+
+		public const float CostPerWh = 0.0055f;
+
+		// DRONE CONSTANTS //
+
+		public const float DroneEnergyMove = DronePowerMove * DroneMoveInterval / 3600;
+		public const float DroneEnergyHover = DronePowerHover * DroneMoveInterval / 3600;
+
+		public const float DronePowerMove = 8355f;
+		public const float DronePowerHover = 670f;
 
         public const float DroneUpdateInterval = 1f;
 		public const float DroneMoveInterval = 0.25f;
