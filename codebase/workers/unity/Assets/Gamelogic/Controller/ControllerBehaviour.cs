@@ -48,6 +48,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 	float revenue;
 	float costs;
+	float penalties;
 
     private void OnEnable()
     {
@@ -65,6 +66,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 		revenue = MetricsWriter.Data.revenue;
 		costs = MetricsWriter.Data.costs;
+		penalties = MetricsWriter.Data.penalties;
 
 		for (int i = 0; i < droneSlots.Count; i++)
 		{
@@ -107,16 +109,24 @@ public class ControllerBehaviour : MonoBehaviour
 		DeliveryInfo droneInfo;
 		if (deliveriesMap.TryGetValue(handle.Request.droneId, out droneInfo))
 		{
+			DestroyDrone(handle.Request.droneId, droneInfo.slot);
+			DroneRetrieval(handle.Request.location.ToUnityVector());
+
 			if (droneInfo.returning)
             {
-                MetricsWriter.Send(new ControllerMetrics.Update().SetFailedReturns(++failedReturns));
+                MetricsWriter.Send(new ControllerMetrics.Update()
+				                   .SetFailedReturns(++failedReturns)
+				                   .SetCosts(costs)
+				                   .SetPenalties(penalties));
             }
             else
             {
-                MetricsWriter.Send(new ControllerMetrics.Update().SetFailedDeliveries(++failedDeliveries));
+                MetricsWriter.Send(new ControllerMetrics.Update()
+				                   .SetFailedDeliveries(++failedDeliveries)
+				                   .SetCosts(costs)
+                                   .SetPenalties(penalties));
             }
 
-			DestroyDrone(handle.Request.droneId, droneInfo.slot);
 			UpdateDroneSlotsAndMap();
 		}
 		else
@@ -144,8 +154,11 @@ public class ControllerBehaviour : MonoBehaviour
 				if (deliveryInfo.returning)
                 {
                     UnsuccessfulTargetRequest(handle, TargetResponseCode.JOURNEY_COMPLETE);
-					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedRoundTrips(++completedRoundTrips));
 					DestroyDrone(handle.Request.droneId, deliveryInfo.slot);
+					MetricsWriter.Send(new ControllerMetrics.Update()
+					                   .SetCompletedRoundTrips(++completedRoundTrips)
+					                   .SetCosts(costs)
+					                   .SetRevenue(revenue));
 					UpdateDroneSlotsAndMap();
                 }
                 else
@@ -194,7 +207,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} revenue {5} costs {6} fDel {7} fRet {8} fLaunch {9} collisions {10} unknown {11} total {12}"
+		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} revenue {5} costs {6} penalties {7} fDel {8} fRet {9} fLaunch {10} collisions {11} unknown {12} total {13}"
                                , gameObject.EntityId().Id
 		                       , deliveriesMap.Count
 		                       , scheduler.GetQueueSize()
@@ -202,6 +215,7 @@ public class ControllerBehaviour : MonoBehaviour
 		                       , completedRoundTrips
 		                       , revenue
                                , costs
+		                       , penalties
                                , failedDeliveries
 		                       , failedReturns
 		                       , failedLaunches
@@ -214,10 +228,16 @@ public class ControllerBehaviour : MonoBehaviour
     {
         handle.Respond(new CollisionResponse());
 
-		MetricsWriter.Send(new ControllerMetrics.Update().SetCollisionsReported(++collisionsReported));
+		penalties += 2 * SimulationSettings.DroneReplacementCost;
 
         DestroyDrone(handle.Request.droneId);
         DestroyDrone(handle.Request.colliderId);
+
+		MetricsWriter.Send(new ControllerMetrics.Update()
+                           .SetCollisionsReported(++collisionsReported)
+                           .SetPenalties(penalties)
+		                   .SetCosts(costs));
+
 		UpdateDroneSlotsAndMap();
     }
 
@@ -466,13 +486,27 @@ public class ControllerBehaviour : MonoBehaviour
 
 		foreach(EntityId droneId in toPrune)
 		{
+			Improbable.Worker.IComponentData<Position> positionData = SpatialOS.GetLocalEntityComponent<Position>(droneId);
+			if (positionData != null)
+			{
+				Coordinates coords = positionData.Get().Value.coords;
+				coords.y = 0;
+				DroneRetrieval(coords.ToUnityVector());
+			}
 			DestroyDrone(droneId);
 		}
 
 		MetricsWriter.Send(new ControllerMetrics.Update()
 		                   .SetFailedReturns(failedReturns)
-		                   .SetFailedDeliveries(failedDeliveries));
+		                   .SetFailedDeliveries(failedDeliveries)
+		                   .SetPenalties(penalties)
+		                   .SetCosts(costs));
         
 		UpdateDroneSlotsAndMap();
+	}
+
+	private void DroneRetrieval(Vector3 dronePosition)
+	{
+		penalties += Vector3.Distance(dronePosition, gameObject.transform.position) * SimulationSettings.TruckCostConstant;
 	}
 }

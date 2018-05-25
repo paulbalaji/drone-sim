@@ -59,7 +59,14 @@ namespace Assets.Gamelogic.Core
 
 		// MISC CONSTANTS //
 
-		public const float CostPerWh = 0.0055f;
+		public const float CostPerWh = 0.0055f; //pence
+
+		public const float DroneReplacementCost = 400; //pounds
+
+		public const float KilometreToMiles = 0.621371f; //1 km = 0.621371 miles
+		public const float TruckMilesPerGallon = 13.1f;
+		public const float FuelCostPerGallon = 5.687f; //pounds
+		public const float TruckCostConstant = 2 * KilometreToMiles * TruckMilesPerGallon * FuelCostPerGallon;
 
 		// DRONE CONSTANTS //
 

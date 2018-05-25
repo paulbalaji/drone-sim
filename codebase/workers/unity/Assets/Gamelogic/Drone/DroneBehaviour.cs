@@ -186,7 +186,7 @@ public class DroneBehaviour : MonoBehaviour
         SpatialOS.Commands.SendCommand(
             PositionWriter,
             Controller.Commands.UnlinkDrone.Descriptor,
-            new UnlinkRequest(gameObject.EntityId()),
+            new UnlinkRequest(gameObject.EntityId(), transform.position.ToSpatialVector3f()),
             DroneDataWriter.Data.designatedController)
 		         .OnSuccess(UnlinkDroneSuccess)
                  .OnFailure(UnlinkDroneFailure);

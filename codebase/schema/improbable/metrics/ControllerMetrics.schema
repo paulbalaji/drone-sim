@@ -14,4 +14,5 @@ component ControllerMetrics {
 
 	float revenue = 9;
 	float costs = 10;
+	float penalties = 11;
 }

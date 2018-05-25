@@ -41,6 +41,7 @@ type CollisionResponse {}
 
 type UnlinkRequest {
   EntityId drone_id = 1;
+  improbable.Vector3f location = 2;
 }
 
 type UnlinkResponse {}
