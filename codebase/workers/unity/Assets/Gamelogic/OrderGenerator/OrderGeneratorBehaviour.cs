@@ -91,9 +91,9 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 		                       , failedCommands);
     }
 
-    private float GeneratePayload()
+	private PackageInfo GeneratePayload()
 	{
-		return 0;
+		return PayloadGenerator.GetNextPackage();
 	}
 
     private EntityId GetClosestController(Vector3f destination)

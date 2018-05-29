@@ -1,7 +1,8 @@
 ﻿using Assets.Gamelogic.Core;
 using Improbable.Controller;
 using Improbable.Orders;
-using System;
+using UnityEngine;
+
 
 public static class PayloadGenerator
 {
@@ -29,8 +30,7 @@ public static class PayloadGenerator
 
 	public static PackageInfo GetNextPackage()
 	{
-		Random random = new Random();
-		PackageType packageType = (PackageType) random.Next(SimulationSettings.NumPackageTypes);
+		PackageType packageType = (PackageType) Random.Range((int)0, SimulationSettings.NumPackageTypes);
 		float packageWeight;
 
 		switch (packageType)
@@ -53,7 +53,10 @@ public static class PayloadGenerator
             case PackageType.PARCEL:
 				packageWeight = StandardParcel();
                 break;
-               
+			default:
+				// should never get here
+				packageWeight = 0;
+				break;
         }
 
 		return new PackageInfo(packageType, packageWeight);
@@ -61,31 +64,31 @@ public static class PayloadGenerator
 
     private static float SmallLetter()
 	{
-		
+		return Random.Range(SimulationSettings.packageWeightSmallLetter, 100f);
 	}
 
 	private static float LargeLetter()
     {
-
+		return Random.Range(SimulationSettings.packageWeightLargeLetter, 250f);
     }
 
 	private static float SmallEnvelope()
     {
-
+		return Random.Range(SimulationSettings.packageWeightSmallEnvelope, 100f);
     }
 
 	private static float StandardEnvelope()
     {
-
+		return Random.Range(SimulationSettings.packageWeightStandardEnvelope, 500f);
     }
 
 	private static float LargeEnvelope()
     {
-
+		return Random.Range(SimulationSettings.packageWeightLargeEnvelope, 1000f);
     }
 
 	private static float StandardParcel()
     {
-
+		return Random.Range(SimulationSettings.packageWeightStandardParcel, SimulationSettings.MaxDronePayloadGrams);
     }
 }

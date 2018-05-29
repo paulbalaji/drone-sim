@@ -101,7 +101,8 @@ namespace Assets.Gamelogic.Core
 
 		public const float MaxDroneBattery = 10000; // mAh battery
 
-		public static float MaxDronePayload = 2.3f; // kg
+		public static float MaxDronePayload = MaxDronePayloadGrams / 1000; // kg
+		public static float MaxDronePayloadGrams = 2300f; // g
 
         // GLOBAL LAYER //
 
