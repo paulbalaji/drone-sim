@@ -1,6 +1,7 @@
 package improbable.controller;
 
 import "improbable/vector3.schema";
+import "improbable/controller/DeliveryHandler.schema";
 
 type TargetRequest {
 	EntityId drone_id = 1;
@@ -24,6 +25,7 @@ type DeliveryInfo {
 	list<improbable.Vector3f> waypoints = 2;
   bool returning = 3;
   float latest_checkin_time = 4;
+  improbable.controller.PackageInfo package_info = 6;
 }
 
 type DroneInfo {

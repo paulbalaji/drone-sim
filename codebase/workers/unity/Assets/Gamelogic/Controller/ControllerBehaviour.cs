@@ -46,7 +46,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 	int usedSlots;
 
-	float revenue;
+	int revenue;
 	float costs;
 	float penalties;
 
@@ -137,6 +137,12 @@ public class ControllerBehaviour : MonoBehaviour
         handle.Respond(new UnlinkResponse());
     }
 
+	void RegisterCompletedDelivery(PackageInfo packageInfo)
+	{
+		++completedDeliveries;
+		revenue += PayloadGenerator.GetPackageCost(packageInfo);
+	}
+
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
     {
 		DeliveryInfo deliveryInfo;
@@ -157,13 +163,15 @@ public class ControllerBehaviour : MonoBehaviour
 					DestroyDrone(handle.Request.droneId, deliveryInfo.slot);
 					MetricsWriter.Send(new ControllerMetrics.Update()
 					                   .SetCompletedRoundTrips(++completedRoundTrips)
-					                   .SetCosts(costs)
-					                   .SetRevenue(revenue));
+					                   .SetCosts(costs));
 					UpdateDroneSlotsAndMap();
                 }
                 else
                 {
-					MetricsWriter.Send(new ControllerMetrics.Update().SetCompletedDeliveries(++completedDeliveries));
+					RegisterCompletedDelivery(deliveryInfo.packageInfo);
+					MetricsWriter.Send(new ControllerMetrics.Update()
+					                   .SetCompletedDeliveries(completedDeliveries)
+					                   .SetRevenue(revenue));
 
 					deliveryInfo.returning = true;
 					deliveryInfo.waypoints.Reverse();
@@ -369,6 +377,8 @@ public class ControllerBehaviour : MonoBehaviour
 		DeliveryInfo deliveryInfo;
 		Vector2 random;
 
+		deliveryInfo.packageInfo = request.packageInfo;
+
 		deliveryInfo.slot = GetNextSlot();
 		if (deliveryInfo.slot < 0)
 		{
@@ -417,7 +427,7 @@ public class ControllerBehaviour : MonoBehaviour
 			departurePoint.ToCoordinates(),
 			deliveryInfo.waypoints[deliveryInfo.nextWaypoint],
             gameObject.EntityId(),
-			request.payload,
+			request.packageInfo.weight,
             SimulationSettings.MaxDroneSpeed);
         SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
 		         .OnSuccess((response) => DroneDeploymentSuccess(response.CreatedEntityId, deliveryInfo))

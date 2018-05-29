@@ -12,7 +12,7 @@ component ControllerMetrics {
 	int32 failed_returns = 6;
 	int32 unknown_requests = 7;
 
-	float revenue = 9;
+	int32 revenue = 9;
 	float costs = 10;
 	float penalties = 11;
 }
