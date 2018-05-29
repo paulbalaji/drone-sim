@@ -38,6 +38,15 @@ namespace Assets.Gamelogic.Core
         // ORDER GENERATOR CONSTANTS //
 
 		public static EntityId OrderGeneratorEntityId = new EntityId(1);
+
+		public static readonly int NumPackageTypes = 6;
+
+		public static readonly float packageWeightSmallLetter = 8f;
+        public static readonly float packageWeightLargeLetter = 25f;
+        public static readonly float packageWeightSmallEnvelope = 20f;
+        public static readonly float packageWeightStandardEnvelope = 40f;
+        public static readonly float packageWeightLargeEnvelope = 40f;
+        public static readonly float packageWeightStandardParcel = 100f;
         
 		// CONTROLLER //
 

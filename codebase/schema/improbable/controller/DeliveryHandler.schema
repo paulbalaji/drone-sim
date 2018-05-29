@@ -2,9 +2,23 @@ package improbable.controller;
 
 import "improbable/vector3.schema";
 
+enum PackageType {
+	LETTER_SMALL = 0;
+	LETTER_LARGE = 1;
+	ENVELOPE_SMALL = 2;
+	ENVELOPE_STANDARD = 3;
+	ENVELOPE_LARGE = 4;
+	PARCEL = 5;
+}
+
+type PackageInfo {
+	PackageType type = 1;
+	float weight = 2;
+}
+
 type DeliveryRequest {
   improbable.Vector3f destination = 1;
-  float payload = 2;
+  PackageInfo package_info = 2;
 }
 
 type DeliveryResponse {
