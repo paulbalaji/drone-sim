@@ -427,7 +427,7 @@ public class ControllerBehaviour : MonoBehaviour
 			departurePoint.ToCoordinates(),
 			deliveryInfo.waypoints[deliveryInfo.nextWaypoint],
             gameObject.EntityId(),
-			request.packageInfo.weight,
+			request.packageInfo.weight + PayloadGenerator.GetPackagingWeight(request.packageInfo.type),
             SimulationSettings.MaxDroneSpeed);
         SpatialOS.Commands.CreateEntity(PositionWriter, droneTemplate)
 		         .OnSuccess((response) => DroneDeploymentSuccess(response.CreatedEntityId, deliveryInfo))
