@@ -121,6 +121,7 @@ public class ControllerBehaviour : MonoBehaviour
             }
             else
             {
+				penalties += PayloadGenerator.GetPackageCost(droneInfo.packageInfo) + SimulationSettings.FailedDeliveryPenalty;
                 MetricsWriter.Send(new ControllerMetrics.Update()
 				                   .SetFailedDeliveries(++failedDeliveries)
 				                   .SetCosts(costs)
@@ -215,7 +216,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS C_{0} drones {1} queue {2} deliveries {3} fullTrips {4} revenue {5} costs {6} penalties {7} fDel {8} fRet {9} fLaunch {10} collisions {11} unknown {12} total {13}"
+		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13}"
                                , gameObject.EntityId().Id
 		                       , deliveriesMap.Count
 		                       , scheduler.GetQueueSize()
@@ -517,6 +518,8 @@ public class ControllerBehaviour : MonoBehaviour
 
 	private void DroneRetrieval(Vector3 dronePosition)
 	{
+		//constant converts metres to miles, and applies fuel costs and truck mileage to produce a penalty
+        //penalty reflects rough cost of sending a van out to collect a fallen drone
 		penalties += Vector3.Distance(dronePosition, gameObject.transform.position) * SimulationSettings.TruckCostConstant;
 	}
 }
