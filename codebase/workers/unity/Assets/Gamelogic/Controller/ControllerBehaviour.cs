@@ -121,7 +121,8 @@ public class ControllerBehaviour : MonoBehaviour
             }
             else
             {
-				penalties += PayloadGenerator.GetPackageCost(droneInfo.packageInfo) + SimulationSettings.FailedDeliveryPenalty;
+				float penalty = PayloadGenerator.GetPackageCost(droneInfo.packageInfo) + SimulationSettings.FailedDeliveryPenalty;
+				penalties += penalty / 100;
                 MetricsWriter.Send(new ControllerMetrics.Update()
 				                   .SetFailedDeliveries(++failedDeliveries)
 				                   .SetCosts(costs)
@@ -490,6 +491,8 @@ public class ControllerBehaviour : MonoBehaviour
                     else
                     {
 						++failedDeliveries;
+						float penalty = PayloadGenerator.GetPackageCost(deliveryInfo.packageInfo) + SimulationSettings.FailedDeliveryPenalty;
+                        penalties += penalty / 100;
                     }
                 }
 			}
