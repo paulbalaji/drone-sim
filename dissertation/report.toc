@@ -36,11 +36,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.4.2}A* Algorithm}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.3}Theta* Algorithm}{15}
+\contentsline {subsubsection}{\numberline {2.4.3}Theta* Algorithm}{14}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.4.4}Lazy Theta* Algorithm}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.5}Conclusions}{16}
+\contentsline {subsubsection}{\numberline {2.4.5}Conclusions}{15}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.5}The Reactive Layer}{18}
 \defcounter {refsection}{0}\relax 
@@ -52,44 +52,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.5.4}Conclusions}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}Scalable Drone Network Architecture}{22}
+\contentsline {subsection}{\numberline {2.6}Scheduling Algorithms}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}Scheduling Algorithms}{24}
+\contentsline {subsubsection}{\numberline {2.6.1}First Come First Serve (FCFS)}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}First Come First Serve (FCFS)}{24}
+\contentsline {subsubsection}{\numberline {2.6.2}Shortest Job First (SJF)}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Shortest Job First (SJF)}{24}
+\contentsline {subsubsection}{\numberline {2.6.3}Priority Scheduling}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}Priority Scheduling}{24}
+\contentsline {subsubsection}{\numberline {2.6.4}Multi-Level Feedback Queue (MLFQ)}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.4}Multi-Level Feedback Queue (MLFQ)}{25}
+\contentsline {subsection}{\numberline {2.7}SpatialOS}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.8}SpatialOS}{26}
+\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.1}Unity SDK}{27}
+\contentsline {subsubsection}{\numberline {2.7.2}Abstraction}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.2}Abstraction}{27}
+\contentsline {subsubsection}{\numberline {2.7.3}Developer Tools}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.3}Developer Tools}{27}
+\contentsline {subsubsection}{\numberline {2.7.4}Layered Simulation}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.4}Layered Simulation}{28}
+\contentsline {section}{\numberline {3}Prioritising Economic Value}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Prioritising Economic Value}{29}
+\contentsline {subsection}{\numberline {3.1}Quality of Service Value Curve}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Quality of Service Value Curve}{29}
+\contentsline {section}{\numberline {4}Drone-Controller Architecture}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Project Plan}{30}
+\contentsline {section}{\numberline {5}Order Generation}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Overview}{30}
+\contentsline {section}{\numberline {6}Scheduling Deliveries}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Stretch Goals}{30}
+\contentsline {section}{\numberline {7}Evaluation}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Timeline}{31}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Evaluation Plan}{32}
+\contentsline {section}{\numberline {8}Conclusion \& Future Work}{33}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{References}{34}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Appendices}{39}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}Python Implementation of Dijkstra's Algorithm}{39}

@@ -102,7 +102,7 @@
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries Drone Network Simulation\\on SpatialOS\\\textit{Interim Report}}\\[0.4cm] % Title of your document
+{ \huge \bfseries Drone Delivery Simulation\\with SpatialOS\\}\\[0.4cm] % Title of your document
 \HRule \\[0.4cm]
 
 %----------------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ Prof.~William \textsc{Knottenbelt}
 \end{flushright}
 \begin{flushright} \large
 \emph{Second Marker:} \\
-To.~Be \textsc{Decided}
+Prof.~Kin \textsc{Leung}
 \end{flushright}
 \end{minipage}\\[1cm]
 
@@ -137,15 +137,15 @@ To.~Be \textsc{Decided}
 
 \end{titlepage}
 
-% \renewcommand{\abstractname}{\large Abstract}
-% \begin{abstract}
-% test post pls ignore
-% \end{abstract}
-%
-% \renewcommand{\abstractname}{\large Acknowledgements}
-% \begin{abstract}
-% ack
-% \end{abstract}
+\renewcommand{\abstractname}{\large Abstract}
+\begin{abstract}
+test post pls ignore
+\end{abstract}
+
+\renewcommand{\abstractname}{\large Acknowledgements}
+\begin{abstract}
+ack
+\end{abstract}
 
 \newpage
 
@@ -295,8 +295,6 @@ The Global Layer holds the static representation of the world so that given a st
 
 \subsubsection{Dijkstra's Algorithm}
 Dijkstra's algorithm is a popular algorithm to find the shortest paths between nodes in a graph. When using a co-ordinate grid system, each coordinate could represent a node in a graph and thus the algorithm can also be used to find the shortest path between a source and destination. \\
-
-See Appendix A for an example python implementation of this algorithm. \\
 
 However, in the real world, we also have to consider the cost of computation and potentially make use of heuristics in order to return the shortest path given a limited amount of time. Especially in the drone case, we want to compute a good path as quick as possible in order to let the drone proceed along its way.
 
@@ -468,39 +466,6 @@ Influence distance & 300 & 600 & 100  & 4     \\ \hline
 \subsubsection{Conclusions}
 In the end, the genetic algorithms only improved the simulations by about 2\%\cite{Balaji2017} which could mean that the original range of constants was already a good set to work with. However, there is still scope for even greater improvements if the genetic algorithm was to be run with a greater number of test scenarios, bigger range of values to cycle through, and generally larger simulations.
 
-\subsection{Scalable Drone Network Architecture}
-The \textit{Internet of Drones} is a ``layered network control architecture'' to deal with the growing presence of drones in a secure, scalable manner\cite{Gharibi2016}. The author notes that as the volume of drones hits several thousands for a limited region, any centralised air traffic control system would not be able to handle the load, thus leading to the contribution of a decentralised solution. \\
-
-Drawing inspiration from other important network models such as Air Traffic Control, Cellular networks and the Internet - the author also goes on to state that separating the problem into different layers helps to abstract scalability issues, improve maintainability of the codebase and allow greater flexiblity to improve specific layers as time goes on\cite{Gharibi2016}. Therefore, the existing AATC model might be considered a good candidate to implement this scaling solution on top of. \\
-
-\newpage
-The author considers splitting the problem into several layers:
-\begin{enumerate}
-  \item \textbf{Nodes} - points of interest connected together by \textit{airways} and \textit{intersections}.
-  \begin{figure}[!hbpt]
-    \center
-    \includegraphics[width=0.45\linewidth]{img/bg_scalable_nodes.png}
-    \caption{Nodes, airways and intersections.}
-    \label{fig:bg_scalable_nodes}
-  \end{figure}
-
-  \item \textbf{Zones} - collections of nodes, airways and intersections within a given area.
-  \begin{figure}[!hbpt]
-    \center
-    \includegraphics[width=0.45\linewidth]{img/bg_scalable_zones.png}
-    \caption{A zone graph, with arrows indicating airways.}
-    \label{fig:bg_scalable_zones}
-  \end{figure}
-
-  \item \textbf{Zone Collections} - how zones interconnect through \textit{gates}.
-  \begin{figure}[!hbpt]
-    \center
-    \includegraphics[width=0.45\linewidth]{img/bg_scalable_interzone.png}
-    \caption{Inter-zone graph, note there can be more than 2 gates at zone boundaries.}
-    \label{fig:bg_scalable_interzone}
-  \end{figure}
-\end{enumerate}
-
 \subsection{Scheduling Algorithms}
 In this section we look at a few well known CPU scheduling algorithms\cite{Bell2018}. Although CPU scheduling is not part of this project, being able to understand a few different approaches to the problem will give insight into how to schedule drones later on. However, there are two key difference between drone and CPU scheduling.\\
 
@@ -602,97 +567,30 @@ To gain greater understanding of how drones can positively impact industries, si
 \subsection{Quality of Service Value Curve}
 In order to consider how to maximise profitability, we introduce the concept of a Value Curve related to the Quality of Service (QoS) provided. Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is modelled on a curve closely related to the QoS. \\
 
-
+%**********************************************%
+\newpage
+\section{Drone-Controller Architecture}
+blabla
 
 %**********************************************%
 \newpage
-\section{Project Plan}
-\subsection{Overview}
-We envision the project to have three major development phases:
-\begin{enumerate}
-  \item Porting the Global and Reactive Layers to SpatialOS.
-  \item Implementing the delivery Scheduling Layer.
-  \item Implementing tools to visualise the financial value in the simulation.
-\end{enumerate}
-
-Once this has been complete we wish to conduct simulations with different scheduling models, such as First Come First Serve (FCFS) and the QoS-driven scheduler, to compare their total profits or loss. After this analysis is complete, we will compile the relevant data and work on the final project report.
-
-% \subsection{Phase 1: Global and Reactive Layers in SpatialOS}
-% \subsection{Phase 2: Scheduling Layer}
-% \subsection{Phase 3: Visualise Economic Value}
-\subsection{Stretch Goals}
-If the project is ahead of schedule, we plan to:
-\begin{itemize}
-  \item Introduce static toll zones.
-  \item Introduce dynamic no fly zones.
-  \item Introduce dynamic toll zones.
-  \item Investigate the drone delivery network use-case of blockchain.
-  \item Implement the Scheduling Layer as a custom worker.
-  \item Implement the Reactive Layer as a custom worker.
-  \item Implement the Global Layer as a custom worker.
-\end{itemize}
-
-\newpage
-\subsection{Timeline}
-\begin{table}[!hbpt]
-\centering
-\begin{tabular}{c|c|c}
-Week Beginning & Project Phase & Task \\\hline\hline
-29th January & 1 & Global Layer \\\hline
-5th February & 1 & Global Layer \\\hline
-12th February & 1 & Global Layer \\\hline
-19th February & 1 & Global Layer \\\hline
-26th February & 1 & Global + Reactive Layer \\\hline
-5th March & 1 & Reactive Layer \\\hline
-12th March & 1 & Reactive Layer \\\hline
-19th March & 1 & Break for Exams \\\hline
-26th March & 1 & Reactive Layer \\\hline
-2nd April & 2 & Scheduling Layer Tooling \\\hline
-9th April & 2 & Scheduling Layer Tooling \\\hline
-16th April & 2 & Scheduling Layer \\\hline
-23rd April & 2 & Scheduling Layer \\\hline
-30th April & 2 & Scheduling Layer \\\hline
-7th May & 3 & Visualiser Tooling \\\hline
-14th May & 3 & Visualiser Tooling \\\hline
-21th May & 3 & Visualiser Tooling \\\hline
-28th May & 3 & Visualiser Tooling \\\hline
-4th June & Analysis & Run Simulations and Collect Data \\\hline
-11th June & Report & Draft a Final Report \\\hline
-18th June & Report & Finalise Report
-\end{tabular}
-\caption{Project Timeline}
-\label{tab:proj_timeline}
-\end{table}
-
+\section{Order Generation}
+blabla
 
 %**********************************************%
 \newpage
-\section{Evaluation Plan}
-The minimum critera for the project is for a SpatialOS simulation to demonstrate drones being scheduled, by any possible mechanimm, and subsequently routed in a similar manner to the AATC project. \\
-
-It would be beneficial to be able to show that simulations have been run using different drone scheduling algorithms, especially the approach we have introduced that is based on the QoS value curve. Here they are, listed:
-\begin{itemize}
-  \item First Come First Serve
-  \item Shortest Job First
-  \item Priority
-  \item Multi-Level Feedback Queue
-  \item Quality of Service Value Curve
-\end{itemize}\\
-
-When running the above simulations, key financial figures such as revenue, loss and profit should be logged and recorded to be analysed. The project can be considered a success if there is clear breakdown and analysis of these key variables, and how they compare across different scheduling mechanisms. \\
-
-After letting a few test users play around on a few simulations, we will ask a few short questions on how they found the experience. By allowing users to control locations of No Fly Zones, the number of drones in the sky, and easily switch between scheduling algorithms on-the-fly, we would hope for users to find the entire simulation more visceral and engaging. \\
-
-Instead of trusting that we are being honest about our findings, showing and letting users discover it for themselves should prompt them to understand the entirety of this project better. This can be validated by looking at the survey results.\\
-
-We also plan on using the survey as a mechanism to get feedback on user-focused aspects the project, such as ease of use. This would help to conduct a better evalutiation by having actual data that can be used to determine what was received well and what was received poorly. In turn, we could then identify what future work needs to be done to take the project further in the future.
-
-% what functionality do you need to demonstrate?  What experiments to you need to undertake and what outcome(s) would constitute success?  What benchmarks should you use? How has your project extended the state of the art?  How do you measure qualitative aspects, such as ease of use?
+\section{Scheduling Deliveries}
+blabla
 
 %**********************************************%
-%\newpage
-%\section{Conclusion \& Future Work}
-%blabla
+\newpage
+\section{Evaluation}
+blabla
+
+%**********************************************%
+\newpage
+\section{Conclusion \& Future Work}
+blabla
 
 %**********************************************%
 \newpage
@@ -700,41 +598,8 @@ We also plan on using the survey as a mechanism to get feedback on user-focused 
 
 \printbibliography
 
-\newpage
-
-\begin{appendices}
-\section{Python Implementation of Dijkstra's Algorithm}
-\begin{lstlisting}[language=Python, caption=Example Implementation from GitHub. \cite{Root}]
-def dijsktra(graph, initial):
-  visited = {initial: 0}
-  path = {}
-
-  nodes = set(graph.nodes)
-
-  while nodes:
-    min_node = None
-    for node in nodes:
-      if node in visited:
-        if min_node is None:
-          min_node = node
-        elif visited[node] < visited[min_node]:
-          min_node = node
-
-    if min_node is None:
-      break
-
-    nodes.remove(min_node)
-    current_weight = visited[min_node]
-
-    for edge in graph.edges[min_node]:
-      weight = current_weight + graph.distance[(min_node, edge)]
-      if edge not in visited or weight < visited[edge]:
-        visited[edge] = weight
-        path[edge] = min_node
-
-  return visited, path
-\end{lstlisting}
-
-\end{appendices}
+% \newpage
+% \begin{appendices}
+% \end{appendices}
 
 \end{document}

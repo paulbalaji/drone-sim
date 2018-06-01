@@ -1,0 +1,1222 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{Balaji2017a}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=637c4884604f132cd236225ec940b0f8}{%
+           family={Balaji},
+           familyi={B\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a0d0eab100ab831818b9179473b3b4a8}{%
+           family={Cattle},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=39e20cb9e41a0130aa4186060adc5762}{%
+           family={Janoscikova},
+           familyi={J\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e751b80ff18a4acaf4092c066ddb61bc}{%
+           family={Peycheva},
+           familyi={P\bibinitperiod},
+           given={Galina},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b205b792537df936c621dab5adee2b5a}{%
+           family={Matas},
+           familyi={M\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4e586cddb9a3ee20301956dd5c0dbb16}{%
+           family={Wood},
+           familyi={W\bibinitperiod},
+           given={Samuel},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9bba9ce4a1d2a7a4c8f62853cd018a3e}
+      \strng{fullhash}{e2f9b68891380b3179d6bebd508d4a7e}
+      \strng{authornamehash}{9bba9ce4a1d2a7a4c8f62853cd018a3e}
+      \strng{authorfullhash}{e2f9b68891380b3179d6bebd508d4a7e}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AATC Visualiser}}
+      \field{urlday}{24}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://samuknet.github.io/aatc-visualiser/
+      \endverb
+    \endentry
+    \entry{Balaji2017}{report}{}
+      \name{author}{6}{}{%
+        {{hash=637c4884604f132cd236225ec940b0f8}{%
+           family={Balaji},
+           familyi={B\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a0d0eab100ab831818b9179473b3b4a8}{%
+           family={Cattle},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=39e20cb9e41a0130aa4186060adc5762}{%
+           family={Janoscikova},
+           familyi={J\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e751b80ff18a4acaf4092c066ddb61bc}{%
+           family={Peycheva},
+           familyi={P\bibinitperiod},
+           given={Galina},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b205b792537df936c621dab5adee2b5a}{%
+           family={Matas},
+           familyi={M\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4e586cddb9a3ee20301956dd5c0dbb16}{%
+           family={Wood},
+           familyi={W\bibinitperiod},
+           given={Samuel},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9bba9ce4a1d2a7a4c8f62853cd018a3e}
+      \strng{fullhash}{e2f9b68891380b3179d6bebd508d4a7e}
+      \strng{authornamehash}{9bba9ce4a1d2a7a4c8f62853cd018a3e}
+      \strng{authorfullhash}{e2f9b68891380b3179d6bebd508d4a7e}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Autonomous Air Traffic Control}}
+      \field{type}{techreport}
+      \field{year}{2017}
+      \field{pages}{39}
+      \range{pages}{1}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/AATC{\_}report.pdf:pdf
+      \endverb
+    \endentry
+    \entry{BBCNews2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=be85bfd923685847d97e9908d0995c1b}{%
+           family={{BBC News}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{fullhash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authornamehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authorfullhash}{be85bfd923685847d97e9908d0995c1b}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{BBC News}
+      \field{title}{{'Drone' hits BA plane: Police investigate Heathrow incident}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.bbc.co.uk/news/uk-36069002
+      \endverb
+    \endentry
+    \entry{BBCNews2017a}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=be85bfd923685847d97e9908d0995c1b}{%
+           family={{BBC News}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{fullhash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authornamehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authorfullhash}{be85bfd923685847d97e9908d0995c1b}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{BBC News}
+      \field{title}{{First UK police drone unit launched in Devon, Cornwall and Dorset}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.bbc.co.uk/news/uk-england-devon-40595540
+      \endverb
+    \endentry
+    \entry{BBCNews2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=be85bfd923685847d97e9908d0995c1b}{%
+           family={{BBC News}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{fullhash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authornamehash}{be85bfd923685847d97e9908d0995c1b}
+      \strng{authorfullhash}{be85bfd923685847d97e9908d0995c1b}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{BBC News}
+      \field{title}{{Passenger jet approaching Heathrow in drone 'near-miss'}}
+      \field{urlday}{23}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.bbc.co.uk/news/uk-england-london-39457371
+      \endverb
+    \endentry
+    \entry{Bell2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5301389a61dcb0afa9bddf182c3bc69d}{%
+           family={Bell},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{5301389a61dcb0afa9bddf182c3bc69d}
+      \strng{fullhash}{5301389a61dcb0afa9bddf182c3bc69d}
+      \strng{authornamehash}{5301389a61dcb0afa9bddf182c3bc69d}
+      \strng{authorfullhash}{5301389a61dcb0afa9bddf182c3bc69d}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{CPU Scheduling}}
+      \field{urlday}{26}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.cs.uic.edu/%7B~%7Djbell/CourseNotes/OperatingSystems/5%7B%5C_%7DCPU%7B%5C_%7DScheduling.html
+      \endverb
+    \endentry
+    \entry{Bowcott2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=508d3dc0127d0b41c9fdc023060e6ac6}{%
+           family={Bowcott},
+           familyi={B\bibinitperiod},
+           given={Owen},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{508d3dc0127d0b41c9fdc023060e6ac6}
+      \strng{fullhash}{508d3dc0127d0b41c9fdc023060e6ac6}
+      \strng{authornamehash}{508d3dc0127d0b41c9fdc023060e6ac6}
+      \strng{authorfullhash}{508d3dc0127d0b41c9fdc023060e6ac6}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Law Commission to draw up legislation for England and Wales and also update rules on surrogacy and disposal of dead bodies}
+      \field{booktitle}{The Guardian}
+      \field{title}{{Laws for safe use of driverless cars to be ready by 2021}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.theguardian.com/law/2017/dec/14/laws-safe-use-driverless-cars-ready-2021-law-commission
+      \endverb
+    \endentry
+    \entry{Brighting}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a1f4f3be963d2d9e7db12b5f357c7cfa}{%
+           family={Brighting},
+           familyi={B\bibinitperiod},
+           given={Callum},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{a1f4f3be963d2d9e7db12b5f357c7cfa}
+      \strng{fullhash}{a1f4f3be963d2d9e7db12b5f357c7cfa}
+      \strng{authornamehash}{a1f4f3be963d2d9e7db12b5f357c7cfa}
+      \strng{authorfullhash}{a1f4f3be963d2d9e7db12b5f357c7cfa}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{forums.improbable.io}
+      \field{title}{{Crowd Sim In SpatialOS: How to scale a deployment?}}
+      \field{urlday}{17}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://forums.improbable.io/t/crowd-sim-in-spatialos-how-to-scale-a-deployment/2547
+      \endverb
+    \endentry
+    \entry{Davies2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fc94a151f33661c6bd88d07b4ef023f7}{%
+           family={Davies},
+           familyi={D\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{fc94a151f33661c6bd88d07b4ef023f7}
+      \strng{fullhash}{fc94a151f33661c6bd88d07b4ef023f7}
+      \strng{authornamehash}{fc94a151f33661c6bd88d07b4ef023f7}
+      \strng{authorfullhash}{fc94a151f33661c6bd88d07b4ef023f7}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Guardian}
+      \field{title}{{Drone flew 'within wingspan' of plane approaching Heathrow}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.theguardian.com/technology/2017/mar/31/drone-wingspan-plane-approaching-heathrow-near-misses
+      \endverb
+    \endentry
+    \entry{Dillow2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=74a56d6c0cb2db0c970fefeb48915aad}{%
+           family={Dillow},
+           familyi={D\bibinitperiod},
+           given={Clay},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{74a56d6c0cb2db0c970fefeb48915aad}
+      \strng{fullhash}{74a56d6c0cb2db0c970fefeb48915aad}
+      \strng{authornamehash}{74a56d6c0cb2db0c970fefeb48915aad}
+      \strng{authorfullhash}{74a56d6c0cb2db0c970fefeb48915aad}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Fortune}
+      \field{title}{{This unsexy technology is set to revolutionize the drone industry}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://fortune.com/2015/05/05/drone-technology/
+      \endverb
+    \endentry
+    \entry{Flightradar242018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b695132c93d27aeed6669366487ec0ae}{%
+           family={Flightradar24},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{b695132c93d27aeed6669366487ec0ae}
+      \strng{fullhash}{b695132c93d27aeed6669366487ec0ae}
+      \strng{authornamehash}{b695132c93d27aeed6669366487ec0ae}
+      \strng{authorfullhash}{b695132c93d27aeed6669366487ec0ae}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{About Flightradar24}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.flightradar24.com
+      \endverb
+    \endentry
+    \entry{Gibbs2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1c66aa777a8186f49f6b6b70e1a51cd3}{%
+           family={Gibbs},
+           familyi={G\bibinitperiod},
+           given={Samuel},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1c66aa777a8186f49f6b6b70e1a51cd3}
+      \strng{fullhash}{1c66aa777a8186f49f6b6b70e1a51cd3}
+      \strng{authornamehash}{1c66aa777a8186f49f6b6b70e1a51cd3}
+      \strng{authorfullhash}{1c66aa777a8186f49f6b6b70e1a51cd3}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Guardian}
+      \field{title}{{Uber plans to buy 24,000 autonomous Volvo SUVs in race for driverless future}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.theguardian.com/technology/2017/nov/20/uber-volvo-suv-self-driving-future-business-ride-hailing-lyft-waymo
+      \endverb
+    \endentry
+    \entry{Google2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={Google},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{"Drone Technology" Google Trends}}
+      \field{urlday}{26}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://trends.google.co.uk/trends/explore?date=all%7B%5C&%7Dq=drone%20technology
+      \endverb
+    \endentry
+    \entry{Hall-Geisler}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f002605969bba396d840ca9848ab5ef6}{%
+           family={Hall-Geisler},
+           familyi={H\bibinithyphendelim G\bibinitperiod},
+           given={Kristen},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{f002605969bba396d840ca9848ab5ef6}
+      \strng{fullhash}{f002605969bba396d840ca9848ab5ef6}
+      \strng{authornamehash}{f002605969bba396d840ca9848ab5ef6}
+      \strng{authorfullhash}{f002605969bba396d840ca9848ab5ef6}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Popular Science}
+      \field{title}{{Google Gets a Patent for an Autonomous Delivery Truck}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.popsci.com/google-gets-patent-for-an-autonomous-delivery-truck
+      \endverb
+    \endentry
+    \entry{Hohenadel2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=6955f8555c0b1c94474f1f7e92d94fb0}{%
+           family={Hohenadel},
+           familyi={H\bibinitperiod},
+           given={Kristin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{6955f8555c0b1c94474f1f7e92d94fb0}
+      \strng{fullhash}{6955f8555c0b1c94474f1f7e92d94fb0}
+      \strng{authornamehash}{6955f8555c0b1c94474f1f7e92d94fb0}
+      \strng{authorfullhash}{6955f8555c0b1c94474f1f7e92d94fb0}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Slate}
+      \field{title}{{Skype Co-Founders Want to Overhaul Local Delivery With Sidewalk Robots}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.slate.com/blogs/the%7B%5C_%7Deye/2015/11/02/starship%7B%5C_%7Dtechnologies%7B%5C_%7Dis%7B%5C_%7Dbuilding%7B%5C_%7Dself%7B%5C_%7Ddriving%7B%5C_%7Dsidewalk%7B%5C_%7Drobots%7B%5C_%7Dthat%7B%5C_%7Dwill.html
+      \endverb
+    \endentry
+    \entry{ImprobableWorldsLtd.2018c}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Improbable Forums}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://forums.improbable.io/
+      \endverb
+    \endentry
+    \entry{ImprobableWorldsLtd.2018a}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Improbable Home Page}}
+      \field{urlday}{23}
+      \field{urlmonth}{10}
+      \field{urlyear}{2017}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://improbable.io/
+      \endverb
+    \endentry
+    \entry{ImprobableWorldsLtd.2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Quest- an iOS io game from Improbable}}
+      \field{urlday}{12}
+      \field{urlmonth}{11}
+      \field{urlyear}{2017}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://improbable.io/games/blog/quest-an-ios-io-game-from-improbable-io
+      \endverb
+    \endentry
+    \entry{ImprobableWorldsLtd.2018b}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{SpatialOS Technical Breakdown}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{ImprobableWorldsLtd.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{What is SpatialOS?}}
+      \field{urlday}{23}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://docs.improbable.io/reference/12.0/shared/concepts/spatialos%7B%5C#%7Ddeveloping-with-spatialos
+      \endverb
+    \endentry
+    \entry{ImprobableWorldsLtd.2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{What we found when we simulated the backbone of the entire Internet on SpatialOS}}
+      \field{urlday}{18}
+      \field{urlmonth}{11}
+      \field{urlyear}{2017}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://improbable.io/company/news/2016/03/24/what-we-found-when-we-simulated-the-backbone-of-the-entire-internet-on-spatialos
+      \endverb
+    \endentry
+    \entry{Jarman2016}{unpublished}{}
+      \name{author}{3}{}{%
+        {{hash=51bdbfbf628cb733ac748a1a0b72a0eb}{%
+           family={Jarman},
+           familyi={J\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ac2a4c618788fb59284f33ce6eb3249b}{%
+           family={Vesey},
+           familyi={V\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9029a8f8133fda90423e7e4160d8af9c}{%
+           family={Febvre},
+           familyi={F\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{51a18051885b70d63de11d3c463e52f9}
+      \strng{fullhash}{51a18051885b70d63de11d3c463e52f9}
+      \strng{authornamehash}{51a18051885b70d63de11d3c463e52f9}
+      \strng{authorfullhash}{51a18051885b70d63de11d3c463e52f9}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{UAVs for UK Agriculture : Creating an Invisible Precision Farming Technology - White Paper}}
+      \field{year}{2016}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/White-paper-UAVs-and-agriculture{\_}Final2.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://sa.catapult.org.uk/wp-content/uploads/2016/07/White-paper-UAVs-and-agriculture%7B%5C_%7DFinal2.pdf
+      \endverb
+    \endentry
+    \entry{Joerss2016}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3e473b1fcd1ce7c6100a2049fe08b6ed}{%
+           family={Joerss},
+           familyi={J\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8622f3a66ec58c0a8cd10adb1fe83be1}{%
+           family={Neuhaus},
+           familyi={N\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=a70aaca93698417fb77b77ba1ccf9a5b}{%
+           family={Klink},
+           familyi={K\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=020b6de7685c2010340eb292551fd6cd}{%
+           family={Mann},
+           familyi={M\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{fa608b00bfa9742eb3fb9da63b4c7b68}
+      \strng{fullhash}{a2308442922ef33420ce84e5ed5f6bf2}
+      \strng{authornamehash}{fa608b00bfa9742eb3fb9da63b4c7b68}
+      \strng{authorfullhash}{a2308442922ef33420ce84e5ed5f6bf2}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{September}
+      \field{title}{{Parcel delivery The future of last mile}}
+      \field{year}{2016}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/Parcel{\_}delivery{\_}The{\_}future{\_}of{\_}last{\_}mile.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://www.mckinsey.com/%7B~%7D/media/mckinsey/industries/travel%20transport%20and%20logistics/our%20insights/how%20customer%20demands%20are%20reshaping%20last%20mile%20delivery/parcel%7B%5C_%7Ddelivery%7B%5C_%7Dthe%7B%5C_%7Dfuture%7B%5C_%7Dof%7B%5C_%7Dlast%7B%5C_%7Dmile.ashx
+      \endverb
+    \endentry
+    \entry{Kokalitcheva2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bcb392bd657f708273d75aabfb06f052}{%
+           family={Kokalitcheva},
+           familyi={K\bibinitperiod},
+           given={Kia},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{bcb392bd657f708273d75aabfb06f052}
+      \strng{fullhash}{bcb392bd657f708273d75aabfb06f052}
+      \strng{authornamehash}{bcb392bd657f708273d75aabfb06f052}
+      \strng{authorfullhash}{bcb392bd657f708273d75aabfb06f052}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Fortune}
+      \field{title}{{This Cute Self-Driving Robot Wants to Deliver Your Food or Laundry}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://fortune.com/2016/04/06/dispatch-carry-delivery-robot/
+      \endverb
+    \endentry
+    \entry{Koontz}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=05d9e17c08986b980c213e4f65cbc11a}{%
+           family={Koontz},
+           familyi={K\bibinitperiod},
+           given={Robin},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{05d9e17c08986b980c213e4f65cbc11a}
+      \strng{fullhash}{05d9e17c08986b980c213e4f65cbc11a}
+      \strng{authornamehash}{05d9e17c08986b980c213e4f65cbc11a}
+      \strng{authorfullhash}{05d9e17c08986b980c213e4f65cbc11a}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Drones to the Rescue}}
+      \field{urlday}{24}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.kidsdiscover.com/teacherresources/drones-uavs-rescue/
+      \endverb
+    \endentry
+    \entry{Laris2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7727c54a6e40269b69af47e611a2cc4f}{%
+           family={Laris},
+           familyi={L\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{7727c54a6e40269b69af47e611a2cc4f}
+      \strng{fullhash}{7727c54a6e40269b69af47e611a2cc4f}
+      \strng{authornamehash}{7727c54a6e40269b69af47e611a2cc4f}
+      \strng{authorfullhash}{7727c54a6e40269b69af47e611a2cc4f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Chicago Tribune}
+      \field{title}{{Driverless delivery robots could be hitting D.C. sidewalks soon}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.chicagotribune.com/bluesky/technology/ct-driverless-delivery-robots-20160328-story.html
+      \endverb
+    \endentry
+    \entry{Lee2016}{article}{}
+      \name{author}{4}{}{%
+        {{hash=50863301d6c7bf1230f4680287469686}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Hau\bibnamedelima L.},
+           giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=ff9ae362164f9d8cc47db3757491e121}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yiwen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ba28015f35b6bde9cb87265b737b0182}{%
+           family={Gillai},
+           familyi={G\bibinitperiod},
+           given={Barchi},
+           giveni={B\bibinitperiod}}}%
+        {{hash=f572eb8db238b9d59f9e6cd3dbf1b5b0}{%
+           family={Rammohan},
+           familyi={R\bibinitperiod},
+           given={Sonali},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff0e902025cdbb7d7dfa1b97d7d67093}
+      \strng{fullhash}{d9009796a2166a0290a0f4233e6722f9}
+      \strng{authornamehash}{ff0e902025cdbb7d7dfa1b97d7d67093}
+      \strng{authorfullhash}{d9009796a2166a0290a0f4233e6722f9}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With this growth comes great opportunity for expansion in the market for product delivery. Recent technological innovations, new delivery firms, and new business models have unleashed major disruptions in how products are delivered to customers at the last mile. Whereas in the past customers ordering a product online could expect delivery by traditional players such as UPS, FedEx, or the U.S. Postal Service, today there are myriad options for who arranges for a product delivery and how it arrives in a customer's hands. Both traditional players and new entrants have opportunities to compete in this growing market. Given customers' complex expectations for flexible, fast, and cheap or free delivery, intense market competition, and the variable profitability of last-mile delivery, it is unclear which technologies, firms, and business models will ultimately gain a successful foothold. This paper examines four innovations expected to influence last-mile delivery in the next five to seven years: advanced algorithms and analytics, drones, robots, and driverless vehicles. We also examine key market entrants leveraging these technologies and their emerging business models. Last-mile delivery is generally arranged by one of three parties: a seller, an intermediary, or a buyer. Today, these parties can use traditional means of delivery or new algorithm-and analytics-driven applications (i.e., apps). Tomorrow, drones, robots, and driverless cars may become formidable new choices in various geographic settings and markets. New advanced algorithm-and analytics-based services catering to various customer needs will likely continue to emerge given low barriers to entry. Since the profitability of some of these models may be questionable, innovative firms that can reduce the cost structure through novel models may gain the ultimate advantage. Given that delivery services based on drones or driverless vehicles require heavy up-front investment, it is likely that large sellers or delivery providers will emerge as first movers in this space. In the near term, the U.S. Postal Service (USPS) has an opportunity to leverage advanced algorithms such as dynamic routing to improve the efficiency of existing business models and develop new models. USPS may also consider drones for select purposes in the future, such as delivery to traditionally high-cost remote locations. Given that robots are likely to have niche applications in smaller communities in the early stages of deployment, they may not present a large opportunity for the U.S. Postal Service in the near term. As the cost of driverless vehicles becomes more competitive with traditional vehicles over time, the USPS may have an opportunity to consider incorporating driverless vehicles within its fleet, with the potential of saving labor and other costs. In the longer term, there is potential for new technologies to improve the vast underutilization of private transport, which may lead to an entirely new transportation infrastructure and new commercial delivery models. For example, as driverless vehicles gain scale, one could envision more shared and/or public transportation. Crowdsourcing delivery companies could leverage private driverless vehicles or companies could deploy their own optimized driverless fleets for delivery. There may eventually come a time when drones, robots, driverless vehicles, and other technologies make it such that humans no longer conduct product delivery. In this scenario, delivery providers would need to rethink their business models and shift to offering services such as delivery orchestration and more. In the distant future, automated systems such as the Physical Internet, envisioned by a coalition of researchers, may develop that would deploy an open global logistics system and would continuously route and monitor products, leveraging the Internet of Things. While it is unclear who the winners and losers will be in future last-mile delivery, it is evident that many opportunities exist for firms to leverage new technologies in order to meet customers' fast-evolving needs.}
+      \field{journaltitle}{Stanford Business}
+      \field{number}{June}
+      \field{title}{{Technological Disruption and Innovation in Last-Mile Delivery}}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 26}
+      \range{pages}{26}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/TECHNOLOGICAL DISRUPTION AND INNOVATION IN LAST-MILE DELIVERY.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://www.gsb.stanford.edu/sites/gsb/files/publication-pdf/vcii-publication-technological-disruption-innovation-last-mile-delivery.pdf
+      \endverb
+    \endentry
+    \entry{Menon2013}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=36e723607fc3f23381f6ad4b4e9f0482}{%
+           family={Menon},
+           familyi={M\bibinitperiod},
+           given={Prashob},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{36e723607fc3f23381f6ad4b4e9f0482}
+      \strng{fullhash}{36e723607fc3f23381f6ad4b4e9f0482}
+      \strng{authornamehash}{36e723607fc3f23381f6ad4b4e9f0482}
+      \strng{authorfullhash}{36e723607fc3f23381f6ad4b4e9f0482}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Amazon's potential drone delivery service is generating a lot of buzz, but how many drones will be enough?}
+      \field{booktitle}{Ivey Business Review}
+      \field{title}{{HOW MANY DRONES DOES AMAZON NEED?}}
+      \field{urlday}{26}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://iveybusinessreview.ca/blogs/pmenonhba2010/2013/12/11/how-many-drones-does-amazon-need/
+      \endverb
+    \endentry
+    \entry{Mitchell1996}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3042c3dfb21b9c9089a0aa657bce4f3b}{%
+           family={Mitchell},
+           familyi={M\bibinitperiod},
+           given={Melanie},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{3042c3dfb21b9c9089a0aa657bce4f3b}
+      \strng{fullhash}{3042c3dfb21b9c9089a0aa657bce4f3b}
+      \strng{authornamehash}{3042c3dfb21b9c9089a0aa657bce4f3b}
+      \strng{authorfullhash}{3042c3dfb21b9c9089a0aa657bce4f3b}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Genetic algorithms have been used in science and engineering as adaptive algorithms for solving practical problems and as computational models of natural evolutionary systems. This brief, accessible introduction describes some of the most interesting research in the field and also enables readers to implement and experiment with genetic algorithms on their own. It focuses in depth on a small set of important and interesting topics-particularly in machine learning, scientific modeling, and artificial life-and reviews a broad span of research, including the work of Mitchell and her colleagues. The descriptions of applications and modeling projects stretch beyond the strict boundaries of computer science to include dynamical systems theory, game theory, molecular biology, ecology, evolutionary biology, and population genetics.}
+      \field{isbn}{0262631857}
+      \field{issn}{08981221}
+      \field{journaltitle}{Computers {\&} Mathematics with Applications}
+      \field{number}{6}
+      \field{title}{{An introduction to genetic algorithms}}
+      \field{volume}{32}
+      \field{year}{1996}
+      \field{pages}{133}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/S0898-1221(96)90227-8
+      \endverb
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/ebook-fuzzy-mitchell.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://books.google.ca/books/about/An%7B%5C_%7DIntroduction%7B%5C_%7Dto%7B%5C_%7DGenetic%7B%5C_%7DAlgorithms.html?id=0eznlz0TF-IC%7B%5C&%7Dpgis=1%7B%5C%%7D5Cnhttp://www.amazon.ca/exec/obidos/redirect?tag=citeulike09-20%7B%5C&%7Dpath=ASIN/0262631857%7B%5C%%7D5Cnhttp://linkinghub.elsevier.com/retrieve/pii/S0898122196902278
+      \endverb
+    \endentry
+    \entry{google_truck_patent}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fa1871cf638b3a34043a75d29601e4cf}{%
+           family={Myllymaki},
+           familyi={M\bibinitperiod},
+           given={Jussi},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {United States Patent}%
+        {Trademark Office}%
+      }
+      \strng{namehash}{fa1871cf638b3a34043a75d29601e4cf}
+      \strng{fullhash}{fa1871cf638b3a34043a75d29601e4cf}
+      \strng{authornamehash}{fa1871cf638b3a34043a75d29601e4cf}
+      \strng{authorfullhash}{fa1871cf638b3a34043a75d29601e4cf}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Autonomous Delivery Platform}}
+      \field{year}{2013}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/google{\_}truck{\_}patent{\_}pdf.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://pdfpiw.uspto.gov/.piw?PageNum=0%7B%5C&%7Ddocid=09256852%7B%5C&%7DIDKey=EA66D62BF248%7B%5C%%7D0D%7B%5C%%7D0A%7B%5C&%7DHomeUrl=http%7B%5C%%7D3A%7B%5C%%7D2F%7B%5C%%7D2Fpatft.uspto.gov%7B%5C%%7D2Fnetacgi%7B%5C%%7D2Fnph-Parser%7B%5C%%7D3FSect1%7B%5C%%7D3DPTO2%7B%5C%%7D2526Sect2%7B%5C%%7D3DHITOFF%7B%5C%%7D2526p%7B%5C%%7D3D1%7B%5C%%7D2526u%7B%5C%%7D3D%7B%5C%%7D25252Fnetahtml%7B%5C%%7D25252FPTO%7B%5C%%7D25252Fsearch-bool.html%7B%5C%%7D2526r%7B%5C%%7D3D25%7B%5C%%7D2526
+      \endverb
+    \endentry
+    \entry{Narula2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ebccecff88d6c8dabaea62ef59affc0a}{%
+           family={Narula},
+           familyi={N\bibinitperiod},
+           given={Herman},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebccecff88d6c8dabaea62ef59affc0a}
+      \strng{fullhash}{ebccecff88d6c8dabaea62ef59affc0a}
+      \strng{authornamehash}{ebccecff88d6c8dabaea62ef59affc0a}
+      \strng{authorfullhash}{ebccecff88d6c8dabaea62ef59affc0a}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Improbable YouTube Channel}
+      \field{title}{{Google Cloud Next '17 | Herman Narula Day 3 Keynote}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://youtu.be/fTuijWHwAsk?t=4m46s
+      \endverb
+    \endentry
+    \entry{Nash2010}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ffd7ecd60609070f7d725d3e59073ee9}{%
+           family={Nash},
+           familyi={N\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ac6f1fff92d1e6b699b7977c6291b4a1}{%
+           family={Koenig},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=58ca6cd7f0b31375b4ecaf39320df49f}{%
+           family={Tovey},
+           familyi={T\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{cd0c1f8cc391833ac79b2a43413496d5}
+      \strng{fullhash}{cd0c1f8cc391833ac79b2a43413496d5}
+      \strng{authornamehash}{cd0c1f8cc391833ac79b2a43413496d5}
+      \strng{authorfullhash}{cd0c1f8cc391833ac79b2a43413496d5}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Grids with blocked and unblocked cells are often used to represent continuous 2D and 3D environments in robotics and video games. The shortest paths formed by the edges of 8-neighbor 2D grids can be up to ≈ 8{\%} longer than the shortest paths in the continuous environment. Theta* typically finds much shorter paths than that by propagating information along graph edges (to achieve short runtimes) without constraining paths to be formed by graph edges (to find short “any-angle” paths). We show in this paper that the shortest paths formed by the edges of 26-neighbor 3D grids can be ≈ 13{\%} longer than the shortest paths in the continuous environment, which highlights the need for smart path planning algorithms in 3D. Theta* can be applied to 3D grids in a straight-forward manner, but it performs a line-of-sight check for each unexpanded visible neighbor of each expanded vertex and thus it performs many more line-of-sight checks per expanded vertex on a 26-neighbor 3D grid than on an 8-neighbor 2D grid. We therefore introduce Lazy Theta*, a variant of Theta* which uses lazy evaluation to perform only one line-of-sight check per expanded vertex (but with slightly more expanded vertices). We show experimentally that Lazy Theta* finds paths faster than Theta* on 26-neighbor 3D grids, with one order of magnitude fewer line-of-sight checks and without an increase in path length.}
+      \field{isbn}{9781577354642}
+      \field{journaltitle}{Third Annual Symposium on Combinatorial Search (SOCS-10) Lazy}
+      \field{title}{{Lazy Theta *: Any-Angle Path Planning and Path Length Analysis in 3D}}
+      \field{year}{2010}
+      \field{pages}{153\bibrangedash 154}
+      \range{pages}{2}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/lazy{\_}theta{\_}start.pdf:pdf
+      \endverb
+      \keyw{"AAAI,artificial intelligence"}
+    \endentry
+    \entry{Roberts2016}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=65b931b85958ad179656a050cf28cf72}{%
+           family={Roberts},
+           familyi={R\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=92dbe6e28eb5ab3fdfd9b671aa393772}{%
+           family={Formula},
+           familyi={F\bibinitperiod},
+           given={Unlike},
+           giveni={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{06636b0e22ceda6df4f51fecbf0d655a}
+      \strng{fullhash}{06636b0e22ceda6df4f51fecbf0d655a}
+      \strng{authornamehash}{06636b0e22ceda6df4f51fecbf0d655a}
+      \strng{authorfullhash}{06636b0e22ceda6df4f51fecbf0d655a}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{phys.org}
+      \field{number}{February}
+      \field{title}{{What is FPV drone racing ?}}
+      \field{year}{2016}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/2016-02-fpv-drone.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb https://phys.org/news/2016-02-fpv-drone.html
+      \endverb
+    \endentry
+    \entry{Souppouris2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=893c795d8f3f284f0b187466e7809897}{%
+           family={Souppouris},
+           familyi={S\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{893c795d8f3f284f0b187466e7809897}
+      \strng{fullhash}{893c795d8f3f284f0b187466e7809897}
+      \strng{authornamehash}{893c795d8f3f284f0b187466e7809897}
+      \strng{authorfullhash}{893c795d8f3f284f0b187466e7809897}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Engadget}
+      \field{title}{{Skype co-founders build delivery bot that rides on sidewalks}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.engadget.com/2015/11/02/starship-technologies-local-delivery-robot/
+      \endverb
+    \endentry
+    \entry{stearns2001the}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ec3494a050135463574e3d2169722d27}{%
+           family={Stearns},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston}%
+      }
+      \list{publisher}{1}{%
+        {Houghton Mifflin}%
+      }
+      \strng{namehash}{ec3494a050135463574e3d2169722d27}
+      \strng{fullhash}{ec3494a050135463574e3d2169722d27}
+      \strng{authornamehash}{ec3494a050135463574e3d2169722d27}
+      \strng{authorfullhash}{ec3494a050135463574e3d2169722d27}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0395652375}
+      \field{title}{{The Encyclopedia of world history : ancient, medieval, and modern, chronologically arranged}}
+      \field{year}{2001}
+    \endentry
+    \entry{Tesla2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a7fd165cee2a20e863cf973ab9a9a83a}{%
+           family={{Tesla Inc.}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7fd165cee2a20e863cf973ab9a9a83a}
+      \strng{fullhash}{a7fd165cee2a20e863cf973ab9a9a83a}
+      \strng{authornamehash}{a7fd165cee2a20e863cf973ab9a9a83a}
+      \strng{authorfullhash}{a7fd165cee2a20e863cf973ab9a9a83a}
+      \field{sortinit}{T}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Tesla Website}
+      \field{title}{{Tesla Autopilot}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.tesla.com/en%7B%5C_%7DGB/autopilot
+      \endverb
+    \endentry
+    \entry{Uras2015}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bda2b6adf33d4743302cd42c9a7e6659}{%
+           family={Uras},
+           familyi={U\bibinitperiod},
+           given={Tansel},
+           giveni={T\bibinitperiod}}}%
+        {{hash=6e0da33fcadd327da8ebc74eea9cafe2}{%
+           family={Koenig},
+           familyi={K\bibinitperiod},
+           given={Sven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8932dc8ad61886306fd969048c866be}
+      \strng{fullhash}{c8932dc8ad61886306fd969048c866be}
+      \strng{authornamehash}{c8932dc8ad61886306fd969048c866be}
+      \strng{authorfullhash}{c8932dc8ad61886306fd969048c866be}
+      \field{sortinit}{U}
+      \field{sortinithash}{1554584e7f69d2b4fe0a645e73d50194}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Aaai}
+      \field{title}{{An Empirical Comparison of Any-Angle Path-Planning Algorithms}}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1002/bse
+      \endverb
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/An Empirical Comparison of Any-Angle Path-Planning Algorithms.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Verrier2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5d7afa3347c974cb51a13e01c10d85a9}{%
+           family={Verrier},
+           familyi={V\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5d7afa3347c974cb51a13e01c10d85a9}
+      \strng{fullhash}{5d7afa3347c974cb51a13e01c10d85a9}
+      \strng{authornamehash}{5d7afa3347c974cb51a13e01c10d85a9}
+      \strng{authorfullhash}{5d7afa3347c974cb51a13e01c10d85a9}
+      \field{sortinit}{V}
+      \field{sortinithash}{555737dafdcf1396ebfeae5822e5bde2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Los Angeles Times}
+      \field{title}{{Drones are providing film and TV viewers a new perspective on the action}}
+      \field{urlday}{25}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.latimes.com/entertainment/envelope/cotown/la-et-ct-drones-hollywood-20151008-story.html
+      \endverb
+    \endentry
+    \entry{Wang}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=50e578209e59a4d498fdb91091525255}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{50e578209e59a4d498fdb91091525255}
+      \strng{fullhash}{50e578209e59a4d498fdb91091525255}
+      \strng{authornamehash}{50e578209e59a4d498fdb91091525255}
+      \strng{authorfullhash}{50e578209e59a4d498fdb91091525255}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Flexport Blog}
+      \field{title}{{Drone Delivery Economics}}
+      \field{urlday}{26}
+      \field{urlmonth}{1}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.flexport.com/blog/drone-delivery-economics
+      \endverb
+    \endentry
+    \entry{Welch2015}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f304d26282ea3cf25e9e87d58f7f23a7}{%
+           family={Welch},
+           familyi={W\bibinitperiod},
+           given={Adrienne},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f304d26282ea3cf25e9e87d58f7f23a7}
+      \strng{fullhash}{f304d26282ea3cf25e9e87d58f7f23a7}
+      \strng{authornamehash}{f304d26282ea3cf25e9e87d58f7f23a7}
+      \strng{authorfullhash}{f304d26282ea3cf25e9e87d58f7f23a7}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{A cost-benefit analysis of Amazon Prime Air A Cost-Benefit Analysis of Amazon Prime Air}}
+      \field{year}{2015}
+      \field{pages}{57}
+      \range{pages}{1}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/A cost-benefit analysis of Amazon Prime Air.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Zhu2016}{article}{}
+      \name{author}{3}{}{%
+        {{hash=bd2a576510c74c72731274036f51a4ff}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Lihua},
+           giveni={L\bibinitperiod}}}%
+        {{hash=0b48ff984333f7af6fe48daa319ee3ed}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Xianghong},
+           giveni={X\bibinitperiod}}}%
+        {{hash=e5aad9dd5539f8984a672e01045cccea}{%
+           family={Yuan},
+           familyi={Y\bibinitperiod},
+           given={Fuh-Gwo},
+           giveni={F\bibinithyphendelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{27f87e8763e043cd93943bc05cbfcfde}
+      \strng{fullhash}{27f87e8763e043cd93943bc05cbfcfde}
+      \strng{authornamehash}{27f87e8763e043cd93943bc05cbfcfde}
+      \strng{authorfullhash}{27f87e8763e043cd93943bc05cbfcfde}
+      \field{sortinit}{Z}
+      \field{sortinithash}{35589aa085e881766b72503e53fd4c97}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The main goal of this research effort is to find a flyable collision-free path for an unmanned aerial vehicle (UAV) in a dynamic environment. Given that the UAV path planning needs to adapt in near real-time to the dynamic nature of the operational scenario, and to react rapidly to updates in the situational awareness, a modified artificial potential field (MAPF) approach is utilized to provide collision avoidance in view of pop-up threats and a random set of moving obstacles. To ensure a practically reachable trajectory, this paper proposes a constraint reference frame to develop MAPF so that the decomposed forces from MAPF can be matched with the physical constraints of the UAV for online adjustment. Simulations and experimental results provide promising validation in terms of the efficiency and scalability of the proposed approach.}
+      \field{journaltitle}{Measurement}
+      \field{number}{Complete}
+      \field{title}{{A 3D collision avoidance strategy for UAV with physical constraints}}
+      \field{volume}{77}
+      \field{year}{2016}
+      \field{pages}{40\bibrangedash 49}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.measurement.2015.09.006
+      \endverb
+      \keyw{UAV; Collision avoidance path planning; Physical c}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

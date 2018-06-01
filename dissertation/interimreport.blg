@@ -1,35 +1,5 @@
 [0] Config.pm:354> INFO - This is Biber 2.7
 [0] Config.pm:357> INFO - Logfile is 'interimreport.blg'
-[49] biber-darwin:303> INFO - === Fri Jan 26, 2018, 15:38:40
-[88] Biber.pm:359> INFO - Reading 'interimreport.bcf'
-[187] Biber.pm:835> INFO - Found 43 citekeys in bib section 0
-[199] Biber.pm:3670> INFO - Processing section 0
-[211] Biber.pm:3840> INFO - Looking for bibtex format file 'library.bib' for section 0
-[219] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[233] bibtex.pm:1292> INFO - Found BibTeX data source 'library.bib'
-[248] Utils.pm:164> WARN - Entry 'Google2018' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring
-[252] Utils.pm:164> WARN - Entry 'Wang' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring
-[256] Utils.pm:164> WARN - Entry 'Menon2013' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring
-[257] Utils.pm:164> WARN - Entry 'ImprobableWorldsLtd.2018a' (library.bib): Invalid format '23rd October 2017' of date field 'urldate' - ignoring
-[258] Utils.pm:164> WARN - Entry 'ImprobableWorldsLtd.2018b' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[281] Utils.pm:164> WARN - Entry 'Hohenadel2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[283] Utils.pm:164> WARN - Entry 'Gibbs2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[286] Utils.pm:164> WARN - Entry 'Bowcott2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[287] Utils.pm:164> WARN - Entry 'Verrier2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[292] Utils.pm:164> WARN - Entry 'Davies2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[293] Utils.pm:164> WARN - Entry 'BBCNews2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[294] Utils.pm:164> WARN - Entry 'Dillow2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[295] Utils.pm:164> WARN - Entry 'Flightradar242018' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[305] Utils.pm:164> WARN - Entry 'Bell2018' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring
-[307] Utils.pm:164> WARN - Entry 'Narula2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[308] Utils.pm:164> WARN - Entry 'ImprobableWorldsLtd.2016' (library.bib): Invalid format '18th November 2017' of date field 'urldate' - ignoring
-[309] Utils.pm:164> WARN - Entry 'ImprobableWorldsLtd.2018' (library.bib): Invalid format '23rd Jan 2018' of date field 'urldate' - ignoring
-[311] Utils.pm:164> WARN - Entry 'ImprobableWorldsLtd.2018c' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring
-[312] Utils.pm:164> WARN - BibTeX subsystem: /var/folders/n7/sm4rhbkj3xz3sspt1_glrlfr0000gn/T/ptBoYb9DZ6/library.bib_56990.utf8, line 6, warning: 177 characters of junk seen at toplevel
-[354] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[354] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[354] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
-[354] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
-[387] bbl.pm:608> INFO - Writing 'interimreport.bbl' with encoding 'UTF-8'
-[393] bbl.pm:712> INFO - Output to interimreport.bbl
-[394] Biber.pm:109> INFO - WARNINGS: 19
+[42] biber-darwin:303> INFO - === Fri Jun  1, 2018, 19:39:13
+[194] Utils.pm:180> ERROR - Cannot find control file 'interimreport.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
+[195] Biber.pm:113> INFO - ERRORS: 1

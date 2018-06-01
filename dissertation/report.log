@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  26 JAN 2018 16:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  1 JUN 2018 20:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**interimreport.tex
-(./interimreport.tex
+**report.tex
+(./report.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
@@ -671,7 +671,7 @@ Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
 \c@subtable=\count334
 )
 
-./interimreport.tex:68: Package biblatex Error: Incompatible package 'ucs'.
+./report.tex:68: Package biblatex Error: Incompatible package 'ucs'.
 
 See the biblatex package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -690,15 +690,12 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
- (./interimreport.aux
+ (./report.aux
 
 LaTeX Warning: Label `fig:starship_citizen' multiply defined.
 
-
-LaTeX Warning: Label `fig:bg_scalable_zones' multiply defined.
-
 )
-\openout1 = `interimreport.aux'.
+\openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
 LaTeX Font Info:    ... okay on input line 68.
@@ -780,110 +777,33 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout5 = `interimreport.bcf'.
+\openout5 = `report.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'interimreport.bbl' found.
- (./interimreport.bbl
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'BBCNews2016':
-(biblatex)                - Entry 'BBCNews2016' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Bell2018':
-(biblatex)                - Entry 'Bell2018' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Bowcott2017':
-(biblatex)                - Entry 'Bowcott2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Davies2017':
-(biblatex)                - Entry 'Davies2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Dillow2015':
-(biblatex)                - Entry 'Dillow2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Flightradar242018':
-(biblatex)                - Entry 'Flightradar242018' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Gibbs2017':
-(biblatex)                - Entry 'Gibbs2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Google2018':
-(biblatex)                - Entry 'Google2018' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Hohenadel2015':
-(biblatex)                - Entry 'Hohenadel2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'ImprobableWorldsLtd.2018c':
-(biblatex)                - Entry 'ImprobableWorldsLtd.2018c' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'ImprobableWorldsLtd.2018a':
-(biblatex)                - Entry 'ImprobableWorldsLtd.2018a' (library.bib): Invalid format '23rd October 2017' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'ImprobableWorldsLtd.2018b':
-(biblatex)                - Entry 'ImprobableWorldsLtd.2018b' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'ImprobableWorldsLtd.2018':
-(biblatex)                - Entry 'ImprobableWorldsLtd.2018' (library.bib): Invalid format '23rd Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'ImprobableWorldsLtd.2016':
-(biblatex)                - Entry 'ImprobableWorldsLtd.2016' (library.bib): Invalid format '18th November 2017' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Menon2013':
-(biblatex)                - Entry 'Menon2013' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Narula2017':
-(biblatex)                - Entry 'Narula2017' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Verrier2015':
-(biblatex)                - Entry 'Verrier2015' (library.bib): Invalid format '25th Jan 2018' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Wang':
-(biblatex)                - Entry 'Wang' (library.bib): Invalid format '26th Jan 2018' of date field 'urldate' - ignoring.
-
-)
+Package biblatex Info: ... file 'report.bbl' found.
+ (./report.bbl)
 Package biblatex Info: Reference section=0 on input line 68.
 Package biblatex Info: Reference segment=0 on input line 68.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 \colveccount=\count342
- [1
 
-{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./interimreport.toc
+
+./report.tex:105: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.105 ... Delivery Simulation\\with SpatialOS\\}\\
+                                                  [0.4cm] % Title of your do...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1
+
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1] [1] (./report.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 9.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -900,7 +820,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1])
 \tf@toc=\write6
-\openout6 = `interimreport.toc'.
+\openout6 = `report.toc'.
 
 
 
@@ -909,7 +829,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] <img/drone_interest_over_time_google.png, id=20, 2334.7225pt x 811.03pt>
+[2] <img/drone_interest_over_time_google.png, id=25, 2334.7225pt x 811.03pt>
 File: img/drone_interest_over_time_google.png Graphic file (type png)
  <use img/drone_interest_over_time_google.png>
 Package pdftex.def Info: img/drone_interest_over_time_google.png used on input line 161.
@@ -924,7 +844,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
-<img/ark-invest-drones-analysis-768x460.png, id=22, 770.88pt x 461.725pt>
+<img/ark-invest-drones-analysis-768x460.png, id=27, 770.88pt x 461.725pt>
 File: img/ark-invest-drones-analysis-768x460.png Graphic file (type png)
  <use img/ark-invest-drones-analysis-768x460.png>
 Package pdftex.def Info: img/ark-invest-drones-analysis-768x460.png used on input line 175.
@@ -973,7 +893,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
-<img/starship.jpg, id=34, 1204.5pt x 721.69624pt>
+<img/starship.jpg, id=40, 1204.5pt x 721.69624pt>
 File: img/starship.jpg Graphic file (type jpg)
  <use img/starship.jpg>
 Package pdftex.def Info: img/starship.jpg used on input line 207.
@@ -1005,7 +925,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7 <./img/starship.jpg>] <img/google_truck_patent.jpeg, id=42, 481.8pt x 636.3775pt>
+[7 <./img/starship.jpg>] <img/google_truck_patent.jpeg, id=47, 481.8pt x 636.3775pt>
 File: img/google_truck_patent.jpeg Graphic file (type jpg)
  <use img/google_truck_patent.jpeg>
 Package pdftex.def Info: img/google_truck_patent.jpeg used on input line 225.
@@ -1074,7 +994,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11] <img/aatc_tech_overview.jpg, id=55, 1178.4025pt x 713.66624pt>
+[11] <img/aatc_tech_overview.jpg, id=61, 1178.4025pt x 713.66624pt>
 File: img/aatc_tech_overview.jpg Graphic file (type jpg)
  <use img/aatc_tech_overview.jpg>
 Package pdftex.def Info: img/aatc_tech_overview.jpg used on input line 275.
@@ -1095,7 +1015,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12 <./img/aatc_tech_overview.jpg>] <img/edrone.jpg, id=60, 975.645pt x 824.07875pt>
+[12 <./img/aatc_tech_overview.jpg>] <img/edrone.jpg, id=65, 975.645pt x 824.07875pt>
 File: img/edrone.jpg Graphic file (type jpg)
  <use img/edrone.jpg>
 Package pdftex.def Info: img/edrone.jpg used on input line 288.
@@ -1106,28 +1026,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 297--298
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
-
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [13 <./img/edrone.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
 
  []
 
-<img/search_comparison.png, id=64, 1611.01875pt x 579.16376pt>
+<img/search_comparison.png, id=69, 1611.01875pt x 579.16376pt>
 File: img/search_comparison.png Graphic file (type png)
  <use img/search_comparison.png>
-Package pdftex.def Info: img/search_comparison.png used on input line 310.
+Package pdftex.def Info: img/search_comparison.png used on input line 308.
 (pdftex.def)             Requested size: 426.79135pt x 153.43347pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--319
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
 
  []
 
@@ -1137,10 +1052,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14 <./img/search_comparison.png>] <img/a_star_vs_optimal.png, id=69, 1626.075pt x 631.35875pt>
+[14 <./img/search_comparison.png>] <img/a_star_vs_optimal.png, id=74, 1626.075pt x 631.35875pt>
 File: img/a_star_vs_optimal.png Graphic file (type png)
  <use img/a_star_vs_optimal.png>
-Package pdftex.def Info: img/a_star_vs_optimal.png used on input line 322.
+Package pdftex.def Info: img/a_star_vs_optimal.png used on input line 320.
 (pdftex.def)             Requested size: 426.79135pt x 165.71007pt.
 
 
@@ -1164,14 +1079,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
 
  []
 
-<img/obst.png, id=80, 823.075pt x 435.6275pt>
+<img/obst.png, id=86, 823.075pt x 435.6275pt>
 File: img/obst.png Graphic file (type png)
  <use img/obst.png>
-Package pdftex.def Info: img/obst.png used on input line 380.
+Package pdftex.def Info: img/obst.png used on input line 378.
 (pdftex.def)             Requested size: 384.1096pt x 203.29587pt.
 
 
@@ -1180,14 +1095,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18 <./img/obst.png>] <img/apf_comp.png, id=86, 886.31125pt x 243.91125pt>
+[18 <./img/obst.png>] <img/apf_comp.png, id=91, 886.31125pt x 243.91125pt>
 File: img/apf_comp.png Graphic file (type png)
  <use img/apf_comp.png>
-Package pdftex.def Info: img/apf_comp.png used on input line 389.
+Package pdftex.def Info: img/apf_comp.png used on input line 387.
 (pdftex.def)             Requested size: 426.79135pt x 117.45569pt.
 
-./interimreport.tex:407: Undefined control sequence.
-l.407 $$\bm
+./report.tex:405: Undefined control sequence.
+l.405 $$\bm
            {v_{raw}} = \nabla U$$
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1202,26 +1117,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19 <./img/apf_comp.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 423.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 421.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 423.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 421.
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 434--435
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
-
- []
-
-<img/aatc_spaghett.jpg, id=98, 1495.5875pt x 1204.5pt>
+<img/aatc_spaghett.jpg, id=103, 1495.5875pt x 1204.5pt>
 File: img/aatc_spaghett.jpg Graphic file (type jpg)
  <use img/aatc_spaghett.jpg>
-Package pdftex.def Info: img/aatc_spaghett.jpg used on input line 440.
+Package pdftex.def Info: img/aatc_spaghett.jpg used on input line 438.
 (pdftex.def)             Requested size: 426.79135pt x 343.72717pt.
 
 
@@ -1238,12 +1153,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [21 <./img/aatc_spaghett.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
 
@@ -1253,48 +1163,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22] <img/bg_scalable_nodes.png, id=108, 1941.2525pt x 1419.3025pt>
-File: img/bg_scalable_nodes.png Graphic file (type png)
- <use img/bg_scalable_nodes.png>
-Package pdftex.def Info: img/bg_scalable_nodes.png used on input line 482.
-(pdftex.def)             Requested size: 192.0548pt x 140.40092pt.
- <img/bg_scalable_zones.png, id=109, 1929.2075pt x 1160.335pt>
-File: img/bg_scalable_zones.png Graphic file (type png)
- <use img/bg_scalable_zones.png>
-Package pdftex.def Info: img/bg_scalable_zones.png used on input line 490.
-(pdftex.def)             Requested size: 192.0548pt x 115.50914pt.
- <img/bg_scalable_interzone.png, id=110, 1937.2375pt x 1204.5pt>
-File: img/bg_scalable_interzone.png Graphic file (type png)
- <use img/bg_scalable_interzone.png>
-Package pdftex.def Info: img/bg_scalable_interzone.png used on input line 498.
-(pdftex.def)             Requested size: 192.0548pt x 119.40944pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 505--506
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23 <./img/bg_scalable_nodes.png> <./img/bg_scalable_zones.png> <./img/bg_scalable_interzone.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24] <img/mlqs.jpg, id=121, 661.47125pt x 440.64626pt>
+[22] <img/mlqs.jpg, id=114, 661.47125pt x 440.64626pt>
 File: img/mlqs.jpg Graphic file (type jpg)
  <use img/mlqs.jpg>
-Package pdftex.def Info: img/mlqs.jpg used on input line 523.
+Package pdftex.def Info: img/mlqs.jpg used on input line 488.
 (pdftex.def)             Requested size: 256.07741pt x 170.58728pt.
- <img/mlfqs.jpg, id=122, 483.8075pt x 310.15875pt>
+ <img/mlfqs.jpg, id=115, 483.8075pt x 310.15875pt>
 File: img/mlfqs.jpg Graphic file (type jpg)
  <use img/mlfqs.jpg>
-Package pdftex.def Info: img/mlfqs.jpg used on input line 532.
+Package pdftex.def Info: img/mlfqs.jpg used on input line 497.
 (pdftex.def)             Requested size: 256.07741pt x 164.17038pt.
 
 
@@ -1303,19 +1180,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./img/mlqs.jpg> <./img/mlfqs.jpg>] <img/spatialos-diagram_current2.png, id=126, 498.19458pt x 418.89833pt>
+[23]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24 <./img/mlqs.jpg> <./img/mlfqs.jpg>] <img/spatialos-diagram_current2.png, id=122, 498.19458pt x 418.89833pt>
 File: img/spatialos-diagram_current2.png Graphic file (type png)
  <use img/spatialos-diagram_current2.png>
-Package pdftex.def Info: img/spatialos-diagram_current2.png used on input line 550.
+Package pdftex.def Info: img/spatialos-diagram_current2.png used on input line 515.
 (pdftex.def)             Requested size: 213.39568pt x 179.42604pt.
- <img/spatialos-diagram_solution2.png, id=127, 498.19458pt x 418.89833pt>
+ <img/spatialos-diagram_solution2.png, id=123, 498.19458pt x 418.89833pt>
 File: img/spatialos-diagram_solution2.png Graphic file (type png)
  <use img/spatialos-diagram_solution2.png>
-Package pdftex.def Info: img/spatialos-diagram_solution2.png used on input line 556.
+Package pdftex.def Info: img/spatialos-diagram_solution2.png used on input line 521.
 (pdftex.def)             Requested size: 213.39568pt x 179.42604pt.
 
-./interimreport.tex:564: You can't use `macro parameter character #' in horizontal mode.
-l.564 ...ngines. Alternatively, one can use the C#
+./report.tex:529: You can't use `macro parameter character #' in horizontal mode.
+l.529 ...ngines. Alternatively, one can use the C#
                                                   , C++ and Java SDKs to cre...
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1323,7 +1207,7 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--565
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
 
@@ -1333,15 +1217,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26 <./img/spatialos-diagram_current2.png> <./img/spatialos-diagram_solution2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 580--581
+[25 <./img/spatialos-diagram_current2.png> <./img/spatialos-diagram_solution2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
 
  []
 
-<img/io_inspector.png, id=134, 1204.5pt x 632.3625pt>
+<img/io_inspector.png, id=130, 1204.5pt x 632.3625pt>
 File: img/io_inspector.png Graphic file (type png)
  <use img/io_inspector.png>
-Package pdftex.def Info: img/io_inspector.png used on input line 586.
+Package pdftex.def Info: img/io_inspector.png used on input line 551.
 (pdftex.def)             Requested size: 426.79135pt x 224.07053pt.
 
 
@@ -1350,23 +1234,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
+[26]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28 <./img/io_inspector.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 598--599
+[27 <./img/io_inspector.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--604
+Underfull \hbox (badness 10000) in paragraph at lines 568--569
 
  []
 
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1388,38 +1279,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
-
- []
-
-
-./interimreport.tex:681: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.681 
-      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--683
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 686--687
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1434,10 +1293,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [33]
-Overfull \hbox (2.85403pt too wide) in paragraph at lines 702--702
-[]\OT1/cmr/m/n/12 Flightradar24. \OT1/cmr/m/it/12 About Fligh-tradar24\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . flightradar24 .
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1445,12 +1300,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [34]
-Overfull \hbox (14.05017pt too wide) in paragraph at lines 702--702
-\OT1/cmtt/m/n/12 google . co . uk / trends / explore ? date = all % 7B % 5C & %7Dq = drone % 20technology$\OT1/cmr/m/n/12 . 
+Overfull \hbox (2.85403pt too wide) in paragraph at lines 600--600
+[]\OT1/cmr/m/n/12 Flightradar24. \OT1/cmr/m/it/12 About Fligh-tradar24\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . flightradar24 .
  []
 
 
-Overfull \hbox (21.93701pt too wide) in paragraph at lines 702--702
+Overfull \hbox (10.78632pt too wide) in paragraph at lines 600--600
+\OT1/cmtt/m/n/12 google . co . uk / trends / explore ? date = all % 7B % 5C & %7Dq = drone % 20technology$
+ []
+
+
+Overfull \hbox (21.93701pt too wide) in paragraph at lines 600--600
 []\OT1/cmr/m/n/12 Improbable Worlds Ltd. \OT1/cmr/m/it/12 Im-prob-a-ble Home Page\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / improbable .
  []
 
@@ -1461,7 +1321,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [35]
-Overfull \hbox (32.31133pt too wide) in paragraph at lines 702--702
+Overfull \hbox (32.31133pt too wide) in paragraph at lines 600--600
 \OT1/cmtt/m/n/12 publication -[] pdf / vcii -[] publication -[] technological -[] disruption -[] innovation -[]
  []
 
@@ -1472,6 +1332,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [36]
+Overfull \hbox (6.61766pt too wide) in paragraph at lines 600--600
+\OT1/cmr/m/n/12 2017. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / youtu . be / fTuijWHwAsk ? t = 4m46s$ \OT1/cmr/m/n/12 (vis-ited on 01/25/2018). 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1479,7 +1343,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [37]
-Overfull \hbox (9.38739pt too wide) in paragraph at lines 702--702
+Overfull \hbox (9.38739pt too wide) in paragraph at lines 600--600
 \OT1/cmr/m/it/12 ern, chrono-log-i-cally ar-ranged\OT1/cmr/m/n/12 . Boston: Houghton Mif-flin, 2001. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 0395652375. 
  []
 
@@ -1489,51 +1353,28 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38]
-Overfull \hbox (6.62448pt too wide) in paragraph at lines 706--706
-[]\OT1/cmr/bx/n/17.28 Python Im-ple-men-ta-tion of Di-jk-stra's Al-go-rithm 
- []
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 709.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 720.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 720.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[39] (./interimreport.aux)
+[38] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package logreq Info: Writing requests to 'interimreport.run.xml'.
-\openout1 = `interimreport.run.xml'.
+Package logreq Info: Writing requests to 'report.run.xml'.
+\openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24025 strings out of 492995
- 447822 string characters out of 6132703
- 949362 words of memory out of 5000000
- 27152 multiletter control sequences out of 15000+600000
- 13135 words of font info for 48 fonts, out of 8000000 for 9000
+ 23518 strings out of 492995
+ 442249 string characters out of 6132703
+ 879249 words of memory out of 5000000
+ 26656 multiletter control sequences out of 15000+600000
+ 12776 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,14n,92p,4198b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on interimreport.pdf (40 pages, 4102006 bytes).
+ 62i,14n,92p,4191b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mtt12.pfb>
+Output written on report.pdf (41 pages, 3650607 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
+ 219 PDF objects out of 1000 (max. 8388607)
+ 136 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
