@@ -50,6 +50,10 @@ public class ControllerBehaviour : MonoBehaviour
 	float costs;
 	float penalties;
 
+	float avgWaitTime;
+	int launches;
+	float avgDeliveryTime;
+
     private void OnEnable()
     {
 		deliveriesMap = ControllerWriter.Data.deliveriesMap;
@@ -67,6 +71,10 @@ public class ControllerBehaviour : MonoBehaviour
 		revenue = MetricsWriter.Data.revenue;
 		costs = MetricsWriter.Data.costs;
 		penalties = MetricsWriter.Data.penalties;
+
+		avgWaitTime = MetricsWriter.Data.avgWaitTime;
+		launches = MetricsWriter.Data.launches;
+		avgDeliveryTime = MetricsWriter.Data.avgDeliveryTime;
 
 		for (int i = 0; i < droneSlots.Count; i++)
 		{
@@ -139,10 +147,11 @@ public class ControllerBehaviour : MonoBehaviour
         handle.Respond(new UnlinkResponse());
     }
 
-	void RegisterCompletedDelivery(PackageInfo packageInfo)
+	void RegisterCompletedDelivery(DeliveryInfo deliveryInfo)
 	{
 		++completedDeliveries;
-		revenue += PayloadGenerator.GetPackageCost(packageInfo);
+		avgDeliveryTime += Time.time - deliveryInfo.timestamp;
+		revenue += PayloadGenerator.GetPackageCost(deliveryInfo.packageInfo);
 	}
 
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
@@ -170,9 +179,10 @@ public class ControllerBehaviour : MonoBehaviour
                 }
                 else
                 {
-					RegisterCompletedDelivery(deliveryInfo.packageInfo);
+					RegisterCompletedDelivery(deliveryInfo);
 					MetricsWriter.Send(new ControllerMetrics.Update()
 					                   .SetCompletedDeliveries(completedDeliveries)
+					                   .SetAvgDeliveryTime(avgDeliveryTime)
 					                   .SetRevenue(revenue));
 
 					deliveryInfo.returning = true;
@@ -217,7 +227,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13}"
+		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15}"
                                , gameObject.EntityId().Id
 		                       , deliveriesMap.Count
 		                       , scheduler.GetQueueSize()
@@ -226,6 +236,8 @@ public class ControllerBehaviour : MonoBehaviour
 		                       , revenue
                                , costs
 		                       , penalties
+		                       , avgDeliveryTime / completedDeliveries
+		                       , avgWaitTime / launches
                                , failedDeliveries
 		                       , failedReturns
 		                       , failedLaunches
@@ -346,6 +358,13 @@ public class ControllerBehaviour : MonoBehaviour
 		droneInfo.occupied = true;
 		droneSlots[deliveryInfo.slot] = droneInfo;
 
+		avgWaitTime += Time.time - deliveryInfo.timestamp;
+		++launches;
+
+		MetricsWriter.Send(new ControllerMetrics.Update()
+		                   .SetAvgWaitTime(avgWaitTime)
+		                   .SetLaunches(launches));
+
 		UpdateDroneSlotsAndMap();
     }
 
@@ -374,11 +393,14 @@ public class ControllerBehaviour : MonoBehaviour
 		return -1;
 	}
 
-    void HandleDeliveryRequest(DeliveryRequest request)
+	void HandleDeliveryRequest(QueueEntry entry)
     {
+		DeliveryRequest request = entry.request;
+
 		DeliveryInfo deliveryInfo;
 		Vector2 random;
 
+		deliveryInfo.timestamp = entry.timestamp;
 		deliveryInfo.packageInfo = request.packageInfo;
 
 		deliveryInfo.slot = GetNextSlot();
@@ -453,7 +475,7 @@ public class ControllerBehaviour : MonoBehaviour
         }
 
 		//don't need to do anything if no requests in the queue
-		DeliveryRequest nextRequest;
+		QueueEntry nextRequest;
 		if (ReadyForDeployment())
         {
 			if (scheduler.GetNextRequest(out nextRequest))

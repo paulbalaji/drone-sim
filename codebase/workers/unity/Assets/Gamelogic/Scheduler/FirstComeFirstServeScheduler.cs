@@ -19,7 +19,7 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 	[Require]
     private DeliveryHandler.Writer DeliveryHandlerWriter;
 
-	Queue<DeliveryRequest> deliveryRequestQueue;
+	Queue<QueueEntry> deliveryRequestQueue;
 
 	int incomingRequests;
 
@@ -28,10 +28,10 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 	{
 		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
 
-		deliveryRequestQueue = new Queue<DeliveryRequest>((int)SimulationSettings.MaxDeliveryRequestQueueSize);
-        foreach (DeliveryRequest request in DeliveryHandlerWriter.Data.requestQueue)
+		deliveryRequestQueue = new Queue<QueueEntry>((int)SimulationSettings.MaxDeliveryRequestQueueSize);
+		foreach (QueueEntry entry in DeliveryHandlerWriter.Data.requestQueue)
         {
-            deliveryRequestQueue.Enqueue(request);
+			deliveryRequestQueue.Enqueue(entry);
         }
 
 		DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.RegisterAsyncResponse(EnqueueDeliveryRequest);
@@ -54,14 +54,14 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
         }
         else
         {
-            deliveryRequestQueue.Enqueue(handle.Request);
+			deliveryRequestQueue.Enqueue(new QueueEntry(Time.time, handle.Request));
             handle.Respond(new DeliveryResponse(true));
         }
     }
 
 	void Scheduler.UpdateDeliveryRequestQueue()
     {
-        DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(new Improbable.Collections.List<DeliveryRequest>(deliveryRequestQueue.ToArray())));
+		DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(new Improbable.Collections.List<QueueEntry>(deliveryRequestQueue.ToArray())));
     }
 
 	int Scheduler.GetQueueSize()
@@ -74,15 +74,15 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 		return incomingRequests;
 	}
 
-	bool Scheduler.GetNextRequest(out DeliveryRequest deliveryRequest)
+	bool Scheduler.GetNextRequest(out QueueEntry queueEntry)
     {
 		if (deliveryRequestQueue.Count > 0)
 		{
-			deliveryRequest = deliveryRequestQueue.Dequeue();
+			queueEntry = deliveryRequestQueue.Dequeue();
 			return true;
 		}
 
-		deliveryRequest = new DeliveryRequest();
+		queueEntry = new QueueEntry();
 		return false;
     }
 }

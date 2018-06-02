@@ -15,4 +15,9 @@ component ControllerMetrics {
 	int32 revenue = 9;
 	float costs = 10;
 	float penalties = 11;
+
+	float avg_wait_time = 12;
+	int32 launches = 13;
+
+	float avg_delivery_time = 14;
 }

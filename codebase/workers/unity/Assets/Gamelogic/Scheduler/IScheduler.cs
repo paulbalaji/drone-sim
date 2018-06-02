@@ -15,7 +15,7 @@ public interface Scheduler
 {
 	int GetQueueSize();
 	int GetTotalRequests();
-	bool GetNextRequest(out DeliveryRequest deliveryRequest);
+	bool GetNextRequest(out QueueEntry deliveryRequest);
 	void UpdateDeliveryRequestQueue();
 	void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle);
 }

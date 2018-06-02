@@ -21,6 +21,11 @@ type DeliveryRequest {
   PackageInfo package_info = 2;
 }
 
+type QueueEntry {
+	float timestamp = 1;
+	DeliveryRequest request = 2;
+}
+
 type DeliveryResponse {
 	bool success = 1;
 }
@@ -28,7 +33,7 @@ type DeliveryResponse {
 component DeliveryHandler {
   id = 1201;
 
-  list<DeliveryRequest> request_queue = 1;
+  list<QueueEntry> request_queue = 1;
 
   command DeliveryResponse request_delivery(DeliveryRequest);
 }

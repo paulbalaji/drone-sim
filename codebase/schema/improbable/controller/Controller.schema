@@ -26,6 +26,7 @@ type DeliveryInfo {
   bool returning = 3;
   float latest_checkin_time = 4;
   improbable.controller.PackageInfo package_info = 6;
+  float timestamp = 7;
 }
 
 type DroneInfo {
