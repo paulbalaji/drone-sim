@@ -11,6 +11,19 @@ namespace Assets.Editor
 {
 	public class SnapshotMenu : MonoBehaviour
 	{
+		[MenuItem("Improbable/TESTING RANDOM")]
+        private static void RandomTest()
+		{
+			string blah = "";
+			UnityEngine.Random.InitState(10);
+			for (int i = 0; i < 10; i++)
+			{
+				blah += " " + UnityEngine.Random.value;
+			}
+
+			Debug.Log(blah);
+		}
+
         //[MenuItem("Improbable/Snapshots/Generate Phase 1 Snapshot - 1 BASIC")]
         //private static void GeneratePhase1SnapshotDev()
         //{

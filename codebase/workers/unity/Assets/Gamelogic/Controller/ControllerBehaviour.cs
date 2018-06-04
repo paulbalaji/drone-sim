@@ -159,19 +159,7 @@ public class ControllerBehaviour : MonoBehaviour
 		++completedDeliveries;
 		avgDeliveryTime += deliveryTime;
 
-		int packageRevenue = PayloadGenerator.GetPackageCost(deliveryInfo.packageInfo);
-
-        // under 30 mins ==> full
-		if (avgDeliveryTime < SimulationSettings.DeliveryTimeThreshold)
-		{
-			revenue += packageRevenue;
-		}
-		else if (avgDeliveryTime < SimulationSettings.DeliveryTimeLimit)
-		{
-			revenue += packageRevenue / 2;
-		}
-        
-		//no revenue if >60 mins to deliver
+		revenue += PayloadGenerator.DeliveryValue(deliveryTime, deliveryInfo.packageInfo);
 	}
 
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)

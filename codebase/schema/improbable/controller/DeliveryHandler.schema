@@ -24,6 +24,8 @@ type DeliveryRequest {
 type QueueEntry {
 	float timestamp = 1;
 	DeliveryRequest request = 2;
+	float priority = 3;
+	float expected_duration = 4;
 }
 
 type DeliveryResponse {
