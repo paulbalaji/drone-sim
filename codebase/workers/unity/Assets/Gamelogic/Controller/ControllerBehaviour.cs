@@ -149,9 +149,29 @@ public class ControllerBehaviour : MonoBehaviour
 
 	void RegisterCompletedDelivery(DeliveryInfo deliveryInfo)
 	{
+		float deliveryTime = Time.time - deliveryInfo.timestamp;
+		if (deliveryTime < 0)
+		{
+			Debug.LogError("DELIVERY TIME < 0 - BIG ERROR");
+			return;
+		}
+
 		++completedDeliveries;
-		avgDeliveryTime += Time.time - deliveryInfo.timestamp;
-		revenue += PayloadGenerator.GetPackageCost(deliveryInfo.packageInfo);
+		avgDeliveryTime += deliveryTime;
+
+		int packageRevenue = PayloadGenerator.GetPackageCost(deliveryInfo.packageInfo);
+
+        // under 30 mins ==> full
+		if (avgDeliveryTime < SimulationSettings.DeliveryTimeThreshold)
+		{
+			revenue += packageRevenue;
+		}
+		else if (avgDeliveryTime < SimulationSettings.DeliveryTimeLimit)
+		{
+			revenue += packageRevenue / 2;
+		}
+        
+		//no revenue if >60 mins to deliver
 	}
 
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)

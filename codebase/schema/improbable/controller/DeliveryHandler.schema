@@ -35,5 +35,7 @@ component DeliveryHandler {
 
   list<QueueEntry> request_queue = 1;
 
+  float penalties = 2;
+
   command DeliveryResponse request_delivery(DeliveryRequest);
 }

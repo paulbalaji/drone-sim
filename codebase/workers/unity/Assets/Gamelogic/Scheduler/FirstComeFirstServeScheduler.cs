@@ -23,10 +23,13 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 
 	int incomingRequests;
 
+	float penalties;
+
 	// Use this for initialization
 	private void OnEnable()
 	{
 		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
+		penalties = DeliveryHandlerWriter.Data.penalties;
 
 		deliveryRequestQueue = new Queue<QueueEntry>((int)SimulationSettings.MaxDeliveryRequestQueueSize);
 		foreach (QueueEntry entry in DeliveryHandlerWriter.Data.requestQueue)

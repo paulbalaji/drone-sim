@@ -68,6 +68,9 @@ namespace Assets.Gamelogic.Core
 
 		// MISC CONSTANTS //
 
+		public const float DeliveryTimeThreshold = 1800f; // 30 minutes (as seconds)
+		public const float DeliveryTimeLimit = 3600f; // 60 minutes (as seconds)
+
 		public const float CostPerWh = 0.0055f; //pence
 
 		public const float DroneReplacementCost = 400; //pounds
