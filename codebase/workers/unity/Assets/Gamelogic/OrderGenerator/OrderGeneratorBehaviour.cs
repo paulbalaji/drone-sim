@@ -31,7 +31,7 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 		failedRequests = MetricsWriter.Data.failedRequests;
 		failedCommands = MetricsWriter.Data.failedCommands;
 
-        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+		UnityEngine.Random.InitState(SimulationSettings.OrderGeneratorSeed);
 
 		InvokeRepeating("RootSpawnerTick", 0, SimulationSettings.OrderGenerationInterval);
 		InvokeRepeating("PrintMetrics", 0, SimulationSettings.OrderGenerationMetricsInterval);

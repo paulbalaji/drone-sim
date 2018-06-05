@@ -12,6 +12,8 @@ namespace Assets.Gamelogic.Core
         public static readonly float numDrones = 100;
         public static readonly float squareSize = 400;
 
+		public const int OrderGeneratorSeed = 42;
+
         //London Large
         //public static readonly float maxX = 15750; //31500m width
         //public static readonly float maxZ = 7000; //14000m height

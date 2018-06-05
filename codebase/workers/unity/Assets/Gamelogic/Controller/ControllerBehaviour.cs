@@ -92,7 +92,8 @@ public class ControllerBehaviour : MonoBehaviour
         ControllerWriter.CommandReceiver.OnUnlinkDrone.RegisterAsyncResponse(HandleUnlinkRequest);
         
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
-		scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
+		//scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
+		scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
 
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("ControllerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);

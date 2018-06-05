@@ -57,7 +57,7 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
         }
         else
         {
-			deliveryRequestQueue.Enqueue(new QueueEntry(Time.time, handle.Request));
+			deliveryRequestQueue.Enqueue(new QueueEntry(Time.time, handle.Request, 0, 0));
             handle.Respond(new DeliveryResponse(true));
         }
     }
