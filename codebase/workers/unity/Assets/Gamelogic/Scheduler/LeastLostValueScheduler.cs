@@ -82,7 +82,12 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
     
 	void Scheduler.UpdateDeliveryRequestQueue()
     {
-		//DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(new Improbable.Collections.List<QueueEntry>(deliveryRequestQueue.ToArray())));
+		Improbable.Collections.List<QueueEntry> queueList = new Improbable.Collections.List<QueueEntry>();
+		foreach (QueueEntry entry in requestQueue)
+        {
+			queueList.Add(entry);
+        }
+		DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(queueList));
     }
 
 	int Scheduler.GetQueueSize()
@@ -148,7 +153,7 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 				newEntries = false;
 			}
 
-			queueEntry = requestQueue.Min;
+			queueEntry = requestQueue.Max;
 			requestQueue.Remove(queueEntry);
 			return true;
 		}
