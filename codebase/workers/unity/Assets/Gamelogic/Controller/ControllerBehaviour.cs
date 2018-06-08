@@ -95,8 +95,8 @@ public class ControllerBehaviour : MonoBehaviour
 
         /* SCHEDULER CHOICE */
 		//scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
-		//scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
-		scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
+		scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
+		//scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
 
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("ControllerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);

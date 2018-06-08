@@ -56,18 +56,18 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
     {
         MetricsWriter.Send(new ControllerMetrics.Update().SetIncomingDeliveryRequests(++incomingRequests));
 
-		if (requestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
-        {
-            handle.Respond(new DeliveryResponse(false));
-        }
-        else
-        {
+		//if (requestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
+        //{
+        //    handle.Respond(new DeliveryResponse(false));
+        //}
+        //else
+        //{
 			float estimatedTime = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
 			QueueEntry queueEntry = new QueueEntry(Time.time, handle.Request, 0, estimatedTime);
 			requestQueue.Add(queueEntry);
 			newEntries = true;
             handle.Respond(new DeliveryResponse(true));
-        }
+        //}
     }
 
 	private float ExpectedValue(QueueEntry queueEntry)
@@ -150,6 +150,10 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 			if (newEntries)
 			{
 				SortQueue();
+				while(requestQueue.Count > SimulationSettings.MaxDeliveryRequestQueueSize)
+				{
+					requestQueue.Remove(requestQueue.Min);
+				}
 				newEntries = false;
 			}
 
