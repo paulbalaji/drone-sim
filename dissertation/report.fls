@@ -332,6 +332,9 @@ INPUT ./img/spatialos-diagram_solution2.png
 INPUT img/io_inspector.png
 INPUT ./img/io_inspector.png
 INPUT ./img/io_inspector.png
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ucs/data/uni-0.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ucs/data/uni-0.def
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmu10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT report.aux
 INPUT report.run.xml
@@ -349,3 +352,4 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmu10.pfb

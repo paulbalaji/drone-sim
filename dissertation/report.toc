@@ -18,63 +18,69 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.2.1}No Fly Zones}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2}Manned Aviation}{10}
+\contentsline {subsubsection}{\numberline {2.2.2}Other Drones}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.3}Other Drones}{11}
+\contentsline {subsubsection}{\numberline {2.2.3}Manned Aviation}{11}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.2.4}Toll Zones}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Autonomous Air Traffic Control (AATC)}{11}
+\contentsline {subsection}{\numberline {2.3}TODO: Understanding Amazon}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}What is AATC?}{11}
+\contentsline {subsubsection}{\numberline {2.3.1}Amazon Prime}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.2}Technical Overview}{12}
+\contentsline {subsubsection}{\numberline {2.3.2}Amazon Air}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}The Global Layer}{13}
+\contentsline {subsection}{\numberline {2.4}Autonomous Air Traffic Control (AATC)}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.1}Dijkstra's Algorithm}{13}
+\contentsline {subsubsection}{\numberline {2.4.1}What is AATC?}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.2}A* Algorithm}{14}
+\contentsline {subsubsection}{\numberline {2.4.2}Technical Overview}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.3}Theta* Algorithm}{14}
+\contentsline {subsection}{\numberline {2.5}The Global Layer}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.4}Lazy Theta* Algorithm}{15}
+\contentsline {subsubsection}{\numberline {2.5.1}Dijkstra's Algorithm}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.5}Conclusions}{15}
+\contentsline {subsubsection}{\numberline {2.5.2}A* Algorithm}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5}The Reactive Layer}{18}
+\contentsline {subsubsection}{\numberline {2.5.3}Theta* Algorithm}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.1}Artificial Potential Fields (APF)}{18}
+\contentsline {subsubsection}{\numberline {2.5.4}Lazy Theta* Algorithm}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.2}Equations for APF}{19}
+\contentsline {subsubsection}{\numberline {2.5.5}Conclusions}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Genetic Algorithm}{20}
+\contentsline {subsection}{\numberline {2.6}The Reactive Layer}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.4}Conclusions}{22}
+\contentsline {subsubsection}{\numberline {2.6.1}Artificial Potential Fields (APF)}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}Scheduling Algorithms}{22}
+\contentsline {subsubsection}{\numberline {2.6.2}Equations for APF}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.1}First Come First Serve (FCFS)}{23}
+\contentsline {subsubsection}{\numberline {2.6.3}Genetic Algorithm}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.2}Shortest Job First (SJF)}{23}
+\contentsline {subsubsection}{\numberline {2.6.4}Conclusions}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.3}Priority Scheduling}{23}
+\contentsline {subsection}{\numberline {2.7}Scheduling Algorithms}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.4}Multi-Level Feedback Queue (MLFQ)}{23}
+\contentsline {subsubsection}{\numberline {2.7.1}First Come First Serve (FCFS)}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}SpatialOS}{25}
+\contentsline {subsubsection}{\numberline {2.7.2}Shortest Job First (SJF)}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}Unity SDK}{26}
+\contentsline {subsubsection}{\numberline {2.7.3}Priority Scheduling}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Abstraction}{26}
+\contentsline {subsubsection}{\numberline {2.7.4}Multi-Level Feedback Queue (MLFQ)}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}Developer Tools}{26}
+\contentsline {subsection}{\numberline {2.8}SpatialOS}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.4}Layered Simulation}{27}
+\contentsline {subsubsection}{\numberline {2.8.1}Unity SDK}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.2}Abstraction}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.3}Developer Tools}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.4}Layered Simulation}{27}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}Prioritising Economic Value}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Quality of Service Value Curve}{28}
+\contentsline {subsection}{\numberline {3.1}Time Value Functions}{28}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Drone-Controller Architecture}{29}
 \defcounter {refsection}{0}\relax 
