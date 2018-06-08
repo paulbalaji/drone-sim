@@ -92,8 +92,11 @@ public class ControllerBehaviour : MonoBehaviour
         ControllerWriter.CommandReceiver.OnUnlinkDrone.RegisterAsyncResponse(HandleUnlinkRequest);
         
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
+
+        /* SCHEDULER CHOICE */
 		//scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
-		scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
+		//scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
+		scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
 
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("ControllerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
@@ -160,7 +163,7 @@ public class ControllerBehaviour : MonoBehaviour
 		++completedDeliveries;
 		avgDeliveryTime += deliveryTime;
 
-		revenue += PayloadGenerator.DeliveryValue(deliveryTime, deliveryInfo.packageInfo);
+		revenue += TimeValueFunctions.DeliveryValue(deliveryTime, deliveryInfo.packageInfo);
 	}
 
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)

@@ -6,23 +6,6 @@ using UnityEngine;
 
 public static class PayloadGenerator
 {
-	public static int DeliveryValue(float deliveryTime, PackageInfo packageInfo)
-	{
-		int packageRevenue = GetPackageCost(packageInfo);
-
-		// under 30 mins ==> full
-        if (deliveryTime < SimulationSettings.DeliveryTimeThreshold)
-        {
-            return packageRevenue;
-        }
-        else if (deliveryTime < SimulationSettings.DeliveryTimeLimit)
-        {
-            return packageRevenue / 2;
-        }
-
-		return 0;
-	}
-
 	public static int GetPackageCost(PackageInfo packageInfo)
 	{
 		switch (packageInfo.type)

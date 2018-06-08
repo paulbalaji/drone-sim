@@ -77,7 +77,7 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
     
 	private float ExpectedValue(float estimatedTime, PackageInfo packageInfo)
 	{
-		return (float)PayloadGenerator.DeliveryValue(estimatedTime, packageInfo);
+		return (float)TimeValueFunctions.DeliveryValue(estimatedTime, packageInfo);
 	}
     
 	void Scheduler.UpdateDeliveryRequestQueue()
@@ -106,7 +106,7 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 		int i = 0;
 		foreach(QueueEntry entry in requestQueue)
 		{
-			entries[i++] = entry;
+			entries[i++] = entry.DeepCopy();
 		}
 
 		for (int j = 0; j < entries.Length; j++)
