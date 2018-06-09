@@ -53,17 +53,17 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
     {
         MetricsWriter.Send(new ControllerMetrics.Update().SetIncomingDeliveryRequests(++incomingRequests));
 
+		float expectedDuration = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
         if (deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
             handle.Respond(new DeliveryResponse(false));
-			float duration = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
-			float value = TimeValueFunctions.DeliveryValue(duration, handle.Request.packageInfo, handle.Request.timeValueFunction);
+			float value = TimeValueFunctions.DeliveryValue(expectedDuration, handle.Request.packageInfo, handle.Request.timeValueFunction);
             potential += value;
             ++rejections;
         }
         else
         {
-			deliveryRequestQueue.Enqueue(new QueueEntry(Time.time, handle.Request, 0, 0));
+			deliveryRequestQueue.Enqueue(new QueueEntry(Time.time, handle.Request, 0, expectedDuration));
             handle.Respond(new DeliveryResponse(true));
         }
     }

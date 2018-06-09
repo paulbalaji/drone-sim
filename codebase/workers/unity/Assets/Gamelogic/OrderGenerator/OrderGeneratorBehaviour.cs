@@ -131,12 +131,12 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 		{
 			if (UnityEngine.Random.Range(0f, 1f) < 0.5f)
 			{
-				steps[i] = true;
-				numSteps++;
+				steps.Add(true);
+				++numSteps;
 			}
 			else
 			{
-				steps[i] = false;
+				steps.Add(false);
 			}
 		}
 
