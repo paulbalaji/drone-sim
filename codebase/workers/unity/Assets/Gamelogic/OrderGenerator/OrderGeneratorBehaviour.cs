@@ -59,7 +59,7 @@ public class OrderGeneratorBehaviour : MonoBehaviour
         SpatialOS.Commands.SendCommand(
 			OrderWriter,
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
-			new DeliveryRequest(deliveryDestination, GeneratePayload()),
+			new DeliveryRequest(deliveryDestination, GeneratePayload(), GenerateTVF(true)),
             closestController)
 		         .OnSuccess((response) => DeliveryRequestCallback(response.success))
 		         .OnFailure((response) => DeliveryRequestFail());
@@ -94,6 +94,53 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 	private PackageInfo GeneratePayload()
 	{
 		return PayloadGenerator.GetNextPackage();
+	}
+
+	private DeliveryType GenerateDeliveryType()
+	{
+		return (DeliveryType) UnityEngine.Random.Range((int)0, (int)SimulationSettings.NumDeliveryTypes);
+	}
+
+	// TODO: update properly with TVF A and TVF B
+	private TimeValueFunction GenerateTVF(bool random)
+	{
+		//if bool true, return random tvf
+		if (random)
+		{
+			return GenerateRandomTVF();
+		}
+
+        //if bool false, return either TVF B or TVF B by 50% chance of each
+		if (UnityEngine.Random.Range(0f, 1f) < 0.5f)
+		{
+			//return TVF A
+			return TimeValueFunctions.GenerateTypeA(GenerateDeliveryType());
+		}
+
+		//return TVF B
+		return TimeValueFunctions.GenerateTypeB(GenerateDeliveryType());
+	}
+
+
+
+	private TimeValueFunction GenerateRandomTVF()
+	{
+		Improbable.Collections.List<bool> steps = new Improbable.Collections.List<bool>(SimulationSettings.TVFSteps);
+		int numSteps = 0;
+		for (int i = 0; i < steps.Capacity; i++)
+		{
+			if (UnityEngine.Random.Range(0f, 1f) < 0.5f)
+			{
+				steps[i] = true;
+				numSteps++;
+			}
+			else
+			{
+				steps[i] = false;
+			}
+		}
+
+		return new TimeValueFunction(steps, numSteps, GenerateDeliveryType());
 	}
 
     private EntityId GetClosestController(Vector3f destination)

@@ -23,13 +23,15 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 
 	int incomingRequests;
 
-	float penalties;
+	float potential;
+	int rejections;
 
 	// Use this for initialization
 	private void OnEnable()
 	{
 		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
-		penalties = DeliveryHandlerWriter.Data.penalties;
+		potential = DeliveryHandlerWriter.Data.potential;
+		rejections = DeliveryHandlerWriter.Data.rejections;
 
 		deliveryRequestQueue = new Queue<QueueEntry>((int)SimulationSettings.MaxDeliveryRequestQueueSize);
 		foreach (QueueEntry entry in DeliveryHandlerWriter.Data.requestQueue)
@@ -54,6 +56,10 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
         if (deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
             handle.Respond(new DeliveryResponse(false));
+			float duration = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
+			float value = TimeValueFunctions.DeliveryValue(duration, handle.Request.packageInfo, handle.Request.timeValueFunction);
+            potential += value;
+            ++rejections;
         }
         else
         {
@@ -64,7 +70,10 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 
 	void Scheduler.UpdateDeliveryRequestQueue()
     {
-		DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(new Improbable.Collections.List<QueueEntry>(deliveryRequestQueue.ToArray())));
+		DeliveryHandlerWriter.Send(new DeliveryHandler.Update()
+		                           .SetRequestQueue(new Improbable.Collections.List<QueueEntry>(deliveryRequestQueue.ToArray()))
+		                           .SetPotential(potential)
+		                           .SetRejections(rejections));
     }
 
 	int Scheduler.GetQueueSize()
@@ -72,10 +81,15 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 		return deliveryRequestQueue.Count;
 	}
 
-	int Scheduler.GetTotalRequests()
-	{
-		return incomingRequests;
-	}
+	int Scheduler.GetPotentialLost()
+    {
+        return Mathf.RoundToInt(potential);
+    }
+
+    float Scheduler.GetAvgPotentialLost()
+    {
+        return potential / rejections;
+    }
 
 	bool Scheduler.GetNextRequest(out QueueEntry queueEntry)
     {

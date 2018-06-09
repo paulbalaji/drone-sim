@@ -23,13 +23,15 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
 
 	int incomingRequests;
 
-	float penalties;
+	float potential;
+    int rejections;
 
-	// Use this for initialization
-	private void OnEnable()
-	{
-		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
-		penalties = DeliveryHandlerWriter.Data.penalties;
+    // Use this for initialization
+    private void OnEnable()
+    {
+        incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
+        potential = DeliveryHandlerWriter.Data.potential;
+        rejections = DeliveryHandlerWriter.Data.rejections;
 
 		requestQueue = new SortedSet<QueueEntry>(new SJFComparer());
 
@@ -58,13 +60,23 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
 		if (requestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
 			QueueEntry longestJob = requestQueue.Max;
+			float duration, value;
 			if (estimatedTime > longestJob.expectedDuration)
 			{
 				handle.Respond(new DeliveryResponse(false));
+
+				duration = estimatedTime;
+				value = TimeValueFunctions.DeliveryValue(duration, queueEntry.request.packageInfo, queueEntry.request.timeValueFunction);
+				potential += value;
+                ++rejections;
 				return;
 			}
 
 			requestQueue.Remove(longestJob);
+			duration = Time.time - longestJob.timestamp + longestJob.expectedDuration;
+			value = TimeValueFunctions.DeliveryValue(duration, longestJob.request.packageInfo, longestJob.request.timeValueFunction);
+			potential += value;
+            ++rejections;
         }
 
 		requestQueue.Add(queueEntry);
@@ -86,10 +98,15 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
 		return requestQueue.Count;
 	}
 
-	int Scheduler.GetTotalRequests()
-	{
-		return incomingRequests;
-	}
+	int Scheduler.GetPotentialLost()
+    {
+		return Mathf.RoundToInt(potential);
+    }
+
+    float Scheduler.GetAvgPotentialLost()
+    {
+		return potential / rejections;
+    }
 
 	bool Scheduler.GetNextRequest(out QueueEntry queueEntry)
     {

@@ -23,15 +23,17 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 
 	int incomingRequests;
 
-	float penalties;
-
 	bool newEntries;
+ 
+	float potential;
+    int rejections;
 
-	// Use this for initialization
-	private void OnEnable()
-	{
-		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
-		penalties = DeliveryHandlerWriter.Data.penalties;
+    // Use this for initialization
+    private void OnEnable()
+    {
+        incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
+        potential = DeliveryHandlerWriter.Data.potential;
+        rejections = DeliveryHandlerWriter.Data.rejections;
 
 		requestQueue = new SortedSet<QueueEntry>(new LLVComparer());
 
@@ -56,28 +58,21 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
     {
         MetricsWriter.Send(new ControllerMetrics.Update().SetIncomingDeliveryRequests(++incomingRequests));
 
-		//if (requestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
-        //{
-        //    handle.Respond(new DeliveryResponse(false));
-        //}
-        //else
-        //{
-			float estimatedTime = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
-			QueueEntry queueEntry = new QueueEntry(Time.time, handle.Request, 0, estimatedTime);
-			requestQueue.Add(queueEntry);
-			newEntries = true;
-            handle.Respond(new DeliveryResponse(true));
-        //}
+		float estimatedTime = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
+		QueueEntry queueEntry = new QueueEntry(Time.time, handle.Request, 0, estimatedTime);
+		requestQueue.Add(queueEntry);
+		newEntries = true;
+        handle.Respond(new DeliveryResponse(true));
     }
 
 	private float ExpectedValue(QueueEntry queueEntry)
 	{
-		return ExpectedValue(queueEntry.expectedDuration, queueEntry.request.packageInfo);
+		return ExpectedValue(queueEntry.expectedDuration, queueEntry.request.packageInfo, queueEntry.request.timeValueFunction);
 	}
     
-	private float ExpectedValue(float estimatedTime, PackageInfo packageInfo)
+	private float ExpectedValue(float estimatedTime, PackageInfo packageInfo, TimeValueFunction tvf)
 	{
-		return (float)TimeValueFunctions.DeliveryValue(estimatedTime, packageInfo);
+		return (float)TimeValueFunctions.DeliveryValue(estimatedTime, packageInfo, tvf);
 	}
     
 	void Scheduler.UpdateDeliveryRequestQueue()
@@ -87,7 +82,11 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
         {
 			queueList.Add(entry);
         }
-		DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(queueList));
+
+		DeliveryHandlerWriter.Send(new DeliveryHandler.Update()
+		                           .SetRequestQueue(queueList)
+		                           .SetPotential(potential)
+		                           .SetRejections(rejections));
     }
 
 	int Scheduler.GetQueueSize()
@@ -95,10 +94,15 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 		return requestQueue.Count;
 	}
 
-	int Scheduler.GetTotalRequests()
-	{
-		return incomingRequests;
-	}
+	int Scheduler.GetPotentialLost()
+    {
+        return Mathf.RoundToInt(potential);
+    }
+
+    float Scheduler.GetAvgPotentialLost()
+    {
+        return potential / rejections;
+    }
 
 	private void SortQueue()
 	{
@@ -121,8 +125,8 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 				if (j != k) {
 					//timePassed = wait time so far + estimated time til the delivery
 					timePassed = Time.time - entries[k].timestamp + entries[k].expectedDuration;
-					lostValue += ExpectedValue(timePassed, entries[k].request.packageInfo)
-						       - ExpectedValue(timePassed + entryDuration, entries[j].request.packageInfo);
+					lostValue += ExpectedValue(timePassed, entries[k].request.packageInfo, entries[k].request.timeValueFunction)
+						       - ExpectedValue(timePassed + entryDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
 
 					maxDuration = Mathf.Max(maxDuration, entries[k].expectedDuration);
 				}
@@ -130,8 +134,8 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 
 			//timePassed = wait time so far + estimated time til the delivery
 			timePassed = Time.time - entries[j].timestamp + entries[j].expectedDuration;
-			float wonValue = ExpectedValue(timePassed, entries[j].request.packageInfo)
-				           - ExpectedValue(timePassed + maxDuration, entries[j].request.packageInfo);
+			float wonValue = ExpectedValue(timePassed, entries[j].request.packageInfo, entries[j].request.timeValueFunction)
+				           - ExpectedValue(timePassed + maxDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
 
 			entries[j].priority = lostValue - wonValue;
 		}
@@ -152,7 +156,13 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 				SortQueue();
 				while(requestQueue.Count > SimulationSettings.MaxDeliveryRequestQueueSize)
 				{
-					requestQueue.Remove(requestQueue.Min);
+					QueueEntry minEntry = requestQueue.Min;
+					float duration = Time.time - minEntry.timestamp + minEntry.expectedDuration;
+					float value = ExpectedValue(duration, minEntry.request.packageInfo, minEntry.request.timeValueFunction);
+					requestQueue.Remove(minEntry);
+
+					potential += value;
+                    ++rejections;
 				}
 				newEntries = false;
 			}

@@ -43,6 +43,11 @@ namespace Assets.Gamelogic.Core
 
 		public static readonly int NumPackageTypes = 6;
 
+		public static readonly int NumDeliveryTypes = 4;
+		public static readonly int TVFSteps = 10;
+
+		public static readonly float TierModifier = 1.5f;
+
 		public static readonly float packageWeightSmallLetter = 8f;
         public static readonly float packageWeightLargeLetter = 25f;
         public static readonly float packageWeightSmallEnvelope = 20f;
@@ -72,6 +77,8 @@ namespace Assets.Gamelogic.Core
 
 		public const float DeliveryTimeThreshold = 1800f; // 30 minutes (as seconds)
 		public const float DeliveryTimeLimit = 3600f; // 60 minutes (as seconds)
+
+		public const float TVFStepInterval = 360f; // 6 minutes (as seconds)
 
 		public const float CostPerWh = 0.0055f; //pence
 

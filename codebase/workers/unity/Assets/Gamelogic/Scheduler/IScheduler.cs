@@ -14,7 +14,8 @@ using UnityEngine;
 public interface Scheduler
 {
 	int GetQueueSize();
-	int GetTotalRequests();
+	int GetPotentialLost();
+	float GetAvgPotentialLost();
 	bool GetNextRequest(out QueueEntry deliveryRequest);
 	void UpdateDeliveryRequestQueue();
 	void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle);

@@ -94,8 +94,8 @@ public class ControllerBehaviour : MonoBehaviour
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
 
         /* SCHEDULER CHOICE */
-		//scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
-		scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
+		scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
+		//scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
 		//scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
 
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
@@ -163,7 +163,7 @@ public class ControllerBehaviour : MonoBehaviour
 		++completedDeliveries;
 		avgDeliveryTime += deliveryTime;
 
-		revenue += TimeValueFunctions.DeliveryValue(deliveryTime, deliveryInfo.packageInfo);
+		revenue += TimeValueFunctions.DeliveryValue(deliveryTime, deliveryInfo.packageInfo, deliveryInfo.timeValueFunction);
 	}
 
     void HandleTargetRequest(Improbable.Entity.Component.ResponseHandle<Controller.Commands.RequestNewTarget, TargetRequest, TargetResponse> handle)
@@ -239,7 +239,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15}"
+		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15} {16}"
                                , gameObject.EntityId().Id
 		                       , deliveriesMap.Count
 		                       , scheduler.GetQueueSize()
@@ -255,7 +255,8 @@ public class ControllerBehaviour : MonoBehaviour
 		                       , failedLaunches
                                , collisionsReported
 		                       , unknownRequests
-		                       , scheduler.GetTotalRequests());
+		                       , scheduler.GetPotentialLost()
+		                       , scheduler.GetAvgPotentialLost());
     }
 
     void HandleCollision(Improbable.Entity.Component.ResponseHandle<Controller.Commands.Collision, CollisionRequest, CollisionResponse> handle)
@@ -414,6 +415,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 		deliveryInfo.timestamp = entry.timestamp;
 		deliveryInfo.packageInfo = request.packageInfo;
+		deliveryInfo.timeValueFunction = request.timeValueFunction;
 
 		deliveryInfo.slot = GetNextSlot();
 		if (deliveryInfo.slot < 0)

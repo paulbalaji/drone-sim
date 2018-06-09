@@ -11,14 +11,28 @@ enum PackageType {
 	PARCEL = 5;
 }
 
+enum DeliveryType {
+	STANDARD = 0;
+	PRIORITY = 1;
+	URGENT = 2;
+	SUPER_PRIORITY = 3;
+}
+
 type PackageInfo {
 	PackageType type = 1;
 	float weight = 2;
 }
 
+type TimeValueFunction {
+	list<bool> steps = 1;
+	int32 num_steps = 2;
+	DeliveryType tier = 3;
+}
+
 type DeliveryRequest {
-  improbable.Vector3f destination = 1;
-  PackageInfo package_info = 2;
+	improbable.Vector3f destination = 1;
+	PackageInfo package_info = 2;
+	TimeValueFunction time_value_function = 3;
 }
 
 type QueueEntry {
@@ -33,11 +47,12 @@ type DeliveryResponse {
 }
 
 component DeliveryHandler {
-  id = 1201;
+	id = 1201;
 
-  list<QueueEntry> request_queue = 1;
+	list<QueueEntry> request_queue = 1;
 
-  float penalties = 2;
+	float potential = 2;
+	int32 rejections = 3;
 
-  command DeliveryResponse request_delivery(DeliveryRequest);
+	command DeliveryResponse request_delivery(DeliveryRequest);
 }
