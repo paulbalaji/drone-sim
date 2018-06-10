@@ -179,13 +179,13 @@ The main factors that could prompt higher adoption of drones for delivery networ
 
 It appears then that Amazon stands to increase their margins considerably if they can successfully pull off their Prime Air initiative\cite{Welch2015}, but to do this they need to be able to handle the additional problems of scheduling and load balancing massive quantities of drones, on top of the existing routing problems. \\
 
-In a more general sense, goods delivery networks have a lot to gain by optimising for profit, and to do this better we consider a variable delivery pricing mechanism that factors in the quality of service provided to the user. A high-priority product may warrant a higher delivery fee for quicker delivery but an similarly high penalty for being late. At the same time, a low-priority product may not have any such penalty, instead opting for a low delivery fee. Being able to factor this new fee model when scheduling tasks and allocating drones may be the next step in the ongoing automation of last-mile delivery\cite{Joerss2016}.
+In a more general sense, goods delivery networks have a lot to gain by optimising for profit, and to do this better we consider a variable delivery pricing mechanism that factors in the quality of service provided to the user. A high-priority product may warrant a higher delivery fee for quicker delivery but a similarly high penalty for being late. At the same time, a low-priority product may not have any such penalty, instead opting for a low delivery fee. Being able to factor this new fee model when scheduling tasks and allocating drones may be the next step in the ongoing automation of last-mile delivery\cite{Joerss2016}.
 
 Regardless of how such a model is implemented, it needs to be tested thoroughly before being deployed into production with actual drones. Considering a typical delivery drone could cost around \$100 to \$500\cite{Menon2013}, and that there is likely be a lot of failure before a working implementation, there could be several hundreds of thousand dollars worth of losses. \\
 
 Therefore, our best port of call is to simulate scenarios that are as close to the real world as possible. One tech firm investigating how to produce richer, meaningful and more realistic simulations is \textit{Improbable}\cite{ImprobableWorldsLtd.2018a} - a London-based tech startup actively developing a distributed simulation platform called \textit{SpatialOS}\cite{ImprobableWorldsLtd.2018b}. \\
 
-We aim to leverage the power of SpatialOS to produce novel simulations of a drone delivery network. The simulation will build upon existing routing solutions\cite{Balaji2017} and would aim to schedule deliveries based on a Quality of Service value curve. Furthermore, we wish to show how the net profit of a drone delivery network with this form of scheduling might compare to delivery networks that utilise a different scheduling mechanism.
+We aim to leverage the power of SpatialOS to produce novel simulations of a drone delivery network. The simulation will build upon existing routing solutions\cite{Balaji2017} and would aim to schedule deliveries based on a Quality of Service value curve. Furthermore, we wish to show how the profitability of a drone delivery network with this form of scheduling might compare to delivery networks that utilise a different scheduling mechanism.
 
 %**********************************************%
 \newpage
@@ -565,16 +565,6 @@ By virtue of games having several dynamic systems all interlinking with each oth
 
 %**********************************************%
 \newpage
-\section{Prioritising Economic Value}
-Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, the existing implementation of AATC only touches upon the routing aspect - how to get from point A to point B. Even in all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios. \\
-
-To gain greater understanding of how drones can positively impact industries, simulations need to be performed which take into account the financial aspect of their use case. For example when it comes to drone delivery networks, we want to ensure that the drones not only reach their destination quickly, but that they also get scheduled and utilised in the appropriate manner to maximise the profitability of the network.
-
-\subsection{Time Value Functions}
-In order to consider how to maximise profitability, we introduce the concept of a Time Value Function (TVF). Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is a function of the time taken to do said delivery. For example, a user may pay £5 for a delivery within 30 minutes but might be charged nothing if it takes longer than one hour.\\
-
-%**********************************************%
-\newpage
 \section{Drone-Controller Architecture}
 blabla
 
@@ -587,6 +577,16 @@ blabla
 \newpage
 \section{Scheduling Deliveries}
 blabla
+
+%**********************************************%
+\newpage
+\section{Prioritising Economic Value}
+Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, the existing implementation of AATC only touches upon the routing aspect - how to get from point A to point B. Even in all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios. \\
+
+To gain greater understanding of how drones can positively impact industries, simulations need to be performed which take into account the financial aspect of their use case. For example when it comes to drone delivery networks, we want to ensure that the drones not only reach their destination quickly, but that they also get scheduled and utilised in the appropriate manner to maximise the profitability of the network.
+
+\subsection{Time Value Functions}
+In order to consider how to maximise profitability, we introduce the concept of a Time Value Function (TVF). Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is a function of the time taken to do said delivery. For example, a user may pay £5 for a delivery within 30 minutes but might be charged nothing if it takes longer than one hour.\\
 
 %**********************************************%
 \newpage

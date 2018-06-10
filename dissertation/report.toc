@@ -78,15 +78,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.8.4}Layered Simulation}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Prioritising Economic Value}{28}
+\contentsline {section}{\numberline {3}Drone-Controller Architecture}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Time Value Functions}{28}
+\contentsline {section}{\numberline {4}Order Generation}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Drone-Controller Architecture}{29}
+\contentsline {section}{\numberline {5}Scheduling Deliveries}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Order Generation}{30}
+\contentsline {section}{\numberline {6}Prioritising Economic Value}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Scheduling Deliveries}{31}
+\contentsline {subsection}{\numberline {6.1}Time Value Functions}{31}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7}Evaluation}{32}
 \defcounter {refsection}{0}\relax 
