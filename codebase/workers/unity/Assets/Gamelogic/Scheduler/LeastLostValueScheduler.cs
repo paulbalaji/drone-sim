@@ -23,8 +23,6 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 
 	int incomingRequests;
 
-	bool newEntries;
- 
 	float potential;
     int rejections;
 
@@ -41,8 +39,6 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
         {
 			requestQueue.Add(entry);
         }
-
-		newEntries = true;
 
 		DeliveryHandlerWriter.CommandReceiver.OnRequestDelivery.RegisterAsyncResponse(EnqueueDeliveryRequest);
 	}
@@ -61,7 +57,6 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 		float estimatedTime = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
 		QueueEntry queueEntry = new QueueEntry(Time.time, handle.Request, 0, estimatedTime);
 		requestQueue.Add(queueEntry);
-		newEntries = true;
         handle.Respond(new DeliveryResponse(true));
     }
 
@@ -151,20 +146,16 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
     {
 		if (requestQueue.Count > 0)
 		{
-			if (newEntries)
+			SortQueue();
+			while(requestQueue.Count > SimulationSettings.MaxDeliveryRequestQueueSize)
 			{
-				SortQueue();
-				while(requestQueue.Count > SimulationSettings.MaxDeliveryRequestQueueSize)
-				{
-					QueueEntry minEntry = requestQueue.Min;
-					float duration = Time.time - minEntry.timestamp + minEntry.expectedDuration;
-					float value = ExpectedValue(duration, minEntry.request.packageInfo, minEntry.request.timeValueFunction);
-					requestQueue.Remove(minEntry);
+				QueueEntry minEntry = requestQueue.Min;
+				float duration = Time.time - minEntry.timestamp + minEntry.expectedDuration;
+				float value = ExpectedValue(duration, minEntry.request.packageInfo, minEntry.request.timeValueFunction);
+				requestQueue.Remove(minEntry);
 
-					potential += value;
-                    ++rejections;
-				}
-				newEntries = false;
+				potential += value;
+                ++rejections;
 			}
 
 			queueEntry = requestQueue.Max;
@@ -185,16 +176,18 @@ class LLVComparer : IComparer<QueueEntry>
         //a < b ==> -1
         //a == b ==> 0
 
+        //two entries are same if matching priority AND timestamp
+		if (x.priority == y.priority && x.timestamp == y.timestamp)
+		{
+			return 0;
+		}
+
+        //order by priority
 		if (x.priority > y.priority)
 		{
 			return 1;
 		}
 
-		if (x.priority < y.priority)
-		{
-			return -1;
-		}
-
-		return 0;
+		return -1;
 	}
 }

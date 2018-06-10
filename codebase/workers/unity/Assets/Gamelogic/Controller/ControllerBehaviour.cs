@@ -94,8 +94,8 @@ public class ControllerBehaviour : MonoBehaviour
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
 
         /* SCHEDULER CHOICE */
-		scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
-		//scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
+		//scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
+		scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
 		//scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
 
         UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
