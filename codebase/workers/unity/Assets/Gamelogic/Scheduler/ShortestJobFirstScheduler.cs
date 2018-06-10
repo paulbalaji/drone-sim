@@ -98,14 +98,14 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
 		return requestQueue.Count;
 	}
 
-	int Scheduler.GetPotentialLost()
+	float Scheduler.GetPotentialLost()
     {
-		return Mathf.RoundToInt(potential);
+        return potential;
     }
 
     float Scheduler.GetAvgPotentialLost()
     {
-		return potential / rejections;
+        return potential / rejections;
     }
 
 	bool Scheduler.GetNextRequest(out QueueEntry queueEntry)

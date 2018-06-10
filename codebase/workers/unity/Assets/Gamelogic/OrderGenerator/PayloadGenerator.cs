@@ -6,36 +6,36 @@ using UnityEngine;
 
 public static class PayloadGenerator
 {
-	public static int GetPackageCost(PackageInfo packageInfo)
+	public static float GetPackageCost(PackageInfo packageInfo)
 	{
 		switch (packageInfo.type)
         {
             case PackageType.LETTER_SMALL:
-                return 60;
+                return 0.6f;
             case PackageType.LETTER_LARGE:
-                return 80;
+                return 0.8f;
             case PackageType.ENVELOPE_SMALL:
-                return 109;
+                return 1.09f;
             case PackageType.ENVELOPE_STANDARD:
 				if (packageInfo.weight < 101)
-					return 121;
+					return 1.21f;
 				if (packageInfo.weight < 251)
-					return 134;
-				return 154;
+					return 1.34f;
+				return 1.54f;
             case PackageType.ENVELOPE_LARGE:
-                return 177;
+                return 1.77f;
             case PackageType.PARCEL:
 				if (packageInfo.weight < 251)
-					return 173;
+					return 1.73f;
 				if (packageInfo.weight < 501)
-                    return 179;
+                    return 1.79f;
 				if (packageInfo.weight < 1001)
-                    return 184;
+                    return 1.84f;
 				if (packageInfo.weight < 1501)
-                    return 226;
+                    return 2.26f;
 				if (packageInfo.weight < 2001)
-                    return 248;
-                return 332;
+                    return 2.48f;
+                return 3.32f;
 			default:
 				//should never get here
 				return 0;

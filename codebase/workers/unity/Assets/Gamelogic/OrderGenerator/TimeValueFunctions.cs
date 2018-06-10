@@ -6,18 +6,22 @@ using UnityEngine;
 
 public static class TimeValueFunctions
 {
-	public static int DeliveryValue(float deliveryTime, PackageInfo packageInfo, TimeValueFunction tvf)
+	public static float DeliveryValue(float deliveryTime, PackageInfo packageInfo, TimeValueFunction tvf)
     {
+		if (deliveryTime > SimulationSettings.DeliveryTimeLimit)
+        {
+            return 0;
+        }
+
 		float maxRevenue = PayloadGenerator.GetPackageCost(packageInfo) * Mathf.Pow(SimulationSettings.TierModifier, (int)tvf.tier);
 
-		float penaltyStep = maxRevenue / tvf.numSteps;
-		int stepsHit = 0;
-
-		if (deliveryTime > SimulationSettings.DeliveryTimeLimit)
+		float penaltyStep = maxRevenue / (float)tvf.numSteps;
+		if (tvf.numSteps == 0)
 		{
-			return 0;
+			return maxRevenue;
 		}
 
+		int stepsHit = 0;
 		int tvfStep = 0;
 		for (float timeStep = SimulationSettings.TVFStepInterval; timeStep < deliveryTime; timeStep += SimulationSettings.TVFStepInterval)
 		{
@@ -26,13 +30,13 @@ public static class TimeValueFunctions
 				stepsHit++;
 				if (stepsHit == tvf.numSteps)
                 {
-                    break;
+					return 0;
                 }
 			}
 			++tvfStep;
 		}
 
-		return Mathf.RoundToInt(maxRevenue - (penaltyStep * stepsHit));
+		return maxRevenue - (penaltyStep * stepsHit);
     }
 
 	public static TimeValueFunction GenerateTypeA(DeliveryType deliveryType)

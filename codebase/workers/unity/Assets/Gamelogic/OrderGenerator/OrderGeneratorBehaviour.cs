@@ -59,7 +59,7 @@ public class OrderGeneratorBehaviour : MonoBehaviour
         SpatialOS.Commands.SendCommand(
 			OrderWriter,
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
-			new DeliveryRequest(deliveryDestination, GeneratePayload(), GenerateTVF(true)),
+			new DeliveryRequest(deliveryDestination, GeneratePayload(), GenerateTVF(false)),
             closestController)
 		         .OnSuccess((response) => DeliveryRequestCallback(response.success))
 		         .OnFailure((response) => DeliveryRequestFail());

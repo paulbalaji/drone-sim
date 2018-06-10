@@ -46,7 +46,7 @@ public class ControllerBehaviour : MonoBehaviour
 
 	int usedSlots;
 
-	int revenue;
+	float revenue;
 	float costs;
 	float penalties;
 

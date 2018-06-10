@@ -94,9 +94,9 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 		return requestQueue.Count;
 	}
 
-	int Scheduler.GetPotentialLost()
+	float Scheduler.GetPotentialLost()
     {
-        return Mathf.RoundToInt(potential);
+        return potential;
     }
 
     float Scheduler.GetAvgPotentialLost()

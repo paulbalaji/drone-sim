@@ -81,9 +81,9 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 		return deliveryRequestQueue.Count;
 	}
 
-	int Scheduler.GetPotentialLost()
+	float Scheduler.GetPotentialLost()
     {
-        return Mathf.RoundToInt(potential);
+		return potential;
     }
 
     float Scheduler.GetAvgPotentialLost()
