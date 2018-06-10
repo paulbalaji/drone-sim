@@ -19,6 +19,26 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{Channel2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=6c6ceefd1c889244fdf7ad27668c08f9}{%
+           family={{Amazon.com Inc.}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6c6ceefd1c889244fdf7ad27668c08f9}
+      \strng{fullhash}{6c6ceefd1c889244fdf7ad27668c08f9}
+      \strng{authornamehash}{6c6ceefd1c889244fdf7ad27668c08f9}
+      \strng{authorfullhash}{6c6ceefd1c889244fdf7ad27668c08f9}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Fulfilment by Amazon (FBA) Programme Fees}}
+      \field{year}{2017}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/FBA{\_}UK{\_}Rate{\_}Card.pdf:pdf
+      \endverb
+    \endentry
     \entry{Balaji2017a}{misc}{}
       \name{author}{6}{}{%
         {{hash=637c4884604f132cd236225ec940b0f8}{%

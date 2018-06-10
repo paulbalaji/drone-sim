@@ -24,72 +24,72 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.2.4}Toll Zones}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}TODO: Understanding Amazon}{11}
+\contentsline {subsection}{\numberline {2.3}Amazon Prime}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}Amazon Prime}{11}
+\contentsline {subsubsection}{\numberline {2.3.1}Fulfilment by Amazon}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.2}Amazon Air}{11}
+\contentsline {subsubsection}{\numberline {2.3.2}Amazon Prime Air}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Autonomous Air Traffic Control (AATC)}{11}
+\contentsline {subsection}{\numberline {2.4}Autonomous Air Traffic Control (AATC)}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.1}What is AATC?}{11}
+\contentsline {subsubsection}{\numberline {2.4.1}What is AATC?}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.2}Technical Overview}{12}
+\contentsline {subsubsection}{\numberline {2.4.2}Technical Overview}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5}The Global Layer}{13}
+\contentsline {subsection}{\numberline {2.5}The Global Layer}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.1}Dijkstra's Algorithm}{13}
+\contentsline {subsubsection}{\numberline {2.5.1}Dijkstra's Algorithm}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.2}A* Algorithm}{14}
+\contentsline {subsubsection}{\numberline {2.5.2}A* Algorithm}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Theta* Algorithm}{15}
+\contentsline {subsubsection}{\numberline {2.5.3}Theta* Algorithm}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.4}Lazy Theta* Algorithm}{15}
+\contentsline {subsubsection}{\numberline {2.5.4}Lazy Theta* Algorithm}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.5}Conclusions}{16}
+\contentsline {subsubsection}{\numberline {2.5.5}Conclusions}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}The Reactive Layer}{18}
+\contentsline {subsection}{\numberline {2.6}The Reactive Layer}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.1}Artificial Potential Fields (APF)}{18}
+\contentsline {subsubsection}{\numberline {2.6.1}Artificial Potential Fields (APF)}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.2}Equations for APF}{19}
+\contentsline {subsubsection}{\numberline {2.6.2}Equations for APF}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.3}Genetic Algorithm}{20}
+\contentsline {subsubsection}{\numberline {2.6.3}Genetic Algorithm}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.4}Conclusions}{22}
+\contentsline {subsubsection}{\numberline {2.6.4}Conclusions}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}Scheduling Algorithms}{22}
+\contentsline {subsection}{\numberline {2.7}Scheduling Algorithms}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}First Come First Serve (FCFS)}{23}
+\contentsline {subsubsection}{\numberline {2.7.1}First Come First Serve (FCFS)}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Shortest Job First (SJF)}{23}
+\contentsline {subsubsection}{\numberline {2.7.2}Shortest Job First (SJF)}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}Priority Scheduling}{23}
+\contentsline {subsubsection}{\numberline {2.7.3}Priority Scheduling}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.4}Multi-Level Feedback Queue (MLFQ)}{23}
+\contentsline {subsubsection}{\numberline {2.7.4}Multi-Level Feedback Queue (MLFQ)}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.8}SpatialOS}{25}
+\contentsline {subsection}{\numberline {2.8}SpatialOS}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.1}Unity SDK}{26}
+\contentsline {subsubsection}{\numberline {2.8.1}Unity SDK}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.2}Abstraction}{26}
+\contentsline {subsubsection}{\numberline {2.8.2}Abstraction}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.3}Developer Tools}{26}
+\contentsline {subsubsection}{\numberline {2.8.3}Developer Tools}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.4}Layered Simulation}{27}
+\contentsline {subsubsection}{\numberline {2.8.4}Layered Simulation}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Drone-Controller Architecture}{28}
+\contentsline {section}{\numberline {3}TODO: Drone-Controller Architecture}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Order Generation}{29}
+\contentsline {section}{\numberline {4}TODO: Order Generation}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Scheduling Deliveries}{30}
+\contentsline {section}{\numberline {5}TODO: Scheduling Deliveries}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Prioritising Economic Value}{31}
+\contentsline {section}{\numberline {6}TODO: Prioritising Economic Value}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Time Value Functions}{31}
+\contentsline {subsection}{\numberline {6.1}Time Value Functions}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Evaluation}{32}
+\contentsline {section}{\numberline {7}TODO: Evaluation}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Conclusion \& Future Work}{33}
+\contentsline {section}{\numberline {8}TODO: Conclusion \& Future Work}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{34}
+\contentsline {section}{References}{35}
