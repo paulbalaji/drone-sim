@@ -28,6 +28,8 @@ namespace Assets.Gamelogic.Core
 		public static readonly uint MaxDroneCountPerController = 15;
         public static readonly uint MaxDeliveryRequestQueueSize = 40;
 
+		public static readonly uint RequestQueueOverflow = 50;
+
         //profiling, comment out when not used
         //public static readonly float maxX = 400; //31500m width
         //public static readonly float maxZ = 400; //14000m height

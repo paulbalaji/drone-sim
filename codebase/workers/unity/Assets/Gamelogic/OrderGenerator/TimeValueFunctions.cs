@@ -22,18 +22,24 @@ public static class TimeValueFunctions
 		}
 
 		int stepsHit = 0;
-		int tvfStep = 0;
-		for (float timeStep = SimulationSettings.TVFStepInterval; timeStep < deliveryTime; timeStep += SimulationSettings.TVFStepInterval)
+		float timeStep = SimulationSettings.TVFStepInterval;
+		for (int i = 0; i < tvf.steps.Count; i++)
 		{
-			if (tvf.steps[tvfStep])
+			if (deliveryTime < timeStep)
 			{
-				stepsHit++;
-				if (stepsHit == tvf.numSteps)
-                {
-					return 0;
-                }
+				break;
 			}
-			++tvfStep;
+
+			timeStep += SimulationSettings.TVFStepInterval;
+
+			if (tvf.steps[i])
+			{
+				++stepsHit;
+				if (stepsHit == tvf.numSteps)
+				{
+					return 0;
+				}
+			}
 		}
 
 		return maxRevenue - (penaltyStep * stepsHit);
@@ -43,7 +49,7 @@ public static class TimeValueFunctions
     {
         Improbable.Collections.List<bool> steps = new Improbable.Collections.List<bool>(SimulationSettings.TVFSteps);
         int numSteps = SimulationSettings.TVFSteps;
-        for (int i = 0; i < numSteps; i++)
+		for (int i = 0; i < steps.Capacity; i++)
         {
             steps.Add(true);
         }
@@ -54,7 +60,7 @@ public static class TimeValueFunctions
     {
         Improbable.Collections.List<bool> steps = new Improbable.Collections.List<bool>(SimulationSettings.TVFSteps);
         int numSteps = 2;
-        for (int i = 0; i < numSteps; i++)
+		for (int i = 0; i < steps.Capacity; i++)
         {
             steps.Add(i == 4 || i == 9);
         }
