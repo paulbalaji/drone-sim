@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  11 JUN 2018 05:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  11 JUN 2018 06:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -64,18 +64,316 @@ File: babel.def 2017/05/19 3.10 Babel common definitions
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
- (/usr/local/texlive/2017/texmf-dist/tex/latex/ucs/utf8x.def
-File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
-)) (/usr/local/texlive/2017/texmf-dist/tex/latex/ucs/ucs.sty
-Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
- (/usr/local/texlive/2017/texmf-dist/tex/latex/ucs/data/uni-global.def
-File: uni-global.def 2013/05/13 UCS: Unicode global data
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0100 (decimal 256)
+   defining Unicode char U+0101 (decimal 257)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+0108 (decimal 264)
+   defining Unicode char U+0109 (decimal 265)
+   defining Unicode char U+010A (decimal 266)
+   defining Unicode char U+010B (decimal 267)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0112 (decimal 274)
+   defining Unicode char U+0113 (decimal 275)
+   defining Unicode char U+0114 (decimal 276)
+   defining Unicode char U+0115 (decimal 277)
+   defining Unicode char U+0116 (decimal 278)
+   defining Unicode char U+0117 (decimal 279)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011C (decimal 284)
+   defining Unicode char U+011D (decimal 285)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0120 (decimal 288)
+   defining Unicode char U+0121 (decimal 289)
+   defining Unicode char U+0122 (decimal 290)
+   defining Unicode char U+0123 (decimal 291)
+   defining Unicode char U+0124 (decimal 292)
+   defining Unicode char U+0125 (decimal 293)
+   defining Unicode char U+0128 (decimal 296)
+   defining Unicode char U+0129 (decimal 297)
+   defining Unicode char U+012A (decimal 298)
+   defining Unicode char U+012B (decimal 299)
+   defining Unicode char U+012C (decimal 300)
+   defining Unicode char U+012D (decimal 301)
+   defining Unicode char U+012E (decimal 302)
+   defining Unicode char U+012F (decimal 303)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0134 (decimal 308)
+   defining Unicode char U+0135 (decimal 309)
+   defining Unicode char U+0136 (decimal 310)
+   defining Unicode char U+0137 (decimal 311)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013B (decimal 315)
+   defining Unicode char U+013C (decimal 316)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0145 (decimal 325)
+   defining Unicode char U+0146 (decimal 326)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+014C (decimal 332)
+   defining Unicode char U+014D (decimal 333)
+   defining Unicode char U+014E (decimal 334)
+   defining Unicode char U+014F (decimal 335)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0156 (decimal 342)
+   defining Unicode char U+0157 (decimal 343)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015C (decimal 348)
+   defining Unicode char U+015D (decimal 349)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+0168 (decimal 360)
+   defining Unicode char U+0169 (decimal 361)
+   defining Unicode char U+016A (decimal 362)
+   defining Unicode char U+016B (decimal 363)
+   defining Unicode char U+016C (decimal 364)
+   defining Unicode char U+016D (decimal 365)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0172 (decimal 370)
+   defining Unicode char U+0173 (decimal 371)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+01CD (decimal 461)
+   defining Unicode char U+01CE (decimal 462)
+   defining Unicode char U+01CF (decimal 463)
+   defining Unicode char U+01D0 (decimal 464)
+   defining Unicode char U+01D1 (decimal 465)
+   defining Unicode char U+01D2 (decimal 466)
+   defining Unicode char U+01D3 (decimal 467)
+   defining Unicode char U+01D4 (decimal 468)
+   defining Unicode char U+01E2 (decimal 482)
+   defining Unicode char U+01E3 (decimal 483)
+   defining Unicode char U+01E6 (decimal 486)
+   defining Unicode char U+01E7 (decimal 487)
+   defining Unicode char U+01E8 (decimal 488)
+   defining Unicode char U+01E9 (decimal 489)
+   defining Unicode char U+01EA (decimal 490)
+   defining Unicode char U+01EB (decimal 491)
+   defining Unicode char U+01F0 (decimal 496)
+   defining Unicode char U+01F4 (decimal 500)
+   defining Unicode char U+01F5 (decimal 501)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
+   defining Unicode char U+1E02 (decimal 7682)
+   defining Unicode char U+1E03 (decimal 7683)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2010 (decimal 8208)
+   defining Unicode char U+2011 (decimal 8209)
+   defining Unicode char U+2012 (decimal 8210)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2015 (decimal 8213)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
 )
-\uc@secondtry=\count91
-\uc@combtoks=\toks18
-\uc@combtoksb=\toks19
-\uc@temptokena=\toks20
-) (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+)) (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/11/05 v2.16a AMS math features
 \@mathmargin=\skip43
 
@@ -84,7 +382,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
  (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
+\@emptytoks=\toks18
 \ex@=\dimen112
 )) (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -92,13 +390,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count92
+\inf@bad=\count91
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count93
-\leftroot@=\count94
+\uproot@=\count92
+\leftroot@=\count93
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count95
-\DOTSCASE@=\count96
+\classnum@=\count94
+\DOTSCASE@=\count95
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
@@ -107,32 +405,39 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen114
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count97
-\c@MaxMatrixCols=\count98
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
 \dotsspace@=\muskip10
-\c@parentequation=\count99
-\dspbrk@lvl=\count100
-\tag@help=\toks22
-\row@=\count101
-\column@=\count102
-\maxfields@=\count103
-\andhelp@=\toks23
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks19
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks20
 \eqnshift@=\dimen115
 \alignsep@=\dimen116
 \tagshift@=\dimen117
 \tagwidth@=\dimen118
 \totwidth@=\dimen119
 \lineht@=\dimen120
-\@envbody=\toks24
+\@envbody=\toks21
 \multlinegap=\skip44
 \multlinetaggap=\skip45
-\mathdisplay@stack=\toks25
+\mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
+\symAMSa=\mathgroup7
+\symAMSb=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -152,23 +457,23 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count104
+\Gread@gobject=\count103
 ))
 \Gin@req@height=\dimen121
 \Gin@req@width=\dimen122
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
 Package: todonotes 2012/07/25
- (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(/usr/local/texlive/2017/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks26
-\XKV@tempa@toks=\toks27
+\XKV@toks=\toks23
+\XKV@tempa@toks=\toks24
 )
-\XKV@depth=\count105
+\XKV@depth=\count104
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -186,25 +491,25 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks28
+\pgfutil@everybye=\toks25
 \pgfutil@tempdima=\dimen123
 \pgfutil@tempdimb=\dimen124
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box28
  (/usr/local/texlive/2017/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
 Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
 ))
 Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks29
-\pgfkeys@temptoks=\toks30
+\pgfkeys@pathtoks=\toks26
+\pgfkeys@temptoks=\toks27
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks31
+\pgfkeys@tmptoks=\toks28
 ))
 \pgf@x=\dimen125
 \pgf@y=\dimen126
@@ -216,13 +521,13 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \pgf@yc=\dimen132
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count106
-\c@pgf@countb=\count107
-\c@pgf@countc=\count108
-\c@pgf@countd=\count109
-\t@pgf@toka=\toks32
-\t@pgf@tokb=\toks33
-\t@pgf@tokc=\toks34
+\c@pgf@counta=\count105
+\c@pgf@countb=\count106
+\c@pgf@countc=\count107
+\c@pgf@countd=\count108
+\t@pgf@toka=\toks29
+\t@pgf@tokb=\toks30
+\t@pgf@tokc=\toks31
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
@@ -233,23 +538,23 @@ File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 ))) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count110
-\pgfsyssoftpath@bigbuffer@items=\count111
+\pgfsyssoftpath@smallbuffer@items=\count109
+\pgfsyssoftpath@bigbuffer@items=\count110
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
 )) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
- (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen133
-\pgfmath@count=\count112
+\pgfmath@count=\count111
 \pgfmath@box=\box29
-\pgfmath@toks=\toks35
-\pgfmath@stack@operand=\toks36
-\pgfmath@stack@operation=\toks37
-) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count113
+\pgfmath@toks=\toks32
+\pgfmath@stack@operand=\toks33
+\pgfmath@stack@operation=\toks34
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count112
 )) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@picminx=\dimen134
@@ -279,7 +584,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box30
 \pgf@hbox=\box31
 \pgf@layerbox@main=\box32
-\pgf@picture@serial@count=\count114
+\pgf@picture@serial@count=\count113
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen152
@@ -292,7 +597,8 @@ File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
-) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
@@ -300,7 +606,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen157
-\pgf@sys@shading@range@num=\count115
+\pgf@sys@shading@range@num=\count114
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -321,21 +627,21 @@ File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
 \pgf@nodesepstart=\dimen158
 \pgf@nodesepend=\dimen159
-) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
-))
-(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+)) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen160
 \pgffor@skip=\dimen161
-\pgffor@stack=\toks38
-\pgffor@toks=\toks39
+\pgffor@stack=\toks35
+\pgffor@toks=\toks36
 )) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count116
+\pgf@plot@mark@count=\count115
 \pgfplotmarksize=\dimen162
 )
 \tikz@lastx=\dimen163
@@ -348,17 +654,17 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box36
 \tikz@tempbox=\box37
 \tikz@tempbox@bg=\box38
-\tikztreelevel=\count117
-\tikznumberofchildren=\count118
-\tikznumberofcurrentchild=\count119
-\tikz@fig@count=\count120
+\tikztreelevel=\count116
+\tikznumberofchildren=\count117
+\tikznumberofcurrentchild=\count118
+\tikz@fig@count=\count119
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count121
-\pgfmatrixcurrentcolumn=\count122
-\pgf@matrix@numberofcolumns=\count123
+\pgfmatrixcurrentrow=\count120
+\pgfmatrixcurrentcolumn=\count121
+\pgf@matrix@numberofcolumns=\count122
 )
-\tikz@expandcount=\count124
+\tikz@expandcount=\count123
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
@@ -366,23 +672,23 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count125
-\calc@Bcount=\count126
+\calc@Acount=\count124
+\calc@Bcount=\count125
 \calc@Adimen=\dimen169
 \calc@Bdimen=\dimen170
 \calc@Askip=\skip46
 \calc@Bskip=\skip47
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count127
+\calc@Ccount=\count126
 \calc@Cskip=\skip48
 )
-\c@@todonotes@numberoftodonotes=\count128
+\c@@todonotes@numberoftodonotes=\count127
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count129
-\c@@ppsavesec=\count130
-\c@@ppsaveapp=\count131
+\c@@pps=\count128
+\c@@ppsavesec=\count129
+\c@@ppsaveapp=\count130
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \fancy@headwidth=\skip49
@@ -395,22 +701,22 @@ Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \f@ncyO@olf=\skip56
 \f@ncyO@orf=\skip57
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count132
+\lst@mode=\count131
 \lst@gtempboxa=\box39
-\lst@token=\toks40
-\lst@length=\count133
+\lst@token=\toks37
+\lst@length=\count132
 \lst@currlwidth=\dimen171
-\lst@column=\count134
-\lst@pos=\count135
+\lst@column=\count133
+\lst@pos=\count134
 \lst@lostspace=\dimen172
 \lst@width=\dimen173
-\lst@newlines=\count136
-\lst@lineno=\count137
+\lst@newlines=\count135
+\lst@lineno=\count136
 \lst@maxwidth=\dimen174
  (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count138
-\lst@skipnumbers=\count139
+\c@lstnumber=\count137
+\lst@skipnumbers=\count138
 \lst@framebox=\box40
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
@@ -430,7 +736,7 @@ Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count140
+\etb@tempcnta=\count139
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
@@ -444,7 +750,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 ))) (/usr/local/texlive/2017/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count141
+\lrq@indent=\count140
  (/usr/local/texlive/2017/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
@@ -452,49 +758,49 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write4
-\integerpart=\count142
-\decimalpart=\count143
+\integerpart=\count141
+\decimalpart=\count142
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\c@tabx@nest=\count144
-\c@listtotal=\count145
-\c@listcount=\count146
-\c@liststart=\count147
-\c@liststop=\count148
-\c@citecount=\count149
-\c@citetotal=\count150
-\c@multicitecount=\count151
-\c@multicitetotal=\count152
-\c@instcount=\count153
-\c@maxnames=\count154
-\c@minnames=\count155
-\c@maxitems=\count156
-\c@minitems=\count157
-\c@citecounter=\count158
-\c@savedcitecounter=\count159
-\c@uniquelist=\count160
-\c@uniquename=\count161
-\c@refsection=\count162
-\c@refsegment=\count163
-\c@maxextratitle=\count164
-\c@maxextratitleyear=\count165
-\c@maxextrayear=\count166
-\c@maxextraalpha=\count167
-\c@abbrvpenalty=\count168
-\c@highnamepenalty=\count169
-\c@lownamepenalty=\count170
-\c@maxparens=\count171
-\c@parenlevel=\count172
-\blx@tempcnta=\count173
-\blx@tempcntb=\count174
-\blx@tempcntc=\count175
-\blx@maxsection=\count176
-\blx@maxsegment@0=\count177
-\blx@notetype=\count178
-\blx@parenlevel@text=\count179
-\blx@parenlevel@foot=\count180
-\blx@sectionciteorder@0=\count181
+\c@tabx@nest=\count143
+\c@listtotal=\count144
+\c@listcount=\count145
+\c@liststart=\count146
+\c@liststop=\count147
+\c@citecount=\count148
+\c@citetotal=\count149
+\c@multicitecount=\count150
+\c@multicitetotal=\count151
+\c@instcount=\count152
+\c@maxnames=\count153
+\c@minnames=\count154
+\c@maxitems=\count155
+\c@minitems=\count156
+\c@citecounter=\count157
+\c@savedcitecounter=\count158
+\c@uniquelist=\count159
+\c@uniquename=\count160
+\c@refsection=\count161
+\c@refsegment=\count162
+\c@maxextratitle=\count163
+\c@maxextratitleyear=\count164
+\c@maxextrayear=\count165
+\c@maxextraalpha=\count166
+\c@abbrvpenalty=\count167
+\c@highnamepenalty=\count168
+\c@lownamepenalty=\count169
+\c@maxparens=\count170
+\c@parenlevel=\count171
+\blx@tempcnta=\count172
+\blx@tempcntb=\count173
+\blx@tempcntc=\count174
+\blx@maxsection=\count175
+\blx@maxsegment@0=\count176
+\blx@notetype=\count177
+\blx@parenlevel@text=\count178
+\blx@parenlevel@foot=\count179
+\blx@sectionciteorder@0=\count180
 \labelnumberwidth=\skip58
 \labelalphawidth=\skip59
 \biblabelsep=\skip60
@@ -505,80 +811,80 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 \bibhang=\skip65
 \blx@bcfin=\read2
 \blx@bcfout=\write5
-\c@mincomprange=\count182
-\c@maxcomprange=\count183
-\c@mincompwidth=\count184
+\c@mincomprange=\count181
+\c@maxcomprange=\count182
+\c@mincompwidth=\count183
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/biblatex/blx-dm.def)
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count185
-\c@savedafterword=\count186
-\c@annotator=\count187
-\c@savedannotator=\count188
-\c@author=\count189
-\c@savedauthor=\count190
-\c@bookauthor=\count191
-\c@savedbookauthor=\count192
-\c@commentator=\count193
-\c@savedcommentator=\count194
-\c@editor=\count195
-\c@savededitor=\count196
-\c@editora=\count197
-\c@savededitora=\count198
-\c@editorb=\count199
-\c@savededitorb=\count266
-\c@editorc=\count267
-\c@savededitorc=\count268
-\c@foreword=\count269
-\c@savedforeword=\count270
-\c@holder=\count271
-\c@savedholder=\count272
-\c@introduction=\count273
-\c@savedintroduction=\count274
-\c@namea=\count275
-\c@savednamea=\count276
-\c@nameb=\count277
-\c@savednameb=\count278
-\c@namec=\count279
-\c@savednamec=\count280
-\c@translator=\count281
-\c@savedtranslator=\count282
-\c@shortauthor=\count283
-\c@savedshortauthor=\count284
-\c@shorteditor=\count285
-\c@savedshorteditor=\count286
-\c@labelname=\count287
-\c@savedlabelname=\count288
-\c@institution=\count289
-\c@savedinstitution=\count290
-\c@lista=\count291
-\c@savedlista=\count292
-\c@listb=\count293
-\c@savedlistb=\count294
-\c@listc=\count295
-\c@savedlistc=\count296
-\c@listd=\count297
-\c@savedlistd=\count298
-\c@liste=\count299
-\c@savedliste=\count300
-\c@listf=\count301
-\c@savedlistf=\count302
-\c@location=\count303
-\c@savedlocation=\count304
-\c@organization=\count305
-\c@savedorganization=\count306
-\c@origlocation=\count307
-\c@savedoriglocation=\count308
-\c@origpublisher=\count309
-\c@savedorigpublisher=\count310
-\c@publisher=\count311
-\c@savedpublisher=\count312
-\c@language=\count313
-\c@savedlanguage=\count314
-\c@pageref=\count315
-\c@savedpageref=\count316
+\c@afterword=\count184
+\c@savedafterword=\count185
+\c@annotator=\count186
+\c@savedannotator=\count187
+\c@author=\count188
+\c@savedauthor=\count189
+\c@bookauthor=\count190
+\c@savedbookauthor=\count191
+\c@commentator=\count192
+\c@savedcommentator=\count193
+\c@editor=\count194
+\c@savededitor=\count195
+\c@editora=\count196
+\c@savededitora=\count197
+\c@editorb=\count198
+\c@savededitorb=\count199
+\c@editorc=\count266
+\c@savededitorc=\count267
+\c@foreword=\count268
+\c@savedforeword=\count269
+\c@holder=\count270
+\c@savedholder=\count271
+\c@introduction=\count272
+\c@savedintroduction=\count273
+\c@namea=\count274
+\c@savednamea=\count275
+\c@nameb=\count276
+\c@savednameb=\count277
+\c@namec=\count278
+\c@savednamec=\count279
+\c@translator=\count280
+\c@savedtranslator=\count281
+\c@shortauthor=\count282
+\c@savedshortauthor=\count283
+\c@shorteditor=\count284
+\c@savedshorteditor=\count285
+\c@labelname=\count286
+\c@savedlabelname=\count287
+\c@institution=\count288
+\c@savedinstitution=\count289
+\c@lista=\count290
+\c@savedlista=\count291
+\c@listb=\count292
+\c@savedlistb=\count293
+\c@listc=\count294
+\c@savedlistc=\count295
+\c@listd=\count296
+\c@savedlistd=\count297
+\c@liste=\count298
+\c@savedliste=\count299
+\c@listf=\count300
+\c@savedlistf=\count301
+\c@location=\count302
+\c@savedlocation=\count303
+\c@organization=\count304
+\c@savedorganization=\count305
+\c@origlocation=\count306
+\c@savedoriglocation=\count307
+\c@origpublisher=\count308
+\c@savedorigpublisher=\count309
+\c@publisher=\count310
+\c@savedpublisher=\count311
+\c@language=\count312
+\c@savedlanguage=\count313
+\c@pageref=\count314
+\c@savedpageref=\count315
 \shorthandwidth=\skip66
 \shortjournalwidth=\skip67
 \shortserieswidth=\skip68
@@ -594,13 +900,13 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2016/12/05 v3.7 biblatex compatibility (PK/JW/AB)
-\c@textcitecount=\count317
-\c@textcitetotal=\count318
-\c@textcitemaxnames=\count319
-\c@biburlnumpenalty=\count320
-\c@biburlucpenalty=\count321
-\c@biburllcpenalty=\count322
-\c@smartand=\count323
+\c@textcitecount=\count316
+\c@textcitetotal=\count317
+\c@textcitemaxnames=\count318
+\c@biburlnumpenalty=\count319
+\c@biburlucpenalty=\count320
+\c@biburllcpenalty=\count321
+\c@smartand=\count322
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -610,8 +916,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2016/12/05 v3.7 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count324
-\c@bbx:relatedtotal=\count325
+\c@bbx:relatedcount=\count323
+\c@bbx:relatedtotal=\count324
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -635,13 +941,13 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 File: biblatex.cfg 
 )) (/usr/local/texlive/2017/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2017/03/11 v5.2b context-sensitive quotations (JAW)
-\csq@reset=\count326
-\csq@gtype=\count327
-\csq@glevel=\count328
-\csq@qlevel=\count329
-\csq@maxlvl=\count330
-\csq@tshold=\count331
-\csq@ltx@everypar=\toks41
+\csq@reset=\count325
+\csq@gtype=\count326
+\csq@glevel=\count327
+\csq@qlevel=\count328
+\csq@maxlvl=\count329
+\csq@tshold=\count330
+\csq@ltx@everypar=\toks38
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2017/03/11 v5.2b csquotes generic definitions (JAW)
@@ -663,27 +969,16 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@parindent=\dimen180
 \caption@hangindent=\dimen181
 )
-\c@ContinuedFloat=\count332
+\c@ContinuedFloat=\count331
 Package caption Info: listings package is loaded.
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
-\c@subfigure=\count333
-\c@subtable=\count334
+\c@subfigure=\count332
+\c@subtable=\count333
 )
-
-./report.tex:68: Package biblatex Error: Incompatible package 'ucs'.
-
-See the biblatex package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.68 \begin{document}
-                     
-The 'ucs' package and biblatex are incompatible.
-
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2016/12/05 v3.7 biblatex localization (PK/JW/AB)
 )
 Package csquotes Info: Checking for multilingual support...
@@ -697,18 +992,18 @@ LaTeX Warning: Label `fig:starship_citizen' multiply defined.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -744,21 +1039,19 @@ LaTeX Font Info:    ... okay on input line 68.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/ucs/ucsencs.def
-File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
-) (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
+\scratchcounter=\count334
 \scratchdimen=\dimen182
 \scratchbox=\box41
-\nofMPsegments=\count336
-\nofMParguments=\count337
-\everyMPshowfont=\toks42
-\MPscratchCnt=\count338
+\nofMPsegments=\count335
+\nofMParguments=\count336
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count337
 \MPscratchDim=\dimen183
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
-\everyMPtoPDFconversion=\toks43
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
+\everyMPtoPDFconversion=\toks40
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -773,7 +1066,7 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros
-\c@lstlisting=\count341
+\c@lstlisting=\count340
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -782,26 +1075,12 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
  (./report.bbl)
-Package biblatex Info: Reference section=0 on input line 68.
-Package biblatex Info: Reference segment=0 on input line 68.
+Package biblatex Info: Reference section=0 on input line 69.
+Package biblatex Info: Reference segment=0 on input line 69.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-\colveccount=\count342
-
-
-./report.tex:105: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.105 ... Delivery Simulation\\with SpatialOS\\}\\
-                                                  [0.4cm] % Title of your do...
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[1
+\colveccount=\count341
+ [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1] [1] (./report.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 9.
@@ -832,22 +1111,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [2] <img/drone_interest_over_time_google.png, id=25, 2334.7225pt x 811.03pt>
 File: img/drone_interest_over_time_google.png Graphic file (type png)
  <use img/drone_interest_over_time_google.png>
-Package pdftex.def Info: img/drone_interest_over_time_google.png used on input line 161.
+Package pdftex.def Info: img/drone_interest_over_time_google.png used on input line 162.
 (pdftex.def)             Requested size: 426.79135pt x 148.25615pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
 <img/ark-invest-drones-analysis-768x460.png, id=27, 770.88pt x 461.725pt>
 File: img/ark-invest-drones-analysis-768x460.png Graphic file (type png)
  <use img/ark-invest-drones-analysis-768x460.png>
-Package pdftex.def Info: img/ark-invest-drones-analysis-768x460.png used on input line 175.
+Package pdftex.def Info: img/ark-invest-drones-analysis-768x460.png used on input line 176.
 (pdftex.def)             Requested size: 426.79135pt x 255.62633pt.
 
 
@@ -857,12 +1136,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3 <./img/drone_interest_over_time_google.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
@@ -873,7 +1152,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4 <./img/ark-invest-drones-analysis-768x460.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 186--187
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
@@ -884,22 +1163,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
 <img/starship.jpg, id=40, 1204.5pt x 721.69624pt>
 File: img/starship.jpg Graphic file (type jpg)
  <use img/starship.jpg>
-Package pdftex.def Info: img/starship.jpg used on input line 207.
+Package pdftex.def Info: img/starship.jpg used on input line 208.
 (pdftex.def)             Requested size: 426.79135pt x 255.72493pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
@@ -910,12 +1189,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
@@ -928,10 +1207,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [7 <./img/starship.jpg>] <img/google_truck_patent.jpeg, id=47, 481.8pt x 636.3775pt>
 File: img/google_truck_patent.jpeg Graphic file (type jpg)
  <use img/google_truck_patent.jpeg>
-Package pdftex.def Info: img/google_truck_patent.jpeg used on input line 225.
+Package pdftex.def Info: img/google_truck_patent.jpeg used on input line 226.
 (pdftex.def)             Requested size: 170.71393pt x 225.48347pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
 
  []
 
@@ -942,38 +1221,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8 <./img/google_truck_patent.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
@@ -983,27 +1241,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 270--271
-
- []
-
-<img/fulfilled_by_amazon_table.png, id=61, 884.30376pt x 742.775pt>
+[9] <img/fulfilled_by_amazon_table.png, id=54, 884.30376pt x 742.775pt>
 File: img/fulfilled_by_amazon_table.png Graphic file (type png)
  <use img/fulfilled_by_amazon_table.png>
-Package pdftex.def Info: img/fulfilled_by_amazon_table.png used on input line 274.
-(pdftex.def)             Requested size: 341.43437pt x 286.79095pt.
+Package pdftex.def Info: img/fulfilled_by_amazon_table.png used on input line 252.
+(pdftex.def)             Requested size: 384.1096pt x 322.63983pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1011,25 +1253,59 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12 <./img/fulfilled_by_amazon_table.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
+[10 <./img/fulfilled_by_amazon_table.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
-<img/aatc_tech_overview.jpg, id=66, 1178.4025pt x 713.66624pt>
-File: img/aatc_tech_overview.jpg Graphic file (type jpg)
- <use img/aatc_tech_overview.jpg>
-Package pdftex.def Info: img/aatc_tech_overview.jpg used on input line 294.
-(pdftex.def)             Requested size: 341.43437pt x 206.78366pt.
 
+
+pdfTeX warning: pdflatex: arithmetic: number too big
+
+
+pdfTeX warning: pdflatex: arithmetic: number too big
+<img/prime_air_drone.png, id=60, --32768.0pt x 0.0pt>
+File: img/prime_air_drone.png Graphic file (type png)
+ <use img/prime_air_drone.png>
+Package pdftex.def Info: img/prime_air_drone.png used on input line 266.
+(pdftex.def)             Requested size: 341.43437pt x 0.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11 <./img/prime_air_drone.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--288
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 299--300
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 301--302
-
- []
+<img/aatc_tech_overview.jpg, id=68, 1178.4025pt x 713.66624pt>
+File: img/aatc_tech_overview.jpg Graphic file (type jpg)
+ <use img/aatc_tech_overview.jpg>
+Package pdftex.def Info: img/aatc_tech_overview.jpg used on input line 305.
+(pdftex.def)             Requested size: 341.43437pt x 206.78366pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1037,13 +1313,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13] <img/edrone.jpg, id=70, 975.645pt x 824.07875pt>
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 310--311
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--313
+
+ []
+
+<img/edrone.jpg, id=72, 975.645pt x 824.07875pt>
 File: img/edrone.jpg Graphic file (type jpg)
  <use img/edrone.jpg>
-Package pdftex.def Info: img/edrone.jpg used on input line 307.
+Package pdftex.def Info: img/edrone.jpg used on input line 318.
 (pdftex.def)             Requested size: 170.71393pt x 144.19078pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14 <./img/aatc_tech_overview.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
 
  []
 
@@ -1053,32 +1351,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14 <./img/aatc_tech_overview.jpg> <./img/edrone.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
-
- []
-
-<img/search_comparison.png, id=74, 1611.01875pt x 579.16376pt>
+[15 <./img/edrone.jpg>] <img/search_comparison.png, id=79, 1611.01875pt x 579.16376pt>
 File: img/search_comparison.png Graphic file (type png)
  <use img/search_comparison.png>
-Package pdftex.def Info: img/search_comparison.png used on input line 327.
+Package pdftex.def Info: img/search_comparison.png used on input line 338.
 (pdftex.def)             Requested size: 426.79135pt x 153.43347pt.
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[15 <./img/search_comparison.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
 
  []
 
-<img/a_star_vs_optimal.png, id=79, 1626.075pt x 631.35875pt>
+<img/a_star_vs_optimal.png, id=80, 1626.075pt x 631.35875pt>
 File: img/a_star_vs_optimal.png Graphic file (type png)
  <use img/a_star_vs_optimal.png>
-Package pdftex.def Info: img/a_star_vs_optimal.png used on input line 339.
+Package pdftex.def Info: img/a_star_vs_optimal.png used on input line 350.
 (pdftex.def)             Requested size: 426.79135pt x 165.71007pt.
 
 
@@ -1087,14 +1373,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16 <./img/a_star_vs_optimal.png>]
+[16 <./img/search_comparison.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17]
+[17 <./img/a_star_vs_optimal.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1102,14 +1388,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
  []
 
-<img/obst.png, id=91, 823.075pt x 435.6275pt>
+<img/obst.png, id=93, 823.075pt x 435.6275pt>
 File: img/obst.png Graphic file (type png)
  <use img/obst.png>
-Package pdftex.def Info: img/obst.png used on input line 397.
+Package pdftex.def Info: img/obst.png used on input line 408.
 (pdftex.def)             Requested size: 384.1096pt x 203.29587pt.
 
 
@@ -1118,20 +1404,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19 <./img/obst.png>] <img/apf_comp.png, id=96, 886.31125pt x 243.91125pt>
+[19 <./img/obst.png>] <img/apf_comp.png, id=98, 886.31125pt x 243.91125pt>
 File: img/apf_comp.png Graphic file (type png)
  <use img/apf_comp.png>
-Package pdftex.def Info: img/apf_comp.png used on input line 406.
+Package pdftex.def Info: img/apf_comp.png used on input line 417.
 (pdftex.def)             Requested size: 426.79135pt x 117.45569pt.
-
-./report.tex:424: Undefined control sequence.
-l.424 $$\bm
-           {v_{raw}} = \nabla U$$
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1140,26 +1417,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20 <./img/apf_comp.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 440.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 451.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 440.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 451.
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--452
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
 
  []
 
-<img/aatc_spaghett.jpg, id=108, 1495.5875pt x 1204.5pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
+
+ []
+
+<img/aatc_spaghett.jpg, id=112, 1495.5875pt x 1204.5pt>
 File: img/aatc_spaghett.jpg Graphic file (type jpg)
  <use img/aatc_spaghett.jpg>
-Package pdftex.def Info: img/aatc_spaghett.jpg used on input line 457.
+Package pdftex.def Info: img/aatc_spaghett.jpg used on input line 468.
 (pdftex.def)             Requested size: 426.79135pt x 343.72717pt.
 
 
@@ -1176,7 +1453,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22 <./img/aatc_spaghett.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 489--490
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
 
@@ -1186,15 +1463,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23] <img/mlqs.jpg, id=119, 661.47125pt x 440.64626pt>
+[23] <img/mlqs.jpg, id=123, 661.47125pt x 440.64626pt>
 File: img/mlqs.jpg Graphic file (type jpg)
  <use img/mlqs.jpg>
-Package pdftex.def Info: img/mlqs.jpg used on input line 507.
+Package pdftex.def Info: img/mlqs.jpg used on input line 518.
 (pdftex.def)             Requested size: 256.07741pt x 170.58728pt.
- <img/mlfqs.jpg, id=120, 483.8075pt x 310.15875pt>
+ <img/mlfqs.jpg, id=124, 483.8075pt x 310.15875pt>
 File: img/mlfqs.jpg Graphic file (type jpg)
  <use img/mlfqs.jpg>
-Package pdftex.def Info: img/mlfqs.jpg used on input line 516.
+Package pdftex.def Info: img/mlfqs.jpg used on input line 527.
 (pdftex.def)             Requested size: 256.07741pt x 164.17038pt.
 
 
@@ -1210,27 +1487,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./img/mlqs.jpg> <./img/mlfqs.jpg>] <img/spatialos-diagram_current2.png, id=127, 498.19458pt x 418.89833pt>
+[25 <./img/mlqs.jpg> <./img/mlfqs.jpg>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26] <img/spatialos-diagram_current2.png, id=134, 498.19458pt x 418.89833pt>
 File: img/spatialos-diagram_current2.png Graphic file (type png)
  <use img/spatialos-diagram_current2.png>
-Package pdftex.def Info: img/spatialos-diagram_current2.png used on input line 534.
+Package pdftex.def Info: img/spatialos-diagram_current2.png used on input line 551.
 (pdftex.def)             Requested size: 213.39568pt x 179.42604pt.
- <img/spatialos-diagram_solution2.png, id=128, 498.19458pt x 418.89833pt>
+ <img/spatialos-diagram_solution2.png, id=135, 498.19458pt x 418.89833pt>
 File: img/spatialos-diagram_solution2.png Graphic file (type png)
  <use img/spatialos-diagram_solution2.png>
-Package pdftex.def Info: img/spatialos-diagram_solution2.png used on input line 540.
+Package pdftex.def Info: img/spatialos-diagram_solution2.png used on input line 557.
 (pdftex.def)             Requested size: 213.39568pt x 179.42604pt.
 
-./report.tex:548: You can't use `macro parameter character #' in horizontal mode.
-l.548 ...ngines. Alternatively, one can use the C#
-                                                  , C++ and Java SDKs to cre...
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
 
  []
 
@@ -1240,15 +1515,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26 <./img/spatialos-diagram_current2.png> <./img/spatialos-diagram_solution2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 564--565
+[27 <./img/spatialos-diagram_current2.png> <./img/spatialos-diagram_solution2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 581--582
 
  []
 
-<img/io_inspector.png, id=135, 1204.5pt x 632.3625pt>
+<img/io_inspector.png, id=142, 1204.5pt x 632.3625pt>
 File: img/io_inspector.png Graphic file (type png)
  <use img/io_inspector.png>
-Package pdftex.def Info: img/io_inspector.png used on input line 570.
+Package pdftex.def Info: img/io_inspector.png used on input line 587.
 (pdftex.def)             Requested size: 426.79135pt x 224.07053pt.
 
 
@@ -1257,21 +1532,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
+[28]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28 <./img/io_inspector.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[29]
+[29 <./img/io_inspector.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1293,17 +1561,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 602--603
-
- []
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/ucs/data/uni-0.def
-File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
-)
-Underfull \hbox (badness 10000) in paragraph at lines 607--608
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1311,6 +1568,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 619--620
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1339,18 +1605,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [37]
-Overfull \hbox (2.85403pt too wide) in paragraph at lines 629--629
-[]\OT1/cmr/m/n/12 Flightradar24. \OT1/cmr/m/it/12 About Fligh-tradar24\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . flightradar24 .
- []
-
-
-Overfull \hbox (10.78632pt too wide) in paragraph at lines 629--629
-\OT1/cmtt/m/n/12 google . co . uk / trends / explore ? date = all % 7B % 5C & %7Dq = drone % 20technology$
- []
-
-
-Overfull \hbox (21.93701pt too wide) in paragraph at lines 629--629
-[]\OT1/cmr/m/n/12 Improbable Worlds Ltd. \OT1/cmr/m/it/12 Im-prob-a-ble Home Page\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / improbable .
+Overfull \hbox (16.96132pt too wide) in paragraph at lines 646--646
+\OT1/cmtt/m/n/12 amazon . com / images / G / 01 / 112715 / download / Amazon % 7B % 5C _ %7DDetermining %
  []
 
 
@@ -1360,8 +1616,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [38]
-Overfull \hbox (32.31133pt too wide) in paragraph at lines 629--629
-\OT1/cmtt/m/n/12 publication -[] pdf / vcii -[] publication -[] technological -[] disruption -[] innovation -[]
+Overfull \hbox (2.85403pt too wide) in paragraph at lines 646--646
+[]\OT1/cmr/m/n/12 Flightradar24. \OT1/cmr/m/it/12 About Fligh-tradar24\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . flightradar24 .
  []
 
 
@@ -1371,8 +1627,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39]
-Overfull \hbox (6.61766pt too wide) in paragraph at lines 629--629
-\OT1/cmr/m/n/12 2017. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / youtu . be / fTuijWHwAsk ? t = 4m46s$ \OT1/cmr/m/n/12 (vis-ited on 01/25/2018). 
+Overfull \hbox (10.78632pt too wide) in paragraph at lines 646--646
+\OT1/cmtt/m/n/12 google . co . uk / trends / explore ? date = all % 7B % 5C & %7Dq = drone % 20technology$
+ []
+
+
+Overfull \hbox (21.93701pt too wide) in paragraph at lines 646--646
+[]\OT1/cmr/m/n/12 Improbable Worlds Ltd. \OT1/cmr/m/it/12 Im-prob-a-ble Home Page\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / improbable .
  []
 
 
@@ -1382,7 +1643,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [40]
-Overfull \hbox (9.38739pt too wide) in paragraph at lines 629--629
+Overfull \hbox (32.31133pt too wide) in paragraph at lines 646--646
+\OT1/cmtt/m/n/12 publication -[] pdf / vcii -[] publication -[] technological -[] disruption -[] innovation -[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[41]
+Overfull \hbox (6.61766pt too wide) in paragraph at lines 646--646
+\OT1/cmr/m/n/12 2017. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / youtu . be / fTuijWHwAsk ? t = 4m46s$ \OT1/cmr/m/n/12 (vis-ited on 01/25/2018). 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[42]
+Overfull \hbox (9.38739pt too wide) in paragraph at lines 646--646
 \OT1/cmr/m/it/12 ern, chrono-log-i-cally ar-ranged\OT1/cmr/m/n/12 . Boston: Houghton Mif-flin, 2001. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 0395652375. 
  []
 
@@ -1392,7 +1675,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41] (./report.aux)
+[43] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1401,19 +1684,19 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 24022 strings out of 492995
- 447685 string characters out of 6132703
- 880307 words of memory out of 5000000
- 27155 multiletter control sequences out of 15000+600000
- 13071 words of font info for 48 fonts, out of 8000000 for 9000
+ 23677 strings out of 492995
+ 441544 string characters out of 6132703
+ 872155 words of memory out of 5000000
+ 26803 multiletter control sequences out of 15000+600000
+ 15533 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,14n,92p,4191b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mtt12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmu10.pfb>
-Output written on report.pdf (44 pages, 4045843 bytes).
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmu10.pfb>
+Output written on report.pdf (46 pages, 5654573 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
+ 251 PDF objects out of 1000 (max. 8388607)
+ 156 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 

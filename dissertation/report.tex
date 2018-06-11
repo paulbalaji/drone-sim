@@ -10,8 +10,9 @@
 \documentclass[a4paper,12pt,titlepage]{article}
 \usepackage[left=3cm,right=3cm,top=3.5cm,bottom=3cm]{geometry}
 \usepackage[english]{babel}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{bm}
 \usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
@@ -102,7 +103,7 @@
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries Drone Delivery Simulation\\with SpatialOS\\}\\[0.4cm] % Title of your document
+{ \huge \bfseries Drone Delivery Simulation\\with SpatialOS}\\[0.4cm] % Title of your document
 \HRule \\[0.4cm]
 
 %----------------------------------------------------------------------------------------
@@ -240,6 +241,35 @@ ADS-B is already widely used in aircraft, enabling flight-tracking services such
 
 Over time, an increasing percentage of the world's drones will likely join these shared autonomous systems. This could enable different delivery networks to manage their own fleets as their own air traffic controllers, all the while making use of the shared pool of readable data to identify, intercept and avoid drone collisions at the earliest stage in their pathfinding as possible.
 
+\subsection{Amazon Prime}
+Amazon Prime is a paid subscription service that Amazon offers to users, giving unlimited access to their video and music streaming services as well as providing free same-day and next-day delivery on a large majority of goods sold on their platform. The Prime service applies to products that are either sold directly by Amazon or fulfilled on behalf of a third-party merchant.
+
+\subsubsection{Fulfilment by Amazon}
+One of the services Amazon provides to merchants is the \textit{Fulfilment by Amazon} service, where goods are held at Amazon depots until a user purchases a product. The fee paid by the merchant for Amazon to take care of delivery depends on the duration of time the product is held by Amazon as well as the type of package and weight of the product.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.9\linewidth]{img/fulfilled_by_amazon_table.png}
+  \caption{Fulfilment fees for standard-size items on Amazon UK. \cite{Channel2017}}
+  \label{fig:fulfilled_by_amazon_table}
+\end{figure}
+
+An incentive for merchants to join this scheme is to attract customers with the same-day and next-day delivery that Amazon Prime offers. This allows them to piggy-back off the existing delivery network that Amazon has developed for significantly lower fees (Figure \ref{fig:fulfilled_by_amazon_table}) than if they were to store the package and source a distributor for themselves.
+
+\subsubsection{TODO: Amazon Prime Air}
+In December of 2013, Amazon announced their intentions to research and develop their own drone delivery service dubbed \textit{Amazon Prime Air} \cite{Amazon.comInc.2013}. Amazon intends this service to deliver packages within 30 minutes of an order being placed, with a maximum package weight of 5 pounds (approximately 2.27 kg).\\
+
+Following this, in November of 2015 the company enlisted the help of Jeremy Clarkson to give a closer look at a more developed drone prototype \cite{Amazon.comInc.2015b}, describing how Prime Air would fit into the lives of modern families. Just over a year later, Amazon released a video demonstrating a fully autonomous delivery using Prime Air \cite{Amazon.comInc.2016}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/prime_air_drone.png}
+  \caption{One of Amazon's Prime Air prototypes. \cite{Amazon.comInc.}}
+  \label{fig:prime_air_example}
+\end{figure}
+
+One of the many roadblocks to scale this technology out across the country is regulatory approval. Since drones are a new technology that improve in leaps and bounds each year, authorities and enterprises are careful to make hasty judgements that either hamper drone adoption or cause civilian harm. To this end, Amazon are also suggesting proposals to how airspace can be best utilised by drones. \cite{Amazon.comInc.2015} \cite{Amazon.comInc.2015a}
+
 \subsection{Drone Considerations}
 Drones stand to be a revolutionary part of our lives as we welcome the new, incoming era of automation. However, to be practical there are a few key concepts one must understand to ensure that they remain a help and not a hinderence to mankind.
 
@@ -260,25 +290,6 @@ It is paramount to avoid collisions with manned aviation because there is a high
 
 \subsubsection{Toll Zones}
 Toll Zones are geographical areas where a drone has to pay an extra fee to pass through at any altitude. It is a very similar idea to the one that led to Congestion Charges being applied to much of central London. By restricting certain areas only to those who are willing to pay the fee to use the airspace, it reduces the density of air traffic in a specific area. These charges could also be used as an incentive to reduce pollution in the toll zone, and the additional revenue generated by the toll fees could be used towards the drone-related systems in place within the zone.
-
-\subsection{Amazon Prime}
-Amazon Prime is a paid subscription service that Amazon offers to users, giving unlimited access to their video and music streaming services as well as providing free same-day and next-day delivery on a large majority of goods sold on their platform. The Prime service applies to products that are either sold directly by Amazon or fulfilled on behalf of a third-party merchant.
-
-\subsubsection{Fulfilment by Amazon}
-One of the services Amazon provides to merchants is the \textit{Fulfilment by Amazon} service, where goods are held at Amazon depots until a user purchases a product. The fee paid by the merchant for Amazon to take care of delivery depends on the duration of time the product is held by Amazon as well as the type of package and weight of the product.\\
-
-An incentive for merchants to join this scheme is to attract customers with the same-day and next-day delivery that Amazon Prime offers. This allows them to piggy-back off the existing delivery network that Amazon has developed for significantly lower fees (Figure \ref{fig:fulfilled_by_amazon_table}) than if they were to store the package and source a distributor for themselves.\\
-
-\begin{figure}[!hbpt]
-  \center
-  \includegraphics[width=0.8\linewidth]{img/fulfilled_by_amazon_table.png}
-  \caption{Fulfilment fees for standard-size items on Amazon UK. \cite{Channel2017}}
-  \label{fig:fulfilled_by_amazon_table}
-\end{figure}
-
-\subsubsection{TODO: Amazon Prime Air}
-
-
 
 \subsection{Autonomous Air Traffic Control (AATC)}
 \subsubsection{What is AATC?}
@@ -518,6 +529,12 @@ The ``feedback'' element of MLFQ allows tasks to be moved from one queue to anot
   \label{fig:mlfqs}
 \end{figure}
 
+\subsection{TODO: Time-Value of Data}
+
+\subsubsection{Relation to Quality of Service}
+\subsubsection{Relevance to Drones}
+
+
 \newpage
 \subsection{SpatialOS}
 SpatialOS is a platform, created by \textit{Improbable}\cite{ImprobableWorldsLtd.2018a}, for running massive-scale simulated worlds. In their own words\cite{ImprobableWorldsLtd.2018b}:
@@ -545,7 +562,7 @@ Although most commonly used for large distributed game worlds, SpatialOS has bee
 \label{fig:test}
 \end{figure}
 
-Anybody is able to sign up and use SpatialOS to build games using either the Unity3D or Unreal game engines. Alternatively, one can use the C#, C++ and Java SDKs to create custom workers to be ran on SpatialOS deployments. \\
+Anybody is able to sign up and use SpatialOS to build games using either the Unity3D or Unreal game engines. Alternatively, one can use the C\#, C++ and Java SDKs to create custom workers to be ran on SpatialOS deployments. \\
 
 A benefit of SpatialOS's Unity and Unreal SDKs is that creating a sole game client, without manually writing network code, is almost enough to get multiplayer built-in to the game for ``free'', i.e. taken as granted.
 
