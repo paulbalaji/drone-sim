@@ -76,14 +76,11 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
         handle.Respond(new DeliveryResponse(true));
     }
 
-	private float ExpectedValue(QueueEntry queueEntry)
+	private float ExpectedValue(float estimatedTime, float expectedDuration, PackageInfo packageInfo, TimeValueFunction tvf)
 	{
-		return ExpectedValue(queueEntry.expectedDuration, queueEntry.request.packageInfo, queueEntry.request.timeValueFunction);
-	}
-    
-	private float ExpectedValue(float estimatedTime, PackageInfo packageInfo, TimeValueFunction tvf)
-	{
-		return (float)TimeValueFunctions.DeliveryValue(estimatedTime, packageInfo, tvf);
+        float income = (float)TimeValueFunctions.DeliveryValue(estimatedTime, packageInfo, tvf);
+		float costs = SimulationSettings.EnergyUseEstimationConstant * expectedDuration;
+		return income - costs;
 	}
     
 	void Scheduler.UpdateDeliveryRequestQueue()
@@ -141,8 +138,8 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 				if (j != k) {
 					//timePassed = wait time so far + estimated time til the delivery
 					timePassed = Time.time - entries[k].timestamp + entries[k].expectedDuration;
-					lostValue += ExpectedValue(timePassed, entries[k].request.packageInfo, entries[k].request.timeValueFunction)
-						       - ExpectedValue(timePassed + entryDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
+					lostValue += ExpectedValue(timePassed, entries[k].expectedDuration, entries[k].request.packageInfo, entries[k].request.timeValueFunction)
+						       - ExpectedValue(timePassed + entryDuration, entries[k].expectedDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
 
 					maxDuration = Mathf.Max(maxDuration, entries[k].expectedDuration);
 				}
@@ -150,8 +147,8 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 
 			//timePassed = wait time so far + estimated time til the delivery
 			timePassed = Time.time - entries[j].timestamp + entries[j].expectedDuration;
-			float wonValue = ExpectedValue(timePassed, entries[j].request.packageInfo, entries[j].request.timeValueFunction)
-				           - ExpectedValue(timePassed + maxDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
+			float wonValue = ExpectedValue(timePassed, entries[j].expectedDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction)
+				           - ExpectedValue(timePassed + maxDuration, entries[j].expectedDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
 
 			entries[j].priority = lostValue - wonValue;
 		}
@@ -172,7 +169,7 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 		{
 			QueueEntry maxEntry = requestQueue.Max;
             float duration = Time.time - maxEntry.timestamp + maxEntry.expectedDuration;
-            float value = ExpectedValue(duration, maxEntry.request.packageInfo, maxEntry.request.timeValueFunction);
+			float value = ExpectedValue(duration, maxEntry.expectedDuration, maxEntry.request.packageInfo, maxEntry.request.timeValueFunction);
             requestQueue.Remove(maxEntry);
 
             potential += value;

@@ -100,6 +100,9 @@ namespace Assets.Gamelogic.Core
 		public const float DroneEnergyMove = DronePowerMove * DroneMoveInterval / 3600;
 		public const float DroneEnergyHover = DronePowerHover * DroneMoveInterval / 3600;
 
+		// est cost in £ = DronePowerMove * (CostPerWh/100) * 2 * duration(seconds) / 3600;
+		public const float EnergyUseEstimationConstant = DronePowerMove * CostPerWh / 180000;
+
 		public const float DronePowerMove = 8355f;
 		public const float DronePowerHover = 670f;
 
