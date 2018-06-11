@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber report"] 1528694147 "report.bcf" "report.bbl" "report" 1528694987
+["biber report"] 1528694147 "report.bcf" "report.bbl" "report" 1528697511
   "library.bib" 1528693718 47102 586d68e94aa0aac4ca63f4427546e808 ""
-  "report.bcf" 1528694987 100531 1834b2deb2f86ec4640120da93a60a88 ""
+  "report.bcf" 1528697511 100531 1834b2deb2f86ec4640120da93a60a88 ""
   (generated)
-  "report.bbl"
   "report.blg"
-["pdflatex"] 1528694980 "report.tex" "report.pdf" "report" 1528694987
+  "report.bbl"
+["pdflatex"] 1528697503 "report.tex" "report.pdf" "report" 1528697511
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1480098698 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1480098698 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -199,6 +199,7 @@
   "img/a_star_vs_optimal.png" 1516837812 259060 c1cd5d8614f24b7783240a1cb8fecb8e ""
   "img/aatc_spaghett.jpg" 1516857351 177635 9b8917d91419aa9c597fbed5a67fe647 ""
   "img/aatc_tech_overview.jpg" 1516831165 119592 1a0b8681dbe0f09e4a75d8edf066806b ""
+  "img/amazon_prime_air_drone.png" 1528696635 4059600 f7f1e799396e9c23a300003cb22d7d32 ""
   "img/apf_comp.png" 1516831165 20423 7742e0fe702f234cc8f61b9bd3492d54 ""
   "img/ark-invest-drones-analysis-768x460.png" 1516980032 104617 315dd26890708dd53a68316e406374d7 ""
   "img/drone_interest_over_time_google.png" 1516976066 118411 3bc1e4d94eef319499fdeeab876d0a22 ""
@@ -209,20 +210,19 @@
   "img/mlfqs.jpg" 1516971719 90358 803e84462acaee6ad1511e28334aa8c3 ""
   "img/mlqs.jpg" 1516971748 191966 d4523b63b592aa49f124b6f238a7d5c9 ""
   "img/obst.png" 1516850145 257023 fa93d91109a53d63615ecbfb4bd9408c ""
-  "img/prime_air_drone.png" 1528694959 1303265 7afd2f7223e0492377a4a275d4186a99 ""
   "img/search_comparison.png" 1516838008 769826 9994a1fe559f3b4638373f1ff68cb885 ""
   "img/spatialos-diagram_current2.png" 1516912653 79389 f5af236c71d7a87605aaf75fb31139ca ""
   "img/spatialos-diagram_solution2.png" 1516912665 211507 19d6e6d14bb35678da1ab03fb7410867 ""
   "img/starship.jpg" 1516872402 668422 f86232351c5cc3fbb4ff913c42d68bb0 ""
-  "report.aux" 1528694987 20352 7e5253145c20e7057d0b95a834a2ec27 ""
+  "report.aux" 1528697511 20346 89a3c5302353d493c4272b442c85fb4d ""
   "report.bbl" 1528694148 64981 6be25c31613068cf247f7fe8f2925ea3 "biber report"
-  "report.run.xml" 1528694987 2316 0003617f5aa428b5c6dae544c4959c9e ""
-  "report.tex" 1528694979 46216 ee12a56dc75ed344ac82972f9130f45f ""
-  "report.toc" 1528694987 5573 7002203933f181ce1a1a1777dea954ce ""
+  "report.run.xml" 1528697511 2316 0003617f5aa428b5c6dae544c4959c9e ""
+  "report.tex" 1528697501 46240 fcacd1b74ac24dd5b061b292beebed99 ""
+  "report.toc" 1528697511 5567 1025d7f1fb9971cd39b3553ad44e6e17 ""
   (generated)
-  "report.toc"
-  "report.bcf"
-  "report.run.xml"
+  "report.aux"
   "report.pdf"
   "report.log"
-  "report.aux"
+  "report.bcf"
+  "report.run.xml"
+  "report.toc"

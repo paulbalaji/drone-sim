@@ -256,14 +256,14 @@ One of the services Amazon provides to merchants is the \textit{Fulfilment by Am
 
 An incentive for merchants to join this scheme is to attract customers with the same-day and next-day delivery that Amazon Prime offers. This allows them to piggy-back off the existing delivery network that Amazon has developed for significantly lower fees (Figure \ref{fig:fulfilled_by_amazon_table}) than if they were to store the package and source a distributor for themselves.
 
-\subsubsection{TODO: Amazon Prime Air}
+\subsubsection{Amazon Prime Air}
 In December of 2013, Amazon announced their intentions to research and develop their own drone delivery service dubbed \textit{Amazon Prime Air} \cite{Amazon.comInc.2013}. Amazon intends this service to deliver packages within 30 minutes of an order being placed, with a maximum package weight of 5 pounds (approximately 2.27 kg).\\
 
 Following this, in November of 2015 the company enlisted the help of Jeremy Clarkson to give a closer look at a more developed drone prototype \cite{Amazon.comInc.2015b}, describing how Prime Air would fit into the lives of modern families. Just over a year later, Amazon released a video demonstrating a fully autonomous delivery using Prime Air \cite{Amazon.comInc.2016}.
 
-\begin{figure}[ht!]
+\begin{figure}[!hbpt]
   \centering
-  \includegraphics[width=0.8\textwidth]{img/prime_air_drone.png}
+  \includegraphics[width=0.6\textwidth]{img/amazon_prime_air_drone.png}
   \caption{One of Amazon's Prime Air prototypes. \cite{Amazon.comInc.}}
   \label{fig:prime_air_example}
 \end{figure}
@@ -298,27 +298,28 @@ During the Autumn Term of the 2016-17 academic year, several students undertook 
 \subsubsection{Technical Overview}
 AATC has a simple client-server architecture, where drones connect to the REST service to send their telemetry information and goal waypoints every second. The server sends back direction recommendations to navigate the drone to its destination. \\
 
-Because it would have been too expensive to trial the system on actual drones, a test bench was also implemented that would simulate the drones polling the server and responding to its recommendations. This test bench produced a set of simulation data, that is then available to view on the AATC visualiser\cite{Balaji2017a}.
+Because it would have been too expensive to trial the system on actual drones, a test bench was also implemented that would simulate the drones polling the server and responding to its recommendations. This test bench produced a set of simulation data, that is then available to view on the AATC visualiser. \cite{Balaji2017a}
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.8\linewidth]{img/aatc_tech_overview.jpg}
+  \includegraphics[width=\linewidth]{img/aatc_tech_overview.jpg}
   \caption{Technical Overview of AATC. \cite{Balaji2017}}
   \label{fig:aatc_tech_overview}
 \end{figure}
 
 The system was designed with three challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.1. The last challenge is to design the system in such a way that it would be able to scale to hundreds and thousands of drones. \\
 
+\newpage
 To this end, a \textit{Global Layer} was built to deal with static obstacles (such as NFZs) by calculating a path for the drone around NFZs before it begins its journey. The second problem was tackled with a \textit{Reactive Layer} that handles non-static obstacles (such as manned aviation and other drones). This is the layer that would be providing the real-time updates to drones as they poll the server every second. \\
-
-Only one drone type was used in AATC, with its specification outlined in Figure \ref{fig:edrone}. It has a radius of 1m and a maximum velocity in any direction of 5 metres per second.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.4\linewidth]{img/edrone.jpg}
+  \includegraphics[width=0.8\linewidth]{img/edrone.jpg}
   \caption{The default AATC drone model. \cite{Balaji2017}}
   \label{fig:edrone}
 \end{figure}
+
+Only one drone type was used in AATC, with its specification outlined above in Figure \ref{fig:edrone}. It has a radius of 1m and a maximum velocity in any direction of 5 metres per second.
 
 \subsection{The Global Layer}
 The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow - thereby dealing with AATC's path-finding problem.
@@ -354,6 +355,7 @@ The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algor
 
 Being able to get as short a path as possible is absolutely vital in the drone use-case because they have limited flying time. After all, their batteries can only last so long before they need to be recharged. Therefore, it is important to ensure drones travel as little distance as possible in order to maximise the number of times they can be used between charges.
 
+\newpage
 \subsubsection{Lazy Theta* Algorithm}
 A further optimisation is to reduce the number of LOS checks performed, as found in another paper by the original authors of the Theta* algorithm\cite{Nash2010}. This algorithm assumes every node is in line of sight of its parent, and the LOS check is only performed once the child node is expanded on. If this turns out to be false, then the algorithm defaults to a typical A* approach. Reducing the number of LOS checks therefore improves the algorithm's overall performance.
 
@@ -499,7 +501,7 @@ In the end, the genetic algorithms only improved the simulations by about 2\%\ci
 \subsection{Scheduling Algorithms}
 In this section we look at a few well known CPU scheduling algorithms\cite{Bell2018}. Although CPU scheduling is not part of this project, being able to understand a few different approaches to the problem will give insight into how to schedule drones later on. However, there are two key difference between drone and CPU scheduling.\\
 
-The first is that CPUs can time slice different tasks whereas once a drone is scheduled onto a task, it has to complete the whole task before being able to pick up a new one. Secondly, there are vastly more drones that could be running at a point in time compared to the number of cores in multi-core CPU, thus there is massive parallelism.
+The first is that CPUs can time slice different tasks whereas once a drone is scheduled onto a task, it has to complete the whole task before being able to pick up a new one. Secondly, there are vastly more drones that could be running at a point in time compared to the number of cores in multi-core CPU, leading to far greater parallelism.
 
 \subsubsection{First Come First Serve (FCFS)}
 As the title says, this algorithm operates as a FIFO queue where tasks are scheduled in the same order that they arrive. Some might consider this the fairest form of scheduling, since it does not discriminate against any task, but simply prioritises the one that arrived soonest.
@@ -511,7 +513,7 @@ This approach looks at the time each incoming task would take to complete, and p
 Priority scheduling is a more general case of SJF, since each task is now given a priority - defined either internally or externally - and tasks with the highest priority are scheduled first. In SJF, the inverse of the estimated job time is used as the priority.
 
 \subsubsection{Multi-Level Feedback Queue (MLFQ)}
-MLFQ is an extension of an ordinary multi-level queue, where there are several queues of tasks to be completed and tasks are scheduled from non-empty queues in a round-robin fashion. A benefit of this approach is that each queue could be running different scheduling algorithms that better fits the priority of that queue.
+MLFQ is an extension of an ordinary multi-level queue, where there are several queues of tasks to be completed and tasks are scheduled from non-empty queues in a round-robin fashion. A benefit of this approach is that each queue could be running different scheduling algorithms that better fits the priority of that queue.\\
 
 \begin{figure}[!hbpt]
   \center
@@ -567,7 +569,7 @@ Anybody is able to sign up and use SpatialOS to build games using either the Uni
 A benefit of SpatialOS's Unity and Unreal SDKs is that creating a sole game client, without manually writing network code, is almost enough to get multiplayer built-in to the game for ``free'', i.e. taken as granted.
 
 \subsubsection{Unity SDK}
-Of the two game engine integrations, the Unity SDK is arguably the most stable SDK because it has been in development for far longer than the Unreal SDK, and it is not in beta. From prior industrial experience, the Unity integration is also easier to implement quick prototypes with and iterate on.
+Of the two game engine integrations, the Unity SDK is arguably the most stable because it has been in development for far longer than the Unreal SDK, and it is not in beta. From prior industrial experience, the Unity integration is also easier to implement quick prototypes with and iterate on.
 
 \subsubsection{Abstraction}
 SpatialOS adopts an \textbf{Entity}-\textbf{Component}-\textbf{Worker} model.

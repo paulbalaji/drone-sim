@@ -306,9 +306,9 @@ INPUT ./img/google_truck_patent.jpeg
 INPUT img/fulfilled_by_amazon_table.png
 INPUT ./img/fulfilled_by_amazon_table.png
 INPUT ./img/fulfilled_by_amazon_table.png
-INPUT img/prime_air_drone.png
-INPUT ./img/prime_air_drone.png
-INPUT ./img/prime_air_drone.png
+INPUT img/amazon_prime_air_drone.png
+INPUT ./img/amazon_prime_air_drone.png
+INPUT ./img/amazon_prime_air_drone.png
 INPUT img/aatc_tech_overview.jpg
 INPUT ./img/aatc_tech_overview.jpg
 INPUT ./img/aatc_tech_overview.jpg
