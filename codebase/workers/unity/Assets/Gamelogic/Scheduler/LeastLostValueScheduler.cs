@@ -142,8 +142,7 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 					//timePassed = wait time so far + estimated time til the delivery
 					timePassed = Time.time - entries[k].timestamp + entries[k].expectedDuration;
 					lostValue += ExpectedValue(timePassed, entries[k].request.packageInfo, entries[k].request.timeValueFunction)
-						       - ExpectedValue(timePassed + 2*entryDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
-					//2*entryDuration because drone has to be delivered and then come back to hub
+						       - ExpectedValue(timePassed + entryDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
 
 					maxDuration = Mathf.Max(maxDuration, entries[k].expectedDuration);
 				}
@@ -152,8 +151,7 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 			//timePassed = wait time so far + estimated time til the delivery
 			timePassed = Time.time - entries[j].timestamp + entries[j].expectedDuration;
 			float wonValue = ExpectedValue(timePassed, entries[j].request.packageInfo, entries[j].request.timeValueFunction)
-				           - ExpectedValue(timePassed + 2*maxDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
-			//2*maxDuration because drone has to be delivered and then come back to hub
+				           - ExpectedValue(timePassed + maxDuration, entries[j].request.packageInfo, entries[j].request.timeValueFunction);
 
 			entries[j].priority = lostValue - wonValue;
 		}
