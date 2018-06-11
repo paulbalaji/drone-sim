@@ -531,11 +531,16 @@ The ``feedback'' element of MLFQ allows tasks to be moved from one queue to anot
   \label{fig:mlfqs}
 \end{figure}
 
-\subsection{TODO: Time-Value of Data}
+\subsection{REVISIT: Time-Value Functions}
+Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, the existing implementation of AATC only touches upon the routing aspect - how to get from point A to point B. Even in all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios.\\
 
-\subsubsection{Relation to Quality of Service}
-\subsubsection{Relevance to Drones}
+To gain greater understanding of how drones can positively impact industries, simulations need to be performed which take into account the financial aspect of their use case. For example when it comes to drone delivery networks, we want to ensure that the drones not only reach their destination quickly, but that they also get scheduled and utilised in the appropriate manner to maximise the profitability of the network.
 
+\subsubsection{Time Value of Money}
+As described by Investopedia \cite{Investopedia}, the \textit{Time Value of Money} is ``the concept that money available at the present time is worth more than the identical sum in the future due to its potential earning capacity''. This draws from the idea that investors would prefer to receive the same amount of money sooner rather than later, in order to obtain interest from the sum or reinvest it for greater growth.
+
+\subsubsection{Time Value of Data}
+By a similar train of thought, there is the concept of the \textit{Time Value of Data} - whereby the value to a business of some data decays over time and it is best to gain insight from it as soon as possible. This idea is often used in business intelligence, where companies may have large sets of unstructured data that need to be processed and analysed to derive value for the business. For example, a retailer would rather know what its users are interested in now rather than a month ago, so that they can tailor their sales and offers to leverage customer interest.
 
 \newpage
 \subsection{SpatialOS}
@@ -592,7 +597,7 @@ Naturally as the public SDKs have matured, so too have the public-facing develop
 \end{figure}
 
 \subsubsection{Layered Simulation}
-By virtue of games having several dynamic systems all interlinking with each other, it is possible to create layered simulations on SpatialOS. This works well with the concept of Global, Reactive and Zonal layers that have been mentioned already in Sections 2.4, 2.5 and 2.6. Furthermore, as SpatialOS is distributed by nature, it is the ideal platform to create and execute massive layered, distributed simulations.
+By virtue of games having several dynamic systems all interlinking with each other, it is possible to create layered simulations on SpatialOS. This works well with the concept of Global, Reactive and Zonal layers that have been mentioned already in Sections 2.4, 2.5 and 2.6. Furthermore, as SpatialOS is distributed by nature, it is the ideal platform to create and execute massive, layered, distributed simulations.
 
 
 %**********************************************%
@@ -618,11 +623,7 @@ blabla
 %**********************************************%
 \newpage
 \section{TODO: Prioritising Economic Value}
-Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, the existing implementation of AATC only touches upon the routing aspect - how to get from point A to point B. Even in all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios. \\
-
-To gain greater understanding of how drones can positively impact industries, simulations need to be performed which take into account the financial aspect of their use case. For example when it comes to drone delivery networks, we want to ensure that the drones not only reach their destination quickly, but that they also get scheduled and utilised in the appropriate manner to maximise the profitability of the network.
-
-\subsection{Time Value Functions}
+\subsection{Time Value of Delivery}
 In order to consider how to maximise profitability, we introduce the concept of a Time Value Function (TVF). Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is a function of the time taken to do said delivery. For example, a user may pay £5 for a delivery within 30 minutes but might be charged nothing if it takes longer than one hour.\\
 
 %**********************************************%

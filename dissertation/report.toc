@@ -68,11 +68,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.7.4}Multi-Level Feedback Queue (MLFQ)}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.8}TODO: Time-Value of Data}{27}
+\contentsline {subsection}{\numberline {2.8}REVISIT: Time-Value Functions}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.1}Relation to Quality of Service}{27}
+\contentsline {subsubsection}{\numberline {2.8.1}Time Value of Money}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.2}Relevance to Drones}{27}
+\contentsline {subsubsection}{\numberline {2.8.2}Time Value of Data}{27}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.9}SpatialOS}{28}
 \defcounter {refsection}{0}\relax 
@@ -94,7 +94,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7}TODO: Prioritising Economic Value}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Time Value Functions}{35}
+\contentsline {subsection}{\numberline {7.1}Time Value of Delivery}{35}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {8}TODO: Large Scale Simulation of London}{36}
 \defcounter {refsection}{0}\relax 

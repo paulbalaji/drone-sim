@@ -770,6 +770,30 @@
       \verb https://improbable.io/company/news/2016/03/24/what-we-found-when-we-simulated-the-backbone-of-the-entire-internet-on-spatialos
       \endverb
     \endentry
+    \entry{Investopedia}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=abcdb78a564e00abcb81ee953f22cf04}{%
+           family={Investopedia},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{abcdb78a564e00abcb81ee953f22cf04}
+      \strng{fullhash}{abcdb78a564e00abcb81ee953f22cf04}
+      \strng{authornamehash}{abcdb78a564e00abcb81ee953f22cf04}
+      \strng{authorfullhash}{abcdb78a564e00abcb81ee953f22cf04}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Investopedia}
+      \field{title}{{Time Value of Money - TVM}}
+      \field{urlday}{11}
+      \field{urlmonth}{6}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.investopedia.com/terms/t/timevalueofmoney.asp
+      \endverb
+    \endentry
     \entry{Jarman2016}{unpublished}{}
       \name{author}{3}{}{%
         {{hash=51bdbfbf628cb733ac748a1a0b72a0eb}{%
