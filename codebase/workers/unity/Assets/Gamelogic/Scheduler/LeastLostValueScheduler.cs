@@ -174,15 +174,10 @@ class LLVComparer : IComparer<QueueEntry>
 	{
 		//a > b ==> 1
         //a < b ==> -1
-        //a == b ==> 0
+        
+		//a == b ==> 0
+        //no two entries are ever the same ==> trust the order generator
 
-        //two entries are same if matching priority AND timestamp
-		if (x.priority == y.priority && x.timestamp == y.timestamp)
-		{
-			return 0;
-		}
-
-        //order by priority
 		if (x.priority > y.priority)
 		{
 			return 1;
