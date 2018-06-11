@@ -167,16 +167,17 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 
 	private void PruneQueue()
 	{
-		while (requestQueue.Count > SimulationSettings.MaxDeliveryRequestQueueSize)
-        {
-            QueueEntry maxEntry = requestQueue.Max;
+		int toRemove = requestQueue.Count - ((int)SimulationSettings.MaxDeliveryRequestQueueSize);
+		for (int i = 0; i < toRemove; i++)
+		{
+			QueueEntry maxEntry = requestQueue.Max;
             float duration = Time.time - maxEntry.timestamp + maxEntry.expectedDuration;
             float value = ExpectedValue(duration, maxEntry.request.packageInfo, maxEntry.request.timeValueFunction);
             requestQueue.Remove(maxEntry);
 
             potential += value;
             ++rejections;
-        }
+		}
 	}
 
 	private void SortAndPrune()
