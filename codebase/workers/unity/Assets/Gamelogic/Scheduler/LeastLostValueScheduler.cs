@@ -61,15 +61,15 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 		float estimatedTime = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
         QueueEntry queueEntry = new QueueEntry(Time.time, handle.Request, 0, estimatedTime);
 
-		if (requestQueue.Count > SimulationSettings.RequestQueueOverflow)
-		{
-			handle.Respond(new DeliveryResponse(false));
-			float value = ExpectedValue(estimatedTime, handle.Request.packageInfo, handle.Request.timeValueFunction);
+		//if (requestQueue.Count > SimulationSettings.RequestQueueOverflow)
+		//{
+		//	handle.Respond(new DeliveryResponse(false));
+		//	float value = ExpectedValue(estimatedTime, handle.Request.packageInfo, handle.Request.timeValueFunction);
 
-            potential += value;
-            ++rejections;
-			return;
-		}
+  //          potential += value;
+  //          ++rejections;
+		//	return;
+		//}
 
 		requestQueue.Add(queueEntry);
 		sorted = false;
@@ -88,6 +88,11 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
     
 	void Scheduler.UpdateDeliveryRequestQueue()
     {
+        if (!sorted)
+		{
+			SortAndPrune();
+		}
+
 		Improbable.Collections.List<QueueEntry> queueList = new Improbable.Collections.List<QueueEntry>();
 		foreach (QueueEntry entry in requestQueue)
         {
@@ -206,7 +211,12 @@ class LLVComparer : IComparer<QueueEntry>
         //a < b ==> -1
         
 		//a == b ==> 0
-        //no two entries are ever the same ==> trust the order generator
+        //two entries are the same if they have the same timestamp
+		//order generator will never generate more than one request per timestamp
+		if (x.timestamp == y.timestamp)
+		{
+			return 0;
+		}
 
 		if (x.priority > y.priority)
 		{

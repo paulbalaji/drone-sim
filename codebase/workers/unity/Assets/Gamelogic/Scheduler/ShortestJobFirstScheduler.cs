@@ -128,18 +128,20 @@ class SJFComparer : IComparer<QueueEntry>
 	{
 		//a > b ==> 1
         //a < b ==> -1
-        //a == b ==> 0
+        
+		//a == b ==> 0
+        //two entries are the same if they have the same timestamp
+        //order generator will never generate more than one request per timestamp
+        if (x.timestamp == y.timestamp)
+        {
+            return 0;
+        }
 
 		if (x.expectedDuration > y.expectedDuration)
 		{
 			return 1;
 		}
 
-		if (x.expectedDuration < y.expectedDuration)
-		{
-			return -1;
-		}
-
-		return 0;
+		return -1;
 	}
 }
