@@ -86,7 +86,7 @@ namespace Assets.Gamelogic.Core
 
 		public const float DroneReplacementCost = 400; //pounds
 
-		public const float FailedDeliveryPenalty = 500; //pence
+		public const float FailedDeliveryPenalty = 5; //pounds
 
 		public const float KilometreToMiles = 0.621371f; //1 km = 0.621371 miles
 		public const float MetreToMiles = 0.000621371f; //1 m = 0.000621371 miles

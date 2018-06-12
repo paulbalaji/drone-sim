@@ -14,6 +14,7 @@ using UnityEngine;
 public interface Scheduler
 {
 	int GetQueueSize();
+	float GetPenalties();
 	float GetPotentialLost();
 	float GetAvgPotentialLost();
 	bool GetNextRequest(out QueueEntry deliveryRequest);

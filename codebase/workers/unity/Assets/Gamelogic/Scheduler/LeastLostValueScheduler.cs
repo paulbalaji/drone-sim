@@ -107,6 +107,11 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 		return requestQueue.Count;
 	}
 
+	float Scheduler.GetPenalties()
+	{
+		return SimulationSettings.FailedDeliveryPenalty * rejections;
+	}
+
 	float Scheduler.GetPotentialLost()
     {
         return potential;

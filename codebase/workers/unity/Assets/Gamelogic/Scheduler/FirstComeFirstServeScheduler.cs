@@ -81,6 +81,11 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 		return deliveryRequestQueue.Count;
 	}
 
+	float Scheduler.GetPenalties()
+    {
+        return SimulationSettings.FailedDeliveryPenalty * rejections;
+    }
+
 	float Scheduler.GetPotentialLost()
     {
 		return potential;

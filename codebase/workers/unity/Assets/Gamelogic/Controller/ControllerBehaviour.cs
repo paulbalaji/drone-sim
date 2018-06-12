@@ -133,8 +133,7 @@ public class ControllerBehaviour : MonoBehaviour
             }
             else
             {
-				float penalty = PayloadGenerator.GetPackageCost(droneInfo.packageInfo) + SimulationSettings.FailedDeliveryPenalty;
-				penalties += penalty / 100;
+				penalties += SimulationSettings.FailedDeliveryPenalty;
                 MetricsWriter.Send(new ControllerMetrics.Update()
 				                   .SetFailedDeliveries(++failedDeliveries)
 				                   .SetCosts(costs)
@@ -239,15 +238,15 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15} {16}"
-                               , gameObject.EntityId().Id
-		                       , deliveriesMap.Count
-		                       , scheduler.GetQueueSize()
-                               , completedDeliveries
-		                       , completedRoundTrips
-		                       , revenue
-                               , costs
-		                       , penalties
+		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15} {16} {17}"
+							   , gameObject.EntityId().Id
+							   , deliveriesMap.Count
+							   , scheduler.GetQueueSize()
+							   , completedDeliveries
+							   , completedRoundTrips
+							   , revenue
+							   , costs
+							   , penalties
 		                       , avgDeliveryTime / completedDeliveries
 		                       , avgWaitTime / launches
                                , failedDeliveries
@@ -255,6 +254,7 @@ public class ControllerBehaviour : MonoBehaviour
 		                       , failedLaunches
                                , collisionsReported
 		                       , unknownRequests
+		                       , scheduler.GetPenalties()
 		                       , scheduler.GetPotentialLost()
 		                       , scheduler.GetAvgPotentialLost());
     }
@@ -527,8 +527,7 @@ public class ControllerBehaviour : MonoBehaviour
                     else
                     {
 						++failedDeliveries;
-						float penalty = PayloadGenerator.GetPackageCost(deliveryInfo.packageInfo) + SimulationSettings.FailedDeliveryPenalty;
-                        penalties += penalty / 100;
+						penalties += SimulationSettings.FailedDeliveryPenalty;
                     }
                 }
 			}
