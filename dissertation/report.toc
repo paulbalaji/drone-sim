@@ -2,104 +2,134 @@
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {1}Introduction}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Background}{6}
+\contentsline {section}{\numberline {2}Background}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Future of Delivery Networks}{6}
+\contentsline {subsection}{\numberline {2.1}Future of Delivery Networks}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.1}Delivery Robots}{6}
+\contentsline {subsubsection}{\numberline {2.1.1}Delivery Robots}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2}Autonomous Vehicles}{8}
+\contentsline {subsubsection}{\numberline {2.1.2}Autonomous Vehicles}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.3}Drones}{9}
+\contentsline {subsubsection}{\numberline {2.1.3}Drones}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Amazon Prime}{10}
+\contentsline {subsection}{\numberline {2.2}Amazon Prime}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}Fulfilment by Amazon}{10}
+\contentsline {subsubsection}{\numberline {2.2.1}Fulfilment by Amazon}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2}Amazon Prime Air}{11}
+\contentsline {subsubsection}{\numberline {2.2.2}Amazon Prime Air}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Drone Considerations}{12}
+\contentsline {subsection}{\numberline {2.3}Drone Considerations}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}No Fly Zones}{12}
+\contentsline {subsubsection}{\numberline {2.3.1}No Fly Zones}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.2}Other Drones}{12}
+\contentsline {subsubsection}{\numberline {2.3.2}Other Drones}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.3}Manned Aviation}{13}
+\contentsline {subsubsection}{\numberline {2.3.3}Manned Aviation}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.4}Toll Zones}{13}
+\contentsline {subsubsection}{\numberline {2.3.4}Toll Zones}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Autonomous Air Traffic Control (AATC)}{13}
+\contentsline {subsection}{\numberline {2.4}Autonomous Air Traffic Control (AATC)}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.1}What is AATC?}{13}
+\contentsline {subsubsection}{\numberline {2.4.1}What is AATC?}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.2}Technical Overview}{14}
+\contentsline {subsubsection}{\numberline {2.4.2}Technical Overview}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5}The Global Layer}{15}
+\contentsline {subsection}{\numberline {2.5}The Global Layer}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.1}Dijkstra's Algorithm}{16}
+\contentsline {subsubsection}{\numberline {2.5.1}Dijkstra's Algorithm}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.2}A* Algorithm}{16}
+\contentsline {subsubsection}{\numberline {2.5.2}A* Algorithm}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.3}Theta* Algorithm}{17}
+\contentsline {subsubsection}{\numberline {2.5.3}Theta* Algorithm}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.4}Lazy Theta* Algorithm}{18}
+\contentsline {subsubsection}{\numberline {2.5.4}Lazy Theta* Algorithm}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.5.5}Conclusions}{18}
+\contentsline {subsubsection}{\numberline {2.5.5}Conclusions}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6}The Reactive Layer}{20}
+\contentsline {subsection}{\numberline {2.6}The Reactive Layer}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.1}Artificial Potential Fields (APF)}{20}
+\contentsline {subsubsection}{\numberline {2.6.1}Artificial Potential Fields (APF)}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.2}Equations for APF}{21}
+\contentsline {subsubsection}{\numberline {2.6.2}Equations for APF}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.3}Genetic Algorithm}{22}
+\contentsline {subsubsection}{\numberline {2.6.3}Genetic Algorithm}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.6.4}Conclusions}{24}
+\contentsline {subsubsection}{\numberline {2.6.4}Conclusions}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.7}Scheduling Algorithms}{24}
+\contentsline {subsection}{\numberline {2.7}Scheduling Algorithms}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.1}First Come First Serve (FCFS)}{25}
+\contentsline {subsubsection}{\numberline {2.7.1}First Come First Serve (FCFS)}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.2}Shortest Job First (SJF)}{25}
+\contentsline {subsubsection}{\numberline {2.7.2}Shortest Job First (SJF)}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.3}Priority Scheduling}{25}
+\contentsline {subsubsection}{\numberline {2.7.3}Priority Scheduling}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.7.4}Multi-Level Feedback Queue (MLFQ)}{25}
+\contentsline {subsubsection}{\numberline {2.7.4}Multi-Level Feedback Queue (MLFQ)}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.8}REVISIT: Time-Value Functions}{27}
+\contentsline {subsection}{\numberline {2.8}REVISIT: Time-Value Functions}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.1}Time Value of Money}{27}
+\contentsline {subsubsection}{\numberline {2.8.1}Time Value of Money}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.8.2}Time Value of Data}{27}
+\contentsline {subsubsection}{\numberline {2.8.2}Time Value of Data}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.9}SpatialOS}{28}
+\contentsline {subsection}{\numberline {2.9}SpatialOS}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.9.1}Unity SDK}{29}
+\contentsline {subsubsection}{\numberline {2.9.1}Unity SDK}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.9.2}Abstraction}{29}
+\contentsline {subsubsection}{\numberline {2.9.2}Abstraction}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.9.3}Developer Tools}{29}
+\contentsline {subsubsection}{\numberline {2.9.3}Developer Tools}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.9.4}Layered Simulation}{30}
+\contentsline {subsubsection}{\numberline {2.9.4}Layered Simulation}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}TODO: Drone-Controller Architecture}{31}
+\contentsline {section}{\numberline {3}TODO: Translating AATC to SpatialOS}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}TODO: Order Generation}{32}
+\contentsline {subsection}{\numberline {3.1}Architecture}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}TODO: London Snapshot Generation}{33}
+\contentsline {subsubsection}{\numberline {3.1.1}Drones}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}TODO: Scheduling Deliveries}{34}
+\contentsline {subsubsection}{\numberline {3.1.2}Controllers}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}TODO: Prioritising Economic Value}{35}
+\contentsline {subsection}{\numberline {3.2}Global Layer}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Time Value of Delivery}{35}
+\contentsline {subsubsection}{\numberline {3.2.1}No Fly Zones}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}TODO: Large Scale Simulation of London}{36}
+\contentsline {subsubsection}{\numberline {3.2.2}Waypoints}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}TODO: Evaluation}{37}
+\contentsline {subsubsection}{\numberline {3.2.3}World Bitmap}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}TODO: Conclusion \& Future Work}{38}
+\contentsline {subsection}{\numberline {3.3}Reactive Layer}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1}Drone Detection}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.2}Collisions}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}TODO: London-Scale Simulation}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Entity Placement}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.1}No Fly Zones}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.2}Controllers}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.3}Order Generator}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}TODO: Integrating Order Generation}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Drones}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}TODO: Prioritising Economic Value}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}Time Value of Delivery}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}TODO: Large Scale Simulation of London}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}TODO: Evaluation}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9}TODO: Conclusion \& Future Work}{38}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{References}{39}
