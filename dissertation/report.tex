@@ -27,6 +27,15 @@
 \usepackage{tikz}
 \usetikzlibrary{ arrows.meta, positioning, quotes, shadows}
 
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{inconsolata}
+
+\newtcblisting[auto counter]{sexylisting}[2][]{sharp corners,
+    fonttitle=\bfseries, colframe=black, listing only, columns=fullflexible
+    listing options={basicstyle=\ttfamily,language=java},
+    title=Listing \thetcbcounter: #2, #1}
+
 \bibliography{library}
 
 
@@ -46,27 +55,6 @@
 
 \setlength{\parindent}{0em}
 \renewcommand{\baselinestretch}{1.5}
-
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\footnotesize,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    numbers=left,
-    numbersep=5pt,
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=2
-}
-
-\lstset{style=mystyle}
 
 \begin{document}
 \newcount\colveccount
@@ -660,10 +648,75 @@ Much like an air traffic control tower, controllers exist as entities responsibl
 
 Since drones only know about their next waypoint, it is the responsiblity of the controller to know which waypoint a drone last visited and to return the correct next waypoint when requested, which could involve checking if the drone is actually at the waypoint it claims to be at. The controller should also return information on the closest static obstacle to the drone at a given point.
 
+\subsubsection{Unity Representation}
+As we are working with the SpatialOS Unity SDK, we must become familiar with the concept of a \textit{Prefab}, an asset type that can be used as a template to spawn new object instances. In addition to prefabs, \textit{MonoBehaviours} are scripts added as a prefab component that are then attached to an object instance of the prefab.\\
+
+For our simulation it is immediately clear that we need to create Drone and Controller prefabs, as they are two entity types that will be interacting with each other. Even if they do not possess any physical or graphical components, they require representation in the simulated world.\\
+
+A Drone prefab would require MonoBehaviours to handle movement and collision avoidance, whereas a Controller prefab will contain scripts to deal with waypoint management, pathfinding and world representation.
+
 \subsection{Global Layer}
+Since this layer is going to be part of the Controller entity,
+
+\subsubsection{Structure}
+
 \subsubsection{No Fly Zones}
+\begin{sexylisting}[colback=white]{NoFlyZone Schema Type}
+type NoFlyZone {
+  improbable.Vector3f bounding_box_bottom_left = 1;
+  improbable.Vector3f bounding_box_top_right = 2;
+
+  list<improbable.Vector3f> vertices = 3;
+}
+\end{sexylisting}
+
+\begin{sexylisting}[colback=white]{NoFlyZone.cs Static Class Overview}
+public static class NoFlyZone
+{
+    private static bool isInPolygon(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
+
+    public static bool hasCollidedWith(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
+
+    public static bool hasCollidedWithAny(
+      List<Improbable.Controller.NoFlyZone> zones,
+      Vector3f point);
+
+    public static void setBoundingBoxCoordinates(
+      ref Improbable.Controller.NoFlyZone nfz);
+
+    public static bool isPointInTheBoundingBox(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
+}
+\end{sexylisting}
+
 \subsubsection{Waypoints}
+
+
 \subsubsection{World Bitmap}
+\begin{sexylisting}[colback=white]{Bitmap Component and GridType Enum}
+enum GridType {
+  OUT = 0;
+  IN = 1;
+  NEAR = 2;
+}
+
+component BitmapComponent {
+  id = 1204;
+  improbable.Vector3f top_left = 1;
+  improbable.Vector3f bottom_right = 2;
+  int32 width = 3;
+  int32 height = 4;
+  int32 grid_width = 7;
+  int32 grid_height = 8;
+  map<int32, GridType> grid = 5;
+  bool initialised = 6;
+}
+\end{sexylisting}
 
 \subsection{Reactive Layer}
 \subsubsection{Drone Detection}
