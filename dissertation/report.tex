@@ -607,11 +607,11 @@ By virtue of games having several dynamic systems all interlinking with each oth
 \section{TODO: Translating AATC to SpatialOS}
 Before even thinking about simulating orders and scheduling deliveries, there must be a backbone in place that allows drones to get from a start to end point. To this end, the pathfinding and collision avoidance capabilities of AATC (Section 2.4) will be the backbone of the simulation.
 
-\subsection{Interaction Model}
+\subsection{Basic Interaction Model}
 However, AATC was designed as a simple master-slave system such that the server assumed total control over each drone in the system. To produce a scalable delivery network, modifications have to made that allows agents to be decoupled and unconstrained from the totalitarian model of AATC.
 
 \subsubsection{Drones}
-As a testament to hardware and software improvements over time, modern consumer drones are now fully capable of avoiding obstacles \cite{DJI} and navigating to GPS locations on their own \cite{DJIa}. By taking this into account we can have drones responsible for their own movement, leading to greater autonomy in the simulated delivery network, in turn enabling the system to scale up to bigger areas with vastly more drones than AATC.\\
+As a testament to hardware and software improvements over time, modern consumer drones are now fully capable of avoiding obstacles \cite{DJI} and navigating to GPS locations on their own \cite{DJIb}. By taking this into account we can have drones responsible for their own movement, leading to greater autonomy in the simulated delivery network, in turn enabling the system to scale up to bigger areas with vastly more drones than AATC.\\
 
 \begin{figure}[!hbpt]
  \centering
@@ -623,17 +623,17 @@ As a testament to hardware and software improvements over time, modern consumer 
                    align=center,  drop shadow}
                     ]
  \node [box](sp)                {Drone};
- \node [box,right=of sp] (sc)   {Controller};
- \draw [->] ([yshift=3mm] sp.east)  to ["Ping every second"] ([yshift=3mm] sc.west) ;
- \draw [->] ([yshift=-3mm] sc.west) to ["Updated Velocity"] ([yshift=-3mm] sp.east);
+ \node [box,right=of sp] (sc)   {Server};
+ \draw [->] ([yshift=3mm] sp.east)  to ["ping every second"] ([yshift=3mm] sc.west) ;
+ \draw [->] ([yshift=-3mm] sc.west) to ["updated velocity"] ([yshift=-3mm] sp.east);
  \end{tikzpicture}
- \caption{Drone-Controller Interaction in AATC.}
+ \caption{Drone-Server Interaction in AATC.}
  % \label{fig:test}
  \end{figure}
 
-In the AATC case, drones would have to ping the server every second to request a suggested velocity for the drone. This means that the controller would have compute new velocities for every single drone it controls, every second.
+In the AATC case, drones would have to ping the server every second to request a suggested velocity for the drone. This means that the controller would have to compute new velocities for every single drone it controls, every second.
 
-This is a lot of compute that can simply be offloaded to the drone such as in our proposed model, where we simply provide drones their next waypoint and let them navigate to it by themselves. The only pings to the server now would be to request a new waypoint or to retrieve an updated list of nearby static obstacles.
+This is a lot of compute that can be offloaded to the drone such as in our proposed model, where we simply provide drones their next waypoint and let them navigate to it by themselves. The only pings to the server now would be to request a new waypoint or to retrieve an updated list of nearby static obstacles.
 
  \begin{figure}[!hbpt]
   \centering
@@ -646,14 +646,19 @@ This is a lot of compute that can simply be offloaded to the drone such as in ou
                      ]
   \node [box](sp)                {Drone};
   \node [box,right=of sp] (sc)   {Controller};
-  \draw [->] ([yshift=3mm] sp.east)  to ["Ping per waypoint"] ([yshift=3mm] sc.west) ;
-  \draw [->] ([yshift=-3mm] sc.west) to ["Next Waypoint"] ([yshift=-3mm] sp.east);
+  \draw [->] ([yshift=3mm] sp.east)  to ["ping for waypoint"] ([yshift=3mm] sc.west) ;
+  \draw [->] ([yshift=-3mm] sc.west) to ["next waypoint"] ([yshift=-3mm] sp.east);
   \end{tikzpicture}
-  \caption{Proposed Drone-Controller Interaction.}
+  \caption{Updated Drone-Controller Interaction.}
   % \label{fig:proposed_drone_controller_interaction}
   \end{figure}
 
+This new Drone-Controller dynamic means that drones need to be responsible for avoiding dynamic obstacles and other physical entities all by themselves. Essentially, the AATC Reactive Layer has been split from the server and will now reside on each drone. The drone must periodically ping a controller for details of the nearest static obstacle, and combine this information with data from its own sensors in order to effectively avoid both static and dynamic obstacles.
+
 \subsubsection{Controllers}
+Much like an air traffic control tower, controllers exist as entities responsible for guiding drones in a particular region of the world. As the collision avoidance Reactive Layer will now run on the drones, the controller will be running the pathfinding Global Layer and keep a bitmap representation of the world.\\
+
+Since drones only know about their next waypoint, it is the responsiblity of the controller to know which waypoint a drone last visited and to return the correct next waypoint when requested, which could involve checking if the drone is actually at the waypoint it claims to be at. The controller should also return information on the closest static obstacle to the drone at a given point.
 
 \subsection{Global Layer}
 \subsubsection{No Fly Zones}

@@ -520,7 +520,7 @@
       \verb https://www.dji.com/guidance
       \endverb
     \endentry
-    \entry{DJIa}{misc}{}
+    \entry{DJIb}{misc}{}
       \name{author}{1}{}{%
         {{hash=153d951385c5fdca0deb46430d4c73e2}{%
            family={DJI},
@@ -535,7 +535,10 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{{DJI Intelligent Flight Modes}}
-      \field{urlyear}{}
+      \field{urlday}{12}
+      \field{urlmonth}{6}
+      \field{urlyear}{2018}
+      \field{urldateera}{ce}
       \verb{url}
       \verb https://www.dji.com/intelligent-flight-modes
       \endverb

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  12 JUN 2018 18:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  12 JUN 2018 20:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1588,6 +1588,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1609,10 +1613,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 707--708
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1620,6 +1620,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [37]
+Underfull \hbox (badness 10000) in paragraph at lines 712--713
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1648,7 +1652,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [41]
-Overfull \hbox (16.96132pt too wide) in paragraph at lines 774--774
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[42]
+Overfull \hbox (16.96132pt too wide) in paragraph at lines 779--779
 \OT1/cmtt/m/n/12 amazon . com / images / G / 01 / 112715 / download / Amazon % 7B % 5C _ %7DDetermining %
  []
 
@@ -1658,30 +1669,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[42]
+[43]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[43]
-Overfull \hbox (1.12952pt too wide) in paragraph at lines 774--774
+[44]
+Overfull \hbox (1.12952pt too wide) in paragraph at lines 779--779
 []\OT1/cmr/m/n/12 DJI. \OT1/cmr/m/it/12 DJI In-tel-li-gent Flight Modes\OT1/cmr/m/n/12 . \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . dji . com / intelligent -[]
  []
 
 
-Overfull \hbox (2.85403pt too wide) in paragraph at lines 774--774
+Overfull \hbox (2.85403pt too wide) in paragraph at lines 779--779
 []\OT1/cmr/m/n/12 Flightradar24. \OT1/cmr/m/it/12 About Fligh-tradar24\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . flightradar24 .
  []
 
 
-Overfull \hbox (10.78632pt too wide) in paragraph at lines 774--774
+Overfull \hbox (10.78632pt too wide) in paragraph at lines 779--779
 \OT1/cmtt/m/n/12 google . co . uk / trends / explore ? date = all % 7B % 5C & %7Dq = drone % 20technology$
  []
 
 
-Overfull \hbox (21.93701pt too wide) in paragraph at lines 774--774
+Overfull \hbox (21.93701pt too wide) in paragraph at lines 779--779
 []\OT1/cmr/m/n/12 Improbable Worlds Ltd. \OT1/cmr/m/it/12 Im-prob-a-ble Home Page\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / improbable .
  []
 
@@ -1691,8 +1702,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[44]
-Overfull \hbox (6.554pt too wide) in paragraph at lines 774--774
+[45]
+Overfull \hbox (6.554pt too wide) in paragraph at lines 779--779
 []\OT1/cmr/m/n/12 Investopedia. \OT1/cmr/m/it/12 Time Value of Money - TVM\OT1/cmr/m/n/12 . \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / www . investopedia .
  []
 
@@ -1702,13 +1713,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45]
-Overfull \hbox (32.31133pt too wide) in paragraph at lines 774--774
+[46]
+Overfull \hbox (32.31133pt too wide) in paragraph at lines 779--779
 \OT1/cmtt/m/n/12 publication -[] pdf / vcii -[] publication -[] technological -[] disruption -[] innovation -[]
  []
 
 
-Overfull \hbox (6.61766pt too wide) in paragraph at lines 774--774
+Overfull \hbox (6.61766pt too wide) in paragraph at lines 779--779
 \OT1/cmr/m/n/12 2017. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/cmtt/m/n/12 https : / / youtu . be / fTuijWHwAsk ? t = 4m46s$ \OT1/cmr/m/n/12 (vis-ited on 01/25/2018). 
  []
 
@@ -1718,8 +1729,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[46]
-Overfull \hbox (9.38739pt too wide) in paragraph at lines 774--774
+[47]
+Overfull \hbox (9.38739pt too wide) in paragraph at lines 779--779
 \OT1/cmr/m/it/12 ern, chrono-log-i-cally ar-ranged\OT1/cmr/m/n/12 . Boston: Houghton Mif-flin, 2001. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 0395652375. 
  []
 
@@ -1729,7 +1740,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[47] (./report.aux)
+[48] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1747,10 +1758,10 @@ Here is how much of TeX's memory you used:
  62i,14n,92p,4191b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmu10.pfb>
-Output written on report.pdf (50 pages, 8892455 bytes).
+Output written on report.pdf (51 pages, 8893747 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
+ 291 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  199 words of extra memory for PDF output out of 10000 (max. 10000000)
 
