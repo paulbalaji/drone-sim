@@ -608,7 +608,7 @@ By virtue of games having several dynamic systems all interlinking with each oth
 Before even thinking about simulating orders and scheduling deliveries, there must be a backbone in place that allows drones to get from a start to end point. To this end, the pathfinding and collision avoidance capabilities of AATC (Section 2.4) will be the backbone of the simulation.
 
 \subsection{Basic Interaction Model}
-However, AATC was designed as a simple master-slave system such that the server assumed total control over each drone in the system. To produce a scalable delivery network, modifications have to made that allows agents to be decoupled and unconstrained from the totalitarian model of AATC.
+However, AATC was designed as a simple master-slave system such that the server assumed total control over each drone in the system. To produce a scalable delivery network, modifications have to made that allows entities to be decoupled and not limited to the constraints imposed by the existing AATC model.
 
 \subsubsection{Drones}
 As a testament to hardware and software improvements over time, modern consumer drones are now fully capable of avoiding obstacles \cite{DJI} and navigating to GPS locations on their own \cite{DJIb}. By taking this into account we can have drones responsible for their own movement, leading to greater autonomy in the simulated delivery network, in turn enabling the system to scale up to bigger areas with vastly more drones than AATC.\\
