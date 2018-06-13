@@ -764,12 +764,11 @@ A Controller has three distinct components to it which all operate together, two
  Figure \ref{fig:controller_global_bitmap_flow} describes how the three components slot next to each other, each performing its own set of tasks but maintaining separation of logic and state.
 
 \subsubsection{No Fly Zones}
-No Fly Zones are represented in a similar way to AATC, as a list of float vectors with two vectors to track opposing corners of the zone's bounding box.\\
+No Fly Zones are represented in a similar way to AATC, as a list of float vectors with two vectors to track opposing corners of the zone's bounding box. An initial list of No Fly Zones is passed into the Global Layer upon creation of the component, with scope to add and remove from the list if one so wishes.\\
 \begin{sexylisting}[colback=white]{NoFlyZone Schema Type}
 type NoFlyZone {
   improbable.Vector3f bounding_box_bottom_left = 1;
   improbable.Vector3f bounding_box_top_right = 2;
-
   list<improbable.Vector3f> vertices = 3;
 }
 \end{sexylisting}
@@ -781,10 +780,49 @@ To complement the C\# class that SpatialOS generates from this, we have implemen
   \item a given point is within any zone from a given list
 \end{itemize}
 
-\subsubsection{Waypoints}
+\subsubsection{Pathfinding and Waypoints}
+Once the No Fly Zone data is initialised, it is the controller's job to generate a list of NFZ-avoiding waypoints that a drone will follow to get from start to destination. The controller needs to maintain a list of waypoints for each drone, as well as the next waypoint that each drone will need to go to.\\
 
+This is achieved by keeping a mapping of a drone's ID to it's DroneInfo type, which contains a list of waypoints and the index of the last sent waypoint.
+
+\begin{sexylisting}[colback=white]{Basic Controller Schema}
+enum TargetResponseCode {
+  SUCCESS = 0;
+  WRONG_CONTROLLER = 1;
+  JOURNEY_COMPLETE = 2;
+}
+
+type TargetRequest {
+  EntityId drone_id = 1;
+}
+
+type TargetResponse {
+  improbable.Vector3f new_target = 1;
+  TargetResponseCode success = 2;
+}
+
+type DroneInfo {
+  int32 next_waypoint = 1;
+  list<improbable.Vector3f> waypoints = 2;
+}
+
+component Controller {
+  id = 1200;
+  uint32 max_drone_count = 2;
+  map<EntityId, DroneInfo> deliveries_map = 3;
+  bool initialised = 4;
+  Vector3f top_left = 5;
+  Vector3f bottom_right = 6;
+  command TargetResponse request_new_target(TargetRequest);
+}
+\end{sexylisting}
+
+\newpage
+When a drone reaches a waypoint it calls the \textit{request\_new\_target} command on its assigned controller, which then locates the DroneInfo of said drone. The \textit{next\_waypoint} field is incremented and the next waypoint is subsequently found and returned to the drone. If the field value is greater than or equal to the length of the list, the drone has clearly reached the final waypoint, its ultimate destination.
 
 \subsubsection{World Bitmap}
+In the original AATC implementation, the bitmap was represented as a byte array with each cell representing a 25m x 25m area of the world. Since the only information stored in the bitmap is the presence and proximity to NFZs, the array is sparse and therefore better represented as a map from cell number to GridType.\\
+
 \begin{sexylisting}[colback=white]{Bitmap Component and GridType Enum}
 enum GridType {
   OUT = 0;
@@ -804,6 +842,20 @@ component BitmapComponent {
   bool initialised = 6;
 }
 \end{sexylisting}
+
+The benefit of this implementation is that only relevant data is stored in the map, with failure to find a cell in the map implying that the corresponding area of the world is not in or near a No Fly Zone. Since every controller will have a Bitmap component, this design improves memory efficiency and provides more options to the controller. It could simply reduce its memory footprint, deal with larger areas, or reduce the cell size to represent the world witha a higher precision.
+
+\subsubsection{Drone Spawning}
+For simplicity at this early stage, controllers just generate a path between two random non-NFZ points in the world. They spawn a drone at the first random point and de-spawn each drone once it reaches its final waypoint. For testing purposes collisions were initially disabled as the drones just blindly moved from waypoint to waypoint without any collision avoidance.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/gdoc1.png}
+  \caption{Testing basic controller functionality.}
+  \label{fig:basic_controller_test}
+\end{figure}
+
+In Figure \ref{fig:basic_controller_test}, drones are spawned either side of the No Fly Zone. We check whether the controller returns waypoints in the correct order and if the flight path avoids the obstacle.
 
 \subsection{Drone}
 \subsubsection{Drone Detection}
