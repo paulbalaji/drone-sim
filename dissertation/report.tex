@@ -648,15 +648,68 @@ Much like an air traffic control tower, controllers exist as entities responsibl
 
 Since drones only know about their next waypoint, it is the responsiblity of the controller to know which waypoint a drone last visited and to return the correct next waypoint when requested, which could involve checking if the drone is actually at the waypoint it claims to be at. The controller should also return information on the closest static obstacle to the drone at a given point.
 
-\subsubsection{Unity Representation}
+\subsection{Representing Entities}
+\subsubsection{Unity SDK}
 As we are working with the SpatialOS Unity SDK, we must become familiar with the concept of a \textit{Prefab}, an asset type that can be used as a template to spawn new object instances. In addition to prefabs, \textit{MonoBehaviours} are scripts added as a prefab component that are then attached to an object instance of the prefab.\\
 
 For our simulation it is immediately clear that we need to create Drone and Controller prefabs, as they are two entity types that will be interacting with each other. Even if they do not possess any physical or graphical components, they require representation in the simulated world.\\
 
 A Drone prefab would require MonoBehaviours to handle movement and collision avoidance, whereas a Controller prefab will contain scripts to deal with waypoint management, pathfinding and world representation.
 
-\subsection{Global Layer}
+\subsubsection{SpatialOS Components}
+SpatialOS, like many game engines, works as an Entity-Component-System (ECS). The way to define these the components that entities in the world can have is through the \textit{Schema}. The schema is used to generate code that can then be used by prefab scripts in order to update the SpatialOS state of objects.\\
 
+Each component requires a unique, explicitly defined component ID to distinguish it from other components. Then optionally, we can define properties, events and commands. Properties hold the state of a component, events are used to trigger intra-entity actions, and commands are request-response operations that indicate how different entities communicate with each other.
+
+\begin{sexylisting}[colback=white]{Example Schema - Health}
+package improbable.example;
+
+type DamageResponse {}
+type DamageRequest {
+  uint32 amount = 1;
+}
+
+component Health {
+  id = 1234;
+  uint32 health = 1;
+  command DamageResponse damage(DamageRequest);
+}
+\end{sexylisting}
+
+When spawning an entity, we create a \textit{template} of a defined prefab and add the components that we wish to be on that entity, setting the initial state of component properties in the process. In the case of a Health component we may wish to set \textit{health} of a player to 100, but 20 for little monsters and perhaps 200 for boss fights.\\
+
+\begin{sexylisting}[colback=white]{Creating a Cube Template}
+public static Entity CreateCubeTemplate()
+{
+  return EntityBuilder.Begin()
+    .AddPositionComponent(...)
+    .AddMetadataComponent(entityType: SimulationSettings.CubePrefabName)
+    .SetPersistence(true)
+    .SetReadAcl(...)
+    .AddComponent(new Rotation.Data(...))
+    .Build();
+}
+\end{sexylisting}
+
+SpatialOS is then tasked with spawning an entity using the template, with the ability to set callbacks for both successful and failed creation attempts.\\
+
+\begin{sexylisting}[colback=white]{Spawning a Cube Object}
+var cubeTemplate = EntityTemplateFactory.CreateCubeTemplate();
+SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
+  .OnSuccess((obj) =>
+    Debug.LogFormat("Created Entity {0}", obj.createdEntityId))
+  .OnFailure(() => Debug.LogError("Unable to spawn Cube."));
+\end{sexylisting}
+
+\section{}
+\subsection{Controller Entity}
+
+
+\begin{itemize}
+  \item ControllerBehaviour.cs
+  \item GridGlobalLayer.cs
+  \item Bitmap.cs
+\end{itemize}
 
 \subsubsection{No Fly Zones}
 \begin{sexylisting}[colback=white]{NoFlyZone Schema Type}

@@ -92,96 +92,100 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.1.2}Controllers}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.3}Unity Representation}{35}
+\contentsline {subsection}{\numberline {3.2}Representing Entities}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Global Layer}{35}
+\contentsline {subsubsection}{\numberline {3.2.1}Unity SDK}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1}Structure}{35}
+\contentsline {subsubsection}{\numberline {3.2.2}SpatialOS Components}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.2}No Fly Zones}{35}
+\contentsline {section}{\numberline {4}}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.3}Waypoints}{37}
+\contentsline {subsection}{\numberline {4.1}Controller Entity}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.4}World Bitmap}{37}
+\contentsline {subsubsection}{\numberline {4.1.1}No Fly Zones}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Reactive Layer}{37}
+\contentsline {subsubsection}{\numberline {4.1.2}Waypoints}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.1}Drone Detection}{37}
+\contentsline {subsubsection}{\numberline {4.1.3}World Bitmap}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.2}Collisions}{37}
+\contentsline {subsection}{\numberline {4.2}Reactive Layer}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}TODO: London-Scale Simulation}{38}
+\contentsline {subsubsection}{\numberline {4.2.1}Drone Detection}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Distributed Network Architecture}{38}
+\contentsline {subsubsection}{\numberline {4.2.2}Collisions}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.1}Basic Order Generation}{38}
+\contentsline {section}{\numberline {5}TODO: London-Scale Simulation}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.2}Controller Regions}{38}
+\contentsline {subsection}{\numberline {5.1}Distributed Network Architecture}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}London Snapshot}{38}
+\contentsline {subsubsection}{\numberline {5.1.1}Basic Order Generation}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.1}No Fly Zone Representation}{38}
+\contentsline {subsubsection}{\numberline {5.1.2}Controller Regions}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2}Snapshot Generator}{38}
+\contentsline {subsection}{\numberline {5.2}London Snapshot}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.3}Voronoi Split}{38}
+\contentsline {subsubsection}{\numberline {5.2.1}No Fly Zone Representation}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Entity Placement}{38}
+\contentsline {subsubsection}{\numberline {5.2.2}Snapshot Generator}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.1}No Fly Zones}{38}
+\contentsline {subsubsection}{\numberline {5.2.3}Voronoi Split}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.2}Controllers}{38}
+\contentsline {subsection}{\numberline {5.3}Entity Placement}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.3}Order Generator}{38}
+\contentsline {subsubsection}{\numberline {5.3.1}No Fly Zones}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}TODO: Integrating Delivery Economics}{39}
+\contentsline {subsubsection}{\numberline {5.3.2}Controllers}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Improved Order Generation}{39}
+\contentsline {subsubsection}{\numberline {5.3.3}Order Generator}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.1}Package Type \& Weight}{39}
+\contentsline {section}{\numberline {6}TODO: Integrating Delivery Economics}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.1.2}Delivery Priority}{39}
+\contentsline {subsection}{\numberline {6.1}Improved Order Generation}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Revenue Model}{39}
+\contentsline {subsubsection}{\numberline {6.1.1}Package Type \& Weight}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3}Operating Costs}{39}
+\contentsline {subsubsection}{\numberline {6.1.2}Delivery Priority}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.1}Energy Consumption}{39}
+\contentsline {subsection}{\numberline {6.2}Revenue Model}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.2}Penalties}{39}
+\contentsline {subsection}{\numberline {6.3}Operating Costs}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}TODO: Time-Value of Delivery}{40}
+\contentsline {subsubsection}{\numberline {6.3.1}Energy Consumption}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Function Representation}{40}
+\contentsline {subsubsection}{\numberline {6.3.2}Penalties}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Utilised Functions}{40}
+\contentsline {section}{\numberline {7}TODO: Time-Value of Delivery}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.1}The Halvening}{40}
+\contentsline {subsection}{\numberline {7.1}Function Representation}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.2}Monotonic Decrease}{40}
+\contentsline {subsection}{\numberline {7.2}Utilised Functions}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.3}Wildcard}{40}
+\contentsline {subsubsection}{\numberline {7.2.1}The Halvening}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}TODO: Optimised Scheduling}{41}
+\contentsline {subsubsection}{\numberline {7.2.2}Monotonic Decrease}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Shortest Job First}{41}
+\contentsline {subsubsection}{\numberline {7.2.3}Wildcard}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}Least Lost Value}{41}
+\contentsline {section}{\numberline {8}TODO: Optimised Scheduling}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}TODO: Evaluation}{42}
+\contentsline {subsection}{\numberline {8.1}Shortest Job First}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1}Metrics}{42}
+\contentsline {subsection}{\numberline {8.2}Least Lost Value}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.1}Logging}{42}
+\contentsline {section}{\numberline {9}TODO: Evaluation}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.1.2}Data Extraction}{42}
+\contentsline {subsection}{\numberline {9.1}Metrics}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2}Comparing Schedulers}{42}
+\contentsline {subsubsection}{\numberline {9.1.1}Logging}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.3}Large Scale London Simulation}{42}
+\contentsline {subsubsection}{\numberline {9.1.2}Data Extraction}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}TODO: Future Work}{43}
+\contentsline {subsection}{\numberline {9.2}Comparing Schedulers}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}TODO: Conclusion}{44}
+\contentsline {subsection}{\numberline {9.3}Large Scale London Simulation}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{45}
+\contentsline {section}{\numberline {10}TODO: Future Work}{45}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11}TODO: Conclusion}{46}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{References}{47}
