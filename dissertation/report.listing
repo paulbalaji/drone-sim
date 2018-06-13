@@ -1,17 +1,21 @@
-enum GridType {
-  OUT = 0;
-  IN = 1;
-  NEAR = 2;
-}
+public static class NoFlyZone
+{
+    private static bool isInPolygon(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
 
-component BitmapComponent {
-  id = 1204;
-  improbable.Vector3f top_left = 1;
-  improbable.Vector3f bottom_right = 2;
-  int32 width = 3;
-  int32 height = 4;
-  int32 grid_width = 7;
-  int32 grid_height = 8;
-  map<int32, GridType> grid = 5;
-  bool initialised = 6;
+    public static bool hasCollidedWith(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
+
+    public static bool hasCollidedWithAny(
+      List<Improbable.Controller.NoFlyZone> zones,
+      Vector3f point);
+
+    public static void setBoundingBoxCoordinates(
+      ref Improbable.Controller.NoFlyZone nfz);
+
+    public static bool isPointInTheBoundingBox(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
 }

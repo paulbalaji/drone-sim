@@ -721,17 +721,21 @@ SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
 \end{sexylisting}
 
 \newpage
-\section{TODO: Core Prefab Creation}
+\section{TODO: Implementation of Core Entities}
 \subsection{Controller}
+A Controller has three distinct components to it which all operate together, two of which are the Global Layer and corresponding Bitmap. A \textit{GridGlobalLayer} script would be used to generate a simple path from start to destination when requested. On initialisation, it would need to populate and update the Bitmap component with details of all the No Fly Zones in the that controller's region of the world.\\
 
+\texit{GridGlobalLayer} itself will be called by \textit{ControllerBehaviour}. This MonoBehaviour is responsible for overseeing the overall operation of a Controller. Spawning drones, calling the pathfinding component, and updating the drone-waypoint mappings are all examples of tasks that this "master" behaviour would have to handle.
 
 \begin{figure}[!hbpt]
  \centering
  \begin{tikzpicture}[node distance = 2cm, auto]
      % Place nodes
      \node [block] (controller) {Controller Behaviour};
-     \node [block, right of=controller, node distance=3cm] (globallayer) {Global Layer};
-     \node [block, right of=globallayer, node distance=3cm] (bitmap) {Bitmap};
+     \node [cloud, right of=controller, node distance=5cm] (genpath) {Generate Path};
+     \node [block, below of=genpath, node distance=3cm] (globallayer) {Global Layer};
+     \node [cloud, left of=globallayer, node distance=5cm] (checknfz) {Check No Fly Zones};
+     \node [block, below of=checknfz, node distance=3cm] (bitmap) {Bitmap};
      % \node [cloud, left of=init] (expert) {expert};
      % \node [cloud, right of=init] (system) {system};
      % \node [block, below of=init] (identify) {identify candidate models};
@@ -740,8 +744,10 @@ SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
      % \node [decision, below of=evaluate] (decide) {is best candidate better?};
      % \node [block, below of=decide, node distance=3cm] (stop) {stop};
      % Draw edges
-     \path [line] (controller) -- (globallayer);
-     \path [line] (globallayer) -- (bitmap);
+     \path [line] (controller) -- (genpath);
+     \path [line] (genpath) -- (globallayer);
+     \path [line] (globallayer) -- (checknfz);
+     \path [line] (checknfz) -- (bitmap);
      % \path [line] (identify) -- (evaluate);
      % \path [line] (evaluate) -- (decide);
      % \path [line] (decide) -| node [near start] {yes} (update);
@@ -751,11 +757,14 @@ SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
      % \path [line,dashed] (system) -- (init);
      % \path [line,dashed] (system) |- (evaluate);
  \end{tikzpicture}
- \caption{Updated Drone-Controller Interaction.}
- % \label{fig:proposed_drone_controller_interaction}
+ \caption{Example Component Flow.}
+ \label{fig:controller_global_bitmap_flow}
  \end{figure}
 
+ Figure \ref{fig:controller_global_bitmap_flow} describes how the three components slot next to each other, each performing its own set of tasks but maintaining separation of logic and state.
+
 \subsubsection{No Fly Zones}
+No Fly Zones are represented in a similar way to AATC, as a list of float vectors with two vectors to track opposing corners of the zone's bounding box.\\
 \begin{sexylisting}[colback=white]{NoFlyZone Schema Type}
 type NoFlyZone {
   improbable.Vector3f bounding_box_bottom_left = 1;
@@ -765,29 +774,12 @@ type NoFlyZone {
 }
 \end{sexylisting}
 
-\begin{sexylisting}[colback=white]{NoFlyZone.cs Static Class Overview}
-public static class NoFlyZone
-{
-    private static bool isInPolygon(
-      Improbable.Controller.NoFlyZone nfz,
-      Improbable.Vector3f point);
-
-    public static bool hasCollidedWith(
-      Improbable.Controller.NoFlyZone nfz,
-      Improbable.Vector3f point);
-
-    public static bool hasCollidedWithAny(
-      List<Improbable.Controller.NoFlyZone> zones,
-      Vector3f point);
-
-    public static void setBoundingBoxCoordinates(
-      ref Improbable.Controller.NoFlyZone nfz);
-
-    public static bool isPointInTheBoundingBox(
-      Improbable.Controller.NoFlyZone nfz,
-      Improbable.Vector3f point);
-}
-\end{sexylisting}
+To complement the C\# class that SpatialOS generates from this, we have implemented a static class containing methods that are necessary for integrating No Fly Zones with the Global Layer and Bitmap components. These are checks to see if:
+\begin{itemize}
+  \item a given point is within a zone's bounding box
+  \item a given point is within a zone's polygonal area
+  \item a given point is within any zone from a given list
+\end{itemize}
 
 \subsubsection{Waypoints}
 
@@ -926,7 +918,32 @@ Before considering how to maximise profitability, we introduce the concept of th
 \printbibliography
 
 % \newpage
-% \begin{appendices}
-% \end{appendices}
+\begin{appendices}
 
+\section{No Fly Zone Static Class}
+\begin{sexylisting}[colback=white]{NoFlyZone.cs Static Class Overview}
+public static class NoFlyZone
+{
+    private static bool isInPolygon(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
+
+    public static bool hasCollidedWith(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
+
+    public static bool hasCollidedWithAny(
+      List<Improbable.Controller.NoFlyZone> zones,
+      Vector3f point);
+
+    public static void setBoundingBoxCoordinates(
+      ref Improbable.Controller.NoFlyZone nfz);
+
+    public static bool isPointInTheBoundingBox(
+      Improbable.Controller.NoFlyZone nfz,
+      Improbable.Vector3f point);
+}
+\end{sexylisting}
+
+\end{appendices}
 \end{document}
