@@ -1,17 +1,17 @@
 [0] Config.pm:354> INFO - This is Biber 2.7
 [0] Config.pm:357> INFO - Logfile is 'report.blg'
-[39] biber-darwin:303> INFO - === Tue Jun 12, 2018, 19:55:12
-[59] Biber.pm:359> INFO - Reading 'report.bcf'
-[149] Biber.pm:835> INFO - Found 51 citekeys in bib section 0
+[41] biber-darwin:303> INFO - === Wed Jun 13, 2018, 14:10:47
+[61] Biber.pm:359> INFO - Reading 'report.bcf'
+[150] Biber.pm:835> INFO - Found 51 citekeys in bib section 0
 [163] Biber.pm:3670> INFO - Processing section 0
 [177] Biber.pm:3840> INFO - Looking for bibtex format file 'library.bib' for section 0
-[189] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[190] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
 [204] bibtex.pm:1292> INFO - Found BibTeX data source 'library.bib'
-[290] Utils.pm:164> WARN - BibTeX subsystem: /var/folders/n7/sm4rhbkj3xz3sspt1_glrlfr0000gn/T/RPywQuOoMG/library.bib_56719.utf8, line 6, warning: 174 characters of junk seen at toplevel
+[289] Utils.pm:164> WARN - BibTeX subsystem: /var/folders/n7/sm4rhbkj3xz3sspt1_glrlfr0000gn/T/ppz0mMvtYh/library.bib_62733.utf8, line 6, warning: 174 characters of junk seen at toplevel
 [339] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
 [339] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
 [339] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
 [339] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
 [377] bbl.pm:608> INFO - Writing 'report.bbl' with encoding 'UTF-8'
 [384] bbl.pm:712> INFO - Output to report.bbl
-[385] Biber.pm:109> INFO - WARNINGS: 1
+[384] Biber.pm:109> INFO - WARNINGS: 1

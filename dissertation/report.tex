@@ -25,15 +25,18 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{tikz}
-\usetikzlibrary{ arrows.meta, positioning, quotes, shadows}
+\usepackage{smartdiagram}
+
+\usetikzlibrary{ arrows, positioning, quotes, shapes, shadows, trees}
 
 \usepackage{listings}
+
 \usepackage[most]{tcolorbox}
 \usepackage{inconsolata}
 
 \newtcblisting[auto counter]{sexylisting}[2][]{sharp corners,
-    fonttitle=\bfseries, colframe=black, listing only, columns=fullflexible
-    listing options={basicstyle=\ttfamily,language=java},
+    fonttitle=\bfseries, colframe=black, listing only,
+    listing options={basicstyle=\fontsize{11}{13}\selectfont\ttfamily,language=csh,columns=spaceflexible},
     title=Listing \thetcbcounter: #2, #1}
 
 \bibliography{library}
@@ -57,6 +60,22 @@
 \renewcommand{\baselinestretch}{1.5}
 
 \begin{document}
+\tikzstyle{every node}=[draw=black,thick,anchor=west]
+\tikzstyle{selected}=[draw=red,fill=red!30]
+\tikzstyle{optional}=[dashed,fill=gray!50]
+\tikzstyle{abstract}=[rectangle, draw=black, rounded corners, fill=blue!40, drop shadow,
+        text centered, anchor=north, text=white, text width=3cm]
+\tikzstyle{comment}=[rectangle, draw=black, rounded corners, fill=green, drop shadow,
+        text centered, anchor=north, text=white, text width=3cm]
+\tikzstyle{myarrow}=[->, >=open triangle 90, thick]
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
 \newcount\colveccount
 \newcommand*\colvec[1]{
         \global\colveccount#1
@@ -701,15 +720,40 @@ SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
   .OnFailure(() => Debug.LogError("Unable to spawn Cube."));
 \end{sexylisting}
 
-\section{}
-\subsection{Controller Entity}
+\newpage
+\section{TODO: Core Prefab Creation}
+\subsection{Controller}
 
 
-\begin{itemize}
-  \item ControllerBehaviour.cs
-  \item GridGlobalLayer.cs
-  \item Bitmap.cs
-\end{itemize}
+\begin{figure}[!hbpt]
+ \centering
+ \begin{tikzpicture}[node distance = 2cm, auto]
+     % Place nodes
+     \node [block] (controller) {Controller Behaviour};
+     \node [block, right of=controller, node distance=3cm] (globallayer) {Global Layer};
+     \node [block, right of=globallayer, node distance=3cm] (bitmap) {Bitmap};
+     % \node [cloud, left of=init] (expert) {expert};
+     % \node [cloud, right of=init] (system) {system};
+     % \node [block, below of=init] (identify) {identify candidate models};
+     % \node [block, below of=identify] (evaluate) {evaluate candidate models};
+     % \node [block, left of=evaluate, node distance=3cm] (update) {update model};
+     % \node [decision, below of=evaluate] (decide) {is best candidate better?};
+     % \node [block, below of=decide, node distance=3cm] (stop) {stop};
+     % Draw edges
+     \path [line] (controller) -- (globallayer);
+     \path [line] (globallayer) -- (bitmap);
+     % \path [line] (identify) -- (evaluate);
+     % \path [line] (evaluate) -- (decide);
+     % \path [line] (decide) -| node [near start] {yes} (update);
+     % \path [line] (update) |- (identify);
+     % \path [line] (decide) -- node {no}(stop);
+     % \path [line,dashed] (expert) -- (init);
+     % \path [line,dashed] (system) -- (init);
+     % \path [line,dashed] (system) |- (evaluate);
+ \end{tikzpicture}
+ \caption{Updated Drone-Controller Interaction.}
+ % \label{fig:proposed_drone_controller_interaction}
+ \end{figure}
 
 \subsubsection{No Fly Zones}
 \begin{sexylisting}[colback=white]{NoFlyZone Schema Type}
@@ -769,7 +813,7 @@ component BitmapComponent {
 }
 \end{sexylisting}
 
-\subsection{Reactive Layer}
+\subsection{Drone}
 \subsubsection{Drone Detection}
 \subsubsection{Collisions}
 
