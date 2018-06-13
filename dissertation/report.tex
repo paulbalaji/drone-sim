@@ -725,7 +725,7 @@ SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
 \subsection{Controller}
 A Controller has three distinct components to it which all operate together, two of which are the Global Layer and corresponding Bitmap. A \textit{GridGlobalLayer} script would be used to generate a simple path from start to destination when requested. On initialisation, it would need to populate and update the Bitmap component with details of all the No Fly Zones in the that controller's region of the world.\\
 
-\texit{GridGlobalLayer} itself will be called by \textit{ControllerBehaviour}. This MonoBehaviour is responsible for overseeing the overall operation of a Controller. Spawning drones, calling the pathfinding component, and updating the drone-waypoint mappings are all examples of tasks that this "master" behaviour would have to handle.
+\textit{GridGlobalLayer} itself will be called by \textit{ControllerBehaviour}. This MonoBehaviour is responsible for overseeing the overall operation of a Controller. Spawning drones, calling the pathfinding component, and updating the drone-waypoint mappings are all examples of tasks that this "master" behaviour would have to handle.
 
 \begin{figure}[!hbpt]
  \centering
@@ -953,8 +953,31 @@ void MoveDrone()
 \end{sexylisting}
 
 \subsubsection{Drone Detection}
-\subsubsection{Collisions}
+In AATC the server knew the location of every drone in the world, which meant that searching for nearby drones would just be a case of iterating through the list of drones and finding the closest one. However, with SpatialOS we delegate this responsiblity to the drones.\\
 
+The naive method would be for each drone to request all SpatialOS entities within a certain radius, and then filtering to find the closest one. The problem with this is that Spatial find queries are extremely expensive as they have to propagate up to the server instance, be executed, and then returned down to individual entities. In a world with 30 drones where each drone is recalculating its direction every second, that's 30 queries that have to be dealt with in tandem every second.\\
+
+Due to the fact that each distributed ``worker'' in SpatialOS is an instance of the Unity game engine, a more practical approach is instead to utilise the engine and perform a simple physics collision check.
+
+Although this is still resource-expensive, it is still quicker than a Spatial search because using native game engine functionality is more performant than manually searching for entities in a radius. By applying a Sphere Collider to each drone, checking for nearby colliders will only ever return instances of drones (Appendix B).
+
+\subsubsection{Collision Detection}
+Now that drones are detected easily, a collision is simply the case where a nearby collider is at a distance of less than 1m (2 drone radiuses). In the real world, a controller would detect that two drones have stopped responding and assume a crash occured. For our simulation, we instead add a command for drones to call so the controller knows a collision occurred. \\
+
+\begin{sexylisting}[colback=white]{Reporting a Collision}
+type CollisionResponse {}
+type CollisionRequest {
+  EntityId drone_id = 1;
+  EntityId collider_id = 2;
+}
+
+command CollisionResponse collision(CollisionRequest);
+\end{sexylisting}
+
+Upon successful receipt of a \textit{CollisionRequest}, a controller may then destroy the drone instances to signal that they are not part of the system anymore. Looking ahead, the controller may decide to use this as a trigger to dispatch drone recovery services or apply penalties for crashing drones.
+
+\subsection{Summary}
+Now that the Drone and Controller entities have been created and relevant components added, we are able to create drones, send them between random locations, and destroy them upon journey completion.
 
 
 %**********************************************%
@@ -1068,8 +1091,8 @@ Before considering how to maximise profitability, we introduce the concept of th
 % \newpage
 \begin{appendices}
 
-\section{No Fly Zone Static Class}
-\begin{sexylisting}[colback=white]{NoFlyZone.cs Static Class Overview}
+\section{Static No Fly Zone Class}
+\begin{sexylisting}[colback=white]{Static No Fly Zone Class}
 public static class NoFlyZone
 {
     private static bool isInPolygon(
@@ -1090,6 +1113,39 @@ public static class NoFlyZone
     public static bool isPointInTheBoundingBox(
       Improbable.Controller.NoFlyZone nfz,
       Improbable.Vector3f point);
+}
+\end{sexylisting}
+
+\section{Nearby Drone and Collision Detection}
+\begin{sexylisting}[colback=white]{Nearby Drone and Collision Detection}
+private void CheckForNearbyDrones(Vector3 dronePos, bool collisionsOn)
+{
+  nearestDrone.type = APFObstacleType.NONE;
+  nearestDrone.position = new Vector3f(0, -1, 0);
+  nearestDroneDistance = radiusOfInfluence;
+
+  Collider[] hitColliders = Physics.OverlapSphere(dronePos, apfRadius);
+  foreach (Collider hitCollider in hitColliders)
+  {
+    if (hitCollider.gameObject.EntityId() != gameObject.EntityId())
+    {
+      float currentDroneDistance
+        = Vector3.Distance(hitCollider.transform.position, dronePos);
+
+      if (collisionsOn && currentDroneDistance < 1)
+      {
+        /* collision reported to controller */
+      }
+
+      if (currentDroneDistance < nearestDroneDistance)
+      {
+        nearestDrone.position
+          = hitCollider.transform.position.ToSpatialVector3f();
+        nearestDrone.type = APFObstacleType.DRONE;
+        nearestDroneDistance = currentDroneDistance;
+      }
+    }
+  }
 }
 \end{sexylisting}
 

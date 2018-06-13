@@ -502,9 +502,17 @@ OUTPUT report.listing
 INPUT report.listing
 INPUT report.listing
 INPUT report.listing
+OUTPUT report.listing
+INPUT report.listing
+INPUT report.listing
+INPUT report.listing
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
+OUTPUT report.listing
+INPUT report.listing
+INPUT report.listing
+INPUT report.listing
 OUTPUT report.listing
 INPUT report.listing
 INPUT report.listing
