@@ -773,7 +773,7 @@ type NoFlyZone {
 }
 \end{sexylisting}
 
-To complement the C\# class that SpatialOS generates from this, we have implemented a static class containing methods that are necessary for integrating No Fly Zones with the Global Layer and Bitmap components. These are checks to see if:
+To complement the C\# class that SpatialOS generates from this, we have implemented a static class (Appendix A) containing methods that are necessary for integrating No Fly Zones with the Global Layer and Bitmap components. These are checks to see if:
 \begin{itemize}
   \item a given point is within a zone's bounding box
   \item a given point is within a zone's polygonal area
@@ -843,7 +843,57 @@ component BitmapComponent {
 }
 \end{sexylisting}
 
-The benefit of this implementation is that only relevant data is stored in the map, with failure to find a cell in the map implying that the corresponding area of the world is not in or near a No Fly Zone. Since every controller will have a Bitmap component, this design improves memory efficiency and provides more options to the controller. It could simply reduce its memory footprint, deal with larger areas, or reduce the cell size to represent the world witha a higher precision.
+The benefit of this implementation is that only relevant data is stored in the map, with failure to find a cell in the map implying that the corresponding area of the world is not in or near a No Fly Zone. Since every controller will have a Bitmap component, this design improves memory efficiency and provides more options to the controller. It could simply reduce its memory footprint, deal with larger areas, or reduce the cell size to represent the world with a higher precision.
+
+\subsubsection{Assisting the Reactive Layer}
+Although collision avoidance runs on the drone, it can not do the job properly without knowing the closest point to it on a NFZ. This is where the controller comes in and asks the bitmap to return the closest NFZ point. Since NFZs extend across all altitudes, the drone's altitude is used as the y-coordinate of the closest NFZ point.\\
+
+This means that there is now a fourth component to the Controller entity, existing just to deal with requests from drones for the nearest static obstacle. This is shown as the \textit{get\_nearest\_obstacle} command, which returns the \textit{APFObstacle} used by drone-side collision avoidance code.\\
+
+\begin{sexylisting}[colback=white]{Reactive Layer Request Handler}
+void GetNearestObstacle(RequestHandle handle)
+{
+  Vector3f nfz = bitmap.nearestNFZPoint(handle.Request.location);
+  APFObstacleType type = APFObstacleType.NO_FLY_ZONE;
+  if (nearestNoFlyZone.y < 0)
+  {
+    type = APFObstacleType.NONE;
+  }
+  handle.Respond(new ObstacleResponse(new APFObstacle(type, nfz)));
+}
+\end{sexylisting}
+
+\begin{sexylisting}[colback=white]{Reactive Layer Schema}
+package improbable.drone;
+
+import "improbable/vector3.schema";
+
+enum APFObstacleType {
+  NONE = 0;
+  MANNED_AVIATION = 1;
+  DRONE = 2;
+  NO_FLY_ZONE = 3;
+  HIDDEN_OBSTACLE = 4;
+}
+
+type APFObstacle{
+  APFObstacleType type = 1;
+  improbable.Vector3f position = 2;
+}
+
+type ObstacleRequest {
+  improbable.Vector3f location = 1;
+}
+
+type ObstacleResponse {
+  APFObstacle obstacle = 1;
+}
+
+component ReactiveLayer {
+  id = 1205;
+  command ObstacleResponse get_nearest_obstacle(ObstacleRequest);
+}
+\end{sexylisting}
 
 \subsubsection{Drone Spawning}
 For simplicity at this early stage, controllers just generate a path between two random non-NFZ points in the world. They spawn a drone at the first random point and de-spawn each drone once it reaches its final waypoint. For testing purposes collisions were initially disabled as the drones just blindly moved from waypoint to waypoint without any collision avoidance.
@@ -855,11 +905,57 @@ For simplicity at this early stage, controllers just generate a path between two
   \label{fig:basic_controller_test}
 \end{figure}
 
-In Figure \ref{fig:basic_controller_test}, drones are spawned either side of the No Fly Zone. We check whether the controller returns waypoints in the correct order and if the flight path avoids the obstacle.
+In Figure \ref{fig:basic_controller_test}, we check if the controller returns correct waypoints in order by spawning drones either side of the NFZ and observing if the flight path avoids the obstacle.
 
 \subsection{Drone}
+Compared to a controller, a drone is a far less complex entity. It has one main component to maintain state of the drone's next waypoint, current direction, target request status, and maximum speed. The core loop of the \textit{DroneBehaviour} script executes every second, updating SpatialOS with the drone position and then either recalculating direction or requesting a new target, depending on the drone's status.
+
+\begin{sexylisting}[colback=white]{Main Drone Loop (once a second)}
+void DroneTick()
+{
+  if (simulate)
+  {
+    SendPositionUpdate();
+    if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
+    {
+      apf.Recalculate();
+    }
+    if (DroneDataWriter.Data.targetPending == TargetPending.WAITING)
+    {
+      requestNewTarget();
+    }
+    float distanceToTarget = Vector3.Distance(target, transform.position);
+    if (DroneDataWriter.Data.targetPending == TargetPending.REQUEST
+      || distanceToTarget < radius)
+    {
+      requestNewTarget();
+    }
+  }
+}
+\end{sexylisting}
+
+Actual movement of the drone occurs in a separate method (Listing 10) \textit{four} times a second. This is done so that the drones visually appear to move smoother and the separation exists to reduce how often we perform the costly tasks of detecting and avoiding nearby drones.\\
+
+Adding this separation will also make it easier down the road when we introduce energy consumption to the drones, because we can then simply switch on the drone status to adjust how much energy has been consumed in the previous time frame. For example, a moving drone will consume more energy than a hovering drone.
+
+\begin{sexylisting}[colback=white]{Drone Movement (four times a second)}
+void MoveDrone()
+{
+  if (simulate)
+  {
+    if (DroneDataWriter.Data.droneStatus == DroneStatus.MOVE)
+    {
+      transform.position += direction * DroneDataWriter.Data.speed
+        * SimulationSettings.DroneMoveInterval;
+    }
+  }
+}
+\end{sexylisting}
+
 \subsubsection{Drone Detection}
 \subsubsection{Collisions}
+
+
 
 %**********************************************%
 \newpage
