@@ -986,7 +986,15 @@ Now that the Drone and Controller entities have been created and relevant compon
 As SpatialOS abstracts away all server-to-server connections and raw networking, we can consider any size world as one singular simulation. As explored thus far, our work only needs to go as far as the definition entities and how their components interact with each other. Since pathfinding and drone-controller communication channels have been set up and tested, our efforts now turn to upgrading this system into a scalable, distributed, delivery network.
 
 \subsection{Delivery Network Architecture}
-Delivery networks
+As per the current design, controllers spawn drones, generate a path between two points and then sequentially provide waypoints the drone should follow to get to its destination. To modify this for a delivery network case, the points should correspond to the locations of the controller and the delivery end point. As controllers are both stationary and responsible for pathfinding, making this change is trivial.\\
+
+The question now: how do controllers find out where the delivery end points are?
+
+\subsubsection{Basic Order Generation}
+To resolve this we introduce an Order Generation entity to the simulation, whose sole functionality is to simulate a stream of delivery requests and route these requests to the appropriate controller. The Order Generator may eventually have a load balancing component to it in the future, but for now we simply route each delivery request to the controller closest to the package destination.\\
+
+Figure \ref{fig:delivery_network_overview} shows how the Order Generator fits into the existing model. While controllers and drones represent physical things that will exist in the real world, order generation is a virtual entity that only exists for the purposes of the simulation. If such a system were to go live, the order generation entity would be replaced by the actual stream of orders that real customers would be placing.
+
 \begin{figure}[!hbpt]
  \centering
  \begin{tikzpicture}[node distance = 2cm, auto]
@@ -995,9 +1003,9 @@ Delivery networks
      \node [block, below of=ordergeneration, node distance=3cm] (controller1) {Controller};
      \node [block, left of=controller1, node distance=3cm] (controller2) {Controller};
      \node [block, right of=controller1, node distance=3cm] (controller3) {Controller};
-     \node [cloud, below of=controller1, node distance=3cm] (drone1) {Drones};
-     \node [cloud, below of=controller2, node distance=3cm] (drone2) {Drones};
-     \node [cloud, below of=controller3, node distance=3cm] (drone3) {Drones};
+     \node [cloud, below of=controller1, node distance=2cm] (drone1) {Drones};
+     \node [cloud, below of=controller2, node distance=2cm] (drone2) {Drones};
+     \node [cloud, below of=controller3, node distance=2cm] (drone3) {Drones};
      % \node [cloud, left of=globallayer, node distance=5cm] (checknfz) {Check No Fly Zones};
      % \node [block, below of=checknfz, node distance=3cm] (bitmap) {Bitmap};
      % \node [cloud, left of=init] (expert) {expert};
@@ -1012,8 +1020,11 @@ Delivery networks
      \path [line] (ordergeneration) -- (controller2);
      \path [line] (ordergeneration) -- (controller3);
      \path [line] (controller1) -- (drone1);
+     \path [line] (drone1) -- (controller1);
      \path [line] (controller2) -- (drone2);
+     \path [line] (drone2) -- (controller2);
      \path [line] (controller3) -- (drone3);
+     \path [line] (drone3) -- (controller3);
      % \path [line] (genpath) -- (globallayer);
      % \path [line] (globallayer) -- (checknfz);
      % \path [line] (checknfz) -- (bitmap);
@@ -1030,7 +1041,6 @@ Delivery networks
  \label{fig:delivery_network_overview}
  \end{figure}
 
-\subsubsection{Basic Order Generation}
 \subsubsection{Controller Regions}
 
 \subsection{London Snapshot}
