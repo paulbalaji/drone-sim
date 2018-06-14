@@ -982,7 +982,7 @@ Now that the Drone and Controller entities have been created and relevant compon
 
 %**********************************************%
 \newpage
-\section{TODO: Delivery Network Architecture}
+\section{REVISIT: Delivery Network Architecture}
 As SpatialOS abstracts away all server-to-server connections and raw networking, we can consider any size world as one singular simulation. As explored thus far, our work only needs to go as far as the definition entities and how their components interact with each other. Since pathfinding and drone-controller communication channels have been set up and tested, our efforts now turn to upgrading this system into a scalable, distributed, delivery network.
 
 \subsection{Delivery Destinations}
@@ -1046,7 +1046,44 @@ Controllers will need a \textit{DeliveryHandler} component to enqueue incoming d
 
 The delivery handler effectively acts as a scheduler for the controller, because it decides the order to return requests in a manner completely transparent to core controller operation. The main loop (Appendix C) now checks if the controller can deploy a drone, asks for the next request, handles the delivery request if the scheduler returns one back, and sends the updated queue state up to SpatialOS.
 
-\begin{sexylisting}[colback=white]{Reporting a Collision}
+\newpage
+To match up with this functionality the schema defines four basic elements:
+\begin{enumerate}
+  \item \textit{DeliveryRequest} type
+  \item \textit{QueueEntry} type
+  \item list of QueueEntry items
+  \item \textit{request\_delivery} command
+\end{enumerate}
+
+\begin{sexylisting}[colback=white]{Delivery Handler Schema}
+type DeliveryResponse {
+  bool success = 1;
+}
+
+type DeliveryRequest {
+  improbable.Vector3f destination = 1;
+}
+
+type QueueEntry {
+  float timestamp = 1;
+  DeliveryRequest request = 2;
+}
+
+component DeliveryHandler {
+  id = 1201;
+  list<QueueEntry> request_queue = 1;
+  command DeliveryResponse request_delivery(DeliveryRequest);
+}
+\end{sexylisting}
+
+We designed it this way so that \textit{DeliveryRequest} data could be extended later if we so wish. Important information about a delivery that will extend to support in the future include package weights, package types and even the priority of said delivery. Being able to extend the \textit{QueueEntry} also may open the door for us to play with more complex scheduling algorithms down the line.
+
+\subsubsection{Order Generator}
+Now that we have defined a basic \textit{DeliveryRequest} type, it is the order generator's job to regularly create and send these requests to the appropriate controller. At the moment the request only requires a location vector, so our plan to do this is to generate a random point in the world not in a No Fly Zone, and then find the closest controller to said point.\\
+
+We would like the orders to be generated at regular time intervals such that each Controller receives an order every 30 seconds on average. By distributing controllers evenly such that each one is responsible for similar sized regions of the world, we can infer that the Order Generator works generates requests every $\frac{30}{\#controllers}$ seconds.\\
+
+\begin{sexylisting}[colback=white]{Order Generator Schema}
 type ControllerInfo {
   EntityId controller_id = 1;
   improbable.Vector3f location = 2;
@@ -1054,20 +1091,14 @@ type ControllerInfo {
 
 component OrderGeneratorComponent {
   id = 1300;
-  int32 first_controller = 1;
-  int32 last_controller = 2;
-  list<improbable.controller.NoFlyZone> zones = 3;
-  list<ControllerInfo> controllers = 4;
+  list<improbable.controller.NoFlyZone> zones = 1;
+  list<ControllerInfo> controllers = 2;
 }
 \end{sexylisting}
 
-The Order Generator generates an order at regular time intervals such that each Controller receives an order every 30 seconds on average.
+In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
 
-In a simple simulation of two controllers, that would mean a new order is created generated every 15 seconds.
-
-
-
-\section{London-Scale Simulation}
+\section{TODO: London-Scale Simulation}
 \subsection{London Snapshot}
 \subsubsection{No Fly Zone Representation}
 \subsubsection{Snapshot Generator}
