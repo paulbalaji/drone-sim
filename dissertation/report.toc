@@ -84,7 +84,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.9.4}Layered Simulation}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}TODO: Translating AATC to SpatialOS}{33}
+\contentsline {section}{\numberline {3}REVISIT: Translating AATC to SpatialOS}{33}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1}Basic Interaction Model}{33}
 \defcounter {refsection}{0}\relax 
@@ -98,7 +98,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.2.2}SpatialOS Components}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}TODO: Implementation of Core Entities}{38}
+\contentsline {section}{\numberline {4}REVISIT: Implementation of Core Entities}{38}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1}Controller}{38}
 \defcounter {refsection}{0}\relax 

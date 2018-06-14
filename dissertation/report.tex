@@ -611,7 +611,7 @@ By virtue of games having several dynamic systems all interlinking with each oth
 
 %**********************************************%
 \newpage
-\section{TODO: Translating AATC to SpatialOS}
+\section{REVISIT: Translating AATC to SpatialOS}
 Before even thinking about simulating orders and scheduling deliveries, there must be a backbone in place that allows drones to get from a start to end point. To this end, the pathfinding and collision avoidance capabilities of AATC (Section 2.4) will be the backbone of the simulation.
 
 \subsection{Basic Interaction Model}
@@ -721,7 +721,7 @@ SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
 \end{sexylisting}
 
 \newpage
-\section{TODO: Implementation of Core Entities}
+\section{REVISIT: Implementation of Core Entities}
 \subsection{Controller}
 A Controller has three distinct components to it which all operate together, two of which are the Global Layer and corresponding Bitmap. A \textit{GridGlobalLayer} script would be used to generate a simple path from start to destination when requested. On initialisation, it would need to populate and update the Bitmap component with details of all the No Fly Zones in the that controller's region of the world.\\
 
@@ -983,6 +983,8 @@ Now that the Drone and Controller entities have been created and relevant compon
 %**********************************************%
 \newpage
 \section{TODO: London-Scale Simulation}
+As SpatialOS abstracts away all server-to-server connections and raw networking, we can consider any size world as one singular simulation. As explored thus far, our work only needs to go as far as the definition entities and how their components interact with each other. Since pathfinding and drone-controller communication channels have been set up and tested, our efforts now turn to upgrading this system into a scalable, distributed, delivery network.
+
 \subsection{Distributed Network Architecture}
 \subsubsection{Basic Order Generation}
 \subsubsection{Controller Regions}
