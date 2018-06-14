@@ -982,15 +982,12 @@ Now that the Drone and Controller entities have been created and relevant compon
 
 %**********************************************%
 \newpage
-\section{TODO: London-Scale Simulation}
+\section{TODO: Delivery Network Architecture}
 As SpatialOS abstracts away all server-to-server connections and raw networking, we can consider any size world as one singular simulation. As explored thus far, our work only needs to go as far as the definition entities and how their components interact with each other. Since pathfinding and drone-controller communication channels have been set up and tested, our efforts now turn to upgrading this system into a scalable, distributed, delivery network.
 
-\subsection{Delivery Network Architecture}
-As per the current design, controllers spawn drones, generate a path between two points and then sequentially provide waypoints the drone should follow to get to its destination. To modify this for a delivery network case, the points should correspond to the locations of the controller and the delivery end point. As controllers are both stationary and responsible for pathfinding, making this change is trivial.\\
+\subsection{Delivery Destinations}
+As per the current design, controllers spawn drones, generate a path between two points and then sequentially provide waypoints the drone should follow to get to its destination. To modify this for a delivery network case, the points should correspond to the locations of the controller and the delivery end point. As controllers are both stationary and responsible for pathfinding, making this change is trivial. The question now: how do controllers find out where the delivery end points are?\\
 
-The question now: how do controllers find out where the delivery end points are?
-
-\subsubsection{Basic Order Generation}
 To resolve this we introduce an Order Generation entity to the simulation, whose sole functionality is to simulate a stream of delivery requests and route these requests to the appropriate controller. The Order Generator may eventually have a load balancing component to it in the future, but for now we simply route each delivery request to the controller closest to the package destination.\\
 
 Figure \ref{fig:delivery_network_overview} shows how the Order Generator fits into the existing model. While controllers and drones represent physical things that will exist in the real world, order generation is a virtual entity that only exists for the purposes of the simulation. If such a system were to go live, the order generation entity would be replaced by the actual stream of orders that real customers would be placing.
@@ -1037,12 +1034,40 @@ Figure \ref{fig:delivery_network_overview} shows how the Order Generator fits in
      % \path [line,dashed] (system) -- (init);
      % \path [line,dashed] (system) |- (evaluate);
  \end{tikzpicture}
- \caption{Delivery Network Overview.}
+ \caption{Delivery Network Flow.}
  \label{fig:delivery_network_overview}
  \end{figure}
 
-\subsubsection{Controller Regions}
+\subsection{Basic Order Generation}
+Before generating any orders, we must first define the components on the Order Generator and Controller that deal with the sending and receiving of delivery requests.
 
+\subsubsection{Delivery Handler / Scheduler}
+Controllers will need a \textit{DeliveryHandler} component to enqueue incoming delivery requests. It follows that there are a finite amount of drones available to deliver goods at a particular point in time, therefore the Delivery Handler's function is to maintain a queue of requests and only provide the next delivery to serve when the \textit{ControllerBehaviour} asks for it.\\
+
+The delivery handler effectively acts as a scheduler for the controller, because it decides the order to return requests in a manner completely transparent to core controller operation. The main loop (Appendix C) now checks if the controller can deploy a drone, asks for the next request, handles the delivery request if the scheduler returns one back, and sends the updated queue state up to SpatialOS.
+
+\begin{sexylisting}[colback=white]{Reporting a Collision}
+type ControllerInfo {
+  EntityId controller_id = 1;
+  improbable.Vector3f location = 2;
+}
+
+component OrderGeneratorComponent {
+  id = 1300;
+  int32 first_controller = 1;
+  int32 last_controller = 2;
+  list<improbable.controller.NoFlyZone> zones = 3;
+  list<ControllerInfo> controllers = 4;
+}
+\end{sexylisting}
+
+The Order Generator generates an order at regular time intervals such that each Controller receives an order every 30 seconds on average.
+
+In a simple simulation of two controllers, that would mean a new order is created generated every 15 seconds.
+
+
+
+\section{London-Scale Simulation}
 \subsection{London Snapshot}
 \subsubsection{No Fly Zone Representation}
 \subsubsection{Snapshot Generator}
@@ -1202,6 +1227,28 @@ private void CheckForNearbyDrones(Vector3 dronePos, bool collisionsOn)
       }
     }
   }
+}
+\end{sexylisting}
+
+\section{Main Controller Loop}
+\begin{sexylisting}[colback=white]{Main Controller Loop}
+void ControllerTick()
+{
+  if (!ControllerWriter.Data.initialised)
+  {
+    /* initialise global layer */
+  }
+
+  QueueEntry nextRequest;
+  if (ReadyForDeployment())
+  {
+    if (scheduler.GetNextRequest(out nextRequest))
+    {
+      HandleDeliveryRequest(nextRequest);
+    }
+  }
+
+  scheduler.UpdateDeliveryRequestQueue();
 }
 \end{sexylisting}
 

@@ -1,29 +1,18 @@
-private void CheckForNearbyDrones(Vector3 dronePos, bool collisionsOn)
+void ControllerTick()
 {
-  nearestDrone.type = APFObstacleType.NONE;
-  nearestDrone.position = new Vector3f(0, -1, 0);
-  nearestDroneDistance = radiusOfInfluence;
-
-  Collider[] hitColliders = Physics.OverlapSphere(dronePos, apfRadius);
-  foreach (Collider hitCollider in hitColliders)
+  if (!ControllerWriter.Data.initialised)
   {
-    if (hitCollider.gameObject.EntityId() != gameObject.EntityId())
+    /* initialise global layer */
+  }
+
+  QueueEntry nextRequest;
+  if (ReadyForDeployment())
+  {
+    if (scheduler.GetNextRequest(out nextRequest))
     {
-      float currentDroneDistance
-        = Vector3.Distance(hitCollider.transform.position, dronePos);
-
-      if (collisionsOn && currentDroneDistance < 1)
-      {
-        /* collision reported to controller */
-      }
-
-      if (currentDroneDistance < nearestDroneDistance)
-      {
-        nearestDrone.position
-          = hitCollider.transform.position.ToSpatialVector3f();
-        nearestDrone.type = APFObstacleType.DRONE;
-        nearestDroneDistance = currentDroneDistance;
-      }
+      HandleDeliveryRequest(nextRequest);
     }
   }
+
+  scheduler.UpdateDeliveryRequestQueue();
 }
