@@ -985,7 +985,51 @@ Now that the Drone and Controller entities have been created and relevant compon
 \section{TODO: London-Scale Simulation}
 As SpatialOS abstracts away all server-to-server connections and raw networking, we can consider any size world as one singular simulation. As explored thus far, our work only needs to go as far as the definition entities and how their components interact with each other. Since pathfinding and drone-controller communication channels have been set up and tested, our efforts now turn to upgrading this system into a scalable, distributed, delivery network.
 
-\subsection{Distributed Network Architecture}
+\subsection{Delivery Network Architecture}
+Delivery networks
+\begin{figure}[!hbpt]
+ \centering
+ \begin{tikzpicture}[node distance = 2cm, auto]
+     % Place nodes
+     \node [block] (ordergeneration) {Order Generator};
+     \node [block, below of=ordergeneration, node distance=3cm] (controller1) {Controller};
+     \node [block, left of=controller1, node distance=3cm] (controller2) {Controller};
+     \node [block, right of=controller1, node distance=3cm] (controller3) {Controller};
+     \node [cloud, below of=controller1, node distance=3cm] (drone1) {Drones};
+     \node [cloud, below of=controller2, node distance=3cm] (drone2) {Drones};
+     \node [cloud, below of=controller3, node distance=3cm] (drone3) {Drones};
+     % \node [cloud, left of=globallayer, node distance=5cm] (checknfz) {Check No Fly Zones};
+     % \node [block, below of=checknfz, node distance=3cm] (bitmap) {Bitmap};
+     % \node [cloud, left of=init] (expert) {expert};
+     % \node [cloud, right of=init] (system) {system};
+     % \node [block, below of=init] (identify) {identify candidate models};
+     % \node [block, below of=identify] (evaluate) {evaluate candidate models};
+     % \node [block, left of=evaluate, node distance=3cm] (update) {update model};
+     % \node [decision, below of=evaluate] (decide) {is best candidate better?};
+     % \node [block, below of=decide, node distance=3cm] (stop) {stop};
+     % Draw edges
+     \path [line] (ordergeneration) -- (controller1);
+     \path [line] (ordergeneration) -- (controller2);
+     \path [line] (ordergeneration) -- (controller3);
+     \path [line] (controller1) -- (drone1);
+     \path [line] (controller2) -- (drone2);
+     \path [line] (controller3) -- (drone3);
+     % \path [line] (genpath) -- (globallayer);
+     % \path [line] (globallayer) -- (checknfz);
+     % \path [line] (checknfz) -- (bitmap);
+     % \path [line] (identify) -- (evaluate);
+     % \path [line] (evaluate) -- (decide);
+     % \path [line] (decide) -| node [near start] {yes} (update);
+     % \path [line] (update) |- (identify);
+     % \path [line] (decide) -- node {no}(stop);
+     % \path [line,dashed] (expert) -- (init);
+     % \path [line,dashed] (system) -- (init);
+     % \path [line,dashed] (system) |- (evaluate);
+ \end{tikzpicture}
+ \caption{Delivery Network Overview.}
+ \label{fig:delivery_network_overview}
+ \end{figure}
+
 \subsubsection{Basic Order Generation}
 \subsubsection{Controller Regions}
 
