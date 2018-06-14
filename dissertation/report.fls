@@ -514,6 +514,9 @@ OUTPUT report.listing
 INPUT report.listing
 INPUT report.listing
 INPUT report.listing
+INPUT img/unity_londonsnapshotsmallexample.png
+INPUT ./img/unity_londonsnapshotsmallexample.png
+INPUT ./img/unity_londonsnapshotsmallexample.png
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm

@@ -164,7 +164,7 @@ namespace Assets.Gamelogic.Core
         public static readonly string ControllerPrefabName = "Controller";
         public static readonly string DronePrefabName = "Drone";
         public static readonly string NfzNodePrefabName = "NfzNode";
-        public static readonly string SchedulerPrefabName = "Scheduler";
+		public static readonly string SchedulerPrefabName = "OrdersGenerator";
 
         public static readonly float HeartbeatCheckIntervalSecs = 3;
         public static readonly uint TotalHeartbeatsBeforeTimeout = 3;

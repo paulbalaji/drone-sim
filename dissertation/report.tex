@@ -1098,9 +1098,24 @@ component OrderGeneratorComponent {
 
 In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
 
-\section{TODO: London-Scale Simulation}
-\subsection{London Snapshot}
-\subsubsection{No Fly Zone Representation}
+\section{TODO: Generating Snapshots}
+A snapshot represents the state of a simulated world at a point in time, storing each entity as well as each component's properties. Every deployment, both local and in the cloud, requires a starting snapshot to populate the simulation. To speed up this process, we create a \textit{scene} for snapshot generation and utilise the power of Unity Editor scripts to programmatically generate and modify snapshots with ease.
+
+\subsection{Snapshot Scene}
+Figure \ref{fig:unity_londonsnapshotsmallexample} shows how the London scene looks in Unity when visually editing a snapshot. The leftmost column is known as the \textit{Hierarchy}, a list of all the objects currently in the scene. To the side of this is the \textit{Inspector} that shows all the Unity components on a selected prefab, in this case a Drone.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/unity_londonsnapshotsmallexample.png}
+  \caption{Viewing the London scene in the Unity Editor.}
+  \label{fig:unity_londonsnapshotsmallexample}
+\end{figure}
+
+The world view in the middle is for visual aid when placing entities in the scene, and the column on the far right is a menu for SpatialOS build operations.
+% This menu is particularly useful as being able to quickly rebuild the project within the Unity Editor greatly reduces iteration times.
+
+\subsubsection{Area Selection}
+\subsubsection{Representing No Fly Zones}
 \subsubsection{Snapshot Generator}
 \subsubsection{Voronoi Split}
 
