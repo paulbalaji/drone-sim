@@ -527,6 +527,9 @@ INPUT report.listing
 INPUT img/nfz_representation_example.png
 INPUT ./img/nfz_representation_example.png
 INPUT ./img/nfz_representation_example.png
+INPUT img/london_snapshot_small_nfzs.png
+INPUT ./img/london_snapshot_small_nfzs.png
+INPUT ./img/london_snapshot_small_nfzs.png
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm

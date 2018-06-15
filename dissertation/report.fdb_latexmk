@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber report"] 1529028719 "report.bcf" "report.bbl" "report" 1529028875
+["biber report"] 1529028719 "report.bcf" "report.bbl" "report" 1529029789
   "library.bib" 1529023970 47840 dbc6caa62610e0dd4c6f6e3efcac7581 ""
-  "report.bcf" 1529028875 100787 1ee2609dc0ce4455708b156019487641 ""
+  "report.bcf" 1529029788 100787 1ee2609dc0ce4455708b156019487641 ""
   (generated)
-  "report.bbl"
   "report.blg"
-["pdflatex"] 1529028863 "report.tex" "report.pdf" "report" 1529028875
+  "report.bbl"
+["pdflatex"] 1529029776 "report.tex" "report.pdf" "report" 1529029789
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1480098666 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc" 1480098667 2315 334715164332d078f211e6ad023c662e ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -276,6 +276,7 @@
   "img/google_truck_patent.jpeg" 1516890146 39978 14d4192ae96bd10136a481cc9c3ec386 ""
   "img/io_inspector.png" 1516917238 218791 72b0e3dfe28bc6fe35201e82f1a25f5e ""
   "img/london_snapshot_small.png" 1528979399 1577752 65449982f23e04b7ae39862d27b01314 ""
+  "img/london_snapshot_small_nfzs.png" 1528979563 1538801 f2e1436641b4062b9f5e78823e8fb5c0 ""
   "img/mlfqs.jpg" 1516971719 90358 803e84462acaee6ad1511e28334aa8c3 ""
   "img/mlqs.jpg" 1516971748 191966 d4523b63b592aa49f124b6f238a7d5c9 ""
   "img/nfz_representation_example.png" 1529026843 519573 79731f44f03646bddad3fe420e823c22 ""
@@ -285,17 +286,17 @@
   "img/spatialos-diagram_solution2.png" 1516912665 211507 19d6e6d14bb35678da1ab03fb7410867 ""
   "img/starship.jpg" 1516872402 668422 f86232351c5cc3fbb4ff913c42d68bb0 ""
   "img/unity_londonsnapshotsmallexample.png" 1529013824 2458845 8fc1a632820da0f5922141192b6f826c ""
-  "report.aux" 1529028875 29466 67299b926b16c2ec1482e0735479e8eb ""
+  "report.aux" 1529029788 29746 8f5bd0bdaa7f865f2e724f8d553268c7 ""
   "report.bbl" 1529028720 68445 e574017999b9c82dae5f918466305069 "biber report"
-  "report.listing" 1529028875 321 5757a7c01bf4a255ee8128e2fa00a36c ""
-  "report.run.xml" 1529028875 2316 0003617f5aa428b5c6dae544c4959c9e ""
-  "report.tex" 1529028861 86574 d530944b3c198bbd7cd4008886fe130b ""
-  "report.toc" 1529028875 10750 28c970073bb2df19653ad988457d2a04 ""
+  "report.listing" 1529029788 321 5757a7c01bf4a255ee8128e2fa00a36c ""
+  "report.run.xml" 1529029788 2316 0003617f5aa428b5c6dae544c4959c9e ""
+  "report.tex" 1529029761 86835 8279931313f320a7ffbfcdeb9156782d ""
+  "report.toc" 1529029788 10750 af85eae3a43c571ef4a5636af36cd4f8 ""
   (generated)
-  "report.aux"
   "report.toc"
-  "report.pdf"
-  "report.bcf"
   "report.listing"
-  "report.run.xml"
+  "report.aux"
+  "report.pdf"
   "report.log"
+  "report.run.xml"
+  "report.bcf"
