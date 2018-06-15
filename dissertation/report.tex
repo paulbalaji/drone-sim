@@ -26,6 +26,7 @@
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{smartdiagram}
+\usepackage{multicol}
 
 \usetikzlibrary{ arrows, positioning, quotes, shapes, shadows, trees}
 
@@ -624,7 +625,7 @@ As a testament to hardware and software improvements over time, modern consumer 
  \centering
  \begin{tikzpicture}[
  node distance = 2mm and 55mm,
-             > = Stealth,
+             > = stealth,
     box/.style = {rectangle, draw, thick, fill=white,
                    text width=2cm, minimum height=3cm,
                    align=center,  drop shadow}
@@ -646,7 +647,7 @@ This is a lot of compute that can be offloaded to the drone such as in our propo
   \centering
   \begin{tikzpicture}[
   node distance = 2mm and 55mm,
-              > = Stealth,
+              > = stealth,
      box/.style = {rectangle, draw, thick, fill=white,
                     text width=2cm, minimum height=3cm,
                     align=center,  drop shadow}
@@ -1177,10 +1178,68 @@ Figure \ref{fig:nfz_representation_example} shows an instance of a NoFlyZone pre
   \label{fig:london_snapshot_small_nfzs}
 \end{figure}
 
-\subsubsection{Controller Placement}
+\subsection{Entity Placement}
+\subsubsection{No Fly Zones}
+Making use of this new workflow, we added five major No Fly Zones to the world. Our intentions were to protect famous landmarks, public hospitals that may provide Air Ambulance support, the royal parks \cite{Blunden2016}, vertically large constructions and national security hotspots. To this end we placed No Fly Zones over:
+\begin{enumerate}
+   \item Famous Landmarks
+   \begin{multicols}{2}
+     \begin{itemize}
+       \item Tower of London
+       \item Tower Bridge
+       \item St. Paul's Cathedral
+       \item Westminster Abbey
+       \item London Bridge
+       \item Barbican
+     \end{itemize}
+   \end{multicols}
+   \item Major Hospitals
+   \begin{multicols}{2}
+     \begin{itemize}
+       \item St. Bartholomew's Hospital
+       \item St. Thomas' Hospital
+       \item Great Ormond Street Hospital
+     \end{itemize}
+   \end{multicols}
+   \item Royal Parks
+   \begin{multicols}{2}
+     \begin{itemize}
+       \item St. James' Park
+       \item Hyde Park
+     \end{itemize}
+   \end{multicols}
+   \item Tall Constructions
+   \begin{multicols}{2}
+     \begin{itemize}
+       \item The Shard
+       \item London Eye
+     \end{itemize}
+   \end{multicols}
+   \item National Security Interests
+   \begin{multicols}{2}
+     \begin{itemize}
+       \item Buckingham Palace
+       \item Houses of Parliament
+       \item Downing Street
+     \end{itemize}
+   \end{multicols}
+\end{enumerate}
 
-\subsubsection{Snapshot Generator}
+\subsubsection{Controller}
+For a simulation of only 5km x 4km, we felt that there was no need for more than two controllers as we operated under the assumption that the simulation is only of an early-stage pilot delivery network. We scouted for two higher education establishments to act as Controller locations, coming up with a shortlist of University College London (UCL), SOAS University of London (SOAS), King's College London, London School of Economics (LSE), City University, and London South Bank University.\\
 
+Not only do we have to consider the merits of each location, but how pairs of locations would work. For example, it makes little sense to have a ``distributed'' delivery network with two controllers in close proximity to each other. For this reason, we felt strongly that there should be one location below the river and one above, meaning that London South Bank University became the site of our first Controller.\\
+
+After fixing one location, the flaws of others became more apparent. King's was rejected on the grounds that it was placed in an awkward position such that it would end up being responsible for far more of the map than South Bank would. LSE was in a prime position in the centre-left of the map, but with the location came the consideration that nearby hotels and fine dining establishments would not appreciate a major drone operation occuring above their property.\\
+
+Lastly, UCL and SOAS were rejected for being too close to a major hospital zone. This left City University to host our second Controller, giving us a nice bit of symmetry to the world layout.
+
+\subsubsection{Order Generator}
+Although its location does not have any bearing on the simulation outcome, the SpatialOS load balancer prefers to have this entity in the same place as any random Controller, so we stuck to our above-river bias and planted it under City University.
+
+\subsubsection{Drones}
+
+\subsection{Snapshot Generator}
 \subsubsection{Voronoi Split}
 
 

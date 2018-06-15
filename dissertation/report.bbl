@@ -391,6 +391,30 @@
       \verb https://www.cs.uic.edu/%7B~%7Djbell/CourseNotes/OperatingSystems/5%7B%5C_%7DCPU%7B%5C_%7DScheduling.html
       \endverb
     \endentry
+    \entry{Blunden2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=99bb2d1ed9e87029fcd9cc80323b0121}{%
+           family={Blunden},
+           familyi={B\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{99bb2d1ed9e87029fcd9cc80323b0121}
+      \strng{fullhash}{99bb2d1ed9e87029fcd9cc80323b0121}
+      \strng{authornamehash}{99bb2d1ed9e87029fcd9cc80323b0121}
+      \strng{authorfullhash}{99bb2d1ed9e87029fcd9cc80323b0121}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Evening Standard}
+      \field{title}{{No-go drone zones announced in London amid fears over voyeurism and safety}}
+      \field{year}{2016}
+      \verb{url}
+      \verb https://www.standard.co.uk/news/techandgadgets/nogo-drone-zones-announced-in-london-amid-fears-over-voyeurism-and-safety-a3397811.html
+      \endverb
+      \warn{\item Entry 'Blunden2016' (library.bib): Invalid format '10th May 2018' of date field 'urldate' - ignoring}
+    \endentry
     \entry{Bowcott2017}{misc}{}
       \name{author}{1}{}{%
         {{hash=508d3dc0127d0b41c9fdc023060e6ac6}{%
