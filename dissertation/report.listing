@@ -1,18 +1,20 @@
-void ControllerTick()
-{
-  if (!ControllerWriter.Data.initialised)
-  {
-    /* initialise global layer */
-  }
+enum PackageType {
+  LETTER_SMALL = 0;
+  LETTER_LARGE = 1;
+  ENVELOPE_SMALL = 2;
+  ENVELOPE_STANDARD = 3;
+  ENVELOPE_LARGE = 4;
+  PARCEL = 5;
+}
 
-  QueueEntry nextRequest;
-  if (ReadyForDeployment())
-  {
-    if (scheduler.GetNextRequest(out nextRequest))
-    {
-      HandleDeliveryRequest(nextRequest);
-    }
-  }
+type PackageInfo {
+  PackageType type = 1;
+  float weight = 2;
+}
 
-  scheduler.UpdateDeliveryRequestQueue();
+enum DeliveryType {
+  STANDARD = 0;
+  PRIORITY = 1;
+  URGENT = 2;
+  SUPER_PRIORITY = 3;
 }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  15 JUN 2018 07:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  15 JUN 2018 16:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2516,10 +2516,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [62]
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1314
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2527,6 +2523,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [63]
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1323
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2555,19 +2555,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [67]
-LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 12.0pt on input line 1378.
 
-Overfull \hbox (19.77045pt too wide) in paragraph at lines 1379--1379
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[68]
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1387.
+
+Overfull \hbox (19.77045pt too wide) in paragraph at lines 1388--1388
 []\OT1/cmr/m/n/12 Amazon.com Inc. \OT1/cmr/m/it/12 Ama-zon Prime Air\OT1/cmr/m/n/12 . 2013. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/zi4/m/n/12 https : / / youtu . be / 98BIu9dpwHU$
  []
 
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1378.
+(Font)              scaled to size 8.0pt on input line 1387.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1378.
+(Font)              scaled to size 6.0pt on input line 1387.
 
-Overfull \hbox (3.55612pt too wide) in paragraph at lines 1379--1379
+Overfull \hbox (3.55612pt too wide) in paragraph at lines 1388--1388
 \OT1/zi4/m/n/12 amazon . com / images / G / 01 / 112715 / download / Amazon % 7B % 5C[] % 7DDetermining %
  []
 
@@ -2577,8 +2584,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[68]
-Overfull \hbox (31.87613pt too wide) in paragraph at lines 1379--1379
+[69]
+Overfull \hbox (31.87613pt too wide) in paragraph at lines 1388--1388
 \OT1/zi4/m/n/12 7Djbell / CourseNotes / OperatingSystems / 5 % 7B % 5C[] % 7DCPU % 7B % 5C[] % 7DScheduling .
  []
 
@@ -2588,8 +2595,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[69]
-Overfull \hbox (18.61195pt too wide) in paragraph at lines 1379--1379
+[70]
+Overfull \hbox (18.61195pt too wide) in paragraph at lines 1388--1388
 []\OT1/cmr/m/n/12 Improbable Worlds Ltd. \OT1/cmr/m/it/12 Im-prob-a-ble Home Page\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/zi4/m/n/12 https : / / improbable .
  []
 
@@ -2599,13 +2606,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[70]
-Overfull \hbox (11.80704pt too wide) in paragraph at lines 1379--1379
+[71]
+Overfull \hbox (11.80704pt too wide) in paragraph at lines 1388--1388
 \OT1/zi4/m/n/12 loadbalancer -[] config % 7B % 5C # %7Dpoints -[] of -[] interest$ \OT1/cmr/m/n/12 (vis-ited on 06/15/2018). 
  []
 
 
-Overfull \hbox (2.17892pt too wide) in paragraph at lines 1379--1379
+Overfull \hbox (2.17892pt too wide) in paragraph at lines 1388--1388
 []\OT1/cmr/m/n/12 Investopedia. \OT1/cmr/m/it/12 Time Value of Money - TVM\OT1/cmr/m/n/12 . \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/zi4/m/n/12 https : / / www . investopedia .
  []
 
@@ -2615,8 +2622,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[71]
-Overfull \hbox (6.30704pt too wide) in paragraph at lines 1379--1379
+[72]
+Overfull \hbox (6.30704pt too wide) in paragraph at lines 1388--1388
 \OT1/zi4/m/n/12 driverless -[] delivery -[] robots -[] 20160328 -[] story . html$ \OT1/cmr/m/n/12 (vis-ited on 01/25/2018). 
  []
 
@@ -2626,26 +2633,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[72]
-Overfull \hbox (0.31755pt too wide) in paragraph at lines 1379--1379
+[73]
+Overfull \hbox (0.31755pt too wide) in paragraph at lines 1388--1388
 \OT1/cmr/m/n/12 2017. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/zi4/m/n/12 https : / / youtu . be / fTuijWHwAsk ? t = 4m46s$ \OT1/cmr/m/n/12 (vis-ited on 01/25/2018). 
  []
 
 
-Overfull \hbox (9.38739pt too wide) in paragraph at lines 1379--1379
+Overfull \hbox (9.38739pt too wide) in paragraph at lines 1388--1388
 \OT1/cmr/m/it/12 ern, chrono-log-i-cally ar-ranged\OT1/cmr/m/n/12 . Boston: Houghton Mif-flin, 2001. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 0395652375. 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[73]
-\openout6 = `report.listing'.
-
- (./report.listing)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2673,13 +2670,33 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [76]
+\openout6 = `report.listing'.
+
+ (./report.listing)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[77] (./report.aux)
+[77]
+\openout6 = `report.listing'.
+
+ (./report.listing)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[78]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[79] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -2688,19 +2705,19 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39862 strings out of 492995
- 825165 string characters out of 6132703
- 1285849 words of memory out of 5000000
- 42749 multiletter control sequences out of 15000+600000
+ 39879 strings out of 492995
+ 825432 string characters out of 6132703
+ 1285850 words of memory out of 5000000
+ 42764 multiletter control sequences out of 15000+600000
  16421 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,14n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on report.pdf (80 pages, 16983025 bytes).
+Output written on report.pdf (82 pages, 16985454 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
- 249 compressed objects within 3 object streams
+ 428 PDF objects out of 1000 (max. 8388607)
+ 253 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  299 words of extra memory for PDF output out of 10000 (max. 10000000)
 

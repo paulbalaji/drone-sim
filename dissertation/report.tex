@@ -1293,8 +1293,15 @@ When inspecting a live simulation through the SpatialOS Inspector such as in Fig
 With a basic London-scale simulation implemented to handle the logistical operations of a drone delivery network, we now look at how to extend this work to factor in, and later optimise for, the economic side.
 
 \subsection{Improved Order Generation}
+Before we can define a revenue model for our delivery network, we must improve the Order Generator to generate a greater variety of delivery requests. Packages being delivered by drones will vary in size, weight and priority, just like current the delivery market, and the DeliveryHandler schema needs to upgraded (Appendix D) to support this new properties of a delivery request.
+
 \subsubsection{Package Type \& Weight}
+We take our definitions of package types from Amazon's own \textit{Fulfilment by Amazon} service, as described by Figure \ref{fig:fulfilled_by_amazon_table} in Section 2.2. Subsequently we update the \textit{DeliveryRequest} schema type to include a new \textit{PackageInfo} property, to capture both the package type and weight. Each of the 6 package types accepts a different range of weights, hence generating a PackageInfo is (at the moment) a case of randomly picking a type, and then generating a random number within each type's accepted weight range.
+
 \subsubsection{Delivery Priority}
+In addition to the actual package information, each delivery request may have a priority corresponding to how urgently a customer wants their order to be delivered. Existing delivery companies each have their own range of services to customers, so to simplify this parameter we define four levels of priority: STANDARD, PRIORITY, URGENT and SUPER\_PRIORITY. We randomly select a priority for now, with the option to adjust bias further down the line just like with package types.
+
+
 
 \subsection{Revenue Model}
 % talk about the basic revenue model
@@ -1302,6 +1309,8 @@ With a basic London-scale simulation implemented to handle the logistical operat
 % < 30 mins ==> full price
 % 30-60 mins ==> 1/2 price
 % > 60 mins ==> free delivery
+
+% As higher priority requests will generate more revenue than lower priority requests, we must provide this information
 
 \subsection{Operating Costs}
 \subsubsection{Energy Consumption}
@@ -1457,6 +1466,30 @@ void ControllerTick()
   }
 
   scheduler.UpdateDeliveryRequestQueue();
+}
+\end{sexylisting}
+
+\section{Updated DeliveryRequest Generation}
+\begin{sexylisting}[colback=white]{Additions to DeliveryHandler Schema}
+enum PackageType {
+  LETTER_SMALL = 0;
+  LETTER_LARGE = 1;
+  ENVELOPE_SMALL = 2;
+  ENVELOPE_STANDARD = 3;
+  ENVELOPE_LARGE = 4;
+  PARCEL = 5;
+}
+
+type PackageInfo {
+  PackageType type = 1;
+  float weight = 2;
+}
+
+enum DeliveryType {
+  STANDARD = 0;
+  PRIORITY = 1;
+  URGENT = 2;
+  SUPER_PRIORITY = 3;
 }
 \end{sexylisting}
 
