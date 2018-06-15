@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  15 JUN 2018 19:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  15 JUN 2018 20:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2537,6 +2537,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [63]
+Underfull \hbox (badness 10000) in paragraph at lines 1339--1340
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2544,7 +2548,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [64]
-Underfull \hbox (badness 10000) in paragraph at lines 1347--1348
+Underfull \hbox (badness 10000) in paragraph at lines 1352--1353
 
  []
 
@@ -2591,18 +2595,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [70]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 12.0pt on input line 1419.
+(Font)              scaled to size 12.0pt on input line 1424.
 
-Overfull \hbox (19.77045pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (19.77045pt too wide) in paragraph at lines 1425--1425
 []\OT1/cmr/m/n/12 Amazon.com Inc. \OT1/cmr/m/it/12 Ama-zon Prime Air\OT1/cmr/m/n/12 . 2013. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/zi4/m/n/12 https : / / youtu . be / 98BIu9dpwHU$
  []
 
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1419.
+(Font)              scaled to size 8.0pt on input line 1424.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1419.
+(Font)              scaled to size 6.0pt on input line 1424.
 
-Overfull \hbox (3.55612pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (3.55612pt too wide) in paragraph at lines 1425--1425
 \OT1/zi4/m/n/12 amazon . com / images / G / 01 / 112715 / download / Amazon % 7B % 5C[] % 7DDetermining %
  []
 
@@ -2613,7 +2617,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [71]
-Overfull \hbox (31.87613pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (31.87613pt too wide) in paragraph at lines 1425--1425
 \OT1/zi4/m/n/12 7Djbell / CourseNotes / OperatingSystems / 5 % 7B % 5C[] % 7DCPU % 7B % 5C[] % 7DScheduling .
  []
 
@@ -2624,7 +2628,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [72]
-Overfull \hbox (18.61195pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (18.61195pt too wide) in paragraph at lines 1425--1425
 []\OT1/cmr/m/n/12 Improbable Worlds Ltd. \OT1/cmr/m/it/12 Im-prob-a-ble Home Page\OT1/cmr/m/n/12 . 2018. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/zi4/m/n/12 https : / / improbable .
  []
 
@@ -2635,12 +2639,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [73]
-Overfull \hbox (11.80704pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (11.80704pt too wide) in paragraph at lines 1425--1425
 \OT1/zi4/m/n/12 loadbalancer -[] config % 7B % 5C # %7Dpoints -[] of -[] interest$ \OT1/cmr/m/n/12 (vis-ited on 06/15/2018). 
  []
 
 
-Overfull \hbox (2.17892pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (2.17892pt too wide) in paragraph at lines 1425--1425
 []\OT1/cmr/m/n/12 Investopedia. \OT1/cmr/m/it/12 Time Value of Money - TVM\OT1/cmr/m/n/12 . \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/zi4/m/n/12 https : / / www . investopedia .
  []
 
@@ -2651,7 +2655,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [74]
-Overfull \hbox (6.30704pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (6.30704pt too wide) in paragraph at lines 1425--1425
 \OT1/zi4/m/n/12 driverless -[] delivery -[] robots -[] 20160328 -[] story . html$ \OT1/cmr/m/n/12 (vis-ited on 01/25/2018). 
  []
 
@@ -2662,12 +2666,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [75]
-Overfull \hbox (0.31755pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (0.31755pt too wide) in paragraph at lines 1425--1425
 \OT1/cmr/m/n/12 2017. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : $\OT1/zi4/m/n/12 https : / / youtu . be / fTuijWHwAsk ? t = 4m46s$ \OT1/cmr/m/n/12 (vis-ited on 01/25/2018). 
  []
 
 
-Overfull \hbox (9.38739pt too wide) in paragraph at lines 1420--1420
+Overfull \hbox (9.38739pt too wide) in paragraph at lines 1425--1425
 \OT1/cmr/m/it/12 ern, chrono-log-i-cally ar-ranged\OT1/cmr/m/n/12 . Boston: Houghton Mif-flin, 2001. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 0395652375. 
  []
 
@@ -2735,14 +2739,14 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 Here is how much of TeX's memory you used:
  39931 strings out of 492995
  826279 string characters out of 6132703
- 1286375 words of memory out of 5000000
+ 1285375 words of memory out of 5000000
  42812 multiletter control sequences out of 15000+600000
  16421 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on report.pdf (84 pages, 16988615 bytes).
+Output written on report.pdf (84 pages, 16989162 bytes).
 PDF statistics:
  434 PDF objects out of 1000 (max. 8388607)
  257 compressed objects within 3 object streams
