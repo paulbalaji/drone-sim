@@ -67,8 +67,8 @@ public class ControllerAnalyser: MonoBehaviour
 	[MenuItem("Drone Sim/Controller Analysis SMALL")]
     private static void AnalyseControllersSmol()
     {
-        int x = 2400; //31500m
-        int y = 1900; //14000m
+        int x = 2400;
+        int y = 1900;
 
         int squareSize = SimulationSettings.BIT_SIZE;
 
