@@ -1376,7 +1376,20 @@ That is a 5.53p cost to the delivery network operator for a mostly-autonomous sy
 
 \newpage
 \subsubsection{Penalties}
+Understandably, nothing will ever work perfectly forever. Therefore we must consider what the cost of certain failed action are. We define four main infractions.
+\begin{enumerate}
+  \item Failed Launches
+  \item Failed Deliveries
+  \item Failed Returns
+  \item Collisions
+\end{enumerate}
 
+When a drone is unable to be launched, we consider that a delivery request was accepted but then unable to be completed. From a consumer point of view, they may have received a notification indicating that their delivery is on their way, only to be quickly told that their order has been cancelled because of some error in launching a drone. In this instance we do not charge the customer any delivery fees, instead giving them a fixed £5 compensation.\\
+
+If a drone is launched but still fails to deliver a package for whatever reason, we compensate the consumer as before and also calculate the cost of sending a truck to manually retrieve the drone that was sent out. When a drone fails for some reason \textit{after} making a delivery there is no reason to compensate the customer, but we still have to calculate the cost of retrieving the drone.\\
+
+When calculating the cost of retrieving a drone, we model our lorry on a standard UPS delivery truck with a mileage of 13.1 miles per gallon \cite{Lammert2009}. We consider fuel prices to be 125.1p per litre \cite{TheAA2018}, which translates to 568.7p per gallon.
+$$ retrieval\ cost = 2 * (distance * 0.621371) * mileage * fuel\ cost $$
 
 %**********************************************%
 \newpage

@@ -1094,6 +1094,34 @@
       \verb http://www.kidsdiscover.com/teacherresources/drones-uavs-rescue/
       \endverb
     \endentry
+    \entry{Lammert2009}{article}{}
+      \name{author}{1}{}{%
+        {{hash=26deb16465431f5b1ce22a32fdde1ddb}{%
+           family={Lammert},
+           familyi={L\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{26deb16465431f5b1ce22a32fdde1ddb}
+      \strng{fullhash}{26deb16465431f5b1ce22a32fdde1ddb}
+      \strng{authornamehash}{26deb16465431f5b1ce22a32fdde1ddb}
+      \strng{authorfullhash}{26deb16465431f5b1ce22a32fdde1ddb}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Contract}
+      \field{number}{December}
+      \field{title}{{Twelve-Month Evaluation of UPS Diesel Hybrid Electric Delivery Vans}}
+      \field{year}{2009}
+      \verb{doi}
+      \verb 10.2172/969727
+      \endverb
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/44134.pdf:pdf
+      \endverb
+      \keyw{December 2009,NREL,NREL/TP-540-44134,UPS,emission reductions,fuel economy,hybrid electric diesel trucks,hybrid electric vehicles,medium duty hybrid vehicles}
+    \endentry
     \entry{Laris2016}{misc}{}
       \name{author}{1}{}{%
         {{hash=7727c54a6e40269b69af47e611a2cc4f}{%
@@ -1432,6 +1460,31 @@
       \field{urldateera}{ce}
       \verb{url}
       \verb https://www.tesla.com/en%7B%5C_%7DGB/autopilot
+      \endverb
+    \endentry
+    \entry{TheAA2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0c32193520b95ec9042be442ae295e08}{%
+           family={{The AA}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{0c32193520b95ec9042be442ae295e08}
+      \strng{fullhash}{0c32193520b95ec9042be442ae295e08}
+      \strng{authornamehash}{0c32193520b95ec9042be442ae295e08}
+      \strng{authorfullhash}{0c32193520b95ec9042be442ae295e08}
+      \field{sortinit}{T}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The AA}
+      \field{title}{{April 2018 fuel prices}}
+      \field{urlday}{25}
+      \field{urlmonth}{5}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.theaa.com/driving-advice/driving-costs/fuel-prices
       \endverb
     \endentry
     \entry{Uras2015}{article}{}
