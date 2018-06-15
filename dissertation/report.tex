@@ -1044,7 +1044,7 @@ Figure \ref{fig:delivery_network_overview} shows how the Order Generator fits in
 Before generating any orders, we must first define the components on the Order Generator and Controller that deal with the sending and receiving of delivery requests.
 
 \subsubsection{Delivery Handler / Scheduler}
-Controllers will need a \textit{DeliveryHandler} component to enqueue incoming delivery requests. It follows that there are a finite amount of drones available to deliver goods at a particular point in time, therefore the Delivery Handler's function is to maintain a queue of requests and only provide the next delivery to serve when the \textit{ControllerBehaviour} asks for it.\\
+Controllers will need a \textit{DeliveryHandler} component to enqueue incoming delivery requests. It follows that there are a finite amount of drones available to deliver goods at a particular point in time, therefore the Delivery Handler's function is to maintain a queue of requests and only provide the next delivery to serve when the \textit{ControllerBehaviour} asks for it. For the time being, we implement a very basic FIFO queue to serve requests in the order that they were received by the Controller.\\
 
 The delivery handler effectively acts as a scheduler for the controller, because it decides the order to return requests in a manner completely transparent to core controller operation. The main loop (Appendix C) now checks if the controller can deploy a drone, asks for the next request, handles the delivery request if the scheduler returns one back, and sends the updated queue state up to SpatialOS.
 
@@ -1303,13 +1303,17 @@ We take our definitions of package types from Amazon's own \textit{Fulfilment by
 In addition to the actual package information, each delivery request may have a priority corresponding to how urgently a customer wants their order to be delivered. Existing delivery companies each have their own range of services to customers, so to simplify this parameter we define four levels of priority: STANDARD, PRIORITY, URGENT and SUPER\_PRIORITY. We randomly select a priority for now, with the option to adjust bias further down the line just like with package types.
 
 \subsection{Revenue Model}
+As we are adopting the package types described by the \textit{Fulfilment by Amazon} programme, it makes sense to adopt their pricing model too as a starting point for standard priority deliveries.\\
+
+Since we aim to provide a better service to orders with higher priorities, the price for each priority tier is a 50\% mark up from the previous tier. For example, standard delivery of a large letter would generate 80p, but priority delivery would generate £1.20 (80p x 1.5).
+
 \begin{table}[!hbpt]
 \centering
 \caption{Package Revenue Distribution.}
 \label{fig:package_revenue_distribution}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
-\multirow{2}{*}{Package Type} & \multirow{2}{*}{Weight (g)} & \multicolumn{4}{c|}{Delivery Priority (£)} \\ \cline{3-6}
+\multirow{2}{*}{Package Type} & \multirow{2}{*}{Weight (g)} & \multicolumn{4}{c|}{Delivery Fee (£)} \\ \cline{3-6}
  &  & Standard & Priority & Urgent & Super Priority \\ \hline
 \begin{tabular}[c]{@{}c@{}}Small\\ Letter\end{tabular} & 0 - 100 & 0.60 & 0.90 & 1.35 & 2.03 \\ \hline
 \begin{tabular}[c]{@{}c@{}}Large\\ Letter\end{tabular} & 0 - 250 & 0.80 & 1.20 & 1.80 & 2.70 \\ \hline
@@ -1327,11 +1331,9 @@ In addition to the actual package information, each delivery request may have a 
 \end{tabular}
 \end{table}
 
-% talk about the basic revenue model
-% show the table of package type/weight ==> delivery cost
-% < 30 mins ==> full price
-% 30-60 mins ==> 1/2 price
-% > 60 mins ==> free delivery
+In addition to the priority system, we introduce a mechanism whereby the cost to a consumer per delivery, ergo ther revenue generated, monotonically decreases with the time taken to perform said delivery. The cost is halved if it takes more than 30 minutes to deliver the package after order generation, and reduced to 0 if the delivery takes more than 60 minutes to complete.\\
+
+By charging both bigger fees for higher priority requests we provide incentives for controllers to prioritise more important requests to generate more revenue. However by offering reductions for slower delivery of goods, we also ensure that controllers attempt to serve all delivery requests as soon as possible.
 
 % As higher priority requests will generate more revenue than lower priority requests, we must provide this information
 
@@ -1357,6 +1359,13 @@ Before considering how to maximise profitability, we introduce the concept of th
 % mention pre-emption
 \subsection{Shortest Job First}
 \subsection{Least Lost Value}
+
+%**********************************************%
+\newpage
+\section{TODO: Scale Testing}
+\subsection{Expanding the London Snapshot}
+\subsection{}
+
 
 %**********************************************%
 \newpage
