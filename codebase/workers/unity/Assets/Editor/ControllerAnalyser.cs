@@ -64,7 +64,7 @@ public class ControllerAnalyser: MonoBehaviour
 
     }
 
-	[MenuItem("Drone Sim/Controller Analysis SMALL")]
+	//[MenuItem("Drone Sim/Controller Analysis SMALL")]
     private static void AnalyseControllersSmol()
     {
         int x = 2400;
@@ -145,7 +145,7 @@ public class ControllerAnalyser: MonoBehaviour
         Debug.Log("Generated file at " + filepath);
     }
 
-	[MenuItem("Drone Sim/Generate Points of Interest SMALL")]
+	//[MenuItem("Drone Sim/Generate Points of Interest SMALL")]
     private static void GeneratePointsOfInterestSmol()
     {
         string filepath = Application.dataPath + "/../../../Points_Of_Interest_SMALL.txt";

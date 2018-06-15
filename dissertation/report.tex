@@ -1099,7 +1099,7 @@ component OrderGeneratorComponent {
 
 In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
 
-\section{TODO: Achieving London-Scale Simulation}
+\section{REVISIT: Achieving London-Scale Simulation}
 A snapshot represents the state of a simulated world at a point in time, storing each entity as well as each component's properties. Every deployment, both local and in the cloud, requires a starting snapshot to populate the simulation. To speed up this process, we create a \textit{scene} for snapshot generation and utilise the power of Unity Editor scripts to programmatically generate and modify snapshots with ease.
 
 \subsection{Area Selection}
@@ -1240,40 +1240,58 @@ Although its location does not have any bearing on the simulation outcome, the S
 \subsubsection{Drones}
 No drones exist in the world at startup because it is the job of a Controller to manage the life cycle of a drone. Therefore they do not need to be considered here.
 
-\subsubsection{Snapshot Generator}
+\subsection{Snapshot Generator}
+The actual process of collating all the objects in a scene and creating a snapshot file is triggered by the custom \textit{Drone Sim > Generate London Snapshot} menu option, shown below in Figure \ref{fig:menuotions}.
 
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.5\linewidth]{img/menuotions.png}
+  \caption{Custom drop-down options.}
+  \label{fig:menuotions}
+\end{figure}
+
+This button then triggers a function to construct a snapshot, entity by entity:
+\begin{enumerate}
+  \item Reserve EntityId for Order Generator
+  \item Initialise a Dictionary mapping EntityId to entity template
+  \item Find NFZScript objects and extract each NoFlyZone
+  \item Find Controller objects, pass in NFZ data, create template, store EntityId and position in a list, then add to dictionary
+  \item Find OrderGenerator object, create template with NFZ data and controller details, then add to dictionary
+  \item Use a given function to save out the dictionary as a binary snapshot file
+\end{enumerate}
+
+On successful creation, a log entry appears in the Unity Editor to say that a snapshot has been created at a particular filepath. This path is then used to point to a snapshot when launching local and cloud deployments.
 
 \subsection{Custom Load Balancing}
 Part of the reason so much thought has been put into Controller placement is the load balancer. Left to its own devices, SpatialOS moves its workers geographically around the simulation to best distribute load across workers.\\
 
 Although this is brilliant for many use cases, our delivery network is operating under the assumption that each Controller is responsible for its own region with no real inter-region communication at this present point in time. Therefore, it makes sense to put each Controller onto a worker of its own, and minimise as best as possible the overlaps between each region and worker.\\
 
-To do this, we update the worker launch configuration to make use of \textit{Point of Interest} load balancing \cite{ImprobableWorldsLtd.2018d}. This strategy works by specifying key locations that must not be simulated by more than one worker in the world, trusting the load balancer to divide and distribute regions of the world across a specified number of controllers. Each region consists of an area of the world closest to a given point of interest, like a Voronoi diagram.\\
-
-To generate our own Voronoi diagram of the world, we assign each controller a colour, traverse the map and assign a colour to each point based on which controller was closer. After looping through the map, we are given a nice visual representation of the area split. One observes in Figure \ref{fig:smol} that the two shaded regions of the world are fairly even in size, a positive sign that delivery requests are likely to be balanced well between controllers.
+To do this, we update the worker launch configuration to make use of \textit{Point of Interest} load balancing \cite{ImprobableWorldsLtd.2018d}. This strategy works by specifying key locations that must not be simulated by more than one worker in the world, trusting the load balancer to divide and distribute regions of the world across a specified number of controllers. Each region consists of an area of the world closest to a given point of interest, like a Voronoi diagram.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=\linewidth]{img/smol.png}
+  \includegraphics[width=0.7\linewidth]{img/smol.png}
   \caption{Voronoi diagram of the London snapshot.}
   \label{fig:smol}
 \end{figure}
 
-When inspecting a live simulation \ref{fig:gdoc2}, one can clearly see the worker boundary split through the middle. As mentioned before, SpatialOS constantly tweaks the load balancer so the boundaries may move around slightly as each region's load rises and falls with the flow of incoming orders.
+To generate our own Voronoi diagram of the world, we assign each controller a colour, traverse our world's map and assign a colour to each point based on which controller was closer. After looping through the map, we are given a nice visual representation of the area split. One observes in Figure \ref{fig:smol} that the two shaded regions of the world are fairly even in size, a positive sign that delivery requests are likely to be balanced well between controllers.\\
+
+When inspecting a live simulation through the SpatialOS Inspector such as in Figure \ref{fig:gdoc2}, one can clearly see the worker boundary split the world through the middle. Though as mentioned before, SpatialOS constantly tweaks the load balancer so the boundaries may move around slightly as each region's load fluctuates with the ebb and flow of incoming orders and drone availability.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=\linewidth]{img/gdoc2.png}
+  \includegraphics[width=0.95\linewidth]{img/gdoc2.png}
   \caption{SpatialOS view of a running simulation. Note that \textit{OrderGenerator} has been incorrectly labelled as \textit{Scheduler} in the image.}
   \label{fig:gdoc2}
 \end{figure}
 
-\subsection{Summary}
-With a basic simulation now implemented and handling the logistical operations of a drone delivery network, we now look at how to extend our work to factor in the economic side.
-
 %**********************************************%
 \newpage
 \section{TODO: Integrating Delivery Economics}
+With a basic London-scale simulation implemented to handle the logistical operations of a drone delivery network, we now look at how to extend this work to factor in, and later optimise for, the economic side.
+
 \subsection{Improved Order Generation}
 \subsubsection{Package Type \& Weight}
 \subsubsection{Delivery Priority}

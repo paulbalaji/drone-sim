@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber report"] 1529039294 "report.bcf" "report.bbl" "report" 1529040920
+["biber report"] 1529039294 "report.bcf" "report.bbl" "report" 1529043061
   "library.bib" 1529038927 48468 18660c90e771b001865808967717b356 ""
-  "report.bcf" 1529040919 100909 0ed1eae5674b0c65cf7ca727bbcd68bd ""
+  "report.bcf" 1529043061 100909 0ed1eae5674b0c65cf7ca727bbcd68bd ""
   (generated)
   "report.bbl"
   "report.blg"
-["pdflatex"] 1529040907 "report.tex" "report.pdf" "report" 1529040920
+["pdflatex"] 1529043048 "report.tex" "report.pdf" "report" 1529043061
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1480098666 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc" 1480098667 2315 334715164332d078f211e6ad023c662e ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -279,6 +279,7 @@
   "img/io_inspector.png" 1516917238 218791 72b0e3dfe28bc6fe35201e82f1a25f5e ""
   "img/london_snapshot_small.png" 1528979399 1577752 65449982f23e04b7ae39862d27b01314 ""
   "img/london_snapshot_small_nfzs.png" 1528979563 1538801 f2e1436641b4062b9f5e78823e8fb5c0 ""
+  "img/menuotions.png" 1529041789 55329 928aca25d20306002e5831085d02a7c4 ""
   "img/mlfqs.jpg" 1516971719 90358 803e84462acaee6ad1511e28334aa8c3 ""
   "img/mlqs.jpg" 1516971748 191966 d4523b63b592aa49f124b6f238a7d5c9 ""
   "img/nfz_representation_example.png" 1529026843 519573 79731f44f03646bddad3fe420e823c22 ""
@@ -289,17 +290,17 @@
   "img/spatialos-diagram_solution2.png" 1516912665 211507 19d6e6d14bb35678da1ab03fb7410867 ""
   "img/starship.jpg" 1516872402 668422 f86232351c5cc3fbb4ff913c42d68bb0 ""
   "img/unity_londonsnapshotsmallexample.png" 1529013824 2458845 8fc1a632820da0f5922141192b6f826c ""
-  "report.aux" 1529040919 31215 3c9dfc62e66cead6fcaab9c99acd73b6 ""
+  "report.aux" 1529043061 31285 4f34e01c48e0c51643109959c408b36c ""
   "report.bbl" 1529039296 70563 ff4a303a642286abfd69201507eeb437 "biber report"
-  "report.listing" 1529040919 321 5757a7c01bf4a255ee8128e2fa00a36c ""
-  "report.run.xml" 1529040919 2316 0003617f5aa428b5c6dae544c4959c9e ""
-  "report.tex" 1529040891 92867 828315dfc3cf54a780a825f987bb0bdb ""
-  "report.toc" 1529040919 11251 f7006d550fa8838365ca06d602f1c69e ""
+  "report.listing" 1529043061 321 5757a7c01bf4a255ee8128e2fa00a36c ""
+  "report.run.xml" 1529043061 2316 0003617f5aa428b5c6dae544c4959c9e ""
+  "report.tex" 1529043046 94204 eded4d1fb7ad119a0d4c812a2d0c59c9 ""
+  "report.toc" 1529043061 11157 169df4dbe17c4c1c5e4d6cdada1bb22a ""
   (generated)
-  "report.pdf"
-  "report.bcf"
-  "report.listing"
   "report.run.xml"
-  "report.toc"
   "report.aux"
   "report.log"
+  "report.listing"
+  "report.toc"
+  "report.bcf"
+  "report.pdf"

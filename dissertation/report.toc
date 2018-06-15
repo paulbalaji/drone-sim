@@ -130,7 +130,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.2.2}Order Generator}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}TODO: Achieving London-Scale Simulation}{52}
+\contentsline {section}{\numberline {6}REVISIT: Achieving London-Scale Simulation}{52}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1}Area Selection}{52}
 \defcounter {refsection}{0}\relax 
@@ -148,11 +148,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.3.4}Drones}{59}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.5}Snapshot Generator}{59}
+\contentsline {subsection}{\numberline {6.4}Snapshot Generator}{59}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4}Custom Load Balancing}{59}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5}Summary}{61}
+\contentsline {subsection}{\numberline {6.5}Custom Load Balancing}{60}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7}TODO: Integrating Delivery Economics}{62}
 \defcounter {refsection}{0}\relax 
