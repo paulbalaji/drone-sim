@@ -1355,7 +1355,7 @@ Because we move drones at fixed time intervals, we can pre-calculate the energy 
 $$ energy\ (motion) = 8355.1 * DroneMoveInterval\ (seconds) = 2088.775\ Ws $$
 $$ energy\ (hover) = 670.3 * DroneMoveInterval\ (seconds) = 167.575\ Ws $$
 
-Once a drone completes its delivery and has returned to the Controller, we can compute the total cost of performing said delivery. We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £50-55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh. Taking into account the different units of time used so far:
+Once a drone completes its delivery and has returned to the Controller, we can compute the total cost of performing said delivery. We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh. Taking into account the different units of time used so far:
 $$ cost\ of\ delivery\ (pence) = energy\ usage * 0.0055 / 3600 $$
 
 \subsubsection{Penalties}
