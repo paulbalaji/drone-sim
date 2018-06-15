@@ -1355,9 +1355,26 @@ Because we move drones at fixed time intervals, we can pre-calculate the energy 
 $$ energy\ (motion) = 8355.1 * DroneMoveInterval\ (seconds) = 2088.775\ Ws $$
 $$ energy\ (hover) = 670.3 * DroneMoveInterval\ (seconds) = 167.575\ Ws $$
 
-Once a drone completes its delivery and has returned to the Controller, we can compute the total cost of performing said delivery. We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh. Taking into account the different units of time used so far:
+Once a drone completes its delivery and has returned to the Controller, we can compute the total cost of performing said delivery. Taking into account the different units of time used so far:
 $$ cost\ of\ delivery\ (pence) = energy\ usage * 0.0055 / 3600 $$
 
+We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh.\\
+
+To demonstrate how cost effective drone delivery is, we create a hypothetical case where a customer would like to order a milkshake at late night from the comfort of her room. The round trip of picking up, delivering the milkshake and then returning back to the Controller is approximately 4.33km.\\
+
+For estimation sake, we assume that the drone is always moving. Therefore at a maximum speed of 10 metres per second, the drone would be in flight for 433 seconds. This corresponds to 3617758.3 Ws of energy use. Substituing this into our equation gives us:
+$$ cost = 3617758.3 * 0.0055 / 3600 = 5.527130736\ pence $$
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/drone_delivery_example_cost.png}
+  \caption{Measuring the total distance of the delivery round trip.}
+  \label{fig:drone_delivery_example_cost}
+\end{figure}
+
+That is a 5.53p cost to the delivery network operator for a mostly-autonomous system. For comparison Deliveroo's standard delivery fee is currently £2.50, a large portion of which may be used to pay the delivery person. Perhaps these monetary, time and efficiency savings fuel future consumer demand for increased drone adoption.
+
+\newpage
 \subsubsection{Penalties}
 
 
