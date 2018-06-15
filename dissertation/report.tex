@@ -1099,7 +1099,7 @@ component OrderGeneratorComponent {
 
 In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
 
-\section{TODO: London-Scale Snapshot}
+\section{TODO: Achieving London-Scale Simulation}
 A snapshot represents the state of a simulated world at a point in time, storing each entity as well as each component's properties. Every deployment, both local and in the cloud, requires a starting snapshot to populate the simulation. To speed up this process, we create a \textit{scene} for snapshot generation and utilise the power of Unity Editor scripts to programmatically generate and modify snapshots with ease.
 
 \subsection{Area Selection}
@@ -1240,10 +1240,17 @@ Although its location does not have any bearing on the simulation outcome, the S
 \subsubsection{Drones}
 No drones exist in the world at startup because it is the job of a Controller to manage the life cycle of a drone. Therefore they do not need to be considered here.
 
-\subsection{Snapshot Generator}
+\subsubsection{Snapshot Generator}
 
 
-\subsubsection{Voronoi Split}
+\subsection{Custom Load Balancing}
+Part of the reason so much thought has been put into Controller placement is the load balancer. Left to its own devices, SpatialOS moves its workers geographically around the simulation to best distribute load across workers.\\
+
+Although this is brilliant for many use cases, our delivery network is operating under the assumption that each Controller is responsible for its own region with no real inter-region communication at this present point in time. Therefore, it makes sense to put each Controller onto a worker of its own, and minimise as best as possible the overlaps between each region and worker.\\
+
+To do this, we update the worker launch configuration to make use of \textit{Point of Interest} load balancing \cite{ImprobableWorldsLtd.2018d}. This strategy works by specifying key locations that must not be simulated by more than one worker in the world, trusting the load balancer to divide and distribute regions of the world across a specified number of controllers. Each region consists of an area of the world closest to a given point of interest, like a Voronoi diagram.\\
+
+To generate our own Voronoi diagram of the world, we assign each controller a colour, traverse the map and assign a colour to each point based on which controller was closer. After looping through the map, we are given a nice visual representation of the area split. One observes in Figure \ref{fig:smol} that the two shaded regions of the world are fairly even in size, a positive sign that delivery requests are likely to be balanced well between controllers.
 
 \begin{figure}[!hbpt]
   \center
@@ -1252,6 +1259,8 @@ No drones exist in the world at startup because it is the job of a Controller to
   \label{fig:smol}
 \end{figure}
 
+When inspecting a live simulation \ref{fig:gdoc2}, one can clearly see the worker boundary split through the middle. As mentioned before, SpatialOS constantly tweaks the load balancer so the boundaries may move around slightly as each region's load rises and falls with the flow of incoming orders.
+
 \begin{figure}[!hbpt]
   \center
   \includegraphics[width=\linewidth]{img/gdoc2.png}
@@ -1259,6 +1268,8 @@ No drones exist in the world at startup because it is the job of a Controller to
   \label{fig:gdoc2}
 \end{figure}
 
+\subsection{Summary}
+With a basic simulation now implemented and handling the logistical operations of a drone delivery network, we now look at how to extend our work to factor in the economic side.
 
 %**********************************************%
 \newpage

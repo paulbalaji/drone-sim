@@ -769,6 +769,30 @@
       \verb https://improbable.io/
       \endverb
     \endentry
+    \entry{ImprobableWorldsLtd.2018d}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=10e3b8220f2911974963b0a4389f6222}{%
+           family={{Improbable Worlds Ltd.}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{fullhash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authornamehash}{10e3b8220f2911974963b0a4389f6222}
+      \strng{authorfullhash}{10e3b8220f2911974963b0a4389f6222}
+      \field{sortinit}{I}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Load Balancing: Points of Interest}}
+      \field{urlday}{15}
+      \field{urlmonth}{6}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://docs.improbable.io/reference/13.0/shared/worker-configuration/loadbalancer-config%7B%5C#%7Dpoints-of-interest
+      \endverb
+    \endentry
     \entry{ImprobableWorldsLtd.2017}{misc}{}
       \name{author}{1}{}{%
         {{hash=10e3b8220f2911974963b0a4389f6222}{%
