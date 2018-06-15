@@ -1341,10 +1341,22 @@ To calculate the profitability of the drone delivery network, we need to conside
 Although we have designed each Controller to act as a delivery dispatch point, like an Amazon Fulfilment Centre, we do not consider the costs of running such a warehouse. Instead we only focus on economic matters that are influenced by our newly introduced drone delivery dynamics.\\
 
 \subsubsection{Energy Consumption}
-As a baseline to model our simulated drones on, we look at information available about Amazon Prime Air prototypes. We can compute the expense of running the drones by first keeping track of a drone's energy usage per delivery, then multiplying it by the cost per unit of energy.\\
+As a baseline to model our simulated drones on, we look at information available about Amazon Prime Air prototypes. We can compute the expense of running the drones by first keeping track of a drone's energy usage per delivery, then multiplying it by the cost per unit of energy.
 
+\newpage
+We know that the power rating of a moving drone is 8355.1W, but we must compute the power of a drone hovering ourselves using the current and voltage readings.
 $$energy = power * time$$
 $$power = current * voltage$$
+
+The prototype in question \cite{Jung2017} has 8 motors, each rated at 36.59V and 2.29A. Giving us a power rating of 670.3W when the drone is hovering.
+$$ 8\ motors * 2.29A * 36.59V = 670.3W $$
+
+Because we move drones at fixed time intervals, we can pre-calculate the energy increments depending per drone state. When updating the position of the drone every 0.25 seconds, we can also increment the energy usage by these fixed amounts. Being able to calculate these in advance reduces the work we have to do on every call to \textit{MoveDrone()}.
+$$ energy\ (motion) = 8355.1 * DroneMoveInterval\ (seconds) = 2088.775\ Ws $$
+$$ energy\ (hover) = 670.3 * DroneMoveInterval\ (seconds) = 167.575\ Ws $$
+
+Once a drone completes its delivery and has returned to the Controller, we can compute the total cost of performing said delivery. We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £50-55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh. Taking into account the different units of time used so far:
+$$ cost\ of\ delivery\ (pence) = energy\ usage * 0.0055 / 3600 $$
 
 \subsubsection{Penalties}
 

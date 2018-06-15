@@ -189,6 +189,33 @@
       \verb https://images-na.ssl-images-amazon.com/images/G/01/112715/download/Amazon%7B%5C_%7DRevising%7B%5C_%7Dthe%7B%5C_%7DAirspace%7B%5C_%7DModel%7B%5C_%7Dfor%7B%5C_%7Dthe%7B%5C_%7DSafe%7B%5C_%7DIntegration%7B%5C_%7Dof%7B%5C_%7DsUAS.pdf
       \endverb
     \endentry
+    \entry{Ambrose2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9bf7a0ba3e8967ed4add183a0b061139}{%
+           family={Ambrose},
+           familyi={A\bibinitperiod},
+           given={Jillian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9bf7a0ba3e8967ed4add183a0b061139}
+      \strng{fullhash}{9bf7a0ba3e8967ed4add183a0b061139}
+      \strng{authornamehash}{9bf7a0ba3e8967ed4add183a0b061139}
+      \strng{authorfullhash}{9bf7a0ba3e8967ed4add183a0b061139}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Telegraph}
+      \field{title}{{Electricity prices hit 10-year high as cheap wind power wanes}}
+      \field{urlday}{20}
+      \field{urlmonth}{5}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.telegraph.co.uk/business/2018/03/02/electricity-prices-hit-10-year-high-cheap-wind-power-wanes/
+      \endverb
+    \endentry
     \entry{Balaji2017a}{misc}{}
       \name{author}{6}{}{%
         {{hash=637c4884604f132cd236225ec940b0f8}{%
@@ -984,6 +1011,34 @@
       \endverb
       \verb{url}
       \verb https://www.mckinsey.com/%7B~%7D/media/mckinsey/industries/travel%20transport%20and%20logistics/our%20insights/how%20customer%20demands%20are%20reshaping%20last%20mile%20delivery/parcel%7B%5C_%7Ddelivery%7B%5C_%7Dthe%7B%5C_%7Dfuture%7B%5C_%7Dof%7B%5C_%7Dlast%7B%5C_%7Dmile.ashx
+      \endverb
+    \endentry
+    \entry{Jung2017}{article}{}
+      \name{author}{2}{}{%
+        {{hash=9d045682abef0d33847b4c7f98b4b8b5}{%
+           family={Jung},
+           familyi={J\bibinitperiod},
+           given={Sunghun},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c60a271053eff95970d041af9ed7e97c}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Hyunsu},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1d6ef0ab9f1578f8d16fc5b4c7bc29b}
+      \strng{fullhash}{b1d6ef0ab9f1578f8d16fc5b4c7bc29b}
+      \strng{authornamehash}{b1d6ef0ab9f1578f8d16fc5b4c7bc29b}
+      \strng{authorfullhash}{b1d6ef0ab9f1578f8d16fc5b4c7bc29b}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{June}
+      \field{title}{{Analysis of Amazon Prime Air UAV Delivery Service Analysis of Amazon Prime Air UAV Delivery Service}}
+      \field{year}{2017}
+      \verb{file}
+      \verb :Users/paul/Documents/FinalYear/IndividualProject/dissertation/references/jung2017{\_}AnalysisofAmazonPrimeAirUAVDeliveryService.pdf:pdf
       \endverb
     \endentry
     \entry{Kokalitcheva2016}{misc}{}
