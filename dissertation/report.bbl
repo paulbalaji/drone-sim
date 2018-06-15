@@ -618,6 +618,31 @@
       \verb https://trends.google.co.uk/trends/explore?date=all%7B%5C&%7Dq=drone%20technology
       \endverb
     \endentry
+    \entry{Google2018a}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={Google},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Google Maps}
+      \field{title}{{London Snapshot Small}}
+      \field{urlday}{15}
+      \field{urlmonth}{6}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.google.com/url?q=https://www.google.com/maps/@51.5130906,-0.1031115,14z%7B%5C&%7Dsa=D%7B%5C&%7Dust=1528914428694000
+      \endverb
+    \endentry
     \entry{Hall-Geisler}{misc}{}
       \name{author}{1}{}{%
         {{hash=f002605969bba396d840ca9848ab5ef6}{%

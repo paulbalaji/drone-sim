@@ -1098,11 +1098,33 @@ component OrderGeneratorComponent {
 
 In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
 
-\section{TODO: Generating Snapshots}
+\section{TODO: London-Scale Snapshot}
 A snapshot represents the state of a simulated world at a point in time, storing each entity as well as each component's properties. Every deployment, both local and in the cloud, requires a starting snapshot to populate the simulation. To speed up this process, we create a \textit{scene} for snapshot generation and utilise the power of Unity Editor scripts to programmatically generate and modify snapshots with ease.
 
+\subsection{Area Selection}
+London was chosen as the city to simulate partly because of our geographical understanding but also because it could be a prime candidate for rolling out drone delivery services to. Traffic jams, congestion charges and fuel consumption are all ever-present issues for existing delivery networks. As the technology develops, being able to avoid and mitigate these issues by taking to the skies is a leap of faith many operators may be seriously considering.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.85\linewidth]{img/london_snapshot_small.png}
+  \caption{Our selected region of London. \cite{Google2018a}}
+  \label{fig:london_snapshot_small}
+\end{figure}
+
+In the spirit of walking before running, we opt to limit ourselves to a 5km x 4km region of central London, of which 4.8km x 3.8km is actually simulated. We wish to include a 100m wide border to avoid invoking (literal) edge cases in SpatialOS that may arise by simulating entites right at the boundaries of the world.\\
+
+This particular part of London was chosen due to the variety of institutions and types of land there are available. There are parks, hospitals and skyscrapers that may be potentially protected by No Fly Zones, but there are also educational institutions either side of the river that could serve as ideal locations for Controllers if a pilot was commissioned.\\
+
+Another major benefit to choosing this area of London is extensibility. Should we decide to, we have the ability to increase the size of the world to test the scalability of the system, adding more of the city and surrounding suburbia to the simulation.
+
 \subsection{Snapshot Scene}
-Figure \ref{fig:unity_londonsnapshotsmallexample} shows how the London scene looks in Unity when visually editing a snapshot. The leftmost column is known as the \textit{Hierarchy}, a list of all the objects currently in the scene. To the side of this is the \textit{Inspector} that shows all the Unity components on a selected prefab, in this case a Drone.
+Figure \ref{fig:unity_londonsnapshotsmallexample} shows how the London scene looks in Unity when visually editing a snapshot. The leftmost column is known as the \textit{Hierarchy}, a list of all the objects currently in the scene. As we are able to nest objects, adding empty game objects allow one to group objects together. For example, No Fly Zones and Controllers could be nested in different groups to more easily distinguish the type of each object.\\
+
+To the side of the Hierarchy is the \textit{Inspector}, which shows all the Unity components on a selected prefab, in this case a Drone. You may notice an additional component that we have not previously covered residing on this prefab.\\
+
+Entities that are active and likely to be moving around the world need a special component called a \textit{Transform Receiver}, which simply updates the object's world position whenever its Spatial position is updated.\\
+
+As each component is authoritative on exclusively the client or server, a completely server-side simulation (such as ours is at present) would require a \textit{Transform Receiver} to ensure that objects are receiving and applying the appropriate Spatial updates if we decide to implement a client-side simulation viewer in the future.
 
 \begin{figure}[!hbpt]
   \center
@@ -1111,19 +1133,48 @@ Figure \ref{fig:unity_londonsnapshotsmallexample} shows how the London scene loo
   \label{fig:unity_londonsnapshotsmallexample}
 \end{figure}
 
-The world view in the middle is for visual aid when placing entities in the scene, and the column on the far right is a menu for SpatialOS build operations.
-% This menu is particularly useful as being able to quickly rebuild the project within the Unity Editor greatly reduces iteration times.
+The world view in the middle is for visual aid when placing entities in the scene, with red highlights indicating parts of the world that are No Fly Zones. The column on the far right is a menu for SpatialOS build operations. This menu is particularly useful as being able to quickly rebuild the project within the Unity Editor greatly reduces iteration times.
 
-\subsubsection{Area Selection}
 \subsubsection{Representing No Fly Zones}
+Earlier we defined No Fly Zones as a list of vectors to represent its vertices. To accurately place them in a scene, we create the \textit{NFZ} and \textit{NfzNode} prefabs in addition to a complementary \textit{NFZScript} MonoBehaviour.
+
+\begin{sexylisting}[colback=white]{NFZScript MonoBehaviour}
+using Improbable;
+using Improbable.Controller;
+using UnityEngine;
+using System.Collections;
+
+public class NFZScript : MonoBehaviour
+{
+  public GameObject[] nfzNodes;
+  public Improbable.Controller.NoFlyZone GetNoFlyZone()
+  {
+    List<Vector3f> positions = new List<Vector3f>();
+    for (int i = 0; i < nfzNodes.Length; i++)
+    {
+      positions.Add(nfzNodes[i].transform.position.ToSpatialVector3f());
+    }
+    return NFZ_Templates.CreateCustomNoFlyZone(positions);
+  }
+}
+\end{sexylisting}
+
+The script exposes an array of GameObjects, which can then be populated via the Unity Editor. By placing NfzNode objects in the scene and then populating the script's objects with these, we hold information about each zone's vertices. During snapshot generation we simply iterate through these NfzNodes and extract their positional information to create a NoFlyZone struct.\\
+
+Figure \ref{fig:nfz_representation_example} shows an instance of a NoFlyZone prefab being populated with NfzNodes around Great Ormond Street Hospital. Note that renaming an object for our clarity does not change its underlying prefab, making this a really effective workflow for rapidly adding No Fly Zones to a world.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/nfz_representation_example.png}
+  \caption{Inspecting GOSH's No Fly Zone.}
+  \label{fig:nfz_representation_example}
+\end{figure}
+
+\subsubsection{Controller Placement}
+
 \subsubsection{Snapshot Generator}
+
 \subsubsection{Voronoi Split}
-
-\subsection{Entity Placement}
-\subsubsection{No Fly Zones}
-\subsubsection{Controllers}
-\subsubsection{Order Generator}
-
 
 
 %**********************************************%
