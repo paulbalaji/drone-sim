@@ -265,6 +265,8 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/smartdiagram/smartdiagramlibr
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/smartdiagram/smartdiagramlibrarycore.commands.code.tex
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/tools/multicol.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/tools/multicol.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex

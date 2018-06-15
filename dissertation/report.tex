@@ -27,6 +27,7 @@
 \usepackage{tikz}
 \usepackage{smartdiagram}
 \usepackage{multicol}
+\usepackage{multirow}
 
 \usetikzlibrary{ arrows, positioning, quotes, shapes, shadows, trees}
 
@@ -1293,7 +1294,7 @@ When inspecting a live simulation through the SpatialOS Inspector such as in Fig
 With a basic London-scale simulation implemented to handle the logistical operations of a drone delivery network, we now look at how to extend this work to factor in, and later optimise for, the economic side.
 
 \subsection{Improved Order Generation}
-Before we can define a revenue model for our delivery network, we must improve the Order Generator to generate a greater variety of delivery requests. Packages being delivered by drones will vary in size, weight and priority, just like current the delivery market, and the DeliveryHandler schema needs to upgraded (Appendix D) to support this new properties of a delivery request.
+Before we can define a revenue model for our delivery network, we must improve the Order Generator to generate a greater variety of delivery requests. Packages being delivered by drones will vary in size, weight and priority, just like current the delivery market, and the DeliveryHandler schema needs to upgraded (Appendix D) to support these new properties of a delivery request.
 
 \subsubsection{Package Type \& Weight}
 We take our definitions of package types from Amazon's own \textit{Fulfilment by Amazon} service, as described by Figure \ref{fig:fulfilled_by_amazon_table} in Section 2.2. Subsequently we update the \textit{DeliveryRequest} schema type to include a new \textit{PackageInfo} property, to capture both the package type and weight. Each of the 6 package types accepts a different range of weights, hence generating a PackageInfo is (at the moment) a case of randomly picking a type, and then generating a random number within each type's accepted weight range.
@@ -1301,9 +1302,31 @@ We take our definitions of package types from Amazon's own \textit{Fulfilment by
 \subsubsection{Delivery Priority}
 In addition to the actual package information, each delivery request may have a priority corresponding to how urgently a customer wants their order to be delivered. Existing delivery companies each have their own range of services to customers, so to simplify this parameter we define four levels of priority: STANDARD, PRIORITY, URGENT and SUPER\_PRIORITY. We randomly select a priority for now, with the option to adjust bias further down the line just like with package types.
 
-
-
 \subsection{Revenue Model}
+\begin{table}[!hbpt]
+\centering
+\caption{Package Revenue Distribution.}
+\label{fig:package_revenue_distribution}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{Package Type} & \multirow{2}{*}{Weight (g)} & \multicolumn{4}{c|}{Delivery Priority (£)} \\ \cline{3-6}
+ &  & Standard & Priority & Urgent & Super Priority \\ \hline
+\begin{tabular}[c]{@{}c@{}}Small\\ Letter\end{tabular} & 0 - 100 & 0.60 & 0.90 & 1.35 & 2.03 \\ \hline
+\begin{tabular}[c]{@{}c@{}}Large\\ Letter\end{tabular} & 0 - 250 & 0.80 & 1.20 & 1.80 & 2.70 \\ \hline
+\begin{tabular}[c]{@{}c@{}}Small\\ Envelope\end{tabular} & 0 - 100 & 1.09 & 1.64 & 2.45 & 3.68 \\ \hline
+\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Standard\\ Envelope\end{tabular}} & 0 - 100 & 1.21 & 1.82 & 2.72 & 4.08 \\ \cline{2-6}
+ & 101 - 250 & 1.34 & 2.01 & 3.02 & 4.52 \\ \cline{2-6}
+ & 251 - 500 & 1.54 & 2.31 & 3.47 & 5.20 \\ \hline
+\begin{tabular}[c]{@{}c@{}}Large\\ Envelope\end{tabular} & 0 - 1000 & 1.77 & 2.66 & 3.98 & 5.97 \\ \hline
+\multirow{6}{*}{Parcel} & 0 - 250 & 1.73 & 2.60 & 3.89 & 5.84 \\ \cline{2-6}
+ & 251 - 500 & 1.79 & 2.69 & 4.03 & 6.04 \\ \cline{2-6}
+ & 501 - 1000 & 1.84 & 2.76 & 4.14 & 6.21 \\ \cline{2-6}
+ & 1001 - 1500 & 2.26 & 3.39 & 5.09 & 7.63 \\ \cline{2-6}
+ & 1501 - 2000 & 2.48 & 3.72 & 5.58 & 8.37 \\ \cline{2-6}
+ & 2001 - 3000 & 3.32 & 4.98 & 7.47 & 11.21 \\ \hline
+\end{tabular}
+\end{table}
+
 % talk about the basic revenue model
 % show the table of package type/weight ==> delivery cost
 % < 30 mins ==> full price
