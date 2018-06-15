@@ -1341,7 +1341,10 @@ To calculate the profitability of the drone delivery network, we need to conside
 Although we have designed each Controller to act as a delivery dispatch point, like an Amazon Fulfilment Centre, we do not consider the costs of running such a warehouse. Instead we only focus on economic matters that are influenced by our newly introduced drone delivery dynamics.\\
 
 \subsubsection{Energy Consumption}
-As a baseline to model our simulated drones on, we look at information available about Amazon Prime Air prototypes. 
+As a baseline to model our simulated drones on, we look at information available about Amazon Prime Air prototypes. We can compute the expense of running the drones by first keeping track of a drone's energy usage per delivery, then multiplying it by the cost per unit of energy.\\
+
+$$energy = power * time$$
+$$power = current * voltage$$
 
 \subsubsection{Penalties}
 
