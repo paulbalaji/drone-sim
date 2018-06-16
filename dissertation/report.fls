@@ -546,6 +546,9 @@ INPUT ./img/gdoc2.png
 INPUT img/drone_delivery_example_cost.png
 INPUT ./img/drone_delivery_example_cost.png
 INPUT ./img/drone_delivery_example_cost.png
+INPUT img/testpostplsignore.jpg
+INPUT ./img/testpostplsignore.jpg
+INPUT ./img/testpostplsignore.jpg
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm

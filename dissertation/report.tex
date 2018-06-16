@@ -750,6 +750,7 @@ A Controller has three distinct components to it which all operate together, two
      \path [line] (genpath) -- (globallayer);
      \path [line] (globallayer) -- (checknfz);
      \path [line] (checknfz) -- (bitmap);
+     \path [line] (bitmap) -- (checknfz);
      % \path [line] (identify) -- (evaluate);
      % \path [line] (evaluate) -- (decide);
      % \path [line] (decide) -| node [near start] {yes} (update);
@@ -1331,7 +1332,7 @@ Since we aim to provide a better service to orders with higher priorities, the p
 \end{tabular}
 \end{table}
 
-In addition to the priority system, we introduce a mechanism whereby the cost to a consumer per delivery, ergo ther revenue generated, monotonically decreases with the time taken to perform said delivery. The cost is halved if it takes more than 30 minutes to deliver the package after order generation, and reduced to 0 if the delivery takes more than 60 minutes to complete.\\
+In addition to the priority system, we introduce a mechanism whereby the cost to a consumer per delivery, ergo ther revenue generated, decreases with the time taken to perform said delivery. The cost is halved if it takes more than 30 minutes to deliver the package after order generation, and reduced to 0 if the delivery takes more than 60 minutes to complete.\\
 
 By charging both bigger fees for higher priority requests we provide incentives for controllers to prioritise more important requests to generate more revenue. However by offering reductions for slower delivery of goods, we also ensure that controllers attempt to serve all delivery requests as soon as possible.
 
@@ -1395,7 +1396,7 @@ $$ cost = 3617758.3 * 0.0055 / 3600 = 5.527130736\ pence $$
 \end{figure}
 
 \newpage
-As per Table \ref{fig:package_revenue_distribution}, the revenue generated for delivery of an 800g milkshake is £1.84 for a operating costs of just 5.53p to the delivery network operator. As this is a mostly-autonomous system, the lion's share of generated revenue is pure profit. For comparison, a large portion of Deliveroo's standard delivery fee £2.50 may be used to pay the delivery person. Perhaps these monetary, time and efficiency savings fuel future consumer demand for increased drone adoption.
+As per Table \ref{fig:package_revenue_distribution}, the revenue generated for standard delivery of an 800g milkshake is £1.84 for a operating costs of just 5.53p to the delivery network operator. As this is a mostly-autonomous system, the lion's share of generated revenue is pure profit. For comparison, a large portion of Deliveroo's standard delivery fee £2.50 may be used to pay the delivery person. Perhaps these monetary, time and efficiency savings fuel future consumer demand for increased drone adoption.
 
 %**********************************************%
 \newpage
@@ -1405,11 +1406,36 @@ Before considering how to maximise profitability, we introduce the concept of th
 For example, a user may pay £5 for a delivery that takes less than 30 minutes but be charged nothing if it takes longer than one hour. One may recognise that we are already adopting an informal TVF that halves the delivery fee after 30 minutes, making it 0 if delivery takes greater than 60 minutes.
 
 \subsection{Function Representation}
+To reduce the computational effort required to calculate the cost of a delivery, we simplify each TVF to have 10 steps at equal time intervals. By keeping an array of booleans, we simply toggle each step true or false to indicate whether there is a price drop at that step.\\
+
+Figure \ref{fig:testpostplsignore} shows early concept art of a TVF with price drops at 18, 42 and 60 minutes. In this example, our array would have the the 3rd, 7th and 10th elements of the TVF array set to true.
+$$ [0, 0, 1, 0, 0, 0, 1, 0, 0, 1] $$
+
+For our model, we also state that the price decrease per step is constant per TVF. The maximum value of a delivery is therefore extracted from Table \ref{fig:package_revenue_distribution}. The value of a step decrease is the maximum value divided by the number of steps in the TVF. This is to reduce the transmission size of a TVF, as each delivery request may come with its own function.\\
+
+An array of 10 booleans would take 10 bits, but an array of 10 integers representing the value at each step would be 40 bytes, 32 times the number of bits. Considering a TVF will be sent with every delivery request and each controller maintains a queue of requests, reducing the memory footprint of a TVF may allow the simulation to scale better down the line.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/testpostplsignore.jpg}
+  \caption{Conceptualising a Time-Value Function.}
+  \label{fig:testpostplsignore}
+\end{figure}
 
 \subsection{Utilised Functions}
+To integrate TVFs with our simulation, we update the Order Generator to support two models. For every delivery request generated, the Order Generator randomly chooses between \textit{The Halvening} or \textit{Stepwise Decrease} functions.
+
 \subsubsection{The Halvening}
-\subsubsection{Monotonic Decrease}
+$$ [0, 0, 0, 0, 1, 0, 0, 0, 0, 1] $$
+
+\textit{The Halvening} is a formalisation of the price-halving model we had already implemented before we introduced Time-Value Functions.
+
+\subsubsection{Stepwise Decrease}
+$$ [1, 1, 1, 1, 1, 1, 1, 1, 1, 1] $$
+
 \subsubsection{Wildcard}
+$$ [R, R, R, R, R, R, R, R, R, R] $$
+$$ R = Random.Range(0, 1) $$
 
 %**********************************************%
 \newpage
