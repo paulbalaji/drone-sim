@@ -84,91 +84,91 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.9.4}Layered Simulation}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}REVISIT: Translating AATC to SpatialOS}{34}
+\contentsline {section}{\numberline {3}REVISIT: Translating AATC to SpatialOS}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Basic Interaction Model}{34}
+\contentsline {subsection}{\numberline {3.1}Basic Interaction Model}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.1}Drones}{34}
+\contentsline {subsubsection}{\numberline {3.1.1}Drones}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.2}Controllers}{35}
+\contentsline {subsubsection}{\numberline {3.1.2}Controllers}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Representing Entities}{36}
+\contentsline {subsection}{\numberline {3.2}Representing Entities}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1}Unity SDK}{36}
+\contentsline {subsubsection}{\numberline {3.2.1}Unity SDK}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.2}SpatialOS Components}{36}
+\contentsline {subsubsection}{\numberline {3.2.2}SpatialOS Components}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}REVISIT: Implementation of Core Entities}{39}
+\contentsline {section}{\numberline {4}REVISIT: Implementation of Core Entities}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Controller}{39}
+\contentsline {subsection}{\numberline {4.1}Controller}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.1}No Fly Zones}{39}
+\contentsline {subsubsection}{\numberline {4.1.1}No Fly Zones}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.2}Pathfinding and Waypoints}{40}
+\contentsline {subsubsection}{\numberline {4.1.2}Pathfinding and Waypoints}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.3}World Bitmap}{42}
+\contentsline {subsubsection}{\numberline {4.1.3}World Bitmap}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.4}Assisting the Reactive Layer}{43}
+\contentsline {subsubsection}{\numberline {4.1.4}Assisting the Reactive Layer}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.1.5}Drone Spawning}{45}
+\contentsline {subsubsection}{\numberline {4.1.5}Drone Spawning}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Drone}{45}
+\contentsline {subsection}{\numberline {4.2}Drone}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.1}Drone Detection}{47}
+\contentsline {subsubsection}{\numberline {4.2.1}Drone Detection}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.2}Collision Detection}{48}
+\contentsline {subsubsection}{\numberline {4.2.2}Collision Detection}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Summary}{48}
+\contentsline {subsection}{\numberline {4.3}Summary}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}REVISIT: Delivery Network Architecture}{49}
+\contentsline {section}{\numberline {5}REVISIT: Delivery Network Architecture}{50}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Delivery Destinations}{49}
+\contentsline {subsection}{\numberline {5.1}Delivery Destinations}{50}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Basic Order Generation}{49}
+\contentsline {subsection}{\numberline {5.2}Basic Order Generation}{50}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.1}Delivery Handler / Scheduler}{50}
+\contentsline {subsubsection}{\numberline {5.2.1}Delivery Handler / Scheduler}{51}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.2.2}Order Generator}{52}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}REVISIT: Achieving London-Scale Simulation}{53}
+\contentsline {section}{\numberline {6}REVISIT: Achieving London-Scale Simulation}{54}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Area Selection}{53}
+\contentsline {subsection}{\numberline {6.1}Area Selection}{54}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Snapshot Scene}{54}
+\contentsline {subsection}{\numberline {6.2}Snapshot Scene}{55}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.1}Representing No Fly Zones}{55}
+\contentsline {subsubsection}{\numberline {6.2.1}Representing No Fly Zones}{56}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3}Entity Placement}{58}
+\contentsline {subsection}{\numberline {6.3}Entity Placement}{59}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.1}No Fly Zones}{58}
+\contentsline {subsubsection}{\numberline {6.3.1}No Fly Zones}{59}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.2}Controller}{58}
+\contentsline {subsubsection}{\numberline {6.3.2}Controller}{60}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.3}Order Generator}{59}
+\contentsline {subsubsection}{\numberline {6.3.3}Order Generator}{60}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.4}Drones}{59}
+\contentsline {subsubsection}{\numberline {6.3.4}Drones}{61}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4}Snapshot Generator}{60}
+\contentsline {subsection}{\numberline {6.4}Snapshot Generator}{61}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5}Custom Load Balancing}{60}
+\contentsline {subsection}{\numberline {6.5}Custom Load Balancing}{62}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}REVISIT: Integrating Delivery Economics}{63}
+\contentsline {section}{\numberline {7}REVISIT: Integrating Delivery Economics}{64}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}Improved Order Generation}{63}
+\contentsline {subsection}{\numberline {7.1}Improved Order Generation}{64}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.1}Package Type \& Weight}{63}
+\contentsline {subsubsection}{\numberline {7.1.1}Package Type \& Weight}{64}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.2}Delivery Priority}{63}
+\contentsline {subsubsection}{\numberline {7.1.2}Delivery Priority}{64}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.2}Revenue Model}{63}
+\contentsline {subsection}{\numberline {7.2}Revenue Model}{65}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3}Operating Costs}{65}
+\contentsline {subsection}{\numberline {7.3}Operating Costs}{66}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.1}Energy Consumption}{65}
+\contentsline {subsubsection}{\numberline {7.3.1}Energy Consumption}{66}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.2}Penalties}{66}
+\contentsline {subsubsection}{\numberline {7.3.2}Penalties}{67}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4}Delivering a Milkshake}{67}
+\contentsline {subsection}{\numberline {7.4}Delivering a Milkshake}{68}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {8}REVISIT: Time-Value of Delivery}{70}
 \defcounter {refsection}{0}\relax 
@@ -178,7 +178,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {8.2.1}The Halvening}{71}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.2.2}Stepwise Decrease}{71}
+\contentsline {subsubsection}{\numberline {8.2.2}Stepwise Decrease}{72}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9}TODO: Optimised Scheduling}{73}
 \defcounter {refsection}{0}\relax 

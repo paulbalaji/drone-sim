@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  16 JUN 2018 20:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  17 JUN 2018 00:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1181,147 +1181,101 @@ Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@cntb=\count384
 \multirow@dima=\skip81
 \bigstrutjot=\dimen278
-) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
-Package: pgfplots 2016/08/10 v1.14 Data Visualization (1.14)
- (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
-\t@pgfplots@toka=\toks39
-\t@pgfplots@tokb=\toks40
-\t@pgfplots@tokc=\toks41
-\pgfplots@tmpa=\dimen279
-\c@pgfplots@coordindex=\count385
-\c@pgfplots@scanlineindex=\count386
- (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
-Package pgfplots: loading complementary arithmetics for your pgf version...
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgflibraryfpu.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count387
-)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count388
-) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count389
-\t@pgfplotstable@a=\toks42
-) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count390
- (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex)))
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen280
-\pgfdecoratedremainingdistance=\dimen281
-\pgfdecoratedinputsegmentcompleteddistance=\dimen282
-\pgfdecoratedinputsegmentremainingdistance=\dimen283
-\pgf@decorate@distancetomove=\dimen284
-\pgf@decorate@repeatstate=\count391
-\pgfdecorationsegmentamplitude=\dimen285
-\pgfdecorationsegmentlength=\dimen286
-)
-\tikz@lib@dec@box=\box87
-) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex))
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex))
-\pgfplots@numplots=\count392
-\pgfplots@xmin@reg=\dimen287
-\pgfplots@xmax@reg=\dimen288
-\pgfplots@ymin@reg=\dimen289
-\pgfplots@ymax@reg=\dimen290
-\pgfplots@zmin@reg=\dimen291
-\pgfplots@zmax@reg=\dimen292
-) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
-File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
- (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
-File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
-))) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
-\arrowsize=\dimen293
+\arrowsize=\dimen279
 )) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2014/03/21 v3.0.1a (rcs-revision 1.4)
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
-
-(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+ (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
 )) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
 File: tikzlibraryshapes.misc.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
- (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
 File: pgflibraryshapes.misc.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.5)
 )) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
 File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
  (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
-\pgfnodepartlowerbox=\box88
-\pgfnodeparttwobox=\box89
-\pgfnodepartthreebox=\box90
-\pgfnodepartfourbox=\box91
-\pgfnodeparttwentybox=\box92
-\pgfnodepartnineteenbox=\box93
-\pgfnodeparteighteenbox=\box94
-\pgfnodepartseventeenbox=\box95
-\pgfnodepartsixteenbox=\box96
-\pgfnodepartfifteenbox=\box97
-\pgfnodepartfourteenbox=\box98
-\pgfnodepartthirteenbox=\box99
-\pgfnodeparttwelvebox=\box100
-\pgfnodepartelevenbox=\box101
-\pgfnodeparttenbox=\box102
-\pgfnodepartninebox=\box103
-\pgfnodeparteightbox=\box104
-\pgfnodepartsevenbox=\box105
-\pgfnodepartsixbox=\box106
-\pgfnodepartfivebox=\box107
+\pgfnodepartlowerbox=\box87
+\pgfnodeparttwobox=\box88
+\pgfnodepartthreebox=\box89
+\pgfnodepartfourbox=\box90
+\pgfnodeparttwentybox=\box91
+\pgfnodepartnineteenbox=\box92
+\pgfnodeparteighteenbox=\box93
+\pgfnodepartseventeenbox=\box94
+\pgfnodepartsixteenbox=\box95
+\pgfnodepartfifteenbox=\box96
+\pgfnodepartfourteenbox=\box97
+\pgfnodepartthirteenbox=\box98
+\pgfnodeparttwelvebox=\box99
+\pgfnodepartelevenbox=\box100
+\pgfnodeparttenbox=\box101
+\pgfnodepartninebox=\box102
+\pgfnodeparteightbox=\box103
+\pgfnodepartsevenbox=\box104
+\pgfnodepartsixbox=\box105
+\pgfnodepartfivebox=\box106
 ))) (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytrees.code.tex
 File: tikzlibrarytrees.code.tex 2008/02/24 v3.0.1a (rcs-revision 1.2)
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2017/04/25 version 4.03 text color boxes
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/verbatim.sty
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks43
-\verbatim@line=\toks44
+\every@verbatim=\toks39
+\verbatim@line=\toks40
 \verbatim@in@stream=\read3
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/local/texlive/2017/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box108
-\tcb@upperbox=\box109
-\tcb@lowerbox=\box110
-\tcb@phantombox=\box111
-\c@tcbbreakpart=\count393
-\c@tcblayer=\count394
-\tcolorbox@number=\count395
+\tcb@titlebox=\box107
+\tcb@upperbox=\box108
+\tcb@lowerbox=\box109
+\tcb@phantombox=\box110
+\c@tcbbreakpart=\count385
+\c@tcblayer=\count386
+\tcolorbox@number=\count387
+\tcb@temp=\box111
 \tcb@temp=\box112
 \tcb@temp=\box113
 \tcb@temp=\box114
-\tcb@temp=\box115
 \tcb@out=\write6
 \tcb@record@out=\write7
- (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '4.03'
-\c@tcbrastercolumn=\count396
-\c@tcbrasterrow=\count397
-\c@tcbraster=\count398
+\c@tcbrastercolumn=\count388
+\c@tcbrasterrow=\count389
+\c@tcbraster=\count390
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '4.03'
-\tcb@waterbox=\box116
+\tcb@waterbox=\box115
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '4.03'
 )) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
 Library (tcolorbox): 'tcbbreakable.code.tex' version '4.03'
-\tcb@testbox=\box117
-\tcb@totalupperbox=\box118
-\tcb@totallowerbox=\box119
+\tcb@testbox=\box116
+\tcb@totalupperbox=\box117
+\tcb@totallowerbox=\box118
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
 Library (tcolorbox): 'tcbhooks.code.tex' version '4.03'
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '4.03'
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
 Library (tcolorbox): 'tcbfitting.code.tex' version '4.03'
-\tcbfitdim=\dimen294
-\tcb@lowerfitdim=\dimen295
-\tcb@upperfitdim=\dimen296
-\tcb@cur@hbadness=\count399
+\tcbfitdim=\dimen280
+\tcb@lowerfitdim=\dimen281
+\tcb@upperfitdim=\dimen282
+\tcb@cur@hbadness=\count391
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
 Library (tcolorbox): 'tcbxparse.code.tex' version '4.03'
 .................................................
@@ -1352,7 +1306,7 @@ Library (tcolorbox): 'tcbprocessing.code.tex' version '4.03'
 Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 69.
 ))
-\c@tcblisting=\count400
+\c@tcblisting=\count392
 ))) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
 Library (tcolorbox): 'tcbexternal.code.tex' version '4.03'
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
@@ -1514,11 +1468,11 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-\zifour@ocount=\count401
+\zifour@ocount=\count393
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/tex-gyre/tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 )
-\c@tcb@cnt@sexylisting=\count402
+\c@tcb@cnt@sexylisting=\count394
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1535,25 +1489,25 @@ LaTeX Warning: Label `fig:starship_citizen' multiply defined.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 66.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Try loading font information for OT1+qpl on input line 72.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Try loading font information for OT1+qpl on input line 66.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/tex-gyre/ot1qpl.fd
 File: ot1qpl.fd 2009/09/25 v1.2 font definition file for OT1/qpl
 )
@@ -1593,17 +1547,17 @@ File: ot1qpl.fd 2009/09/25 v1.2 font definition file for OT1/qpl
 
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count403
-\scratchdimen=\dimen297
-\scratchbox=\box120
-\nofMPsegments=\count404
-\nofMParguments=\count405
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count406
-\MPscratchDim=\dimen298
-\MPnumerator=\count407
-\makeMPintoPDFobject=\count408
-\everyMPtoPDFconversion=\toks46
+\scratchcounter=\count395
+\scratchdimen=\dimen283
+\scratchbox=\box119
+\nofMPsegments=\count396
+\nofMParguments=\count397
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count398
+\MPscratchDim=\dimen284
+\MPnumerator=\count399
+\makeMPintoPDFobject=\count400
+\everyMPtoPDFconversion=\toks42
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -1618,7 +1572,7 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros
-\c@lstlisting=\count409
+\c@lstlisting=\count401
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1633,17 +1587,14 @@ Package biblatex Warning: Biber reported the following issues
 (biblatex)                - Entry 'Blunden2016' (library.bib): Invalid format '10th May 2018' of date field 'urldate' - ignoring.
 
 )
-Package biblatex Info: Reference section=0 on input line 72.
-Package biblatex Info: Reference segment=0 on input line 72.
+Package biblatex Info: Reference section=0 on input line 66.
+Package biblatex Info: Reference segment=0 on input line 66.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-
-Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.14} (current compat level: 1.12).
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/upquote/upquote.sty
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 )
-\colveccount=\count410
+\colveccount=\count402
  [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1] [1] (./report.toc
@@ -1718,15 +1669,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [7] <img/drone_interest_over_time_google.png, id=80, 2334.7225pt x 811.03pt>
 File: img/drone_interest_over_time_google.png Graphic file (type png)
  <use img/drone_interest_over_time_google.png>
-Package pdftex.def Info: img/drone_interest_over_time_google.png used on input line 186.
+Package pdftex.def Info: img/drone_interest_over_time_google.png used on input line 182.
 (pdftex.def)             Requested size: 426.79135pt x 148.25615pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
@@ -1739,10 +1690,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [8 <./img/drone_interest_over_time_google.png>] <img/ark-invest-drones-analysis-768x460.png, id=86, 770.88pt x 461.725pt>
 File: img/ark-invest-drones-analysis-768x460.png Graphic file (type png)
  <use img/ark-invest-drones-analysis-768x460.png>
-Package pdftex.def Info: img/ark-invest-drones-analysis-768x460.png used on input line 201.
+Package pdftex.def Info: img/ark-invest-drones-analysis-768x460.png used on input line 197.
 (pdftex.def)             Requested size: 426.79135pt x 255.62633pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--207
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
 
  []
 
@@ -1753,16 +1704,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9 <./img/ark-invest-drones-analysis-768x460.png>]
-LaTeX Font Info:    Try loading font information for TS1+qpl on input line 211.
+LaTeX Font Info:    Try loading font information for TS1+qpl on input line 207.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
-Underfull \hbox (badness 10000) in paragraph at lines 211--212
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
  []
 
@@ -1773,19 +1724,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
 
 <img/starship.jpg, id=96, 1204.5pt x 721.69624pt>
 File: img/starship.jpg Graphic file (type jpg)
  <use img/starship.jpg>
-Package pdftex.def Info: img/starship.jpg used on input line 234.
+Package pdftex.def Info: img/starship.jpg used on input line 230.
 (pdftex.def)             Requested size: 426.79135pt x 255.72493pt.
 
 
@@ -1795,17 +1746,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
@@ -1818,7 +1769,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [12 <./img/starship.jpg>] <img/google_truck_patent.jpeg, id=103, 481.8pt x 636.3775pt>
 File: img/google_truck_patent.jpeg Graphic file (type jpg)
  <use img/google_truck_patent.jpeg>
-Package pdftex.def Info: img/google_truck_patent.jpeg used on input line 253.
+Package pdftex.def Info: img/google_truck_patent.jpeg used on input line 249.
 (pdftex.def)             Requested size: 170.71393pt x 225.48347pt.
 
 
@@ -1828,22 +1779,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13 <./img/google_truck_patent.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 264--265
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 266--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
@@ -1856,7 +1807,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [14] <img/fulfilled_by_amazon_table.png, id=110, 884.30376pt x 742.775pt>
 File: img/fulfilled_by_amazon_table.png Graphic file (type png)
  <use img/fulfilled_by_amazon_table.png>
-Package pdftex.def Info: img/fulfilled_by_amazon_table.png used on input line 280.
+Package pdftex.def Info: img/fulfilled_by_amazon_table.png used on input line 276.
 (pdftex.def)             Requested size: 384.1096pt x 322.63983pt.
 
 
@@ -1866,14 +1817,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [15 <./img/fulfilled_by_amazon_table.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
 <img/amazon_prime_air_drone.png, id=115, 1333.98375pt x 759.83875pt>
 File: img/amazon_prime_air_drone.png Graphic file (type png)
  <use img/amazon_prime_air_drone.png>
-Package pdftex.def Info: img/amazon_prime_air_drone.png used on input line 295.
+Package pdftex.def Info: img/amazon_prime_air_drone.png used on input line 291.
 (pdftex.def)             Requested size: 256.07741pt x 145.8549pt.
 
 
@@ -1883,12 +1834,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16 <./img/amazon_prime_air_drone.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 306--307
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--312
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
 
  []
 
@@ -1899,19 +1850,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17]
-Overfull \hbox (0.66306pt too wide) in paragraph at lines 327--328
+Overfull \hbox (0.66306pt too wide) in paragraph at lines 323--324
 \OT1/qpl/m/n/10.95 group project in as-so-ci-a-tion with Mi-crosoft and Al-ti-tude An-gel to pro-duce an au-tonomous
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
 <img/aatc_tech_overview.jpg, id=124, 1178.4025pt x 713.66624pt>
 File: img/aatc_tech_overview.jpg Graphic file (type jpg)
  <use img/aatc_tech_overview.jpg>
-Package pdftex.def Info: img/aatc_tech_overview.jpg used on input line 336.
+Package pdftex.def Info: img/aatc_tech_overview.jpg used on input line 332.
 (pdftex.def)             Requested size: 426.79135pt x 258.47687pt.
 
 
@@ -1921,19 +1872,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 342--343
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
 
  []
 
 <img/edrone.jpg, id=128, 975.645pt x 824.07875pt>
 File: img/edrone.jpg Graphic file (type jpg)
  <use img/edrone.jpg>
-Package pdftex.def Info: img/edrone.jpg used on input line 348.
+Package pdftex.def Info: img/edrone.jpg used on input line 344.
 (pdftex.def)             Requested size: 341.43437pt x 288.39415pt.
 
 
@@ -1943,12 +1894,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19 <./img/aatc_tech_overview.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
@@ -1961,7 +1912,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [20 <./img/edrone.jpg>] <img/search_comparison.png, id=135, 1611.01875pt x 579.16376pt>
 File: img/search_comparison.png Graphic file (type png)
  <use img/search_comparison.png>
-Package pdftex.def Info: img/search_comparison.png used on input line 370.
+Package pdftex.def Info: img/search_comparison.png used on input line 366.
 (pdftex.def)             Requested size: 426.79135pt x 153.43347pt.
 
 
@@ -1973,7 +1924,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [21 <./img/search_comparison.png>] <img/a_star_vs_optimal.png, id=140, 1626.075pt x 631.35875pt>
 File: img/a_star_vs_optimal.png Graphic file (type png)
  <use img/a_star_vs_optimal.png>
-Package pdftex.def Info: img/a_star_vs_optimal.png used on input line 385.
+Package pdftex.def Info: img/a_star_vs_optimal.png used on input line 381.
 (pdftex.def)             Requested size: 426.79135pt x 165.71007pt.
 
 
@@ -1990,14 +1941,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 
  []
 
 <img/obst.png, id=149, 823.075pt x 435.6275pt>
 File: img/obst.png Graphic file (type png)
  <use img/obst.png>
-Package pdftex.def Info: img/obst.png used on input line 441.
+Package pdftex.def Info: img/obst.png used on input line 437.
 (pdftex.def)             Requested size: 384.1096pt x 203.29587pt.
 
 
@@ -2009,7 +1960,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [24 <./img/obst.png>] <img/apf_comp.png, id=154, 886.31125pt x 243.91125pt>
 File: img/apf_comp.png Graphic file (type png)
  <use img/apf_comp.png>
-Package pdftex.def Info: img/apf_comp.png used on input line 451.
+Package pdftex.def Info: img/apf_comp.png used on input line 447.
 (pdftex.def)             Requested size: 426.79135pt x 117.45569pt.
 
 
@@ -2019,19 +1970,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [25 <./img/apf_comp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 496--497
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
 <img/aatc_spaghett.jpg, id=169, 1495.5875pt x 1204.5pt>
 File: img/aatc_spaghett.jpg Graphic file (type jpg)
  <use img/aatc_spaghett.jpg>
-Package pdftex.def Info: img/aatc_spaghett.jpg used on input line 500.
+Package pdftex.def Info: img/aatc_spaghett.jpg used on input line 496.
 (pdftex.def)             Requested size: 426.79135pt x 343.72717pt.
 
 
@@ -2055,22 +2006,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 544--545
 
  []
 
 <img/mlqs.jpg, id=180, 661.47125pt x 440.64626pt>
 File: img/mlqs.jpg Graphic file (type jpg)
  <use img/mlqs.jpg>
-Package pdftex.def Info: img/mlqs.jpg used on input line 552.
+Package pdftex.def Info: img/mlqs.jpg used on input line 548.
 (pdftex.def)             Requested size: 256.07741pt x 170.58728pt.
  <img/mlfqs.jpg, id=181, 483.8075pt x 310.15875pt>
 File: img/mlfqs.jpg Graphic file (type jpg)
  <use img/mlfqs.jpg>
-Package pdftex.def Info: img/mlfqs.jpg used on input line 561.
+Package pdftex.def Info: img/mlfqs.jpg used on input line 557.
 (pdftex.def)             Requested size: 256.07741pt x 164.17038pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 567--568
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
 
  []
 
@@ -2095,32 +2046,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [31]
-Overfull \hbox (2.3421pt too wide) in paragraph at lines 581--582
+Overfull \hbox (2.3421pt too wide) in paragraph at lines 577--578
 \OT1/qpl/m/n/10.95 servers and en-gines to power a sin-gle world. The plat-form co-or-di-nates a swarm
  []
 
 
-Overfull \hbox (2.85947pt too wide) in paragraph at lines 584--585
+Overfull \hbox (2.85947pt too wide) in paragraph at lines 580--581
 \OT1/qpl/m/n/10.95 used for sim-u-lat-ing cities[47], the back-bone of the In-ter-net[34] and a model of the brain[33].
  []
 
 
-Overfull \hbox (8.25128pt too wide) in paragraph at lines 584--585
+Overfull \hbox (8.25128pt too wide) in paragraph at lines 580--581
 \OT1/qpl/m/n/10.95 It is an ideal plat-form for sim-u-lat-ing ``in-de-pen-dent en-ti-ties that have a lo-ca-tion in space''[33]. 
  []
 
 <img/spatialos-diagram_current2.png, id=191, 498.19458pt x 418.89833pt>
 File: img/spatialos-diagram_current2.png Graphic file (type png)
  <use img/spatialos-diagram_current2.png>
-Package pdftex.def Info: img/spatialos-diagram_current2.png used on input line 590.
+Package pdftex.def Info: img/spatialos-diagram_current2.png used on input line 586.
 (pdftex.def)             Requested size: 213.39568pt x 179.42604pt.
  <img/spatialos-diagram_solution2.png, id=192, 498.19458pt x 418.89833pt>
 File: img/spatialos-diagram_solution2.png Graphic file (type png)
  <use img/spatialos-diagram_solution2.png>
-Package pdftex.def Info: img/spatialos-diagram_solution2.png used on input line 596.
+Package pdftex.def Info: img/spatialos-diagram_solution2.png used on input line 592.
 (pdftex.def)             Requested size: 213.39568pt x 179.42604pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--605
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
 
  []
 
@@ -2131,14 +2082,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [32 <./img/spatialos-diagram_current2.png> <./img/spatialos-diagram_solution2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 620--621
+Underfull \hbox (badness 10000) in paragraph at lines 616--617
 
  []
 
 <img/io_inspector.png, id=198, 1204.5pt x 632.3625pt>
 File: img/io_inspector.png Graphic file (type png)
  <use img/io_inspector.png>
-Package pdftex.def Info: img/io_inspector.png used on input line 629.
+Package pdftex.def Info: img/io_inspector.png used on input line 625.
 (pdftex.def)             Requested size: 426.79135pt x 224.07053pt.
 
 
@@ -2148,10 +2099,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2159,57 +2106,63 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [34 <./img/io_inspector.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 640--641
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[35
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 676--677
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[36
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 689--690
 
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--698
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 702--703
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[36]
 \openout6 = `report.listing'.
 
- (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Try loading font information for OT1+zi4 on input line 719.
+LaTeX Font Info:    Try loading font information for OT1+zi4 on input line 706.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
 File: ot1zi4.fd 2016/12/29 OT1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 11.0pt on input line 719.
+(Font)              scaled to size 11.0pt on input line 706.
  (./report.listing)
-Underfull \hbox (badness 10000) in paragraph at lines 721--722
-
- []
-
-\openout6 = `report.listing'.
-
-(./report.listing)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2217,7 +2170,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 736--737
+Underfull \hbox (badness 10000) in paragraph at lines 708--709
 
  []
 
@@ -2231,31 +2184,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 749--750
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 
  []
 
 \openout6 = `report.listing'.
 
 (./report.listing)
-Underfull \hbox (badness 10000) in paragraph at lines 791--798
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 808--809
+[39
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 737--738
 
  []
 
-\openout6 = `report.listing'.
-
-(./report.listing)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2263,14 +2211,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [40]
+\openout6 = `report.listing'.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+ (./report.listing)
+Underfull \hbox (badness 10000) in paragraph at lines 779--786
 
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 848--849
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 796--797
 
  []
 
@@ -2283,13 +2232,36 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+[41
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 873--874
+Underfull \hbox (badness 10000) in paragraph at lines 836--837
+
+ []
+
+\openout6 = `report.listing'.
+
+(./report.listing)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 862--863
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 875--876
+Underfull \hbox (badness 10000) in paragraph at lines 864--865
 
  []
 
@@ -2308,17 +2280,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[43]
+[44
+
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[44] <img/gdoc1.png, id=241, 1606.0pt x 974.64125pt>
+[45] <img/gdoc1.png, id=244, 1606.0pt x 974.64125pt>
 File: img/gdoc1.png Graphic file (type png)
  <use img/gdoc1.png>
-Package pdftex.def Info: img/gdoc1.png used on input line 927.
+Package pdftex.def Info: img/gdoc1.png used on input line 916.
 (pdftex.def)             Requested size: 426.79135pt x 259.00742pt.
 \openout6 = `report.listing'.
 
@@ -2334,30 +2308,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45 <./img/gdoc1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 961--962
+[46 <./img/gdoc1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 950--951
 
  []
 
 \openout6 = `report.listing'.
 
 (./report.listing)
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[46]
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 982--983
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2365,13 +2323,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 969--970
 
  []
 
-\openout6 = `report.listing'.
 
-(./report.listing)
+Underfull \hbox (badness 10000) in paragraph at lines 971--972
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2379,54 +2339,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1016
-
- []
-
-
-Overfull \hbox (2.75429pt too wide) in paragraph at lines 1069--1070
-\OT1/qpl/m/n/10.95 Controllers will need a \OT1/qpl/m/it/10.95 De-liv-ery-Han-dler \OT1/qpl/m/n/10.95 com-po-nent to en-queue in-com-ing de-liv-ery re-quests.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1069--1070
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[49]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[50]
-\openout6 = `report.listing'.
-
- (./report.listing)
-Underfull \hbox (badness 10000) in paragraph at lines 1106--1107
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[51]
-Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
 
  []
 
@@ -2439,11 +2352,103 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[52] <img/london_snapshot_small.png, id=269, 1347.0325pt x 1078.0275pt>
+[49
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1003--1004
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1006
+
+ []
+
+
+Overfull \hbox (2.75429pt too wide) in paragraph at lines 1059--1060
+\OT1/qpl/m/n/10.95 Controllers will need a \OT1/qpl/m/it/10.95 De-liv-ery-Han-dler \OT1/qpl/m/n/10.95 com-po-nent to en-queue in-com-ing de-liv-ery re-quests.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1062
+
+ []
+
+\openout6 = `report.listing'.
+
+(./report.listing)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 1095--1096
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1097--1098
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[52]
+\openout6 = `report.listing'.
+
+ (./report.listing)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[53] <img/london_snapshot_small.png, id=272, 1347.0325pt x 1078.0275pt>
 File: img/london_snapshot_small.png Graphic file (type png)
  <use img/london_snapshot_small.png>
-Package pdftex.def Info: img/london_snapshot_small.png used on input line 1133.
-(pdftex.def)             Requested size: 362.77525pt x 290.33109pt.
+Package pdftex.def Info: img/london_snapshot_small.png used on input line 1123.
+(pdftex.def)             Requested size: 384.1096pt x 307.40552pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[54
+
+ <./img/london_snapshot_small.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1129--1130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1131--1132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1136--1137
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 1138--1139
 
@@ -2455,39 +2460,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[53 <./img/london_snapshot_small.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1140--1141
+[55
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1145--1146
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1148
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1149--1150
-
- []
-
-<img/unity_londonsnapshotsmallexample.png, id=274, 1798.72pt x 1139.25626pt>
+] <img/unity_londonsnapshotsmallexample.png, id=280, 1798.72pt x 1139.25626pt>
 File: img/unity_londonsnapshotsmallexample.png Graphic file (type png)
  <use img/unity_londonsnapshotsmallexample.png>
-Package pdftex.def Info: img/unity_londonsnapshotsmallexample.png used on input line 1155.
+Package pdftex.def Info: img/unity_londonsnapshotsmallexample.png used on input line 1147.
 (pdftex.def)             Requested size: 426.79135pt x 270.31541pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[54]
 \openout6 = `report.listing'.
 
  (./report.listing)
@@ -2497,25 +2476,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[55 <./img/unity_londonsnapshotsmallexample.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1187
+[56
+
+ <./img/unity_londonsnapshotsmallexample.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1178--1179
 
  []
 
 
-Overfull \hbox (3.11124pt too wide) in paragraph at lines 1188--1189
+Overfull \hbox (3.11124pt too wide) in paragraph at lines 1180--1181
 \OT1/qpl/m/n/10.95 not change its un-der-ly-ing pre-fab, mak-ing this a re-ally ef-fec-tive work-flow for rapidly adding
  []
 
-<img/nfz_representation_example.png, id=282, 804.00375pt x 365.365pt>
+<img/nfz_representation_example.png, id=285, 804.00375pt x 365.365pt>
 File: img/nfz_representation_example.png Graphic file (type png)
  <use img/nfz_representation_example.png>
-Package pdftex.def Info: img/nfz_representation_example.png used on input line 1192.
+Package pdftex.def Info: img/nfz_representation_example.png used on input line 1184.
 (pdftex.def)             Requested size: 426.79135pt x 193.94357pt.
- <img/london_snapshot_small_nfzs.png, id=283, 1347.0325pt x 1078.0275pt>
+ <img/london_snapshot_small_nfzs.png, id=286, 1347.0325pt x 1078.0275pt>
 File: img/london_snapshot_small_nfzs.png Graphic file (type png)
  <use img/london_snapshot_small_nfzs.png>
-Package pdftex.def Info: img/london_snapshot_small_nfzs.png used on input line 1199.
+Package pdftex.def Info: img/london_snapshot_small_nfzs.png used on input line 1191.
 (pdftex.def)             Requested size: 426.79135pt x 341.55438pt.
 
 
@@ -2524,15 +2505,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[56]
+[57]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[57 <./img/nfz_representation_example.png> <./img/london_snapshot_small_nfzs.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1252--1253
+[58 <./img/nfz_representation_example.png> <./img/london_snapshot_small_nfzs.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 1245--1246
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1247--1248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1249--1250
 
  []
 
@@ -2542,34 +2540,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[58]
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1255
+[60
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1256--1257
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[59] <img/menuotions.png, id=299, 226.8475pt x 110.4125pt>
+] <img/menuotions.png, id=302, 226.8475pt x 110.4125pt>
 File: img/menuotions.png Graphic file (type png)
  <use img/menuotions.png>
-Package pdftex.def Info: img/menuotions.png used on input line 1271.
+Package pdftex.def Info: img/menuotions.png used on input line 1264.
 (pdftex.def)             Requested size: 213.39568pt x 103.86525pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1289--1290
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1292
+Underfull \hbox (badness 10000) in paragraph at lines 1282--1283
 
  []
 
@@ -2579,15 +2558,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[60 <./img/menuotions.png>] <img/smol.png, id=304, 1347.0325pt x 1078.0275pt>
+[61 <./img/menuotions.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1284--1285
+
+ []
+
+<img/smol.png, id=307, 1347.0325pt x 1078.0275pt>
 File: img/smol.png Graphic file (type png)
  <use img/smol.png>
-Package pdftex.def Info: img/smol.png used on input line 1297.
-(pdftex.def)             Requested size: 298.75264pt x 239.09135pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1302--1303
-
- []
+Package pdftex.def Info: img/smol.png used on input line 1290.
+(pdftex.def)             Requested size: 341.43437pt x 273.24022pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2595,10 +2575,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[61 <./img/smol.png>] <img/gdoc2.png, id=309, 1606.0pt x 1341.01pt>
+[62 <./img/smol.png>] <img/gdoc2.png, id=312, 1606.0pt x 1341.01pt>
 File: img/gdoc2.png Graphic file (type png)
  <use img/gdoc2.png>
-Package pdftex.def Info: img/gdoc2.png used on input line 1308.
+Package pdftex.def Info: img/gdoc2.png used on input line 1300.
 (pdftex.def)             Requested size: 405.45047pt x 338.54608pt.
 
 
@@ -2607,22 +2587,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[62 <./img/gdoc2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1328--1329
+[63
 
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[63]
-Underfull \hbox (badness 10000) in paragraph at lines 1356--1357
-
- []
-
+ <./img/gdoc2.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2630,7 +2597,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [64]
-Underfull \hbox (badness 10000) in paragraph at lines 1361--1362
+Underfull \hbox (badness 10000) in paragraph at lines 1323--1324
 
  []
 
@@ -2640,54 +2607,77 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[65]
+[65
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1352--1353
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1357--1358
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1363
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[66]
+[66
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[67
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1396
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1397--1398
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1399--1400
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1407--1408
-
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[67] <img/drone_delivery_example_cost.png, id=330, 1606.0pt x 1184.425pt>
+[68
+
+] <img/drone_delivery_example_cost.png, id=333, 1606.0pt x 1184.425pt>
 File: img/drone_delivery_example_cost.png Graphic file (type png)
  <use img/drone_delivery_example_cost.png>
-Package pdftex.def Info: img/drone_delivery_example_cost.png used on input line 1414.
+Package pdftex.def Info: img/drone_delivery_example_cost.png used on input line 1413.
 (pdftex.def)             Requested size: 426.79135pt x 314.7567pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 1418--1419
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[68 <./img/drone_delivery_example_cost.png>]
+[69
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[69]
+ <./img/drone_delivery_example_cost.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1425--1426
 
  []
@@ -2697,10 +2687,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1430--1431
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1435--1436
+
+ []
+
 <img/testpostplsignore.jpg, id=337, 1317.92375pt x 838.13126pt>
 File: img/testpostplsignore.jpg Graphic file (type jpg)
  <use img/testpostplsignore.jpg>
-Package pdftex.def Info: img/testpostplsignore.jpg used on input line 1443.
+Package pdftex.def Info: img/testpostplsignore.jpg used on input line 1441.
 (pdftex.def)             Requested size: 426.79135pt x 271.41748pt.
 
 
@@ -2713,12 +2708,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: img/tvfs_halvening.png Graphic file (type png)
  <use img/tvfs_halvening.png>
 Package pdftex.def Info: img/tvfs_halvening.png used on input line 1456.
-(pdftex.def)             Requested size: 277.41176pt x 196.69916pt.
- <img/tvfs_decrease.png, id=343, 1618.045pt x 1147.28625pt>
-File: img/tvfs_decrease.png Graphic file (type png)
- <use img/tvfs_decrease.png>
-Package pdftex.def Info: img/tvfs_decrease.png used on input line 1466.
-(pdftex.def)             Requested size: 277.41176pt x 196.69916pt.
+(pdftex.def)             Requested size: 320.0935pt x 226.9498pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2726,7 +2716,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[71 <./img/testpostplsignore.jpg>]
+[71 <./img/testpostplsignore.jpg>] <img/tvfs_decrease.png, id=346, 1618.045pt x 1147.28625pt>
+File: img/tvfs_decrease.png Graphic file (type png)
+ <use img/tvfs_decrease.png>
+Package pdftex.def Info: img/tvfs_decrease.png used on input line 1468.
+(pdftex.def)             Requested size: 320.0935pt x 226.9498pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2770,11 +2765,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [77]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1535.
+(Font)              scaled to size 10.95pt on input line 1537.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1535.
+(Font)              scaled to size 8.0pt on input line 1537.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1535.
+(Font)              scaled to size 6.0pt on input line 1537.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2790,7 +2785,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [79]
-Overfull \hbox (5.94624pt too wide) in paragraph at lines 1536--1536
+Overfull \hbox (5.94624pt too wide) in paragraph at lines 1538--1538
 []\OT1/qpl/m/n/10.95 Improbable Worlds Ltd. \OT1/qpl/m/it/10.95 Spa-tia-lOS Tech-ni-cal Break-down\OT1/qpl/m/n/10.95 . 2018. (Vis-ited on 01/25/2018). 
  []
 
@@ -2815,12 +2810,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [82]
-Overfull \hbox (11.39943pt too wide) in paragraph at lines 1536--1536
+Overfull \hbox (11.39943pt too wide) in paragraph at lines 1538--1538
 []\OT1/qpl/m/n/10.95 Tansel Uras and Sven Koenig. \  An Em-pir-i-cal Com-par-i-son of Any-Angle Path-Planning
  []
 
 
-Overfull \hbox (0.26334pt too wide) in paragraph at lines 1536--1536
+Overfull \hbox (0.26334pt too wide) in paragraph at lines 1538--1538
 []\OT1/qpl/m/n/10.95 Adrienne Welch. \  A cost-benefit anal-y-sis of Ama-zon Prime Air A Cost-Benefit Anal-
  []
 
@@ -2879,16 +2874,16 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49709 strings out of 492995
- 1155611 string characters out of 6132703
- 1705737 words of memory out of 5000000
- 52434 multiletter control sequences out of 15000+600000
+ 40055 strings out of 492995
+ 829008 string characters out of 6132703
+ 1287011 words of memory out of 5000000
+ 42917 multiletter control sequences out of 15000+600000
  65826 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on report.pdf (90 pages, 18356875 bytes).
+Output written on report.pdf (90 pages, 18357300 bytes).
 PDF statistics:
  457 PDF objects out of 1000 (max. 8388607)
  270 compressed objects within 3 object streams

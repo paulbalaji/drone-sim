@@ -28,12 +28,6 @@
 \usepackage{smartdiagram}
 \usepackage{multicol}
 \usepackage{multirow}
-\usepackage{pgfplots}
-\pgfplotsset{%
-    ,compat=1.12
-    ,every axis x label/.style={at={(current axis.right of origin)},anchor=north west}
-    ,every axis y label/.style={at={(current axis.above origin)},anchor=north east}
-    }
 
 \usetikzlibrary{ arrows, positioning, quotes, shapes, shadows, trees}
 
@@ -70,7 +64,6 @@
 \renewcommand{\baselinestretch}{1.5}
 
 \begin{document}
-\tikzstyle{every node}=[draw=black,thick,anchor=west]
 \tikzstyle{selected}=[draw=red,fill=red!30]
 \tikzstyle{optional}=[dashed,fill=gray!50]
 \tikzstyle{abstract}=[rectangle, draw=black, rounded corners, fill=blue!40, drop shadow,
@@ -85,6 +78,8 @@
 \tikzstyle{line} = [draw, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
     minimum height=2em]
+
+\tikzstyle{box}=[rectangle, draw, thick, fill=white, text width=2cm, minimum height=3cm, align=center,  drop shadow]
 
 \newcount\colveccount
 \newcommand*\colvec[1]{
@@ -122,7 +117,8 @@
 %----------------------------------------------------------------------------------------
 
 \HRule \\[0.4cm]
-{ \huge \bfseries Drone Delivery Simulation\\with SpatialOS}\\[0.4cm] % Title of your document
+% { \huge \bfseries Drone Delivery Simulation\\with SpatialOS}\\[0.4cm] % Title of your document
+{ \huge \bfseries Make Drones Not Do A Crash:\\A SpatialOS Story}\\[0.4cm] % Title of your document
 \HRule \\[0.4cm]
 
 %----------------------------------------------------------------------------------------
@@ -633,7 +629,7 @@ By virtue of games having several dynamic systems all interlinking with each oth
 
 
 %**********************************************%
-\newpage
+\clearpage
 \section{REVISIT: Translating AATC to SpatialOS}
 Before even thinking about simulating orders and scheduling deliveries, there must be a backbone in place that allows drones to get from a start to end point. To this end, the pathfinding and collision avoidance capabilities of AATC (Section 2.4) will be the backbone of the simulation.
 
@@ -645,16 +641,10 @@ As a testament to hardware and software improvements over time, modern consumer 
 
 \begin{figure}[!hbpt]
  \centering
- \begin{tikzpicture}[
- node distance = 2mm and 55mm,
-             > = stealth,
-    box/.style = {rectangle, draw, thick, fill=white,
-                   text width=2cm, minimum height=3cm,
-                   align=center,  drop shadow}
-                    ]
+ \begin{tikzpicture}[node distance = 2mm and 55mm]
  \node [box](sp)                {Drone};
  \node [box,right=of sp] (sc)   {Server};
- \draw [->] ([yshift=3mm] sp.east)  to ["ping every second"] ([yshift=3mm] sc.west) ;
+ \draw ([yshift=3mm] sp.east) edge[-stealth] node[midway, above] {ping every second} ([yshift=3mm] sc.west) ;
  \draw [->] ([yshift=-3mm] sc.west) to ["updated velocity"] ([yshift=-3mm] sp.east);
  \end{tikzpicture}
  \caption{Drone-Server Interaction in AATC.}
@@ -663,17 +653,14 @@ As a testament to hardware and software improvements over time, modern consumer 
 
 In the AATC case, drones would have to ping the server every second to request a suggested velocity for the drone. This means that the controller would have to compute new velocities for every single drone it controls, every second.
 
-This is a lot of compute that can be offloaded to the drone such as in our proposed model, where we simply provide drones their next waypoint and let them navigate to it by themselves. The only pings to the server now would be to request a new waypoint or to retrieve an updated list of nearby static obstacles.
+\clearpage
+This is a lot of effort that can be offloaded to the drone such as in our proposed model, where we simply provide drones their next waypoint and let them navigate to it by themselves. The only pings to the server now would be to request a new waypoint or to retrieve an updated list of nearby static obstacles.\\
+
+This new Drone-Controller dynamic means that drones need to be responsible for avoiding dynamic obstacles and other physical entities all by themselves.
 
  \begin{figure}[!hbpt]
   \centering
-  \begin{tikzpicture}[
-  node distance = 2mm and 55mm,
-              > = stealth,
-     box/.style = {rectangle, draw, thick, fill=white,
-                    text width=2cm, minimum height=3cm,
-                    align=center,  drop shadow}
-                     ]
+ \begin{tikzpicture}[node distance = 2mm and 55mm]
   \node [box](sp)                {Drone};
   \node [box,right=of sp] (sc)   {Controller};
   \draw [->] ([yshift=3mm] sp.east)  to ["ping for waypoint"] ([yshift=3mm] sc.west) ;
@@ -683,7 +670,7 @@ This is a lot of compute that can be offloaded to the drone such as in our propo
   % \label{fig:proposed_drone_controller_interaction}
   \end{figure}
 
-This new Drone-Controller dynamic means that drones need to be responsible for avoiding dynamic obstacles and other physical entities all by themselves. Essentially, the AATC Reactive Layer has been split from the server and will now reside on each drone. The drone must periodically ping a controller for details of the nearest static obstacle, and combine this information with data from its own sensors in order to effectively avoid both static and dynamic obstacles.
+Essentially, the AATC Reactive Layer has been split from the server and will now reside on each drone. The drone must periodically ping a controller for details of the nearest static obstacle, and combine this information with data from its own sensors in order to effectively avoid both static and dynamic obstacles.
 
 \subsubsection{Controllers}
 Much like an air traffic control tower, controllers exist as entities responsible for guiding drones in a particular region of the world. As the collision avoidance Reactive Layer will now run on the drones, the controller will be running the pathfinding Global Layer and keep a bitmap representation of the world.\\
@@ -733,6 +720,7 @@ public static Entity CreateCubeTemplate()
 }
 \end{sexylisting}
 
+\clearpage
 SpatialOS is then tasked with spawning an entity using the template, with the ability to set callbacks for both successful and failed creation attempts.\\
 
 \begin{sexylisting}[colback=white]{Spawning a Cube Object}
@@ -755,10 +743,10 @@ A Controller has three distinct components to it which all operate together, two
  \begin{tikzpicture}[node distance = 2cm, auto]
      % Place nodes
      \node [block] (controller) {Controller Behaviour};
-     \node [cloud, right of=controller, node distance=5cm] (genpath) {Generate Path};
-     \node [block, below of=genpath, node distance=3cm] (globallayer) {Global Layer};
-     \node [cloud, left of=globallayer, node distance=5cm] (checknfz) {Check No Fly Zones};
-     \node [block, below of=checknfz, node distance=3cm] (bitmap) {Bitmap};
+     % \node [cloud, right of=controller, node distance=5cm] (genpath) {Generate Path};
+     \node [block, below of=controller, node distance=3cm] (globallayer) {Global Layer};
+     % \node [cloud, left of=globallayer, node distance=5cm] (checknfz) {Check No Fly Zones};
+     \node [block, below of=globallayer, node distance=3cm] (bitmap) {Bitmap};
      % \node [cloud, left of=init] (expert) {expert};
      % \node [cloud, right of=init] (system) {system};
      % \node [block, below of=init] (identify) {identify candidate models};
@@ -767,11 +755,10 @@ A Controller has three distinct components to it which all operate together, two
      % \node [decision, below of=evaluate] (decide) {is best candidate better?};
      % \node [block, below of=decide, node distance=3cm] (stop) {stop};
      % Draw edges
-     \path [line] (controller) -- (genpath);
-     \path [line] (genpath) -- (globallayer);
-     \path [line] (globallayer) -- (checknfz);
-     \path [line] (checknfz) -- (bitmap);
-     \path [line] (bitmap) -- (checknfz);
+     \path [line] (controller) -- node {Pathfinding Request} (globallayer);
+     % \path [line] (genpath) -- (globallayer);
+     \path [line] (globallayer) -- node {World Map Lookups} (bitmap);
+     \path [line] (bitmap) -- (globallayer);
      % \path [line] (identify) -- (evaluate);
      % \path [line] (evaluate) -- (decide);
      % \path [line] (decide) -| node [near start] {yes} (update);
@@ -787,6 +774,7 @@ A Controller has three distinct components to it which all operate together, two
 
 Figure \ref{fig:controller_global_bitmap_flow} describes how the three components slot next to each other, each performing its own set of tasks but maintaining separation of logic and state.
 
+\clearpage
 \subsubsection{No Fly Zones}
 No Fly Zones are represented in a similar way to AATC, as a list of float vectors with two vectors to track opposing corners of the zone's bounding box. An initial list of No Fly Zones is passed into the Global Layer upon creation of the component, with scope to add and remove from the list if one so wishes.\\
 \begin{sexylisting}[colback=white]{NoFlyZone Schema Type}
@@ -867,6 +855,7 @@ component BitmapComponent {
 }
 \end{sexylisting}
 
+\clearpage
 The benefit of this implementation is that only relevant data is stored in the map, with failure to find a cell in the map implying that the corresponding area of the world is not in or near a No Fly Zone. Since every controller will have a Bitmap component, this design improves memory efficiency and provides more options to the controller. It could simply reduce its memory footprint, deal with larger areas, or reduce the cell size to represent the world with a higher precision.
 
 \subsubsection{Assisting the Reactive Layer}
@@ -983,6 +972,7 @@ The naive method would be for each drone to request all SpatialOS entities withi
 
 Due to the fact that each distributed ``worker'' in SpatialOS is an instance of the Unity game engine, a more practical approach is instead to utilise the engine and perform a simple physics collision check.
 
+\clearpage
 Although this is still resource-expensive, it is still quicker than a Spatial search because using native game engine functionality is more performant than manually searching for entities in a radius. By applying a Sphere Collider to each drone, checking for nearby colliders will only ever return instances of drones (Appendix B).
 
 \subsubsection{Collision Detection}
@@ -1068,9 +1058,8 @@ Before generating any orders, we must first define the components on the Order G
 \subsubsection{Delivery Handler / Scheduler}
 Controllers will need a \textit{DeliveryHandler} component to enqueue incoming delivery requests. It follows that there are a finite amount of drones available to deliver goods at a particular point in time, therefore the Delivery Handler's function is to maintain a queue of requests and only provide the next delivery to serve when the \textit{ControllerBehaviour} asks for it. For the time being, we implement a very basic FIFO queue to serve requests in the order that they were received by the Controller.\\
 
-The delivery handler effectively acts as a scheduler for the controller, because it decides the order to return requests in a manner completely transparent to core controller operation. The main loop (Appendix C) now checks if the controller can deploy a drone, asks for the next request, handles the delivery request if the scheduler returns one back, and sends the updated queue state up to SpatialOS.
+The delivery handler effectively acts as a scheduler for the controller, because it decides the order to return requests in a manner completely transparent to core controller operation. The main loop (Appendix C) now checks if the controller can deploy a drone, asks for the next request, handles the delivery request if the scheduler returns one back, and sends the updated queue state up to SpatialOS.\\
 
-\newpage
 To match up with this functionality the schema defines four basic elements:
 \begin{enumerate}
   \item \textit{DeliveryRequest} type
@@ -1122,6 +1111,7 @@ component OrderGeneratorComponent {
 
 In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
 
+\clearpage
 \section{REVISIT: Achieving London-Scale Simulation}
 A snapshot represents the state of a simulated world at a point in time, storing each entity as well as each component's properties. Every deployment, both local and in the cloud, requires a starting snapshot to populate the simulation. To speed up this process, we create a \textit{scene} for snapshot generation and utilise the power of Unity Editor scripts to programmatically generate and modify snapshots with ease.
 
@@ -1130,11 +1120,12 @@ London was chosen as the city to simulate partly because of our geographical und
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.85\linewidth]{img/london_snapshot_small.png}
+  \includegraphics[width=0.9\linewidth]{img/london_snapshot_small.png}
   \caption{Our selected region of London. \cite{Google2018a}}
   \label{fig:london_snapshot_small}
 \end{figure}
 
+\clearpage
 In the spirit of walking before running, we opt to limit ourselves to a 5km x 4km region of central London, of which 4.8km x 3.8km is actually simulated. We wish to include a 100m wide border to avoid invoking (literal) edge cases in SpatialOS that may arise by simulating entites right at the boundaries of the world.\\
 
 This particular part of London was chosen due to the variety of institutions and types of land there are available. There are parks, hospitals and skyscrapers that may be potentially protected by No Fly Zones, but there are also educational institutions either side of the river that could serve as ideal locations for Controllers if a pilot was commissioned.\\
@@ -1146,8 +1137,9 @@ Figure \ref{fig:unity_londonsnapshotsmallexample} shows how the London scene loo
 
 To the side of the Hierarchy is the \textit{Inspector}, which shows all the Unity components on a selected prefab, in this case a Drone. You may notice an additional component that we have not previously covered residing on this prefab.\\
 
-Entities that are active and likely to be moving around the world need a special component called a \textit{Transform Receiver}, which simply updates the object's world position whenever its Spatial position is updated.\\
+Entities that are active and likely to be moving around the world need a special component called a \textit{Transform Receiver}, which simply updates the object's world position whenever its Spatial position is updated.
 
+\clearpage
 As each component is authoritative on exclusively the client or server, a completely server-side simulation (such as ours is at present) would require a \textit{Transform Receiver} to ensure that objects are receiving and applying the appropriate Spatial updates if we decide to implement a client-side simulation viewer in the future.
 
 \begin{figure}[!hbpt]
@@ -1248,6 +1240,7 @@ Making use of this new workflow, we added five major No Fly Zones to the world. 
    \end{multicols}
 \end{enumerate}
 
+\clearpage
 \subsubsection{Controller}
 For a simulation of only 5km x 4km, we felt that there was no need for more than two controllers as we operated under the assumption that the simulation is only of an early-stage pilot delivery network. We scouted for two higher education establishments to act as Controller locations, coming up with a shortlist of University College London (UCL), SOAS University of London (SOAS), King's College London, London School of Economics (LSE), City University, and London South Bank University.\\
 
@@ -1294,14 +1287,13 @@ To do this, we update the worker launch configuration to make use of \textit{Poi
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.7\linewidth]{img/smol.png}
+  \includegraphics[width=0.8\linewidth]{img/smol.png}
   \caption{Voronoi diagram of the London snapshot.}
   \label{fig:smol}
 \end{figure}
 
-To generate our own Voronoi diagram of the world, we assign each controller a colour, traverse our world's map and assign a colour to each point based on which controller was closer. After looping through the map, we are given a nice visual representation of the area split. One observes in Figure \ref{fig:smol} that the two shaded regions of the world are fairly even in size, a positive sign that delivery requests are likely to be balanced well between controllers.\\
-
-When inspecting a live simulation through the SpatialOS Inspector such as in Figure \ref{fig:gdoc2}, one can clearly see the worker boundary split the world through the middle. Though as mentioned before, SpatialOS constantly tweaks the load balancer so the boundaries may move around slightly as each region's load fluctuates with the ebb and flow of incoming orders and drone availability.
+\clearpage
+To generate our own Voronoi diagram of the world, we assign each controller a colour, traverse our world's map and assign a colour to each point based on which controller was closer. After looping through the map, we are given a nice visual representation of the area split. One observes in Figure \ref{fig:smol} that the two shaded regions of the world are fairly even in size, a positive sign that delivery requests are likely to be balanced well between controllers.
 
 \begin{figure}[!hbpt]
   \center
@@ -1309,6 +1301,8 @@ When inspecting a live simulation through the SpatialOS Inspector such as in Fig
   \caption{SpatialOS view of a running simulation. Note that \textit{OrderGenerator} has been incorrectly labelled as \textit{Scheduler} in the image.}
   \label{fig:gdoc2}
 \end{figure}
+
+When inspecting a live simulation through the SpatialOS Inspector such as in Figure \ref{fig:gdoc2}, one can clearly see the worker boundary split the world through the middle. Though as mentioned before, SpatialOS constantly tweaks the load balancer so the boundaries may move around slightly as each region's load fluctuates with the ebb and flow of incoming orders and drone availability.
 
 %**********************************************%
 \newpage
@@ -1324,6 +1318,7 @@ We take our definitions of package types from Amazon's own \textit{Fulfilment by
 \subsubsection{Delivery Priority}
 In addition to the actual package information, each delivery request may have a priority corresponding to how urgently a customer wants their order to be delivered. Existing delivery companies each have their own range of services to customers, so to simplify this parameter we define four levels of priority: STANDARD, PRIORITY, URGENT and SUPER\_PRIORITY. We randomly select a priority for now, with the option to adjust bias further down the line just like with package types.
 
+\clearpage
 \subsection{Revenue Model}
 As we are adopting the package types described by the \textit{Fulfilment by Amazon} programme, it makes sense to adopt their pricing model too as a starting point for standard priority deliveries.\\
 
@@ -1353,6 +1348,7 @@ Since we aim to provide a better service to orders with higher priorities, the p
 \end{tabular}
 \end{table}
 
+\clearpage
 In addition to the priority system, we introduce a mechanism whereby the cost to a consumer per delivery, ergo ther revenue generated, decreases with the time taken to perform said delivery. The cost is halved if it takes more than 30 minutes to deliver the package after order generation, and reduced to 0 if the delivery takes more than 60 minutes to complete.\\
 
 By charging both bigger fees for higher priority requests we provide incentives for controllers to prioritise more important requests to generate more revenue. However by offering reductions for slower delivery of goods, we also ensure that controllers attempt to serve all delivery requests as soon as possible.
@@ -1363,10 +1359,12 @@ To calculate the profitability of the drone delivery network, we need to conside
 Although we have designed each Controller to act as a delivery dispatch point, like an Amazon Fulfilment Centre, we do not consider the costs of running such a warehouse. Instead we only focus on economic matters that are influenced by our newly introduced drone delivery dynamics.
 
 \subsubsection{Energy Consumption}
-As a baseline to model our simulated drones on, we look at information available about Amazon Prime Air prototypes. We can compute the expense of running the drones by first keeping track of a drone's energy usage per delivery, then multiplying it by the cost per unit of energy.
+As a baseline to model our simulated drones on, we look at information available about Amazon Prime Air prototypes. We can compute the expense of running the drones by first keeping track of a drone's energy usage per delivery, then multiplying it by the cost per unit of energy.\\
 
-\newpage
 We know that the power rating of a moving drone is 8355.1W, but we must compute the power of a drone hovering ourselves using the current and voltage readings.
+
+\clearpage
+Using a basic understanding of Physics, we define energy and power below.
 $$energy = power * time$$
 $$power = current * voltage$$
 
@@ -1383,17 +1381,17 @@ $$ cost\ of\ delivery\ (pence) = energy\ usage * 0.0055 / 3600 $$
 We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh.
 
 \subsubsection{Penalties}
-Understandably, nothing will ever work perfectly forever. To mitigate bugs in the simulation, we periodically ``prune'' drones that have been unresponsive for too long. We therefore consider the penalties applied for actions the drone has failed to complete at the time of pruning.
+Understandably, nothing will ever work perfectly forever. To mitigate bugs in the simulation, we periodically ``prune'' drones that have been unresponsive for too long. We therefore consider the penalties applied for actions the drone has failed to complete at the time of pruning. We therefore define four main infractions:
+\begin{multicols}{3}
+  \begin{enumerate}
+    \item Failed Launches
+    \item Failed Deliveries
+    \item Failed Returns
+    \item Collisions
+  \end{enumerate}
+\end{multicols}
 
-\newpage
-We define four main infractions.
-\begin{enumerate}
-  \item Failed Launches
-  \item Failed Deliveries
-  \item Failed Returns
-  \item Collisions
-\end{enumerate}
-
+\clearpage
 When a drone is unable to be launched, we consider that a delivery request was accepted but then unable to be completed. From a consumer point of view, they may have received a notification indicating that their delivery is on their way, only to be quickly told that their order has been cancelled because of some error in launching a drone. In this instance we do not charge the customer any delivery fees, instead giving them a fixed £5 compensation.\\
 
 If a drone is launched but still fails to deliver a package for whatever reason, we compensate the consumer as before and also calculate the cost of sending a truck to manually retrieve the drone that was sent out. When a drone fails to return for some reason \textit{after} making a delivery there is no reason to compensate the customer, but we still have to calculate the cost of retrieving the drone.\\
@@ -1404,8 +1402,9 @@ $$ retrieval\ cost = 2 * (distance * 0.621371) * mileage * fuel\ cost $$
 In the event of a collision, we add a £400 (\$500 \cite{Jung2017}) penalty for every drone involved in the collision, assuming the worst case where each drone would need to be completely replaced. In addition to this, we add appropriate penalties for failed deliveries and add a unified cost of retrieving all the drones.
 
 \subsection{Delivering a Milkshake}
-To demonstrate how cost effective drone delivery is, we create a hypothetical case where a customer would like to order a milkshake at late night from the comfort of her room. The round trip of picking up, delivering the milkshake and then returning back to the Controller is approximately 4.33km.\\
+To demonstrate how cost effective drone delivery is, we create a hypothetical case where a customer would like to order a milkshake at late night from the comfort of her room. The round trip of picking up, delivering the milkshake and then returning back to the Controller is approximately 4.33km.
 
+\clearpage
 For estimation sake, we assume that the drone is always moving. Therefore at a maximum speed of 10 metres per second, the drone would be in flight for 433 seconds. This corresponds to 3617758.3 Ws of energy use. Substituing this into our equation gives us:
 $$ cost = 3617758.3 * 0.0055 / 3600 = 5.527130736\ pence $$
 
@@ -1416,8 +1415,9 @@ $$ cost = 3617758.3 * 0.0055 / 3600 = 5.527130736\ pence $$
   \label{fig:drone_delivery_example_cost}
 \end{figure}
 
-\newpage
-As per Table \ref{fig:package_revenue_distribution}, the revenue generated for standard delivery of an 800g milkshake is £1.84 for a operating costs of just 5.53p to the delivery network operator. As this is a mostly-autonomous system, the lion's share of generated revenue is pure profit. For comparison, a large portion of Deliveroo's standard delivery fee £2.50 may be used to pay the delivery person. Perhaps these monetary, time and efficiency savings fuel future consumer demand for increased drone adoption.
+As per Table \ref{fig:package_revenue_distribution}, the revenue generated for standard delivery of an 800g milkshake is £1.84 for a operating costs of just 5.53p to the delivery network operator. As this is a mostly-autonomous system, the lion's share of generated revenue is pure profit.\\
+
+For comparison, a large portion of Deliveroo's standard delivery fee £2.50 may be used to pay the delivery person. Perhaps the trickling down of these monetary, time and efficiency savings to the customer becomes the catalyst for increased drone adoption across delivery networks.
 
 %**********************************************%
 \newpage
@@ -1432,11 +1432,9 @@ To reduce the computational effort required to calculate the cost of a delivery,
 Figure \ref{fig:testpostplsignore} shows early concept art of a TVF with price drops at 18, 42 and 60 minutes. In this example, our array would have the the 3rd, 7th and 10th elements of the TVF array set to true.
 $$ [0, 0, 1, 0, 0, 0, 1, 0, 0, 1] $$
 
-\begin{samepage}
-For our model, we also state that the price decrease per step is constant per TVF. The maximum value of a delivery is therefore extracted from Table \ref{fig:package_revenue_distribution}. The value of a step decrease is the maximum value divided by the number of steps in the TVF. This is to reduce the transmission size of a TVF, as each delivery request may provide its own function.
-\end{samepage}
+For our model, we also state that the price decrease per step is constant per TVF. The maximum value of a delivery is therefore extracted from Table \ref{fig:package_revenue_distribution}. The value of a step decrease is the maximum value divided by the number of steps in the TVF. This is to reduce the transmission size of a TVF, as each delivery request may provide its own function.\\
 
-An array of 10 booleans would take 10 bits, but an array of 10 integers representing the value at each step would be 40 bytes, 32 times the number of bits. Considering a TVF will be sent with every delivery request and each controller maintains a queue of requests, reducing the memory footprint of a TVF may allow the simulation to scale better down the line.
+An array of 10 booleans takes 10 bits, but an array of 10 integers for the value at each step would be 40 bytes, 32 times the number of bits. Considering a TVF will be sent with every delivery request and each controller maintains a queue of requests, reducing the memory footprint of a TVF may allow the simulation to scale better down the line.
 
 \begin{figure}[!hbpt]
   \center
@@ -1449,21 +1447,25 @@ An array of 10 booleans would take 10 bits, but an array of 10 integers represen
 To integrate TVFs with our simulation, we update the Order Generator to support two models. For every delivery request generated, the Order Generator randomly chooses between \textit{The Halvening} or \textit{Stepwise Decrease} functions. Although we could simply enumerate these two models and calculate the delivery fee using pre-defined value functions, our chosen implementation opens up the option to experiment with more complex TVFs in the future.
 
 \subsubsection{The Halvening}
-\textit{The Halvening} is a formalisation of the price-halving model we had already implemented before we introduced Time-Value Functions.
+$$ [0, 0, 0, 0, 1, 0, 0, 0, 0, 1] $$
+
+\textit{The Halvening} is a formalisation of the price-halving model we had already implemented before we introduced Time-Value Functions. By allowing longer periods of time before fee decreases, controllers are given more flexibility to, perhaps, schedule a higher priority request and still generate the same revenue on the other request. In general, this model might be best suited for a customer who is not \textit{too} strict on the swiftness of a delivery.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.65\linewidth]{img/tvfs_halvening.png}
+  \includegraphics[width=0.75\linewidth]{img/tvfs_halvening.png}
   \caption{Plotting \textit{The Halvening}.}
   \label{fig:tvfs_halvening}
 \end{figure}
 
 \subsubsection{Stepwise Decrease}
-Customers may favour this more as it enforces a fee decrease every 6 minutes, which means Controllers have even more incentive to deliver packages as quick as possible.
+$$ [1, 1, 1, 1, 1, 1, 1, 1, 1, 1] $$
+
+More customers may consider opting for this model as it enforces a fee decrease every 6 minutes, which means Controllers are given greater incentive to deliver orders with this TVF as quick as possible.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.65\linewidth]{img/tvfs_decrease.png}
+  \includegraphics[width=0.75\linewidth]{img/tvfs_decrease.png}
   \caption{Plotting \textit{Stepwise Decrease}.}
   \label{fig:tvfs_decrease}
 \end{figure}

@@ -38,29 +38,29 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {18}{\ignorespaces Drone-Server Interaction in AATC.\relax }}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {19}{\ignorespaces Updated Drone-Controller Interaction.\relax }}{35}
+\contentsline {figure}{\numberline {19}{\ignorespaces Updated Drone-Controller Interaction.\relax }}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {20}{\ignorespaces Example Component Flow.\relax }}{39}
+\contentsline {figure}{\numberline {20}{\ignorespaces Example Component Flow.\relax }}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {21}{\ignorespaces Testing basic controller functionality.\relax }}{45}
+\contentsline {figure}{\numberline {21}{\ignorespaces Testing basic controller functionality.\relax }}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {22}{\ignorespaces Delivery Network Flow.\relax }}{50}
+\contentsline {figure}{\numberline {22}{\ignorespaces Delivery Network Flow.\relax }}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {23}{\ignorespaces Our selected region of London. \cite {Google2018a}\relax }}{53}
+\contentsline {figure}{\numberline {23}{\ignorespaces Our selected region of London. \cite {Google2018a}\relax }}{54}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {24}{\ignorespaces Viewing the London scene in the Unity Editor.\relax }}{55}
+\contentsline {figure}{\numberline {24}{\ignorespaces Viewing the London scene in the Unity Editor.\relax }}{56}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {25}{\ignorespaces Inspecting GOSH's No Fly Zone.\relax }}{57}
+\contentsline {figure}{\numberline {25}{\ignorespaces Inspecting GOSH's No Fly Zone.\relax }}{58}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {26}{\ignorespaces Updated version of Figure \ref {fig:london_snapshot_small} with highlighted No Fly Zones.\relax }}{57}
+\contentsline {figure}{\numberline {26}{\ignorespaces Updated version of Figure \ref {fig:london_snapshot_small} with highlighted No Fly Zones.\relax }}{58}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {27}{\ignorespaces Custom drop-down options.\relax }}{60}
+\contentsline {figure}{\numberline {27}{\ignorespaces Custom drop-down options.\relax }}{61}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {28}{\ignorespaces Voronoi diagram of the London snapshot.\relax }}{61}
+\contentsline {figure}{\numberline {28}{\ignorespaces Voronoi diagram of the London snapshot.\relax }}{62}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {29}{\ignorespaces SpatialOS view of a running simulation. Note that \textit {OrderGenerator} has been incorrectly labelled as \textit {Scheduler} in the image.\relax }}{62}
+\contentsline {figure}{\numberline {29}{\ignorespaces SpatialOS view of a running simulation. Note that \textit {OrderGenerator} has been incorrectly labelled as \textit {Scheduler} in the image.\relax }}{63}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {30}{\ignorespaces Measuring the total distance of the delivery round trip.\relax }}{68}
+\contentsline {figure}{\numberline {30}{\ignorespaces Measuring the total distance of the delivery round trip.\relax }}{69}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {31}{\ignorespaces Conceptualising a Time-Value Function.\relax }}{71}
 \defcounter {refsection}{0}\relax 
