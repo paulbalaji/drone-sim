@@ -176,11 +176,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {8.2}Utilised Functions}{71}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.2.1}The Halvening}{71}
+\contentsline {subsubsection}{\numberline {8.2.1}The Halvening}{72}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {8.2.2}Stepwise Decrease}{72}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.2.3}Wildcard}{72}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9}TODO: Optimised Scheduling}{73}
 \defcounter {refsection}{0}\relax 

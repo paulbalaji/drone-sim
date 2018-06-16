@@ -28,6 +28,12 @@
 \usepackage{smartdiagram}
 \usepackage{multicol}
 \usepackage{multirow}
+\usepackage{pgfplots}
+\pgfplotsset{%
+    ,compat=1.12
+    ,every axis x label/.style={at={(current axis.right of origin)},anchor=north west}
+    ,every axis y label/.style={at={(current axis.above origin)},anchor=north east}
+    }
 
 \usetikzlibrary{ arrows, positioning, quotes, shapes, shadows, trees}
 
@@ -764,7 +770,7 @@ A Controller has three distinct components to it which all operate together, two
  \label{fig:controller_global_bitmap_flow}
  \end{figure}
 
- Figure \ref{fig:controller_global_bitmap_flow} describes how the three components slot next to each other, each performing its own set of tasks but maintaining separation of logic and state.
+Figure \ref{fig:controller_global_bitmap_flow} describes how the three components slot next to each other, each performing its own set of tasks but maintaining separation of logic and state.
 
 \subsubsection{No Fly Zones}
 No Fly Zones are represented in a similar way to AATC, as a list of float vectors with two vectors to track opposing corners of the zone's bounding box. An initial list of No Fly Zones is passed into the Global Layer upon creation of the component, with scope to add and remove from the list if one so wishes.\\
@@ -1403,7 +1409,7 @@ As per Table \ref{fig:package_revenue_distribution}, the revenue generated for s
 \section{TODO: Time-Value of Delivery}
 Before considering how to maximise profitability, we introduce the concept of the \textit{Time-Value of Deliveries} (TVD). This is based on the \textit{Time-Value of Data} idea we described earlier in Section 2.8. Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is a function of the time taken to do said delivery. This is known as a Time-Value Function (TVF).\\
 
-For example, a user may pay £5 for a delivery that takes less than 30 minutes but be charged nothing if it takes longer than one hour. One may recognise that we are already adopting an informal TVF that halves the delivery fee after 30 minutes, making it 0 if delivery takes greater than 60 minutes.
+For example, a user may pay £5 for a delivery that takes less than 30 minutes but be charged nothing if it takes longer than one hour. One may recognise that we are already adopting an informal TVF that halves the delivery fee after 30 minutes, making it 0 if delivery takes over  1 hour. Note that ``delivery time'' is the time taken from a controller receiving an order to a drone reaching the requested destination.
 
 \subsection{Function Representation}
 To reduce the computational effort required to calculate the cost of a delivery, we simplify each TVF to have 10 steps at equal time intervals. By keeping an array of booleans, we simply toggle each step true or false to indicate whether there is a price drop at that step.\\
@@ -1411,7 +1417,9 @@ To reduce the computational effort required to calculate the cost of a delivery,
 Figure \ref{fig:testpostplsignore} shows early concept art of a TVF with price drops at 18, 42 and 60 minutes. In this example, our array would have the the 3rd, 7th and 10th elements of the TVF array set to true.
 $$ [0, 0, 1, 0, 0, 0, 1, 0, 0, 1] $$
 
-For our model, we also state that the price decrease per step is constant per TVF. The maximum value of a delivery is therefore extracted from Table \ref{fig:package_revenue_distribution}. The value of a step decrease is the maximum value divided by the number of steps in the TVF. This is to reduce the transmission size of a TVF, as each delivery request may come with its own function.\\
+\begin{samepage}
+For our model, we also state that the price decrease per step is constant per TVF. The maximum value of a delivery is therefore extracted from Table \ref{fig:package_revenue_distribution}. The value of a step decrease is the maximum value divided by the number of steps in the TVF. This is to reduce the transmission size of a TVF, as each delivery request may provide its own function.
+\end{samepage}
 
 An array of 10 booleans would take 10 bits, but an array of 10 integers representing the value at each step would be 40 bytes, 32 times the number of bits. Considering a TVF will be sent with every delivery request and each controller maintains a queue of requests, reducing the memory footprint of a TVF may allow the simulation to scale better down the line.
 
@@ -1423,19 +1431,28 @@ An array of 10 booleans would take 10 bits, but an array of 10 integers represen
 \end{figure}
 
 \subsection{Utilised Functions}
-To integrate TVFs with our simulation, we update the Order Generator to support two models. For every delivery request generated, the Order Generator randomly chooses between \textit{The Halvening} or \textit{Stepwise Decrease} functions.
+To integrate TVFs with our simulation, we update the Order Generator to support two models. For every delivery request generated, the Order Generator randomly chooses between \textit{The Halvening} or \textit{Stepwise Decrease} functions. Although we could simply enumerate these two models and calculate the delivery fee using pre-defined value functions, our chosen implementation opens up the option to experiment with more complex TVFs in the future.
 
 \subsubsection{The Halvening}
-$$ [0, 0, 0, 0, 1, 0, 0, 0, 0, 1] $$
-
 \textit{The Halvening} is a formalisation of the price-halving model we had already implemented before we introduced Time-Value Functions.
 
-\subsubsection{Stepwise Decrease}
-$$ [1, 1, 1, 1, 1, 1, 1, 1, 1, 1] $$
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.65\linewidth]{img/tvfs_halvening.png}
+  \caption{Plotting \textit{The Halvening}.}
+  \label{fig:tvfs_halvening}
+\end{figure}
 
-\subsubsection{Wildcard}
-$$ [R, R, R, R, R, R, R, R, R, R] $$
-$$ R = Random.Range(0, 1) $$
+\subsubsection{Stepwise Decrease}
+Customers may favour this more as it enforces a fee decrease every 6 minutes, which means Controllers have even more incentive to deliver packages as quick as possible.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.65\linewidth]{img/tvfs_decrease.png}
+  \caption{Plotting \textit{Stepwise Decrease}.}
+  \label{fig:tvfs_decrease}
+\end{figure}
+
 
 %**********************************************%
 \newpage
