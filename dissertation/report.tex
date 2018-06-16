@@ -1290,7 +1290,7 @@ When inspecting a live simulation through the SpatialOS Inspector such as in Fig
 
 %**********************************************%
 \newpage
-\section{TODO: Integrating Delivery Economics}
+\section{REVISIT: Integrating Delivery Economics}
 With a basic London-scale simulation implemented to handle the logistical operations of a drone delivery network, we now look at how to extend this work to factor in, and later optimise for, the economic side.
 
 \subsection{Improved Order Generation}
@@ -1338,7 +1338,7 @@ By charging both bigger fees for higher priority requests we provide incentives 
 \subsection{Operating Costs}
 To calculate the profitability of the drone delivery network, we need to consider the costs of operating such a system. For our simulation we have identified the main sources of expenditure to be the energy consumption overhead of running the drones, along with any penalties that may be charged for failed deliveries and mid-flight collisions.\\
 
-Although we have designed each Controller to act as a delivery dispatch point, like an Amazon Fulfilment Centre, we do not consider the costs of running such a warehouse. Instead we only focus on economic matters that are influenced by our newly introduced drone delivery dynamics.\\
+Although we have designed each Controller to act as a delivery dispatch point, like an Amazon Fulfilment Centre, we do not consider the costs of running such a warehouse. Instead we only focus on economic matters that are influenced by our newly introduced drone delivery dynamics.
 
 \subsubsection{Energy Consumption}
 As a baseline to model our simulated drones on, we look at information available about Amazon Prime Air prototypes. We can compute the expense of running the drones by first keeping track of a drone's energy usage per delivery, then multiplying it by the cost per unit of energy.
@@ -1358,8 +1358,30 @@ $$ energy\ (hover) = 670.3 * DroneMoveInterval\ (seconds) = 167.575\ Ws $$
 Once a drone completes its delivery and has returned to the Controller, we can compute the total cost of performing said delivery. Taking into account the different units of time used so far:
 $$ cost\ of\ delivery\ (pence) = energy\ usage * 0.0055 / 3600 $$
 
-We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh.\\
+We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh.
 
+\subsubsection{Penalties}
+Understandably, nothing will ever work perfectly forever. To mitigate bugs in the simulation, we periodically ``prune'' drones that have been unresponsive for too long. We therefore consider the penalties applied for actions the drone has failed to complete at the time of pruning.
+
+\newpage
+We define four main infractions.
+\begin{enumerate}
+  \item Failed Launches
+  \item Failed Deliveries
+  \item Failed Returns
+  \item Collisions
+\end{enumerate}
+
+When a drone is unable to be launched, we consider that a delivery request was accepted but then unable to be completed. From a consumer point of view, they may have received a notification indicating that their delivery is on their way, only to be quickly told that their order has been cancelled because of some error in launching a drone. In this instance we do not charge the customer any delivery fees, instead giving them a fixed £5 compensation.\\
+
+If a drone is launched but still fails to deliver a package for whatever reason, we compensate the consumer as before and also calculate the cost of sending a truck to manually retrieve the drone that was sent out. When a drone fails to return for some reason \textit{after} making a delivery there is no reason to compensate the customer, but we still have to calculate the cost of retrieving the drone.\\
+
+When calculating the cost of retrieving a drone, we model our lorry on a standard UPS delivery truck with a mileage of 13.1 miles per gallon \cite{Lammert2009}. We consider fuel prices to be 125.1p per litre \cite{TheAA2018}, which translates to 568.7p per gallon.
+$$ retrieval\ cost = 2 * (distance * 0.621371) * mileage * fuel\ cost $$
+
+In the event of a collision, we add a £400 (\$500 \cite{Jung2017}) penalty for every drone involved in the collision, assuming the worst case where each drone would need to be completely replaced. In addition to this, we add appropriate penalties for failed deliveries and add a unified cost of retrieving all the drones.
+
+\subsection{Delivering a Milkshake}
 To demonstrate how cost effective drone delivery is, we create a hypothetical case where a customer would like to order a milkshake at late night from the comfort of her room. The round trip of picking up, delivering the milkshake and then returning back to the Controller is approximately 4.33km.\\
 
 For estimation sake, we assume that the drone is always moving. Therefore at a maximum speed of 10 metres per second, the drone would be in flight for 433 seconds. This corresponds to 3617758.3 Ws of energy use. Substituing this into our equation gives us:
@@ -1372,24 +1394,8 @@ $$ cost = 3617758.3 * 0.0055 / 3600 = 5.527130736\ pence $$
   \label{fig:drone_delivery_example_cost}
 \end{figure}
 
-That is a 5.53p cost to the delivery network operator for a mostly-autonomous system. For comparison Deliveroo's standard delivery fee is currently £2.50, a large portion of which may be used to pay the delivery person. Perhaps these monetary, time and efficiency savings fuel future consumer demand for increased drone adoption.
-
 \newpage
-\subsubsection{Penalties}
-Understandably, nothing will ever work perfectly forever. Therefore we must consider what the cost of certain failed action are. We define four main infractions.
-\begin{enumerate}
-  \item Failed Launches
-  \item Failed Deliveries
-  \item Failed Returns
-  \item Collisions
-\end{enumerate}
-
-When a drone is unable to be launched, we consider that a delivery request was accepted but then unable to be completed. From a consumer point of view, they may have received a notification indicating that their delivery is on their way, only to be quickly told that their order has been cancelled because of some error in launching a drone. In this instance we do not charge the customer any delivery fees, instead giving them a fixed £5 compensation.\\
-
-If a drone is launched but still fails to deliver a package for whatever reason, we compensate the consumer as before and also calculate the cost of sending a truck to manually retrieve the drone that was sent out. When a drone fails for some reason \textit{after} making a delivery there is no reason to compensate the customer, but we still have to calculate the cost of retrieving the drone.\\
-
-When calculating the cost of retrieving a drone, we model our lorry on a standard UPS delivery truck with a mileage of 13.1 miles per gallon \cite{Lammert2009}. We consider fuel prices to be 125.1p per litre \cite{TheAA2018}, which translates to 568.7p per gallon.
-$$ retrieval\ cost = 2 * (distance * 0.621371) * mileage * fuel\ cost $$
+As per Table \ref{fig:package_revenue_distribution}, the revenue generated for delivery of an 800g milkshake is £1.84 for a operating costs of just 5.53p to the delivery network operator. As this is a mostly-autonomous system, the lion's share of generated revenue is pure profit. For comparison, a large portion of Deliveroo's standard delivery fee £2.50 may be used to pay the delivery person. Perhaps these monetary, time and efficiency savings fuel future consumer demand for increased drone adoption.
 
 %**********************************************%
 \newpage
