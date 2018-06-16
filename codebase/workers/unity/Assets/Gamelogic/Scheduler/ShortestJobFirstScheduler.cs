@@ -25,6 +25,7 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
 
 	float potential;
     int rejections;
+	float rejecValue;
 
     // Use this for initialization
     private void OnEnable()
@@ -32,6 +33,7 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
         incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
         potential = DeliveryHandlerWriter.Data.potential;
         rejections = DeliveryHandlerWriter.Data.rejections;
+		rejecValue = DeliveryHandlerWriter.Data.rejectedValue;
 
 		requestQueue = new SortedSet<QueueEntry>(new SJFComparer());
 
@@ -60,22 +62,24 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
 		if (requestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
 			QueueEntry longestJob = requestQueue.Max;
-			float duration, value;
+			float duration, value, maxValue;
 			if (estimatedTime > longestJob.expectedDuration)
 			{
 				handle.Respond(new DeliveryResponse(false));
-
-				duration = estimatedTime;
-				value = TimeValueFunctions.DeliveryValue(duration, queueEntry.request.packageInfo, queueEntry.request.timeValueFunction);
+                
+				value = TimeValueFunctions.ExpectedProfit(estimatedTime, estimatedTime, queueEntry.request.packageInfo, queueEntry.request.timeValueFunction);
 				potential += value;
+				rejecValue += value;
                 ++rejections;
 				return;
 			}
 
 			requestQueue.Remove(longestJob);
 			duration = Time.time - longestJob.timestamp + longestJob.expectedDuration;
-			value = TimeValueFunctions.DeliveryValue(duration, longestJob.request.packageInfo, longestJob.request.timeValueFunction);
+			value = TimeValueFunctions.ExpectedProfit(duration, longestJob.expectedDuration, longestJob.request.packageInfo, longestJob.request.timeValueFunction);
+			maxValue = TimeValueFunctions.ExpectedProfit(longestJob.expectedDuration, longestJob.expectedDuration, longestJob.request.packageInfo, longestJob.request.timeValueFunction);
 			potential += value;
+			rejecValue += maxValue;
             ++rejections;
         }
 
@@ -90,7 +94,12 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
         {
 			queueList.Add(entry);
         }
-		DeliveryHandlerWriter.Send(new DeliveryHandler.Update().SetRequestQueue(queueList));
+
+		DeliveryHandlerWriter.Send(new DeliveryHandler.Update()
+                                   .SetRequestQueue(queueList)
+                                   .SetPotential(potential)
+                                   .SetRejections(rejections)
+                                   .SetRejectedValue(rejecValue));
     }
 
 	int Scheduler.GetQueueSize()
@@ -101,6 +110,16 @@ public class ShortestJobFirstScheduler : MonoBehaviour, Scheduler
 	float Scheduler.GetPenalties()
     {
         return SimulationSettings.FailedDeliveryPenalty * rejections;
+    }
+
+	float Scheduler.GetRejectedValue()
+    {
+        return rejecValue;
+    }
+
+    float Scheduler.GetAvgRejectedValue()
+    {
+        return rejecValue / rejections;
     }
 
 	float Scheduler.GetPotentialLost()
@@ -135,9 +154,8 @@ class SJFComparer : IComparer<QueueEntry>
         //a < b ==> -1
         
 		//a == b ==> 0
-        //two entries are the same if they have the same timestamp
-        //order generator will never generate more than one request per timestamp
-        if (x.timestamp == y.timestamp)
+        //two entries are the same if they have the same id
+        if (x.request.id == y.request.id)
         {
             return 0;
         }

@@ -25,6 +25,7 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 
 	float potential;
 	int rejections;
+	float rejecValue;
 
 	// Use this for initialization
 	private void OnEnable()
@@ -32,6 +33,7 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
 		potential = DeliveryHandlerWriter.Data.potential;
 		rejections = DeliveryHandlerWriter.Data.rejections;
+		rejecValue = DeliveryHandlerWriter.Data.rejectedValue;
 
 		deliveryRequestQueue = new Queue<QueueEntry>((int)SimulationSettings.MaxDeliveryRequestQueueSize);
 		foreach (QueueEntry entry in DeliveryHandlerWriter.Data.requestQueue)
@@ -73,7 +75,8 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 		DeliveryHandlerWriter.Send(new DeliveryHandler.Update()
 		                           .SetRequestQueue(new Improbable.Collections.List<QueueEntry>(deliveryRequestQueue.ToArray()))
 		                           .SetPotential(potential)
-		                           .SetRejections(rejections));
+		                           .SetRejections(rejections)
+		                           .SetRejectedValue(rejecValue));
     }
 
 	int Scheduler.GetQueueSize()
@@ -85,6 +88,16 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
     {
         return SimulationSettings.FailedDeliveryPenalty * rejections;
     }
+
+	float Scheduler.GetRejectedValue()
+	{
+		return rejecValue;
+	}
+
+	float Scheduler.GetAvgRejectedValue()
+	{
+		return rejecValue / rejections;
+	}
 
 	float Scheduler.GetPotentialLost()
     {

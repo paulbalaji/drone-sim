@@ -15,6 +15,8 @@ public interface Scheduler
 {
 	int GetQueueSize();
 	float GetPenalties();
+	float GetRejectedValue();
+	float GetAvgRejectedValue();
 	float GetPotentialLost();
 	float GetAvgPotentialLost();
 	bool GetNextRequest(out QueueEntry deliveryRequest);

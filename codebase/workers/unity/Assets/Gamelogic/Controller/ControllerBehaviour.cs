@@ -238,7 +238,7 @@ public class ControllerBehaviour : MonoBehaviour
 
     void PrintMetrics()
     {
-		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15} {16} {17}"
+		Debug.LogWarningFormat("METRICS {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} {15} {16} {17} {18} {19}"
 							   , gameObject.EntityId().Id
 							   , deliveriesMap.Count
 							   , scheduler.GetQueueSize()
@@ -255,6 +255,8 @@ public class ControllerBehaviour : MonoBehaviour
                                , collisionsReported
 		                       , unknownRequests
 		                       , scheduler.GetPenalties()
+		                       , scheduler.GetRejectedValue()
+		                       , scheduler.GetAvgRejectedValue()
 		                       , scheduler.GetPotentialLost()
 		                       , scheduler.GetAvgPotentialLost());
     }

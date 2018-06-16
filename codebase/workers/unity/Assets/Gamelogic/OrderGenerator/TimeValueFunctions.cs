@@ -44,6 +44,13 @@ public static class TimeValueFunctions
 
 		return maxRevenue - (penaltyStep * stepsHit);
     }
+    
+	public static float ExpectedProfit(float estimatedTime, float expectedDuration, PackageInfo packageInfo, TimeValueFunction tvf)
+    {
+        float income = DeliveryValue(estimatedTime, packageInfo, tvf);
+        float costs = SimulationSettings.EnergyUseEstimationConstant * expectedDuration;
+        return income - costs;
+    }
 
 	public static TimeValueFunction GenerateTypeA(DeliveryType deliveryType)
     {

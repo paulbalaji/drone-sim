@@ -14,6 +14,8 @@ component OrderGeneratorComponent {
   int32 first_controller = 1;
   int32 last_controller = 2;
 
+  int64 orders = 5;
+
   list<improbable.controller.NoFlyZone> zones = 3;
   list<ControllerInfo> controllers = 4;
 }

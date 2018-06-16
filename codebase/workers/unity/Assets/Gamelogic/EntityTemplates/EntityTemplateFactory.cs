@@ -83,7 +83,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .AddComponent(new GlobalLayer.Data(nfzs), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new BitmapComponent.Data(topLeft, bottomRight, 0, 0, 0, 0, new Improbable.Collections.Map<int, GridType>(), false), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ReactiveLayer.Data(), CommonRequirementSets.PhysicsOnly)
-		    .AddComponent(new DeliveryHandler.Data(new List<QueueEntry>((int)SimulationSettings.MaxDeliveryRequestQueueSize), 0, 0), CommonRequirementSets.PhysicsOnly)
+		    .AddComponent(new DeliveryHandler.Data(new List<QueueEntry>((int)SimulationSettings.MaxDeliveryRequestQueueSize), 0, 0, 0), CommonRequirementSets.PhysicsOnly)
             .AddComponent(new ControllerMetrics.Data(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), CommonRequirementSets.PhysicsOnly)
             .Build();
 
@@ -123,7 +123,7 @@ public class EntityTemplateFactory : MonoBehaviour
             .SetPersistence(true)
             .SetReadAcl(CommonRequirementSets.PhysicsOrVisual)
             .AddComponent(new Rotation.Data(Quaternion.identity.ToNativeQuaternion()), CommonRequirementSets.PhysicsOnly)
-		    .AddComponent(new OrderGeneratorComponent.Data(firstController, lastController, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
+		    .AddComponent(new OrderGeneratorComponent.Data(firstController, lastController, 0, nfzs, controllers), CommonRequirementSets.PhysicsOnly)
 		    .AddComponent(new OrderGeneratorMetrics.Data(0, 0, 0), CommonRequirementSets.PhysicsOnly)
             .Build();
 

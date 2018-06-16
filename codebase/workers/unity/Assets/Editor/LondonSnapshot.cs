@@ -60,8 +60,7 @@ namespace Assets.Editor
             SnapshotMenu.SaveSnapshot(snapshotEntities, "profiling");
         }
 
-        //[MenuItem("Drone Sim/London Snapshot Large")]
-		[MenuItem("Drone Sim/Generate London Snapshot")]
+        [MenuItem("Drone Sim/London Snapshot LARGE")]
         private static void LondonLarge()
         {
             float maxX = SimulationSettings.maxX; //routable width is 31500m
@@ -127,7 +126,7 @@ namespace Assets.Editor
             SnapshotMenu.SaveSnapshot(snapshotEntities, "london_large");
         }
 
-		//[MenuItem("Drone Sim/London Snapshot SMALL")]
+		[MenuItem("Drone Sim/London Snapshot SMALL")]
         private static void LondonSmall()
         {
             float maxX = SimulationSettings.maxX; //routable width is 31500m

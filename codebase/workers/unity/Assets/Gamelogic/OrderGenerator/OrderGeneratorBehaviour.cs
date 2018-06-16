@@ -23,9 +23,13 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 	int failedRequests;
 	int failedCommands;
 
+	long orders;
+
 	private void OnEnable()
 	{
 		Debug.LogWarningFormat("OrderGenerator_{0} Starting Up.", gameObject.EntityId().Id);
+
+		orders = OrderWriter.Data.orders;
 
 		deliveriesRequested = MetricsWriter.Data.deliveriesRequested;
 		failedRequests = MetricsWriter.Data.failedRequests;
@@ -56,10 +60,12 @@ public class OrderGeneratorBehaviour : MonoBehaviour
             return;
         }
 
+		OrderWriter.Send(new OrderGeneratorComponent.Update().SetOrders(++orders));
+
         SpatialOS.Commands.SendCommand(
 			OrderWriter,
             DeliveryHandler.Commands.RequestDelivery.Descriptor,
-			new DeliveryRequest(deliveryDestination, GeneratePayload(), GenerateTVF(false)),
+			new DeliveryRequest(orders, deliveryDestination, GeneratePayload(), GenerateTVF(false)),
             closestController)
 		         .OnSuccess((response) => DeliveryRequestCallback(response.success))
 		         .OnFailure((response) => DeliveryRequestFail());

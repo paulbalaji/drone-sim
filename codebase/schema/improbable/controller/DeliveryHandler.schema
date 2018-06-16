@@ -30,6 +30,7 @@ type TimeValueFunction {
 }
 
 type DeliveryRequest {
+	int64 id = 4;
 	improbable.Vector3f destination = 1;
 	PackageInfo package_info = 2;
 	TimeValueFunction time_value_function = 3;
@@ -52,6 +53,7 @@ component DeliveryHandler {
 	list<QueueEntry> request_queue = 1;
 
 	float potential = 2;
+	float rejected_value = 4;
 	int32 rejections = 3;
 
 	command DeliveryResponse request_delivery(DeliveryRequest);
