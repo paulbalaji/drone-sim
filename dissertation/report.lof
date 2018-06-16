@@ -1,0 +1,69 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Google Trends for ``Drone Technology''. \cite {Google2018}\relax }}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2}{\ignorespaces How Amazon Air fits into the wider delivery market. \cite {Wang}\relax }}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3}{\ignorespaces Starship's robot confronting a senior citizen. Image from Engadget\cite {Souppouris2015}.\relax }}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4}{\ignorespaces Illustration of Google's Delivery Truck. \cite {google_truck_patent}\relax }}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5}{\ignorespaces Fulfilment fees for standard-size items on Amazon UK. \cite {Channel2017}\relax }}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6}{\ignorespaces One of Amazon's Prime Air prototypes. \cite {Amazon.comInc.}\relax }}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7}{\ignorespaces Technical Overview of AATC. \cite {Balaji2017}\relax }}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {8}{\ignorespaces The default AATC drone model. \cite {Balaji2017}\relax }}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {9}{\ignorespaces Comparing popular search algorithms. \cite {Balaji2017}\relax }}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10}{\ignorespaces A* vs Optimal Path. \cite {Balaji2017}\relax }}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11}{\ignorespaces APF with obstacles (green peaks) and a destination (blue trough). \cite {Balaji2017}\relax }}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {12}{\ignorespaces Pure APF vs Rotating APF vs AATC Implementation. \cite {Balaji2017}\relax }}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {13}{\ignorespaces Drone paths after increasing repulsion constant by 3 orders of magnitude.\relax }}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {14}{\ignorespaces Multiple levels of queues, scheduled in a round-robin fashion. \cite {Bell2018}\relax }}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {15}{\ignorespaces Arrows indicate tasks can be moved up one queue to another. \cite {Bell2018}\relax }}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {16}{\ignorespaces Comparing approaches to multiplayer. \cite {ImprobableWorldsLtd.2018b}\relax }}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {17}{\ignorespaces The Inspector demonstrating a deployment of the iOS Demo, \textit {Quest}. \cite {ImprobableWorldsLtd.2017}\relax }}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {18}{\ignorespaces Drone-Server Interaction in AATC.\relax }}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {19}{\ignorespaces Updated Drone-Controller Interaction.\relax }}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {20}{\ignorespaces Example Component Flow.\relax }}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {21}{\ignorespaces Testing basic controller functionality.\relax }}{45}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {22}{\ignorespaces Delivery Network Flow.\relax }}{50}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {23}{\ignorespaces Our selected region of London. \cite {Google2018a}\relax }}{53}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {24}{\ignorespaces Viewing the London scene in the Unity Editor.\relax }}{55}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {25}{\ignorespaces Inspecting GOSH's No Fly Zone.\relax }}{57}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {26}{\ignorespaces Updated version of Figure \ref {fig:london_snapshot_small} with highlighted No Fly Zones.\relax }}{57}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {27}{\ignorespaces Custom drop-down options.\relax }}{60}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {28}{\ignorespaces Voronoi diagram of the London snapshot.\relax }}{61}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {29}{\ignorespaces SpatialOS view of a running simulation. Note that \textit {OrderGenerator} has been incorrectly labelled as \textit {Scheduler} in the image.\relax }}{62}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {30}{\ignorespaces Measuring the total distance of the delivery round trip.\relax }}{68}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {31}{\ignorespaces Conceptualising a Time-Value Function.\relax }}{71}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {32}{\ignorespaces Plotting \textit {The Halvening}.\relax }}{72}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {33}{\ignorespaces Plotting \textit {Stepwise Decrease}.\relax }}{72}

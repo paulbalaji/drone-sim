@@ -7,7 +7,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[a4paper,12pt,titlepage]{article}
+\documentclass[a4paper,11pt,titlepage]{article}
 \usepackage[left=3cm,right=3cm,top=3.5cm,bottom=3cm]{geometry}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
@@ -41,6 +41,8 @@
 
 \usepackage[most]{tcolorbox}
 \usepackage{inconsolata}
+
+\usepackage{tgpagella}
 
 \newtcblisting[auto counter]{sexylisting}[2][]{sharp corners,
     fonttitle=\bfseries, colframe=black, listing only,
@@ -170,7 +172,12 @@ ack
 \tableofcontents
 
 \newpage
+\listoffigures
 
+\newpage
+\listoftables
+
+\newpage
 \section{Introduction}
 Drone technology is becoming increasingly popular. Their agility and ability to be used remotely makes them ideal for a number of use cases in several industries such as film, law enforcement, emergency services, agriculture and commercial delivery\cite{Koontz}.
 
@@ -187,6 +194,7 @@ Although it may be an engineer's dream for a fully automated world, drones in pa
 
 However, prior work has been done on the routing and navigation aspect of such a system\cite{Balaji2017}. In order for drones to truly take over more aspects of our lives, we must look at how they can provide a tangible benefit to specific use-cases. There is no doubt that simply removing the human element can save costs drastically, and there is none more exciting an application than with physical delivery networks.
 
+\newpage
 The main factors that could prompt higher adoption of drones for delivery networks are cost, delivery speeds, and convenience. As figure \ref{fig:drone_del_cost} shows, drones can be both faster and cheaper than existing deliver options that consumers have access to.
 \begin{figure}[!hbpt]
   \center
@@ -199,6 +207,7 @@ It appears then that Amazon stands to increase their margins considerably if the
 
 In a more general sense, goods delivery networks have a lot to gain by optimising for profit, and to do this better we consider a variable delivery pricing mechanism that factors in the quality of service provided to the user. A high-priority product may warrant a higher delivery fee for quicker delivery but a similarly high penalty for being late. At the same time, a low-priority product may not have any such penalty, instead opting for a low delivery fee. Being able to factor this new fee model when scheduling tasks and allocating drones may be the next step in the ongoing automation of last-mile delivery\cite{Joerss2016}.
 
+\newpage
 Regardless of how such a model is implemented, it needs to be tested thoroughly before being deployed into production with actual drones. Considering a typical delivery drone could cost around \$100 to \$500\cite{Menon2013}, and that there is likely be a lot of failure before a working implementation, there could be several hundreds of thousand dollars worth of losses. \\
 
 Therefore, our best port of call is to simulate scenarios that are as close to the real world as possible. One tech firm investigating how to produce richer, meaningful and more realistic simulations is \textit{Improbable}\cite{ImprobableWorldsLtd.2018a} - a London-based tech startup actively developing a distributed simulation platform called \textit{SpatialOS}\cite{ImprobableWorldsLtd.2018b}. \\
@@ -227,6 +236,7 @@ Delivery robots are unmanned devices that are designed to be operated on pavemen
   \label{fig:starship_citizen}
 \end{figure}
 
+\newpage
 Due to their on-the-ground nature, delivery robots are primarily designed for low-footfall suburban neighbourhoods, closed residential areas or campuses. They would be scheduled through an Uber-like application that may allow users to track the location of the robot, for the customer's knowledge, and to also unlock the robot once it reaches its destination\cite{Hohenadel2015}. \\
 
 Thanks to their similarities to autonomous cars, they may have regulatory advantages compared to drones because much of the legislation coming through for autonomous vehicles can apply to delivery robots as well. However, there are profitability concerns because each robot can cost hundres of dollars and there is at this stage there is a high risk of failure, damage and even theft. \\
@@ -245,8 +255,9 @@ In fact, Google has obtained a patent for an autonomous delivery truck \cite{Hal
   \label{fig:google_truck_patent}
 \end{figure}
 
-Although current regulations dictate that a driver must remain present in the vehicle in the event of software performing differently to expections, this is a necessary precaution whilst driverless systems are still being tested - with further amendments to these laws in sight once these systems can be deemed safe for public use\cite{Bowcott2017}.
+Although current regulations dictate that a driver must remain present in the vehicle in the event of software performing differently to expections, this is a necessary precaution whilst driverless systems are still being tested - with further amendments to these laws in sight once these systems can be deemed safe for public use. \cite{Bowcott2017}
 
+\newpage
 \subsubsection{Drones}
 The concept of drones has been around for decades, particularly in the military, but only in recent times has the technology evolved to a point where anyone can walk into a consumer electronics store and purchase a drone for their own private use. Though these are manned, it is admirable that many witness the benefits of drones in film/television\cite{Verrier2015}, agriculture\cite{Jarman2016}, policing\cite{BBCNews2017a} and other exotic activities\cite{Roberts2016}. \\
 
@@ -271,6 +282,7 @@ One of the services Amazon provides to merchants is the \textit{Fulfilment by Am
   \label{fig:fulfilled_by_amazon_table}
 \end{figure}
 
+\newpage
 An incentive for merchants to join this scheme is to attract customers with the same-day and next-day delivery that Amazon Prime offers. This allows them to piggy-back off the existing delivery network that Amazon has developed for significantly lower fees (Figure \ref{fig:fulfilled_by_amazon_table}) than if they were to store the package and source a distributor for themselves.
 
 \subsubsection{Amazon Prime Air}
@@ -301,7 +313,9 @@ Naturally we would want to make sure that we avoid colliding into other drones a
 Nonetheless, a system can ensure that it navigates drones under its control as best as it can, avoiding these external drones and other rogue drones that may be flying with the sole intention of causing problems to others.
 
 \subsubsection{Manned Aviation}
-Manned Aviation is any form of airborne transport with humans on board. This would include passenger jets, private jets, helicopters and other miscallaneous vechicles. For simulation purposes, we can consider these to have straight paths from a start to an end because relative to the zig-zagging of drones - they are effectively straight. \\
+\begin{samepage}
+Manned Aviation is any form of airborne transport with humans on board. This would include passenger jets, private jets, helicopters and other miscallaneous vechicles. For simulation purposes, we can consider these to have straight paths from a start to an end because relative to the zig-zagging of drones - they are effectively straight.
+\end{samepage}
 
 It is paramount to avoid collisions with manned aviation because there is a high risk of human calamity, in addition to the bad press and financial costs associated with such an air traffic incident.
 
@@ -324,9 +338,9 @@ Because it would have been too expensive to trial the system on actual drones, a
   \label{fig:aatc_tech_overview}
 \end{figure}
 
+\newpage
 The system was designed with three challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.1. The last challenge is to design the system in such a way that it would be able to scale to hundreds and thousands of drones. \\
 
-\newpage
 To this end, a \textit{Global Layer} was built to deal with static obstacles (such as NFZs) by calculating a path for the drone around NFZs before it begins its journey. The second problem was tackled with a \textit{Reactive Layer} that handles non-static obstacles (such as manned aviation and other drones). This is the layer that would be providing the real-time updates to drones as they poll the server every second. \\
 
 \begin{figure}[!hbpt]
@@ -336,7 +350,7 @@ To this end, a \textit{Global Layer} was built to deal with static obstacles (su
   \label{fig:edrone}
 \end{figure}
 
-Only one drone type was used in AATC, with its specification outlined above in Figure \ref{fig:edrone}. It has a radius of 1m and a maximum velocity in any direction of 5 metres per second.
+Only one drone type was used in AATC, with its specification outlined in Figure \ref{fig:edrone}. It has a radius of 1m and a maximum velocity in any direction of 5 metres per second.
 
 \subsection{The Global Layer}
 The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow - thereby dealing with AATC's path-finding problem.
@@ -361,7 +375,10 @@ Naturally, by searching less nodes on a graph, less computation is performed and
 But for all these positive aspects, one must remember that our use for this algorithm is to compute paths in a real world, which is not necessarily split up into a nice, clean grid. So we turn our attention to a modification of the A* algorithm: Theta*.
 
 \subsubsection{Theta* Algorithm}
-The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algorithm that introduces Line of Sight (LOS) checks, which means that each jump from node to node in the returned path can be at any angle and not just up, down, left or right. This neat addition allows Theta* to be capable of finding near-optimal paths with a runtime comparable to A* \cite{Uras2015}. \\
+The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algorithm that introduces Line of Sight (LOS) checks, which means that each jump from node to node in the returned path can be at any angle and not just up, down, left or right. This neat addition allows Theta* to be capable of finding near-optimal paths with a runtime comparable to A* \cite{Uras2015}.
+
+\newpage
+Being able to get as short a path as possible is absolutely vital in the drone use-case because they have limited flying time. After all, their batteries can only last so long before they need to be recharged. Therefore, it is important to ensure drones travel as little distance as possible in order to maximise the number of times they can be used between charges.
 
 \begin{figure}[!hbpt]
   \center
@@ -370,9 +387,6 @@ The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algor
   \label{fig:a_star_vs_optimal}
 \end{figure}
 
-Being able to get as short a path as possible is absolutely vital in the drone use-case because they have limited flying time. After all, their batteries can only last so long before they need to be recharged. Therefore, it is important to ensure drones travel as little distance as possible in order to maximise the number of times they can be used between charges.
-
-\newpage
 \subsubsection{Lazy Theta* Algorithm}
 A further optimisation is to reduce the number of LOS checks performed, as found in another paper by the original authors of the Theta* algorithm\cite{Nash2010}. This algorithm assumes every node is in line of sight of its parent, and the LOS check is only performed once the child node is expanded on. If this turns out to be false, then the algorithm defaults to a typical A* approach. Reducing the number of LOS checks therefore improves the algorithm's overall performance.
 
@@ -429,6 +443,7 @@ Although one might argue that the Global Layer is not needed anymore because the
   \label{fig:obst}
 \end{figure}
 
+\newpage
 By introducing a random element, as in Rotating APF, the object is repelled in a slightly different direction each time to make it out of the trap and eventually reach its destination. Even this method, however, does not actually guarantee that the drone makes it past the U-shaped obstacle because it depends on how the random element behaves and also whether the drone has enough battery to be loitering for long.
 
 \begin{figure}[!hbpt]
@@ -453,9 +468,7 @@ $$U_{ret} = \rho_{ret}d_{last}$$
 $$U = U_a + U_r + U_{ret}$$
 $$\bm{v_{raw}} = \nabla U$$
 
-where $\nabla U$ is the gradient of U, and U is the magnitude of potential at a point\cite{Balaji2017}.
-
-Since $\nabla U$ is the recommended velocity, it can be computed from first principles:
+where $\nabla U$ is the gradient of U, and U is the magnitude of potential at a point\cite{Balaji2017}. Since $\nabla U$ is the recommended velocity, it can be computed from first principles:
 $$\nabla U(x,y,z) = \colvec{3}
                 {\frac{\delta U(x,y,z)}{\delta x}}
                 {\frac{\delta U(x,y,z)}{\delta y}}
@@ -489,6 +502,7 @@ Genetic algorithms are a metaheuristic inspired by the process of natural select
   \label{fig:aatc_spaghett}
 \end{figure}
 
+\newpage
 Effectively, an initial range of values (see Table \ref{tab:gen_alg}) is provided and the genetic algorithm cycles through all of these, letting these constants compete against each other to see which set of constants produces the simulation with the lowest cost. This cost is determined from a cost function that returns the remaining battery life of a drone if it reaches its destination, or a relatively huge number otherwise.
 $$cost = \sum_{testcase} \sum_{drone}
     \begin{cases}
@@ -516,8 +530,9 @@ Influence distance & 300 & 600 & 100  & 4     \\ \hline
 In the end, the genetic algorithms only improved the simulations by about 2\%\cite{Balaji2017} which could mean that the original range of constants was already a good set to work with. However, there is still scope for even greater improvements if the genetic algorithm was to be run with a greater number of test scenarios, bigger range of values to cycle through, and generally larger simulations.
 
 \subsection{Scheduling Algorithms}
-In this section we look at a few well known CPU scheduling algorithms\cite{Bell2018}. Although CPU scheduling is not part of this project, being able to understand a few different approaches to the problem will give insight into how to schedule drones later on. However, there are two key difference between drone and CPU scheduling.\\
+In this section we look at a few well known CPU scheduling algorithms\cite{Bell2018}. Although CPU scheduling is not part of this project, being able to understand a few different approaches to the problem will give insight into how to schedule drones later on. However, there are two key difference between drone and CPU scheduling.
 
+\newpage
 The first is that CPUs can time slice different tasks whereas once a drone is scheduled onto a task, it has to complete the whole task before being able to pick up a new one. Secondly, there are vastly more drones that could be running at a point in time compared to the number of cores in multi-core CPU, leading to far greater parallelism.
 
 \subsubsection{First Come First Serve (FCFS)}
@@ -606,15 +621,15 @@ There is extensive logging of performance metrics, which is a fantastic starting
 
 Naturally as the public SDKs have matured, so too have the public-facing developer tools. Currently, there is an \textbf{Inspector} to view the location of entities and the values that their components have at a given time, in either a local or deployed simulation.
 
+\subsubsection{Layered Simulation}
+By virtue of games having several dynamic systems all interlinking with each other, it is possible to create layered simulations on SpatialOS. This works well with the concept of Global, Reactive and Zonal layers that have been mentioned already in Sections 2.4, 2.5 and 2.6. Furthermore, as SpatialOS is distributed by nature, it is the ideal platform to create and execute massive, layered, distributed simulations.
+
 \begin{figure}[!hbpt]
   \center
   \includegraphics[width=\linewidth]{img/io_inspector.png}
   \caption{The Inspector demonstrating a deployment of the iOS Demo, \textit{Quest}. \cite{ImprobableWorldsLtd.2017}}
   \label{fig:bg_scalable_zones}
 \end{figure}
-
-\subsubsection{Layered Simulation}
-By virtue of games having several dynamic systems all interlinking with each other, it is possible to create layered simulations on SpatialOS. This works well with the concept of Global, Reactive and Zonal layers that have been mentioned already in Sections 2.4, 2.5 and 2.6. Furthermore, as SpatialOS is distributed by nature, it is the ideal platform to create and execute massive, layered, distributed simulations.
 
 
 %**********************************************%
@@ -1406,7 +1421,7 @@ As per Table \ref{fig:package_revenue_distribution}, the revenue generated for s
 
 %**********************************************%
 \newpage
-\section{TODO: Time-Value of Delivery}
+\section{REVISIT: Time-Value of Delivery}
 Before considering how to maximise profitability, we introduce the concept of the \textit{Time-Value of Deliveries} (TVD). This is based on the \textit{Time-Value of Data} idea we described earlier in Section 2.8. Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is a function of the time taken to do said delivery. This is known as a Time-Value Function (TVF).\\
 
 For example, a user may pay £5 for a delivery that takes less than 30 minutes but be charged nothing if it takes longer than one hour. One may recognise that we are already adopting an informal TVF that halves the delivery fee after 30 minutes, making it 0 if delivery takes over  1 hour. Note that ``delivery time'' is the time taken from a controller receiving an order to a drone reaching the requested destination.
@@ -1457,6 +1472,7 @@ Customers may favour this more as it enforces a fee decrease every 6 minutes, wh
 \newpage
 \section{TODO: Optimised Scheduling}
 % mention pre-emption
+
 \subsection{Shortest Job First}
 \subsection{Least Lost Value}
 
