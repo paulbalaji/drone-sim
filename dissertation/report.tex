@@ -1522,8 +1522,12 @@ The NLV is then computed as above for all jobs wanting to be scheduled, and the 
 To adapt the LLV algorithm for our specific drone delivery use case, we must consider how to model the duration distribution and also how to evict elements from the request queue when it becomes full.
 
 \subsubsection{Duration Distribution}
-To simplify the problem and reduce the computation complexity of the scheduler, we opt out of modelling duration as a distribution. Instead, we simply treat the duration as a fixed value derived from the distance between the controller and the delivery destination.
+To simplify the problem and reduce the computation complexity of the scheduler, we opt out of modelling the expected duration as a distribution. Instead, we assume the drone maintains a constant speed from start to end, and simply treat the duration as a fixed value derived from the distance between the controller and the delivery destination.
 $$ estimated\ duration = \frac{distance\ to\ destination}{maximum\ drone\ speed} $$
+
+Although this means that we do not consider the variance of delivery times due to factors such as dynamic collision avoidance and the time taken for the drone to reach cruising altitude, we obtain a quick and dirty estimation that can be re-calculated with ease.\\
+
+Being able to re-calculate this value with ease is of particular interest because the expected duration is something that the LLV algorithm attempts to compute several times during the course of its execution. However, since our way of calculating this variable generates the same result every time for a particular order, we can save this as part of the \textit{QueueEntry} type, and further reduce the complexity of the LLV algorithm in our particular use case.
 
 \subsubsection{Pre-Emption}
 
