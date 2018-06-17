@@ -1518,19 +1518,48 @@ $$ NLV(j_{i}) = PLV(j_{i}) - PGV(j_{i}) $$
 
 The NLV is then computed as above for all jobs wanting to be scheduled, and the next job to be scheduled is the one with the lowest NLV.
 
-\subsection{Adapting LLV for Delivery Scheduling}
+\section{Adapting LLV for Delivery Scheduling}
 To adapt the LLV algorithm for our specific drone delivery use case, we must consider how to model the duration distribution and also how to evict elements from the request queue when it becomes full.
 
-\subsubsection{Duration Distribution}
+\subsection{Duration Distribution}
 To simplify the problem and reduce the computation complexity of the scheduler, we opt out of modelling the expected duration as a distribution. Instead, we assume the drone maintains a constant speed from start to end, and simply treat the duration as a fixed value derived from the distance between the controller and the delivery destination.
 $$ estimated\ duration = \frac{distance\ to\ destination}{maximum\ drone\ speed} $$
 
-Although this means that we do not consider the variance of delivery times due to factors such as dynamic collision avoidance and the time taken for the drone to reach cruising altitude, we obtain a quick and dirty estimation that can be re-calculated with ease.\\
+Although this means that we do not consider the variance of delivery times due to factors such as dynamic collision avoidance, deviations in start and return positions, and the time taken for the drone to reach cruising altitude, this method allows us to obtain a quick and dirty estimation that can be re-calculated with ease.\\
 
-Being able to re-calculate this value with ease is of particular interest because the expected duration is something that the LLV algorithm attempts to compute several times during the course of its execution. However, since our way of calculating this variable generates the same result every time for a particular order, we can save this as part of the \textit{QueueEntry} type, and further reduce the complexity of the LLV algorithm in our particular use case.
+Being able to re-calculate this value with ease is of particular interest because the expected duration is something that the LLV algorithm attempts to compute several times during the course of its execution. However, since our way of calculating this variable generates the same result every time for a particular order, due to delivery destinations being fixed, we can add this field as a property to the \textit{QueueEntry} schema type.\\
 
-\subsubsection{Pre-Emption}
+Calculating the value once, storing it and then re-using it further reduces the complexity of the LLV algorithm in our particular use case.
 
+\subsection{Queue Implementation}
+If the priority of a queue under LLV policy is the NLV, then for every item in the queue we would have to traverse all other elements in the queue to calculate that item's priority. Assuming queue size $n$, we find that the time complexity of sorting a queue under this mode of scheduling is $O(n^{2})$.\\
+
+As each element's priority depends on the values of all other elements, we have to re-sort the queue every time an element is added or removed. Since we are expecting a new order to arrive approximately every 30 seconds, we get a $O(n^{2})$ operation running at least twice a minute for the entire uptime of a Controller!\\
+
+Although a Controller makes an attempt to dispatch a drone every 10 seconds, we only remove elements from the queue at 10 second intervals when there is no contention among the requests for access to drones. By that, we mean that the priority of requests only really comes into play once we have more pending requests than available drones.\\
+
+We attempt to keep our Controllers busy to give our schedulers (quite literally) a run for their money, but even in this case the time between dequeueing of requests may well be in the minutes range as we wait for drones to return from the deliveries they make. Therefore, it makes sense to only re-sort the request queue when \textit{DeliveryHandler} is polled by \textit{ControllerBehaviour} for the next request to serve.
+
+\clearpage
+Even if the number of elements in the queue grows beyond the maximum limit we set, we prune the queue after re-sorting to make sure that only the top 40 highest priority elements remain.
+
+\begin{figure}[!hbpt]
+ \centering
+ \begin{tikzpicture}[node distance = 20mm and 35mm]
+ \node [box](og)                {Order Generator};
+ \node [box,right=of og] (dh)   {Delivery Handler};
+ \node [box,right=of dh] (cb)   {Controller Behaviour};
+ \node [box,below=of dh] (rq)   {Request Queue};
+ \draw [->] ([yshift=3mm] og.east) to node[midway, above] {DeliveryRequest} ([yshift=3mm] dh.west);
+ \draw [->] ([yshift=3mm] cb.west) to node[midway, above] {Dequeue()} ([yshift=3mm] dh.east);
+ \draw [->] ([yshift=-3mm] dh.east) to node[midway, below] {DeliveryRequest} ([yshift=-3mm] cb.west);
+ \draw [->] ([xshift=-3mm] dh.south) to node[midway, left] {Add()} ([xshift=-3mm] rq.north);
+ \draw [->] ([xshift=3mm] rq.north) to node[midway, right] {Sort()} ([xshift=3mm] dh.south);
+ \draw [->] ([xshift=3mm] dh.south) to ([xshift=3mm] rq.north);
+ \end{tikzpicture}
+ \caption{Request Queue Interaction.}
+ \label{fig:request_queue_interaction}
+ \end{figure}
 
 \subsection{Early Results}
 
@@ -1541,7 +1570,6 @@ $$ time = distance / speed $$
 $$ job\ length \propto distance $$
 
 \section{Implementation Difficulties}
-\subsection{Priority Queue}
 \subsection{Checking Equality}
 
 
