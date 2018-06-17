@@ -1222,6 +1222,31 @@
       \verb http://iveybusinessreview.ca/blogs/pmenonhba2010/2013/12/11/how-many-drones-does-amazon-need/
       \endverb
     \endentry
+    \entry{Microsoft2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=140864078aeca1c7c35b4beb33c53c34}{%
+           family={Microsoft},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Microsoft Developer Network}
+      \field{title}{{SortedSet{<}T{>} Class}}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2018}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://msdn.microsoft.com/en-us/library/dd412070(v=vs.110).aspx
+      \endverb
+    \endentry
     \entry{Mitchell1996}{article}{}
       \name{author}{1}{}{%
         {{hash=3042c3dfb21b9c9089a0aa657bce4f3b}{%
