@@ -1496,12 +1496,22 @@ In the interests of comparing LLV with a more popular but well-performing algori
 \section{Least Lost Value}
 As described earlier, the concept of deliveries having a value that decreases with the time taken to complete it is inspired by the \textit{Time-Value of Data} model used in big data and business intelligence. Therefore when investigating methods of optimising our scheduler for profit, we looked at ways that big data jobs would be scheduled for optimal time-value of data.\\
 
-Our quest for optimisations led to a meeting with a current PhD student, Shireen 
+Our quest for optimisations led to a meeting with a PhD student of our supervisor, Prof. Knottenbelt. The PhD student, Shireen Seakhoa-King, was working on a scheduling optimising tool for the Big Data use-case and was informed by our supervisor about the project described in this report. This opened communication channels to discuss her tool and its potential applications further.\\
+
+\subsection{Algorithm Overview}
+
+\subsection{Early Results}
+
 
 \section{Shortest Job First}
 In this algorithm, the request queue would be ordered by the estimated time to complete each delivery. As time is distance divided by speed and we assume a constant drone speed for the sake of estimation, we can simply order the queue by the total distance as the crow flies from the controller to the request destination.
 $$ time = distance / speed $$
 $$ job\ length \propto distance $$
+
+\section{Implementation Difficulties}
+\subsection{Priority Queue}
+\subsection{Checking Equality}
+
 
 %**********************************************%
 \newpage

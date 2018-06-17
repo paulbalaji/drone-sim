@@ -192,7 +192,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.1}Least Lost Value}{84}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.1.1}Algorithm Overview}{84}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.1.2}Early Results}{84}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.2}Shortest Job First}{84}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9.3}Implementation Difficulties}{84}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.3.1}Priority Queue}{84}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.3.2}Checking Equality}{84}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {10}Scale Testing}{85}
 \defcounter {refsection}{0}\relax 
