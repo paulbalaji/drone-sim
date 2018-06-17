@@ -1637,8 +1637,36 @@ class CustomComparer : IComparer<QueueEntry>
 %**********************************************%
 \newpage
 \chapter{Scale Testing}
-\section{Expanding the London Snapshot}
-\section{}
+In order to test the scalability of our current delivery network architecture, we need to try scaling up our simulation. This involves generating a larger snapshot with more Controllers, allocating bigger regions of the world to each Controller, as well as tweaking both the Simulation and SpatialOS configuration settings to support a simulation at the scale we desire.
+
+\section{Expanding London}
+Using our experience from building the smaller snapshot of London as a starting point, we define our key considerations for drone delivery network snapshot design to be:
+\begin{itemize}
+  \item Simulation Settings
+  \begin{multicols}{2}
+    \begin{itemize}
+      \item World Size \& Location
+      \item Max Queue Size
+      \item Max Drone Count
+      \item Order Generator Interval
+    \end{itemize}
+  \end{multicols}
+  \item No Fly Zones
+  \item Controllers
+  \begin{multicols}{2}
+    \begin{itemize}
+      \item Controller Count
+      \item Distribution
+    \end{itemize}
+  \end{multicols}
+\end{itemize}
+
+Our existing London snapshot has dimensions of 5km x 4km, with a routable area of 4.8km x 3.8km. For comparison, we would like to generate a larger snapshot of London with dimensions of 32km x 14.5km, of which 31.5km x 14km is routable.
+
+\section{Configuring SpatialOS}
+
+\section{Problems}
+
 
 
 %**********************************************%
@@ -1646,8 +1674,9 @@ class CustomComparer : IComparer<QueueEntry>
 \part{Findings}
 \chapter{Evaluation}
 \section{Metrics}
-\subsection{Logging}
-\subsection{Data Extraction}
+
+\subsection{Extracting Log Data}
+
 
 \section{Comparing Schedulers}
 % heavy load vs light load (queue size)

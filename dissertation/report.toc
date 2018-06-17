@@ -216,38 +216,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {10}Scale Testing}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.1}Expanding the London Snapshot}{91}
+\contentsline {section}{\numberline {10.1}Expanding London}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.2}}{91}
+\contentsline {section}{\numberline {10.2}Configuring SpatialOS}{92}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Findings}{92}
+\contentsline {section}{\numberline {10.3}Problems}{92}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Evaluation}{93}
+\contentsline {part}{V\hspace {1em}Findings}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Metrics}{93}
+\contentsline {chapter}{\numberline {11}Evaluation}{94}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.1}Logging}{93}
+\contentsline {section}{\numberline {11.1}Metrics}{94}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.2}Data Extraction}{93}
+\contentsline {subsection}{\numberline {11.1.1}Extracting Log Data}{94}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.2}Comparing Schedulers}{93}
+\contentsline {section}{\numberline {11.2}Comparing Schedulers}{94}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{93}
+\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{94}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Conclusion}{94}
+\contentsline {chapter}{\numberline {12}Conclusion}{95}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Future Work}{95}
+\contentsline {chapter}{\numberline {13}Future Work}{96}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{96}
+\contentsline {section}{References}{97}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Appendices}{102}
+\contentsline {chapter}{Appendices}{103}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Code Listings}{103}
+\contentsline {chapter}{\numberline {A}Code Listings}{104}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{104}
+\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{105}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{105}
+\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{106}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Main Controller Loop}{106}
+\contentsline {section}{\numberline {A.3}Main Controller Loop}{107}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{107}
+\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{108}
