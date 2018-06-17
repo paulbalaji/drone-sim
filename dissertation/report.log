@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  17 JUN 2018 18:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  17 JUN 2018 19:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2879,6 +2879,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [87
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 1575--1576
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2907,11 +2911,11 @@ Chapter 13.
 
 ]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1636.
+(Font)              scaled to size 10.95pt on input line 1642.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1636.
+(Font)              scaled to size 8.0pt on input line 1642.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1636.
+(Font)              scaled to size 6.0pt on input line 1642.
  [94
 
 ]
@@ -2929,7 +2933,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [96]
-Overfull \hbox (5.94624pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (5.94624pt too wide) in paragraph at lines 1643--1643
 []\OT1/qpl/m/n/10.95 Improbable Worlds Ltd. \OT1/qpl/m/it/10.95 Spa-tia-lOS Tech-ni-cal Break-down\OT1/qpl/m/n/10.95 . 2018. (Vis-ited on 01/25/2018). 
  []
 
@@ -2947,12 +2951,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [98]
-Overfull \hbox (11.39943pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (11.39943pt too wide) in paragraph at lines 1643--1643
 []\OT1/qpl/m/n/10.95 Tansel Uras and Sven Koenig. \  An Em-pir-i-cal Com-par-i-son of Any-Angle Path-Planning
  []
 
 
-Overfull \hbox (0.26334pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (0.26334pt too wide) in paragraph at lines 1643--1643
 []\OT1/qpl/m/n/10.95 Adrienne Welch. \  A cost-benefit anal-y-sis of Ama-zon Prime Air A Cost-Benefit Anal-
  []
 
@@ -3029,7 +3033,7 @@ Here is how much of TeX's memory you used:
  63i,16n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on report.pdf (108 pages, 18382460 bytes).
+Output written on report.pdf (108 pages, 18382997 bytes).
 PDF statistics:
  519 PDF objects out of 1000 (max. 8388607)
  312 compressed objects within 4 object streams

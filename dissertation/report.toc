@@ -204,9 +204,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.3}Shortest Job First}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.4}Implementation Difficulties}{88}
+\contentsline {section}{\numberline {9.4}Advanced Scheduler Implementation}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.4.1}Checking Equality}{88}
+\contentsline {subsection}{\numberline {9.4.1}Priority Queue}{88}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.4.2}Checking Equality}{88}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {10}Scale Testing}{89}
 \defcounter {refsection}{0}\relax 
