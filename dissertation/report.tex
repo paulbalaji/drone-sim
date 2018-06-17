@@ -1491,16 +1491,17 @@ In our simulation, each controller only operates 15 drones at a time with a maxi
 
 In order to make use of such a priority queue to filter out the lowest value orders, we must first define a way of assigning a priority to each request. For our simulations we have chosen to implement the novel \textit{Least Lost Value (LLV)} algorithm as our primary profit enhancing technique, as this approach takes advantage of the TVF-based revenue model.\\
 
-In the interests of comparing LLV with a more popular but well-performing algorithm, we also take a look at the \textit{Shortest Job First (SJF)} practice.
+In the interests of comparing LLV with a more popular but well-performing algorithm, we also take a look at and implement \textit{Shortest Job First (SJF)} scheduling.
 
 \section{Least Lost Value}
+As described earlier, the concept of deliveries having a value that decreases with the time taken to complete it is inspired by the \textit{Time-Value of Data} model used in big data and business intelligence. Therefore when investigating methods of optimising our scheduler for profit, we looked at ways that big data jobs would be scheduled for optimal time-value of data.\\
+
+Our quest for optimisations led to a meeting with a current PhD student, Shireen 
 
 \section{Shortest Job First}
 In this algorithm, the request queue would be ordered by the estimated time to complete each delivery. As time is distance divided by speed and we assume a constant drone speed for the sake of estimation, we can simply order the queue by the total distance as the crow flies from the controller to the request destination.
 $$ time = distance / speed $$
 $$ job\ length \propto distance $$
-
-From
 
 %**********************************************%
 \newpage
