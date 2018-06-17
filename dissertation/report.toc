@@ -200,48 +200,48 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {9.2.2}Queue Implementation}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2.3}Early Results}{87}
+\contentsline {subsection}{\numberline {9.2.3}Preliminary Results}{87}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.3}Shortest Job First}{87}
+\contentsline {section}{\numberline {9.3}Shortest Job First}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.4}Implementation Difficulties}{87}
+\contentsline {section}{\numberline {9.4}Implementation Difficulties}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.4.1}Checking Equality}{87}
+\contentsline {subsection}{\numberline {9.4.1}Checking Equality}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Scale Testing}{88}
+\contentsline {chapter}{\numberline {10}Scale Testing}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.1}Expanding the London Snapshot}{88}
+\contentsline {section}{\numberline {10.1}Expanding the London Snapshot}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.2}}{88}
+\contentsline {section}{\numberline {10.2}}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Findings}{89}
+\contentsline {part}{V\hspace {1em}Findings}{90}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Evaluation}{90}
+\contentsline {chapter}{\numberline {11}Evaluation}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Metrics}{90}
+\contentsline {section}{\numberline {11.1}Metrics}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.1}Logging}{90}
+\contentsline {subsection}{\numberline {11.1.1}Logging}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.2}Data Extraction}{90}
+\contentsline {subsection}{\numberline {11.1.2}Data Extraction}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.2}Comparing Schedulers}{90}
+\contentsline {section}{\numberline {11.2}Comparing Schedulers}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{90}
+\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Conclusion}{91}
+\contentsline {chapter}{\numberline {12}Conclusion}{92}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Future Work}{92}
+\contentsline {chapter}{\numberline {13}Future Work}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{93}
+\contentsline {section}{References}{94}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Appendices}{99}
+\contentsline {chapter}{Appendices}{100}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Code Listings}{100}
+\contentsline {chapter}{\numberline {A}Code Listings}{101}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{101}
+\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{102}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{102}
+\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{103}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Main Controller Loop}{103}
+\contentsline {section}{\numberline {A.3}Main Controller Loop}{104}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{104}
+\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{105}

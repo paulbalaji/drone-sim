@@ -1550,22 +1550,25 @@ Even if the number of elements in the queue grows beyond the maximum limit we se
  \node [box,right=of og] (dh)   {Delivery Handler};
  \node [box,right=of dh] (cb)   {Controller Behaviour};
  \node [box,below=of dh] (rq)   {Request Queue};
- \draw [->] ([yshift=3mm] og.east) to node[midway, above] {DeliveryRequest} ([yshift=3mm] dh.west);
+ \draw [->] (og.east) to node[midway, above] {DeliveryRequest} (dh.west);
  \draw [->] ([yshift=3mm] cb.west) to node[midway, above] {Dequeue()} ([yshift=3mm] dh.east);
  \draw [->] ([yshift=-3mm] dh.east) to node[midway, below] {DeliveryRequest} ([yshift=-3mm] cb.west);
  \draw [->] ([xshift=-3mm] dh.south) to node[midway, left] {Add()} ([xshift=-3mm] rq.north);
- \draw [->] ([xshift=3mm] rq.north) to node[midway, right] {Sort()} ([xshift=3mm] dh.south);
- \draw [->] ([xshift=3mm] dh.south) to ([xshift=3mm] rq.north);
+ \draw [<->] ([xshift=3mm] rq.north) to node[midway, right] {SortAndPrune()} ([xshift=3mm] dh.south);
+ % \draw [->] ([xshift=3mm] dh.south) to ([xshift=3mm] rq.north);
  \end{tikzpicture}
  \caption{Request Queue Interaction.}
  \label{fig:request_queue_interaction}
  \end{figure}
 
-\subsection{Early Results}
+\subsection{Preliminary Results}
+Preliminary runs using the LLV scheduler appeared to demonstrate far better performance than our existing First Come First Serve (FCFS) scheduler, in terms of both average profit per delivery and the overall profit generated over the course of the simulation.\\
 
+This proved to be an interesting development that piqued our curiosity into investigating how our Least Lost Value policy stacks up against a Shortest Job First (SJF) approach, which Shireen expressed was the only other scheduler that would beat LLV under some conditions in her own testing. There was especially great interest to see how the two schedulers would fare in our specific use case of a drone delivery network.
 
+\clearpage
 \section{Shortest Job First}
-In this algorithm, the request queue would be ordered by the estimated time to complete each delivery. As time is distance divided by speed and we assume a constant drone speed for the sake of estimation, we can simply order the queue by the total distance as the crow flies from the controller to the request destination.
+In this algorithm, the request queue would be ordered by the estimated time to complete each delivery. For the sake of estimation and to be consistent with our assumptions in LLV scheduling, we assume a constant drone speed. Hence, we can efficiently order the queue by the total distance (as the crow flies) from the controller to the request destination.
 $$ time = distance / speed $$
 $$ job\ length \propto distance $$
 
