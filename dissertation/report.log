@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  17 JUN 2018 05:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  17 JUN 2018 06:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2832,11 +2832,11 @@ Chapter 13.
 
 ]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1563.
+(Font)              scaled to size 10.95pt on input line 1562.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1563.
+(Font)              scaled to size 8.0pt on input line 1562.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1563.
+(Font)              scaled to size 6.0pt on input line 1562.
  [90
 
 ]
@@ -2854,7 +2854,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [92]
-Overfull \hbox (5.94624pt too wide) in paragraph at lines 1564--1564
+Overfull \hbox (5.94624pt too wide) in paragraph at lines 1563--1563
 []\OT1/qpl/m/n/10.95 Improbable Worlds Ltd. \OT1/qpl/m/it/10.95 Spa-tia-lOS Tech-ni-cal Break-down\OT1/qpl/m/n/10.95 . 2018. (Vis-ited on 01/25/2018). 
  []
 
@@ -2872,12 +2872,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [94]
-Overfull \hbox (11.39943pt too wide) in paragraph at lines 1564--1564
+Overfull \hbox (11.39943pt too wide) in paragraph at lines 1563--1563
 []\OT1/qpl/m/n/10.95 Tansel Uras and Sven Koenig. \  An Em-pir-i-cal Com-par-i-son of Any-Angle Path-Planning
  []
 
 
-Overfull \hbox (0.26334pt too wide) in paragraph at lines 1564--1564
+Overfull \hbox (0.26334pt too wide) in paragraph at lines 1563--1563
 []\OT1/qpl/m/n/10.95 Adrienne Welch. \  A cost-benefit anal-y-sis of Ama-zon Prime Air A Cost-Benefit Anal-
  []
 
@@ -2897,7 +2897,7 @@ Appendix A.
 (./report.listing) [97
 
 ]
-Overfull \vbox (10.40102pt too high) has occurred while \output is active []
+Overfull \vbox (45.9214pt too high) has occurred while \output is active []
 
 
 
@@ -2907,15 +2907,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [98]
-Appendix B.
 \openout6 = `report.listing'.
 
-(./report.listing) [99
+ (./report.listing)
+\openout6 = `report.listing'.
 
-]
-Overfull \vbox (204.78293pt too high) has occurred while \output is active []
+ (./report.listing)
 
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[99]
+\openout6 = `report.listing'.
+
+ (./report.listing)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2923,28 +2930,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [100]
-Appendix C.
-\openout6 = `report.listing'.
-
-(./report.listing) [101
-
-]
-Appendix D.
-\openout6 = `report.listing'.
-
-(./report.listing) [102
-
-]
-Overfull \vbox (29.28293pt too high) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[103] (./report.aux)
+[101] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -2955,17 +2947,17 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 Here is how much of TeX's memory you used:
  40066 strings out of 492995
  829141 string characters out of 6132703
- 1283510 words of memory out of 5000000
+ 1284510 words of memory out of 5000000
  42929 multiletter control sequences out of 15000+600000
  71533 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on report.pdf (106 pages, 18362531 bytes).
+Output written on report.pdf (104 pages, 18362731 bytes).
 PDF statistics:
- 509 PDF objects out of 1000 (max. 8388607)
- 305 compressed objects within 4 object streams
+ 503 PDF objects out of 1000 (max. 8388607)
+ 301 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  319 words of extra memory for PDF output out of 10000 (max. 10000000)
 

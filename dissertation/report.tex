@@ -792,7 +792,7 @@ type NoFlyZone {
 }
 \end{sexylisting}
 
-To complement the C\# class that SpatialOS generates from this, we have implemented a static class (Appendix A) containing methods that are necessary for integrating No Fly Zones with the Global Layer and Bitmap components. These are checks to see if:
+To complement the C\# class that SpatialOS generates from this, we have implemented a static class (Appendix A.1) containing methods that are necessary for integrating No Fly Zones with the Global Layer and Bitmap components. These are checks to see if:
 \begin{itemize}
   \item a given point is within a zone's bounding box
   \item a given point is within a zone's polygonal area
@@ -981,7 +981,7 @@ The naive method would be for each drone to request all SpatialOS entities withi
 Due to the fact that each distributed ``worker'' in SpatialOS is an instance of the Unity game engine, a more practical approach is instead to utilise the engine and perform a simple physics collision check.
 
 \clearpage
-Although this is still resource-expensive, it is still quicker than a Spatial search because using native game engine functionality is more performant than manually searching for entities in a radius. By applying a Sphere Collider to each drone, checking for nearby colliders will only ever return instances of drones (Appendix B).
+Although this is still resource-expensive, it is still quicker than a Spatial search because using native game engine functionality is more performant than manually searching for entities in a radius. By applying a Sphere Collider to each drone, checking for nearby colliders will only ever return instances of drones (Appendix A.2).
 
 \subsection{Collision Detection}
 Now that drones are detected easily, a collision is simply the case where a nearby collider is at a distance of less than 1m (2 drone radiuses). In the real world, a controller would detect that two drones have stopped responding and assume a crash occured. For our simulation, we instead add a command for drones to call so the controller knows a collision occurred. \\
@@ -1067,7 +1067,7 @@ Before generating any orders, we must first define the components on the Order G
 Controllers will need a \textit{DeliveryHandler} component to enqueue incoming delivery requests. It follows that there are a finite amount of drones available to deliver goods at a particular point in time, therefore the Delivery Handler's function is to maintain a queue of requests and only provide the next delivery to serve when the \textit{ControllerBehaviour} asks for it. For the time being, we implement a very basic FIFO queue to serve requests in the order that they were received by the Controller.
 
 \clearpage
-The delivery handler effectively acts as a scheduler for the controller, because it decides the order to return requests in a manner completely transparent to core controller operation. The main loop (Appendix C) now checks if the controller can deploy a drone, asks for the next request, handles the delivery request if the scheduler returns one back, and sends the updated queue state up to SpatialOS.\\
+The delivery handler effectively acts as a scheduler for the controller, because it decides the order to return requests in a manner completely transparent to core controller operation. The main loop (Appendix A.3) now checks if the controller can deploy a drone, asks for the next request, handles the delivery request if the scheduler returns one back, and sends the updated queue state up to SpatialOS.\\
 
 To match up with this functionality the schema defines four basic elements:
 \begin{enumerate}
@@ -1321,7 +1321,7 @@ When inspecting a live simulation through the SpatialOS Inspector such as in Fig
 With a basic London-scale simulation implemented to handle the logistical operations of a drone delivery network, we now look at how to extend this work to factor in, and later optimise for, the economic side.
 
 \section{Improved Order Generation}
-Before we can define a revenue model for our delivery network, we must improve the Order Generator to generate a greater variety of delivery requests. Packages being delivered by drones will vary in size, weight and priority, just like current the delivery market, and the DeliveryHandler schema needs to upgraded (Appendix D) to support these new properties of a delivery request.
+Before we can define a revenue model for our delivery network, we must improve the Order Generator to generate a greater variety of delivery requests. Packages being delivered by drones will vary in size, weight and priority, just like current the delivery market, and the DeliveryHandler schema needs to upgraded (Appendix A.4) to support these new properties of a delivery request.
 
 \subsection{Package Type \& Weight}
 We take our definitions of package types from Amazon's own \textit{Fulfilment by Amazon} service, as described by Figure \ref{fig:fulfilled_by_amazon_table} in Section 2.2. Subsequently we update the \textit{DeliveryRequest} schema type to include a new \textit{PackageInfo} property, to capture both the package type and weight. Each of the 6 package types accepts a different range of weights, hence generating a PackageInfo is (at the moment) a case of randomly picking a type, and then generating a random number within each type's accepted weight range.
@@ -1496,12 +1496,11 @@ In the interests of comparing LLV with a more popular but well-performing algori
 \section{Least Lost Value}
 
 \section{Shortest Job First}
-We chose SJF as the first
-
 In this algorithm, the request queue would be ordered by the estimated time to complete each delivery. As time is distance divided by speed and we assume a constant drone speed for the sake of estimation, we can simply order the queue by the total distance as the crow flies from the controller to the request destination.
 $$ time = distance / speed $$
+$$ job\ length \propto distance $$
 
-This estimation
+From
 
 %**********************************************%
 \newpage
@@ -1564,8 +1563,8 @@ This estimation
 
 % \newpage
 \begin{appendices}
-
-\chapter{Static No Fly Zone Class}
+\chapter{Code Listings}
+\section{Static No Fly Zone Class}
 \begin{sexylisting}[colback=white]{Static No Fly Zone Class}
 public static class NoFlyZone
 {
@@ -1590,7 +1589,7 @@ public static class NoFlyZone
 }
 \end{sexylisting}
 
-\chapter{Nearby Drone and Collision Detection}
+\section{Nearby Drone and Collision Detection}
 \begin{sexylisting}[colback=white]{Nearby Drone and Collision Detection}
 private void CheckForNearbyDrones(Vector3 dronePos, bool collisionsOn)
 {
@@ -1623,7 +1622,7 @@ private void CheckForNearbyDrones(Vector3 dronePos, bool collisionsOn)
 }
 \end{sexylisting}
 
-\chapter{Main Controller Loop}
+\section{Main Controller Loop}
 \begin{sexylisting}[colback=white]{Main Controller Loop}
 void ControllerTick()
 {
@@ -1645,7 +1644,7 @@ void ControllerTick()
 }
 \end{sexylisting}
 
-\chapter{Updated DeliveryRequest Generation}
+\section{Updated DeliveryRequest Generation}
 \begin{sexylisting}[colback=white]{Additions to DeliveryHandler Schema}
 enum PackageType {
   LETTER_SMALL = 0;
