@@ -340,7 +340,7 @@ Because it would have been too expensive to trial the system on actual drones, a
   \label{fig:aatc_tech_overview}
 \end{figure}
 
-The system was designed with three challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.1. The last challenge is to design the system in such a way that it would be able to scale to hundreds and thousands of drones.
+The system was designed with three challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.3. The last challenge is to design the system in such a way that it would be able to scale to hundreds and thousands of drones.
 
 \clearpage
 To this end, a \textit{Global Layer} was built to deal with static obstacles (such as NFZs) by calculating a path for the drone around NFZs before it begins its journey. The second problem was tackled with a \textit{Reactive Layer} that handles non-static obstacles (such as manned aviation and other drones). This is the layer that would be providing the real-time updates to drones as they poll the server every second. \\
@@ -494,7 +494,7 @@ $$ speed = min(max\_speed, d_{goal}) $$
 The gradient $\nabla U$ is then normalised to be a unit vector before being multiplied by the speed to compute the final velocity.
 
 \subsection{Genetic Algorithm}
-By paying close attention to Section 2.5.2, we can identify several undefined constants: $\rho_r$, $\rho_a$, $\rho_{ret}$ and $d_{influence}$. The balance between them is key, because if $\rho_a$ is too high relative to $\rho_r$ then the drones ignore obstacles and die on impact, but if $\rho_r$ is too high then they will oscillate between objects and never reach their goal. After much fiddling about with "magic numbers", a genetic algorithm was employed to provide the optimal values for the specific drone model. \\
+By paying close attention to Section 2.6.2, we can identify several undefined constants: $\rho_r$, $\rho_a$, $\rho_{ret}$ and $d_{influence}$. The balance between them is key, because if $\rho_a$ is too high relative to $\rho_r$ then the drones ignore obstacles and die on impact, but if $\rho_r$ is too high then they will oscillate between objects and never reach their goal. After much fiddling about with "magic numbers", a genetic algorithm was employed to provide the optimal values for the specific drone model. \\
 
 Genetic algorithms are a metaheuristic inspired by the process of natural selection, and they are a way by which high-quality solutions can be generated for optimisation problems\cite{Mitchell1996}. In the case of AATC, the aforementioned constants need to be fine-tuned in order to produce an APF model that, to its best ability, does not return absurd, erroneous velocities. See Figure \ref{fig:aatc_spaghett} as an example. \\
 
@@ -639,7 +639,7 @@ By virtue of games having several dynamic systems all interlinking with each oth
 \clearpage
 \part{Skeleton Implementation}
 \chapter{Translating AATC to SpatialOS}
-Before even thinking about simulating orders and scheduling deliveries, there must be a backbone in place that allows drones to get from a start to end point. To this end, the pathfinding and collision avoidance capabilities of AATC (Section 2.4) will be the backbone of the simulation.
+Before even thinking about simulating orders and scheduling deliveries, there must be a backbone in place that allows drones to get from a start to end point. To this end, the pathfinding and collision avoidance capabilities of AATC (Sections 2.4-2.6) will be the backbone of the simulation.
 
 \section{Basic Interaction Model}
 However, AATC was designed as a simple master-slave system such that the server assumed total control over each drone in the system. To produce a scalable delivery network, modifications have to made that allows entities to be decoupled and not limited to the constraints imposed by the existing AATC model.
