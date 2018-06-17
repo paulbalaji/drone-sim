@@ -1485,11 +1485,9 @@ More customers may consider opting for this model as it enforces a fee decrease 
 \newpage
 \part{Optimisation \& Scale}
 \chapter{Profit-Optimised Scheduling}
-Our simulation now consists of a distributed delivery network, variation in order generation and a novel revenue model, but each Controller is still using a very primitive form of scheduling - First Come First Serve (FCFS). As we have demonstrated in Section 7.4, drone delivery networks are already extremely profitable, therefore in our simulation controllers do not stand to make any sort of loss.\\
+Our simulation now consists of a distributed delivery network, variation in order generation and a novel revenue model, but each Controller is still using a very primitive form of scheduling - First Come First Serve (FCFS). As we have demonstrated in Section 7.4, drone delivery networks are already extremely profitable, therefore in our simulation controllers do not stand to make any sort of loss. Nonetheless, there is no shadow of doubt that there are modifications that can be made to the scheduler to prioritise higher value orders and generate a greater profit.\\
 
-Nonetheless, there is no shadow of doubt that there are modifications that can be made to the scheduler to prioritise higher value orders and generate a greater profit.\\
-
-As per Section TODO, each controller in our simulation only operates 15 drones at a time with a maximum request queue size of 40. After this point orders will still be coming in, but a FCFS scheduler would simply discard any new requests to serve the existing queue. One would then imagine that by re-evaluating the request queue on each new order received to weed out lower value orders, we would be able to maintain requests with higher potential values and thus increase our profitability.\\
+In our simulation, each controller only operates 15 drones at a time with a maximum request queue size of 40. After this point orders will still be coming in, but a FCFS scheduler would simply discard any new requests to serve the existing queue. One would then imagine that by re-evaluating the request queue on each new order received to weed out lower value orders, we would be able to maintain requests with higher potential values and thus increase our profitability.\\
 
 In order to make use of such a priority queue to filter out the lowest value orders, we must first define a way of assigning a priority to each request. For our simulations we have chosen to implement the novel \textit{Least Lost Value (LLV)} algorithm as our primary profit enhancing technique, as this approach takes advantage of the TVF-based revenue model.\\
 
