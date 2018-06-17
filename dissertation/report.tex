@@ -1511,7 +1511,7 @@ The Potential Gain Value is therefore defined as the difference of value between
 $$ PLV(j_{i}) = \sum_{j_{k}\in J,\ k\neq i,\ k-1}^{n} (EV(j_{k},t_{c}) - EV(j_{k}, t_{c}+p)) $$
 
 The Potential Loss Value is defined as the sum of the lost value of all the other jobs that have not been selected.
-$$ PGV(j_{i}) = (EV(j_{k},t_{c}) - EV(j_{k}, t_{c}+\bar{p_{i}})) $$
+$$ PGV(j_{i}) = EV(j_{k},t_{c}) - EV(j_{k}, t_{c}+\bar{p_{i}}) $$
 
 Once these have been computed, the Net Lost Value per delivery is defined as Potential Gain subtracted from the Potential Loss.
 $$ NLV(j_{i}) = PLV(j_{i}) - PGV(j_{i}) $$
