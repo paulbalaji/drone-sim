@@ -1,18 +1,18 @@
 [0] Config.pm:354> INFO - This is Biber 2.7
 [0] Config.pm:357> INFO - Logfile is 'report.blg'
-[50] biber-darwin:303> INFO - === Sun Jun 17, 2018, 08:36:55
-[74] Biber.pm:359> INFO - Reading 'report.bcf'
-[164] Biber.pm:835> INFO - Found 58 citekeys in bib section 0
-[177] Biber.pm:3670> INFO - Processing section 0
-[193] Biber.pm:3840> INFO - Looking for bibtex format file 'library.bib' for section 0
-[201] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[219] bibtex.pm:1292> INFO - Found BibTeX data source 'library.bib'
-[316] Utils.pm:164> WARN - Entry 'Blunden2016' (library.bib): Invalid format '10th May 2018' of date field 'urldate' - ignoring
-[322] Utils.pm:164> WARN - BibTeX subsystem: /var/folders/n7/sm4rhbkj3xz3sspt1_glrlfr0000gn/T/jtKejxVPrI/library.bib_12106.utf8, line 6, warning: 174 characters of junk seen at toplevel
-[375] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[375] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[375] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
-[375] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
-[421] bbl.pm:608> INFO - Writing 'report.bbl' with encoding 'UTF-8'
-[428] bbl.pm:712> INFO - Output to report.bbl
-[429] Biber.pm:109> INFO - WARNINGS: 2
+[40] biber-darwin:303> INFO - === Sun Jun 17, 2018, 14:00:42
+[67] Biber.pm:359> INFO - Reading 'report.bcf'
+[156] Biber.pm:835> INFO - Found 58 citekeys in bib section 0
+[170] Biber.pm:3670> INFO - Processing section 0
+[188] Biber.pm:3840> INFO - Looking for bibtex format file 'library.bib' for section 0
+[196] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[216] bibtex.pm:1292> INFO - Found BibTeX data source 'library.bib'
+[321] Utils.pm:164> WARN - Entry 'Blunden2016' (library.bib): Invalid format '10th May 2018' of date field 'urldate' - ignoring
+[326] Utils.pm:164> WARN - BibTeX subsystem: /var/folders/n7/sm4rhbkj3xz3sspt1_glrlfr0000gn/T/NoxJyqNLEy/library.bib_16854.utf8, line 6, warning: 174 characters of junk seen at toplevel
+[386] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[386] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[386] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
+[386] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
+[444] bbl.pm:608> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[454] bbl.pm:712> INFO - Output to report.bbl
+[454] Biber.pm:109> INFO - WARNINGS: 2

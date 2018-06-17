@@ -196,50 +196,54 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {9.1.2}Adapting LLV for Delivery Scheduling}{85}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Duration Distribution}{85}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Pre-Emption}{85}
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {9.1.3}Early Results}{85}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.2}Shortest Job First}{85}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.3}Implementation Difficulties}{85}
+\contentsline {section}{\numberline {9.3}Implementation Difficulties}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3.1}Priority Queue}{85}
+\contentsline {subsection}{\numberline {9.3.1}Priority Queue}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3.2}Checking Equality}{85}
+\contentsline {subsection}{\numberline {9.3.2}Checking Equality}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Scale Testing}{86}
+\contentsline {chapter}{\numberline {10}Scale Testing}{87}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.1}Expanding the London Snapshot}{86}
+\contentsline {section}{\numberline {10.1}Expanding the London Snapshot}{87}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.2}}{86}
+\contentsline {section}{\numberline {10.2}}{87}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Findings}{87}
+\contentsline {part}{V\hspace {1em}Findings}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Evaluation}{88}
+\contentsline {chapter}{\numberline {11}Evaluation}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Metrics}{88}
+\contentsline {section}{\numberline {11.1}Metrics}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.1}Logging}{88}
+\contentsline {subsection}{\numberline {11.1.1}Logging}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.2}Data Extraction}{88}
+\contentsline {subsection}{\numberline {11.1.2}Data Extraction}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.2}Comparing Schedulers}{88}
+\contentsline {section}{\numberline {11.2}Comparing Schedulers}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{88}
+\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Conclusion}{89}
+\contentsline {chapter}{\numberline {12}Conclusion}{90}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Future Work}{90}
+\contentsline {chapter}{\numberline {13}Future Work}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{91}
+\contentsline {section}{References}{92}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Appendices}{97}
+\contentsline {chapter}{Appendices}{98}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Code Listings}{98}
+\contentsline {chapter}{\numberline {A}Code Listings}{99}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{99}
+\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{100}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{100}
+\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{101}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Main Controller Loop}{101}
+\contentsline {section}{\numberline {A.3}Main Controller Loop}{102}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{102}
+\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{103}
