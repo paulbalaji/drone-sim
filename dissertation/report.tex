@@ -1503,7 +1503,9 @@ After multiple meetings it became clear that Shireen's tool was a TVD-based sche
 \subsection{Algorithm Overview}
 As the name suggests, this algorithm aims to schedule items according to the \textit{Net Lost Value} metric. The next request to be taken from the queue is always the element with the lowest net lost value. To compute this value, LLV considers both the \textit{Potential Gain Value (PGV)} for performing a request as well the \textit{Potential Loss Value (PLV)} by doing other jobs later.\\
 
+To calculate the \textit{Expected Value (EV)} of a job, its duration is modelled as a task duration distrubution in order to account for variance in execution times. This duration is then used to compute EV in a similar manner to what we have previously described with Time-Value Functions.\\
 
+The PGV is therefore defined as the difference of value between processing a job now versus at a later time. The PLV is the sum of the lost value of all the other jobs that have not been selected.
 
 \subsection{Adapting LLV for Delivery Scheduling}
 
