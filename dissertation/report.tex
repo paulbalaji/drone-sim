@@ -1402,7 +1402,7 @@ $$ retrieval\ cost = 2 * (distance * 0.621371) * mileage * fuel\ cost $$
 
 In the event of a collision, we add a £400 (\$500 \cite{Jung2017}) penalty for every drone involved in the collision, assuming the worst case where each drone would need to be completely replaced. In addition to this, we add appropriate penalties for failed deliveries and add a unified cost of retrieving all the drones.
 
-\subsection{Delivering a Milkshake}
+\subsection{Case Study: Delivering a Milkshake}
 To demonstrate how cost effective drone delivery is, we create a hypothetical case where a customer would like to order a milkshake at late night from the comfort of her room. The round trip of picking up, delivering the milkshake and then returning back to the Controller is approximately 4.33km.
 
 \clearpage
@@ -1473,8 +1473,12 @@ More customers may consider opting for this model as it enforces a fee decrease 
 
 %**********************************************%
 \newpage
-\section{TODO: Optimised Scheduling}
-% mention pre-emption
+\section{TODO: Profit-Optimised Scheduling}
+Our simulation now consists of a distributed delivery network, variation in order generation and a novel revenue model, but each Controller is still using a very primitive form of scheduling - First Come First Serve (FCFS). As we have demonstrated in Section 7.4, drone delivery networks are already extremely profitable, therefore in our simulation controllers do not stand to make any sort of loss. Nonetheless, there is no shadow of doubt that there are modifications that can be made to the scheduler to prioritise higher value orders and generate a greater profit.\\
+
+As per Section TODO, each controller only operates 15 drones at a time with a maximum request queue size of 40. After this point orders will still be coming in, but a FCFS scheduler would simply discard any new requests to serve the existing queue. One would then imagine that by re-evaluating the request queue on each new order received to weed out lower value orders, we would be able to maintain requests with higher potential values and thus increase our profitability.\\
+
+
 
 \subsection{Shortest Job First}
 \subsection{Least Lost Value}
