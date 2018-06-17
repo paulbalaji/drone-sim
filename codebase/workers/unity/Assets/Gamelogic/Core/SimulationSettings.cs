@@ -17,7 +17,7 @@ namespace Assets.Gamelogic.Core
         //London Large
         public static readonly float maxX = 15750; //31500m width
         public static readonly float maxZ = 7000; //14000m height
-		public static readonly float OrderGenerationInterval = 1f;
+		public static readonly float OrderGenerationInterval = 0.5f;
 		public static readonly uint MaxDroneCountPerController = 20;
         public static readonly uint MaxDeliveryRequestQueueSize = 50;
 
