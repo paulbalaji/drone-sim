@@ -1496,9 +1496,14 @@ In the interests of comparing LLV with a more popular but well-performing algori
 \section{Least Lost Value}
 As described earlier, the concept of deliveries having a value that decreases with the time taken to complete it is inspired by the \textit{Time-Value of Data (TVD)} model used in big data and business intelligence. Therefore when investigating methods of optimising our scheduler for profit, we looked at ways that big data jobs would be scheduled for optimal time-value of data.\\
 
-Our quest for optimisations led to a meeting with a PhD student of our supervisor, Prof. Knottenbelt. The PhD student, Shireen Seakhoa-King, was working on a scheduling optimising tool for the Big Data use-case and was informed by our supervisor about the project described in this report. This opened communication channels to discuss her tool and its potential applications further.\\
+Our quest for optimisations led to a meeting with a PhD student of our supervisor, Prof. Knottenbelt. The PhD student, Shireen Seakhoa-King, was working on a scheduling optimising tool for the Big Data use-case and was informed by our supervisor about the project described in this report. This opened the communication channels to discuss her tool and its potential applications further.\\
+
+After multiple meetings it became clear that Shireen's tool was a TVD-based scheduling algorithm that claimed to process data with higher values compared to other TVD-based methods. Intrigued by this pitch, we agreed to implement her algorithm as our primary profit-optimising scheduling policy.
 
 \subsection{Algorithm Overview}
+As the name suggests, this algorithm aims to schedule items according to the \textit{Net Lost Value} metric. The next request to be taken from the queue is always the element with the lowest net lost value. To compute this value, LLV considers both the \textit{Potential Gain Value (PGV)} for performing a request as well the \textit{Potential Loss Value (PLV)} by doing other jobs later.\\
+
+
 
 \subsection{Adapting LLV for Delivery Scheduling}
 

@@ -194,50 +194,52 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {9.1.1}Algorithm Overview}{84}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1.2}Early Results}{84}
+\contentsline {subsection}{\numberline {9.1.2}Adapting LLV for Delivery Scheduling}{85}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.2}Shortest Job First}{84}
+\contentsline {subsection}{\numberline {9.1.3}Early Results}{85}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.3}Implementation Difficulties}{84}
+\contentsline {section}{\numberline {9.2}Shortest Job First}{85}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3.1}Priority Queue}{84}
+\contentsline {section}{\numberline {9.3}Implementation Difficulties}{85}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3.2}Checking Equality}{84}
+\contentsline {subsection}{\numberline {9.3.1}Priority Queue}{85}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Scale Testing}{85}
+\contentsline {subsection}{\numberline {9.3.2}Checking Equality}{85}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.1}Expanding the London Snapshot}{85}
+\contentsline {chapter}{\numberline {10}Scale Testing}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.2}}{85}
+\contentsline {section}{\numberline {10.1}Expanding the London Snapshot}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Findings}{86}
+\contentsline {section}{\numberline {10.2}}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Evaluation}{87}
+\contentsline {part}{V\hspace {1em}Findings}{87}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Metrics}{87}
+\contentsline {chapter}{\numberline {11}Evaluation}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.1}Logging}{87}
+\contentsline {section}{\numberline {11.1}Metrics}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.2}Data Extraction}{87}
+\contentsline {subsection}{\numberline {11.1.1}Logging}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.2}Comparing Schedulers}{87}
+\contentsline {subsection}{\numberline {11.1.2}Data Extraction}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{87}
+\contentsline {section}{\numberline {11.2}Comparing Schedulers}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Conclusion}{88}
+\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Future Work}{89}
+\contentsline {chapter}{\numberline {12}Conclusion}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{90}
+\contentsline {chapter}{\numberline {13}Future Work}{90}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Appendices}{96}
+\contentsline {section}{References}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Code Listings}{97}
+\contentsline {chapter}{Appendices}{97}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{98}
+\contentsline {chapter}{\numberline {A}Code Listings}{98}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{99}
+\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{99}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Main Controller Loop}{100}
+\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{100}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{101}
+\contentsline {section}{\numberline {A.3}Main Controller Loop}{101}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{102}
