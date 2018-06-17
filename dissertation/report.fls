@@ -4,8 +4,8 @@ INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt
 INPUT report.tex
 OUTPUT report.log
-INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/size11.clo
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/size11.clo
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map
@@ -422,6 +422,8 @@ INPUT ./img/ark-invest-drones-analysis-768x460.png
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qplr.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplr.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplb.tfm
 INPUT img/starship.jpg
 INPUT ./img/starship.jpg
 INPUT ./img/starship.jpg

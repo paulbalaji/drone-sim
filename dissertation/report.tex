@@ -7,7 +7,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[a4paper,11pt,titlepage]{article}
+\documentclass[a4paper,11pt,titlepage]{report}
 \usepackage[left=3cm,right=3cm,top=3.5cm,bottom=3cm]{geometry}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
@@ -175,7 +175,8 @@ ack
 \listoftables
 
 \newpage
-\section{Introduction}
+\part{Foundational Knowledge}
+\chapter{Introduction}
 Drone technology is becoming increasingly popular. Their agility and ability to be used remotely makes them ideal for a number of use cases in several industries such as film, law enforcement, emergency services, agriculture and commercial delivery\cite{Koontz}.
 
 \begin{figure}[!hbpt]
@@ -187,11 +188,13 @@ Drone technology is becoming increasingly popular. Their agility and ability to 
 
 Due to numerous advances in technology, drones are quickly advancing to the point where human input is no longer a necessity. This has led to many companies showing interest in integrating drones with their work in the coming years. \\
 
-Although it may be an engineer's dream for a fully automated world, drones in particular are a harrowing reminder that there are real risks associated with them. There are already several incidents of drones crashing into planes and flying into areas they shouldn't, most notably near Heathrow airport\cite{BBCNews2017}. All of this provides motivation to introduce some form of autonomous air traffic control system to navigate these drones to their respective destinations in a safe manner.\\
+Although it may be an engineer's dream for a fully automated world, drones in particular are a harrowing reminder that there are real risks associated with them. There are already several incidents of drones crashing into planes and flying into areas they shouldn't, most notably near Heathrow airport\cite{BBCNews2017}.
 
-However, prior work has been done on the routing and navigation aspect of such a system\cite{Balaji2017}. In order for drones to truly take over more aspects of our lives, we must look at how they can provide a tangible benefit to specific use-cases. There is no doubt that simply removing the human element can save costs drastically, and there is none more exciting an application than with physical delivery networks.
+\clearpage
+All of this provides motivation to introduce some form of autonomous air traffic control system to navigate these drones to their respective destinations in a safe manner.\\
 
-\newpage
+However, prior work has been done on the routing and navigation aspect of such a system\cite{Balaji2017}. In order for drones to truly take over more aspects of our lives, we must look at how they can provide a tangible benefit to specific use-cases. There is no doubt that simply removing the human element can save costs drastically, and there is none more exciting an application than with physical delivery networks.\\
+
 The main factors that could prompt higher adoption of drones for delivery networks are cost, delivery speeds, and convenience. As figure \ref{fig:drone_del_cost} shows, drones can be both faster and cheaper than existing deliver options that consumers have access to.
 \begin{figure}[!hbpt]
   \center
@@ -202,9 +205,10 @@ The main factors that could prompt higher adoption of drones for delivery networ
 
 It appears then that Amazon stands to increase their margins considerably if they can successfully pull off their Prime Air initiative\cite{Welch2015}, but to do this they need to be able to handle the additional problems of scheduling and load balancing massive quantities of drones, on top of the existing routing problems. \\
 
-In a more general sense, goods delivery networks have a lot to gain by optimising for profit, and to do this better we consider a variable delivery pricing mechanism that factors in the quality of service provided to the user. A high-priority product may warrant a higher delivery fee for quicker delivery but a similarly high penalty for being late. At the same time, a low-priority product may not have any such penalty, instead opting for a low delivery fee. Being able to factor this new fee model when scheduling tasks and allocating drones may be the next step in the ongoing automation of last-mile delivery\cite{Joerss2016}.
+In a more general sense, goods delivery networks have a lot to gain by optimising for profit, and to do this better we consider a variable delivery pricing mechanism that factors in the quality of service provided to the user. A high-priority product may warrant a higher delivery fee for quicker delivery but a similarly high penalty for being late.\\
 
-\newpage
+At the same time, a low-priority product may not have any such penalty, instead opting for a low delivery fee. Being able to factor this new fee model when scheduling tasks and allocating drones may be the next step in the ongoing automation of last-mile delivery\cite{Joerss2016}.\\
+
 Regardless of how such a model is implemented, it needs to be tested thoroughly before being deployed into production with actual drones. Considering a typical delivery drone could cost around \$100 to \$500\cite{Menon2013}, and that there is likely be a lot of failure before a working implementation, there could be several hundreds of thousand dollars worth of losses. \\
 
 Therefore, our best port of call is to simulate scenarios that are as close to the real world as possible. One tech firm investigating how to produce richer, meaningful and more realistic simulations is \textit{Improbable}\cite{ImprobableWorldsLtd.2018a} - a London-based tech startup actively developing a distributed simulation platform called \textit{SpatialOS}\cite{ImprobableWorldsLtd.2018b}. \\
@@ -213,17 +217,17 @@ We aim to leverage the power of SpatialOS to produce novel simulations of a dron
 
 %**********************************************%
 \newpage
-\section{Background}
+\chapter{Background}
 We first provide an insight into new developments in the physical delivery network sector, and then specifically considerations to account for when integrating drone technology in our day to day lives. Additionally we summarise prior work completed by Imperial students on an autonomous air traffic control system for drones. \\
 
 We then continue to discuss methods of prioritising a delivery network for financial gain. Finally, we give details about Improbable's SpatialOS and the reasoning for using this platform for the drone simulation.
 
-\subsection{Future of Delivery Networks}
+\section{Future of Delivery Networks}
 From the ancient days of Assyrian trade in 19 BCE \cite{stearns2001the}, to the modern day online market - the ability to trade goods and services has had a profound impact on the way we live our lives. Thanks to globalisation and the explosion of the internet, we are now able to use a service such as Amazon Prime and get goods delivered within days, if not hours, of purchasing through a simple click. Through it all, physical delivery networks enable this online retail behemoth. \\
 
 As technology evolves, so too will these delivery networks - and many companies are currently looking into how to leverage upcoming tech\cite{Lee2016} in order to generate hype for their business and, more importantly, increase their profit margins. Some promising developments are delivery robots, autonomous cars and, of course, drones.
 
-\subsubsection{Delivery Robots}
+\subsection{Delivery Robots}
 Delivery robots are unmanned devices that are designed to be operated on pavements and cycle lanes at low speeds of about 4 miles per hour\cite{Lee2016}. Although the unmanned device market is in its infancy, there are already prototypes hitting the market such as Starship's robot\cite{Laris2016}, which can hold upto 20-25 pounds, and Dispatch's ``Carry''\cite{Kokalitcheva2016}, that holds up to 100 pounds.
 
 \begin{figure}[!hbpt]
@@ -233,14 +237,13 @@ Delivery robots are unmanned devices that are designed to be operated on pavemen
   \label{fig:starship_citizen}
 \end{figure}
 
-\newpage
 Due to their on-the-ground nature, delivery robots are primarily designed for low-footfall suburban neighbourhoods, closed residential areas or campuses. They would be scheduled through an Uber-like application that may allow users to track the location of the robot, for the customer's knowledge, and to also unlock the robot once it reaches its destination\cite{Hohenadel2015}. \\
 
 Thanks to their similarities to autonomous cars, they may have regulatory advantages compared to drones because much of the legislation coming through for autonomous vehicles can apply to delivery robots as well. However, there are profitability concerns because each robot can cost hundres of dollars and there is at this stage there is a high risk of failure, damage and even theft. \\
 
 Despite some drawbacks, it is evident these robots are designed for short journeys in the so-called "first-mile delivery" sector - with exciting use cases being the delivery of flowers, groceries and possibly medication.
 
-\subsubsection{Autonomous Vehicles}
+\subsection{Autonomous Vehicles}
 Once the de-facto icon of science fictional futurism, autonomous cars are now a close reality. Companies such as Tesla are doing pioneering work in bringing self-driving cars\cite{Tesla2018} to the general consumer. Meanwhile, other businesses like Uber are experimenting with autonmous taxi services\cite{Gibbs2017}. \\
 
 In fact, Google has obtained a patent for an autonomous delivery truck \cite{Hall-Geisler} with different compartments that could be unlocked by validated package recipients - much akin to an Amazon Locker-on-wheels. If not this, these vehicles could be used as an autonomous courier to pick-up locations that users could visit to retrieve their packages.
@@ -255,7 +258,7 @@ In fact, Google has obtained a patent for an autonomous delivery truck \cite{Hal
 Although current regulations dictate that a driver must remain present in the vehicle in the event of software performing differently to expections, this is a necessary precaution whilst driverless systems are still being tested - with further amendments to these laws in sight once these systems can be deemed safe for public use. \cite{Bowcott2017}
 
 \newpage
-\subsubsection{Drones}
+\subsection{Drones}
 The concept of drones has been around for decades, particularly in the military, but only in recent times has the technology evolved to a point where anyone can walk into a consumer electronics store and purchase a drone for their own private use. Though these are manned, it is admirable that many witness the benefits of drones in film/television\cite{Verrier2015}, agriculture\cite{Jarman2016}, policing\cite{BBCNews2017a} and other exotic activities\cite{Roberts2016}. \\
 
 Being able to fly allows drones to not be held hostage to traffic jams or congestion - after all, the sky is a far greater expanse than even the most intricate of road networks. Not only that, they can literally travel ``as the crow flies'' - allowing them to access remote and previously hard-to-reach areas.\\
@@ -266,10 +269,10 @@ ADS-B is already widely used in aircraft, enabling flight-tracking services such
 
 Over time, an increasing percentage of the world's drones will likely join these shared autonomous systems. This could enable different delivery networks to manage their own fleets as their own air traffic controllers, all the while making use of the shared pool of readable data to identify, intercept and avoid drone collisions at the earliest stage in their pathfinding as possible.
 
-\subsection{Amazon Prime}
+\section{Amazon Prime}
 Amazon Prime is a paid subscription service that Amazon offers to users, giving unlimited access to their video and music streaming services as well as providing free same-day and next-day delivery on a large majority of goods sold on their platform. The Prime service applies to products that are either sold directly by Amazon or fulfilled on behalf of a third-party merchant.
 
-\subsubsection{Fulfilment by Amazon}
+\subsection{Fulfilment by Amazon}
 One of the services Amazon provides to merchants is the \textit{Fulfilment by Amazon} service, where goods are held at Amazon depots until a user purchases a product. The fee paid by the merchant for Amazon to take care of delivery depends on the duration of time the product is held by Amazon as well as the type of package and weight of the product.
 
 \begin{figure}[!hbpt]
@@ -282,7 +285,7 @@ One of the services Amazon provides to merchants is the \textit{Fulfilment by Am
 \newpage
 An incentive for merchants to join this scheme is to attract customers with the same-day and next-day delivery that Amazon Prime offers. This allows them to piggy-back off the existing delivery network that Amazon has developed for significantly lower fees (Figure \ref{fig:fulfilled_by_amazon_table}) than if they were to store the package and source a distributor for themselves.
 
-\subsubsection{Amazon Prime Air}
+\subsection{Amazon Prime Air}
 In December of 2013, Amazon announced their intentions to research and develop their own drone delivery service dubbed \textit{Amazon Prime Air} \cite{Amazon.comInc.2013}. Amazon intends this service to deliver packages within 30 minutes of an order being placed, with a maximum package weight of 5 pounds (approximately 2.27 kg).\\
 
 Following this, in November of 2015 the company enlisted the help of Jeremy Clarkson to give a closer look at a more developed drone prototype \cite{Amazon.comInc.2015b}, describing how Prime Air would fit into the lives of modern families. Just over a year later, Amazon released a video demonstrating a fully autonomous delivery using Prime Air \cite{Amazon.comInc.2016}.
@@ -296,34 +299,36 @@ Following this, in November of 2015 the company enlisted the help of Jeremy Clar
 
 One of the many roadblocks to scale this technology out across the country is regulatory approval. Since drones are a new technology that improve in leaps and bounds each year, authorities and enterprises are careful to make hasty judgements that either hamper drone adoption or cause civilian harm. To this end, Amazon are also suggesting proposals to how airspace can be best utilised by drones. \cite{Amazon.comInc.2015} \cite{Amazon.comInc.2015a}
 
-\subsection{Drone Considerations}
+\section{Drone Considerations}
 Drones stand to be a revolutionary part of our lives as we welcome the new, incoming era of automation. However, to be practical there are a few key concepts one must understand to ensure that they remain a help and not a hinderence to mankind.
 
-\subsubsection{No Fly Zones}
+\subsection{No Fly Zones}
 No Fly Zones (which we will abbreviate as NFZs) are geographical areas where a drone is not allowed to enter or fly at any altitude. Examples of these may include Hyde Park, Buckingham Palace, airports and military locations. Typically these are static obstacles that will always remain a NFZ, however we could also consider cases when they could be created dynamically.\\
 
 Suppose there was an issue of national security, it would be beneficial for the security and intelligence services to set up a temporary NFZ around areas where they deem a risk so that they can conduct their own operations without worry of external parties interfering with the situation.
 
-\subsubsection{Other Drones}
+\subsection{Other Drones}
 Naturally we would want to make sure that we avoid colliding into other drones as well. In a perfect system, a single air traffic controller would have totalitarian dominance over all drones that take to the skies - however this is not \textit{Black Mirror} and we have to assume that there will always be drones that this system will not be able to control or predict. \\
 
 Nonetheless, a system can ensure that it navigates drones under its control as best as it can, avoiding these external drones and other rogue drones that may be flying with the sole intention of causing problems to others.
 
-\subsubsection{Manned Aviation}
-\begin{samepage}
-Manned Aviation is any form of airborne transport with humans on board. This would include passenger jets, private jets, helicopters and other miscallaneous vechicles. For simulation purposes, we can consider these to have straight paths from a start to an end because relative to the zig-zagging of drones - they are effectively straight.
-\end{samepage}
+\clearpage
+\subsection{Manned Aviation}
+Manned Aviation is any form of airborne transport with humans on board. This would include passenger jets, private jets, helicopters and other miscallaneous vechicles. For simulation purposes, we can consider these to have straight paths from a start to an end because relative to the zig-zagging of drones - they are effectively straight.\\
 
 It is paramount to avoid collisions with manned aviation because there is a high risk of human calamity, in addition to the bad press and financial costs associated with such an air traffic incident.
 
-\subsubsection{Toll Zones}
-Toll Zones are geographical areas where a drone has to pay an extra fee to pass through at any altitude. It is a very similar idea to the one that led to Congestion Charges being applied to much of central London. By restricting certain areas only to those who are willing to pay the fee to use the airspace, it reduces the density of air traffic in a specific area. These charges could also be used as an incentive to reduce pollution in the toll zone, and the additional revenue generated by the toll fees could be used towards the drone-related systems in place within the zone.
+\subsection{Toll Zones}
+Toll Zones are geographical areas where a drone has to pay an extra fee to pass through at any altitude. It is a very similar idea to the one that led to Congestion Charges being applied to much of central London. By restricting certain areas only to those who are willing to pay the fee to use the airspace, it reduces the density of air traffic in a specific area.\\
 
-\subsection{Autonomous Air Traffic Control (AATC)}
-\subsubsection{What is AATC?}
+These charges could also be used as an incentive to reduce pollution in the toll zone, and the additional revenue generated by the toll fees could be used towards the drone-related systems in place within the zone.
+
+\section{Autonomous Air Traffic Control (AATC)}
+\subsection{What is AATC?}
 During the Autumn Term of the 2016-17 academic year, several students undertook a group project in association with Microsoft and Altitude Angel to produce an autonomous air traffic control system. The goal of the project was to safely navigate drones from their start to their end goals, whilst avoiding obstacles and taking the shortest possible path to minimise battery use.
 
-\subsubsection{Technical Overview}
+\clearpage
+\subsection{Technical Overview}
 AATC has a simple client-server architecture, where drones connect to the REST service to send their telemetry information and goal waypoints every second. The server sends back direction recommendations to navigate the drone to its destination. \\
 
 Because it would have been too expensive to trial the system on actual drones, a test bench was also implemented that would simulate the drones polling the server and responding to its recommendations. This test bench produced a set of simulation data, that is then available to view on the AATC visualiser. \cite{Balaji2017a}
@@ -335,9 +340,9 @@ Because it would have been too expensive to trial the system on actual drones, a
   \label{fig:aatc_tech_overview}
 \end{figure}
 
-\newpage
-The system was designed with three challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.1. The last challenge is to design the system in such a way that it would be able to scale to hundreds and thousands of drones. \\
+The system was designed with three challenges in mind. The first challenge was to route drones from their origins to their destinations, and secondly, to ensure they avoided collisions with both static and dynamic obstacles - such as the ones mentioned in Section 2.1. The last challenge is to design the system in such a way that it would be able to scale to hundreds and thousands of drones.
 
+\clearpage
 To this end, a \textit{Global Layer} was built to deal with static obstacles (such as NFZs) by calculating a path for the drone around NFZs before it begins its journey. The second problem was tackled with a \textit{Reactive Layer} that handles non-static obstacles (such as manned aviation and other drones). This is the layer that would be providing the real-time updates to drones as they poll the server every second. \\
 
 \begin{figure}[!hbpt]
@@ -349,15 +354,15 @@ To this end, a \textit{Global Layer} was built to deal with static obstacles (su
 
 Only one drone type was used in AATC, with its specification outlined in Figure \ref{fig:edrone}. It has a radius of 1m and a maximum velocity in any direction of 5 metres per second.
 
-\subsection{The Global Layer}
+\section{The Global Layer}
 The Global Layer holds the static representation of the world so that given a start and end, it can compute an optimal set of waypoints that a drone should follow - thereby dealing with AATC's path-finding problem.
 
-\subsubsection{Dijkstra's Algorithm}
+\subsection{Dijkstra's Algorithm}
 Dijkstra's algorithm is a popular algorithm to find the shortest paths between nodes in a graph. When using a co-ordinate grid system, each coordinate could represent a node in a graph and thus the algorithm can also be used to find the shortest path between a source and destination. \\
 
 However, in the real world, we also have to consider the cost of computation and potentially make use of heuristics in order to return the shortest path given a limited amount of time. Especially in the drone case, we want to compute a good path as quick as possible in order to let the drone proceed along its way.
 
-\subsubsection{A* Algorithm}
+\subsection{A* Algorithm}
 Enter, the A* algorithm. This algorithm is a generalisation of Dijkstra's algorithm that reduces the number of nodes explored during the search process by use of a heuristic - typically a minimum distance to the destination. A benefit over Dijkstra in particular is that it considers the distance already traveled into account, which aids the heuristic mechanism. \\
 
 Naturally, by searching less nodes on a graph, less computation is performed and therefore A* has better performance than just using a pure form of Dijkstra's algorithm.
@@ -369,12 +374,12 @@ Naturally, by searching less nodes on a graph, less computation is performed and
   \label{fig:search_comparison}
 \end{figure}
 
+\clearpage
 But for all these positive aspects, one must remember that our use for this algorithm is to compute paths in a real world, which is not necessarily split up into a nice, clean grid. So we turn our attention to a modification of the A* algorithm: Theta*.
 
-\subsubsection{Theta* Algorithm}
-The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algorithm that introduces Line of Sight (LOS) checks, which means that each jump from node to node in the returned path can be at any angle and not just up, down, left or right. This neat addition allows Theta* to be capable of finding near-optimal paths with a runtime comparable to A* \cite{Uras2015}.
+\subsection{Theta* Algorithm}
+The Theta* algorithm is an any-angle pathfinding algorithm based on the A* algorithm that introduces Line of Sight (LOS) checks, which means that each jump from node to node in the returned path can be at any angle and not just up, down, left or right. This neat addition allows Theta* to be capable of finding near-optimal paths with a runtime comparable to A* \cite{Uras2015}.\\
 
-\newpage
 Being able to get as short a path as possible is absolutely vital in the drone use-case because they have limited flying time. After all, their batteries can only last so long before they need to be recharged. Therefore, it is important to ensure drones travel as little distance as possible in order to maximise the number of times they can be used between charges.
 
 \begin{figure}[!hbpt]
@@ -384,10 +389,11 @@ Being able to get as short a path as possible is absolutely vital in the drone u
   \label{fig:a_star_vs_optimal}
 \end{figure}
 
-\subsubsection{Lazy Theta* Algorithm}
+\clearpage
+\subsection{Lazy Theta* Algorithm}
 A further optimisation is to reduce the number of LOS checks performed, as found in another paper by the original authors of the Theta* algorithm\cite{Nash2010}. This algorithm assumes every node is in line of sight of its parent, and the LOS check is only performed once the child node is expanded on. If this turns out to be false, then the algorithm defaults to a typical A* approach. Reducing the number of LOS checks therefore improves the algorithm's overall performance.
 
-\subsubsection{Conclusions}
+\subsection{Conclusions}
 As seen on Table \ref{tab:aatc_exec_time}, A* has far better execution times than both Theta* variants but when we get to Table \ref{tab:aatc_total_drone_distance} it is evident that Lazy/Theta* produces better paths because the total distance travelled by drones is fewer. Therefore, Lazy Theta* was chosen as the core algorithm for the Global Layer.
 
 \begin{table}[!hbpt]
@@ -425,10 +431,10 @@ The GWIC Mean                      & 419                                        
 \end{table}
 
 \newpage
-\subsection{The Reactive Layer}
+\section{The Reactive Layer}
 Given the list of waypoints that the Global Layer generates, the Reactive Layer's task is to provide the right speed and direction to drones whilst taking into consideration any dynamic obstacles that the drone may face, such as manned aviation, other drones and potentially dynamic NFZs.
 
-\subsubsection{Artificial Potential Fields (APF)}
+\subsection{Artificial Potential Fields (APF)}
 A novel way to approach this layer is to create an Artificial Potential Field (APF) in the area the drone operates in, and give each point in this field a potential\cite{Zhu2016}. By having a low potential for the destination and large potentials at obstacles, the drone simply has to move in a way to get to point of lowest potential. It is analogous to a magnet in a magnetic field, repelled by obstacles and attracted to its destination. \\
 
 Although one might argue that the Global Layer is not needed anymore because the Reactive Layer solves the pathfinding problem, there are a few issues that arise with this idea. As Figure \ref{fig:apf_comp} shows, a U-shaped object poses a problem because the drone may be attracted to the destination and then quickly repelled by the obstacle, and then back to being attracted - and this cycle is seemingly endless.
@@ -452,7 +458,7 @@ By introducing a random element, as in Rotating APF, the object is repelled in a
 
 Clearly, integrating both layers proves most fruitful - as the waypoints generated by the Global Layer are used to quite literally navigate around the problematic aspects of the Reactive Layer. This integration that was implemented in the AATC project.
 
-\subsubsection{Equations for APF}
+\subsection{Equations for APF}
 The full set of equations used to obtain the recommended unnormalized velocity $v_{raw}$ of the drone is:
 $$U_a = \rho_ad_{goal}$$
 $$U_r =  \begin{cases}
@@ -487,7 +493,7 @@ $$ speed = min(max\_speed, d_{goal}) $$
 
 The gradient $\nabla U$ is then normalised to be a unit vector before being multiplied by the speed to compute the final velocity.
 
-\subsubsection{Genetic Algorithm}
+\subsection{Genetic Algorithm}
 By paying close attention to Section 2.5.2, we can identify several undefined constants: $\rho_r$, $\rho_a$, $\rho_{ret}$ and $d_{influence}$. The balance between them is key, because if $\rho_a$ is too high relative to $\rho_r$ then the drones ignore obstacles and die on impact, but if $\rho_r$ is too high then they will oscillate between objects and never reach their goal. After much fiddling about with "magic numbers", a genetic algorithm was employed to provide the optimal values for the specific drone model. \\
 
 Genetic algorithms are a metaheuristic inspired by the process of natural selection, and they are a way by which high-quality solutions can be generated for optimisation problems\cite{Mitchell1996}. In the case of AATC, the aforementioned constants need to be fine-tuned in order to produce an APF model that, to its best ability, does not return absurd, erroneous velocities. See Figure \ref{fig:aatc_spaghett} as an example. \\
@@ -523,25 +529,25 @@ Influence distance & 300 & 600 & 100  & 4     \\ \hline
 \label{tab:gen_alg}
 \end{table}
 
-\subsubsection{Conclusions}
+\subsection{Conclusions}
 In the end, the genetic algorithms only improved the simulations by about 2\%\cite{Balaji2017} which could mean that the original range of constants was already a good set to work with. However, there is still scope for even greater improvements if the genetic algorithm was to be run with a greater number of test scenarios, bigger range of values to cycle through, and generally larger simulations.
 
-\subsection{Scheduling Algorithms}
+\section{Scheduling Algorithms}
 In this section we look at a few well known CPU scheduling algorithms\cite{Bell2018}. Although CPU scheduling is not part of this project, being able to understand a few different approaches to the problem will give insight into how to schedule drones later on. However, there are two key difference between drone and CPU scheduling.
 
 \newpage
 The first is that CPUs can time slice different tasks whereas once a drone is scheduled onto a task, it has to complete the whole task before being able to pick up a new one. Secondly, there are vastly more drones that could be running at a point in time compared to the number of cores in multi-core CPU, leading to far greater parallelism.
 
-\subsubsection{First Come First Serve (FCFS)}
+\subsection{First Come First Serve (FCFS)}
 As the title says, this algorithm operates as a FIFO queue where tasks are scheduled in the same order that they arrive. Some might consider this the fairest form of scheduling, since it does not discriminate against any task, but simply prioritises the one that arrived soonest.
 
-\subsubsection{Shortest Job First (SJF)}
+\subsection{Shortest Job First (SJF)}
 This approach looks at the time each incoming task would take to complete, and puts the shortest task at the front of the schedule. While this means that small tasks get completed quickly, a constant stream of small tasks could mean that any heavier tasks never get scheduled or completed.
 
-\subsubsection{Priority Scheduling}
+\subsection{Priority Scheduling}
 Priority scheduling is a more general case of SJF, since each task is now given a priority - defined either internally or externally - and tasks with the highest priority are scheduled first. In SJF, the inverse of the estimated job time is used as the priority.
 
-\subsubsection{Multi-Level Feedback Queue (MLFQ)}
+\subsection{Multi-Level Feedback Queue (MLFQ)}
 MLFQ is an extension of an ordinary multi-level queue, where there are several queues of tasks to be completed and tasks are scheduled from non-empty queues in a round-robin fashion. A benefit of this approach is that each queue could be running different scheduling algorithms that better fits the priority of that queue.\\
 
 \begin{figure}[!hbpt]
@@ -560,19 +566,19 @@ The ``feedback'' element of MLFQ allows tasks to be moved from one queue to anot
   \label{fig:mlfqs}
 \end{figure}
 
-\subsection{REVISIT: Time Value}
+\section{Time Value}
 Thus far, we have shown that whilst there is great scope to utilise drones for delivery of physical goods, the existing implementation of AATC only touches upon the routing aspect - how to get from point A to point B. Even in all the test cases, the drones' start and end points were hand-picked by the developers\cite{Balaji2017} to give an insight into how AATC would operate in a variety of scenarios.\\
 
 To gain greater understanding of how drones can positively impact industries, simulations need to be performed which take into account the financial aspect of their use case. For example when it comes to drone delivery networks, we want to ensure that the drones not only reach their destination quickly, but that they also get scheduled and utilised in the appropriate manner to maximise the profitability of the network.
 
-\subsubsection{Time-Value of Money}
+\subsection{Time-Value of Money}
 As described by Investopedia \cite{Investopedia}, the \textit{Time-Value of Money} is ``the concept that money available at the present time is worth more than the identical sum in the future due to its potential earning capacity''. This draws from the idea that investors would prefer to receive the same amount of money sooner rather than later, in order to obtain interest from the sum or reinvest it for greater growth.
 
-\subsubsection{Time-Value of Data}
+\subsection{Time-Value of Data}
 By a similar train of thought, there is the concept of the \textit{Time-Value of Data} - whereby the value to a business of some data decays over time and it is best to gain insight from it as soon as possible. This idea is often used in business intelligence, where companies may have large sets of unstructured data that need to be processed and analysed to derive value for the business. For example, a retailer would rather know what its users are interested in now rather than a month ago, so that they can tailor their sales and offers to leverage customer interest.
 
 \newpage
-\subsection{SpatialOS}
+\section{SpatialOS}
 SpatialOS is a platform, created by \textit{Improbable}\cite{ImprobableWorldsLtd.2018a}, for running massive-scale simulated worlds. In their own words\cite{ImprobableWorldsLtd.2018b}:
 \begin{displayquote}
 SpatialOS is a cloud-based computational platform that lets you use many servers and engines to power a single world. The platform coordinates a swarm of micro-services called workers, which overlap and dynamically reorganize to power a huge, seamless world. The platform also lets you handle a huge number of concurrent players across different devices in one world.
@@ -602,10 +608,10 @@ Anybody is able to sign up and use SpatialOS to build games using either the Uni
 
 A benefit of SpatialOS's Unity and Unreal SDKs is that creating a sole game client, without manually writing network code, is almost enough to get multiplayer built-in to the game for ``free'', i.e. taken as granted.
 
-\subsubsection{Unity SDK}
+\subsection{Unity SDK}
 Of the two game engine integrations, the Unity SDK is arguably the most stable because it has been in development for far longer than the Unreal SDK, and it is not in beta. From prior industrial experience, the Unity integration is also easier to implement quick prototypes with and iterate on.
 
-\subsubsection{Abstraction}
+\subsection{Abstraction}
 SpatialOS adopts an \textbf{Entity}-\textbf{Component}-\textbf{Worker} model.
 \begin{itemize}
   \item \textbf{Entities} are anything in the world that have a position.
@@ -613,12 +619,12 @@ SpatialOS adopts an \textbf{Entity}-\textbf{Component}-\textbf{Worker} model.
   \item \textbf{Workers} are micro-services that simulate components of entities in the world.
 \end{itemize}
 
-\subsubsection{Developer Tools}
+\subsection{Developer Tools}
 There is extensive logging of performance metrics, which is a fantastic starting point for scaling up a simulation\cite{Brighting}. In addition to this, there is an active developer \textbf{Forum} - where SpatialOS developers and Improbable engineers meet to help other SDK users solve their problems\cite{ImprobableWorldsLtd.2018c}. \\
 
 Naturally as the public SDKs have matured, so too have the public-facing developer tools. Currently, there is an \textbf{Inspector} to view the location of entities and the values that their components have at a given time, in either a local or deployed simulation.
 
-\subsubsection{Layered Simulation}
+\subsection{Layered Simulation}
 By virtue of games having several dynamic systems all interlinking with each other, it is possible to create layered simulations on SpatialOS. This works well with the concept of Global, Reactive and Zonal layers that have been mentioned already in Sections 2.4, 2.5 and 2.6. Furthermore, as SpatialOS is distributed by nature, it is the ideal platform to create and execute massive, layered, distributed simulations.
 
 \begin{figure}[!hbpt]
@@ -631,14 +637,17 @@ By virtue of games having several dynamic systems all interlinking with each oth
 
 %**********************************************%
 \clearpage
-\section{REVISIT: Translating AATC to SpatialOS}
+\part{Skeleton Implementation}
+\chapter{Translating AATC to SpatialOS}
 Before even thinking about simulating orders and scheduling deliveries, there must be a backbone in place that allows drones to get from a start to end point. To this end, the pathfinding and collision avoidance capabilities of AATC (Section 2.4) will be the backbone of the simulation.
 
-\subsection{Basic Interaction Model}
+\section{Basic Interaction Model}
 However, AATC was designed as a simple master-slave system such that the server assumed total control over each drone in the system. To produce a scalable delivery network, modifications have to made that allows entities to be decoupled and not limited to the constraints imposed by the existing AATC model.
 
-\subsubsection{Drones}
+\subsection{Drones}
 As a testament to hardware and software improvements over time, modern consumer drones are now fully capable of avoiding obstacles \cite{DJI} and navigating to GPS locations on their own \cite{DJIb}. By taking this into account we can have drones responsible for their own movement, leading to greater autonomy in the simulated delivery network, in turn enabling the system to scale up to bigger areas with vastly more drones than AATC.\\
+
+In the AATC case, drones would have to ping the server every second to request a suggested velocity for the drone. This means that the controller would have to compute new velocities for every single drone it controls, every second.
 
 \begin{figure}[!hbpt]
  \centering
@@ -652,9 +661,6 @@ As a testament to hardware and software improvements over time, modern consumer 
  % \label{fig:test}
  \end{figure}
 
-In the AATC case, drones would have to ping the server every second to request a suggested velocity for the drone. This means that the controller would have to compute new velocities for every single drone it controls, every second.
-
-\clearpage
 This is a lot of effort that can be offloaded to the drone such as in our proposed model, where we simply provide drones their next waypoint and let them navigate to it by themselves. The only pings to the server now would be to request a new waypoint or to retrieve an updated list of nearby static obstacles.\\
 
 This new Drone-Controller dynamic means that drones need to be responsible for avoiding dynamic obstacles and other physical entities all by themselves.
@@ -673,23 +679,25 @@ This new Drone-Controller dynamic means that drones need to be responsible for a
 
 Essentially, the AATC Reactive Layer has been split from the server and will now reside on each drone. The drone must periodically ping a controller for details of the nearest static obstacle, and combine this information with data from its own sensors in order to effectively avoid both static and dynamic obstacles.
 
-\subsubsection{Controllers}
-Much like an air traffic control tower, controllers exist as entities responsible for guiding drones in a particular region of the world. As the collision avoidance Reactive Layer will now run on the drones, the controller will be running the pathfinding Global Layer and keep a bitmap representation of the world.\\
+\subsection{Controllers}
+Much like an air traffic control tower, controllers exist as entities responsible for guiding drones in a particular region of the world. As the collision avoidance Reactive Layer will now run on the drones, the controller will be running the pathfinding Global Layer and keep a bitmap representation of the world.
 
+\clearpage
 Since drones only know about their next waypoint, it is the responsiblity of the controller to know which waypoint a drone last visited and to return the correct next waypoint when requested, which could involve checking if the drone is actually at the waypoint it claims to be at. The controller should also return information on the closest static obstacle to the drone at a given point.
 
-\subsection{Representing Entities}
-\subsubsection{Unity SDK}
+\section{Representing Entities}
+\subsection{Unity SDK}
 As we are working with the SpatialOS Unity SDK, we must become familiar with the concept of a \textit{Prefab}, an asset type that can be used as a template to spawn new object instances. In addition to prefabs, \textit{MonoBehaviours} are scripts added as a prefab component that are then attached to an object instance of the prefab.\\
 
 For our simulation it is immediately clear that we need to create Drone and Controller prefabs, as they are two entity types that will be interacting with each other. Even if they do not possess any physical or graphical components, they require representation in the simulated world.\\
 
 A Drone prefab would require MonoBehaviours to handle movement and collision avoidance, whereas a Controller prefab will contain scripts to deal with waypoint management, pathfinding and world representation.
 
-\subsubsection{SpatialOS Components}
-SpatialOS, like many game engines, works as an Entity-Component-System (ECS). The way to define these the components that entities in the world can have is through the \textit{Schema}. The schema is used to generate code that can then be used by prefab scripts in order to update the SpatialOS state of objects.\\
+\subsection{SpatialOS Components}
+SpatialOS, like many game engines, works as an Entity-Component-System (ECS). The way to define these the components that entities in the world can have is through the \textit{Schema}. The schema is used to generate code that can then be used by prefab scripts in order to update the SpatialOS state of objects.
 
-Each component requires a unique, explicitly defined component ID to distinguish it from other components. Then optionally, we can define properties, events and commands. Properties hold the state of a component, events are used to trigger intra-entity actions, and commands are request-response operations that indicate how different entities communicate with each other.
+\clearpage
+Each component requires a unique, explicitly defined component ID to distinguish it from other components. Then optionally, we can define properties, events and commands. Properties hold the state of a component, events are used to trigger intra-entity actions, and commands are request-response operations that indicate how different entities communicate with each other.\\
 
 \begin{sexylisting}[colback=white]{Example Schema - Health}
 package improbable.example;
@@ -708,6 +716,8 @@ component Health {
 
 When spawning an entity, we create a \textit{template} of a defined prefab and add the components that we wish to be on that entity, setting the initial state of component properties in the process. In the case of a Health component we may wish to set \textit{health} of a player to 100, but 20 for little monsters and perhaps 200 for boss fights.\\
 
+SpatialOS is then tasked with spawning an entity using the template, with the ability to set callbacks for both successful and failed creation attempts.\\
+
 \begin{sexylisting}[colback=white]{Creating a Cube Template}
 public static Entity CreateCubeTemplate()
 {
@@ -721,9 +731,6 @@ public static Entity CreateCubeTemplate()
 }
 \end{sexylisting}
 
-\clearpage
-SpatialOS is then tasked with spawning an entity using the template, with the ability to set callbacks for both successful and failed creation attempts.\\
-
 \begin{sexylisting}[colback=white]{Spawning a Cube Object}
 var cubeTemplate = EntityTemplateFactory.CreateCubeTemplate();
 SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
@@ -733,11 +740,13 @@ SpatialOS.Commands.CreateEntity(PositionWriter, cubeTemplate)
 \end{sexylisting}
 
 \newpage
-\section{REVISIT: Implementation of Core Entities}
-\subsection{Controller}
+\chapter{Implementation of Core Entities}
+\section{Controller}
 A Controller has three distinct components to it which all operate together, two of which are the Global Layer and corresponding Bitmap. A \textit{GridGlobalLayer} script would be used to generate a simple path from start to destination when requested. On initialisation, it would need to populate and update the Bitmap component with details of all the No Fly Zones in the that controller's region of the world.\\
 
-\textit{GridGlobalLayer} itself will be called by \textit{ControllerBehaviour}. This MonoBehaviour is responsible for overseeing the overall operation of a Controller. Spawning drones, calling the pathfinding component, and updating the drone-waypoint mappings are all examples of tasks that this "master" behaviour would have to handle.
+\textit{GridGlobalLayer} itself will be called by \textit{ControllerBehaviour}. This MonoBehaviour is responsible for overseeing the overall operation of a Controller. Spawning drones, calling the pathfinding component, and updating the drone-waypoint mappings are all examples of tasks that this "master" behaviour would have to handle.\\
+
+Figure \ref{fig:controller_global_bitmap_flow} describes how the three components slot next to each other, each performing its own set of tasks but maintaining separation of logic and state.
 
 \begin{figure}[!hbpt]
  \centering
@@ -773,10 +782,7 @@ A Controller has three distinct components to it which all operate together, two
  \label{fig:controller_global_bitmap_flow}
  \end{figure}
 
-Figure \ref{fig:controller_global_bitmap_flow} describes how the three components slot next to each other, each performing its own set of tasks but maintaining separation of logic and state.
-
-\clearpage
-\subsubsection{No Fly Zones}
+\subsection{No Fly Zones}
 No Fly Zones are represented in a similar way to AATC, as a list of float vectors with two vectors to track opposing corners of the zone's bounding box. An initial list of No Fly Zones is passed into the Global Layer upon creation of the component, with scope to add and remove from the list if one so wishes.\\
 \begin{sexylisting}[colback=white]{NoFlyZone Schema Type}
 type NoFlyZone {
@@ -793,10 +799,13 @@ To complement the C\# class that SpatialOS generates from this, we have implemen
   \item a given point is within any zone from a given list
 \end{itemize}
 
-\subsubsection{Pathfinding and Waypoints}
+\clearpage
+\subsection{Pathfinding and Waypoints}
 Once the No Fly Zone data is initialised, it is the controller's job to generate a list of NFZ-avoiding waypoints that a drone will follow to get from start to destination. The controller needs to maintain a list of waypoints for each drone, as well as the next waypoint that each drone will need to go to.\\
 
-This is achieved by keeping a mapping of a drone's ID to it's DroneInfo type, which contains a list of waypoints and the index of the last sent waypoint.
+This is achieved by keeping a mapping of a drone's ID to it's DroneInfo type, which contains a list of waypoints and the index of the last sent waypoint.\\
+
+When a drone reaches a waypoint it calls the \textit{request\_new\_target} command on its assigned controller, which then locates the DroneInfo of said drone. The \textit{next\_waypoint} field is incremented and the next waypoint is subsequently found and returned to the drone. If the field value is greater than or equal to the length of the list, the drone has clearly reached the final waypoint, its ultimate destination.
 
 \begin{sexylisting}[colback=white]{Basic Controller Schema}
 enum TargetResponseCode {
@@ -830,10 +839,8 @@ component Controller {
 }
 \end{sexylisting}
 
-\newpage
-When a drone reaches a waypoint it calls the \textit{request\_new\_target} command on its assigned controller, which then locates the DroneInfo of said drone. The \textit{next\_waypoint} field is incremented and the next waypoint is subsequently found and returned to the drone. If the field value is greater than or equal to the length of the list, the drone has clearly reached the final waypoint, its ultimate destination.
-
-\subsubsection{World Bitmap}
+\clearpage
+\subsection{World Bitmap}
 In the original AATC implementation, the bitmap was represented as a byte array with each cell representing a 25m x 25m area of the world. Since the only information stored in the bitmap is the presence and proximity to NFZs, the array is sparse and therefore better represented as a map from cell number to GridType.\\
 
 \begin{sexylisting}[colback=white]{Bitmap Component and GridType Enum}
@@ -859,7 +866,7 @@ component BitmapComponent {
 \clearpage
 The benefit of this implementation is that only relevant data is stored in the map, with failure to find a cell in the map implying that the corresponding area of the world is not in or near a No Fly Zone. Since every controller will have a Bitmap component, this design improves memory efficiency and provides more options to the controller. It could simply reduce its memory footprint, deal with larger areas, or reduce the cell size to represent the world with a higher precision.
 
-\subsubsection{Assisting the Reactive Layer}
+\subsection{Assisting the Reactive Layer}
 Although collision avoidance runs on the drone, it can not do the job properly without knowing the closest point to it on a NFZ. This is where the controller comes in and asks the bitmap to return the closest NFZ point. Since NFZs extend across all altitudes, the drone's altitude is used as the y-coordinate of the closest NFZ point.\\
 
 This means that there is now a fourth component to the Controller entity, existing just to deal with requests from drones for the nearest static obstacle. This is shown as the \textit{get\_nearest\_obstacle} command, which returns the \textit{APFObstacle} used by drone-side collision avoidance code.\\
@@ -909,7 +916,7 @@ component ReactiveLayer {
 }
 \end{sexylisting}
 
-\subsubsection{Drone Spawning}
+\subsection{Drone Spawning}
 For simplicity at this early stage, controllers just generate a path between two random non-NFZ points in the world. They spawn a drone at the first random point and de-spawn each drone once it reaches its final waypoint. For testing purposes collisions were initially disabled as the drones just blindly moved from waypoint to waypoint without any collision avoidance.
 
 \begin{figure}[!hbpt]
@@ -921,7 +928,7 @@ For simplicity at this early stage, controllers just generate a path between two
 
 In Figure \ref{fig:basic_controller_test}, we check if the controller returns correct waypoints in order by spawning drones either side of the NFZ and observing if the flight path avoids the obstacle.
 
-\subsection{Drone}
+\section{Drone}
 Compared to a controller, a drone is a far less complex entity. It has one main component to maintain state of the drone's next waypoint, current direction, target request status, and maximum speed. The core loop of the \textit{DroneBehaviour} script executes every second, updating SpatialOS with the drone position and then either recalculating direction or requesting a new target, depending on the drone's status.
 
 \begin{sexylisting}[colback=white]{Main Drone Loop (once a second)}
@@ -966,7 +973,7 @@ void MoveDrone()
 }
 \end{sexylisting}
 
-\subsubsection{Drone Detection}
+\subsection{Drone Detection}
 In AATC the server knew the location of every drone in the world, which meant that searching for nearby drones would just be a case of iterating through the list of drones and finding the closest one. However, with SpatialOS we delegate this responsiblity to the drones.\\
 
 The naive method would be for each drone to request all SpatialOS entities within a certain radius, and then filtering to find the closest one. The problem with this is that Spatial find queries are extremely expensive as they have to propagate up to the server instance, be executed, and then returned down to individual entities. In a world with 30 drones where each drone is recalculating its direction every second, that's 30 queries that have to be dealt with in tandem every second.\\
@@ -976,7 +983,7 @@ Due to the fact that each distributed ``worker'' in SpatialOS is an instance of 
 \clearpage
 Although this is still resource-expensive, it is still quicker than a Spatial search because using native game engine functionality is more performant than manually searching for entities in a radius. By applying a Sphere Collider to each drone, checking for nearby colliders will only ever return instances of drones (Appendix B).
 
-\subsubsection{Collision Detection}
+\subsection{Collision Detection}
 Now that drones are detected easily, a collision is simply the case where a nearby collider is at a distance of less than 1m (2 drone radiuses). In the real world, a controller would detect that two drones have stopped responding and assume a crash occured. For our simulation, we instead add a command for drones to call so the controller knows a collision occurred. \\
 
 \begin{sexylisting}[colback=white]{Reporting a Collision}
@@ -991,16 +998,16 @@ command CollisionResponse collision(CollisionRequest);
 
 Upon successful receipt of a \textit{CollisionRequest}, a controller may then destroy the drone instances to signal that they are not part of the system anymore. Looking ahead, the controller may decide to use this as a trigger to dispatch drone recovery services or apply penalties for crashing drones.
 
-\subsection{Summary}
+\section{Summary}
 Now that the Drone and Controller entities have been created and relevant components added, we are able to create drones, send them between random locations, and destroy them upon journey completion.
 
 
 %**********************************************%
 \newpage
-\section{REVISIT: Delivery Network Architecture}
+\chapter{Delivery Network Architecture}
 As SpatialOS abstracts away all server-to-server connections and raw networking, we can consider any size world as one singular simulation. As explored thus far, our work only needs to go as far as the definition entities and how their components interact with each other. Since pathfinding and drone-controller communication channels have been set up and tested, our efforts now turn to upgrading this system into a scalable, distributed, delivery network.
 
-\subsection{Delivery Destinations}
+\section{Delivery Destinations}
 As per the current design, controllers spawn drones, generate a path between two points and then sequentially provide waypoints the drone should follow to get to its destination. To modify this for a delivery network case, the points should correspond to the locations of the controller and the delivery end point. As controllers are both stationary and responsible for pathfinding, making this change is trivial. The question now: how do controllers find out where the delivery end points are?\\
 
 To resolve this we introduce an Order Generation entity to the simulation, whose sole functionality is to simulate a stream of delivery requests and route these requests to the appropriate controller. The Order Generator may eventually have a load balancing component to it in the future, but for now we simply route each delivery request to the controller closest to the package destination.\\
@@ -1053,12 +1060,13 @@ Figure \ref{fig:delivery_network_overview} shows how the Order Generator fits in
  \label{fig:delivery_network_overview}
  \end{figure}
 
-\subsection{Basic Order Generation}
+\section{Basic Order Generation}
 Before generating any orders, we must first define the components on the Order Generator and Controller that deal with the sending and receiving of delivery requests.
 
-\subsubsection{Delivery Handler / Scheduler}
-Controllers will need a \textit{DeliveryHandler} component to enqueue incoming delivery requests. It follows that there are a finite amount of drones available to deliver goods at a particular point in time, therefore the Delivery Handler's function is to maintain a queue of requests and only provide the next delivery to serve when the \textit{ControllerBehaviour} asks for it. For the time being, we implement a very basic FIFO queue to serve requests in the order that they were received by the Controller.\\
+\subsection{Delivery Handler / Scheduler}
+Controllers will need a \textit{DeliveryHandler} component to enqueue incoming delivery requests. It follows that there are a finite amount of drones available to deliver goods at a particular point in time, therefore the Delivery Handler's function is to maintain a queue of requests and only provide the next delivery to serve when the \textit{ControllerBehaviour} asks for it. For the time being, we implement a very basic FIFO queue to serve requests in the order that they were received by the Controller.
 
+\clearpage
 The delivery handler effectively acts as a scheduler for the controller, because it decides the order to return requests in a manner completely transparent to core controller operation. The main loop (Appendix C) now checks if the controller can deploy a drone, asks for the next request, handles the delivery request if the scheduler returns one back, and sends the updated queue state up to SpatialOS.\\
 
 To match up with this functionality the schema defines four basic elements:
@@ -1092,7 +1100,7 @@ component DeliveryHandler {
 
 We designed it this way so that \textit{DeliveryRequest} data could be extended later if we so wish. Important information about a delivery that will extend to support in the future include package weights, package types and even the priority of said delivery. Being able to extend the \textit{QueueEntry} also may open the door for us to play with more complex scheduling algorithms down the line.
 
-\subsubsection{Order Generator}
+\subsection{Order Generator}
 Now that we have defined a basic \textit{DeliveryRequest} type, it is the order generator's job to regularly create and send these requests to the appropriate controller. At the moment the request only requires a location vector, so our plan to do this is to generate a random point in the world not in a No Fly Zone, and then find the closest controller to said point.\\
 
 We would like the orders to be generated at regular time intervals such that each Controller receives an order every 30 seconds on average. By distributing controllers evenly such that each one is responsible for similar sized regions of the world, we can infer that the Order Generator works generates requests every $\frac{30}{\#controllers}$ seconds.\\
@@ -1110,14 +1118,12 @@ component OrderGeneratorComponent {
 }
 \end{sexylisting}
 
+\clearpage
 In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
 
-\clearpage
-\section{REVISIT: Achieving London-Scale Simulation}
+\part{Incorporating Reality}
+\chapter{Achieving London-Scale Simulation}
 A snapshot represents the state of a simulated world at a point in time, storing each entity as well as each component's properties. Every deployment, both local and in the cloud, requires a starting snapshot to populate the simulation. To speed up this process, we create a \textit{scene} for snapshot generation and utilise the power of Unity Editor scripts to programmatically generate and modify snapshots with ease.
-
-\subsection{Area Selection}
-London was chosen as the city to simulate partly because of our geographical understanding but also because it could be a prime candidate for rolling out drone delivery services to. Traffic jams, congestion charges and fuel consumption are all ever-present issues for existing delivery networks. As the technology develops, being able to avoid and mitigate these issues by taking to the skies is a leap of faith many operators may be seriously considering.
 
 \begin{figure}[!hbpt]
   \center
@@ -1126,21 +1132,23 @@ London was chosen as the city to simulate partly because of our geographical und
   \label{fig:london_snapshot_small}
 \end{figure}
 
-\clearpage
+\section{Area Selection}
+London was chosen as the city to simulate partly because of our geographical understanding but also because it could be a prime candidate for rolling out drone delivery services to. Traffic jams, congestion charges and fuel consumption are all ever-present issues for existing delivery networks. As the technology develops, being able to avoid and mitigate these issues by taking to the skies is a leap of faith many operators may be seriously considering.\\
+
 In the spirit of walking before running, we opt to limit ourselves to a 5km x 4km region of central London, of which 4.8km x 3.8km is actually simulated. We wish to include a 100m wide border to avoid invoking (literal) edge cases in SpatialOS that may arise by simulating entites right at the boundaries of the world.\\
 
 This particular part of London was chosen due to the variety of institutions and types of land there are available. There are parks, hospitals and skyscrapers that may be potentially protected by No Fly Zones, but there are also educational institutions either side of the river that could serve as ideal locations for Controllers if a pilot was commissioned.\\
 
 Another major benefit to choosing this area of London is extensibility. Should we decide to, we have the ability to increase the size of the world to test the scalability of the system, adding more of the city and surrounding suburbia to the simulation.
 
-\subsection{Snapshot Scene}
-Figure \ref{fig:unity_londonsnapshotsmallexample} shows how the London scene looks in Unity when visually editing a snapshot. The leftmost column is known as the \textit{Hierarchy}, a list of all the objects currently in the scene. As we are able to nest objects, adding empty game objects allow one to group objects together. For example, No Fly Zones and Controllers could be nested in different groups to more easily distinguish the type of each object.\\
+\section{Snapshot Scene}
+Figure \ref{fig:unity_londonsnapshotsmallexample} shows how the London scene looks in Unity when visually editing a snapshot. The leftmost column is known as the \textit{Hierarchy}, a list of all the objects currently in the scene. As we are able to nest objects, adding empty game objects allow one to group objects together. For example, No Fly Zones and Controllers could be nested in different groups to more easily distinguish the type of each object.
 
+\clearpage
 To the side of the Hierarchy is the \textit{Inspector}, which shows all the Unity components on a selected prefab, in this case a Drone. You may notice an additional component that we have not previously covered residing on this prefab.\\
 
 Entities that are active and likely to be moving around the world need a special component called a \textit{Transform Receiver}, which simply updates the object's world position whenever its Spatial position is updated.
 
-\clearpage
 As each component is authoritative on exclusively the client or server, a completely server-side simulation (such as ours is at present) would require a \textit{Transform Receiver} to ensure that objects are receiving and applying the appropriate Spatial updates if we decide to implement a client-side simulation viewer in the future.
 
 \begin{figure}[!hbpt]
@@ -1152,8 +1160,8 @@ As each component is authoritative on exclusively the client or server, a comple
 
 The world view in the middle is for visual aid when placing entities in the scene, with red highlights indicating parts of the world that are No Fly Zones. The column on the far right is a menu for SpatialOS build operations. This menu is particularly useful as being able to quickly rebuild the project within the Unity Editor greatly reduces iteration times.
 
-\subsubsection{Representing No Fly Zones}
-Earlier we defined No Fly Zones as a list of vectors to represent its vertices. To accurately place them in a scene, we create the \textit{NFZ} and \textit{NfzNode} prefabs in addition to a complementary \textit{NFZScript} MonoBehaviour.
+\subsection{Representing No Fly Zones}
+Earlier we defined No Fly Zones as a list of vectors to represent its vertices. To accurately place them in a scene, we create the \textit{NFZ} and \textit{NfzNode} prefabs in addition to a complementary \textit{NFZScript} MonoBehaviour.\\
 
 \begin{sexylisting}[colback=white]{NFZScript MonoBehaviour}
 using Improbable;
@@ -1176,26 +1184,28 @@ public class NFZScript : MonoBehaviour
 }
 \end{sexylisting}
 
-The script exposes an array of GameObjects, which can then be populated via the Unity Editor. By placing NfzNode objects in the scene and then populating the script's objects with these, we hold information about each zone's vertices. During snapshot generation we simply iterate through these NfzNodes and extract their positional information to create a NoFlyZone struct.\\
+The script exposes an array of GameObjects, which can then be populated via the Unity Editor. By placing NfzNode objects in the scene and then populating the script's objects with these, we hold information about each zone's vertices. During snapshot generation we simply iterate through these NfzNodes and extract their positional information to create a NoFlyZone struct.
 
+\clearpage
 Figure \ref{fig:nfz_representation_example} shows an instance of a NoFlyZone prefab being populated with NfzNodes around Great Ormond Street Hospital. Note that renaming an object for our clarity does not change its underlying prefab, making this a really effective workflow for rapidly adding No Fly Zones to a world.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=\linewidth]{img/nfz_representation_example.png}
+  \includegraphics[width=0.85\linewidth]{img/nfz_representation_example.png}
   \caption{Inspecting GOSH's No Fly Zone.}
   \label{fig:nfz_representation_example}
 \end{figure}
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=\linewidth]{img/london_snapshot_small_nfzs.png}
+  \includegraphics[width=0.85\linewidth]{img/london_snapshot_small_nfzs.png}
   \caption{Updated version of Figure \ref{fig:london_snapshot_small} with highlighted No Fly Zones.}
   \label{fig:london_snapshot_small_nfzs}
 \end{figure}
 
-\subsection{Entity Placement}
-\subsubsection{No Fly Zones}
+\clearpage
+\section{Entity Placement}
+\subsection{No Fly Zones}
 Making use of this new workflow, we added five major No Fly Zones to the world. Our intentions were to protect famous landmarks, public hospitals that may provide Air Ambulance support, the royal parks \cite{Blunden2016}, vertically large constructions and national security hotspots. To this end we placed No Fly Zones over:
 \begin{enumerate}
    \item Famous Landmarks
@@ -1242,7 +1252,7 @@ Making use of this new workflow, we added five major No Fly Zones to the world. 
 \end{enumerate}
 
 \clearpage
-\subsubsection{Controller}
+\subsection{Controller}
 For a simulation of only 5km x 4km, we felt that there was no need for more than two controllers as we operated under the assumption that the simulation is only of an early-stage pilot delivery network. We scouted for two higher education establishments to act as Controller locations, coming up with a shortlist of University College London (UCL), SOAS University of London (SOAS), King's College London, London School of Economics (LSE), City University, and London South Bank University.\\
 
 Not only do we have to consider the merits of each location, but how pairs of locations would work. For example, it makes little sense to have a ``distributed'' delivery network with two controllers in close proximity to each other. For this reason, we felt strongly that there should be one location below the river and one above, meaning that London South Bank University became the site of our first Controller.\\
@@ -1251,13 +1261,13 @@ After fixing one location, the flaws of others became more apparent. King's was 
 
 Lastly, UCL and SOAS were rejected for being too close to a major hospital zone. This left City University to become the host of our second Controller, giving us a nice bit of symmetry to the world layout.
 
-\subsubsection{Order Generator}
+\subsection{Order Generator}
 Although its location does not have any bearing on the simulation outcome, the SpatialOS load balancer prefers to have this entity in the same place as any random Controller, so we stuck to our above-river bias and planted it under City University.
 
-\subsubsection{Drones}
+\subsection{Drones}
 No drones exist in the world at startup because it is the job of a Controller to manage the life cycle of a drone. Therefore they do not need to be considered here.
 
-\subsection{Snapshot Generator}
+\section{Snapshot Generator}
 The actual process of collating all the objects in a scene and creating a snapshot file is triggered by the custom \textit{Drone Sim > Generate London Snapshot} menu option, shown below in Figure \ref{fig:menuotions}.
 
 \begin{figure}[!hbpt]
@@ -1279,7 +1289,7 @@ This button then triggers a function to construct a snapshot, entity by entity:
 
 On successful creation, a log entry appears in the Unity Editor to say that a snapshot has been created at a particular filepath. This path is then used to point to a snapshot when launching local and cloud deployments.
 
-\subsection{Custom Load Balancing}
+\section{Custom Load Balancing}
 Part of the reason so much thought has been put into Controller placement is the load balancer. Left to its own devices, SpatialOS moves its workers geographically around the simulation to best distribute load across workers.\\
 
 Although this is brilliant for many use cases, our delivery network is operating under the assumption that each Controller is responsible for its own region with no real inter-region communication at this present point in time. Therefore, it makes sense to put each Controller onto a worker of its own, and minimise as best as possible the overlaps between each region and worker.\\
@@ -1307,23 +1317,26 @@ When inspecting a live simulation through the SpatialOS Inspector such as in Fig
 
 %**********************************************%
 \newpage
-\section{REVISIT: Integrating Delivery Economics}
+\chapter{Integrating Delivery Economics}
 With a basic London-scale simulation implemented to handle the logistical operations of a drone delivery network, we now look at how to extend this work to factor in, and later optimise for, the economic side.
 
-\subsection{Improved Order Generation}
+\section{Improved Order Generation}
 Before we can define a revenue model for our delivery network, we must improve the Order Generator to generate a greater variety of delivery requests. Packages being delivered by drones will vary in size, weight and priority, just like current the delivery market, and the DeliveryHandler schema needs to upgraded (Appendix D) to support these new properties of a delivery request.
 
-\subsubsection{Package Type \& Weight}
+\subsection{Package Type \& Weight}
 We take our definitions of package types from Amazon's own \textit{Fulfilment by Amazon} service, as described by Figure \ref{fig:fulfilled_by_amazon_table} in Section 2.2. Subsequently we update the \textit{DeliveryRequest} schema type to include a new \textit{PackageInfo} property, to capture both the package type and weight. Each of the 6 package types accepts a different range of weights, hence generating a PackageInfo is (at the moment) a case of randomly picking a type, and then generating a random number within each type's accepted weight range.
 
-\subsubsection{Delivery Priority}
+\subsection{Delivery Priority}
 In addition to the actual package information, each delivery request may have a priority corresponding to how urgently a customer wants their order to be delivered. Existing delivery companies each have their own range of services to customers, so to simplify this parameter we define four levels of priority: STANDARD, PRIORITY, URGENT and SUPER\_PRIORITY. We randomly select a priority for now, with the option to adjust bias further down the line just like with package types.
 
-\clearpage
-\subsection{Revenue Model}
+\section{Revenue Model}
 As we are adopting the package types described by the \textit{Fulfilment by Amazon} programme, it makes sense to adopt their pricing model too as a starting point for standard priority deliveries.\\
 
-Since we aim to provide a better service to orders with higher priorities, the price for each priority tier is a 50\% mark up from the previous tier. For example, standard delivery of a large letter would generate 80p, but priority delivery would generate £1.20 (80p x 1.5).
+Since we aim to provide a better service to orders with higher priorities, the price for each priority tier is a 50\% mark up from the previous tier. For example, standard delivery of a large letter would generate 80p, but priority delivery would generate £1.20 (80p x 1.5).\\
+
+In addition to the priority system, we introduce a mechanism whereby the cost to a consumer per delivery, ergo ther revenue generated, decreases with the time taken to perform said delivery. The cost is halved if it takes more than 30 minutes to deliver the package after order generation, and reduced to 0 if the delivery takes more than 60 minutes to complete.\\
+
+By charging both bigger fees for higher priority requests we provide incentives for controllers to prioritise more important requests to generate more revenue. However by offering reductions for slower delivery of goods, we also ensure that controllers attempt to serve all delivery requests as soon as possible.
 
 \begin{table}[!hbpt]
 \centering
@@ -1350,22 +1363,15 @@ Since we aim to provide a better service to orders with higher priorities, the p
 \end{table}
 
 \clearpage
-In addition to the priority system, we introduce a mechanism whereby the cost to a consumer per delivery, ergo ther revenue generated, decreases with the time taken to perform said delivery. The cost is halved if it takes more than 30 minutes to deliver the package after order generation, and reduced to 0 if the delivery takes more than 60 minutes to complete.\\
-
-By charging both bigger fees for higher priority requests we provide incentives for controllers to prioritise more important requests to generate more revenue. However by offering reductions for slower delivery of goods, we also ensure that controllers attempt to serve all delivery requests as soon as possible.
-
-\subsection{Operating Costs}
+\section{Operating Costs}
 To calculate the profitability of the drone delivery network, we need to consider the costs of operating such a system. For our simulation we have identified the main sources of expenditure to be the energy consumption overhead of running the drones, along with any penalties that may be charged for failed deliveries and mid-flight collisions.\\
 
 Although we have designed each Controller to act as a delivery dispatch point, like an Amazon Fulfilment Centre, we do not consider the costs of running such a warehouse. Instead we only focus on economic matters that are influenced by our newly introduced drone delivery dynamics.
 
-\subsubsection{Energy Consumption}
+\subsection{Energy Consumption}
 As a baseline to model our simulated drones on, we look at information available about Amazon Prime Air prototypes. We can compute the expense of running the drones by first keeping track of a drone's energy usage per delivery, then multiplying it by the cost per unit of energy.\\
 
-We know that the power rating of a moving drone is 8355.1W, but we must compute the power of a drone hovering ourselves using the current and voltage readings.
-
-\clearpage
-Using a basic understanding of Physics, we define energy and power below.
+We know that the power rating of a moving drone is 8355.1W, but we must compute the power of a drone hovering ourselves using the current and voltage readings. Using a basic understanding of Physics, we define energy and power below.
 $$energy = power * time$$
 $$power = current * voltage$$
 
@@ -1373,6 +1379,8 @@ The prototype in question \cite{Jung2017} has 8 motors, each rated at 36.59V and
 $$ 8\ motors * 2.29A * 36.59V = 670.3W $$
 
 Because we move drones at fixed time intervals, we can pre-calculate the energy increments depending per drone state. When updating the position of the drone every 0.25 seconds, we can also increment the energy usage by these fixed amounts. Being able to calculate these in advance reduces the work we have to do on every call to \textit{MoveDrone()}.
+
+\clearpage
 $$ energy\ (motion) = 8355.1 * DroneMoveInterval\ (seconds) = 2088.775\ Ws $$
 $$ energy\ (hover) = 670.3 * DroneMoveInterval\ (seconds) = 167.575\ Ws $$
 
@@ -1381,9 +1389,9 @@ $$ cost\ of\ delivery\ (pence) = energy\ usage * 0.0055 / 3600 $$
 
 We believe delivery network operators would be able to source electricity at wholesale rates, which we found to be around £55 per MWh \cite{Ambrose2018}, or 0.0055p per Wh.
 
-\subsubsection{Penalties}
+\subsection{Penalties}
 Understandably, nothing will ever work perfectly forever. To mitigate bugs in the simulation, we periodically ``prune'' drones that have been unresponsive for too long. We therefore consider the penalties applied for actions the drone has failed to complete at the time of pruning. We therefore define four main infractions:
-\begin{multicols}{3}
+\begin{multicols}{2}
   \begin{enumerate}
     \item Failed Launches
     \item Failed Deliveries
@@ -1392,7 +1400,6 @@ Understandably, nothing will ever work perfectly forever. To mitigate bugs in th
   \end{enumerate}
 \end{multicols}
 
-\clearpage
 When a drone is unable to be launched, we consider that a delivery request was accepted but then unable to be completed. From a consumer point of view, they may have received a notification indicating that their delivery is on their way, only to be quickly told that their order has been cancelled because of some error in launching a drone. In this instance we do not charge the customer any delivery fees, instead giving them a fixed £5 compensation.\\
 
 If a drone is launched but still fails to deliver a package for whatever reason, we compensate the consumer as before and also calculate the cost of sending a truck to manually retrieve the drone that was sent out. When a drone fails to return for some reason \textit{after} making a delivery there is no reason to compensate the customer, but we still have to calculate the cost of retrieving the drone.\\
@@ -1402,19 +1409,18 @@ $$ retrieval\ cost = 2 * (distance * 0.621371) * mileage * fuel\ cost $$
 
 In the event of a collision, we add a £400 (\$500 \cite{Jung2017}) penalty for every drone involved in the collision, assuming the worst case where each drone would need to be completely replaced. In addition to this, we add appropriate penalties for failed deliveries and add a unified cost of retrieving all the drones.
 
-\subsection{Case Study: Delivering a Milkshake}
+\section{Case Study: Delivering a Milkshake}
 To demonstrate how cost effective drone delivery is, we create a hypothetical case where a customer would like to order a milkshake at late night from the comfort of her room. The round trip of picking up, delivering the milkshake and then returning back to the Controller is approximately 4.33km.
-
-\clearpage
-For estimation sake, we assume that the drone is always moving. Therefore at a maximum speed of 10 metres per second, the drone would be in flight for 433 seconds. This corresponds to 3617758.3 Ws of energy use. Substituing this into our equation gives us:
-$$ cost = 3617758.3 * 0.0055 / 3600 = 5.527130736\ pence $$
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=\linewidth]{img/drone_delivery_example_cost.png}
+  \includegraphics[width=0.9\linewidth]{img/drone_delivery_example_cost.png}
   \caption{Measuring the total distance of the delivery round trip.}
   \label{fig:drone_delivery_example_cost}
 \end{figure}
+
+For estimation sake, we assume that the drone is always moving. Therefore at a maximum speed of 10 metres per second, the drone would be in flight for 433 seconds. This corresponds to 3617758.3 Ws of energy use. Substituing this into our equation gives us:
+$$ cost = 3617758.3 * 0.0055 / 3600 = 5.527130736\ pence $$
 
 As per Table \ref{fig:package_revenue_distribution}, the revenue generated for standard delivery of an 800g milkshake is £1.84 for a operating costs of just 5.53p to the delivery network operator. As this is a mostly-autonomous system, the lion's share of generated revenue is pure profit.\\
 
@@ -1422,12 +1428,12 @@ For comparison, a large portion of Deliveroo's standard delivery fee £2.50 may 
 
 %**********************************************%
 \newpage
-\section{REVISIT: Time-Value of Delivery}
+\chapter{Time-Value of Delivery}
 Before considering how to maximise profitability, we introduce the concept of the \textit{Time-Value of Deliveries} (TVD). This is based on the \textit{Time-Value of Data} idea we described earlier in Section 2.8. Rather than deal with the fixed pricing model of delivery fees as we see in the current day, we propose a new mechanism where the cost of the delivery is a function of the time taken to do said delivery. This is known as a Time-Value Function (TVF).\\
 
 For example, a user may pay £5 for a delivery that takes less than 30 minutes but be charged nothing if it takes longer than one hour. One may recognise that we are already adopting an informal TVF that halves the delivery fee after 30 minutes, making it 0 if delivery takes over  1 hour. Note that ``delivery time'' is the time taken from a controller receiving an order to a drone reaching the requested destination.
 
-\subsection{Function Representation}
+\section{Function Representation}
 To reduce the computational effort required to calculate the cost of a delivery, we simplify each TVF to have 10 steps at equal time intervals. By keeping an array of booleans, we simply toggle each step true or false to indicate whether there is a price drop at that step.\\
 
 Figure \ref{fig:testpostplsignore} shows early concept art of a TVF with price drops at 18, 42 and 60 minutes. In this example, our array would have the the 3rd, 7th and 10th elements of the TVF array set to true.
@@ -1444,66 +1450,83 @@ An array of 10 booleans takes 10 bits, but an array of 10 integers for the value
   \label{fig:testpostplsignore}
 \end{figure}
 
-\subsection{Utilised Functions}
-To integrate TVFs with our simulation, we update the Order Generator to support two models. For every delivery request generated, the Order Generator randomly chooses between \textit{The Halvening} or \textit{Stepwise Decrease} functions. Although we could simply enumerate these two models and calculate the delivery fee using pre-defined value functions, our chosen implementation opens up the option to experiment with more complex TVFs in the future.
+\section{Utilised Functions}
+To integrate TVFs with our simulation, we update the Order Generator to support two models. For every delivery request generated, the Order Generator randomly chooses between \textit{The Halvening} or \textit{Stepwise Decrease} functions.
 
-\subsubsection{The Halvening}
+\clearpage
+Although we could simply enumerate these two models and calculate the delivery fee using pre-defined value functions, our chosen implementation opens up the option to experiment with more complex TVFs in the future.
+
+\subsection{The Halvening}
 $$ [0, 0, 0, 0, 1, 0, 0, 0, 0, 1] $$
 
 \textit{The Halvening} is a formalisation of the price-halving model we had already implemented before we introduced Time-Value Functions. By allowing longer periods of time before fee decreases, controllers are given more flexibility to, perhaps, schedule a higher priority request and still generate the same revenue on the other request. In general, this model might be best suited for a customer who is not \textit{too} strict on the swiftness of a delivery.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.75\linewidth]{img/tvfs_halvening.png}
+  \includegraphics[width=\linewidth]{img/tvfs_halvening.png}
   \caption{Plotting \textit{The Halvening}.}
   \label{fig:tvfs_halvening}
 \end{figure}
 
-\subsubsection{Stepwise Decrease}
+\clearpage
+\subsection{Stepwise Decrease}
 $$ [1, 1, 1, 1, 1, 1, 1, 1, 1, 1] $$
 
 More customers may consider opting for this model as it enforces a fee decrease every 6 minutes, which means Controllers are given greater incentive to deliver orders with this TVF as quick as possible.
 
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.75\linewidth]{img/tvfs_decrease.png}
+  \includegraphics[width=\linewidth]{img/tvfs_decrease.png}
   \caption{Plotting \textit{Stepwise Decrease}.}
   \label{fig:tvfs_decrease}
 \end{figure}
 
 %**********************************************%
 \newpage
-\section{TODO: Profit-Optimised Scheduling}
-Our simulation now consists of a distributed delivery network, variation in order generation and a novel revenue model, but each Controller is still using a very primitive form of scheduling - First Come First Serve (FCFS). As we have demonstrated in Section 7.4, drone delivery networks are already extremely profitable, therefore in our simulation controllers do not stand to make any sort of loss. Nonetheless, there is no shadow of doubt that there are modifications that can be made to the scheduler to prioritise higher value orders and generate a greater profit.\\
+\part{Optimisation \& Scale}
+\chapter{Profit-Optimised Scheduling}
+Our simulation now consists of a distributed delivery network, variation in order generation and a novel revenue model, but each Controller is still using a very primitive form of scheduling - First Come First Serve (FCFS). As we have demonstrated in Section 7.4, drone delivery networks are already extremely profitable, therefore in our simulation controllers do not stand to make any sort of loss.\\
 
-As per Section TODO, each controller only operates 15 drones at a time with a maximum request queue size of 40. After this point orders will still be coming in, but a FCFS scheduler would simply discard any new requests to serve the existing queue. One would then imagine that by re-evaluating the request queue on each new order received to weed out lower value orders, we would be able to maintain requests with higher potential values and thus increase our profitability.\\
+Nonetheless, there is no shadow of doubt that there are modifications that can be made to the scheduler to prioritise higher value orders and generate a greater profit.\\
 
+As per Section TODO, each controller in our simulation only operates 15 drones at a time with a maximum request queue size of 40. After this point orders will still be coming in, but a FCFS scheduler would simply discard any new requests to serve the existing queue. One would then imagine that by re-evaluating the request queue on each new order received to weed out lower value orders, we would be able to maintain requests with higher potential values and thus increase our profitability.\\
 
+In order to make use of such a priority queue to filter out the lowest value orders, we must first define a way of assigning a priority to each request. For our simulations we have chosen to implement the novel \textit{Least Lost Value (LLV)} algorithm as our primary profit enhancing technique, as this approach takes advantage of the TVF-based revenue model.\\
 
-\subsection{Shortest Job First}
-\subsection{Least Lost Value}
+In the interests of comparing LLV with a more popular but well-performing algorithm, we also take a look at the \textit{Shortest Job First (SJF)} practice.
+
+\section{Least Lost Value}
+
+\section{Shortest Job First}
+We chose SJF as the first
+
+In this algorithm, the request queue would be ordered by the estimated time to complete each delivery. As time is distance divided by speed and we assume a constant drone speed for the sake of estimation, we can simply order the queue by the total distance as the crow flies from the controller to the request destination.
+$$ time = distance / speed $$
+
+This estimation
 
 %**********************************************%
 \newpage
-\section{TODO: Scale Testing}
-\subsection{Expanding the London Snapshot}
-\subsection{}
+\chapter{Scale Testing}
+\section{Expanding the London Snapshot}
+\section{}
 
 
 %**********************************************%
 \newpage
-\section{TODO: Evaluation}
-\subsection{Metrics}
-\subsubsection{Logging}
-\subsubsection{Data Extraction}
+\part{Findings}
+\chapter{Evaluation}
+\section{Metrics}
+\subsection{Logging}
+\subsection{Data Extraction}
 
-\subsection{Comparing Schedulers}
+\section{Comparing Schedulers}
 % heavy load vs light load (queue size)
 % average profit per Delivery
 % total profit
 % average rejected potential
 
-\subsection{Large Scale London Simulation}
+\section{Large Scale London Simulation}
 % screenshot of Snapshot
 % large scale voronoi
 % lots of graphs/comparisons
@@ -1512,11 +1535,11 @@ As per Section TODO, each controller only operates 15 drones at a time with a ma
 
 %**********************************************%
 \newpage
-\section{TODO: Conclusion}
+\chapter{Conclusion}
 
 %**********************************************%
 \newpage
-\section{TODO: Future Work}
+\chapter{Future Work}
 % more scheduling types
 % switching scheduler on-the-fly
 % introducing more TVFs
@@ -1544,7 +1567,7 @@ As per Section TODO, each controller only operates 15 drones at a time with a ma
 % \newpage
 \begin{appendices}
 
-\section{Static No Fly Zone Class}
+\chapter{Static No Fly Zone Class}
 \begin{sexylisting}[colback=white]{Static No Fly Zone Class}
 public static class NoFlyZone
 {
@@ -1569,7 +1592,7 @@ public static class NoFlyZone
 }
 \end{sexylisting}
 
-\section{Nearby Drone and Collision Detection}
+\chapter{Nearby Drone and Collision Detection}
 \begin{sexylisting}[colback=white]{Nearby Drone and Collision Detection}
 private void CheckForNearbyDrones(Vector3 dronePos, bool collisionsOn)
 {
@@ -1602,7 +1625,7 @@ private void CheckForNearbyDrones(Vector3 dronePos, bool collisionsOn)
 }
 \end{sexylisting}
 
-\section{Main Controller Loop}
+\chapter{Main Controller Loop}
 \begin{sexylisting}[colback=white]{Main Controller Loop}
 void ControllerTick()
 {
@@ -1624,7 +1647,7 @@ void ControllerTick()
 }
 \end{sexylisting}
 
-\section{Updated DeliveryRequest Generation}
+\chapter{Updated DeliveryRequest Generation}
 \begin{sexylisting}[colback=white]{Additions to DeliveryHandler Schema}
 enum PackageType {
   LETTER_SMALL = 0;

@@ -61,6 +61,7 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
             handle.Respond(new DeliveryResponse(false));
 			float value = TimeValueFunctions.DeliveryValue(expectedDuration, handle.Request.packageInfo, handle.Request.timeValueFunction);
             potential += value;
+			rejecValue += value;
             ++rejections;
         }
         else
