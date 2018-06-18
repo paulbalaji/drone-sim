@@ -1832,20 +1832,112 @@ In order to calculate the profitability of a Controller, we need to know the rev
 In addition to the metrics defined in this section, there are values that represent the number of failed actions by a Controller. Controllers do not fail often enough anymore for these values to provide insight, but they have been left in for legacy debugging purposes.
 
 \section{Comparing Schedulers}
-We assert that the following comparisons utilise data taken from simulations based on the world defined by the original, smaller London snapshot.
+We assert that the following comparisons utilise data taken from simulations based on the world defined by the original, smaller London snapshot. Note that from here now on we will refer to Controller 2 as C2, and Controller 3 as C3.
 
 \subsection{Determining Load}
+Before looking at the financial metrics, we must first acquaint ourselves with some context on each Controller. C2 has far bigger queues and is seemingly full almost all of the time, which indicates that this Controller has been under heavy load. As a contrast, we have C3 with almost no queues at all.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/small/drones.png}
+  \caption{Queue Size over Time.}
+  \label{fig:small_drones}
+\end{figure}
+
+By cross-examining the queue size (Figure \ref{fig:small_drones}) with the number of drones (Figure \ref{fig:small_opdrones}) in operation, we can confirm our hypothesis that C2 is under heavy load as all the Controller's drones are being utilised and the request queues are full most of the time. We can also infer that C3 is under a much light load, shown clearly by the fluctuating levels of drone utilisation.
+
+\clearpage
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/small/opdrones.png}
+  \caption{Drones in Operation over Time.}
+  \label{fig:small_opdrones}
+\end{figure}
 
 \subsection{Profitability}
+As C3 is under much less stress, we predict that it will not give us decisive results on which of the three schedulers is better. This is because priority scheduling comes out as a clear winner in the case of contention for resources, which C2 has but C3 does not. Therefore, we pay closer attention to C2's results.\\
+
+Looking at Figure \ref{fig:small_avgprofit}, we notice that on C2 the Least Lost Value (LLV) policy generates over 50 pence more profit per delivery than the Shortest Job First (SJF) method, which itself is about 50 pence more profitable per delivery than a simple First Come First Serve (FCFS) queue.\\
+
+Despite the much higher average profit, the SJF scheduler still comes close to the performance of LLV scheduling. This is because SJF would prioritise quicker deliveries and thus would be able to deliver more deliveries than LLV or FCFS scheduling in the same duration of time. At least with respect to profitability, LLV scheduling is the clear winner.
+
+\clearpage
 \subsubsection{Average Profit per Delivery}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/small/avgprofit.png}
+  \caption{Average Profit over Time.}
+  \label{fig:small_avgprofit}
+\end{figure}
+
 \subsubsection{Total Profit}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/small/profit.png}
+  \caption{Total Profit over Time.}
+  \label{fig:small_profit}
+\end{figure}
+
+\clearpage
+\subsubsection{Completed Deliveries}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/small/deliveries.png}
+  \caption{Completed Deliveries over Time.}
+  \label{fig:small_deliveries}
+\end{figure}
 
 \subsection{Evicted Potential}
+As FCFS does not have any sort of priority system, it is completely non-discriminatory and according to Figure \ref{fig:small_potential} leads to an Evicted Potential roughly double of whatever LLV and SJF are evicting.\\
 
+An interesting observation, however, is that FCFS and LLV have similar total evicted potentials, but as per Figure \ref{fig:small_avgpotential} the average evicted potential for LLV is 2-4 times lower. This implies that LLV is evicting far more elements, which can explained as a by-product of the complicated nature in how LLV accepts all requests before pruning them periodically.\\
+
+Note that there are no results for C3 because the queues were never close to full enough, hence never requiring any elements to be evicted.
+
+\clearpage
+\subsubsection{Evicted Potential}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/small/potential.png}
+  \caption{Evicted Potential over Time.}
+  \label{fig:small_potential}
+\end{figure}
+
+\subsubsection{Average Evicted Potential}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/small/avgpotential.png}
+  \caption{Average Evicted Potential over Time.}
+  \label{fig:small_avgpotential}
+\end{figure}
+
+\clearpage
 \subsection{Timing}
 \subsubsection{Average Wait Time}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.5\linewidth]{img/small/avgwaittime.png}
+  \caption{Graph to show Average Wait Time.}
+  \label{fig:small_avgwaittime}
+\end{figure}
+
 \subsubsection{Average Delivery Time}
-\subsubsection{Out for Delivery Time}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.5\linewidth]{img/small/avgdeltime.png}
+  \caption{Graph to show Average Delivery Time.}
+  \label{fig:small_avgdeltime}
+\end{figure}
+
+\subsubsection{Time Out for Delivery}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.5\linewidth]{img/small/deltime.png}
+  \caption{Graph to show Average Time Out for Delivery.}
+  \label{fig:small_deltime}
+\end{figure}
+
+\subsection{Summary}
 
 
 % heavy load vs light load (queue size)

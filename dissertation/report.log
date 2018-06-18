@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  18 JUN 2018 06:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  18 JUN 2018 08:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3187,27 +3187,147 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[105 <./img/example_log_view_full.png>]
+[105 <./img/example_log_view_full.png>] <img/small/drones.png, id=472, 837.1275pt x 463.7325pt>
+File: img/small/drones.png Graphic file (type png)
+ <use img/small/drones.png>
+Package pdftex.def Info: img/small/drones.png used on input line 1842.
+(pdftex.def)             Requested size: 426.79135pt x 236.42259pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[106]
-Chapter 13.
+[106 <./img/small/drones.png>] <img/small/opdrones.png, id=478, 842.64813pt x 467.24562pt>
+File: img/small/opdrones.png Graphic file (type png)
+ <use img/small/opdrones.png>
+Package pdftex.def Info: img/small/opdrones.png used on input line 1852.
+(pdftex.def)             Requested size: 426.79135pt x 236.65942pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1858--1859
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1860--1861
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
 [107
+
+ <./img/small/opdrones.png>] <img/small/avgprofit.png, id=483, 851.18pt x 467.7475pt>
+File: img/small/avgprofit.png Graphic file (type png)
+ <use img/small/avgprofit.png>
+Package pdftex.def Info: img/small/avgprofit.png used on input line 1868.
+(pdftex.def)             Requested size: 426.79135pt x 234.53693pt.
+ <img/small/profit.png, id=484, 857.70438pt x 462.72874pt>
+File: img/small/profit.png Graphic file (type png)
+ <use img/small/profit.png>
+Package pdftex.def Info: img/small/profit.png used on input line 1876.
+(pdftex.def)             Requested size: 426.79135pt x 230.25528pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[108
+
+ <./img/small/avgprofit.png> <./img/small/profit.png>] <img/small/deliveries.png, id=490, 855.195pt x 465.23813pt>
+File: img/small/deliveries.png Graphic file (type png)
+ <use img/small/deliveries.png>
+Package pdftex.def Info: img/small/deliveries.png used on input line 1885.
+(pdftex.def)             Requested size: 426.79135pt x 232.17834pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1891--1892
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1893--1894
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[109
+
+ <./img/small/deliveries.png>] <img/small/potential.png, id=495, 848.67062pt x 465.23813pt>
+File: img/small/potential.png Graphic file (type png)
+ <use img/small/potential.png>
+Package pdftex.def Info: img/small/potential.png used on input line 1901.
+(pdftex.def)             Requested size: 426.79135pt x 233.96729pt.
+ <img/small/avgpotential.png, id=496, 845.1575pt x 465.23813pt>
+File: img/small/avgpotential.png Graphic file (type png)
+ <use img/small/avgpotential.png>
+Package pdftex.def Info: img/small/avgpotential.png used on input line 1909.
+(pdftex.def)             Requested size: 426.79135pt x 234.93983pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[110
+
+ <./img/small/potential.png> <./img/small/avgpotential.png>] <img/small/avgwaittime.png, id=502, 842.64813pt x 467.24562pt>
+File: img/small/avgwaittime.png Graphic file (type png)
+ <use img/small/avgwaittime.png>
+Package pdftex.def Info: img/small/avgwaittime.png used on input line 1919.
+(pdftex.def)             Requested size: 213.39568pt x 118.32259pt.
+ <img/small/avgdeltime.png, id=503, 838.63312pt x 461.22313pt>
+File: img/small/avgdeltime.png Graphic file (type png)
+ <use img/small/avgdeltime.png>
+Package pdftex.def Info: img/small/avgdeltime.png used on input line 1927.
+(pdftex.def)             Requested size: 213.39568pt x 117.3605pt.
+ <img/small/deltime.png, id=504, 847.66687pt x 465.74pt>
+File: img/small/deltime.png Graphic file (type png)
+ <use img/small/deltime.png>
+Package pdftex.def Info: img/small/deltime.png used on input line 1935.
+(pdftex.def)             Requested size: 213.39568pt x 117.24486pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[111
+
+ <./img/small/avgwaittime.png> <./img/small/avgdeltime.png> <./img/small/deltime.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[112]
+Chapter 13.
+[113
 
 ]
 Chapter 14.
-[108
+[114
 
 ]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1906.
+(Font)              scaled to size 8.0pt on input line 1998.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1906.
- [109
+(Font)              scaled to size 6.0pt on input line 1998.
+ [115
 
 ]
 
@@ -3216,15 +3336,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[110]
+[116]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[111]
-Overfull \hbox (5.94624pt too wide) in paragraph at lines 1907--1907
+[117]
+Overfull \hbox (5.94624pt too wide) in paragraph at lines 1999--1999
 []\OT1/qpl/m/n/10.95 Improbable Worlds Ltd. \OT1/qpl/m/it/10.95 Spa-tia-lOS Tech-ni-cal Break-down\OT1/qpl/m/n/10.95 . 2018. (Vis-ited on 01/25/2018). 
  []
 
@@ -3234,20 +3354,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[112]
+[118]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[113]
-Overfull \hbox (11.39943pt too wide) in paragraph at lines 1907--1907
+[119]
+Overfull \hbox (11.39943pt too wide) in paragraph at lines 1999--1999
 []\OT1/qpl/m/n/10.95 Tansel Uras and Sven Koenig. \  An Em-pir-i-cal Com-par-i-son of Any-Angle Path-Planning
  []
 
 
-Overfull \hbox (0.26334pt too wide) in paragraph at lines 1907--1907
+Overfull \hbox (0.26334pt too wide) in paragraph at lines 1999--1999
 []\OT1/qpl/m/n/10.95 Adrienne Welch. \  A cost-benefit anal-y-sis of Ama-zon Prime Air A Cost-Benefit Anal-
  []
 
@@ -3257,14 +3377,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[114] [115
+[120] [121
 
 
 ]
 Appendix A.
 \openout6 = `report.listing'.
 
-(./report.listing) [116
+(./report.listing) [122
 
 ]
 Overfull \vbox (45.9214pt too high) has occurred while \output is active []
@@ -3276,7 +3396,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[117]
+[123]
 \openout6 = `report.listing'.
 
  (./report.listing)
@@ -3289,7 +3409,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[118]
+[124]
 \openout6 = `report.listing'.
 
  (./report.listing)
@@ -3299,26 +3419,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[119]
+[125]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[120]
+[126]
 Appendix B.
-<img/listofnfzlocations.png, id=520, 261.97874pt x 322.20375pt>
+<img/listofnfzlocations.png, id=559, 261.97874pt x 322.20375pt>
 File: img/listofnfzlocations.png Graphic file (type png)
  <use img/listofnfzlocations.png>
-Package pdftex.def Info: img/listofnfzlocations.png used on input line 2019.
+Package pdftex.def Info: img/listofnfzlocations.png used on input line 2111.
 (pdftex.def)             Requested size: 298.75264pt x 367.44391pt.
- <img/listofcontrollerlocations.png, id=521, 151.56625pt x 387.4475pt>
+ <img/listofcontrollerlocations.png, id=560, 151.56625pt x 387.4475pt>
 File: img/listofcontrollerlocations.png Graphic file (type png)
  <use img/listofcontrollerlocations.png>
-Package pdftex.def Info: img/listofcontrollerlocations.png used on input line 2025.
+Package pdftex.def Info: img/listofcontrollerlocations.png used on input line 2117.
 (pdftex.def)             Requested size: 213.39568pt x 545.50883pt.
- [121
+ [127
 
  <./img/listofnfzlocations.png>]
 
@@ -3327,7 +3447,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[122 <./img/listofcontrollerlocations.png>] (./report.aux)
+[128 <./img/listofcontrollerlocations.png>] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -3336,19 +3456,19 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40157 strings out of 492995
- 831145 string characters out of 6132703
- 1284657 words of memory out of 5000000
- 43009 multiletter control sequences out of 15000+600000
+ 40218 strings out of 492995
+ 832593 string characters out of 6132703
+ 1284789 words of memory out of 5000000
+ 43059 multiletter control sequences out of 15000+600000
  71533 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on report.pdf (125 pages, 34637992 bytes).
+Output written on report.pdf (131 pages, 35745017 bytes).
 PDF statistics:
- 592 PDF objects out of 1000 (max. 8388607)
- 350 compressed objects within 4 object streams
+ 631 PDF objects out of 1000 (max. 8388607)
+ 363 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 364 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 414 words of extra memory for PDF output out of 10000 (max. 10000000)
 

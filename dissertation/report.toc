@@ -262,60 +262,68 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {12.2.1}Determining Load}{106}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.2.2}Profitability}{106}
+\contentsline {subsection}{\numberline {12.2.2}Profitability}{107}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Average Profit per Delivery}{106}
+\contentsline {subsubsection}{Average Profit per Delivery}{108}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Total Profit}{106}
+\contentsline {subsubsection}{Total Profit}{108}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.2.3}Evicted Potential}{106}
+\contentsline {subsubsection}{Completed Deliveries}{109}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.2.4}Timing}{106}
+\contentsline {subsection}{\numberline {12.2.3}Evicted Potential}{109}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Average Wait Time}{106}
+\contentsline {subsubsection}{Evicted Potential}{110}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Average Delivery Time}{106}
+\contentsline {subsubsection}{Average Evicted Potential}{110}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Out for Delivery Time}{106}
+\contentsline {subsection}{\numberline {12.2.4}Timing}{111}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.3}Large Scale London Simulation}{106}
+\contentsline {subsubsection}{Average Wait Time}{111}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.4}SpatiaOS}{106}
+\contentsline {subsubsection}{Average Delivery Time}{111}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.4.1}Performance Review}{106}
+\contentsline {subsubsection}{Time Out for Delivery}{111}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{London Small}{106}
+\contentsline {subsection}{\numberline {12.2.5}Summary}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{London Large}{106}
+\contentsline {section}{\numberline {12.3}Large Scale London Simulation}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.4.2}Summary}{106}
+\contentsline {section}{\numberline {12.4}SpatiaOS}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.5}Delivery Network Architecture}{106}
+\contentsline {subsection}{\numberline {12.4.1}Performance Review}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.5.1}Successes}{106}
+\contentsline {subsubsection}{London Small}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.5.2}Sum}{106}
+\contentsline {subsubsection}{London Large}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Conclusion}{107}
+\contentsline {subsection}{\numberline {12.4.2}Summary}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {14}Future Work}{108}
+\contentsline {section}{\numberline {12.5}Delivery Network Architecture}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{109}
+\contentsline {subsection}{\numberline {12.5.1}Successes}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Appendices}{115}
+\contentsline {subsection}{\numberline {12.5.2}Sum}{112}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Code Listings}{116}
+\contentsline {chapter}{\numberline {13}Conclusion}{113}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{117}
+\contentsline {chapter}{\numberline {14}Future Work}{114}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{118}
+\contentsline {section}{References}{115}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Main Controller Loop}{119}
+\contentsline {chapter}{Appendices}{121}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{120}
+\contentsline {chapter}{\numberline {A}Code Listings}{122}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {B}Large London Snapshot}{121}
+\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{123}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.1}List of No Fly Zones}{121}
+\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{124}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.2}List of Controller Locations}{122}
+\contentsline {section}{\numberline {A.3}Main Controller Loop}{125}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{126}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Large London Snapshot}{127}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.1}List of No Fly Zones}{127}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.2}List of Controller Locations}{128}
