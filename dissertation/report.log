@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  18 JUN 2018 06:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  18 JUN 2018 06:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2455,9 +2455,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1106--1107
 
  []
 
-\openout6 = `report.listing'.
 
-(./report.listing)
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2465,6 +2467,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [59]
+\openout6 = `report.listing'.
+
+ (./report.listing)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2480,16 +2485,11 @@ Chapter 6.
 <img/london_snapshot_small.png, id=297, 1347.0325pt x 1078.0275pt>
 File: img/london_snapshot_small.png Graphic file (type png)
  <use img/london_snapshot_small.png>
-Package pdftex.def Info: img/london_snapshot_small.png used on input line 1130.
+Package pdftex.def Info: img/london_snapshot_small.png used on input line 1132.
 (pdftex.def)             Requested size: 384.1096pt x 307.40552pt.
  [62
 
  <./img/london_snapshot_small.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1136--1137
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1138--1139
 
  []
@@ -2500,23 +2500,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 1140--1141
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1142--1143
+
+ []
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [63]
-Underfull \hbox (badness 10000) in paragraph at lines 1148--1149
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1151
 
  []
 
 <img/unity_londonsnapshotsmallexample.png, id=305, 1798.72pt x 1139.25626pt>
 File: img/unity_londonsnapshotsmallexample.png Graphic file (type png)
  <use img/unity_londonsnapshotsmallexample.png>
-Package pdftex.def Info: img/unity_londonsnapshotsmallexample.png used on input line 1156.
+Package pdftex.def Info: img/unity_londonsnapshotsmallexample.png used on input line 1158.
 (pdftex.def)             Requested size: 426.79135pt x 270.31541pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
+Underfull \hbox (badness 10000) in paragraph at lines 1166--1167
 
  []
 
@@ -2539,19 +2544,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [65]
-Overfull \hbox (3.11124pt too wide) in paragraph at lines 1190--1191
+Overfull \hbox (3.11124pt too wide) in paragraph at lines 1192--1193
 \OT1/qpl/m/n/10.95 not change its un-der-ly-ing pre-fab, mak-ing this a re-ally ef-fec-tive work-flow for rapidly adding
  []
 
 <img/nfz_representation_example.png, id=314, 804.00375pt x 365.365pt>
 File: img/nfz_representation_example.png Graphic file (type png)
  <use img/nfz_representation_example.png>
-Package pdftex.def Info: img/nfz_representation_example.png used on input line 1194.
+Package pdftex.def Info: img/nfz_representation_example.png used on input line 1196.
 (pdftex.def)             Requested size: 362.77525pt x 164.85315pt.
  <img/london_snapshot_small_nfzs.png, id=315, 1347.0325pt x 1078.0275pt>
 File: img/london_snapshot_small_nfzs.png Graphic file (type png)
  <use img/london_snapshot_small_nfzs.png>
-Package pdftex.def Info: img/london_snapshot_small_nfzs.png used on input line 1201.
+Package pdftex.def Info: img/london_snapshot_small_nfzs.png used on input line 1203.
 (pdftex.def)             Requested size: 362.77525pt x 290.33109pt.
 
 
@@ -2572,17 +2577,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [67
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1256--1257
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1258--1259
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1260--1261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1262--1263
 
  []
 
@@ -2597,10 +2602,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ] <img/menuotions.png, id=327, 226.8475pt x 110.4125pt>
 File: img/menuotions.png Graphic file (type png)
  <use img/menuotions.png>
-Package pdftex.def Info: img/menuotions.png used on input line 1275.
+Package pdftex.def Info: img/menuotions.png used on input line 1277.
 (pdftex.def)             Requested size: 213.39568pt x 103.86525pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1293--1294
+Underfull \hbox (badness 10000) in paragraph at lines 1295--1296
 
  []
 
@@ -2611,14 +2616,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [69 <./img/menuotions.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1295--1296
+Underfull \hbox (badness 10000) in paragraph at lines 1297--1298
 
  []
 
 <img/smol.png, id=332, 1347.0325pt x 1078.0275pt>
 File: img/smol.png Graphic file (type png)
  <use img/smol.png>
-Package pdftex.def Info: img/smol.png used on input line 1301.
+Package pdftex.def Info: img/smol.png used on input line 1303.
 (pdftex.def)             Requested size: 341.43437pt x 273.24022pt.
 
 
@@ -2630,7 +2635,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [70 <./img/smol.png>] <img/gdoc2.png, id=338, 1606.0pt x 1341.01pt>
 File: img/gdoc2.png Graphic file (type png)
  <use img/gdoc2.png>
-Package pdftex.def Info: img/gdoc2.png used on input line 1311.
+Package pdftex.def Info: img/gdoc2.png used on input line 1313.
 (pdftex.def)             Requested size: 405.45047pt x 338.54608pt.
 
 
@@ -2646,17 +2651,17 @@ Chapter 7.
 [72
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1333--1334
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1335--1336
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1339--1340
 
  []
 
@@ -2674,12 +2679,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [74]
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1368
+Underfull \hbox (badness 10000) in paragraph at lines 1369--1370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1372--1373
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1375
 
  []
 
@@ -2692,12 +2697,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [75
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1403--1404
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1406
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1405--1406
+Underfull \hbox (badness 10000) in paragraph at lines 1407--1408
 
  []
 
@@ -2712,7 +2717,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ] <img/drone_delivery_example_cost.png, id=359, 1606.0pt x 1184.425pt>
 File: img/drone_delivery_example_cost.png Graphic file (type png)
  <use img/drone_delivery_example_cost.png>
-Package pdftex.def Info: img/drone_delivery_example_cost.png used on input line 1417.
+Package pdftex.def Info: img/drone_delivery_example_cost.png used on input line 1419.
 (pdftex.def)             Requested size: 384.1096pt x 283.2738pt.
 
 
@@ -2722,7 +2727,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [77 <./img/drone_delivery_example_cost.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1425--1426
+Underfull \hbox (badness 10000) in paragraph at lines 1427--1428
 
  []
 
@@ -2735,17 +2740,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [78]
 Chapter 8.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1432--1433
+Underfull \hbox (badness 10000) in paragraph at lines 1434--1435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1437--1438
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1442--1443
+Underfull \hbox (badness 10000) in paragraph at lines 1444--1445
 
  []
 
@@ -2754,7 +2759,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1442--1443
 ] <img/testpostplsignore.jpg, id=369, 1317.92375pt x 838.13126pt>
 File: img/testpostplsignore.jpg Graphic file (type jpg)
  <use img/testpostplsignore.jpg>
-Package pdftex.def Info: img/testpostplsignore.jpg used on input line 1448.
+Package pdftex.def Info: img/testpostplsignore.jpg used on input line 1450.
 (pdftex.def)             Requested size: 426.79135pt x 271.41748pt.
 
 
@@ -2766,7 +2771,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [80 <./img/testpostplsignore.jpg>] <img/tvfs_halvening.png, id=373, 1618.045pt x 1147.28625pt>
 File: img/tvfs_halvening.png Graphic file (type png)
  <use img/tvfs_halvening.png>
-Package pdftex.def Info: img/tvfs_halvening.png used on input line 1466.
+Package pdftex.def Info: img/tvfs_halvening.png used on input line 1468.
 (pdftex.def)             Requested size: 426.79135pt x 302.6114pt.
 
 
@@ -2780,7 +2785,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  <./img/tvfs_halvening.png>] <img/tvfs_decrease.png, id=378, 1618.045pt x 1147.28625pt>
 File: img/tvfs_decrease.png Graphic file (type png)
  <use img/tvfs_decrease.png>
-Package pdftex.def Info: img/tvfs_decrease.png used on input line 1479.
+Package pdftex.def Info: img/tvfs_decrease.png used on input line 1481.
 (pdftex.def)             Requested size: 426.79135pt x 302.6114pt.
 
 
@@ -2796,11 +2801,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1488--1489
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1490--1491
 
  []
@@ -2811,19 +2811,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 1492--1493
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1497--1498
+Underfull \hbox (badness 10000) in paragraph at lines 1494--1495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1499--1500
 
  []
 
 [84
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1499--1500
+Underfull \hbox (badness 10000) in paragraph at lines 1501--1502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1504--1505
+Underfull \hbox (badness 10000) in paragraph at lines 1506--1507
 
  []
 
@@ -2834,12 +2839,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [85]
-Underfull \hbox (badness 10000) in paragraph at lines 1528--1529
+Underfull \hbox (badness 10000) in paragraph at lines 1530--1531
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1530--1531
+Underfull \hbox (badness 10000) in paragraph at lines 1532--1533
 
  []
 
@@ -2852,11 +2857,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [86
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1535--1536
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1537--1538
 
  []
@@ -2867,13 +2867,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1539--1540
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1541--1542
+
+ []
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [87]
-Underfull \hbox (badness 10000) in paragraph at lines 1565--1566
+Underfull \hbox (badness 10000) in paragraph at lines 1567--1568
 
  []
 
@@ -2886,12 +2891,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [88
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1576--1577
+Underfull \hbox (badness 10000) in paragraph at lines 1578--1579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1581--1582
+Underfull \hbox (badness 10000) in paragraph at lines 1583--1584
 
  []
 
@@ -2905,19 +2910,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1589.
+(Font)              scaled to size 10.95pt on input line 1591.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1589--1590
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1592--1593
+Underfull \hbox (badness 10000) in paragraph at lines 1591--1592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1604--1605
+Underfull \hbox (badness 10000) in paragraph at lines 1594--1595
 
  []
 
@@ -2927,7 +2927,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1606--1607
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1617--1618
+Underfull \hbox (badness 10000) in paragraph at lines 1608--1609
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1619--1620
 
  []
 
@@ -2952,22 +2957,22 @@ Chapter 10.
 [92
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1667--1668
+Underfull \hbox (badness 10000) in paragraph at lines 1669--1670
 
  []
 
 
-Overfull \hbox (1.09569pt too wide) in paragraph at lines 1669--1670
+Overfull \hbox (1.09569pt too wide) in paragraph at lines 1671--1672
 \OT1/qpl/m/n/10.95 Wem-b-ley, Good-mayes and Bex-ley-heath, as shown by the area in Fig-ure 10.1[]. These bounds
  []
 
 <img/london_snapshot_large.png, id=417, 2708.1175pt x 1227.58624pt>
 File: img/london_snapshot_large.png Graphic file (type png)
  <use img/london_snapshot_large.png>
-Package pdftex.def Info: img/london_snapshot_large.png used on input line 1673.
+Package pdftex.def Info: img/london_snapshot_large.png used on input line 1675.
 (pdftex.def)             Requested size: 426.79135pt x 193.45824pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1681--1682
+Underfull \hbox (badness 10000) in paragraph at lines 1683--1684
 
  []
 
@@ -2980,12 +2985,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [93
 
  <./img/london_snapshot_large.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1686--1687
+Underfull \hbox (badness 10000) in paragraph at lines 1688--1689
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1691--1692
+Underfull \hbox (badness 10000) in paragraph at lines 1693--1694
 
  []
 
@@ -2998,15 +3003,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [94] <img/london_snapshot_large_nfzs.png, id=426, 2708.1175pt x 1227.58624pt>
 File: img/london_snapshot_large_nfzs.png Graphic file (type png)
  <use img/london_snapshot_large_nfzs.png>
-Package pdftex.def Info: img/london_snapshot_large_nfzs.png used on input line 1699.
+Package pdftex.def Info: img/london_snapshot_large_nfzs.png used on input line 1701.
 (pdftex.def)             Requested size: 426.79135pt x 193.45824pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1704--1705
+Underfull \hbox (badness 10000) in paragraph at lines 1706--1707
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1709--1710
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1712
 
  []
 
@@ -3017,19 +3022,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [95 <./img/london_snapshot_large_nfzs.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1715--1716
+Underfull \hbox (badness 10000) in paragraph at lines 1717--1718
 
  []
 
 <img/may_03_OG.png, id=431, 1994.45125pt x 888.31876pt>
 File: img/may_03_OG.png Graphic file (type png)
  <use img/may_03_OG.png>
-Package pdftex.def Info: img/may_03_OG.png used on input line 1721.
+Package pdftex.def Info: img/may_03_OG.png used on input line 1723.
 (pdftex.def)             Requested size: 426.79135pt x 190.0902pt.
  <img/may_03_123.png, id=432, 1994.45125pt x 2664.95625pt>
 File: img/may_03_123.png Graphic file (type png)
  <use img/may_03_123.png>
-Package pdftex.def Info: img/may_03_123.png used on input line 1731.
+Package pdftex.def Info: img/may_03_123.png used on input line 1733.
 (pdftex.def)             Requested size: 426.79135pt x 570.27061pt.
 
 
@@ -3048,19 +3053,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [97 <./img/may_03_123.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1737--1738
+Underfull \hbox (badness 10000) in paragraph at lines 1739--1740
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1739--1740
+Underfull \hbox (badness 10000) in paragraph at lines 1741--1742
 
  []
 
 <img/may_03_4.png, id=441, 1994.45125pt x 888.31876pt>
 File: img/may_03_4.png Graphic file (type png)
  <use img/may_03_4.png>
-Package pdftex.def Info: img/may_03_4.png used on input line 1745.
+Package pdftex.def Info: img/may_03_4.png used on input line 1747.
 (pdftex.def)             Requested size: 426.79135pt x 190.0902pt.
 
 
@@ -3074,7 +3079,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  <./img/may_03_4.png>] <img/launchpads.png, id=446, 510.90875pt x 517.935pt>
 File: img/launchpads.png Graphic file (type png)
  <use img/launchpads.png>
-Package pdftex.def Info: img/launchpads.png used on input line 1758.
+Package pdftex.def Info: img/launchpads.png used on input line 1760.
 (pdftex.def)             Requested size: 426.79135pt x 432.6599pt.
 
 
@@ -3088,23 +3093,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  <./img/launchpads.png>]
 Chapter 11.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1769--1770
+Underfull \hbox (badness 10000) in paragraph at lines 1771--1772
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1771--1772
+Underfull \hbox (badness 10000) in paragraph at lines 1773--1774
 
  []
 
 [100
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1777--1778
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1779--1780
 
  []
@@ -3115,7 +3115,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1781--1782
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1786--1787
+Underfull \hbox (badness 10000) in paragraph at lines 1783--1784
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1788--1789
 
  []
 
@@ -3128,7 +3133,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [101
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1791--1792
+Underfull \hbox (badness 10000) in paragraph at lines 1793--1794
 
  []
 
@@ -3145,17 +3150,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 12.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1808--1809
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1810--1811
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1815--1816
+Underfull \hbox (badness 10000) in paragraph at lines 1812--1813
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1817--1818
 
  []
 
@@ -3164,15 +3169,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1815--1816
 ] <img/example_log_view_full.png, id=467, 1447.4075pt x 345.29pt>
 File: img/example_log_view_full.png Graphic file (type png)
  <use img/example_log_view_full.png>
-Package pdftex.def Info: img/example_log_view_full.png used on input line 1821.
+Package pdftex.def Info: img/example_log_view_full.png used on input line 1823.
 (pdftex.def)             Requested size: 426.79135pt x 101.81224pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1826--1827
+Underfull \hbox (badness 10000) in paragraph at lines 1828--1829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1828--1829
+Underfull \hbox (badness 10000) in paragraph at lines 1830--1831
 
  []
 
@@ -3199,9 +3204,9 @@ Chapter 14.
 
 ]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1879.
+(Font)              scaled to size 8.0pt on input line 1906.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1879.
+(Font)              scaled to size 6.0pt on input line 1906.
  [109
 
 ]
@@ -3219,7 +3224,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [111]
-Overfull \hbox (5.94624pt too wide) in paragraph at lines 1880--1880
+Overfull \hbox (5.94624pt too wide) in paragraph at lines 1907--1907
 []\OT1/qpl/m/n/10.95 Improbable Worlds Ltd. \OT1/qpl/m/it/10.95 Spa-tia-lOS Tech-ni-cal Break-down\OT1/qpl/m/n/10.95 . 2018. (Vis-ited on 01/25/2018). 
  []
 
@@ -3237,12 +3242,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [113]
-Overfull \hbox (11.39943pt too wide) in paragraph at lines 1880--1880
+Overfull \hbox (11.39943pt too wide) in paragraph at lines 1907--1907
 []\OT1/qpl/m/n/10.95 Tansel Uras and Sven Koenig. \  An Em-pir-i-cal Com-par-i-son of Any-Angle Path-Planning
  []
 
 
-Overfull \hbox (0.26334pt too wide) in paragraph at lines 1880--1880
+Overfull \hbox (0.26334pt too wide) in paragraph at lines 1907--1907
 []\OT1/qpl/m/n/10.95 Adrienne Welch. \  A cost-benefit anal-y-sis of Ama-zon Prime Air A Cost-Benefit Anal-
  []
 
@@ -3306,12 +3311,12 @@ Appendix B.
 <img/listofnfzlocations.png, id=520, 261.97874pt x 322.20375pt>
 File: img/listofnfzlocations.png Graphic file (type png)
  <use img/listofnfzlocations.png>
-Package pdftex.def Info: img/listofnfzlocations.png used on input line 1992.
+Package pdftex.def Info: img/listofnfzlocations.png used on input line 2019.
 (pdftex.def)             Requested size: 298.75264pt x 367.44391pt.
  <img/listofcontrollerlocations.png, id=521, 151.56625pt x 387.4475pt>
 File: img/listofcontrollerlocations.png Graphic file (type png)
  <use img/listofcontrollerlocations.png>
-Package pdftex.def Info: img/listofcontrollerlocations.png used on input line 1998.
+Package pdftex.def Info: img/listofcontrollerlocations.png used on input line 2025.
 (pdftex.def)             Requested size: 213.39568pt x 545.50883pt.
  [121
 
@@ -3340,7 +3345,7 @@ Here is how much of TeX's memory you used:
  63i,16n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on report.pdf (125 pages, 34637223 bytes).
+Output written on report.pdf (125 pages, 34637992 bytes).
 PDF statistics:
  592 PDF objects out of 1000 (max. 8388607)
  350 compressed objects within 4 object streams

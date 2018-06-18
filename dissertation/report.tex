@@ -1103,8 +1103,13 @@ We designed it this way so that \textit{DeliveryRequest} data could be extended 
 \subsection{Order Generator}
 Now that we have defined a basic \textit{DeliveryRequest} type, it is the order generator's job to regularly create and send these requests to the appropriate controller. At the moment the request only requires a location vector, so our plan to do this is to generate a random point in the world not in a No Fly Zone, and then find the closest controller to said point.\\
 
+To enforce that each run of a simulation starts produces the same sequence of random numbers, and thus the same sequence of generated requests, we initialise our random number generator with a seed of 42.\\
+
 We would like the orders to be generated at regular time intervals such that each Controller receives an order every 30 seconds on average. By distributing controllers evenly such that each one is responsible for similar sized regions of the world, we can infer that the Order Generator works generates requests every $\frac{30}{\#controllers}$ seconds.\\
 
+In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
+
+\clearpage
 \begin{sexylisting}[colback=white]{Order Generator Schema}
 type ControllerInfo {
   EntityId controller_id = 1;
@@ -1117,9 +1122,6 @@ component OrderGeneratorComponent {
   list<ControllerInfo> controllers = 2;
 }
 \end{sexylisting}
-
-\clearpage
-In order to generate valid requests, we need to know about all the No Fly Zones in the world as well as the location and EntityId of each Controller. Since each controller will be placed at pre-determined locations from a starting snapshot, we know both of these details at snapshot-creation and can subsequently use this to set the starting state of the Order Generator.
 
 \part{Incorporating Reality}
 \chapter{Achieving London-Scale Simulation}
@@ -1840,6 +1842,12 @@ We assert that the following comparisons utilise data taken from simulations bas
 
 \subsection{Evicted Potential}
 
+\subsection{Timing}
+\subsubsection{Average Wait Time}
+\subsubsection{Average Delivery Time}
+\subsubsection{Out for Delivery Time}
+
+
 % heavy load vs light load (queue size)
 % average profit per Delivery
 % total profit
@@ -1854,7 +1862,16 @@ We assert that the following comparisons utilise data taken from simulations bas
 % architecture works at scale, still with room for improvement
 % Of special interest is the behaviour of the LLV scheduler, as it would only prune items from its queue when a call to return the next \texttt{DeliveryRequest} is made. It remains to be seen whether a Controller running the LLV scheduler will be able to handle the extra CPU and memory burden that this design decision will inflict on it.
 
-\section{section name}
+\section{SpatiaOS}
+\subsection{Performance Review}
+\subsubsection{London Small}
+\subsubsection{London Large}
+
+\subsection{Summary}
+
+\section{Delivery Network Architecture}
+\subsection{Successes}
+\subsection{Sum}
 
 
 %**********************************************%

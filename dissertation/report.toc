@@ -260,9 +260,41 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12.2}Comparing Schedulers}{106}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.2.1}Determining Load}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.2.2}Profitability}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Average Profit per Delivery}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Total Profit}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.2.3}Evicted Potential}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.2.4}Timing}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Average Wait Time}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Average Delivery Time}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Out for Delivery Time}{106}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12.3}Large Scale London Simulation}{106}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.4}section name}{106}
+\contentsline {section}{\numberline {12.4}SpatiaOS}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.4.1}Performance Review}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{London Small}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{London Large}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.4.2}Summary}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {12.5}Delivery Network Architecture}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.5.1}Successes}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.5.2}Sum}{106}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {13}Conclusion}{107}
 \defcounter {refsection}{0}\relax 
