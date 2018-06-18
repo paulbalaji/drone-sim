@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  18 JUN 2018 03:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  18 JUN 2018 04:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2983,11 +2983,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1691--1692
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1693--1694
-
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
@@ -3070,12 +3065,37 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [97
 
  <./img/may_03_4.png>]
+Chapter 11.
+
 Underfull \hbox (badness 10000) in paragraph at lines 1757--1758
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1764--1765
+Underfull \hbox (badness 10000) in paragraph at lines 1759--1760
+
+ []
+
+[98
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1765--1766
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1767--1768
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1769--1770
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1774--1775
 
  []
 
@@ -3085,20 +3105,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[98
+[99
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 1779--1780
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[99] [100
+[100
 
-]
-Chapter 11.
-[101
+] [101
 
 ]
 Chapter 12.
@@ -3109,11 +3131,15 @@ Chapter 13.
 [103
 
 ]
+Chapter 14.
+[104
+
+]
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1824.
+(Font)              scaled to size 8.0pt on input line 1839.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1824.
- [104
+(Font)              scaled to size 6.0pt on input line 1839.
+ [105
 
 ]
 
@@ -3122,15 +3148,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[105]
+[106]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[106]
-Overfull \hbox (5.94624pt too wide) in paragraph at lines 1825--1825
+[107]
+Overfull \hbox (5.94624pt too wide) in paragraph at lines 1840--1840
 []\OT1/qpl/m/n/10.95 Improbable Worlds Ltd. \OT1/qpl/m/it/10.95 Spa-tia-lOS Tech-ni-cal Break-down\OT1/qpl/m/n/10.95 . 2018. (Vis-ited on 01/25/2018). 
  []
 
@@ -3140,20 +3166,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[107]
+[108]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[108]
-Overfull \hbox (11.39943pt too wide) in paragraph at lines 1825--1825
+[109]
+Overfull \hbox (11.39943pt too wide) in paragraph at lines 1840--1840
 []\OT1/qpl/m/n/10.95 Tansel Uras and Sven Koenig. \  An Em-pir-i-cal Com-par-i-son of Any-Angle Path-Planning
  []
 
 
-Overfull \hbox (0.26334pt too wide) in paragraph at lines 1825--1825
+Overfull \hbox (0.26334pt too wide) in paragraph at lines 1840--1840
 []\OT1/qpl/m/n/10.95 Adrienne Welch. \  A cost-benefit anal-y-sis of Ama-zon Prime Air A Cost-Benefit Anal-
  []
 
@@ -3163,14 +3189,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[109] [110
+[110] [111
 
 
 ]
 Appendix A.
 \openout6 = `report.listing'.
 
-(./report.listing) [111
+(./report.listing) [112
 
 ]
 Overfull \vbox (45.9214pt too high) has occurred while \output is active []
@@ -3182,20 +3208,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[112]
-\openout6 = `report.listing'.
-
- (./report.listing)
-\openout6 = `report.listing'.
-
- (./report.listing)
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [113]
+\openout6 = `report.listing'.
+
+ (./report.listing)
 \openout6 = `report.listing'.
 
  (./report.listing)
@@ -3206,6 +3222,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [114]
+\openout6 = `report.listing'.
+
+ (./report.listing)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -3213,18 +3232,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [115]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[116]
 Appendix B.
-<img/listofnfzlocations.png, id=500, 261.97874pt x 322.20375pt>
+<img/listofnfzlocations.png, id=503, 261.97874pt x 322.20375pt>
 File: img/listofnfzlocations.png Graphic file (type png)
  <use img/listofnfzlocations.png>
-Package pdftex.def Info: img/listofnfzlocations.png used on input line 1937.
+Package pdftex.def Info: img/listofnfzlocations.png used on input line 1952.
 (pdftex.def)             Requested size: 298.75264pt x 367.44391pt.
- <img/listofcontrollerlocations.png, id=501, 151.56625pt x 387.4475pt>
+ <img/listofcontrollerlocations.png, id=504, 151.56625pt x 387.4475pt>
 File: img/listofcontrollerlocations.png Graphic file (type png)
  <use img/listofcontrollerlocations.png>
-Package pdftex.def Info: img/listofcontrollerlocations.png used on input line 1943.
+Package pdftex.def Info: img/listofcontrollerlocations.png used on input line 1958.
 (pdftex.def)             Requested size: 213.39568pt x 545.50883pt.
- [116
+ [117
 
  <./img/listofnfzlocations.png>]
 
@@ -3233,7 +3259,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[117 <./img/listofcontrollerlocations.png>] (./report.aux)
+[118 <./img/listofcontrollerlocations.png>] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -3244,17 +3270,17 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 Here is how much of TeX's memory you used:
  40145 strings out of 492995
  830837 string characters out of 6132703
- 1284622 words of memory out of 5000000
+ 1284632 words of memory out of 5000000
  42999 multiletter control sequences out of 15000+600000
  71533 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on report.pdf (120 pages, 34529200 bytes).
+Output written on report.pdf (121 pages, 34531514 bytes).
 PDF statistics:
- 572 PDF objects out of 1000 (max. 8388607)
- 339 compressed objects within 4 object streams
+ 576 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  354 words of extra memory for PDF output out of 10000 (max. 10000000)
 

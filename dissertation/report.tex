@@ -1636,7 +1636,7 @@ class CustomComparer : IComparer<QueueEntry>
 
 %**********************************************%
 \newpage
-\chapter{Scale Testing}
+\chapter{Snapshot Enlargement}
 In order to test the scalability of our current delivery network architecture, we need to try scaling up our simulation. This involves generating a larger snapshot with more Controllers, allocating bigger regions of the world to each Controller, as well as tweaking both the Simulation and SpatialOS configuration settings to support a simulation at the scale we desire.
 
 \section{Expanding London}
@@ -1662,8 +1662,8 @@ Using our experience from building the smaller snapshot of London as a starting 
 \end{itemize}
 
 \clearpage
-\subsection{Simulation Settings}
-\subsubsection{World Size \& Location}
+\section{Simulation Settings}
+\subsection{World Size \& Location}
 As our first snapshot was very focused on central London, we want our expanded snapshot to extend outwards in all directions and encompass more of suburban London. Simulating more of the city provides us a larger canvas and greater ability to tinker about with Controller placement. Perhaps Controllers in suburban locations are able to deal with larger areas as less orders may be requested in the outer areas?\\
 
 With these thoughts in mind we define the four corners of our world to be Richmond, Wembley, Goodmayes and Bexleyheath, as shown by the area in Figure \ref{fig:london_snapshot_large}. These bounds were selected as it encompasses a large variation in London land mass. Not only would it allow us to have a good amount of realistic No Fly Zones, we could also get decent diversity in the size and shape of zones.
@@ -1677,20 +1677,20 @@ With these thoughts in mind we define the four corners of our world to be Richmo
 
 The new enlarged area we have chosen to simulate would generate a snapshot of London with dimensions of 32km x 14.5km, of which 31.5km x 14km is routable. For comparison our existing London snapshot has dimensions of 5km x 4km and a routable bounds of 4.8km x 3.8km, which means that the new snapshot represents over a 24x increase in routable area.
 
-\subsubsection{Order Generator Interval}
+\subsection{Order Generator Interval}
 Though the raw value of this variable is directly dependant on the number of Controllers we have to make use of in this world, we decide to double the expected incoming request rate per Controller so that we are able to observe how they deal with higher request volumes.\\
 
 Suppose we deploy 20 Controllers, we would have to generate a new order every 1.5 seconds in order to average a new incoming \texttt{DeliveryRequest} every 30 seconds per Controller. In the new model doubling the rate means halving the interval time, meaning the OrderGenerator would now send out a new \texttt{DeliveryRequest} every 0.75 seconds.
 
-\subsubsection{Other Settings}
+\subsection{Other Settings}
 As each Controller is expected to handle larger regions of land than before, we increase the number of drones per Controller from 15 to 20, and boost the maximum queue size from 40 to 50. If we doubled the request rate but also doubled the availability of all other resources, there is no net change in simulation behaviour except an increase in volume.\\
 
 By scaling the various parameters differently, we aim to make life more difficult for the simulated delivery network. In this way, our scale test also can act as a stress test to pinpoint weakpoints in the system that need to be amended or mitigated before such a delivery network ``takes off'' in real life.
 
-\subsection{No Fly Zones}
+\section{No Fly Zones}
 Though we lift the restrictions on adding No Fly Zones above major hospitals, we still maintain the rule regarding Royal Parks. Subsequently, we add 7 NFZs associated with Royal Parks to the snapshot. Until there is regulatory clarification over whether flying over parks could be a violation of several privacy rights, we also add Victoria Park, Olympic Park, Kew Gardens and Battersea Park to our list of parks protected by a No Fly Zone.\\
 
-Note that the Regents Park NFZ is also the protector of both London Zoo and Lord's Cricket Ground.\\
+Note that the Regents Park NFZ is also the protector of both London Zoo and Lord's Cricket Ground.
 
 As it is the financial and entrepreneurial hub of the capital, we protect the City of London under a No Fly Zone. London Bridge, Tower Bridge and the Tower of London can all be found under this NFZ. To avoid creating a massive blockade in the center of the city, we place the Barbican under a separate NFZ.
 
@@ -1705,13 +1705,13 @@ We also apply No Fly Zones to cultural and sporting hotspots such as the Oval, W
 
 The full list of No Fly Zones can be seen in Appendix B.2.
 
-\subsection{Controllers}
+\section{Controllers}
 Now that we have our world populated with No Fly Zones, we are able to consider how we might choose to configure our Controllers. Placing Controllers near a NFZ reduces their effectiveness because one of the directions around them is not really a feasible option to route drones via.\\
 
 By placing plenty of distance between each Controller and its closest No Fly Zone, we are able to maximise the number of directions that we are able to send drones out to.
 
 \clearpage
-\subsubsection{Initial Placement}
+\subsection{Initial Placement}
 Initially 18 Controllers were placed across the snapshot, with the intention of having a greater density of drones in the middle of London. However, it can be seen immediately that some Controllers are responsible for huge swathes of suburban London.\\
 
 When compounded with the fact that some of these Controllers would cover regions were there were a lot of No Fly Zones, some could be incredibly underutilised and others could be pushed to their absolute limits by trying to serve all the requests in a large region. This erratic behaviour could be mitigated by analysing their geological distribution properly.
@@ -1723,7 +1723,7 @@ When compounded with the fact that some of these Controllers would cover regions
   \label{fig:may_03_OG}
 \end{figure}
 
-\subsubsection{Voronoi Analysis}
+\subsection{Voronoi Analysis}
 As may be familiar from Section 6.5, we produce a Voronoi diagram for the initial placement of Controllers shown in Figure \ref{fig:may_03_OG}. We then notice that some cells are far larger than others and iteratively make the cell sizes more even by adding Controllers in between large cells.
 
 \begin{figure}[!hbpt]
@@ -1750,27 +1750,35 @@ Secondly, as per our earlier load balancing configuration, SpatialOS will attemp
 The full list of Controller locations can be seen in Appendix B.2.
 
 \clearpage
-\section{Configuring SpatialOS}
-No matter how much is done to make the logic of the simulation as efficient and scalable as possible, there always comes a time where we must look at modifying the SpatialOS worker configurations in order to make better use of the underlying platform.
+\chapter{Scaling with SpatialOS}
+No matter how much is done to make the logic of the simulation as efficient and scalable as possible, there always comes a time where we must look at modifying the SpatialOS worker and launch configurations in order to make better use of the underlying platform.
 
-\subsection{Load Balancer}
+\section{Load Balancer}
 One obvious configuration change we have made and kept since the beginning is to use the Point of Interest based load balancer. By defining Controllers as the central authority over the land closest to them, and telling SpatiaOS to split each Controller off onto its own worker using a similar land division strategy, we minimise the inter-worker communication overheads immensely.\\
 
-In fact, the only intentional cross-worker communication is from the OrderGenerator to a target Controller when sending a new \texttt{DeliveryRequest} at its defined rate. Essentially, by distributing the raw workload in a similar way to the distribution of delivery requests across Controllers, we obtain an efficient, parallel, distributed simulation.
+In fact, the only intentional cross-worker communication is from the OrderGenerator to a target Controller when sending a new \texttt{DeliveryRequest} at its defined rate. Essentially, by distributing the raw workload in a similar way to the way we route delivery requests across Controllers, we obtain an efficient, parallel, distributed simulation.\\
 
-\subsection{Chunk Size}
-% size 50
-% link to total number of chunks in the world then
+To help with updating these parameters when a change was made to the distribution of Controllers, we added an option to the drop-down menu to return the waypoints of every single one of them in a format that could be directly copied into the load balancer configuration.
 
-\subsection{Entity Interest Range}
+\clearpage
+\section{Chunk Size}
+In SpatialOS, a chunk is the smallest unit of area that a world can subdivided into. Every entity belongs to only one chunk, and each chunk has its own overheads because it performs operations to sync with the SpatialOS runtime.\\
+
+By default, the chunk size was set to 50 in our configuration file. For a default world of size 2000 x 2000, that corresponds to 1600 chunks. On the other hand, for our world of size 32000 x 14500 we would be creating 185,600 chunks, which could correspond to over a 100-fold increase in memory, networking and CPU usage!\\
+
+In a post on their forums, one of Improbable's engineers (Callum Brighting) describes a good approach to take when scaling SpatiaOS\cite{Brighting}. In his reply, Callum mentions that one of the company's clients operates a 40km game world with a chunk size of 250m. As our world is of a similar size, we opt to set our chunk size parameter to 250 too.\\
+
+Now if were to do the calculations again with our updated chunk size, we find out that our world consists of 7424 chunks - a far more reasonable figure than 185,600.
+
+\section{Entity Interest Range}
 The second configuration change we make is to the entity interest range. This variable is used to define what entities a worker gets component updates for. Obviously workers authoritative over a specific area will get updates on entities in that area, but they also need to know about what is happening \textbf{nearby}.\\
 
 Given a worker with authority over entity E. The worker gets updates for the entire chunk that E is in. However, if there is a neighbouring chunk with any point inside this radius from entity E, the worker gets updates on this chunk too. By reducing the entity interest range, we can therefore reduce the number of neighbouring chunks that a worker has to check out and receive updates for.
 
-% 200 --> 25
-% what information about its surroundings does a drone need to determine for itself?
-% only nearby drones, so we set range to 25
-% relate to max distance that a drone needs to be able to sense around it
+\clearpage
+Remembering that the chunk size used to be 50, our initial entity interest range of 200 would check out the neighbouring 4 chunks for every entity the worker was authoritative over. Furthermore, was there any need for the worker to be worrying about the 200m surrounding every one of its entities?\\
+
+For our drone simulation, we know that each drone gets information about static obstacles from the Controller. The only information that it needs about its surrounds is regarding what drones are nearby. Since our drone-side collision avoidance never checks beyond a radius of 25m, we can set our entity interest radius to be the same value.
 
 \section{Problems}
 \subsection{Max Unacked Pings Rate}
