@@ -1688,8 +1688,26 @@ As each Controller is expected to handle larger regions of land than before, we 
 By scaling the various parameters differently, we aim to make life more difficult for the simulated delivery network. In this way, our scale test also can act as a stress test to pinpoint weakpoints in the system that need to be amended or mitigated before such a delivery network ``takes off'' in real life.
 
 \subsection{No Fly Zones}
+Though we lift the restrictions on adding No Fly Zones above major hospitals, we still maintain the rule regarding Royal Parks. Subsequently, we add 7 NFZs associated with Royal Parks to the snapshot. Until there is regulatory clarification over whether flying over parks could be a violation of several privacy rights, we also add Victoria Park, Olympic Park, Kew Gardens and Battersea Park to our list of parks protected by a No Fly Zone.\\
+
+Note that the Regents Park NFZ is also the protector of both London Zoo and Lord's Cricket Ground.\\
+
+As it is the financial and entrepreneurial hub of the capital, we protect the City of London under a No Fly Zone. London Bridge, Tower Bridge and the Tower of London can all be found under this NFZ. To avoid creating a massive blockade in the center of the city, we place the Barbican under a separate NFZ.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/london_snapshot_large_nfzs.png}
+  \caption{Our large London snapshot with NFZs highlighted.}
+  \label{fig:london_snapshot_large_nfzs}
+\end{figure}
+
+We also apply No Fly Zones to cultural and sporting hotspots such as the Oval, Wembley Stadium and the O2. However, we also extend the O2 No Fly Zone across a large stretch of East London in order to cover both the skyscapes of Canary Wharf, and the flight paths of planes coming in and out of London City Airport.
 
 \subsection{Controllers}
+Now that we have our world populated with No Fly Zones, we are able to consider how we might choose to configure our Controllers. Placing Controllers near a NFZ reduces their effectiveness because one of the directions around them is not really a feasible option to route drones via.\\
+
+By placing plenty of distance between each Controller and its closest No Fly Zone, we are able to maximise the number of directions that we are able to send drones out to.
+
 \subsubsection{Initial Placement}
 \subsubsection{Voronoi Analysis}
 
