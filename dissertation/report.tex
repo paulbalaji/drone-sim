@@ -116,11 +116,18 @@
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
 
-\HRule \\[0.4cm]
-% { \huge \bfseries Drone Delivery Simulation\\with SpatialOS}\\[0.4cm] % Title
-% { \huge \bfseries Make Drones Not Do A Crash:\\A SpatialOS Story}\\[0.4cm] % Title
-{ \huge \bfseries Make Drones Not Do A Crash:\\A SpatialOS Story}\\[0.4cm] % Title of your
-\HRule \\[0.4cm]
+% \HRule \\[0.4cm]
+% % { \huge \bfseries Drone Delivery Simulation\\using SpatialOS}\\[0.4cm] % Title
+% % { \huge \bfseries Make Drones Not Do A Crash:\\A SpatialOS Story}\\[0.4cm] % Title
+% { \huge \bfseries Simulating Drone Delivery Networks\protect\\using SpatialOS}\\[0.4cm] % Title of your
+% \HRule \\[0.4cm]
+
+\makeatletter
+\title{Simulating Drone Delivery Networks\\using SpatialOS}\let\Title\@title
+\HRule \\%[0.4cm]
+% { \huge \bfseries \@title}\\[0.4cm] % Title of your document
+{\huge\bfseries\linespread{5}\@title\par}
+\HRule \\[1.5cm]
 
 %----------------------------------------------------------------------------------------
 %	AUTHOR SECTION
@@ -1913,18 +1920,30 @@ Note that there are no results for C3 because the queues were never close to ful
 
 \clearpage
 \subsection{Timing}
+To better understand the meaning of these terms, let us define the following:
+$$ Wait\ Time = Time\ of\ Dispatch - Request\ Arrival\ Time $$
+$$ Delivery\ Time = Time\ of\ Delivery - Request\ Arrival\ Time $$
+$$ Time\ Out\ for\ Delivery = Average\ Delivery\ Time - Average\ Wait\ Time $$
+
 \subsubsection{Average Wait Time}
+We can observe the natural behaviour of each scheduler show indirectly in C2. FCFS is a simple FIFO queue, so as time goes on each request has to wait for all other previous requests to complete before it gets its turn. Meanwhile SJF and LLV continually sort and prune their queues, so no element stays longer than some upper limit else its priority will just become too low to be worth keeping.
+
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.5\linewidth]{img/small/avgwaittime.png}
+  \includegraphics[width=\linewidth]{img/small/avgwaittime.png}
   \caption{Graph to show Average Wait Time.}
   \label{fig:small_avgwaittime}
 \end{figure}
 
+With C3 there is no contention for drones as the queues are very relaxed, and there are usually plenty of drones available to accept an order near-instantly. This leads to extremely low wait times.
+
+\clearpage
 \subsubsection{Average Delivery Time}
+Here we see the exact same behaviour as with Figure \ref{fig:small_avgwaittime}, but with a facelift up the y-axis to factor in the time taken to deliver a package after it has been dispatched.
+
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.5\linewidth]{img/small/avgdeltime.png}
+  \includegraphics[width=0.95\linewidth]{img/small/avgdeltime.png}
   \caption{Graph to show Average Delivery Time.}
   \label{fig:small_avgdeltime}
 \end{figure}
@@ -1932,10 +1951,17 @@ Note that there are no results for C3 because the queues were never close to ful
 \subsubsection{Time Out for Delivery}
 \begin{figure}[!hbpt]
   \center
-  \includegraphics[width=0.5\linewidth]{img/small/deltime.png}
+  \includegraphics[width=0.95\linewidth]{img/small/deltime.png}
   \caption{Graph to show Average Time Out for Delivery.}
   \label{fig:small_deltime}
 \end{figure}
+
+\clearpage
+From the results in Figure \ref{fig:small_deltime}, it seems that schedulers do not have much influence over the time a drone spends out for delivery when there is a low load. This is to be expected because, like we have stated already, there is no contention for resources in C3 and thus no need or discernable gain on offer if one was to order by priority.\\
+
+However in C2 we can clearly see the effect that SJF has, as its line on the graph is in general lower than the other lines. This is also to be expected as the whole purpose of SJF is to spend the least time on average out for delivery.\\
+
+Nonetheless, we believe the most interesting story being told by this metric is the intertwining of LLV and FCFS. It shows that although they spend a similar time out on average, the LLV scheduler's intent to maximimise the average profitability of each delivery proves fruitful overall (Figure \ref{fig:small_profit}).
 
 \subsection{Summary}
 
