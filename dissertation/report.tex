@@ -1805,7 +1805,9 @@ For our drone simulation, we know that each drone gets information about static 
 \section{Metrics}
 In order to understand how our delivery network and different scheduling models have performed, there needs to be some way to extract useful metrics about each simulation. Although the online SpatialOS portal gives us the ability to view all sorts of statistics and runtime metrics about a deployment, we want to delve deep and understand our actual simulation better.\\
 
-To do find out more about the inner workings of our simulated delivery networks, we implemented a method in the Controller that prints a log of important data every 60 seconds. To transfer this data into a format we can perform analysis on, we have implemented a browser-based tool that iterates through the logger view and extracts the logged metrics to a local file.
+To do find out more about the inner workings of our simulated delivery networks, we created a couple of schema components purely to maintain the latest state of important simulation metrics. In addition to this, we implemented a method in the Controller that prints a log of important data stored in these components every 60 seconds.\\
+
+This data is then displayed in the SpatialOS logs view on a deployment. To transfer this into a format we can perform analysis on, we have also implemented a browser-based tool that iterates through the logger view and extracts the logged metrics to a local file.
 
 \subsection{Choosing Metrics}
 
