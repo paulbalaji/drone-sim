@@ -1957,19 +1957,16 @@ Here we see the exact same behaviour as with Figure \ref{fig:small_avgwaittime},
 \end{figure}
 
 \clearpage
-From the results in Figure \ref{fig:small_deltime}, it seems that schedulers do not have much influence over the time a drone spends out for delivery when there is a low load. This is to be expected because, like we have stated already, there is no contention for resources in C3 and thus no need or discernable gain on offer if one was to order by priority.\\
-
-However in C2 we can clearly see the effect that SJF has, as its line on the graph is in general lower than the other lines. This is also to be expected as the whole purpose of SJF is to spend the least time on average out for delivery.\\
-
-Nonetheless, we believe the most interesting story being told by this metric is the intertwining of LLV and FCFS. It shows that although they spend a similar time out on average, the LLV scheduler's intent to maximimise the average profitability of each delivery proves fruitful overall (Figure \ref{fig:small_profit}).
-
 \subsection{Summary}
+From the results in Figure \ref{fig:small_deltime}, it seems that schedulers do not have much influence over the time a drone spends out for delivery when there is a low load. In fact, it seems the choice of scheduler does not affect the results by any significantly amount when the load is low such as in C3. This is to be expected because, like we have stated already, there is no contention for resources in C3 and thus no need or discernable gain to be had if one was to order requests by priority.\\
 
+However for C2 we can clearly see the effect that SJF has, as its plot on Figure \ref{fig:small_deltime} is generally lower than the other schedulers. This is also to be expected as the whole \textit{shtick} of SJF is to prioritise and execute the least time consuming jobs available. In our drone case, the ones which spend the least time out for delivery.\\
 
-% heavy load vs light load (queue size)
-% average profit per Delivery
-% total profit
-% average rejected potential
+Nonetheless, we believe the most interesting story being told by Figure \ref{fig:small_deltime} is the intertwining of LLV and FCFS. It shows that although they spend a similar time out on average, even completing a very similar volume of deliveries (Figure \ref{fig:small_deliveries}) , the LLV scheduler's intent to maximimise the average profitability of each delivery proves fruitful overall (Figure \ref{fig:small_profit}).\\
+
+When there is no contention for resources one could say SJF might be slightly more profitable than the other two (Figure \ref{fig:small_profit}), but we seek to find the scheduler that performs best under heavier loads, in order to equip ourselves for a future where drones are the primary medium of delivering goods.\\
+
+Consequently, the Least Lost Value policy is our proposed scheduling approach for the drone delivery use case.
 
 \section{Large Scale London Simulation}
 % despite problems, we were able to get enough data from the small snapshot that it didn't matter too much how it performed at scale
