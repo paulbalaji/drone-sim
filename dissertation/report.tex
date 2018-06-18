@@ -1750,6 +1750,18 @@ Secondly, as per our earlier load balancing configuration, SpatialOS will attemp
 The full list of Controller locations can be seen in Appendix B.2.
 
 \clearpage
+\subsection{Drone Launch \& Landing Pads}
+To reduce the chances of drones colliding upon launch or return to a Controller, we introduce the concept of a launch pad. Drones begin their journeys from a launch pad at a specified offset from the Controller entity's location, and end their journeys at a return pad at an equal but opposite distance from the Controller location.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/launchpads.png}
+  \caption{Demonstrating the offsets of the launch and return pads.}
+  \label{fig:launchpads}
+\end{figure}
+
+By treating each pad like a circle, every launch and return position is randomly assigned to somewhere on the pad. This means that drones are extra unlikely to crash both when launching off to perform their deliveries and also when landing back at base to refuel.
+
 \chapter{Scaling with SpatialOS}
 No matter how much is done to make the logic of the simulation as efficient and scalable as possible, there always comes a time where we must look at modifying the SpatialOS worker and launch configurations in order to make better use of the underlying platform.
 
@@ -1781,6 +1793,9 @@ Remembering that the chunk size used to be 50, our initial entity interest range
 For our drone simulation, we know that each drone gets information about static obstacles from the Controller. The only information that it needs about its surrounds is regarding what drones are nearby. Since our drone-side collision avoidance never checks beyond a radius of 25m, we can set our entity interest radius to be the same value.
 
 \section{Problems}
+\subsection{Worker Genocide}
+\subsection{subsection name}
+
 \subsection{Max Unacked Pings Rate}
 
 

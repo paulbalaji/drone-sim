@@ -594,6 +594,9 @@ INPUT ./img/may_03_123.png
 INPUT img/may_03_4.png
 INPUT ./img/may_03_4.png
 INPUT ./img/may_03_4.png
+INPUT img/launchpads.png
+INPUT ./img/launchpads.png
+INPUT ./img/launchpads.png
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 OUTPUT report.listing

@@ -6,13 +6,11 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.1}{\ignorespaces Total path distances for all drones (in km). \cite {Balaji2017}\relax }}{25}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Total path distances for all drones (in km). \cite {Balaji2017}\relax }}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.2}{\ignorespaces Execution times for pathfinding algorithms on AATC test cases. \cite {Balaji2017}\relax }}{26}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Execution times for pathfinding algorithms on AATC test cases. \cite {Balaji2017}\relax }}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {2.3}{\ignorespaces Initial configuration of the genetic algorithm for AATC. \cite {Balaji2017}\relax }}{31}
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.3}{\ignorespaces Initial configuration of the genetic algorithm for AATC. \cite {Balaji2017}\relax }}{32}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -22,7 +20,9 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7.1}{\ignorespaces Package Revenue Distribution.\relax }}{73}
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7.1}{\ignorespaces Package Revenue Distribution.\relax }}{74}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
