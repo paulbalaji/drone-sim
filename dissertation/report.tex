@@ -1759,11 +1759,18 @@ One obvious configuration change we have made and kept since the beginning is to
 In fact, the only intentional cross-worker communication is from the OrderGenerator to a target Controller when sending a new \texttt{DeliveryRequest} at its defined rate. Essentially, by distributing the raw workload in a similar way to the distribution of delivery requests across Controllers, we obtain an efficient, parallel, distributed simulation.
 
 \subsection{Chunk Size}
+% size 50
+% link to total number of chunks in the world then
 
 \subsection{Entity Interest Range}
 The second configuration change we make is to the entity interest range. This variable is used to define what entities a worker gets component updates for. Obviously workers authoritative over a specific area will get updates on entities in that area, but they also need to know about what is happening \textbf{nearby}.\\
 
 Given a worker with authority over entity E. The worker gets updates for the entire chunk that E is in. However, if there is a neighbouring chunk with any point inside this radius from entity E, the worker gets updates on this chunk too. By reducing the entity interest range, we can therefore reduce the number of neighbouring chunks that a worker has to check out and receive updates for.
+
+% 200 --> 25
+% what information about its surroundings does a drone need to determine for itself?
+% only nearby drones, so we set range to 25
+% relate to max distance that a drone needs to be able to sense around it
 
 \section{Problems}
 \subsection{Max Unacked Pings Rate}
