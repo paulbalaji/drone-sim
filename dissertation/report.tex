@@ -1794,8 +1794,7 @@ For our drone simulation, we know that each drone gets information about static 
 
 \section{Problems}
 \subsection{Worker Genocide}
-\subsection{subsection name}
-
+\subsection{OrderGenerator Downtime}
 \subsection{Max Unacked Pings Rate}
 
 
@@ -1804,9 +1803,13 @@ For our drone simulation, we know that each drone gets information about static 
 \part{Findings}
 \chapter{Evaluation}
 \section{Metrics}
+In order to understand how our delivery network and different scheduling models have performed, there needs to be some way to extract useful metrics about each simulation. Although the online SpatialOS portal gives us the ability to view all sorts of statistics and runtime metrics about a deployment, we want to delve deep and understand our actual simulation better.\\
+
+To do find out more about the inner workings of our simulated delivery networks, we implemented a method in the Controller that prints a log of important data every 60 seconds. To transfer this data into a format we can perform analysis on, we have implemented a browser-based tool that iterates through the logger view and extracts the logged metrics to a local file.
+
+\subsection{Choosing Metrics}
 
 \subsection{Extracting Log Data}
-
 
 \section{Comparing Schedulers}
 % heavy load vs light load (queue size)
@@ -1815,6 +1818,7 @@ For our drone simulation, we know that each drone gets information about static 
 % average rejected potential
 
 \section{Large Scale London Simulation}
+% despite problems, we were able to get enough data from the small snapshot that it didn't matter too much how it performed at scale
 % screenshot of Snapshot
 % large scale voronoi
 % lots of graphs/comparisons

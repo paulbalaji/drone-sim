@@ -234,7 +234,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {10.4.2}Voronoi Analysis}{96}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {10.4.3}Drone Launch \& Return Pad}{99}
+\contentsline {subsection}{\numberline {10.4.3}Drone Launch \& Landing Pads}{99}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {11}Scaling with SpatialOS}{100}
 \defcounter {refsection}{0}\relax 
@@ -248,7 +248,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {11.4.1}Worker Genocide}{102}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.4.2}subsection name}{102}
+\contentsline {subsection}{\numberline {11.4.2}OrderGenerator Downtime}{102}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {11.4.3}Max Unacked Pings Rate}{102}
 \defcounter {refsection}{0}\relax 
@@ -258,7 +258,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12.1}Metrics}{104}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.1.1}Extracting Log Data}{104}
+\contentsline {subsection}{\numberline {12.1.1}Choosing Metrics}{104}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {12.1.2}Extracting Log Data}{104}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12.2}Comparing Schedulers}{104}
 \defcounter {refsection}{0}\relax 
