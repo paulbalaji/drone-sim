@@ -258,8 +258,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12.1}Metrics}{104}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.1.1}Choosing Metrics}{105}
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12.2}Comparing Schedulers}{106}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12.3}Large Scale London Simulation}{106}
