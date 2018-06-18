@@ -1751,7 +1751,13 @@ The full list of Controller locations can be seen in Appendix B.2.
 
 \clearpage
 \section{Configuring SpatialOS}
+No matter how much is done to make the logic of the simulation as efficient and scalable as possible, there always comes a time where we must look at modifying the SpatialOS worker configurations in order to make better use of the underlying platform.
+
 \subsection{Load Balancer}
+One obvious configuration change we have made and kept since the beginning is to use the Point of Interest based load balancer. By defining Controllers as the central authority over the land closest to them, and telling SpatiaOS to split each Controller off onto its own worker using a similar land division strategy, we minimise the inter-worker communication overheads immensely.\\
+
+In fact, the only intentional cross-worker communication is from the OrderGenerator to a target Controller when sending a new \texttt{DeliveryRequest} at its defined rate. Essentially, by distributing the raw workload in a similar way to the distribution of delivery requests across Controllers, we obtain an efficient, parallel, distributed simulation.
+
 \subsection{Entity Interest Range}
 \subsection{Chunk Size}
 
