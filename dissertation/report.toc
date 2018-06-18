@@ -218,36 +218,52 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {10.1}Expanding London}{91}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.2}Configuring SpatialOS}{92}
+\contentsline {subsection}{\numberline {10.1.1}Simulation Settings}{92}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.3}Problems}{92}
+\contentsline {subsubsection}{World Size \& Location}{92}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Findings}{93}
+\contentsline {subsubsection}{Order Generator Interval}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Evaluation}{94}
+\contentsline {subsubsection}{Other Settings}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Metrics}{94}
+\contentsline {subsection}{\numberline {10.1.2}No Fly Zones}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1.1}Extracting Log Data}{94}
+\contentsline {subsection}{\numberline {10.1.3}Controllers}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.2}Comparing Schedulers}{94}
+\contentsline {subsubsection}{Initial Placement}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{94}
+\contentsline {subsubsection}{Voronoi Analysis}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Conclusion}{95}
+\contentsline {section}{\numberline {10.2}Configuring SpatialOS}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Future Work}{96}
+\contentsline {section}{\numberline {10.3}Problems}{93}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{References}{97}
+\contentsline {part}{V\hspace {1em}Findings}{94}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Appendices}{103}
+\contentsline {chapter}{\numberline {11}Evaluation}{95}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Code Listings}{104}
+\contentsline {section}{\numberline {11.1}Metrics}{95}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{105}
+\contentsline {subsection}{\numberline {11.1.1}Extracting Log Data}{95}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{106}
+\contentsline {section}{\numberline {11.2}Comparing Schedulers}{95}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Main Controller Loop}{107}
+\contentsline {section}{\numberline {11.3}Large Scale London Simulation}{95}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{108}
+\contentsline {chapter}{\numberline {12}Conclusion}{96}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {13}Future Work}{97}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{References}{98}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Appendices}{104}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Code Listings}{105}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.1}Static No Fly Zone Class}{106}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.2}Nearby Drone and Collision Detection}{107}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.3}Main Controller Loop}{108}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.4}Updated DeliveryRequest Generation}{109}

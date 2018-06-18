@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  17 JUN 2018 23:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  18 JUN 2018 01:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2945,41 +2945,66 @@ Chapter 10.
 [91
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 1667--1668
+
+ []
+
+
+Overfull \hbox (1.09569pt too wide) in paragraph at lines 1669--1670
+\OT1/qpl/m/n/10.95 Wem-b-ley, Good-mayes and Bex-ley-heath, as shown by the area in Fig-ure 10.1[]. These bounds
+ []
+
+<img/london_snapshot_large.png, id=414, 2708.1175pt x 1227.58624pt>
+File: img/london_snapshot_large.png Graphic file (type png)
+ <use img/london_snapshot_large.png>
+Package pdftex.def Info: img/london_snapshot_large.png used on input line 1673.
+(pdftex.def)             Requested size: 426.79135pt x 193.45824pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1681--1682
+
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[92] [93
+[92
+
+ <./img/london_snapshot_large.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1686--1687
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[93] [94
 
 ]
 Chapter 11.
-[94
-
-]
-Chapter 12.
 [95
 
 ]
-Chapter 13.
+Chapter 12.
 [96
 
 ]
-LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1723.
-LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1723.
- [97
+Chapter 13.
+[97
 
 ]
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 8.0pt on input line 1754.
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 6.0pt on input line 1754.
+ [98
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[98]
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2987,7 +3012,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [99]
-Overfull \hbox (5.94624pt too wide) in paragraph at lines 1724--1724
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[100]
+Overfull \hbox (5.94624pt too wide) in paragraph at lines 1755--1755
 []\OT1/qpl/m/n/10.95 Improbable Worlds Ltd. \OT1/qpl/m/it/10.95 Spa-tia-lOS Tech-ni-cal Break-down\OT1/qpl/m/n/10.95 . 2018. (Vis-ited on 01/25/2018). 
  []
 
@@ -2997,20 +3029,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[100]
+[101]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[101]
-Overfull \hbox (11.39943pt too wide) in paragraph at lines 1724--1724
+[102]
+Overfull \hbox (11.39943pt too wide) in paragraph at lines 1755--1755
 []\OT1/qpl/m/n/10.95 Tansel Uras and Sven Koenig. \  An Em-pir-i-cal Com-par-i-son of Any-Angle Path-Planning
  []
 
 
-Overfull \hbox (0.26334pt too wide) in paragraph at lines 1724--1724
+Overfull \hbox (0.26334pt too wide) in paragraph at lines 1755--1755
 []\OT1/qpl/m/n/10.95 Adrienne Welch. \  A cost-benefit anal-y-sis of Ama-zon Prime Air A Cost-Benefit Anal-
  []
 
@@ -3020,14 +3052,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[102] [103
+[103] [104
 
 
 ]
 Appendix A.
 \openout6 = `report.listing'.
 
-(./report.listing) [104
+(./report.listing) [105
 
 ]
 Overfull \vbox (45.9214pt too high) has occurred while \output is active []
@@ -3039,20 +3071,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[105]
-\openout6 = `report.listing'.
-
- (./report.listing)
-\openout6 = `report.listing'.
-
- (./report.listing)
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [106]
+\openout6 = `report.listing'.
+
+ (./report.listing)
 \openout6 = `report.listing'.
 
  (./report.listing)
@@ -3063,13 +3085,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [107]
+\openout6 = `report.listing'.
+
+ (./report.listing)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[108] (./report.aux)
+[108]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[109] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -3078,19 +3110,19 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40105 strings out of 492995
- 829763 string characters out of 6132703
- 1284563 words of memory out of 5000000
- 42966 multiletter control sequences out of 15000+600000
+ 40111 strings out of 492995
+ 829950 string characters out of 6132703
+ 1284574 words of memory out of 5000000
+ 42971 multiletter control sequences out of 15000+600000
  71533 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,101p,10403b,3124s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on report.pdf (111 pages, 18388219 bytes).
+Output written on report.pdf (112 pages, 20878950 bytes).
 PDF statistics:
- 530 PDF objects out of 1000 (max. 8388607)
- 320 compressed objects within 4 object streams
+ 535 PDF objects out of 1000 (max. 8388607)
+ 322 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 319 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 324 words of extra memory for PDF output out of 10000 (max. 10000000)
 

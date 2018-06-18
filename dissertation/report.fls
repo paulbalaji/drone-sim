@@ -579,6 +579,9 @@ OUTPUT report.listing
 INPUT report.listing
 INPUT report.listing
 INPUT report.listing
+INPUT img/london_snapshot_large.png
+INPUT ./img/london_snapshot_large.png
+INPUT ./img/london_snapshot_large.png
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 OUTPUT report.listing

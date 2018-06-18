@@ -1661,7 +1661,37 @@ Using our experience from building the smaller snapshot of London as a starting 
   \end{multicols}
 \end{itemize}
 
-Our existing London snapshot has dimensions of 5km x 4km, with a routable area of 4.8km x 3.8km. For comparison, we would like to generate a larger snapshot of London with dimensions of 32km x 14.5km, of which 31.5km x 14km is routable.
+\clearpage
+\subsection{Simulation Settings}
+\subsubsection{World Size \& Location}
+As our first snapshot was very focused on central London, we want our expanded snapshot to extend outwards in all directions and encompass more of suburban London. Simulating more of the city provides us a larger canvas and greater ability to tinker about with Controller placement. Perhaps Controllers in suburban locations are able to deal with larger areas as less orders may be requested in the outer areas?\\
+
+With these thoughts in mind we define the four corners of our world to be Richmond, Wembley, Goodmayes and Bexleyheath, as shown by the area in Figure \ref{fig:london_snapshot_large}. These bounds were selected as it encompasses a large variation in London land mass. Not only would it allow us to have a good amount of realistic No Fly Zones, we could also get decent diversity in the size and shape of zones.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/london_snapshot_large.png}
+  \caption{Our large London snapshot.}
+  \label{fig:london_snapshot_large}
+\end{figure}
+
+The new enlarged area we have chosen to simulate would generate a snapshot of London with dimensions of 32km x 14.5km, of which 31.5km x 14km is routable. For comparison our existing London snapshot has dimensions of 5km x 4km and a routable bounds of 4.8km x 3.8km, which means that the new snapshot represents over a 24x increase in routable area.
+
+\subsubsection{Order Generator Interval}
+Though the raw value of this variable is directly dependant on the number of Controllers we have to make use of in this world, we decide to double the expected incoming request rate per Controller so that we are able to observe how they deal with higher request volumes.\\
+
+Suppose we deploy 20 Controllers, we would have to generate a new order every 1.5 seconds in order to average a new incoming \texttt{DeliveryRequest} every 30 seconds per Controller. In the new model doubling the rate means halving the interval time, meaning the OrderGenerator would now send out a new \texttt{DeliveryRequest} every 0.75 seconds.
+
+\subsubsection{Other Settings}
+As each Controller is expected to handle larger regions of land than before, we increase the number of drones per Controller from 15 to 20, and boost the maximum queue size from 40 to 50. If we doubled the request rate but also doubled the availability of all other resources, there is no net change in simulation behaviour except an increase in volume.\\
+
+By scaling the various parameters differently, we aim to make life more difficult for the simulated delivery network. In this way, our scale test also can act as a stress test to pinpoint weakpoints in the system that need to be amended or mitigated before such a delivery network ``takes off'' in real life.
+
+\subsection{No Fly Zones}
+
+\subsection{Controllers}
+\subsubsection{Initial Placement}
+\subsubsection{Voronoi Analysis}
 
 \section{Configuring SpatialOS}
 
@@ -1690,6 +1720,7 @@ Our existing London snapshot has dimensions of 5km x 4km, with a routable area o
 % lots of graphs/comparisons
 % describe how this system works at scale
 % architecture works at scale, still with room for improvement
+% Of special interest is the behaviour of the LLV scheduler, as it would only prune items from its queue when a call to return the next \texttt{DeliveryRequest} is made. It remains to be seen whether a Controller running the LLV scheduler will be able to handle the extra CPU and memory burden that this design decision will inflict on it.
 
 %**********************************************%
 \newpage
