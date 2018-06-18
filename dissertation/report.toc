@@ -288,25 +288,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12.3}Large Scale London Simulation}{114}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.4}SpatiaOS}{114}
+\contentsline {chapter}{\numberline {13}Summary of Work}{115}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.4.1}Performance Review}{114}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{London Small}{114}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{London Large}{114}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.4.2}Summary}{114}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.5}Delivery Network Architecture}{114}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.5.1}Successes}{114}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.5.2}Sum}{114}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Conclusion}{115}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {14}Future Work}{116}
+\contentsline {chapter}{\numberline {14}Future Extensions}{116}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{References}{117}
 \defcounter {refsection}{0}\relax 

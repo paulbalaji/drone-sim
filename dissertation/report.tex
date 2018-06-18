@@ -1968,7 +1968,14 @@ When there is no contention for resources one could say SJF might be slightly mo
 
 Consequently, the Least Lost Value policy is our proposed scheduling approach for the drone delivery use case.
 
+\clearpage
 \section{Large Scale London Simulation}
+Despite encountering several problems in our efforts to get our code working flawlessly with the large London snapshot, the fact that our basic delivery network model scales for the most part is a major achievement.\\
+
+Preliminary results for simulations run with the large London snapshot indicate that the behaviour we observed by all three schedulers at small scale are also present here. This is fantastic insight because we designed the larger snapshot to put more load on each Controller, and the LLV algorithm works best when there is sufficient load to keep it busy.\\
+
+Connecting the dots, it means that both the Least Lost Value algorithm and corresponding concept of Time-Value Functions have been vindicated for our use case of a distributed drone delivery network.
+
 % despite problems, we were able to get enough data from the small snapshot that it didn't matter too much how it performed at scale
 % screenshot of Snapshot
 % large scale voronoi
@@ -1977,25 +1984,24 @@ Consequently, the Least Lost Value policy is our proposed scheduling approach fo
 % architecture works at scale, still with room for improvement
 % Of special interest is the behaviour of the LLV scheduler, as it would only prune items from its queue when a call to return the next \texttt{DeliveryRequest} is made. It remains to be seen whether a Controller running the LLV scheduler will be able to handle the extra CPU and memory burden that this design decision will inflict on it.
 
-\section{SpatiaOS}
-\subsection{Performance Review}
-\subsubsection{London Small}
-\subsubsection{London Large}
+%**********************************************%
+\chapter{Summary of Work}
+Our aim for the project was to X --> did we do this or not?
 
-\subsection{Summary}
+Summary of work:
 
-\section{Delivery Network Architecture}
-\subsection{Successes}
-\subsection{Sum}
+In this project we have A
+
+As part of the process, we did B
+
+From B, we expanded to C which enabled us to do D
+
 
 
 %**********************************************%
-\newpage
-\chapter{Conclusion}
+\chapter{Future Extensions}
+Due to the ambitious nature of the project, there are plenty of ways in which our work could be extended to provide a tangible improvement to
 
-%**********************************************%
-\newpage
-\chapter{Future Work}
 % more scheduling types
 % switching scheduler on-the-fly
 % introducing more TVFs
