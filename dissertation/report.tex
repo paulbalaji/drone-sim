@@ -1802,16 +1802,35 @@ For our drone simulation, we know that each drone gets information about static 
 \newpage
 \part{Findings}
 \chapter{Evaluation}
+To critically evaluate this project, we first define some important metrics that provide useful insight when comparing different simulations. We then use these metrics to study the standard-scale performance of the three schedulers implemented. Following on, we assess the impact of scaling up the simulation. A discussion on the successes and failures of the project then concludes our evaluation.
+
 \section{Metrics}
 In order to understand how our delivery network and different scheduling models have performed, there needs to be some way to extract useful metrics about each simulation. Although the online SpatialOS portal gives us the ability to view all sorts of statistics and runtime metrics about a deployment, we want to delve deep and understand our actual simulation better.\\
 
-To do find out more about the inner workings of our simulated delivery networks, we created a couple of schema components purely to maintain the latest state of important simulation metrics. In addition to this, we implemented a method in the Controller that prints a log of important data stored in these components every 60 seconds.\\
+To find out more about the inner workings of our simulated delivery networks, we created a couple of schema components purely to maintain the latest state of important simulation metrics. In addition to this, we implemented a method in the Controller that prints a log of important data stored in these components every 60 seconds.\\
 
 This data is then displayed in the SpatialOS logs view on a deployment. To transfer this into a format we can perform analysis on, we have also implemented a browser-based tool that iterates through the logger view and extracts the logged metrics to a local file.
 
 \subsection{Choosing Metrics}
+% controller drones queue deliveries fullTrips revenue costs penalties avgDelTime avgWaitTime fDel fRet fLaunch collisions unknown rejecValue avgRejecValue potentialLost avgPotentialLost
+The focus of the project lies with the delivery network operation, not necessarily the simulation scale. Therefore, the important metrics for us are those that directly relate to the state of the Controllers.\\
 
-\subsection{Extracting Log Data}
+We preface each log string with the ``METRICS'' keyword, to make it easy to filter our logs from the runtime logs. Since each log is printed by a Controller, we keep track of the Controller's EntityId on each log so that we can investigate how Controllers in different regions of the world may behave relative to each other.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/example_log_view_full.png}
+  \caption{Expanded log entry with our selected metrics.}
+  \label{fig:example_log_view_full}
+\end{figure}
+
+Knowing the number of drones in operation and length of the request queue is incredibly useful to determine the load on a Controller. For example, if the queue size is often a low number then we know that all incoming requests are going to be served as there would no eviction occuring.\\
+
+In order to calculate the profitability of a Controller, we need to know the revenue, costs and any penalties that may have been paid. Keeping track of the number of deliveries and completed round trips also allows us to compute the average profit per delivery down the line.\\
+
+Another interesting financial figure is the potential lost by each scheduler. This is the total value of deliveries that were evicted or rejected from a scheduler. We also track the average potential lost so we can determine which scheduler is better at evicting queue elements to maximise profit.\\
+
+In addition to the metrics defined in this section, there are values that represent the number of failed actions by a Controller. Controllers do not fail often enough anymore for these values to provide insight, but they have been left in for legacy debugging purposes.
 
 \section{Comparing Schedulers}
 % heavy load vs light load (queue size)
@@ -1827,6 +1846,9 @@ This data is then displayed in the SpatialOS logs view on a deployment. To trans
 % describe how this system works at scale
 % architecture works at scale, still with room for improvement
 % Of special interest is the behaviour of the LLV scheduler, as it would only prune items from its queue when a call to return the next \texttt{DeliveryRequest} is made. It remains to be seen whether a Controller running the LLV scheduler will be able to handle the extra CPU and memory burden that this design decision will inflict on it.
+
+\section{section name}
+
 
 %**********************************************%
 \newpage
