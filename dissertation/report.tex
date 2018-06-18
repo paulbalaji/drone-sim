@@ -1701,20 +1701,62 @@ As it is the financial and entrepreneurial hub of the capital, we protect the Ci
   \label{fig:london_snapshot_large_nfzs}
 \end{figure}
 
-We also apply No Fly Zones to cultural and sporting hotspots such as the Oval, Wembley Stadium and the O2. However, we also extend the O2 No Fly Zone across a large stretch of East London in order to cover both the skyscapes of Canary Wharf, and the flight paths of planes coming in and out of London City Airport.
+We also apply No Fly Zones to cultural and sporting hotspots such as the Oval, Wembley Stadium and the O2. However, we also extend the O2 No Fly Zone across a large stretch of East London in order to cover both the skyscapes of Canary Wharf, and the flight paths of planes coming in and out of London City Airport.\\
+
+The full list of No Fly Zones can be seen in Appendix B.2.
 
 \subsection{Controllers}
 Now that we have our world populated with No Fly Zones, we are able to consider how we might choose to configure our Controllers. Placing Controllers near a NFZ reduces their effectiveness because one of the directions around them is not really a feasible option to route drones via.\\
 
 By placing plenty of distance between each Controller and its closest No Fly Zone, we are able to maximise the number of directions that we are able to send drones out to.
 
+\clearpage
 \subsubsection{Initial Placement}
-\subsubsection{Voronoi Analysis}
+Initially 18 Controllers were placed across the snapshot, with the intention of having a greater density of drones in the middle of London. However, it can be seen immediately that some Controllers are responsible for huge swathes of suburban London.\\
 
+When compounded with the fact that some of these Controllers would cover regions were there were a lot of No Fly Zones, some could be incredibly underutilised and others could be pushed to their absolute limits by trying to serve all the requests in a large region. This erratic behaviour could be mitigated by analysing their geological distribution properly.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/may_03_OG.png}
+  \caption{Intial Controller Placement.}
+  \label{fig:may_03_OG}
+\end{figure}
+
+\subsubsection{Voronoi Analysis}
+As may be familiar from Section 6.5, we produce a Voronoi diagram for the initial placement of Controllers shown in Figure \ref{fig:may_03_OG}. We then notice that some cells are far larger than others and iteratively make the cell sizes more even by adding Controllers in between large cells.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/may_03_123.png}
+  \caption{Controller Placement Iteration.}
+  \label{fig:may_03_123}
+\end{figure}
+
+\clearpage
+After performing a few rounds of this analysis, we arrive at a distribution of Controllers that we are happy with for now. Although we could continue to generate smaller cells by adding more Controllers to the world, we have to think practically in two ways.\\
+
+Firstly, would a real distributed drone delivery network have over 60 depots or hubs in just one city? Even Amazon, master strategician to one of the world's largest delivery networks, works by having a few major warehouses instead of several minor safehouses scattered across the place.\\
+
+Secondly, as per our earlier load balancing configuration, SpatialOS will attempt to place each Controller on its own worker. If we continue to add Controllers and reduce the average cell size, each Controller would be responsible for a smaller region of land. Below some minimum threshold of area covered, running a worker may be overkill and a complete waste of compute power.
+
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=\linewidth]{img/may_03_4.png}
+  \caption{Final Controller Placement.}
+  \label{fig:may_03_4}
+\end{figure}
+
+The full list of Controller locations can be seen in Appendix B.2.
+
+\clearpage
 \section{Configuring SpatialOS}
+\subsection{Load Balancer}
+\subsection{Entity Interest Range}
+\subsection{Chunk Size}
 
 \section{Problems}
-
+\subsection{Max Unacked Pings Rate}
 
 
 %**********************************************%
@@ -1877,6 +1919,19 @@ enum DeliveryType {
   SUPER_PRIORITY = 3;
 }
 \end{sexylisting}
+
+\chapter{Large London Snapshot}
+\section{List of No Fly Zones}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.7\linewidth]{img/listofnfzlocations.png}
+\end{figure}
+
+\section{List of Controller Locations}
+\begin{figure}[!hbpt]
+  \center
+  \includegraphics[width=0.5\linewidth]{img/listofcontrollerlocations.png}
+\end{figure}
 
 \end{appendices}
 \end{document}
