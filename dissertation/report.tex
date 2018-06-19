@@ -163,12 +163,29 @@ Prof.~Kin \textsc{Leung}
 
 \renewcommand{\abstractname}{\large Abstract}
 \begin{abstract}
-test post pls ignore
+Autonomous vehicles are an area of Engineering where there is intense research taking place in both the private sector and academia. Most news articles tend to focus on autonomous cars and trucks, but drones are often over-looked as a novelty gadget for filming holidays with.\\
+
+This project investigates the use of drones as a medium of transporting goods in a distributed drone-based delivery network. We port existing routing solutions to SpatialOS, a distributed simulation platform, and update the interaction model to improve autonomy of the system.\\
+
+We then introduce a novel time-value based pricing model to go hand-in-hand with a new time-value based scheduling algorithm, originally utilised for big data applications. Lastly, we evaluate the effectiveness of this new algorithm against both a standard FIFO queue and shortest-job first ordering.
 \end{abstract}
 
 \renewcommand{\abstractname}{\large Acknowledgements}
 \begin{abstract}
-ack
+A project of this size always takes a great mental, physical and emotional toll on oneself, and I could not have completed this project without the love and support of a few people in my life:
+\begin{itemize}
+  \item My supervisor, Will, for being my programming tutor in first year, allowing me to be his UTA in third year, and letting me continue to work on drones for my project.
+  \item The people of Imperial. It's been a whirlwind of a time, and I will miss you all.
+  \item The extended El Sesh family. This final year would not have been as amazing as it was without every single one of you.
+  \item My report-writing library squad: Elliot \& Michael.
+  \item My miscellaneous friends. Jack, for the countless hours of life advice. Aaliya, for just being the weird \& wonderful psycho that you are.
+  \item My surrogate web apps group: Subhash, Inara, Jayati \& Benito. You have all been so supportive in the two most stressful weeks of my life and I can never repay you for welcoming me with open arms.
+  \item My old friends. James, James, Nisha, Paul, Ale \& Sam. Thank you for sticking by me.
+  \item My oldest friend, Tarun. Thank you for being the person that you are, a real stand-up guy who somehow manages to put up with my stress.
+  \item Last and certainly not the least, my family. Mum, thank you for taking care of me, getting me through the 11+, and always pushing me to work as hard as I can. Dad, thank you for inspiring me to make the most of the chances life gives me. Jennifer, thank you for always being the most annoyingly adorable bundle of joy in my life.
+\end{itemize}
+
+I am who I am because of all of you. Thank you everyone.
 \end{abstract}
 
 \newpage
@@ -220,7 +237,42 @@ Regardless of how such a model is implemented, it needs to be tested thoroughly 
 
 Therefore, our best port of call is to simulate scenarios that are as close to the real world as possible. One tech firm investigating how to produce richer, meaningful and more realistic simulations is \textit{Improbable}\cite{ImprobableWorldsLtd.2018a} - a London-based tech startup actively developing a distributed simulation platform called \textit{SpatialOS}\cite{ImprobableWorldsLtd.2018b}. \\
 
-We aim to leverage the power of SpatialOS to produce novel simulations of a drone delivery network. The simulation will build upon existing routing solutions\cite{Balaji2017} and would aim to schedule deliveries based on a Quality of Service value curve. Furthermore, we wish to show how the profitability of a drone delivery network with this form of scheduling might compare to delivery networks that utilise a different scheduling mechanism.
+In this report, we leverage the power of SpatialOS to produce novel simulations of a drone delivery network. The simulation will build upon existing routing solutions\cite{Balaji2017} and would aim to schedule deliveries based on a time-value function borrowed from the big data use case. Furthermore, we wish to show how the profitability of a drone delivery network with this form of advanced scheduling might compare to delivery networks that utilise a more basic scheduling algorithm.
+
+\clearpage
+\section{Contributions}
+As a result of our efforts in this project, we present 7 key contributions.
+\begin{enumerate}
+  \item SpatialOS port of AATC (Chapter 3)
+  \begin{itemize}
+    \item We take our knowledge of previously developed drone routing systems and port them to SpatialOS as the basis of our delivery network architecture.
+  \end{itemize}
+  \item Basic Delivery Network Architecture (Chapter 5)
+  \begin{itemize}
+    \item We define a basic set of components and interactions that would allow for rudimentary simulations of a delivery network to be done.
+  \end{itemize}
+  \item Snapshot Generation Tooling (Chapters 6, 10)
+  \begin{itemize}
+    \item We implemented a set of tools to aid snapshot generation, in order to generate more accurate snapshots of London.
+  \end{itemize}
+  \item Drone Energy Cost Simulation (Chapter 7)
+  \begin{itemize}
+    \item We investigate the cost of running an unmanned aerial delivery vehicle, and model the energy consumption (and subsequent electricity bill) of drones in our simulation.
+  \end{itemize}
+  \item Time-Value of Delivery (Chapter 8)
+  \begin{itemize}
+    \item We adapt the idea that something has higher value the sooner it is used from big data for our delivery use case.
+  \end{itemize}
+  \item LLV Scheduling (Chapter 9)
+  \begin{itemize}
+    \item We adapt a big data scheduling tool to work in the drone delivery use case.
+  \end{itemize}
+  \item Scaling Strategies for SpatialOS (Chapter 10, 11)
+  \begin{itemize}
+    \item We describe a few methods that may enable our simulations to scale in size and complexity.
+  \end{itemize}
+\end{enumerate}
+
 
 %**********************************************%
 \newpage
@@ -246,8 +298,9 @@ Delivery robots are unmanned devices that are designed to be operated on pavemen
 
 Due to their on-the-ground nature, delivery robots are primarily designed for low-footfall suburban neighbourhoods, closed residential areas or campuses. They would be scheduled through an Uber-like application that may allow users to track the location of the robot, for the customer's knowledge, and to also unlock the robot once it reaches its destination\cite{Hohenadel2015}. \\
 
-Thanks to their similarities to autonomous cars, they may have regulatory advantages compared to drones because much of the legislation coming through for autonomous vehicles can apply to delivery robots as well. However, there are profitability concerns because each robot can cost hundres of dollars and there is at this stage there is a high risk of failure, damage and even theft. \\
+Thanks to their similarities to autonomous cars, they may have regulatory advantages compared to drones because much of the legislation coming through for autonomous vehicles can apply to delivery robots as well. However, there are profitability concerns because each robot can cost hundres of dollars and at this stage there is a high risk of failure, damage and even theft.
 
+\clearpage
 Despite some drawbacks, it is evident these robots are designed for short journeys in the so-called "first-mile delivery" sector - with exciting use cases being the delivery of flowers, groceries and possibly medication.
 
 \subsection{Autonomous Vehicles}
@@ -1801,11 +1854,16 @@ Remembering that the chunk size used to be 50, our initial entity interest range
 
 For our drone simulation, we know that each drone gets information about static obstacles from the Controller. The only information that it needs about its surrounds is regarding what drones are nearby. Since our drone-side collision avoidance never checks beyond a radius of 25m, we can set our entity interest radius to be the same value.
 
-\section{Problems}
-\subsection{Worker Genocide}
-\subsection{OrderGenerator Downtime}
-\subsection{Max Unacked Pings Rate}
-
+% \section{Problems}
+% \subsubsection{Worker Genocide}
+% For some unexplained reason, we no
+%
+% \subsection{OrderGenerator Downtime}
+% \subsection{Max Unacked Pings Rate}
+%
+% Despite encountering several problems in our efforts to get our code working flawlessly with the large London snapshot, the fact that our basic delivery network model scales for the most part is a positive sign. There are room for improvements throughout all parts of this project, but most evidently in the challenge of scaling the simulation.\\
+%
+% Remember that we originally designed the larger snapshot to put more load on each Controller, and that the LLV algorithm works best when there is enough load to keep it busy. At least per our hypothesis, the LLV policy should be the optimal scheduling strategy for this large scale simulating.
 
 %**********************************************%
 \newpage
@@ -1968,39 +2026,40 @@ When there is no contention for resources one could say SJF might be slightly mo
 
 Consequently, the Least Lost Value policy is our proposed scheduling approach for the drone delivery use case.
 
-\clearpage
-\section{Large Scale London Simulation}
-Despite encountering several problems in our efforts to get our code working flawlessly with the large London snapshot, the fact that our basic delivery network model scales for the most part is a major achievement.\\
+%**********************************************%
+\chapter{Conclusions}
+We began by re-introducing the concept of a two-layered drone routing system as described by AATC. After updating the old interaction model to obtain greater autonomy, we brought across both AATC layers to SpatialOS and integrated it with a very primitive drone spawning entity.\\
 
-Preliminary results for simulations run with the large London snapshot indicate that the behaviour we observed by all three schedulers at small scale are also present here. This is fantastic insight because we designed the larger snapshot to put more load on each Controller, and the LLV algorithm works best when there is sufficient load to keep it busy.\\
+We then outlined the basic system architecture of a simple drone delivery network, allowing centralised work from AATC to be applied to the massively distributed problem of distributed delivery networks. To test this architecture, we created some tooling, processes and guidelines for building snapshots of drone delivery network.\\
 
-Connecting the dots, it means that both the Least Lost Value algorithm and corresponding concept of Time-Value Functions have been vindicated for our use case of a distributed drone delivery network.
+After testing this new architecture, we introduced a new pricing model based on time-value functions that would reward the drone operator more for quicker delivieres and provide greater fee reductions to the customer for slower deliveries. Subsequently we looked into time-value based scheduling algorithms and adopted one such method, \textit{Least Lost Value}, to work in the drone delivery case despite originally being a tool for big data.\\
 
-% despite problems, we were able to get enough data from the small snapshot that it didn't matter too much how it performed at scale
-% screenshot of Snapshot
-% large scale voronoi
-% lots of graphs/comparisons
-% describe how this system works at scale
-% architecture works at scale, still with room for improvement
-% Of special interest is the behaviour of the LLV scheduler, as it would only prune items from its queue when a call to return the next \texttt{DeliveryRequest} is made. It remains to be seen whether a Controller running the LLV scheduler will be able to handle the extra CPU and memory burden that this design decision will inflict on it.
+We also investigated ways to better utilise the SpatiaOS platform in order to scale up both the size and complexity of our current simulations.\\
+
+Lastly, we evaluated the results of our simulations to find that the LLV scheduler is best for the workloads that we are expecting.
 
 %**********************************************%
-\chapter{Summary of Work}
-Our aim for the project was to X --> did we do this or not?
+\chapter{Future Work}
+Our initial aim for the project was to conceptualise, build and simulate a drone delivery network using cutting-edge technology. To this end, we believe that our project exceeds these goals because we have also proposed methods of distributing, optimising and scaling up the system.\\
 
-Summary of work:
+Despite this, we believe that there are still plenty of ways in which our work could be extended to better simulate drone delivery networks.
 
-In this project we have A
+\subsubsection{Splitwise Scheduling}
+This would be a new type of scheduler that is half Least Lost Value (LLV), half Shortest Job First (SJF). Perhaps this could be achieved by running two schedulers on a Controller at once and splitting the number of drones that each scheduler is allowed to allocate jobs for. Though we are not sure what effect performing this split would have, it may be a good idea to combine the two as SJF managed to complete a higher number of deliveries overall.
 
-As part of the process, we did B
+\subsubsection{Inter-Controller Communication}
+The main inspiration for this feature is to allow delivery requests to flow between Controllers, instead of only being sent out by the Order Generator. This would be beneficial for the delivery network because nearby Controllers who have the drone capacity to make a delivery can pick up this request and act upon it.\\
 
-From B, we expanded to C which enabled us to do D
+Although it would result in slightly higher energy costs due to the destination being further away than that Controller's typical delivery request, taking on other Controllers' tasks when idle would mean that work is better distributed across the network.
 
+\subsubsection{Dynamic No Fly Zones}
+At the moment, the pathfinding layer has too easy of a time because once it has been initialised it only ever returns paths between points. To make this more interesting, we could introduce the concept of a dynamic NFZ, where the zone is either moving, constantly changing shape, only active at certain times, or all of the above.\\
 
+Such a zone might be useful in the event of a visit from a foreign diplomat, when the authorities wish to close up parts of the sky that are too close to said diplomat's moving aircraft.
 
-%**********************************************%
-\chapter{Future Extensions}
-Due to the ambitious nature of the project, there are plenty of ways in which our work could be extended to provide a tangible improvement to
+\subsubsection{Interactive UnityClient}
+One of the features of AATC that we have not been able to match within the time bounds of this project is the visualiser tool that showed the paths that each drone took. Such a tool might be unfeasible to mimic since we intend to run our SpatialOS simulations at a much higher scale than AATC, but we propose a similar tool that allows a layman to interact with the settings, toggle No Fly Zones, and perhaps dynamically add custom zones of their own.
+
 
 % more scheduling types
 % switching scheduler on-the-fly
