@@ -1,6 +1,10 @@
 # Simulating Drone Delivery Networks using SpatialOS
 
-Here's the repository containing all the work I did for my Masters project at Imperial. I used the SpatialOS *SDK* for Unity, but since then the [SpatialOS *GDK* for Unity has launched into Alpha](https://improbable.io/games/blog/spatialos-gdk-for-unity-launch).
+![Drones Drones Drones](dissertation/img/gdoc2copy.png)
+
+Here's the repository containing all the work I did for my Masters project at Imperial. 
+
+> Note that I used the old SpatialOS *SDK* for Unity, and not the latest [*GDK* for Unity](https://improbable.io/games/blog/spatialos-gdk-for-unity-launch).
 
 Useful links:
 * [Codebase](codebase)
@@ -9,4 +13,4 @@ Useful links:
 * [Final Report](FinalReport.pdf)
 * [Final Presentation](prezzie.pdf)
 
-Have fun!
+Have fun browsing!
