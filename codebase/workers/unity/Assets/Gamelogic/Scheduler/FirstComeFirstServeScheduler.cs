@@ -30,6 +30,14 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 	// Use this for initialization
 	private void OnEnable()
 	{
+		string schType;
+		if (!SpatialOS.Connection.GetWorkerFlag("drone_sim_scheduler_type").TryGetValue(out schType)
+		    || !schType.Equals("FCFS"))
+		{
+			this.enabled = false;
+			return;
+		}
+		
 		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
 		potential = DeliveryHandlerWriter.Data.potential;
 		rejections = DeliveryHandlerWriter.Data.rejections;

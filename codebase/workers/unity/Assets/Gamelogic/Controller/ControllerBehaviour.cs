@@ -95,25 +95,26 @@ public class ControllerBehaviour : MonoBehaviour
 
 	    /* SCHEDULER CHOICE */
 	    string schType;
-	    scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
 	    if (SpatialOS.Connection.GetWorkerFlag("drone_sim_scheduler_type").TryGetValue(out schType))
 	    {
 		    if (schType.Equals("LLV"))
 		    {
 			    scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
-			    DestroyImmediate(gameObject.GetComponent<ShortestJobFirstScheduler>());
-			    DestroyImmediate(gameObject.GetComponent<FirstComeFirstServeScheduler>());
 		    } else if (schType.Equals("SJF"))
 		    {
-			    DestroyImmediate(gameObject.GetComponent<LeastLostValueScheduler>());
 			    scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
-			    DestroyImmediate(gameObject.GetComponent<FirstComeFirstServeScheduler>());
-		    } else
+		    } else if (schType.Equals("FCFS"))
 		    {
-			    DestroyImmediate(gameObject.GetComponent<LeastLostValueScheduler>());
-			    DestroyImmediate(gameObject.GetComponent<ShortestJobFirstScheduler>());
 			    scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
 		    }
+		    else
+		    {
+			    Debug.LogError("INVALID SIMULATION. The drone_sim_scheduler_type flag must be either: LLV, SJF or FCFS.");
+		    }
+	    }
+	    else
+	    {
+		    Debug.LogError("INVALID SIMULATION. YOU MUST SPECIFY drone_sim_scheduler_type");
 	    }
 
 	    UnityEngine.Random.InitState((int)gameObject.EntityId().Id);

@@ -7,8 +7,8 @@
     },
     "legacy_flags": [
       {
-        "name": "qos_max_unacked_pings_rate",
-        "value": "1.0d"
+        "name": "worker_command_max_timeout_ms",
+        "value": "10000"
       }
     ],
     "dimensions": {
@@ -36,18 +36,7 @@
         }
       },
       "permissions": [{
-        "entity_creation": {
-          "allow": true
-        },
-        "entity_deletion": {
-          "allow": true
-        },
-        "entity_query": {
-          "allow": true,
-          "components": [
-            "*"
-          ]
-        }
+          "all": {}
       }]
     }
   ]
