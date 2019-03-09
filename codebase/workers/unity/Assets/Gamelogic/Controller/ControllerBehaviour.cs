@@ -101,11 +101,17 @@ public class ControllerBehaviour : MonoBehaviour
 		    if (schType.Equals("LLV"))
 		    {
 			    scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
+			    DestroyImmediate(gameObject.GetComponent<ShortestJobFirstScheduler>());
+			    DestroyImmediate(gameObject.GetComponent<FirstComeFirstServeScheduler>());
 		    } else if (schType.Equals("SJF"))
 		    {
+			    DestroyImmediate(gameObject.GetComponent<LeastLostValueScheduler>());
 			    scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
+			    DestroyImmediate(gameObject.GetComponent<FirstComeFirstServeScheduler>());
 		    } else
 		    {
+			    DestroyImmediate(gameObject.GetComponent<LeastLostValueScheduler>());
+			    DestroyImmediate(gameObject.GetComponent<ShortestJobFirstScheduler>());
 			    scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
 		    }
 	    }
