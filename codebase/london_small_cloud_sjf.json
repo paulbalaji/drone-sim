@@ -26,7 +26,7 @@
         },
         {
           "name": "drone_sim_scheduler_type",
-          "value": "LLV"
+          "value": "SJF"
         }
       ],
       "load_balancing": {

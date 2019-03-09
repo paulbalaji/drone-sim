@@ -95,19 +95,18 @@ public class ControllerBehaviour : MonoBehaviour
 
 	    /* SCHEDULER CHOICE */
 	    string schType;
+	    scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
 	    if (SpatialOS.Connection.GetWorkerFlag("drone_sim_scheduler_type").TryGetValue(out schType))
 	    {
-		    switch (schType)
+		    if (schType.Equals("LLV"))
 		    {
-			    case "LLV":
-				    scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
-				    break;
-			    case "SJF":
-				    scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
-				    break;
-				default:
-					scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
-					break;
+			    scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
+		    } else if (schType.Equals("SJF"))
+		    {
+			    scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
+		    } else
+		    {
+			    scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
 		    }
 	    }
 
