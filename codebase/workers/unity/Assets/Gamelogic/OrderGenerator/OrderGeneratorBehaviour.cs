@@ -25,9 +25,21 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 
 	long orders;
 
+	private bool LimitDeliveryRequests = false;
+	private int MaxDeliveriesToRequest = 2000;
+
 	private void OnEnable()
 	{
 		Debug.LogWarningFormat("OrderGenerator_{0} Starting Up.", gameObject.EntityId().Id);
+
+		string maxDels;
+		LimitDeliveryRequests = SpatialOS.Connection.GetWorkerFlag("drone_sim_max_delivery_requests")
+			.TryGetValue(out maxDels);
+		
+		if (LimitDeliveryRequests && !int.TryParse(maxDels, out MaxDeliveriesToRequest))
+		{
+			MaxDeliveriesToRequest = 2000;
+		}
 
 		orders = OrderWriter.Data.orders;
 
@@ -37,8 +49,11 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 
 		UnityEngine.Random.InitState(SimulationSettings.OrderGeneratorSeed);
 
-		InvokeRepeating("RootSpawnerTick", 0, SimulationSettings.OrderGenerationInterval);
-		InvokeRepeating("PrintMetrics", 0, SimulationSettings.OrderGenerationMetricsInterval);
+		if (!LimitDeliveryRequests || deliveriesRequested < MaxDeliveriesToRequest)
+		{
+			InvokeRepeating("RootSpawnerTick", 0, SimulationSettings.OrderGenerationInterval);
+			InvokeRepeating("PrintMetrics", 0, SimulationSettings.OrderGenerationMetricsInterval);
+		}
 	}
 
 	private void OnDisable()
@@ -48,6 +63,12 @@ public class OrderGeneratorBehaviour : MonoBehaviour
 
 	void RootSpawnerTick()
     {
+	    if (LimitDeliveryRequests && deliveriesRequested >= MaxDeliveriesToRequest)
+	    {
+		    Debug.LogWarningFormat("FINALLY REQUESTED {0} DELIVERIES", deliveriesRequested);
+		    CancelInvoke();
+	    }
+	    
         Vector3f deliveryDestination = GetNonNFZPoint();
         if (deliveryDestination.y < 0)
         {

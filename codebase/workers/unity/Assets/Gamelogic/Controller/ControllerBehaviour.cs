@@ -93,12 +93,25 @@ public class ControllerBehaviour : MonoBehaviour
         
         globalLayer = gameObject.GetComponent<GridGlobalLayer>();
 
-        /* SCHEDULER CHOICE */
-		scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
-		//scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
-		//scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
+	    /* SCHEDULER CHOICE */
+	    string schType;
+	    if (SpatialOS.Connection.GetWorkerFlag("drone_sim_scheduler_type").TryGetValue(out schType))
+	    {
+		    switch (schType)
+		    {
+			    case "LLV":
+				    scheduler = gameObject.GetComponent<LeastLostValueScheduler>();
+				    break;
+			    case "SJF":
+				    scheduler = gameObject.GetComponent<ShortestJobFirstScheduler>();
+				    break;
+				default:
+					scheduler = gameObject.GetComponent<FirstComeFirstServeScheduler>();
+					break;
+		    }
+	    }
 
-        UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
+	    UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("ControllerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
         InvokeRepeating("PrintMetrics", 0, SimulationSettings.ControllerMetricsInterval);
 		InvokeRepeating("DroneMapPrune", UnityEngine.Random.Range(0, SimulationSettings.DroneMapPruningInterval), SimulationSettings.DroneMapPruningInterval);

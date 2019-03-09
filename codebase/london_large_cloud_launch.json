@@ -1,5 +1,5 @@
 {
-  "template": "medium",
+  "template": "medium_legacy",
   "world": {
     "chunkEdgeLengthMeters": 250,
     "snapshots": {
@@ -19,6 +19,16 @@
   "workers": [
     {
       "worker_type": "UnityWorker",
+      "flags": [
+        {
+          "name": "drone_sim_max_delivery_requests",
+          "value": "2000"
+        },
+        {
+          "name": "drone_sim_scheduler_type",
+          "value": "LLV"
+        }
+      ],
       "load_balancing": {
         "points_of_interest": {
           "num_workers": 30,
