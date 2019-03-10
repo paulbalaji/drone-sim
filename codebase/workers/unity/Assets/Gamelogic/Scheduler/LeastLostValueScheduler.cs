@@ -29,6 +29,9 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 
 	bool sorted;
 
+	private GridGlobalLayer _globalLayer;
+	private ControllerBehaviour _controller;
+
     // Use this for initialization
     private void OnEnable()
     {
@@ -39,6 +42,9 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
 		    this.enabled = false;
 		    return;
 	    }
+
+	    _globalLayer = GetComponent<GridGlobalLayer>();
+	    _controller = GetComponent<ControllerBehaviour>();
 	    
         incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
         potential = DeliveryHandlerWriter.Data.potential;
@@ -68,7 +74,16 @@ public class LeastLostValueScheduler : MonoBehaviour, Scheduler
     {
         MetricsWriter.Send(new ControllerMetrics.Update().SetIncomingDeliveryRequests(++incomingRequests));
 
-		float estimatedTime = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
+	    var random = UnityEngine.Random.insideUnitCircle * SimulationSettings.DronePadRadius;
+	    Vector3f departurePoint = _controller.DeparturesPoint.ToSpatialVector3f() + new Vector3f(random.x, 0, random.y);
+	    var plan = _globalLayer.generatePointToPointPlan(departurePoint, handle.Request.destination);
+	    if (plan == null || plan.Count < 2)
+	    {
+		    handle.Respond(new DeliveryResponse(false));
+		    return;
+	    }
+
+	    float estimatedTime = _globalLayer.EstimatedPlanTime(plan);
         QueueEntry queueEntry = new QueueEntry(Time.time, handle.Request, 0, estimatedTime);
 
 		requestQueue.Add(queueEntry);

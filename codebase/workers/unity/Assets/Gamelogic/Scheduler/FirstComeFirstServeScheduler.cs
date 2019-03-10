@@ -26,6 +26,9 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 	float potential;
 	int rejections;
 	float rejecValue;
+	
+	private GridGlobalLayer _globalLayer;
+	private ControllerBehaviour _controller;
 
 	// Use this for initialization
 	private void OnEnable()
@@ -37,6 +40,9 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 			this.enabled = false;
 			return;
 		}
+		
+		_globalLayer = GetComponent<GridGlobalLayer>();
+		_controller = GetComponent<ControllerBehaviour>();
 		
 		incomingRequests = MetricsWriter.Data.incomingDeliveryRequests;
 		potential = DeliveryHandlerWriter.Data.potential;
@@ -62,8 +68,17 @@ public class FirstComeFirstServeScheduler : MonoBehaviour, Scheduler
 	public void EnqueueDeliveryRequest(Improbable.Entity.Component.ResponseHandle<DeliveryHandler.Commands.RequestDelivery, DeliveryRequest, DeliveryResponse> handle)
     {
         MetricsWriter.Send(new ControllerMetrics.Update().SetIncomingDeliveryRequests(++incomingRequests));
+	    
+	    var random = UnityEngine.Random.insideUnitCircle * SimulationSettings.DronePadRadius;
+	    Vector3f departurePoint = _controller.DeparturesPoint.ToSpatialVector3f() + new Vector3f(random.x, 0, random.y);
+	    var plan = _globalLayer.generatePointToPointPlan(departurePoint, handle.Request.destination);
+	    if (plan == null || plan.Count < 2)
+	    {
+		    handle.Respond(new DeliveryResponse(false));
+		    return;
+	    }
 
-		float expectedDuration = Vector3.Distance(gameObject.transform.position, handle.Request.destination.ToUnityVector()) / SimulationSettings.MaxDroneSpeed;
+	    float expectedDuration = _globalLayer.EstimatedPlanTime(plan);
         if (deliveryRequestQueue.Count >= SimulationSettings.MaxDeliveryRequestQueueSize)
         {
             handle.Respond(new DeliveryResponse(false));

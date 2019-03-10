@@ -30,6 +30,8 @@ public class ControllerBehaviour : MonoBehaviour
 	Improbable.Collections.Map<EntityId, DeliveryInfo> deliveriesMap;
 	Improbable.Collections.List<DroneInfo> droneSlots;
 
+	public Coordinates DeparturesPoint => departuresPoint;
+	
     Coordinates departuresPoint;
     Coordinates arrivalsPoint;
 

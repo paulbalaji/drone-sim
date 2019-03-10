@@ -115,6 +115,22 @@ public class GridGlobalLayer : MonoBehaviour
         return false;
     }
 
+    public float TotalDistance(List<Vector3f> points)
+    {
+        float totalDistance = 0;
+        for (int i = 0; i < points.Count - 1; i++)
+        {
+            totalDistance += Vector3.Distance(points[i].ToUnityVector(), points[i + 1].ToUnityVector());
+        }
+
+        return totalDistance;
+    }
+
+    public float EstimatedPlanTime(List<Vector3f> points)
+    {
+        return TotalDistance(points) / SimulationSettings.MaxDroneSpeed;
+    }
+
     public Improbable.Collections.List<Improbable.Vector3f> generatePointToPointPlan(Improbable.Vector3f p1, Improbable.Vector3f p2)
     {
         if (isPointInNoFlyZone(p2))
