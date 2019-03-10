@@ -49,7 +49,6 @@ public class DroneBehaviour : MonoBehaviour
 
         simulate = true;
 
-        UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("DroneTick", Random.Range(0, SimulationSettings.DroneUpdateInterval), SimulationSettings.DroneUpdateInterval);
 		InvokeRepeating("MoveDrone", Random.Range(0, SimulationSettings.DroneMoveInterval), SimulationSettings.DroneMoveInterval);
     }

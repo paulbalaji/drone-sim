@@ -119,7 +119,6 @@ public class ControllerBehaviour : MonoBehaviour
 		    Debug.LogError("INVALID SIMULATION. YOU MUST SPECIFY drone_sim_scheduler_type");
 	    }
 
-	    UnityEngine.Random.InitState((int)gameObject.EntityId().Id);
         InvokeRepeating("ControllerTick", UnityEngine.Random.Range(0, SimulationSettings.RequestHandlerInterval), SimulationSettings.RequestHandlerInterval);
         InvokeRepeating("PrintMetrics", 0, SimulationSettings.ControllerMetricsInterval);
 		InvokeRepeating("DroneMapPrune", UnityEngine.Random.Range(0, SimulationSettings.DroneMapPruningInterval), SimulationSettings.DroneMapPruningInterval);
