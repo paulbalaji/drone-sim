@@ -21,10 +21,6 @@
       "worker_type": "UnityWorker",
       "flags": [
         {
-          "name": "drone_sim_max_delivery_requests",
-          "value": "2000"
-        },
-        {
           "name": "drone_sim_scheduler_type",
           "value": "LLV"
         }
