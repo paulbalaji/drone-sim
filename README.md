@@ -1,3 +1,5 @@
+> [Click here for publication](https://dl.acm.org/doi/10.1145/3306309.3306339).
+
 # Simulating Drone Delivery Networks using SpatialOS
 
 ![Drones Drones Drones](dissertation/img/gdoc2copy.png)
@@ -12,5 +14,6 @@ Useful links:
 * [Interim Report](InterimReport.pdf)
 * [Final Report](FinalReport.pdf)
 * [Final Presentation](prezzie.pdf)
+* [Paper published at Valuetools 2019](https://dl.acm.org/doi/10.1145/3306309.3306339)
 
 Have fun browsing!
